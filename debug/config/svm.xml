@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<!--配置HTML容器的初始化方法-->
+	<index-init>pageInit</index-init>
+	<!--配置模板-->
+	<page>
+		<!--配置模板别名-->
+		<page-name>index</page-name>
+		<!--配置模板路径,从根目录开始写路径,非相对路径-->
+		<page-url>/index.html</page-url>
+		<!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+		<init>index_init</init>
+	</page>
+	<page>
+		<page-name>login</page-name>
+		<page-url>/</page-url>
+		<init>login_init</init>
+	</page>
+	<page>
+		<page-name>test</page-name>
+		<page-url>/pages/test.html</page-url>
+		<init>test_init</init>
+	</page>
+	<page>
+		<page-name>test1</page-name>
+		<page-url>/pages/test1.html</page-url>
+		<init>test1_init</init>
+	</page>
+	<page>
+		<page-name>transmit</page-name>
+		<page-url>/pages/transmit.html</page-url>
+		<init>transmit_init</init>
+	</page>
+	<page>
+		<page-name>welcome</page-name>
+		<page-url>/pages/welcome.html</page-url>
+		<init>welcome_init</init>
+	</page>
+	<page>
+		<page-name>mytable</page-name>
+		<page-url>/pages/table.html</page-url>
+		<init>table_init</init>
+	</page>
+	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
+	<ajax-urls>
+
+	</ajax-urls>
+</config>
