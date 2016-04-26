@@ -16,7 +16,12 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-body-left,.doc-body-right{height:100%;float:left}
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
 .doc-body-right{background:#fff;position:relative;width:92%}
+<<<<<<< HEAD
 .work-space{height:100%;width:100%;/*position:absolute;left:0;top:0;*/z-index:1}
+=======
+.doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;display: none}
+.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}
+>>>>>>> a6f2944c7445b0b63567304052002efdda18c033
 .doc-body-left .menus-btn{width:100%;border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;height:80px;text-align:Center;line-height:30px;margin:0;color:#333;overflow:hidden;white-space: nowrap;text-overflow:ellipsis}
 .doc-body-left .menus-btn-auto{border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;}
 .doc-body-left .menus-btn,.doc-body-left .menus-btn-auto{background:#f0f2fa;color:#333;cursor:pointer;position: relative}
@@ -31,13 +36,20 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-test1{height:100%;width:100%;background:#fff;color:#333;text-align:Center;font-size:16px;padding-top:10%}
 .work-space-active{z-index:0}
 .doc-login{background:#113366;height:500px;width:100%;float:left}
-.login-block{height:320px;width:350px;border-top:5px solid #0094da;position:absolute;top:116px;right:15%;background:#fff;}
-.login-block .tag1{height:90px;width:35px;position:absolute;top:0px;right:-35px;background: #fff;padding:10px;line-height:14px;cursor:pointer}
-.login-block .tag2{height:90px;width:35px;position:absolute;top:100px;right:-35px;background: #f0f2fa;padding:10px;line-height:14px;cursor:pointer}
-.login-block .block-up{height:190px;width:100%;padding:40px 40px 0 40px}
-.login-block .block-down{height:130px;width:100%;background: #f0f2fa;padding:20px 40px 0 40px}
-.login-block .block-down .right-lable{float:right}
-.login-block .login-block-title{position:absolute;height:50px;width:100%;top:-60px;left:0;text-align:center;line-height:50px;color:#fff;font-size:22px}
+.form-block{height:320px;width:350px;border-top:5px solid #0094da;position:absolute;top:116px;right:15%;background:#fff;}
+.form-block .tag1{height:90px;width:35px;position:absolute;top:0px;right:-35px;background: #fff;padding:10px;line-height:14px;cursor:pointer}
+.form-block .tag2{height:90px;width:35px;position:absolute;top:100px;right:-35px;background: #f0f2fa;padding:10px;line-height:14px;cursor:pointer}
+.form-block .block-up{height:190px;width:100%;padding:40px 40px 0 40px}
+.form-block .block-up1{height:260px;width:100%;padding:40px 40px 0 40px}
+.form-block .block-down{height:130px;width:100%;background: #f0f2fa;padding:20px 40px 0 40px}
+.form-block .block-down1{height:100px;width:100%;background: #fff;padding:20px 40px 0 40px}
+.form-block .block-down .right-lable{float:right}
+.form-block .form-block-title{position:absolute;height:50px;width:100%;top:-60px;left:0;text-align:center;line-height:50px;color:#fff;font-size:22px}
+.form-block .form-block-msg{position:absolute;height:26px;width:100%;top:0px;left:0;text-align:center;line-height:26px;color:#892e16;font-size:12px;background:#f0d6d0}
+.reg-block{display:none}
+#codetitle{width:100%;float: left}
+#msgcode{width:70%;float: left;}
+#send{width:25%;float: right;}
 .doc-bottom{width:100%;background:#fff;float:left}
 .bottom-block{width:630px;height:48px;background:#fff;margin:30px auto;color:#333;font-size:12px}
 .bottom-block .d1{height:14px;line-height:14px;width:100%;text-align:center}
@@ -49,6 +61,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
 /*.table-block table td{border-top:none}*/
 .table-block .table1{border:10px solid #f0f2fa}
+<<<<<<< HEAD
 /*.row1{background:#f0f2fa;}*/
 
 body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
@@ -95,3 +108,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .popup-icon img{height: 100%;}
 .popup-btn-block{margin-top: 30px;}
 .popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
+=======
+.row1{background:#f0f2fa;}
+.reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto}
+>>>>>>> a6f2944c7445b0b63567304052002efdda18c033

@@ -1,4 +1,5 @@
 $(function(){
+	setPrams();
 	plumeLog("进入index模板自定义js-"+plumeTime());
 	// $(".doc-body").css({
 	// 	"height":($(document.body).height()-45)+"px"
@@ -94,4 +95,13 @@ function derict(o,temp,cache){
 		$(".work-space-active").loadTemp(temp,cache);
 		derict_lock=false;
 	});
+}
+function setPrams(){
+	//regsuccess
+	plumeLog("进入setPrams-"+plumeTime());
+	var path=window.location.href+"";
+	var prams=path.substring(path.indexOf("?")+1);
+	if(prams.indexOf("regsuccess")!=-1){
+		$(".doc-body-all").show();
+	}
 }
