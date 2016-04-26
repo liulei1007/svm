@@ -7,8 +7,7 @@ var PLUME_FILE=[
 	"/"+PLUME_PROJECT+"/js/jquery.js",
 	"/"+PLUME_PROJECT+"/js/plume.js",
 //	"/"+PLUME_PROJECT+"/js/bootstrap.js",
-	"/"+PLUME_PROJECT+"/js/plumeimplement.js",
-	"http://cdn.hcharts.cn/highcharts/highcharts.js"
+	"/"+PLUME_PROJECT+"/js/plumeimplement.js"
 ];
 for(var i=0;i<PLUME_FILE.length;i++){
 	if(PLUME_FILE[i].toLowerCase().indexOf(".js")!=-1){

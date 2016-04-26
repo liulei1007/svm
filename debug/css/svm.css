@@ -12,6 +12,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-label .labels-block div{width:80px;height:100%;float:left;color:#1397da;text-align: center;line-height:35px;background:#fff;cursor:pointer}
 .doc-label .labels-block .active{background:#1397da;color:#fff}
 .doc-body{width:100%;position: relative}
+.doc-login-body{width:100%;position: absolute; top: 70px; right: 0; bottom: 0; left: 0;}
 .doc-temp-body{position: relative; padding:10px}
 .doc-body-left,.doc-body-right{height:100%;float:left}
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
@@ -73,7 +74,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .navbar{min-height: 45px;}
 .navbar-default{margin-bottom: 0; height: 45px; background-color: #1397da; border: none; border-radius: 0;}
 /** --------内容-------- **/
-.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
+.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;display:none}
 .container-fixed > .row{height: 100%;}
 /*.page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}*/
 .page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; overflow-y: auto;}
@@ -109,5 +110,14 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
 
 .row1{background:#f0f2fa;}
-.reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto}
-
+.reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto;border-top:6px solid #0094da}
+.reg-msg-block .rmb1{font-size: 22px;height:50px;width:100%;text-align: center;line-height: 50px;margin:10px 0 0 0}
+.reg-msg-block .rmb2{background: url("../images/icon_warning_login.png")#f1f1f1 no-repeat 0 0;height:45px;width: 45px;margin:0 auto }
+.reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
+.reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
+.reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8}
+.table-block td div{height:22px;line-height:22px;padding:0 10px}
+#cpdcheckcode{float:left;width:30%;margin:0 2% 0 0}
+#cpdsendcode{float:left;width:25%;margin:0 2% 0 0}
+#cpdcodemsg{float:left;width:25%;height:100%;line-height:34px}
+.cpdstep2{display:none}
