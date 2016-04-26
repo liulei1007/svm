@@ -16,12 +16,12 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-body-left,.doc-body-right{height:100%;float:left}
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
 .doc-body-right{background:#fff;position:relative;width:92%}
-<<<<<<< HEAD
+
 .work-space{height:100%;width:100%;/*position:absolute;left:0;top:0;*/z-index:1}
-=======
+
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;display: none}
-.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}
->>>>>>> a6f2944c7445b0b63567304052002efdda18c033
+
+
 .doc-body-left .menus-btn{width:100%;border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;height:80px;text-align:Center;line-height:30px;margin:0;color:#333;overflow:hidden;white-space: nowrap;text-overflow:ellipsis}
 .doc-body-left .menus-btn-auto{border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;}
 .doc-body-left .menus-btn,.doc-body-left .menus-btn-auto{background:#f0f2fa;color:#333;cursor:pointer;position: relative}
@@ -61,7 +61,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
 /*.table-block table td{border-top:none}*/
 .table-block .table1{border:10px solid #f0f2fa}
-<<<<<<< HEAD
+
 /*.row1{background:#f0f2fa;}*/
 
 body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
@@ -108,7 +108,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .popup-icon img{height: 100%;}
 .popup-btn-block{margin-top: 30px;}
 .popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
-=======
+
 .row1{background:#f0f2fa;}
 .reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto}
->>>>>>> a6f2944c7445b0b63567304052002efdda18c033
+
