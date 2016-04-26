@@ -65,6 +65,18 @@ $(function(){
 	$(".agencyList").bind("click",function(){
 		derict(this,"agencyList","nochangeurl");
 	});
+	$(".agencyCreateCompany").bind("click",function(){
+		derict(this,"agencyCreateCompany","nochangeurl");
+	});
+	$(".agencyShowCompany").bind("click",function(){
+		derict(this,"agencyShowCompany","nochangeurl");
+	});
+	$(".agencyAddAccount").bind("click",function(){
+		derict(this,"agencyAddAccount","nochangeurl");
+	});
+	$(".shopList").bind("click",function(){
+		derict(this,"shopList","nochangeurl");
+	});
 
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
