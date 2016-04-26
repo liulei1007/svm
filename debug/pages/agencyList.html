@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"agencyList"
+        }
+    </script>
+</head>
+
+<body>
+  <!-- 弹出层 -->
+  <div class="popup">
+    <p class="popup-title">确定要删除吗</p>
+    <div class="popup-icon"><img src="images/icon_warning_login.png" /></div>
+    <div class="popup-btn-block">
+      <button class="btn btn-default">确定</button>
+      <button class="btn btn-default">取消</button>
+    </div>
+  </div>
+
+  <div class="doc-temp-body">
+    <div class="title-block">经销/代理商列表</div>
+    <div class="search-block">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="agencyName">经销商姓名</label>
+          <input type="text" class="form-control input-sm" id="agencyName" placeholder="请输入经销商姓名">
+        </div>
+        <div class="form-group">
+          <label>经销商类型</label>
+          <select class="form-control input-sm">
+            <option>公司</option>
+            <option>个人</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="agencyUser">用户名</label>
+          <input type="text" class="form-control input-sm" id="agencyUser" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+          <label for="agencyPhone">手机号</label>
+          <input type="text" class="form-control input-sm" id="agencyPhone" placeholder="请输入手机号">
+        </div>
+        <button class="btn btn-default btn-sm">搜索</button>
+        <button class="btn btn-default btn-sm">导出</button>
+      </form>
+    </div>
+    <div class="btn-block">
+      <button type="button" class="btn btn-primary">创建公司经销/代理商</button>
+      <button type="button" class="btn btn-primary">创建个人经销/代理商</button>
+    </div>
+    <div class="table-block">
+      <table class="table table-striped table1">
+        <thead>
+          <tr>
+            <th><input type="checkbox" /></th>
+            <th>序号</th>
+            <th>经销商姓名</th>
+            <th>经销商类型</th>
+            <th>手机号</th>
+            <th>区域</th>
+            <th>创建者</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>333</td>
+            <td>张三</td>
+            <td>公司</td>
+            <td>13929294856</td>
+            <td>江苏</td>
+            <td>法兰蒂斯</td>
+            <td>2016-03-02</td>
+            <td>
+              <button type="button" class="btn btn-default btn-sm">删除</button>
+              <button type="button" class="btn btn-default btn-sm">查看</button>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td>333</td>
+            <td>张三</td>
+            <td>公司</td>
+            <td>13929294856</td>
+            <td>江苏</td>
+            <td>法兰蒂斯</td>
+            <td>2016-03-02</td>
+            <td>
+              <button type="button" class="btn btn-default btn-sm">删除</button>
+              <button type="button" class="btn btn-default btn-sm">查看</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
