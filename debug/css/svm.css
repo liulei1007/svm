@@ -75,12 +75,11 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 /** --------内容-------- **/
 .container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
 .container-fixed > .row{height: 100%;}
-.page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}
-/*.page-content{position: absolute; z-index: 0; top: 0; bottom: 0; padding: 0; overflow-y: auto;}*/
+/*.page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}*/
+.page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; overflow-y: auto;}
 
 /** --------左侧导航-------- **/
-/*.slidebar{position: relative; z-index: 999; padding: 0; height: 100%; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}*/
-.slidebar{position: fixed; z-index: 900; top: 45px; right: 0; bottom: 0; left: 0; padding: 0; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}
+.slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}
 .slidebar-title{position: relative;}
 .slidebar-title > li{height: 80px; text-align: center; /*background-color: #fff;*/ border-bottom: solid #ced1dc 1px; cursor: pointer;}
 .slidebar-title:hover > li, .slidebar-title.active > li{background-color: #fff;}
