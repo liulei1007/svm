@@ -42,6 +42,21 @@
 		<init>table_init</init>
 	</page>
 	<page>
+		<page-name>idmanage</page-name>
+		<page-url>/pages/idmanage.html</page-url>
+		<init>idmanage_init</init>
+	</page>
+	<page>
+		<page-name>msgmanage</page-name>
+		<page-url>/pages/msgmanage.html</page-url>
+		<init>msgmanage_init</init>
+	</page>
+	<page>
+		<page-name>changepwd</page-name>
+		<page-url>/pages/changepwd.html</page-url>
+		<init>changepwd_init</init>
+	</page>
+	<page>
 		<page-name>agencyList</page-name>
 		<page-url>/pages/agencyList.html</page-url>
 		<init>agencyList_init</init>
