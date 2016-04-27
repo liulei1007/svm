@@ -69,6 +69,9 @@ $(function(){
 	$(".agencyShowCompany").bind("click",function(){
 		derict(this,"agencyShowCompany","nochangeurl");
 	});
+	$(".agencyShowPersonal").bind("click",function(){
+		derict(this,"agencyShowPersonal","nochangeurl");
+	});
 	$(".agencyAddAccount").bind("click",function(){
 		derict(this,"agencyAddAccount","nochangeurl");
 	});
