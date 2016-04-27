@@ -1,3 +1,4 @@
+@charset "utf-8";
 *{font-family:"Microsoft Yahei"}
 html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background:#fff}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
@@ -19,8 +20,8 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
 .doc-body-right{background:#fff;position:relative;width:92%}
 
-
-.work-space{height:100%;width:100%;/*position:absolute;left:0;top:0;*/z-index:1}
+.work-space{position: relative; width: 100%;}
+/*.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}*/
 
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;}
 
@@ -89,7 +90,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .slidebar-list > li{padding: 5px 10px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 
-/** --------面包�?-------- **/
+/** --------面包屑-------- **/
 .breadcrumb{color: #989da8;}
 .breadcrumb > .active{color: #333;}
 
@@ -143,9 +144,9 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 
 
 /** --------录入-------- **/
-.body-typein{margin: 0 auto; padding: 0 20px; width: 1140px;}
+.body-typein{margin: 0 auto; padding: 0 20px; width: 1040px;}
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
-.body-typein .module-title{margin: 20px 0; /*margin-left: 15px;*/ /*width: 120px;*/ height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
+.body-typein .module-title{margin-top: 20px; margin-bottom: 20px; /*margin-left: 15px;*/ /*width: 120px;*/ height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
 .body-typein .form-horizontal .alert{margin-bottom: 0; padding: 7px 15px;}

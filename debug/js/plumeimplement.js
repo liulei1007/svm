@@ -62,6 +62,12 @@ function shopList_init() {
 function shopCreate_init() {
     plumeUtil.js(plumePath+"/js/shopCreate.js");
 }
+function shopShowCompany_init() {
+    plumeUtil.js(plumePath+"/js/shopShowCompany.js");
+}
+function shopAlter_init() {
+    plumeUtil.js(plumePath+"/js/shopAlter.js");
+}
 
 //--msgmanage模板初始化函数--
 function idmanage_init(){
