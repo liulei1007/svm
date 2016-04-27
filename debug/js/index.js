@@ -140,5 +140,7 @@ function setPrams(){
 	}
 	if(temp!="index"&&temp!=""){
 		$(".work-space").loadTemp(temp,"nochangeurl");
+	}else{
+		$(".work-space").loadTemp("welcome","nochangeurl");
 	}
 }
