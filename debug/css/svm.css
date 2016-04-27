@@ -200,7 +200,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .row1{background:#f0f2fa;}
 .reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto;border-top:6px solid #0094da}
 .reg-msg-block .rmb1{font-size: 22px;height:50px;width:100%;text-align: center;line-height: 50px;margin:10px 0 0 0}
-.reg-msg-block .rmb2{background: url("../images/icons_all.png")#f1f1f1 no-repeat 0px -100px;height:45px;width: 45px;margin:0 auto }
+.reg-msg-block .rmb2{background: url("../images/icons_all.png") no-repeat 0px -100px;height:45px;width: 45px;margin:0 auto }
 .reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
 .reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
@@ -216,7 +216,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 
 .index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
-.index-head-user .ihu-title-block{position:absolute;top:46px;left:0;width:200px;height:90px;display: none}
-.index-head-user .ihu-title-block div{border-bottom:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
+.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:90px;display: none}
+.index-head-user .ihu-title-block div{border-top:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
 .btn-index{background:#0c5689}
 .btn-index:hover{background:#337ab7}

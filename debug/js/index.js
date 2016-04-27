@@ -97,6 +97,12 @@ $(function(){
 	}).bind("mouseleave", function() {
 		$(".index-head-user .ihu-title-block").fadeOut();
 	});
+	$(".ihu-exit").bind("click",function(){
+		window.location.href="login";
+	});
+	$(".ihu-changepwd").bind("click",function(){
+		window.location.href="changepwd";
+	});
 });
 var derict_lock=false;
 function derict(o,temp,cache){
@@ -114,6 +120,7 @@ function derict(o,temp,cache){
 		$(".work-space-active").delay(500).fadeOut(function(){
 			$(this).html("").fadeIn();
 			$(".work-space-active").loadTemp(temp,cache);
+			try{window.history.pushState({},0,temp)}catch(e){plumeLog("提示:无法动态改变地址:"+e.message);}
 			derict_lock=false;
 		});
 	})

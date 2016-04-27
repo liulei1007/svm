@@ -161,3 +161,9 @@ function secondreg_init(){
     plumeUtil.js(plumePath+"/js/secondreg.js");
     plumeLog("完成secondreg模板加载-"+plumeTime());
 }
+//--brandCreateCompany模板初始化函数--
+function brandCreateCompany_init(){
+    plumeLog("初始化brandCreateCompany模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/brandCreateCompany.js");
+    plumeLog("完成brandCreateCompany模板加载-"+plumeTime());
+}
