@@ -4,7 +4,7 @@ $(function(){
 		window.location.href="../index";
 	});
 	$(".reg-btn").bind("click",function(){
-		window.location.href="../index?fullscreen";
+		window.location.href="../secondreg?fullscreen";
 	});
 	$(".login-head-btn .btn1").bind("click",function(){
 		$(".reg-block").fadeOut();
@@ -13,5 +13,8 @@ $(function(){
 	$(".login-head-btn .btn2").bind("click",function(){
 		$(".login-block").fadeOut();
 		$(".reg-block").fadeIn();
+	});
+	$(".fetchpwd").bind("click",function(){
+		window.location.href="../changepwd?fullscreen";
 	});
 });
