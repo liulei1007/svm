@@ -22,7 +22,9 @@ $(function() {
 		// 	$(".pop .popup").show();
 		// }
 	});
-	
+	$(".btn-createCompany").on("click", function() {
+		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
+	})
 });
 
 function removeRecord(removeObj) {
