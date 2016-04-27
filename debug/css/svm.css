@@ -89,7 +89,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .slidebar-list > li{padding: 5px 10px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 
-/** --------面包�?-------- **/
+/** --------面包屑-------- **/
 .breadcrumb{color: #989da8;}
 .breadcrumb > .active{color: #333;}
 
@@ -162,14 +162,14 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .reg-msg-block .rmb2{background: url("../images/icon_warning_login.png")#f1f1f1 no-repeat 0 0;height:45px;width: 45px;margin:0 auto }
 .reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
-.reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8}
+.reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
 .table-block td div{height:22px;line-height:22px;padding:0 10px}
 #cpdcheckcode{float:left;width:30%;margin:0 2% 0 0}
 #cpdsendcode{float:left;width:25%;margin:0 2% 0 0}
 #cpdcodemsg{float:left;width:25%;height:100%;line-height:34px}
 .cpdstep2{display:none}
 
-.sd-btn-back{position:absolute;top:-200px;left:-200px}
-.sd-choose-step1{width:500px;height:220px;margin:200px auto;position:relative}
-.sd-btn-radius{height:210px;width:210px;border-radius: 210px;color:#fff;background:#00aaf2;margin:0 20px;float:left}
+.sd-btn-back{position:absolute;top:-180px;left:-180px}
+.sd-choose-step1,.sd-choose-step2{width:500px;height:220px;margin:200px auto;position:relative;display: none}
+.sd-btn-radius{height:210px;width:210px;border-radius: 210px;color:#fff;margin:0 20px;float:left;line-height:210px;text-align:center}
 

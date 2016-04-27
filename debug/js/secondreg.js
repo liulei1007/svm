@@ -1,4 +1,22 @@
 $(function(){
 	plumeLog("进入secondreg模板自定义js-"+plumeTime());
-
+	$(".sd-next").bind("click",function(){
+		$(".reg-msg-block").hide();
+		$(".sd-choose-step1").fadeIn();
+	});
+	$(".sd-btn-back0").bind("click",function(){
+		$(".sd-choose-step1").hide();
+		$(".reg-msg-block").fadeIn();
+	});
+	$(".sd-btn-back1").bind("click",function(){
+		$(".sd-choose-step2").hide();
+		$(".sd-choose-step1").fadeIn();
+	});
+	$(".sd-step1-btn1,.sd-step1-btn2").bind("click",function(){
+		$(".sd-choose-step1").hide();
+		$(".sd-choose-step2").fadeIn();
+	});
+	$(".sd-step2-btn1,.sd-step2-btn2").bind("click",function(){
+		alert("详细");
+	});
 })
