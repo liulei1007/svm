@@ -75,6 +75,7 @@ $(function(){
 	$(".shopCreate").bind("click",function(){
 		derict(this,"shopCreate","nochangeurl");
 	});
+
 	$(".agencyList").bind("click",function(){
 		derict(this,"agencyList","nochangeurl");
 	});
@@ -110,6 +111,12 @@ $(function(){
 	});
 
 
+	$(".shopShowCompany").bind("click",function(){
+		derict(this,"shopShowCompany","nochangeurl");
+	});
+	$(".shopAlter").bind("click",function(){
+		derict(this,"shopAlter","nochangeurl");
+	});
 
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
