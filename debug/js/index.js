@@ -145,7 +145,7 @@ function derict(o,temp,cache){
 	$(o).parents(".slidebar-title").addClass("active");
 	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();
-		$(".page-content").append('<div class="work-space work-space-active clearFix"></div>');
+		$(".page-content").append('<div class="work-space work-space-active"></div>');
 		$(".work-space-active").loadTemp("transmit","nochangeurl");
 		$(".work-space-active").delay(500).fadeOut(function(){
 			$(this).html("").fadeIn();
