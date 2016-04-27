@@ -43,12 +43,23 @@ function table_init(){
     plumeUtil.js(plumePath+"/js/table.js");
     plumeLog("完成table模板加载-"+plumeTime());
 }
-//--idmanage模板初始化函数--
-function idmanage_init(){
-    plumeLog("初始化idmanage模板-"+plumeTime());
-    plumeUtil.js(plumePath+"/js/idmanage.js");
-    plumeLog("完成idmanage模板加载-"+plumeTime());
+
+function agencyList_init() {
+    plumeUtil.js(plumePath+"/js/agencyList.js");
 }
+function agencyCreateCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
+}
+function agencyShowCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+}
+function agencyAddAccount_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+}
+function shopList_init() {
+    plumeUtil.js(plumePath+"/js/shopList.js");
+}
+
 //--msgmanage模板初始化函数--
 function idmanage_init(){
     plumeLog("初始化msgmanage模板-"+plumeTime());
