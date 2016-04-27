@@ -43,6 +43,7 @@ function table_init(){
     plumeUtil.js(plumePath+"/js/table.js");
     plumeLog("完成table模板加载-"+plumeTime());
 }
+
 //--basicDataManagement1模板初始化函数--
 function basicDataManagement1_init(){
     plumeLog("初始化basicDataManagement1模板-"+plumeTime());
@@ -104,3 +105,41 @@ function commodityManagement3_init(){
     plumeLog("完成commodityManagement3模板加载-"+plumeTime());
 }
 
+
+function agencyList_init() {
+    plumeUtil.js(plumePath+"/js/agencyList.js");
+}
+function agencyCreateCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
+}
+function agencyShowCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+}
+function agencyAddAccount_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+}
+function shopList_init() {
+    plumeUtil.js(plumePath+"/js/shopList.js");
+}
+function shopCreate_init() {
+    plumeUtil.js(plumePath+"/js/shopCreate.js");
+}
+
+//--msgmanage模板初始化函数--
+function idmanage_init(){
+    plumeLog("初始化msgmanage模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/msgmanage.js");
+    plumeLog("完成msgmanage模板加载-"+plumeTime());
+}
+//--changepwd模板初始化函数--
+function changepwd_init(){
+    plumeLog("初始化msgmanage模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/changepwd.js");
+    plumeLog("完成msgmanage模板加载-"+plumeTime());
+}
+//--secondreg模板初始化函数--
+function secondreg_init(){
+    plumeLog("初始化secondreg模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/secondreg.js");
+    plumeLog("完成secondreg模板加载-"+plumeTime());
+}

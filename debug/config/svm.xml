@@ -42,6 +42,7 @@
 		<init>table_init</init>
 	</page>
 	<page>
+
 		<page-name>agencyList</page-name>
 		<page-url>/pages/agencyList.html</page-url>
 	</page>
@@ -106,6 +107,59 @@
 	<page>
 		<page-name>releaseGoods</page-name>
 		<page-url>/pages/releaseGoods.html</page-url>
+
+		<page-name>idmanage</page-name>
+		<page-url>/pages/idmanage.html</page-url>
+		<init>idmanage_init</init>
+	</page>
+	<page>
+		<page-name>msgmanage</page-name>
+		<page-url>/pages/msgmanage.html</page-url>
+		<init>msgmanage_init</init>
+	</page>
+	<page>
+		<page-name>changepwd</page-name>
+		<page-url>/pages/changepwd.html</page-url>
+		<init>changepwd_init</init>
+	</page>
+	<page>
+		<page-name>secondreg</page-name>
+		<page-url>/pages/secondreg.html</page-url>
+		<init>secondreg_init</init>
+	</page>
+	<page>
+		<page-name>agencyList</page-name>
+		<page-url>/pages/agencyList.html</page-url>
+		<init>agencyList_init</init>
+	</page>
+	<page>
+		<page-name>agencyCreateCompany</page-name>
+		<page-url>/pages/agencyCreateCompany.html</page-url>
+		<init>agencyCreateCompany_init</init>
+	</page>
+	<page>
+		<page-name>agencyShowCompany</page-name>
+		<page-url>/pages/agencyShowCompany.html</page-url>
+		<init>agencyShowCompany_init</init>
+	</page>
+	<page>
+		<page-name>agencyAddAccount</page-name>
+		<page-url>/pages/agencyAddAccount.html</page-url>
+		<init>agencyAddAccount_init</init>
+	</page>
+	<page>
+		<page-name>shopList</page-name>
+		<page-url>/pages/shopList.html</page-url>
+		<init>shopList_init</init>
+	</page>
+	<page>
+		<page-name>shopCreate</page-name>
+		<page-url>/pages/shopCreate.html</page-url>
+		<init>shopCreate_init</init>
+	</page>
+	<page>
+		<page-name>popConfirmDelete</page-name>
+		<page-url>/pages/popConfirmDelete.html</page-url>
 	</page>
 	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
 	<ajax-urls>

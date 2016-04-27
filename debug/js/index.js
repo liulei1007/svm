@@ -1,4 +1,5 @@
 $(function(){
+	setPrams();
 	plumeLog("进入index模板自定义js-"+plumeTime());
 	// $(".doc-body").css({
 	// 	"height":($(document.body).height()-45)+"px"
@@ -46,6 +47,7 @@ $(function(){
 		$("[tag="+nowtag+"]").addClass("active");
 	});
 	$(".work-space").loadTemp("welcome","nochangeurl");
+
 	$(".welcome").bind("click",function(){
 		derict(this,"welcome","nochangeurl");
 	});
@@ -55,11 +57,23 @@ $(function(){
 	$(".test1").bind("click",function(){
 		derict(this,"test1","nochangeurl");
 	});
-	$(".transmit").bind("click",function(){
-		derict(this,"transmit","nochangeurl");
+	$(".agencyList").bind("click",function(){
+		derict(this,"agencyList","nochangeurl");
 	});
-	$(".mytable").bind("click",function(){
-		derict(this,"mytable","nochangeurl");
+	$(".agencyCreateCompany").bind("click",function(){
+		derict(this,"agencyCreateCompany","nochangeurl");
+	});
+	$(".agencyShowCompany").bind("click",function(){
+		derict(this,"agencyShowCompany","nochangeurl");
+	});
+	$(".agencyAddAccount").bind("click",function(){
+		derict(this,"agencyAddAccount","nochangeurl");
+	});
+	$(".shopList").bind("click",function(){
+		derict(this,"shopList","nochangeurl");
+	});
+	$(".shopCreate").bind("click",function(){
+		derict(this,"shopCreate","nochangeurl");
 	});
 	$(".agencyList").bind("click",function(){
 		derict(this,"agencyList","nochangeurl");
@@ -95,6 +109,17 @@ $(function(){
 		derict(this,"commodityManagement3","nochangeurl");
 	});
 
+
+
+	$(".idmanage").bind("click",function(){
+		derict(this,"idmanage","nochangeurl");
+	});
+	$(".msgmanage").bind("click",function(){
+		derict(this,"msgmanage","nochangeurl");
+	});
+	$(".changepwd").bind("click",function(){
+		derict(this,"changepwd","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();
@@ -111,17 +136,30 @@ function derict(o,temp,cache){
 	derict_lock=true;
 	$(".slidebar").find(".active").removeClass("active");
 	$(o).parents(".slidebar-title").addClass("active");
-	$(".work-space").removeClass("work-space-active").css({"opacity":"1"}).animate({
-		"left":"-120%",
-		"opacity":"0"
-	},500,function(){
+	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();
+		$(".page-content").append('<div class="work-space work-space-active"></div>');
+		$(".work-space-active").loadTemp("transmit","nochangeurl");
+		$(".work-space-active").delay(500).fadeOut(function(){
+			$(this).html("").fadeIn();
+			$(".work-space-active").loadTemp(temp,cache);
+			derict_lock=false;
+		});
 	})
-	$(".page-content").append('<div class="work-space work-space-active"></div>');
-	$(".work-space-active").loadTemp("transmit","nochangeurl");
-	$(".work-space-active").delay(800).fadeOut(function(){
-		$(this).html("").fadeIn();
-		$(".work-space-active").loadTemp(temp,cache);
-		derict_lock=false;
-	});
+}
+function setPrams(){
+	plumeLog("进入setPrams-"+plumeTime());
+	var path=window.location.href+"";
+	var prams=path.substring(path.indexOf("?")+1);
+	var temp=path.substring(path.lastIndexOf("/")+1);
+	if(prams.indexOf("fullscreen")!=-1){
+		$(".slidebar").hide();
+		$(".page-content").css({"width":($(window).width()-10),"left":0});
+		$(".container-fixed").fadeIn();
+	}else{
+		$(".container-fixed").fadeIn();
+	}
+	if(temp!="index"){
+		$(".work-space").loadTemp(temp,"nochangeurl");
+	}
 }
