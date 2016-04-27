@@ -134,7 +134,7 @@ function shopAlter_init() {
 //--msgmanage模板初始化函数--
 function idmanage_init(){
     plumeLog("初始化msgmanage模板-"+plumeTime());
-    plumeUtil.js(plumePath+"/js/msgmanage.js");
+    plumeUtil.js(plumePath+"/js/idmanage.js");
     plumeLog("完成msgmanage模板加载-"+plumeTime());
 }
 //--changepwd模板初始化函数--

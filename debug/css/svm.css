@@ -2,8 +2,8 @@
 *{font-family:"Microsoft Yahei"}
 html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background:#fff}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
-.login-head{height:70px;width:100%;background:#26aff5;position:relative}
-.login-head .login-head-logo{background: #fff;height:45px;width:126px;position: absolute;left:10%;top:12px}
+.login-head{height:70px;width:100%;background:#fff;position:relative}
+.login-head .login-head-logo{background:url("../images/logo.png") no-repeat 0 0;height:31px;width:130px;position: absolute;left:10%;top:20px}
 .login-head .login-head-btn{;position: absolute width:176px;height:33px;position:absolute;right:10%;top:18px}
 .login-head .login-head-btn div{width:78px;height:33px;float:left;margin:0 5px}
 .login-head .btn1{}
@@ -43,7 +43,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-transmit{height:100%;width:100%;background:#fff;padding-top:20%}
 .doc-test1{height:100%;width:100%;background:#fff;color:#333;text-align:Center;font-size:16px;padding-top:10%}
 .work-space-active{z-index:0}
-.doc-login{background:#113366;height:500px;width:100%;float:left}
+.doc-login{background:url("../images/bg.jpg")#0b1e24 no-repeat 50% 50%;height:500px;width:100%;float:left}
 .form-block{height:320px;width:350px;border-top:5px solid #0094da;position:absolute;top:116px;right:15%;background:#fff;}
 .form-block .tag1{height:90px;width:35px;position:absolute;top:0px;right:-35px;background: #fff;padding:10px;line-height:14px;cursor:pointer}
 .form-block .tag2{height:90px;width:35px;position:absolute;top:100px;right:-35px;background: #f0f2fa;padding:10px;line-height:14px;cursor:pointer}
@@ -52,7 +52,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .form-block .block-down{height:130px;width:100%;background: #f0f2fa;padding:20px 40px 0 40px}
 .form-block .block-down1{height:100px;width:100%;background: #fff;padding:20px 40px 0 40px}
 .form-block .block-down .right-lable{float:right}
-.form-block .form-block-title{position:absolute;height:50px;width:100%;top:-60px;left:0;text-align:center;line-height:50px;color:#fff;font-size:22px}
+.form-block .form-block-title{position:absolute;height:50px;width:100%;top:-60px;left:0;text-align:center;line-height:50px;color:#2abbf7;font-size:24px}
 .form-block .form-block-msg{position:absolute;height:26px;width:100%;top:0px;left:0;text-align:center;line-height:26px;color:#892e16;font-size:12px;background:#f0d6d0}
 .reg-block{display:none}
 #codetitle{width:100%;float: left}
@@ -200,7 +200,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .row1{background:#f0f2fa;}
 .reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto;border-top:6px solid #0094da}
 .reg-msg-block .rmb1{font-size: 22px;height:50px;width:100%;text-align: center;line-height: 50px;margin:10px 0 0 0}
-.reg-msg-block .rmb2{background: url("../images/icon_warning_login.png")#f1f1f1 no-repeat 0 0;height:45px;width: 45px;margin:0 auto }
+.reg-msg-block .rmb2{background: url("../images/icons_all.png")#f1f1f1 no-repeat 0px -100px;height:45px;width: 45px;margin:0 auto }
 .reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
 .reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
