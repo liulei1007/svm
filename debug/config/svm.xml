@@ -82,6 +82,11 @@
 		<init>shopList_init</init>
 	</page>
 	<page>
+		<page-name>shopCreate</page-name>
+		<page-url>/pages/shopCreate.html</page-url>
+		<init>shopCreate_init</init>
+	</page>
+	<page>
 		<page-name>popConfirmDelete</page-name>
 		<page-url>/pages/popConfirmDelete.html</page-url>
 	</page>

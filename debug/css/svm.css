@@ -108,14 +108,20 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
 .btn{box-sizing: border-box; border-radius: 0;}
-.btn-default{color: #333; background-color: #f0f2fa; border: solid #ced1dc 1px;}
-.btn-primary{color: #fff; background-color: #17adf2;}
+.btn-default{color: #333; background-color: #f0f2fa; border-color: #ced1dc;}
+.btn-default:hover, .btn-default.focus, .btn-default:focus{background-color: #ced1dc; border-color: #ced1dc;}
+.btn-primary{color: #fff; background-color: #17adf2; border-color: #17adf2;}
+.btn-primary:hover, .btn-primary.focus, .btn-primary:focus{background-color: #0094da; border-color: #0094da;}
 .btn-success{color: #fff; background-color: #02be49; border-color: #02be49;}
-.btn-success.focus,.btn-success:focus{background-color: #009b39; border-color: #009b39;}
-.btn-info{color: #fff; background-color: #0fdbd3;}
-.btn-warning{color: #fff; background-color: #ffbe00;}
-.btn-danger{color: #fff; background-color: #f26c4e;}
-.btn-special{color: #fff; background-color: #333;}
+.btn-success:hover, .btn-success.focus, .btn-success:focus{background-color: #009b39; border-color: #009b39;}
+.btn-info{color: #fff; background-color: #0fdbd3; border-color: #0fdbd3;}
+.btn-info:hover, .btn-info.focus, .btn-info:focus{background-color: #00c8c1; border-color: #00c8c1;}
+.btn-warning{color: #fff; background-color: #ffbe00; border-color: #ffbe00;}
+.btn-warning:hover, .btn-warning.focus, .btn-warning:focus{background-color: #e9ae00; border-color: #e9ae00;}
+.btn-danger{color: #fff; background-color: #f26c4e; border-color: #f26c4e;}
+.btn-danger:hover, .btn-danger.focus, .btn-danger:focus{background-color: #e55937; border-color: #e55937;}
+.btn-special{color: #fff; background-color: #333; border-color: #333;}
+.btn-special:hover, .btn-special.focus, .btn-special:focus{color: #fff; background-color: #333; border-color: #333;}
 
 /** --------警告-------- **/
 .alert{border-radius: 0;}

@@ -26,6 +26,9 @@ $(function(){
 	$(".shopList").bind("click",function(){
 		derict(this,"shopList","nochangeurl");
 	});
+	$(".shopCreate").bind("click",function(){
+		derict(this,"shopCreate","nochangeurl");
+	});
 
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
