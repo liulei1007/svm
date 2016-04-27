@@ -38,7 +38,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .menus-nodes{display:none;position: absolute;left:100%;height:auto;width:120px;background: #fff;z-index:9;border-top: 1px solid #ced1dc;border-right: 1px solid #ced1dc;border-left: 1px solid #ced1dc;}
 .menus-nodes div{height:35px;text-align:center;line-height: 35px;border-bottom:1px solid #ced1dc;cursor: pointer}
 .menus-nodes div:hover{color:#fff;background: #1397da}
-.doc-welcome{height:100%;width:100%;background:#0c5689;color:#fff;text-align:Center;font-size:40px;padding-top:20%}
+
 .doc-test{height:100%;width:100%;background:#fff;}
 .doc-transmit{height:100%;width:100%;background:#fff;padding-top:20%}
 .doc-test1{height:100%;width:100%;background:#fff;color:#333;text-align:Center;font-size:16px;padding-top:10%}
@@ -80,39 +80,30 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .doc-head{}
 .doc-body{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
 
+/** --------欢迎页-------- **/
+.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #0c5689;}
+.body-welcome .welcome-text{display: table; width: 100%; height: 100%;}
+.body-welcome p{display: table-cell; font-size: 40px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle;}
+
 /** --------布局-------- **/
 /** --------顶部导航-------- **/
 .navbar{min-height: 45px;}
 .navbar-default{margin-bottom: 0; height: 45px; background-color: #1397da; border: none; border-radius: 0;}
 /** --------内容-------- **/
-
 .container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
 .container-fixed > .row{height: 100%;}
 .page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}
-/*.page-content{position: absolute; z-index: 0; top: 0; bottom: 0; padding: 0; overflow-y: auto;}*/
-
-/** --------左侧导航-------- **/
-/*.slidebar{position: relative; z-index: 999; padding: 0; height: 100%; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}*/
-.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;display:none}
-.container-fixed > .row{height: 100%;}
-/*.page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}*/
-.page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; /*overflow-y: auto;*/}
 
 /** --------左侧导航-------- **/
 .slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}
-
 .slidebar-title{position: relative;}
-.slidebar-title > li{height: 80px; text-align: center; /*background-color: #fff;*/ border-bottom: solid #ced1dc 1px; cursor: pointer;}
+.slidebar-title > li{height: 80px; text-align: center; border-bottom: solid #ced1dc 1px; cursor: pointer;}
 .slidebar-title:hover > li, .slidebar-title.active > li{background-color: #fff;}
 .slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 180px; background-color: #fff; border: solid #ced1dc 1px;}
 .slidebar-list > li{padding: 5px 10px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 
-
-/** --------面包�?-------- **/
-
 /** --------面包屑-------- **/
-
 .breadcrumb{color: #989da8;}
 .breadcrumb > .active{color: #333;}
 
@@ -120,25 +111,9 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
-/** --------表单-------- **/
+/** --------è¡¨å•-------- **/
 .search-block{padding: 5px 10px;}
 .form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
-
-/** --------按钮-------- **/
-.btn-block{margin-top: 20px; margin-bottom: 20px;}
-
-
-
-/** --------弹出-------- **/
-.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-title{margin-top: 25px; height: 30px; font-size: 24px; font-weight: bold;/* text-align: center;*/}
-.popup-icon{margin-top: 20px; height: 45px;}
-.popup-icon img{height: 100%;}
-.form-control{border-radius: 0;}
-.form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
-.form-inline .form-control{width: 120px;}
-
-
 
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
@@ -175,9 +150,6 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 
 .popup-btn-block{margin-top: 30px;}
 .popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
-
-
-
 
 
 /** --------commodityManagement-------- **/
