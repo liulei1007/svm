@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"commodityManagement1"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-commodityManagement1">
+     <div class="commodity-nav">
+        <ol class="breadcrumb">
+          <li>您当前的位置：</li>
+          <li>商品管理</li>
+          <li class="active">调取商品数据</li>
+        </ol>
+    </div>
+    <div class="commodity-classify">
+        所在分类：<span>家具</span><b>></b>
+                  <span>卧室家具</span><b>></b>
+                  <span>床</span>
+                  <a href="#">重新选类目</a>  
+    </div>
+    <div class="commodity-search">
+        搜索商品：
+        <input type="text" placeholder="请输入商品名称/系列名/品牌进行商品搜索"/>
+        <button type="button" class="btn btn-default btn-sm">搜索</button>
+        <button type="button" class="btn btn-default btn-sm">发布商品</button>
+    </div>
+    <div class="commodity-table">   
+        <div class="table-info">
+            当前商品总数：<span>342</span>条
+        </div>
+        <table class="table table1 table-stripedbbbb">
+            <thead>
+              <tr class="active">
+                <th>商品数据ID号</th>
+                <th></th>
+                <th>商品名称</th>
+                <th>系列名</th>
+                <th>品牌</th>
+                <th>型号</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>282727622</td>
+                <td><img src="" /></td>
+                <td>
+                    <p>我是商品名称，我是商品名称</p>
+                    <p>标语标语</p>
+                </td>
+                <td>韩式</td>
+                <td>TOTO</td>
+                <td>QTP2026DL</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">调取</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="releasePopup"></div>
+</div>
+
+</body>
+</html>

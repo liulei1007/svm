@@ -42,6 +42,72 @@
 		<init>table_init</init>
 	</page>
 	<page>
+
+		<page-name>agencyList</page-name>
+		<page-url>/pages/agencyList.html</page-url>
+	</page>
+	<page>
+		<page-name>basicDataManagement1</page-name>
+		<page-url>/pages/basicDataManagement1.html</page-url>
+		<init>basicDataManagement1_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement2</page-name>
+		<page-url>/pages/basicDataManagement2.html</page-url>
+		<init>basicDataManagement2_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement3</page-name>
+		<page-url>/pages/basicDataManagement3.html</page-url>
+		<init>basicDataManagement3_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement4</page-name>
+		<page-url>/pages/basicDataManagement4.html</page-url>
+		<init>basicDataManagement4_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement5</page-name>
+		<page-url>/pages/basicDataManagement5.html</page-url>
+		<init>basicDataManagement5_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement6</page-name>
+		<page-url>/pages/basicDataManagement6.html</page-url>
+		<init>basicDataManagement6_init</init>
+	</page>
+	<page>
+		<page-name>basicDataManagement7</page-name>
+		<page-url>/pages/basicDataManagement7.html</page-url>
+		<init>basicDataManagement7_init</init>
+	</page>
+	<page>
+		<page-name>commodityManagement1</page-name>
+		<page-url>/pages/commodityManagement1.html</page-url>
+		<init>commodityManagement1_init</init>
+	</page>
+	<page>
+		<page-name>commodityManagement2</page-name>
+		<page-url>/pages/commodityManagement2.html</page-url>
+		<init>commodityManagement2_init</init>
+	</page>
+	<page>
+		<page-name>commodityManagement3</page-name>
+		<page-url>/pages/commodityManagement3.html</page-url>
+		<init>commodityManagement3_init</init>
+	</page>
+	<page>
+		<page-name>applyPopup</page-name>
+		<page-url>/pages/applyPopup.html</page-url>
+	</page>
+	<page>
+		<page-name>delectPopup</page-name>
+		<page-url>/pages/delectPopup.html</page-url>
+	</page>
+	<page>
+		<page-name>releaseGoods</page-name>
+		<page-url>/pages/releaseGoods.html</page-url>
+
 		<page-name>idmanage</page-name>
 		<page-url>/pages/idmanage.html</page-url>
 		<init>idmanage_init</init>
