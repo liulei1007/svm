@@ -111,9 +111,11 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
-/** --------è¡¨å•-------- **/
+/** --------表单-------- **/
 .search-block{padding: 5px 10px;}
+.form-control{border-radius: 0;}
 .form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
+.form-inline .form-control{width: 120px;}
 
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
@@ -168,7 +170,7 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .releaseGoods label input {margin-right:5px;}
 .releaseGoods .releaseGoods-sellprice span,.releaseGoods .releaseGoods-discount span,.releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
 .btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
-.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}
+/*.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}*/
 .releaseGoods-btn{text-align: center;}
 .commodity-inquire .commodity-name span,.commodity-inquire .commodity-model span,.commodity-inquire .commodity-state span{width:90px;text-align: center;display: inline-block;}
 .commodity-inquire>div>div{margin-bottom: 20px;}

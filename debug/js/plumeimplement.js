@@ -112,11 +112,17 @@ function agencyList_init() {
 function agencyCreateCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
 }
+function agencyCreatePersonal_init() {
+    plumeUtil.js(plumePath+"/js/agencyCreatePersonal.js");
+}
 function agencyShowCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
 }
+function agencyShowPersonal_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowPersonal.js");
+}
 function agencyAddAccount_init() {
-    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+    plumeUtil.js(plumePath+"/js/agencyAddAccount.js");
 }
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");

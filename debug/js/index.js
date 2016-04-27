@@ -16,8 +16,14 @@ $(function(){
 	$(".agencyCreateCompany").bind("click",function(){
 		derict(this,"agencyCreateCompany","nochangeurl");
 	});
+	$(".agencyCreatePersonal").bind("click",function(){
+		derict(this,"agencyCreatePersonal","nochangeurl");
+	});
 	$(".agencyShowCompany").bind("click",function(){
 		derict(this,"agencyShowCompany","nochangeurl");
+	});
+	$(".agencyShowPersonal").bind("click",function(){
+		derict(this,"agencyShowPersonal","nochangeurl");
 	});
 	$(".agencyAddAccount").bind("click",function(){
 		derict(this,"agencyAddAccount","nochangeurl");

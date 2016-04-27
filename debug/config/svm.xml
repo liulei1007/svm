@@ -42,11 +42,6 @@
 		<init>table_init</init>
 	</page>
 	<page>
-
-		<page-name>agencyList</page-name>
-		<page-url>/pages/agencyList.html</page-url>
-	</page>
-	<page>
 		<page-name>basicDataManagement1</page-name>
 		<page-url>/pages/basicDataManagement1.html</page-url>
 		<init>basicDataManagement1_init</init>
@@ -139,9 +134,19 @@
 		<init>agencyCreateCompany_init</init>
 	</page>
 	<page>
+		<page-name>agencyCreatePersonal</page-name>
+		<page-url>/pages/agencyCreatePersonal.html</page-url>
+		<init>agencyCreatePersonal_init</init>
+	</page>
+	<page>
 		<page-name>agencyShowCompany</page-name>
 		<page-url>/pages/agencyShowCompany.html</page-url>
 		<init>agencyShowCompany_init</init>
+	</page>
+	<page>
+		<page-name>agencyShowPersonal</page-name>
+		<page-url>/pages/agencyShowPersonal.html</page-url>
+		<init>agencyShowPersonal_init</init>
 	</page>
 	<page>
 		<page-name>agencyAddAccount</page-name>
