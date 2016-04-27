@@ -131,17 +131,23 @@ function shopAlter_init() {
     plumeUtil.js(plumePath+"/js/shopAlter.js");
 }
 
-//--msgmanage模板初始化函数--
+//--idmanage模板初始化函数--
 function idmanage_init(){
-    plumeLog("初始化msgmanage模板-"+plumeTime());
+    plumeLog("初始化idmanage模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/idmanage.js");
+    plumeLog("完成idmanage模板加载-"+plumeTime());
+}
+//--msgmanage模板初始化函数--
+function msgmanage_init(){
+    plumeLog("初始化msgmanage模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/msgmanage.js");
     plumeLog("完成msgmanage模板加载-"+plumeTime());
 }
 //--changepwd模板初始化函数--
 function changepwd_init(){
-    plumeLog("初始化msgmanage模板-"+plumeTime());
+    plumeLog("初始化changepwd模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/changepwd.js");
-    plumeLog("完成msgmanage模板加载-"+plumeTime());
+    plumeLog("完成changepwd模板加载-"+plumeTime());
 }
 //--secondreg模板初始化函数--
 function secondreg_init(){

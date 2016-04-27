@@ -107,7 +107,8 @@
 	<page>
 		<page-name>releaseGoods</page-name>
 		<page-url>/pages/releaseGoods.html</page-url>
-
+	</page>
+	<page>
 		<page-name>idmanage</page-name>
 		<page-url>/pages/idmanage.html</page-url>
 		<init>idmanage_init</init>
