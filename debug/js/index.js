@@ -166,7 +166,7 @@ function setPrams(){
 	}else{
 		$(".container-fixed").fadeIn();
 	}
-	if(temp!="index"){
+	if(temp!="index"&&temp!=""){
 		$(".work-space").loadTemp(temp,"nochangeurl");
 	}
 }
