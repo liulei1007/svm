@@ -57,6 +57,11 @@
 		<init>changepwd_init</init>
 	</page>
 	<page>
+		<page-name>secondreg</page-name>
+		<page-url>/pages/secondreg.html</page-url>
+		<init>secondreg_init</init>
+	</page>
+	<page>
 		<page-name>agencyList</page-name>
 		<page-url>/pages/agencyList.html</page-url>
 		<init>agencyList_init</init>

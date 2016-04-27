@@ -75,3 +75,9 @@ function changepwd_init(){
     plumeUtil.js(plumePath+"/js/changepwd.js");
     plumeLog("完成msgmanage模板加载-"+plumeTime());
 }
+//--secondreg模板初始化函数--
+function secondreg_init(){
+    plumeLog("初始化secondreg模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/secondreg.js");
+    plumeLog("完成secondreg模板加载-"+plumeTime());
+}

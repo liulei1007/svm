@@ -72,7 +72,7 @@ function setPrams(){
 	var temp=path.substring(path.lastIndexOf("/")+1);
 	if(prams.indexOf("fullscreen")!=-1){
 		$(".slidebar").hide();
-		$(".page-content").css({"width":$(window).width(),"left":0});
+		$(".page-content").css({"width":($(window).width()-10),"left":0});
 		$(".container-fixed").fadeIn();
 	}else{
 		$(".container-fixed").fadeIn();
