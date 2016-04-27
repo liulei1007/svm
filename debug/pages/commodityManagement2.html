@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"commodityManagement2"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-commodityManagement2">
+    <div class="commodity-nav">
+        <ol class="breadcrumb">
+          <li>您当前的位置：</li>
+          <li>商品管理</li>
+          <li class="active">商品上下架</li>
+        </ol>
+    </div>
+    <div class="commodity-inquire">
+        <div class="col-md-offset-2">
+            <div class="commodity-name"><span>商品名称：</span><input type="text"/></div>
+            <div class="commodity-model"><span>型号：</span><input type="text"></div>
+            <div class="commodity-state">
+                <span>状态：</span>
+                <select>
+                    <option>所有</option>
+                </select>
+            </div>
+            <button class="btn btn-default">查询</button>
+        </div>
+    </div>
+            <div class="commodity-table">   
+        <div class="table-title">
+            <button class="btn btn-default">申请打印</button>
+            <a href="#">价格管理</a>
+        </div>
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>商品数据ID号</th>
+                <th></th>
+                <th>商品名称</th>
+                <th>系列名</th>
+                <th>品牌</th>
+                <th>型号</th>
+                <th>添加人</th>
+                <th>添加时间</th>
+                <th>来源</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td>JJ_20160402_001</td>
+                <td><img src="" /></td>
+                <td>
+                    <p>我是商品名称，我是商品名称</p>
+                    <p>标语标语</p>
+                </td>
+                <td>韩式</td>
+                <td>TOTO</td>
+                <td>QTP2026DL</td>
+                <td>13764223456</td>
+                <td>2015.12.06</td>
+                <td>工厂</td>
+                <td>下架中</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">调取</button>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">删除</button>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">上架</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

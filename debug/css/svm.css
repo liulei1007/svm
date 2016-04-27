@@ -12,11 +12,11 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .doc-label .labels-block div{width:80px;height:100%;float:left;color:#1397da;text-align: center;line-height:35px;background:#fff;cursor:pointer}
 .doc-label .labels-block .active{background:#1397da;color:#fff}
 .doc-body{width:100%;position: relative}
-.doc-temp-body{padding:10px}
+.doc-temp-body{position: relative; padding:10px}
 .doc-body-left,.doc-body-right{height:100%;float:left}
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
 .doc-body-right{background:#fff;position:relative;width:92%}
-.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}
+.work-space{height:100%;width:100%;/*position:absolute;left:0;top:0;*/z-index:1}
 .doc-body-left .menus-btn{width:100%;border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;height:80px;text-align:Center;line-height:30px;margin:0;color:#333;overflow:hidden;white-space: nowrap;text-overflow:ellipsis}
 .doc-body-left .menus-btn-auto{border-bottom:1px solid #ced1dc;border-right:1px solid #ced1dc;}
 .doc-body-left .menus-btn,.doc-body-left .menus-btn-auto{background:#f0f2fa;color:#333;cursor:pointer;position: relative}
@@ -44,9 +44,81 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .bottom-block .d1 a{color:#333;border-right:1px solid #aaa;text-align: center;display: block;width:70px;float:left}
 .bottom-block .d1 .right-a{border-right:none}
 .bottom-block .d2{height:34px;text-align: center;line-height:34px;float:left;width:100%}
-.title-block{height:60px;width:100%;padding:20px 0 0 10px;font-size:16px;float:left;font-weight: bold}
-.search-block{width:100%;background:#f0f2fa;float:left;padding:10px}
-.table-block{width:100%;float:left;margin:20px 0 0 0}
-.table-block table td{border-top:none}
-.table-block .table1{border:10px solid #f0f2fa}
-.row1{background:#f0f2fa;}
+.title-block{height:60px;width:100%;padding:20px 0 0 10px;font-size:16px;/*float:left;*/font-weight: bold}
+.search-block{width:100%;background:#f0f2fa;/*float:left;*//*padding:10px*/}
+.table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
+/*.table-block table td{border-top:none}*/
+.table1{border:10px solid #f0f2fa}
+/*.row1{background:#f0f2fa;}*/
+
+body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
+.doc-head{}
+.doc-body{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
+
+/** --------布局-------- **/
+/** --------顶部导航-------- **/
+.navbar{min-height: 45px;}
+.navbar-default{margin-bottom: 0; height: 45px; background-color: #1397da; border: none; border-radius: 0;}
+/** --------内容-------- **/
+.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
+.container-fixed > .row{height: 100%;}
+.page-content{position: relative; height: 100%; padding: 0; overflow-y: auto;}
+/*.page-content{position: absolute; z-index: 0; top: 0; bottom: 0; padding: 0; overflow-y: auto;}*/
+
+/** --------左侧导航-------- **/
+/*.slidebar{position: relative; z-index: 999; padding: 0; height: 100%; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}*/
+.slidebar{position: fixed; z-index: 900; top: 45px; right: 0; bottom: 0; left: 0; padding: 0; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}
+.slidebar-title{position: relative;}
+.slidebar-title > li{height: 80px; text-align: center; /*background-color: #fff;*/ border-bottom: solid #ced1dc 1px; cursor: pointer;}
+.slidebar-title:hover > li, .slidebar-title.active > li{background-color: #fff;}
+.slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 180px; background-color: #fff; border: solid #ced1dc 1px;}
+.slidebar-list > li{padding: 5px 10px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
+.slidebar-list > li:last-child{border-bottom: none;}
+
+/** --------表格-------- **/
+.table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
+.table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
+.table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
+/** --------表单-------- **/
+.search-block{padding: 5px 10px;}
+.form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
+
+/** --------按钮-------- **/
+.btn-block{margin-top: 20px; margin-bottom: 20px;}
+
+
+
+/** --------弹出-------- **/
+.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-title{margin-top: 25px; height: 30px; font-size: 24px; font-weight: bold;/* text-align: center;*/}
+.popup-icon{margin-top: 20px; height: 45px;}
+.popup-icon img{height: 100%;}
+.popup-btn-block{margin-top: 30px;}
+.popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
+
+
+
+
+
+/** --------commodityManagement-------- **/
+.doc-commodityManagement1{position: relative;padding-bottom: 40px;}
+.commodity-btn-apply{margin-left:20px;}
+.commodity-classify{margin:0 0 50px 215px;font-size: 16px;}
+.commodity-classify span{font-size: 18px;}
+.commodity-classify a{margin-left: 6px;}
+.commodity-search{margin: 0 0 10px 215px;font-size: 16px;}
+.commodity-search input{width: 400px;}
+.commodity-table .table-info{margin:0 0 5px 16px;}
+.commodity-table .table-info span{color:#FF0F13;}
+.releaseGoods{padding:50px 0 200px;}
+.releaseGoods>div>div{margin-top: 20px;}
+.releaseGoods label{margin-right: 50px;}
+.releaseGoods label input {margin-right:5px;}
+.releaseGoods .releaseGoods-sellprice span,.releaseGoods .releaseGoods-discount span,.releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
+.btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
+.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}
+.releaseGoods-btn{text-align: center;}
+.commodity-inquire .commodity-name span,.commodity-inquire .commodity-model span,.commodity-inquire .commodity-state span{width:90px;text-align: center;display: inline-block;}
+.commodity-inquire>div>div{margin-bottom: 20px;}
+.commodity-inquire select{width: 205px;}
+.commodity-inquire input{width: 210px;}

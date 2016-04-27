@@ -43,3 +43,64 @@ function table_init(){
     plumeUtil.js(plumePath+"/js/table.js");
     plumeLog("完成table模板加载-"+plumeTime());
 }
+//--basicDataManagement1模板初始化函数--
+function basicDataManagement1_init(){
+    plumeLog("初始化basicDataManagement1模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement1.js");
+    plumeLog("完成basicDataManagement1模板加载-"+plumeTime());
+}
+//--basicDataManagement2模板初始化函数--
+function basicDataManagement2_init(){
+    plumeLog("初始化basicDataManagement2模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement2.js");
+    plumeLog("完成basicDataManagement2模板加载-"+plumeTime());
+}
+//--basicDataManagement3模板初始化函数--
+function basicDataManagement3_init(){
+    plumeLog("初始化basicDataManagement3模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement3.js");
+    plumeLog("完成basicDataManagement3模板加载-"+plumeTime());
+}
+//--basicDataManagement4模板初始化函数--
+function basicDataManagement4_init(){
+    plumeLog("初始化basicDataManagement4模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement4.js");
+    plumeLog("完成basicDataManagement4模板加载-"+plumeTime());
+}
+//--basicDataManagement5模板初始化函数--
+function basicDataManagement5_init(){
+    plumeLog("初始化basicDataManagement5模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement5.js");
+    plumeLog("完成basicDataManagement5模板加载-"+plumeTime());
+}
+//--basicDataManagement6模板初始化函数--
+function basicDataManagement6_init(){
+    plumeLog("初始化basicDataManagement6模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement6.js");
+    plumeLog("完成basicDataManagement6模板加载-"+plumeTime());
+}
+//--basicDataManagement7模板初始化函数--
+function basicDataManagement7_init(){
+    plumeLog("初始化basicDataManagement7模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/basicDataManagement7.js");
+    plumeLog("完成basicDataManagement7模板加载-"+plumeTime());
+}
+//--commodityManagement1模板初始化函数--
+function commodityManagement1_init(){
+    plumeLog("初始化commodityManagement1模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/commodityManagement1.js");
+    plumeLog("完成commodityManagement1模板加载-"+plumeTime());
+}
+//--commodityManagement2模板初始化函数--
+function commodityManagement2_init(){
+    plumeLog("初始化commodityManagement2模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/commodityManagement2.js");
+    plumeLog("完成commodityManagement2模板加载-"+plumeTime());
+}
+//--commodityManagement3模板初始化函数--
+function commodityManagement3_init(){
+    plumeLog("初始化commodityManagement3模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/commodityManagement3.js");
+    plumeLog("完成commodityManagement3模板加载-"+plumeTime());
+}
+
