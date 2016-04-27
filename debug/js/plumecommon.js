@@ -1,6 +1,5 @@
 
-//È«¾Ö»ù´¡º¯Êý,Ã¿¸öÒ³Ãæ¶¼ÐèÒª¼ÓÔØµÄjs.css,Í¬²½·½Ê½Ð´Èë¼ÓÔØ
-var PLUME_PROJECT="svm/debug/";
+var PLUME_PROJECT="debug";
 
 var PLUME_FILE=[
 	"/"+PLUME_PROJECT+"/css/bootstrap.min.css",

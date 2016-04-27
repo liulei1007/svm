@@ -58,7 +58,7 @@ function agencyAddAccount_init() {
 }
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
-
+}
 
 //--msgmanage模板初始化函数--
 function idmanage_init(){
