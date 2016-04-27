@@ -24,7 +24,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 
 
 
-.work-space{position: relative; width: 100%;}
+.work-space{position: relative; width: 100%; height: 100%;}
 /*.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}*/
 
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;}
