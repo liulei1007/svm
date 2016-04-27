@@ -23,13 +23,13 @@ $(function(){
 		t2=$(this).attr("tag");
 		var flag=t1+t2;
 		if(flag=="11"){
-			window.location.href="brandCreateCompany";
+			window.location.href="brandCreateCompany?fullscreen";
 		}else if(flag=="21"){
-			window.location.href="brandCreateCompany";
+			window.location.href="brandCreateCompany?fullscreen";
 		}else if(flag=="12"){
-			window.location.href="agencyCreatePersonal";
+			window.location.href="agencyCreatePersonal?fullscreen";
 		}else if(flag=="22"){
-			window.location.href="agencyCreateCompany";
+			window.location.href="agencyCreateCompany?fullscreen";
 		}
 	});
 })
