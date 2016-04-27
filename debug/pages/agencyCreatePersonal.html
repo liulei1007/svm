@@ -12,7 +12,7 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"agencyCreateCompany"
+            "initPage":"agencyCreatePersonal"
         }
     </script>
 </head>
@@ -20,18 +20,21 @@
 <body>
   <ol class="breadcrumb">
     <li>经代管理</li>
-    <li class="active">创建公司经销/代理商</li>
+    <li class="active">创建个人经销/代理商</li>
   </ol>
   <div class="body-typein">
-    <div class="title-block">创建公司经销/代理商</div>
+    <div class="title-block">创建个人经销/代理商</div>
     <div class="row">
       <div class="col-sm-2 col-sm-offset-1 module-title">基础信息</div>
     </div>
     <form class="form-horizontal">
       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>公司名称</label>
+        <label class="col-sm-3 control-label"><i>*</i>姓名</label>
         <div class="col-sm-6"><input type="text" class="form-control"></div>
-        <div class="col-sm-2 alert alert-danger" role="alert">公司名已经存在！</div>
+      </div>
+      <div class="form-group required">
+        <label class="col-sm-3 control-label"><i>*</i>身份证</label>
+        <div class="col-sm-6"><input type="text" class="form-control"></div>
       </div>
       <div class="form-group required">
         <label class="col-sm-3 control-label"><i>*</i>所在省市</label>
@@ -48,38 +51,6 @@
           </select>
         </div>
         <div class="col-sm-2 alert alert-danger" role="alert">必填！</div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>组织机构代码</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>营业执照注册地</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>营业执照注册号</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>税务登记号</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>银行开户许可证编号</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>法人</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>公司电话</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>联系人</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
       </div>
       <div class="form-group required">
         <label class="col-sm-3 control-label"><i>*</i>联系人电话</label>
@@ -144,7 +115,7 @@
       </div>
 
       <div class="col-sm-8 col-sm-offset-3 btn-block">
-        <button type="button" class="btn btn-lg btn-success">提交</button>
+        <button type="button" class="btn btn-lg btn-success">下一步</button>
         <button type="button" class="btn btn-lg btn-default">取消</button>
       </div>
     </form>

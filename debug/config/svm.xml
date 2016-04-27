@@ -138,6 +138,11 @@
 		<init>agencyCreateCompany_init</init>
 	</page>
 	<page>
+		<page-name>agencyCreatePersonal</page-name>
+		<page-url>/pages/agencyCreatePersonal.html</page-url>
+		<init>agencyCreatePersonal_init</init>
+	</page>
+	<page>
 		<page-name>agencyShowCompany</page-name>
 		<page-url>/pages/agencyShowCompany.html</page-url>
 		<init>agencyShowCompany_init</init>
