@@ -168,14 +168,36 @@ body{position: absolute; top: 0; right: 0; bottom: 0; left: 0; color: #333;}
 .releaseGoods>div>div{margin-top: 20px;}
 .releaseGoods label{margin-right: 50px;}
 .releaseGoods label input {margin-right:5px;}
-.releaseGoods .releaseGoods-sellprice span,.releaseGoods .releaseGoods-discount span,.releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
+.releaseGoods .releaseGoods-sellprice span,
+.releaseGoods .releaseGoods-discount span,
+.releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
 .btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
 /*.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}*/
 .releaseGoods-btn{text-align: center;}
-.commodity-inquire .commodity-name span,.commodity-inquire .commodity-model span,.commodity-inquire .commodity-state span{width:90px;text-align: center;display: inline-block;}
+.commodity-inquire .commodity-name span,
+.commodity-inquire .commodity-model span,
+.commodity-inquire .commodity-state span{width:90px;text-align: center;display: inline-block;}
 .commodity-inquire>div>div{margin-bottom: 20px;}
 .commodity-inquire select{width: 205px;}
 .commodity-inquire input{width: 210px;}
+.doc-commodityManagement{padding:10px;}
+.doc-commodityManagement table{margin-top: 10px;}
+.table-info span{color:red;}
+
+/** --------basicDataManagement-------- **/
+.table-title{padding:20px 0;}
+.doc-basicDataManagement{padding:10px;}
+.doc-basicDataManagement table{margin-top: 10px;}
+.basicDataManagement-inquire .basicDataManagement-model span,
+.basicDataManagement-inquire .basicDataManagement-name span,
+.basicDataManagement-inquire .basicDataManagement-classify span,
+.basicDataManagement-inquire .basicDataManagement-seriesName span,
+.basicDataManagement-inquire .basicDataManagement-state span{width:90px;text-align: center;display: inline-block;}
+.basicDataManagement-inquire input{width: 210px;}
+.basicDataManagement-state select{width:205px;}
+.basicDataManagement-classify select{width:60px;margin-right: 10px;}
+.basicDataManagement-inquire>div>div{margin-bottom: 20px;}
+.basicDataManagement-remark{margin:60px 0 25px 10px;}
 
 /** --------录入-------- **/
 .body-typein{margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
