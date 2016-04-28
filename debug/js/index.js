@@ -86,6 +86,12 @@ $(function(){
 	$(".changepwd").bind("click",function(){
 		derict(this,"changepwd","nochangeurl");
 	});
+	$(".brandList").bind("click",function(){
+		derict(this,"brandList","nochangeurl");
+	});
+	$(".brandAdd").bind("click",function(){
+		derict(this,"brandAdd","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();
@@ -106,12 +112,12 @@ $(function(){
 });
 var derict_lock=false;
 function derict(o,temp,cache){
-	console.log($(o).parents(".slidebar-title"));
 	if(derict_lock){
 		return;
 	}
 	derict_lock=true;
 	$(".slidebar").find(".active").removeClass("active");
+	//if(o.hasClass())
 	$(o).parents(".slidebar-title").addClass("active");
 	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();

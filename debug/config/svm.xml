@@ -178,7 +178,16 @@
 		<page-url>/pages/brandCreateCompany.html</page-url>
 		<init>brandCreateCompany_init</init>
 	</page>
-
+	<page>
+		<page-name>brandList</page-name>
+		<page-url>/pages/brandList.html</page-url>
+		<init>brandList_init</init>
+	</page>
+	<page>
+		<page-name>brandAdd</page-name>
+		<page-url>/pages/brandAdd.html</page-url>
+		<init>brandAdd_init</init>
+	</page>
 
 	<page>
 		<page-name>popConfirmDelete</page-name>

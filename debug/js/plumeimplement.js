@@ -167,3 +167,16 @@ function brandCreateCompany_init(){
     plumeUtil.js(plumePath+"/js/brandCreateCompany.js");
     plumeLog("完成brandCreateCompany模板加载-"+plumeTime());
 }
+//--brandList模板初始化函数--
+function brandList_init(){
+    plumeLog("初始化brandList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/brandList.js");
+    plumeLog("完成brandList模板加载-"+plumeTime());
+}
+//--brandAdd模板初始化函数--
+function brandAdd_init(){
+    plumeLog("初始化brandAdd模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/brandAdd.js");
+    plumeLog("完成brandAdd模板加载-"+plumeTime());
+}
+//
