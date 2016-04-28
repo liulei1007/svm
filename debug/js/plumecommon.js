@@ -1,11 +1,12 @@
-//var PLUME_PROJECT="svm";
-var PLUME_PROJECT="debug";
+var PLUME_PROJECT="svm";
+//var PLUME_PROJECT="debug";
 var PLUME_FILE=[
 	"/"+PLUME_PROJECT+"/css/bootstrap.min.css",
 	"/"+PLUME_PROJECT+"/css/jquery.cxcalendar.css",
 //	"/"+PLUME_PROJECT+"/css/bootstrap-theme.min.css",
 	"/"+PLUME_PROJECT+"/css/svm.css",
 	"/"+PLUME_PROJECT+"/js/jquery.js",
+	"/"+PLUME_PROJECT+"/js/jquery.cxcalendar.min.js",
 	"/"+PLUME_PROJECT+"/js/plume.js",
 //	"/"+PLUME_PROJECT+"/js/bootstrap.js",
 
