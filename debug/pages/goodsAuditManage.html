@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"basicDataManagement3"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-basicDataManagement">
+    <div class="title-block">商品审核管理</div>
+    <div class="search-block">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="goodsName">商品名称</label>
+          <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
+        </div>
+        <div class="form-group">
+          <label>分类</label>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+        </div>
+         <div class="form-group">
+          <label>系列名</label>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+        </div>
+        <button class="btn btn-primary">查询</button>
+      </form>
+    </div>
+    <div class="table-block">   
+        <div class="table-title">
+            <button class="btn btn-primary">批量审核</button>
+            <span>您当前还有<b>120</b>条商品信息需要处理!</span>      
+        </div>
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>商品数据ID号</th>
+                <th></th>
+                <th>商品名称</th>
+                <th>系列名</th>
+                <th>品牌</th>
+                <th>型号</th>
+                <th>状态</th>
+                <th>颜色</th>
+                <th>规格</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td>JJ_20160402_001</td>
+                <td><img src="" /></td>
+                <td>
+                    <p>我是商品名称，我是商品名称</p>
+                    <p>标语标语</p>
+                </td>
+                <td>韩式</td>
+                <td>TOTO</td>
+                <td>QTP2026DL</td>
+                <td>审核中</td>
+                <td>红色，白色</td>
+                <td>200*180</td>
+                <td>编辑中</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">查看</button>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">审核</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -38,35 +38,35 @@ $(function(){
 	$(".agencyList").bind("click",function(){
 		derict(this,"agencyList","nochangeurl");
 	});
-	$(".basicDataManagement1").bind("click",function(){
-		derict(this,"basicDataManagement1","nochangeurl");
+	$(".seriesManage").bind("click",function(){
+		derict(this,"seriesManage","nochangeurl");
 	});
-	$(".basicDataManagement2").bind("click",function(){
-		derict(this,"basicDataManagement2","nochangeurl");
+	$(".goodsDataManage").bind("click",function(){
+		derict(this,"goodsDataManage","nochangeurl");
 	});
-	$(".basicDataManagement3").bind("click",function(){
-		derict(this,"basicDataManagement3","nochangeurl");
+	$(".goodsAuditManage").bind("click",function(){
+		derict(this,"goodsAuditManage","nochangeurl");
 	});
-	$(".basicDataManagement4").bind("click",function(){
-		derict(this,"basicDataManagement4","nochangeurl");
+	$(".addGoodsData").bind("click",function(){
+		derict(this,"addGoodsData","nochangeurl");
 	});
-	$(".basicDataManagement5").bind("click",function(){
-		derict(this,"basicDataManagement5","nochangeurl");
+	$(".batchlead").bind("click",function(){
+		derict(this,"batchlead","nochangeurl");
 	});
-	$(".basicDataManagement6").bind("click",function(){
-		derict(this,"basicDataManagement6","nochangeurl");
+	$(".noCompleteData").bind("click",function(){
+		derict(this,"noCompleteData","nochangeurl");
 	});
-	$(".basicDataManagement7").bind("click",function(){
-		derict(this,"basicDataManagement7","nochangeurl");
+	$(".amendmentInfo").bind("click",function(){
+		derict(this,"amendmentInfo","nochangeurl");
 	});
-	$(".commodityManagement1").bind("click",function(){
-		derict(this,"commodityManagement1","nochangeurl");
+	$(".takingGoodsData").bind("click",function(){
+		derict(this,"takingGoodsData","nochangeurl");
 	});
-	$(".commodityManagement2").bind("click",function(){
-		derict(this,"commodityManagement2","nochangeurl");
+	$(".groundGoods").bind("click",function(){
+		derict(this,"groundGoods","nochangeurl");
 	});
-	$(".commodityManagement3").bind("click",function(){
-		derict(this,"commodityManagement3","nochangeurl");
+	$(".applySeries").bind("click",function(){
+		derict(this,"applySeries","nochangeurl");
 	});
 
 
