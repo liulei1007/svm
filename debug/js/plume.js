@@ -251,6 +251,8 @@ $.fn.extend({
 		}
 		try{
 			if(fun){
+				console.log("fun!!!!!!");
+				console.log(fun);
 				fun();
 			}
 		}catch(e){
