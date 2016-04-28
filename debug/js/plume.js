@@ -54,6 +54,12 @@ $.fn.extend({
 					loadHtmlFuncs.createHtml(_this,window.sessionStorage[url],fun);
 				}else{
 					try{
+						$$.ajax({ url: url,async:false, success: function(data){
+							var data_str=data.substring(data.indexOf("<body>"),data.indexOf("</body>")+7);
+							window.sessionStorage[url]=data_str;
+							loadHtmlFuncs.createHtml(_this,data_str,fun);
+						}});
+						return;
 						$$.get(url,{},function(data){
 							var data_str=data.substring(data.indexOf("<body>"),data.indexOf("</body>")+7);
 							window.sessionStorage[url]=data_str;
@@ -65,6 +71,11 @@ $.fn.extend({
 				}
 			}else{
 				try{
+					$$.ajax({ url: url,async:false, success: function(data){
+						var data_str=data.substring(data.indexOf("<body>"),data.indexOf("</body>")+7);
+						loadHtmlFuncs.createHtml(_this,data_str,fun);
+					}});
+					return;
 					$$.get(url,{},function(data){
 						var data_str=data.substring(data.indexOf("<body>"),data.indexOf("</body>")+7);
 						loadHtmlFuncs.createHtml(_this,data_str,fun);

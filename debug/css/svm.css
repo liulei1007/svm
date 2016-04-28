@@ -118,7 +118,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .search-block{padding: 5px 10px;}
 .form-control{border-radius: 0;}
 .form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
-.form-inline .form-control{width: 120px;}
+.form-inline .form-control{width: 140px;}
 
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
@@ -250,3 +250,6 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .index-head-user .ihu-title-block div{border-top:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
 .btn-index{background:#0c5689}
 .btn-index:hover{background:#337ab7}
+.body-panel{width:auto;padding:0 0 0 50px}
+.body-panel .title-block{padding-left:0}
+.ba-back{margin:50px 0 0 0}

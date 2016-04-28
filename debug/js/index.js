@@ -95,6 +95,12 @@ $(function(){
 	$(".changepwd").bind("click",function(){
 		derict(this,"changepwd","nochangeurl");
 	});
+	$(".brandList").bind("click",function(){
+		derict(this,"brandList","nochangeurl");
+	});
+	$(".brandAdd").bind("click",function(){
+		derict(this,"brandAdd","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();
@@ -120,21 +126,18 @@ $(function(){
 	});
 });
 var derict_lock=false;
-function derict(o,temp,cache){
-	console.log($(o).parents(".slidebar-title"));
+function derict(o,temp,cache,fun){
 	if(derict_lock){
 		return;
 	}
 	derict_lock=true;
-	// $(".slidebar").find(".active").removeClass("active");
-	// $(o).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active");
 	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();
 		$(".page-content").append('<div class="work-space work-space-active"></div>');
 		$(".work-space-active").loadTemp("transmit","nochangeurl");
 		$(".work-space-active").delay(500).fadeOut(function(){
 			$(this).html("").fadeIn();
-			$(".work-space-active").loadTemp(temp,cache);
+			$(".work-space-active").loadTemp(temp,cache,fun);
 			try{window.history.pushState({},0,temp)}catch(e){plumeLog("提示:无法动态改变地址:"+e.message);}
 			derict_lock=false;
 		});
@@ -153,9 +156,14 @@ function setPrams(){
 	}else{
 		$(".container-fixed").fadeIn();
 	}
-	if(temp!="index"&&temp!=""){
-		$(".work-space").loadTemp(temp,"nochangeurl");
-	}else{
+	try{
+		if(temp!="index"&&temp!=""){
+			$(".work-space").loadTemp(temp,"nochangeurl");
+		}else{
+			$(".work-space").loadTemp("welcome","nochangeurl");
+		}
+	}catch(e){
 		$(".work-space").loadTemp("welcome","nochangeurl");
 	}
+
 }
