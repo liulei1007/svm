@@ -42,54 +42,58 @@
 		<init>table_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement1</page-name>
-		<page-url>/pages/basicDataManagement1.html</page-url>
-		<init>basicDataManagement1_init</init>
+		<page-name>agencyList</page-name>
+		<page-url>/pages/agencyList.html</page-url>
 	</page>
 	<page>
-		<page-name>basicDataManagement2</page-name>
-		<page-url>/pages/basicDataManagement2.html</page-url>
-		<init>basicDataManagement2_init</init>
+		<page-name>seriesManage</page-name>
+		<page-url>/pages/seriesManage.html</page-url>
+		<init>seriesManage_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement3</page-name>
-		<page-url>/pages/basicDataManagement3.html</page-url>
-		<init>basicDataManagement3_init</init>
+		<page-name>goodsDataManage</page-name>
+		<page-url>/pages/goodsDataManage.html</page-url>
+		<init>goodsDataManage_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement4</page-name>
-		<page-url>/pages/basicDataManagement4.html</page-url>
-		<init>basicDataManagement4_init</init>
+		<page-name>goodsAuditManage</page-name>
+		<page-url>/pages/goodsAuditManage.html</page-url>
+		<init>goodsAuditManage_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement5</page-name>
-		<page-url>/pages/basicDataManagement5.html</page-url>
-		<init>basicDataManagement5_init</init>
+		<page-name>addGoodsData</page-name>
+		<page-url>/pages/addGoodsData.html</page-url>
+		<init>addGoodsData_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement6</page-name>
-		<page-url>/pages/basicDataManagement6.html</page-url>
-		<init>basicDataManagement6_init</init>
+		<page-name>batchlead</page-name>
+		<page-url>/pages/batchlead.html</page-url>
+		<init>batchlead_init</init>
 	</page>
 	<page>
-		<page-name>basicDataManagement7</page-name>
-		<page-url>/pages/basicDataManagement7.html</page-url>
-		<init>basicDataManagement7_init</init>
+		<page-name>noCompleteData</page-name>
+		<page-url>/pages/noCompleteData.html</page-url>
+		<init>noCompleteData_init</init>
 	</page>
 	<page>
-		<page-name>commodityManagement1</page-name>
-		<page-url>/pages/commodityManagement1.html</page-url>
-		<init>commodityManagement1_init</init>
+		<page-name>amendmentInfo</page-name>
+		<page-url>/pages/amendmentInfo.html</page-url>
+		<init>amendmentInfo_init</init>
 	</page>
 	<page>
-		<page-name>commodityManagement2</page-name>
-		<page-url>/pages/commodityManagement2.html</page-url>
-		<init>commodityManagement2_init</init>
+		<page-name>takingGoodsData</page-name>
+		<page-url>/pages/takingGoodsData.html</page-url>
+		<init>commoditytakingGoodsData_init</init>
 	</page>
 	<page>
-		<page-name>commodityManagement3</page-name>
-		<page-url>/pages/commodityManagement3.html</page-url>
-		<init>commodityManagement3_init</init>
+		<page-name>groundGoods</page-name>
+		<page-url>/pages/groundGoods.html</page-url>
+		<init>groundGoods_init</init>
+	</page>
+	<page>
+		<page-name>applySeries</page-name>
+		<page-url>/pages/applySeries.html</page-url>
+		<init>applySeries_init</init>
 	</page>
 	<page>
 		<page-name>applyPopup</page-name>

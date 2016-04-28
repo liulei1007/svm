@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"basicDataManagement6"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-basicDataManagement">
+   <div class="title-block">待完善数据</div>
+    <div class="search-block">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="goodsName">商品名称</label>
+          <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
+        </div>
+        <div class="form-group">
+          <label>分类</label>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="model">型号</label>
+          <input type="text" class="form-control input-sm" id="agencyPhone" placeholder="">
+        </div>
+         <div class="form-group">
+          <label>状态</label>
+          <select class="form-control input-sm">
+            <option>所有</option>
+          </select>
+        </div>
+        <button class="btn btn-default btn-sm">查询</button>
+      </form>
+    </div>
+     <div class="basicDataManagement-table">   
+        <div class="table-title">
+            <button class="btn btn-primary">确认</button>
+            <button class="btn btn-primary">删除</button>
+            <span>当前总共还有<b>320</b>条商品数据需要继续补充信息!</span>      
+        </div>
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>商品数据ID号</th>
+                <th>一级分类</th>
+                <th>二级分类</th>
+                <th>三级分类</th>
+                <th>商品名称</th>
+                <th>产地</th>
+                <th>型号</th>
+                <th>图片</th>
+                <th>颜色</th>
+                <th>规格</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td>20160402001</td>
+                <td>家具</td>
+                <td>卧室家具</td>
+                <td>床</td>
+                <td>欧美高弹性床</td>
+                <td>北京</td>
+                <td>FB-13138</td>
+                <td><img src=""></td>
+                <td>红色，白色</td>
+                <td>200*180，150*200</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">编辑</button>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">删除</button>
+                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">确认</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
