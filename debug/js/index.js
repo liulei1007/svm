@@ -138,7 +138,11 @@ $(function(){
 		$(this).find(".slidebar-list").show();
 	}).bind("mouseleave", function() {
 		$(this).find(".slidebar-list").hide();
-	})
+	});
+	// 左侧导航栏二级分类点击隐藏
+	$(".slidebar-list li").bind("click", function() {
+		$(this).parents(".slidebar-list").hide();
+	});
 });
 var derict_lock=false;
 function derict(o,temp,cache){
