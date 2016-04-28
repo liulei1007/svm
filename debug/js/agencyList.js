@@ -14,11 +14,21 @@ $(function() {
 			unBind();
 		});
 	});
+	// 创建公司经销/代理商
 	$(".btn-createCompany").on("click", function() {
 		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
 	});
+	// 创建个人经销/代理商
 	$(".btn-createPersonal").on("click", function() {
 		$(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
+	});
+	// 查看公司经销/代理商
+	$(".btn-show-company").on("click", function() {
+		$(".work-space").loadTemp("agencyShowCompany","nochangeurl");
+	});
+	// 查看个人经销/代理商
+	$(".btn-show-personal").on("click", function() {
+		$(".work-space").loadTemp("agencyShowPersonal","nochangeurl");
 	});
 });
 

@@ -92,6 +92,12 @@ $(function(){
 	}).bind("mouseleave", function() {
 		$(this).find(".slidebar-list").hide();
 	});
+	// 左侧导航栏二级分类点击隐藏
+	$(".slidebar-list li").bind("click", function() {
+		$(this).parents(".slidebar-list").hide();
+	});
+
+
 	$(".index-head-user").bind("mouseenter", function() {
 		$(".index-head-user .ihu-title-block").fadeIn();
 	}).bind("mouseleave", function() {

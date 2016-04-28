@@ -17,7 +17,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 
 .doc-login-body{width:100%;position: absolute; top: 70px; right: 0; bottom: 0; left: 0;}
 
-.doc-temp-body{position: relative; padding:10px}
+.doc-temp-body{position: relative; padding: 10px;}
 .doc-body-left,.doc-body-right{height:100%;float:left}
 .doc-body-left{width:8%;border-right:0px solid #ced1dc;position:relative;z-index:2;background:#f0f2fa;}
 .doc-body-right{background:#fff;position:relative;width:92%}
@@ -137,6 +137,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .btn-danger:hover, .btn-danger.focus, .btn-danger:focus{background-color: #e55937; border-color: #e55937;}
 .btn-special{color: #fff; background-color: #333; border-color: #333;}
 .btn-special:hover, .btn-special.focus, .btn-special:focus{color: #fff; background-color: #333; border-color: #333;}
+.btn-link{color: #1397da; background-color: transparent; border-color: transparent;}
+.btn-link:hover, .btn-link.focus, .btn-link:focus{text-decoration: underline;}
+
 
 /** --------警告-------- **/
 .alert{border-radius: 0;}
@@ -192,11 +195,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-typein .form-horizontal .btn{width: 100%;}
 .body-typein .form-horizontal .btn-block{margin-top: 30px; margin-bottom: 20px;}
 .body-typein .form-horizontal .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
+.body-typein .form-horizontal .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
 
 /** 提示 **/
 .body-typein .form-horizontal .tips-block{margin-top: 10px; margin-bottom: 0; font-size: 12px; color: #989da8;}
 .body-typein .form-horizontal .tips-block > p{margin-bottom: 0;}
 /** 上传 **/
+.body-typein .form-horizontal .file-name{display: inline-block; padding: 6px 10px; height: 34px; line-height: 20px; font-size: 12px;}
 .body-typein .form-horizontal .form-onload{display: table; position: relative; width: 100%; height: 100px; border: solid #ced1dc 1px; cursor: pointer;}
 .body-typein .form-horizontal .form-onload > span{display: table-cell; color: #989da8; text-align: center; vertical-align: middle;}
 
