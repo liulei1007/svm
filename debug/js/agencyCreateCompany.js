@@ -18,7 +18,8 @@ $(function() {
 	});
 	// 点击“取消”，返回至列表页
 	$(".btn-back").on("click", function() {
-		$(".work-space").loadTemp("agencyList","nochangeurl");
+		derict(this, "agencyList", "nochangeurl");
+		// $(".work-space").loadTemp("agencyList","nochangeurl");
 	});
 });
 

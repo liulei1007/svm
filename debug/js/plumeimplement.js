@@ -107,6 +107,7 @@ function applySeries_init(){
 
 
 function agencyList_init() {
+    plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/agencyList.js");
 }
 function agencyCreateCompany_init() {
@@ -129,6 +130,7 @@ function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
 }
 function shopCreate_init() {
+    plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/shopCreate.js");
 }
 function shopShowCompany_init() {
