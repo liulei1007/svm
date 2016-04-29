@@ -1,4 +1,5 @@
-
 $(function() {
-	// $('#startTime').cxCalendar();
+	$("#addAccount").on("click", ".back", function() {
+		derict(this,thisUrl,"nochangeurl");
+	});
 });

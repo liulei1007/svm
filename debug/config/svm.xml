@@ -158,6 +158,28 @@
 		<page-url>/pages/agencyAddAccount.html</page-url>
 		<init>agencyAddAccount_init</init>
 	</page>
+
+	<page>
+		<page-name>shopListAgency</page-name>
+		<page-url>/pages/shopList-agency.html</page-url>
+		<init>shopListAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopCreateAgency</page-name>
+		<page-url>/pages/shopCreate-agency.html</page-url>
+		<init>shopCreateAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopShowAgency</page-name>
+		<page-url>/pages/shopShow-agency.html</page-url>
+		<init>shopShowAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopAlterAgency</page-name>
+		<page-url>/pages/shopAlter-agency.html</page-url>
+		<init>shopAlterAgency_init</init>
+	</page>
+
 	<page>
 		<page-name>shopList</page-name>
 		<page-url>/pages/shopList.html</page-url>
@@ -183,11 +205,58 @@
 		<page-url>/pages/brandCreateCompany.html</page-url>
 		<init>brandCreateCompany_init</init>
 	</page>
-
+	<page>
+		<page-name>brandList</page-name>
+		<page-url>/pages/brandList.html</page-url>
+		<init>brandList_init</init>
+	</page>
+	<page>
+		<page-name>brandAdd</page-name>
+		<page-url>/pages/brandAdd.html</page-url>
+		<init>brandAdd_init</init>
+	</page>
+	<page>
+		<page-name>msgAdd</page-name>
+		<page-url>/pages/msgAdd.html</page-url>
+		<init>msgAdd_init</init>
+	</page>
+	<page>
+		<page-name>reviewList</page-name>
+		<page-url>/pages/reviewList.html</page-url>
+		<init>reviewList_init</init>
+	</page>
+	<page>
+		<page-name>reviewShowCompany</page-name>
+		<page-url>/pages/reviewShowCompany.html</page-url>
+		<init>reviewShowCompany_init</init>
+	</page>
+	<page>
+		<page-name>reviewShowPersonal</page-name>
+		<page-url>/pages/reviewShowPersonal.html</page-url>
+		<init>reviewShowPersonal_init</init>
+	</page>
+	<page>
+		<page-name>reviewCompany</page-name>
+		<page-url>/pages/reviewCompany.html</page-url>
+		<init>reviewCompany_init</init>
+	</page>
+	<page>
+		<page-name>reviewPersonal</page-name>
+		<page-url>/pages/reviewPersonal.html</page-url>
+		<init>reviewPersonal_init</init>
+	</page>
 
 	<page>
 		<page-name>popConfirmDelete</page-name>
 		<page-url>/pages/popConfirmDelete.html</page-url>
+	</page>
+	<page>
+		<page-name>popSubmitSuccess</page-name>
+		<page-url>/pages/popSubmitSuccess.html</page-url>
+	</page>
+	<page>
+		<page-name>popSubmitCheck</page-name>
+		<page-url>/pages/popSubmitCheck.html</page-url>
 	</page>
 
 	brandCreateCompany

@@ -1,35 +1,59 @@
+
 $(function() {
+	var $removeLine;
+
+	// 点击“删除”，弹出层提示是否确认删除
 	$(".btn-delete").on("click", function() {
-		var $removeLine = $(this).parents("tr");
-		$(".pop").loadTemp("popConfirmDelete","nochangeurl");
-		$(".pop").on("click", ".btn-sure", function() {
-			// alert("yes");
-			// removeRecord($removeLine);
-			// console.log($removeLine);
-			$removeLine.remove();
-			unBind();
-		});
-		$(".pop").on("click", ".btn-cancel", function() {
-			// alert("no");
-			unBind();
-		});
+		$removeLine = $(this).parents("tr");
+		deleteRecode($removeLine, "url1", "key1");
+		// // 如果未加载过弹出层，加载弹出层
+		// // if (!$(".pop .popup").html()) {
+		// 	$(".pop").loadTemp("popConfirmDelete", "nochangeurl", function() {
+		// 		$(".pop").show();
+		// 		// 弹出层的绑定事件：“确定”删除当前记录；“取消”隐藏弹出层
+		// 		$(".pop").on("click", ".btn-sure", function() {
+		// 			alert("yes");
+		// 			$removeLine.remove();
+		// 			unBind();
+		// 			// $(".pop").hide();
+		// 		}).on("click", ".btn-cancel", function() {
+		// 			alert("cancel");
+		// 			unBind();
+		// 			// $(".pop").hide();
+		// 		});
+		// 	});
+		// // }
+		// // // 若加载过弹出层，显示弹出层
+		// // else {
+		// // 	$(".pop").show();
+		// // }
 	});
+	// 创建公司经销/代理商
 	$(".btn-createCompany").on("click", function() {
-		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
+		derict(this, "agencyCreateCompany", "nochangeurl");
+		// $(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
 	});
+	// 创建个人经销/代理商
 	$(".btn-createPersonal").on("click", function() {
-		$(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
+		derict(this, "agencyCreatePersonal", "nochangeurl");
+		// $(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
+	});
+	// 查看公司经销/代理商
+	$(".btn-show-company").on("click", function() {
+		derict(this, "agencyShowCompany", "nochangeurl");
+		// $(".work-space").loadTemp("agencyShowCompany","nochangeurl");
+	});
+	// 查看个人经销/代理商
+	$(".btn-show-personal").on("click", function() {
+		derict(this, "agencyShowPersonal", "nochangeurl");
+		// $(".work-space").loadTemp("agencyShowPersonal","nochangeurl");
 	});
 });
-
-function removeRecord(removeObj) {
-	console.log($(removeObj));
-	$(removeObj).remove();
-}
 
 function unBind() {
 	$(".pop").off("click", ".btn-sure");
 	$(".pop").off("click", ".btn-cancel");
 	$(".pop .popup").remove();
+	$(".pop").hide();
 	// $(".pop .popup").hide();
 }

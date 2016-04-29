@@ -107,7 +107,7 @@ function applySeries_init(){
 
 
 function agencyList_init() {
-    plumeUtil.js(plumePath+"/js/agencyList.js");
+    plumeUtil.js(plumePath+"/js/operatePop.js");
 }
 function agencyCreateCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
@@ -124,10 +124,12 @@ function agencyShowPersonal_init() {
 function agencyAddAccount_init() {
     plumeUtil.js(plumePath+"/js/agencyAddAccount.js");
 }
+
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
 }
 function shopCreate_init() {
+    plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/shopCreate.js");
 }
 function shopShowCompany_init() {
@@ -135,6 +137,19 @@ function shopShowCompany_init() {
 }
 function shopAlter_init() {
     plumeUtil.js(plumePath+"/js/shopAlter.js");
+}
+
+function shopListAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopList-agency.js");
+}
+function shopCreateAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
+}
+function shopShowAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopShow-agency.js");
+}
+function shopAlterAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopAlter-agency.js");
 }
 
 //--idmanage模板初始化函数--
@@ -172,4 +187,41 @@ function applyPopup_init(){
     plumeLog("初始化applyPopup模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/applyPopup.js");
     plumeLog("完成applyPopup模板加载-"+plumeTime());
+}
+
+//--brandList模板初始化函数--
+function brandList_init(){
+    plumeLog("初始化brandList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/brandList.js");
+    plumeLog("完成brandList模板加载-"+plumeTime());
+}
+//--brandAdd模板初始化函数--
+function brandAdd_init(){
+    plumeLog("初始化brandAdd模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/brandAdd.js");
+    plumeLog("完成brandAdd模板加载-"+plumeTime());
+}
+//--msgAdd模板初始化函数--
+function msgAdd_init(){
+    plumeLog("初始化msgAdd模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/msgAdd.js");
+    plumeLog("完成msgAdd模板加载-"+plumeTime());
+}
+//--reviewList模板初始化函数--
+function reviewList_init(){
+    plumeLog("初始化reviewList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewList.js");
+    plumeLog("完成reviewList模板加载-"+plumeTime());
+}
+//--reviewShowCompany模板初始化函数--
+function reviewShowCompany_init(){
+    plumeLog("初始化reviewList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewShowCompany.js");
+    plumeLog("完成reviewShowCompany模板加载-"+plumeTime());
+}
+//--reviewShowPersonal模板初始化函数--
+function reviewShowPersonal_init(){
+    plumeLog("初始化reviewShowPersonal模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewShowPersonal.js");
+    plumeLog("完成reviewShowPersonal模板加载-"+plumeTime());
 }

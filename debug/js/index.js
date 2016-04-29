@@ -28,16 +28,33 @@ $(function(){
 	$(".agencyAddAccount").bind("click",function(){
 		derict(this,"agencyAddAccount","nochangeurl");
 	});
+
+	$(".shopListAgency").bind("click",function(){
+		derict(this,"shopListAgency","nochangeurl");
+	});
+	$(".shopCreateAgency").bind("click",function(){
+		derict(this,"shopCreateAgency","nochangeurl");
+	});
+	$(".shopShowAgency").bind("click",function(){
+		derict(this,"shopShowAgency","nochangeurl");
+	});
+	$(".shopAlterAgency").bind("click",function(){
+		derict(this,"shopAlterAgency","nochangeurl");
+	});
+
 	$(".shopList").bind("click",function(){
 		derict(this,"shopList","nochangeurl");
 	});
 	$(".shopCreate").bind("click",function(){
 		derict(this,"shopCreate","nochangeurl");
 	});
-
-	$(".agencyList").bind("click",function(){
-		derict(this,"agencyList","nochangeurl");
+	$(".shopShowCompany").bind("click",function(){
+		derict(this,"shopShowCompany","nochangeurl");
 	});
+	$(".shopAlter").bind("click",function(){
+		derict(this,"shopAlter","nochangeurl");
+	});
+
 	$(".seriesManage").bind("click",function(){
 		derict(this,"seriesManage","nochangeurl");
 	});
@@ -69,14 +86,6 @@ $(function(){
 		derict(this,"applySeries","nochangeurl");
 	});
 
-
-	$(".shopShowCompany").bind("click",function(){
-		derict(this,"shopShowCompany","nochangeurl");
-	});
-	$(".shopAlter").bind("click",function(){
-		derict(this,"shopAlter","nochangeurl");
-	});
-
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
 	});
@@ -86,12 +95,39 @@ $(function(){
 	$(".changepwd").bind("click",function(){
 		derict(this,"changepwd","nochangeurl");
 	});
+	$(".brandList").bind("click",function(){
+		derict(this,"brandList","nochangeurl");
+	});
+	$(".brandAdd").bind("click",function(){
+		derict(this,"brandAdd","nochangeurl");
+	});
+	$(".reviewList").bind("click",function(){
+		derict(this,"reviewList","nochangeurl");
+	});
+	$(".reviewShowCompany").bind("click",function(){
+		derict(this,"reviewShowCompany","nochangeurl");
+	});
+	$(".reviewShowPersonal").bind("click",function(){
+		derict(this,"reviewShowPersonal","nochangeurl");
+	});
+	$(".reviewCompany").bind("click",function(){
+		derict(this,"reviewCompany","nochangeurl");
+	});
+	$(".reviewPersonal").bind("click",function(){
+		derict(this,"reviewPersonal","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();
 	}).bind("mouseleave", function() {
 		$(this).find(".slidebar-list").hide();
 	});
+	// 左侧导航栏二级分类点击隐藏
+	$(".slidebar-list li").bind("click", function() {
+		$(this).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active").siblings().removeClass("active");
+	});
+
+
 	$(".index-head-user").bind("mouseenter", function() {
 		$(".index-head-user .ihu-title-block").fadeIn();
 	}).bind("mouseleave", function() {
@@ -105,21 +141,18 @@ $(function(){
 	});
 });
 var derict_lock=false;
-function derict(o,temp,cache){
-	console.log($(o).parents(".slidebar-title"));
+function derict(o,temp,cache,fun){
 	if(derict_lock){
 		return;
 	}
 	derict_lock=true;
-	$(".slidebar").find(".active").removeClass("active");
-	$(o).parents(".slidebar-title").addClass("active");
 	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();
 		$(".page-content").append('<div class="work-space work-space-active"></div>');
 		$(".work-space-active").loadTemp("transmit","nochangeurl");
-		$(".work-space-active").delay(500).fadeOut(function(){
+		$(".work-space-active").delay(300).fadeOut(function(){
 			$(this).html("").fadeIn();
-			$(".work-space-active").loadTemp(temp,cache);
+			$(".work-space-active").loadTemp(temp,cache,fun);
 			try{window.history.pushState({},0,temp)}catch(e){plumeLog("提示:无法动态改变地址:"+e.message);}
 			derict_lock=false;
 		});
@@ -138,9 +171,14 @@ function setPrams(){
 	}else{
 		$(".container-fixed").fadeIn();
 	}
-	if(temp!="index"&&temp!=""){
-		$(".work-space").loadTemp(temp,"nochangeurl");
-	}else{
+	try{
+		if(temp!="index"&&temp!=""){
+			$(".work-space").loadTemp(temp,"nochangeurl");
+		}else{
+			$(".work-space").loadTemp("welcome","nochangeurl");
+		}
+	}catch(e){
 		$(".work-space").loadTemp("welcome","nochangeurl");
 	}
+
 }

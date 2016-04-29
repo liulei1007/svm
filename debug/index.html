@@ -1,95 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script language="javascript" src="js/plumecommon.js" ></script>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="js/plumecommon.js"></script>
     <script>
-        var _PLUME={
-            "config":"config/svm.xml",
-            "initPage":"index"
+        var _PLUME = {
+            "config": "config/svm.xml",
+            "initPage": "index"
         }
     </script>
 </head>
 <body style="padding-top: 45px;">
-<div class="container-page">
-  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="index-head-logo">红星美凯龙云商平台</div>
-      <div class="index-head-user">
-          <div class="ihu-title btn-index">欢迎您 admin <span class="caret"></span></div>
-          <div class="ihu-title-block">
-              <div class="ihu-exit btn-index">退出</div>
-              <div class="ihu-changepwd btn-index">修改密码</div>
-          </div>
-      </div>
-  </nav>
-  <div class="container-fluid container-fixed">
-    <div class="row">
-      <div class="slidebar">
-        <ul class="nav slidebar-title active">
-          <li><i></i>店铺管理</li>
-          <ul class="nav slidebar-list">
-            <li class="welcome">欢迎页</li>
-            <li class="test">test</li>
-          </ul>
-        </ul>
-        <ul class="nav slidebar-title">
-          <li><i></i>经代管理</li>
-          <ul class="nav slidebar-list">
-            <li class="agencyList">经销/代理商管理</li>
-            <li class="agencyCreateCompany">创建公司经销/代理商</li>
-            <li class="agencyCreatePersonal">创建个人经销/代理商</li>
-            <li class="agencyShowCompany">查看公司经销/代理商</li>
-            <li class="agencyShowPersonal">查看个人经销/代理商</li>
-            <li class="agencyAddAccount">生成账号</li>
-          </ul>
-        </ul>
-        <ul class="nav slidebar-title">
-          <li><i></i>基础数据管理</li>
-          <ul class="nav slidebar-list">
-            <li class="seriesManage">系统管理</li>
-            <li class="goodsDataManage">商品数据管理</li>
-            <li class="goodsAuditManage">商品审核管理</li>
-            <li class="addGoodsData">新增商品数据</li>
-            <li class="batchlead">批量导入</li>
-            <li class="noCompleteData">待完善数据</li>
-            <li class="amendmentInfo">修正信息处理</li>    
-          </ul>
-        </ul>
-        <ul class="nav slidebar-title">
-          <li><i></i>商品管理</li>
-          <ul class="nav slidebar-list">
-            <li class="takingGoodsData">调取商品数据</li>
-            <li class="groundGoods">商品上下架</li>
-            <li class="applySeries">申请系列</li>
-          </ul>
-        </ul>
-        <ul class="nav slidebar-title">
-          <li><i></i>店铺管理</li>
-          <ul class="nav slidebar-list">
-            <li class="shopList">店铺列表</li>
-            <li class="shopCreate">申请直营店</li>
-            <li class="shopShowCompany">店铺信息</li>
-            <li class="shopAlter">修改信息</li>
-          </ul>
-        </ul>
+  <div class="container-page">
+    <div class="pop"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="index-head-logo">红星美凯龙云商平台</div>
+        <div class="index-head-user">
+            <div class="ihu-title btn-index">欢迎您 admin <span class="caret"></span></div>
+            <div class="ihu-title-block">
+                <div class="ihu-exit btn-index">退出</div>
+                <div class="ihu-changepwd btn-index">修改密码</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid container-fixed">
+      <div class="row">
+        <div class="slidebar">
           <ul class="nav slidebar-title">
-              <li><i></i>系统管理</li>
-              <ul class="nav slidebar-list">
-                  <li class="idmanage">账号管理</li>
-                  <li class="msgmanage">缺失反馈</li>
-                  <li class="changepwd">修改密码</li>
-              </ul>
+            <li><i class="agency"></i>经销/代理商管理</li>
+            <ul class="nav slidebar-list">
+              <li class="agencyList">经销/代理商管理</li>
+              <li class="agencyCreateCompany">创建公司经销/代理商</li>
+              <li class="agencyCreatePersonal">创建个人经销/代理商</li>
+              <li class="agencyShowCompany">查看公司经销/代理商</li>
+              <li class="agencyShowPersonal">查看个人经销/代理商</li>
+              <li class="agencyAddAccount">生成账号</li>
+            </ul>
           </ul>
-      </div>
-      <div class="page-content">
-        <div class="work-space work-space-active"></div>
-      </div>
+          <ul class="nav slidebar-title">
+            <li><i class="baseData"></i>基础数据管理</li>
+            <ul class="nav slidebar-list">
+              <li class="seriesManage">系统管理</li>
+              <li class="goodsDataManage">商品数据管理</li>
+              <li class="goodsAuditManage">商品审核管理</li>
+              <li class="addGoodsData">新增商品数据</li>
+              <li class="batchlead">批量导入</li>
+              <li class="noCompleteData">待完善数据</li>
+              <li class="amendmentInfo">修正信息处理</li>    
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i class="shop"></i>商品管理</li>
+            <ul class="nav slidebar-list">
+              <li class="takingGoodsData">调取商品数据</li>
+              <li class="groundGoods">商品上下架</li>
+              <li class="applySeries">申请系列</li>
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i class="brand"></i>品牌管理</li>
+            <ul class="nav slidebar-list">
+              <li class="brandList">品牌列表</li>
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i class="setting"></i>系统管理</li>
+            <ul class="nav slidebar-list">
+              <li class="idmanage">账号管理</li>
+              <li class="msgmanage">缺失反馈</li>
+              <li class="changepwd">修改密码</li>
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i class="shop"></i>店铺管理</li>
+            <ul class="nav slidebar-list">
+              <li class="shopList">店铺列表</li>
+              <li class="shopCreate">申请直营店</li>
+              <li class="shopShowCompany">店铺信息</li>
+              <li class="shopAlter">修改信息</li>
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i class="shop"></i>店铺管理-经销商</li>
+            <ul class="nav slidebar-list">
+              <li class="shopListAgency">店铺列表</li>
+              <li class="shopCreateAgency">申请直营店</li>
+              <li class="shopShowAgency">店铺信息</li>
+              <li class="shopAlterAgency">修改信息</li>
+            </ul>
+          </ul>
+          <ul class="nav slidebar-title">
+            <li><i></i>审核管理</li>
+            <ul class="nav slidebar-list">
+                <li class="reviewList">审核列表</li>
+                <li class="reviewShowCompany">查看公司审核信息</li>
+                <li class="reviewShowPersonal">查看个人审核信息</li>
+                <li class="reviewCompany">审核公司信息</li>
+                <li class="reviewPersonal">审核个人信息</li>
+            </ul>
+          </ul>
+        </div>
+        <div class="page-content">
+          <div class="work-space work-space-active"></div>
+        </div>
     </div>
-  </div>
 </div>
 </body>
 </html>

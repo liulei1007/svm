@@ -19,12 +19,7 @@
 
 <body>
   <!-- 弹出层 -->
-  <div class="pop"></div>
-
-  <ol class="breadcrumb">
-    <li>经代管理</li>
-    <li class="active">经销/代理商列表</li>
-  </ol>
+  <!-- <div class="pop"></div> -->
   
   <div class="doc-temp-body">
     <div class="title-block">经销/代理商列表</div>
@@ -49,8 +44,8 @@
           <label for="agencyPhone">手机号</label>
           <input type="text" class="form-control input-sm" id="agencyPhone" placeholder="请输入手机号">
         </div>
-        <button class="btn btn-default btn-sm">搜索</button>
-        <button class="btn btn-default btn-sm">导出</button>
+        <div class="btn btn-default btn-sm">搜索</div>
+        <div class="btn btn-default btn-sm">导出</div>
       </form>
     </div>
     <div class="btn-block">
@@ -83,22 +78,22 @@
             <td>法兰蒂斯</td>
             <td>2016-03-02</td>
             <td>
+              <button type="button" class="btn btn-default btn-sm btn-show-company">查看</button>
               <button type="button" class="btn btn-default btn-sm btn-delete">删除</button>
-              <button type="button" class="btn btn-default btn-sm">查看</button>
             </td>
           </tr>
           <tr>
             <td><input type="checkbox" /></td>
             <td>222</td>
             <td>张三</td>
-            <td>公司</td>
+            <td>个人</td>
             <td>13929294856</td>
             <td>江苏</td>
             <td>法兰蒂斯</td>
             <td>2016-03-02</td>
             <td>
+              <button type="button" class="btn btn-default btn-sm btn-show-personal">查看</button>
               <button type="button" class="btn btn-default btn-sm btn-delete">删除</button>
-              <button type="button" class="btn btn-default btn-sm">查看</button>
             </td>
           </tr>
           <tr>
@@ -111,8 +106,8 @@
             <td>法兰蒂斯</td>
             <td>2016-03-02</td>
             <td>
+              <button type="button" class="btn btn-default btn-sm btn-show-company">查看</button>
               <button type="button" class="btn btn-default btn-sm btn-delete">删除</button>
-              <button type="button" class="btn btn-default btn-sm">查看</button>
             </td>
           </tr>
         </tbody>

@@ -1,5 +1,9 @@
+
 var PLUME_PROJECT="debug";
+
+
 //var PLUME_PROJECT="debug";
+var PLUME_PROJECT="debug";
 var PLUME_FILE=[
 	"/"+PLUME_PROJECT+"/css/bootstrap.min.css",
 	"/"+PLUME_PROJECT+"/css/jquery.cxcalendar.css",
