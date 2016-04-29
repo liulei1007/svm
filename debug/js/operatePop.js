@@ -3,18 +3,18 @@ function deleteRecode($removeLine, url, key) {
 	$(".pop").loadTemp("popConfirmDelete", "nochangeurl", function() {
 		$(".pop").show();
 		// 弹出层的绑定事件：“确定”删除当前记录；“取消”隐藏弹出层
-		$(".pop").on("click", ".btn-sure", function() {
-			alert("yes");
-			$removeLine.remove();
-			$(".pop").off("click", ".btn-sure");
-			$(".pop").hide();
-			// unBind();
-		}).on("click", ".btn-cancel", function() {
-			alert("cancel");
-			$(".pop").off("click", ".btn-cancel");
-			$(".pop").hide();
-			// unBind();
-		});
+		// $(".pop").on("click", ".btn-sure", function() {
+		// 	alert("yes");
+		// 	$removeLine.remove();
+		// 	$(".pop").off("click", ".btn-sure");
+		// 	$(".pop").hide();
+		// 	// unBind();
+		// }).on("click", ".btn-cancel", function() {
+		// 	alert("cancel");
+		// 	$(".pop").off("click", ".btn-cancel");
+		// 	$(".pop").hide();
+		// 	// unBind();
+		// });
 	});
 }
 

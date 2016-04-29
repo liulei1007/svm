@@ -106,8 +106,17 @@ function applySeries_init(){
 }
 
 
+//--新增单笔自采商品模板初始化函数--
+function createMyGoods_init(){
+    plumeLog("初始化applySeries模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/createMyGoods.js");
+    plumeLog("完成applySeries模板加载-"+plumeTime());
+}
+
+
 function agencyList_init() {
     plumeUtil.js(plumePath+"/js/operatePop.js");
+    plumeUtil.js(plumePath+"/js/agencyList.js");
 }
 function agencyCreateCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");

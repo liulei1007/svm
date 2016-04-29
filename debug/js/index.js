@@ -85,6 +85,9 @@ $(function(){
 	$(".applySeries").bind("click",function(){
 		derict(this,"applySeries","nochangeurl");
 	});
+	$(".createMyGoods").bind("click",function(){
+		derict(this,"createMyGoods","nochangeurl");
+	});
 
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
