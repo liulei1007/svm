@@ -92,6 +92,21 @@ $(function(){
 	$(".brandAdd").bind("click",function(){
 		derict(this,"brandAdd","nochangeurl");
 	});
+	$(".reviewList").bind("click",function(){
+		derict(this,"reviewList","nochangeurl");
+	});
+	$(".reviewShowCompany").bind("click",function(){
+		derict(this,"reviewShowCompany","nochangeurl");
+	});
+	$(".reviewShowPersonal").bind("click",function(){
+		derict(this,"reviewShowPersonal","nochangeurl");
+	});
+	$(".reviewCompany").bind("click",function(){
+		derict(this,"reviewCompany","nochangeurl");
+	});
+	$(".reviewPersonal").bind("click",function(){
+		derict(this,"reviewPersonal","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();

@@ -106,7 +106,7 @@ function applySeries_init(){
 }
 
 
-function agencyList_init() {
+function agencyShowCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyList.js");
 }
 function agencyCreateCompany_init() {
@@ -184,4 +184,22 @@ function msgAdd_init(){
     plumeLog("初始化msgAdd模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/msgAdd.js");
     plumeLog("完成msgAdd模板加载-"+plumeTime());
+}
+//--reviewList模板初始化函数--
+function reviewList_init(){
+    plumeLog("初始化reviewList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewList.js");
+    plumeLog("完成reviewList模板加载-"+plumeTime());
+}
+//--reviewShowCompany模板初始化函数--
+function reviewShowCompany_init(){
+    plumeLog("初始化reviewList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewShowCompany.js");
+    plumeLog("完成reviewShowCompany模板加载-"+plumeTime());
+}
+//--reviewShowPersonal模板初始化函数--
+function reviewShowPersonal_init(){
+    plumeLog("初始化reviewShowPersonal模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/reviewShowPersonal.js");
+    plumeLog("完成reviewShowPersonal模板加载-"+plumeTime());
 }
