@@ -98,6 +98,7 @@
 	<page>
 		<page-name>applyPopup</page-name>
 		<page-url>/pages/applyPopup.html</page-url>
+		<init>applyPopup_init</init>
 	</page>
 	<page>
 		<page-name>delectPopup</page-name>
