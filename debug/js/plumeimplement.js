@@ -191,6 +191,13 @@ function brandCreateCompany_init(){
     plumeUtil.js(plumePath+"/js/brandCreateCompany.js");
     plumeLog("完成brandCreateCompany模板加载-"+plumeTime());
 }
+
+function applyPopup_init(){
+    plumeLog("初始化applyPopup模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/applyPopup.js");
+    plumeLog("完成applyPopup模板加载-"+plumeTime());
+}
+
 //--brandList模板初始化函数--
 function brandList_init(){
     plumeLog("初始化brandList模板-"+plumeTime());

@@ -441,6 +441,26 @@ var $$={
 		}
 	}
 };
+
+
+//表单删除
+$.fn.extend({
+	delectData:function(){
+		var removeList = $(this).parents('tr');
+		$('.pop').loadTemp("applyPopup","nochangeurl",function() {
+			$('.pop').on('click','.btn-true',function() {
+				removeList.remove();
+				$('.pop').hide();
+				$('.pop').off('click','.btn-true');
+			});
+			$('.pop').on('click','.btn-back',function(){
+				$('.pop').hide();
+				$('.pop').off('click','.btn-true');
+			})
+		});
+	}
+});
+
 //内部测试方法,获取时间戳
 function plumeTime(){
 	return new Date().getTime();
