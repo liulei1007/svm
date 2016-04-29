@@ -99,20 +99,12 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #f0f2fa; border-right: solid #ced1dc 1px;}
 .slidebar-title{position: relative;}
 .slidebar-title > li{padding-top: 5px; padding-bottom: 5px; height: 80px; text-align: center; border-bottom: solid #ced1dc 1px; cursor: pointer;}
+.slidebar-title > li > i{display: block; margin: 0 auto; margin-bottom: 5px; width: 40px; height: 40px; background-color: #d9ecf5;}
 .slidebar-title:hover > li, .slidebar-title.active > li{background-color: #fff;}
 .slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 220px; background-color: #fff; border: solid #ced1dc 1px;}
 .slidebar-list > li{padding: 5px 20px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 .slidebar-list > li:hover{color: #fff; background-color: #1397da;}
-/** 图标 **/
-.slidebar-title i{display: block; margin: 5px auto; margin-bottom: 10px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
-.slidebar-title i.agency{background-position: 0 0;}
-.slidebar-title i.baseData{background-position: -65px 0;}
-.slidebar-title i.check{background-position: -130px 0;}
-.slidebar-title i.setting{background-position: -195px 0;}
-.slidebar-title i.goods{background-position: -260px 0;}
-.slidebar-title i.shop{background-position: -325px 0;}
-.slidebar-title i.brand{background-position: -390px 0;}
 
 /** --------面包屑-------- **/
 .breadcrumb{color: #989da8;}
@@ -158,19 +150,14 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .alert-danger{color: #892e16; background-color: #f0d6d0; border: none;}
 
 /** --------弹出-------- **/
-.pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;}
-.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-title{margin-top: 15px; height: 30px; font-size: 24px; font-weight: bold;}
+.popup{/*display: none; */position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-title{margin-top: 25px; height: 30px; font-size: 24px; font-weight: bold;}
 .popup-icon{margin-top: 20px; height: 45px;}
 .popup-icon > i{display: block; margin: 0 auto; width: 45px; height: 45px; background: url(../images/icons_all.png) no-repeat;}
 .popup-icon > i.confirm{background-position: -65px -100px;}
-.popup-icon > i.success{background-position: 0 -100px;}
-.popup-icon > i.check{background-position: -325px -100px;}
 
-.popup-btn-block{position: absolute; bottom: 10px; width: 100%; margin-top: 10px;}
+.popup-btn-block{margin-top: 30px;}
 .popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
-
-.popup-info{margin-top: 10px; padding: 0 60px; color: #989da8; text-align: center;}
 
 
 /** --------commodityManagement-------- **/
@@ -257,10 +244,12 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 .index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
-.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:90px;display: none}
-.index-head-user .ihu-title-block div{border-top:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
-.btn-index{background:#0c5689}
+.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:100px;display: none;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc;background: #fff}
+.index-head-user .ihu-title-block div{border-top:0px solid #fff;font-size:14px;cursor:pointer}
+.btn-index{background:#0c5689;color:#fff;}
 .btn-index:hover{background:#337ab7}
+.btn-index-child{background:#fff;color:#333;height:33px;line-height:33px}
+.btn-index-child:hover{background:#1397da;color:#fff}
 .body-panel{width:auto;padding:0 0 0 50px}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}

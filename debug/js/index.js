@@ -85,9 +85,6 @@ $(function(){
 	$(".applySeries").bind("click",function(){
 		derict(this,"applySeries","nochangeurl");
 	});
-	$(".createMyGoods").bind("click",function(){
-		derict(this,"createMyGoods","nochangeurl");
-	});
 
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
@@ -132,9 +129,9 @@ $(function(){
 
 
 	$(".index-head-user").bind("mouseenter", function() {
-		$(".index-head-user .ihu-title-block").fadeIn();
+		$(".index-head-user .ihu-title-block").show();
 	}).bind("mouseleave", function() {
-		$(".index-head-user .ihu-title-block").fadeOut();
+		$(".index-head-user .ihu-title-block").hide();
 	});
 	$(".ihu-exit").bind("click",function(){
 		window.location.href="login";

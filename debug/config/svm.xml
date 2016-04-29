@@ -98,7 +98,6 @@
 	<page>
 		<page-name>applyPopup</page-name>
 		<page-url>/pages/applyPopup.html</page-url>
-		<init>applyPopup_init</init>
 	</page>
 	<page>
 		<page-name>delectPopup</page-name>
@@ -246,24 +245,9 @@
 		<init>reviewPersonal_init</init>
 	</page>
 
-	
-	<page>
-		<page-name>createMyGoods</page-name>
-		<page-url>/pages/createMyGoods.html</page-url>
-		<init>createMyGoods_init</init>
-	</page>
-
 	<page>
 		<page-name>popConfirmDelete</page-name>
 		<page-url>/pages/popConfirmDelete.html</page-url>
-	</page>
-	<page>
-		<page-name>popSubmitSuccess</page-name>
-		<page-url>/pages/popSubmitSuccess.html</page-url>
-	</page>
-	<page>
-		<page-name>popSubmitCheck</page-name>
-		<page-url>/pages/popSubmitCheck.html</page-url>
 	</page>
 
 	brandCreateCompany
