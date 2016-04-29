@@ -157,6 +157,28 @@
 		<page-url>/pages/agencyAddAccount.html</page-url>
 		<init>agencyAddAccount_init</init>
 	</page>
+
+	<page>
+		<page-name>shopListAgency</page-name>
+		<page-url>/pages/shopList-agency.html</page-url>
+		<init>shopListAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopCreateAgency</page-name>
+		<page-url>/pages/shopCreate-agency.html</page-url>
+		<init>shopCreateAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopShowAgency</page-name>
+		<page-url>/pages/shopShow-agency.html</page-url>
+		<init>shopShowAgency_init</init>
+	</page>
+	<page>
+		<page-name>shopAlterAgency</page-name>
+		<page-url>/pages/shopAlter-agency.html</page-url>
+		<init>shopAlterAgency_init</init>
+	</page>
+
 	<page>
 		<page-name>shopList</page-name>
 		<page-url>/pages/shopList.html</page-url>

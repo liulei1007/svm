@@ -28,16 +28,33 @@ $(function(){
 	$(".agencyAddAccount").bind("click",function(){
 		derict(this,"agencyAddAccount","nochangeurl");
 	});
+
+	$(".shopListAgency").bind("click",function(){
+		derict(this,"shopListAgency","nochangeurl");
+	});
+	$(".shopCreateAgency").bind("click",function(){
+		derict(this,"shopCreateAgency","nochangeurl");
+	});
+	$(".shopShowAgency").bind("click",function(){
+		derict(this,"shopShowAgency","nochangeurl");
+	});
+	$(".shopAlterAgency").bind("click",function(){
+		derict(this,"shopAlterAgency","nochangeurl");
+	});
+
 	$(".shopList").bind("click",function(){
 		derict(this,"shopList","nochangeurl");
 	});
 	$(".shopCreate").bind("click",function(){
 		derict(this,"shopCreate","nochangeurl");
 	});
-
-	$(".agencyList").bind("click",function(){
-		derict(this,"agencyList","nochangeurl");
+	$(".shopShowCompany").bind("click",function(){
+		derict(this,"shopShowCompany","nochangeurl");
 	});
+	$(".shopAlter").bind("click",function(){
+		derict(this,"shopAlter","nochangeurl");
+	});
+
 	$(".seriesManage").bind("click",function(){
 		derict(this,"seriesManage","nochangeurl");
 	});
@@ -67,14 +84,6 @@ $(function(){
 	});
 	$(".applySeries").bind("click",function(){
 		derict(this,"applySeries","nochangeurl");
-	});
-
-
-	$(".shopShowCompany").bind("click",function(){
-		derict(this,"shopShowCompany","nochangeurl");
-	});
-	$(".shopAlter").bind("click",function(){
-		derict(this,"shopAlter","nochangeurl");
 	});
 
 	$(".idmanage").bind("click",function(){
@@ -115,7 +124,7 @@ $(function(){
 	});
 	// 左侧导航栏二级分类点击隐藏
 	$(".slidebar-list li").bind("click", function() {
-		$(this).parents(".slidebar-list").hide();
+		$(this).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active").siblings().removeClass("active");
 	});
 
 
@@ -137,10 +146,6 @@ function derict(o,temp,cache,fun){
 		return;
 	}
 	derict_lock=true;
-	$(".slidebar").find(".active").removeClass("active");
-	if($(o).parent().hasClass("slidebar-title")){
-		$(o).parents(".slidebar-title").addClass("active");
-	}
 	$(".work-space").removeClass("work-space-active").fadeOut(function(){
 		$(this).remove();
 		$(".page-content").append('<div class="work-space work-space-active"></div>');

@@ -124,6 +124,7 @@ function agencyShowPersonal_init() {
 function agencyAddAccount_init() {
     plumeUtil.js(plumePath+"/js/agencyAddAccount.js");
 }
+
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
 }
@@ -135,6 +136,19 @@ function shopShowCompany_init() {
 }
 function shopAlter_init() {
     plumeUtil.js(plumePath+"/js/shopAlter.js");
+}
+
+function shopListAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopList-agency.js");
+}
+function shopCreateAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
+}
+function shopShowAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopShow-agency.js");
+}
+function shopAlterAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopAlter-agency.js");
 }
 
 //--idmanage模板初始化函数--

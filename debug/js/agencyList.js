@@ -16,11 +16,13 @@ $(function() {
 	});
 	// 创建公司经销/代理商
 	$(".btn-createCompany").on("click", function() {
-		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
+		derict(this, "agencyCreateCompany", "nochangeurl");
+		// $(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
 	});
 	// 创建个人经销/代理商
 	$(".btn-createPersonal").on("click", function() {
-		$(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
+		derict(this, "agencyCreatePersonal", "nochangeurl");
+		// $(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
 	});
 	// 查看公司经销/代理商
 	$(".btn-show-company").on("click", function() {
