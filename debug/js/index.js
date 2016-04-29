@@ -101,6 +101,21 @@ $(function(){
 	$(".brandAdd").bind("click",function(){
 		derict(this,"brandAdd","nochangeurl");
 	});
+	$(".reviewList").bind("click",function(){
+		derict(this,"reviewList","nochangeurl");
+	});
+	$(".reviewShowCompany").bind("click",function(){
+		derict(this,"reviewShowCompany","nochangeurl");
+	});
+	$(".reviewShowPersonal").bind("click",function(){
+		derict(this,"reviewShowPersonal","nochangeurl");
+	});
+	$(".reviewCompany").bind("click",function(){
+		derict(this,"reviewCompany","nochangeurl");
+	});
+	$(".reviewPersonal").bind("click",function(){
+		derict(this,"reviewPersonal","nochangeurl");
+	});
 	// 左侧导航栏鼠标滑过显示二级分类
 	$(".slidebar-title").bind("mouseenter", function() {
 		$(this).find(".slidebar-list").show();
@@ -135,7 +150,7 @@ function derict(o,temp,cache,fun){
 		$(this).remove();
 		$(".page-content").append('<div class="work-space work-space-active"></div>');
 		$(".work-space-active").loadTemp("transmit","nochangeurl");
-		$(".work-space-active").delay(500).fadeOut(function(){
+		$(".work-space-active").delay(300).fadeOut(function(){
 			$(this).html("").fadeIn();
 			$(".work-space-active").loadTemp(temp,cache,fun);
 			try{window.history.pushState({},0,temp)}catch(e){plumeLog("提示:无法动态改变地址:"+e.message);}

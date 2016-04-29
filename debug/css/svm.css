@@ -246,9 +246,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
 .reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
 .table-block td div{height:22px;line-height:22px;padding:0 10px}
-#cpdcheckcode{float:left;width:30%;margin:0 2% 0 0}
-#cpdsendcode{float:left;width:25%;margin:0 2% 0 0}
-#cpdcodemsg{float:left;width:25%;height:100%;line-height:34px}
+
 .cpdstep2{display:none}
 
 .sd-btn-back{position:absolute;top:-180px;left:-180px}
