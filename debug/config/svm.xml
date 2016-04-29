@@ -192,6 +192,11 @@
 		<page-url>/pages/brandAdd.html</page-url>
 		<init>brandAdd_init</init>
 	</page>
+	<page>
+		<page-name>msgAdd</page-name>
+		<page-url>/pages/msgAdd.html</page-url>
+		<init>msgAdd_init</init>
+	</page>
 
 	<page>
 		<page-name>popConfirmDelete</page-name>

@@ -179,4 +179,9 @@ function brandAdd_init(){
     plumeUtil.js(plumePath+"/js/brandAdd.js");
     plumeLog("完成brandAdd模板加载-"+plumeTime());
 }
-//
+//--msgAdd模板初始化函数--
+function msgAdd_init(){
+    plumeLog("初始化msgAdd模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/msgAdd.js");
+    plumeLog("完成msgAdd模板加载-"+plumeTime());
+}
