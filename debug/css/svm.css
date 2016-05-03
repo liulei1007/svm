@@ -176,7 +176,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** --------commodityManagement-------- **/
 .doc-commodityManagement1{position: relative;padding-bottom: 40px;}
 .commodity-btn-apply{margin-left:20px;}
-.commodity-classify{margin:0 0 50px 215px;font-size: 16px;}
+.commodity-classify{margin-bottom:50px;font-size: 16px;}
 .commodity-classify span{font-size: 18px;}
 .commodity-classify a{margin-left: 6px;}
 .commodity-search{margin: 0 0 10px 215px;font-size: 16px;}
