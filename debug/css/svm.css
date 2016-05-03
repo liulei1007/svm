@@ -114,19 +114,19 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .slidebar-title i.shop{background-position: -325px 0;}
 .slidebar-title i.brand{background-position: -390px 0;}
 
-/** --------面包屑-------- **/
-.breadcrumb{color: #989da8;}
-.breadcrumb > .active{color: #333;}
-
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
 /** --------表单-------- **/
-.search-block{padding: 5px 10px;}
 .form-control{border-radius: 0;}
-.form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
-.form-inline .form-control{width: 140px;}
+
+.search-block{padding: 5px 10px;}
+.search-block label{font-weight: normal;}
+.search-block .btn{margin-right: 10px; width: 80px;}
+.search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
+.search-block .form-inline .form-control{margin-left: 10px;}
+.search-block .form-inline input.form-control{width: 170px;}
 
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
