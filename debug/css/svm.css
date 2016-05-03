@@ -231,6 +231,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-typein .form-horizontal .btn-block{margin-top: 30px; margin-bottom: 20px;}
 .body-typein .form-horizontal .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
 .body-typein .form-horizontal .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
+.body-typein .form-horizontal .row-canAdd .form-control{margin-bottom: 10px;}
 
 /** 提示 **/
 .body-typein .form-horizontal .tips-block{margin-top: 10px; margin-bottom: 0; font-size: 12px; color: #989da8;}
