@@ -326,6 +326,7 @@ $.fn.extend({
 //内部方法,重写浏览器回退,前进,刷新事件,使用setTimeout为了避免部分浏览器bug,保证兼容
 setTimeout(function(){
 	$(window).on('popstate', function() {
+		console.log("-----执行plumeback方法-----------")
 		$.plumeBack(window.document.location.href);
 	});
 },1000);

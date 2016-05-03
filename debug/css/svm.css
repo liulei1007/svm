@@ -72,7 +72,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .table1{border:10px solid #f0f2fa}
 /*.row1{background:#f0f2fa;}*/
 
-.table-block .table1{border:10px solid #f0f2fa}
+.table-block .table1{border:0px solid #f0f2fa}
 
 
 
@@ -82,9 +82,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .doc-body{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;}
 
 /** --------欢迎页-------- **/
-.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #0c5689;}
+.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #fff;}
 .body-welcome .welcome-text{display: table; width: 100%; height: 100%;}
-.body-welcome p{display: table-cell; font-size: 40px; font-weight: bold; color: #fff; text-align: center; vertical-align: middle;}
+.body-welcome p{display: table-cell; font-size: 40px; font-weight: bold; color: #1397da; text-align: center; vertical-align: middle;}
 
 /** --------布局-------- **/
 /** --------顶部导航-------- **/
