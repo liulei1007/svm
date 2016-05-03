@@ -55,6 +55,10 @@ $(function(){
 		derict(this,"shopAlter","nochangeurl");
 	});
 
+	$('.releaseSelfGoods').bind("click",function() {
+		derict(this,"releaseSelfGoods","nochangeurl")
+	})
+
 	$(".seriesManage").bind("click",function(){
 		derict(this,"seriesManage","nochangeurl");
 	});
@@ -85,7 +89,16 @@ $(function(){
 	$(".applySeries").bind("click",function(){
 		derict(this,"applySeries","nochangeurl");
 	});
+<<<<<<< HEAD
 
+=======
+	$(".createMyGoods").bind("click",function(){
+		derict(this,"createMyGoods","nochangeurl");
+	});
+	$(".applyPriceTagManage").bind("click",function() {
+		derict(this,"applyPriceTagManage","nochangeurl")
+	});	
+>>>>>>> 025613e8a31df887cbcc4ab493124586332579cd
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
 	});
@@ -181,4 +194,38 @@ function setPrams(){
 		$(".work-space").loadTemp("welcome","nochangeurl");
 	}
 
+}
+
+function delectData(_this){
+		var removeList = $(_this).parents('tr');
+		$('.pop').loadTemp("popConfirmDelete","nochangeurl",function() {
+			$('.pop').on('click','.btn-sure',function() {
+				removeList.remove();
+				$('.pop').hide();
+				$('.pop').off('click','.btn-sure');
+				$('.pop').off('click','.btn-cancel');
+			});
+			$('.pop').on('click','.btn-cancel',function(){
+				$('.pop').hide();
+				$('.pop').off('click','.btn-sure');
+				$('.pop').off('click','.btn-cancel');
+			})
+		});
+	}
+
+
+// 提交成功
+function submitRecord(turnURL, url, data) {
+	$(".pop").loadTemp("popSubmitSuccess", "nochangeurl", function() {
+		var timeOut = setTimeout(function() { turnPage(turnURL); }, 3000);
+		$(".pop").on("click", ".btn-back", function() {
+			clearTimeout(timeOut);
+			turnPage(turnURL);
+		});
+	});
+}
+// 跳转页面
+function turnPage(turnURL) {
+	$(".pop").off("click", ".btn-back").hide().find(".popup").remove();
+	derict(this, turnURL, "nochangeurl");
 }

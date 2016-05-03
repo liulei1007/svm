@@ -240,6 +240,16 @@
 		<init>reviewCompany_init</init>
 	</page>
 	<page>
+		<page-name>releaseSelfGoods</page-name>
+		<page-url>/pages/releaseSelfGoods.html</page-url>
+		<init>releaseSelfGoods_init</init>
+	</page>
+	<page>
+		<page-name>applyPriceTagManage</page-name>
+		<page-url>/pages/applyPriceTagManage.html</page-url>
+		<init>applyPriceTagManage_init</init>
+	</page>
+	<page>
 		<page-name>reviewPersonal</page-name>
 		<page-url>/pages/reviewPersonal.html</page-url>
 		<init>reviewPersonal_init</init>

@@ -217,3 +217,8 @@ function reviewShowPersonal_init(){
     plumeUtil.js(plumePath+"/js/reviewShowPersonal.js");
     plumeLog("完成reviewShowPersonal模板加载-"+plumeTime());
 }
+function applyPriceTagManage_init(){
+    plumeLog("初始化applyPriceTagManage模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/applyPriceTagManage.js");
+    plumeLog("完成applyPriceTagManage模板加载-"+plumeTime());
+}

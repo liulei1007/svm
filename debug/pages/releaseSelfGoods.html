@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"commodityManagement2"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-commodityManagement">
+   <div class="title-block">发布自采商品</div>
+    <div class="search-block">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="goodsName">搜索自采商品：</label>
+          <input type="text" class="form-control input-sm" id="" placeholder="">
+        </div>
+        <button class="btn btn-default btn-sm">搜索</button>
+      </form>
+    </div>
+    <div class="btn-block">
+      <button class="btn btn-primary">批量导入自采商品</button>
+      <button class="btn btn-primary">单笔新增自采商品</button>
+      <span>自采商品录入信息简单，不要求选择类目，支持批量导入</span>
+
+    </div>
+    <div class="table-block">   
+        <div class="table-info">
+            当前商品总数：<span>342</span>条
+        </div>
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <th>商品数据ID号</th>
+                <th></th>
+                <th>商品名称</th>
+                <th>品牌</th>
+                <th>型号</th>
+                <th>规格</th>
+                <th>主要用料</th>
+                <th>单位名称</th>
+                <th>零售价</th>
+                <th>商品描述</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2929292929</td>
+                <td><img src="" /></td>
+                <td>
+                    <p>我是商品名称，我是商品名称</p>
+                </td>
+                <td>TOTO</td>
+                <td>QTP2026DL</td>
+                <td>45*45</td>
+                <td>铁艺和布</td>
+                <td>件</td>
+                <td>1000.00</td>
+                <td>XXXXXXXXXX</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-compile">编辑</button>
+                  <button type="button" class="btn btn-default btn-sm btn-ground">复制</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2929292929</td>
+                <td><img src="" /></td>
+                <td>
+                    <p>我是商品名称，我是商品名称</p>
+                </td>
+                <td>TOTO</td>
+                <td>QTP2026DL</td>
+                <td>45*45</td>
+                <td>铁艺和布</td>
+                <td>件</td>
+                <td>1000.00</td>
+                <td>XXXXXXXXXX</td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm btn-compile">编辑</button>
+                  <button type="button" class="btn btn-default btn-sm btn-ground">复制</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pop"></div>
+</div>
+
+</body>
+</html>

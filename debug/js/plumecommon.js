@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 //var PLUME_PROJECT="debug";
 var PLUME_PROJECT="svm";
+=======
+var PLUME_PROJECT="debug";
+>>>>>>> 025613e8a31df887cbcc4ab493124586332579cd
 var PLUME_FILE=[
 	"/"+PLUME_PROJECT+"/css/bootstrap.min.css",
 	"/"+PLUME_PROJECT+"/css/jquery.cxcalendar.css",
