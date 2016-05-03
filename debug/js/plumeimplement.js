@@ -110,6 +110,7 @@ function agencyShowCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyList.js");
 }
 function agencyCreateCompany_init() {
+    plumeUtil.js(plumePath+"/js/formControl.js");
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
 }
 function agencyCreatePersonal_init() {
