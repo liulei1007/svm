@@ -1,4 +1,12 @@
 $(function(){
 	plumeLog("进入reviewList模板自定义js-"+plumeTime());
-
+	$(".rl-btn-info").bind("click",function(){
+		derict(this,"reviewShowCompany","nochangeurl");
+	});
+	$(".rl-btn-del").bind("click",function(){
+		//
+	});
+	$(".rl-btn-review").bind("click",function(){
+		derict(this,"reviewCompany","nochangeurl");
+	});
 })
