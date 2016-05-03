@@ -14,6 +14,11 @@ $(function(){
 		$(".sd-choose-step2").hide();
 		$(".sd-choose-step1").fadeIn();
 	});
+	$(".sd-btn-radius").bind("mouseenter",function(){
+		$(this).find(".div2").show();
+	}).bind("mouseleave", function() {
+		$(this).find(".div2").hide();
+	});
 	$(".sd-step1-btn1,.sd-step1-btn2").bind("click",function(){
 		$(".sd-choose-step1").hide();
 		$(".sd-choose-step2").fadeIn();

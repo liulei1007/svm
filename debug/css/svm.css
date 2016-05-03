@@ -253,9 +253,12 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .cpdstep2{display:none}
 
 .sd-btn-back{position:absolute;top:-180px;left:-180px}
-.sd-choose-step1,.sd-choose-step2{width:500px;height:220px;margin:200px auto;position:relative;display: none}
-.sd-btn-radius{height:210px;width:210px;border-radius: 210px;color:#fff;margin:0 20px;float:left;line-height:210px;text-align:center}
-
+.sd-choose-step1,.sd-choose-step2{width:720px;height:220px;margin:200px auto;position:relative;display: none}
+.sd-btn-radius{width:320px;color:#fff;margin:0 20px;float:left;text-align:center;position: relative;background:#fff;padding:0;border:0;border-top:6px solid #0094da}
+.sd-btn-radius:hover{box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);border-top:6px solid #0094da}
+.sd-btn-radius .div1{height:100px;width:100%;background:#00aaf2;line-height:100px;float: left}
+.sd-btn-radius .div1:hover{background:#0094da}
+.sd-btn-radius .div2{display:none;height:180px;width:100%;background:#fff;float: left;color:#333;padding:10px;white-space: normal;text-align: left;display:none}
 .index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
 .index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:100px;display: none;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc;background: #fff}
