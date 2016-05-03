@@ -258,10 +258,12 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 .index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
-.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:90px;display: none}
-.index-head-user .ihu-title-block div{border-top:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
-.btn-index{background:#0c5689}
+.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:100px;display: none;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc;background: #fff}
+.index-head-user .ihu-title-block div{border-top:0px solid #fff;font-size:14px;cursor:pointer}
+.btn-index{background:#0c5689;color:#fff;}
 .btn-index:hover{background:#337ab7}
+.btn-index-child{background:#fff;color:#333;height:33px;line-height:33px}
+.btn-index-child:hover{background:#1397da;color:#fff}
 .body-panel{width:auto;padding:0 0 0 50px}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
