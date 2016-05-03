@@ -89,16 +89,12 @@ $(function(){
 	$(".applySeries").bind("click",function(){
 		derict(this,"applySeries","nochangeurl");
 	});
-<<<<<<< HEAD
-
-=======
 	$(".createMyGoods").bind("click",function(){
 		derict(this,"createMyGoods","nochangeurl");
 	});
 	$(".applyPriceTagManage").bind("click",function() {
 		derict(this,"applyPriceTagManage","nochangeurl")
-	});	
->>>>>>> 025613e8a31df887cbcc4ab493124586332579cd
+	});
 	$(".idmanage").bind("click",function(){
 		derict(this,"idmanage","nochangeurl");
 	});

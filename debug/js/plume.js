@@ -447,16 +447,7 @@ var $$={
 		}
 	}
 };
-<<<<<<< HEAD
-=======
 
-
-//表单删除
-$.fn.extend({
-	
-});
-
->>>>>>> 025613e8a31df887cbcc4ab493124586332579cd
 //内部测试方法,获取时间戳
 function plumeTime(){
 	return new Date().getTime();
