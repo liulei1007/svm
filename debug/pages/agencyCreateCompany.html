@@ -36,7 +36,7 @@
   <div class="body-typein" data-spy="scroll" data-target="#pageNav-agencyCreateCompany">
     <div class="title-block">创建公司经销/代理商</div>
     <form class="form-horizontal">
-      <div class="form-group required">
+      <div class="form-group">
         <label class="col-sm-3 control-label">品牌信息</label>
         <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入品牌"></div>
       </div>
@@ -47,12 +47,12 @@
         <div class="col-sm-2 col-sm-offset-1">基础信息</div>
       </div>
       <form class="form-horizontal">
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">公司名称</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
           <div class="col-sm-2 alert alert-danger" role="alert">公司名已经存在！</div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">所在省市</label>
           <div class="col-sm-3">
             <select class="form-control">
@@ -68,43 +68,43 @@
           </div>
           <div class="col-sm-2 alert alert-danger" role="alert">必填！</div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">组织机构代码</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">营业执照注册地</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">营业执照注册号</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">税务登记号</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">银行开户许可证编号</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">法人</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">公司电话</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">联系人</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">联系人电话</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">联系人邮箱</label>
           <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
@@ -116,7 +116,7 @@
         <div class="col-sm-2 col-sm-offset-1">授权信息</div>
       </div>
       <form class="form-horizontal">
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">授权类型</label>
           <div class="col-sm-3">
             <select class="form-control">
@@ -125,13 +125,13 @@
             </select>
           </div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">授权区域</label>
           <div class="col-sm-6">
             <input type="text" class="form-control" placeholder="请根据授权书中的授权范围填写">
           </div>
         </div>
-        <div class="form-group required">
+        <div class="form-group">
           <label class="col-sm-3 control-label">授权日期</label>
           <div class="col-sm-2">
             <input type="text" class="form-control" id="startTime"/>
@@ -141,76 +141,68 @@
             <input type="text" class="form-control" id="endTime"/>
           </div>
         </div>
+      </form>
+    </div>
 
-        <!-- <div class="form-group required">
-          <div class="clearFix">
-            <label class="col-sm-3 control-label">资料上传</label>
-            <div class="col-sm-2">
-              <button type="button" class="btn btn-default btn-onload-info">上传</button>
-            </div>
-          </div>
-          <div class="clearFix">
-            <div class="col-sm-8 col-sm-offset-3 tips-block">
-              <p>营业执照，法人身份证正反面，组织机构，税务登记（扫描件）</p>
-              <p>注：打包上传</p>
-            </div>
-          </div>
+    <div class="form-block-contractive">
+      <div class="row block-title">
+        <div class="col-sm-2 col-sm-offset-1">资料上传</div>
+      </div>
+      <form class="form-horizontal form-loading">
+
+
+        <!-- <div class="media-show">
+          <span class="btn btn-close"></span>
+          <img src="images/temp/default.jpg">
         </div> -->
 
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">授权书</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">营业执照</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">组织机构证书</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">税务登记证</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">商标注册证</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">银行开户许可证</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
-        <div class="form-group required">
+
+        <div class="form-group">
           <label class="col-sm-3 control-label">开票资料</label>
           <div class="col-sm-2">
-            <div class="form-onload">
-              <span>上传扫描件 +</span>
-            </div>
+            <button type="button" class="btn btn-default btn-onload">上传</button>
           </div>
         </div>
       </form>
