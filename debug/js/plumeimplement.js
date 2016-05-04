@@ -104,17 +104,8 @@ function applySeries_init(){
     plumeUtil.js(plumePath+"/js/applySeries.js");
     plumeLog("完成applySeries模板加载-"+plumeTime());
 }
-<<<<<<< HEAD
-function agencyList_init() {
-    plumeUtil.js(plumePath+"/js/agencyList.js");
-}
-
-function agencyShowCompany_init() {
-=======
-
 function agencyList_init() {
     plumeUtil.js(plumePath+"/js/operatePop.js");
->>>>>>> d001a3352ab6212497b57d904dfacbdaa9365e36
     plumeUtil.js(plumePath+"/js/agencyList.js");
 }
 function agencyShowCompany_init() {
