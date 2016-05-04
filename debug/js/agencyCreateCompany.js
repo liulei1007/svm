@@ -2,6 +2,7 @@ var thisUrl = "agencyCreateCompany";
 
 $(function() {
 	// 选择日期
+	formCtrl();
 	$('#startTime').cxCalendar();
 	$("#endTime").cxCalendar();
 
@@ -11,16 +12,10 @@ $(function() {
 		// $(".pop").loadTemp("popConfirmDelete","nochangeurl");
 
 		derict(this, "agencyAddAccount", "nochangeurl");
-
-		// $(".work-space").loadTemp("agencyAddAccount","nochangeurl");
-		// $("#addAccount").on("click", ".back", function() {
-		// 	alert("back");
-		// 	$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
-		// });
 	});
 	// 点击“取消”，返回至列表页
 	$(".btn-back").on("click", function() {
-		$(".work-space").loadTemp("agencyList","nochangeurl");
+		derict(this, "agencyList", "nochangeurl");
 	});
 
 
@@ -49,13 +44,7 @@ function closeBigImage() {
 }
 
 function turnBack() {
-	alert("BACK!!");
 	$(".back").bind("click", function() {
-		alert("NOWBACK");
-		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
+		derict(this, "agencyCreateCompany", "nochangeurl");
 	});
-	// $("#addAccount").on("click", ".back", function() {
-	// 	alert("back");
-	// 	$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
-	// });
 }

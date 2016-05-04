@@ -170,6 +170,9 @@ function derict(o,temp,cache,fun){
 function setPrams(){
 	plumeLog("进入setPrams-"+plumeTime());
 	var path=window.location.href+"";
+	if(path.indexOf(".html")!=-1){
+		return;
+	}
 	var prams=path.substring(path.indexOf("?")+1);
 	var temp=path.substring(path.lastIndexOf("/")+1);
 	if(prams.indexOf("fullscreen")!=-1){
@@ -224,4 +227,17 @@ function submitRecord(turnURL, url, data) {
 function turnPage(turnURL) {
 	$(".pop").off("click", ".btn-back").hide().find(".popup").remove();
 	derict(this, turnURL, "nochangeurl");
+}
+//表单控制
+function formCtrl(){
+	$(".form-block-contractive").on("click", ".block-title", function() {
+		var $formBlock = $(this).parents(".form-block-contractive");
+		$formBlock.toggleClass("contractive");
+		if ($formBlock.hasClass("contractive")) {
+			$(this).siblings(".form-horizontal").slideUp();
+		}
+		else {
+			$(this).siblings(".form-horizontal").slideDown();
+		}
+	});
 }
