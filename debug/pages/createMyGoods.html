@@ -19,72 +19,110 @@
 
 <body>
   <div class="body-typein">
-    <div class="title-block">新增单笔自采商品</div>
+    <div class="title-block">发布新商品</div>
     <form class="form-horizontal">
+      <div class="basicInfo-content">
       <div class="form-group required">
         <label class="col-sm-3 control-label"><i>*</i>品牌名称</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
+      </div>
+      <div class="form-group required">
+        <label class="col-sm-3 control-label"><i>*</i>系列名称</label>
+        <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
       </div>
       <div class="form-group required">
         <label class="col-sm-3 control-label">商品数据ID号</label>
         <p class="col-sm-6 form-control-static">名称</p>
       </div>
       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
+        <div class="col-sm-9"><input type="text" class="form-control"></div>
+        <div class="col-sm-offset-3 col-sm-8 tips-block">
+        <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
+        </div>
       </div>
       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>分类</label>
-        <div class="col-sm-3">
+        <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
+        <div class="col-sm-9"><textarea class="form-control" style="resize:none"></textarea></div>
+        <div class="col-sm-offset-3 col-sm-8 tips-block">
+        <p>文字说明：举例子说明文字说明：举列子说明</p>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label class="col-sm-3 control-label"><i>*</i>产地</label>
+        <div class="col-sm-2">
           <select class="form-control">
-            <option>江苏省</option>
+            <option>上海</option>
+          </select>
+        </div> 
+        <div class="col-sm-2">
+          <select class="form-control">
             <option>上海</option>
           </select>
         </div>
       </div>
-      <div class="form-group required">
+       <div class="form-group required">
         <label class="col-sm-3 control-label"><i>*</i>型号</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <div class="col-sm-9"><input type="text" class="form-control"></div>
       </div>
       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>规格</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <label class="col-sm-3 control-label"><i>*</i>材质</label>
+        <div class="col-sm-9"><input type="text" class="form-control"></div>
       </div>
       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>主要用料</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-      </div>
-
-
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">单位名称</label>
-        <div class="col-sm-3">
-          <select class="form-control">
-            <option>名称一</option>
-            <option>名称二</option>
-          </select>
-        </div>
+        <label class="col-sm-3 control-label"><i>*</i>重量</label>
+        <div class="col-sm-9"><input type="text" class="form-control"></div>
       </div>
       <div class="form-group required">
         <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
-        <div class="col-sm-3">
+        <div class="col-sm-9">
           <select class="form-control">
             <option>类型一</option>
             <option>类型二</option>
           </select>
         </div>
       </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>零售价</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+       <div class="form-group required">
+        <label class="col-sm-3 control-label"><i>*</i>等级</label>
+        <div class="col-sm-9">
+          <select class="form-control">
+            <option>一等品</option>
+            <option>二等品</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">折扣</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
       </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">库存</label>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+      <div class="goodsAttr-content">
+          <div class="block-padding">
+              <div class="col-sm-offset-3 col-sm-9">
+                  <div class="col-sm-6 form-group required">
+                     <label class="col-sm-3 control-label"><i>*</i>分类</label>
+                     <div class="col-sm-9">
+                        <select class="form-control">
+                          <option></option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-sm-6 form-group required">
+                     <label class="col-sm-3 control-label"><i>*</i>基材</label>
+                     <div class="col-sm-9">
+                        <select class="form-control">
+                          <option></option>
+                        </select>
+                     </div>
+                  </div>
+              </div>
+              <div class="form-group">s</div>
+          </div>
+      </div>
+      <div class="colorAttr-content">
+        
+      </div>
+      <div class="sizeAttr-content">
+        
+      </div>
+      <div class="goodsPic-content">
+        
       </div>
       <div class="form-group required">
         <label class="col-sm-3 control-label">状态</label>
@@ -108,8 +146,8 @@
       </div>
 
       <div class="col-sm-8 col-sm-offset-3 btn-block">
-        <button type="button" class="btn btn-lg btn-success btn-next">确定</button>
-        <button type="button" class="btn btn-lg btn-default btn-back">取消</button>
+        <button type="button" class="btn btn-lg btn-success btn-next">提交</button>
+        <button type="button" class="btn btn-lg btn-warning btn-back">取消</button>
       </div>
     </form>
   </div>
