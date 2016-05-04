@@ -105,9 +105,12 @@ function applySeries_init(){
     plumeLog("完成applySeries模板加载-"+plumeTime());
 }
 
-
-function agencyShowCompany_init() {
+function agencyList_init() {
+    plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/agencyList.js");
+}
+function agencyShowCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
 }
 function agencyCreateCompany_init() {
     plumeUtil.js(plumePath+"/js/formControl.js");

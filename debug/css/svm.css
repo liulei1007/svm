@@ -159,18 +159,27 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------弹出-------- **/
 .pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;}
-.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-title{margin-top: 15px; height: 30px; font-size: 24px; font-weight: bold;}
-.popup-icon{margin-top: 20px; height: 45px;}
+/** 弹出提示框 **/
+.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; width: 300px; height: 240px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup .popup-title{margin-top: 25px; margin-bottom: 20px; height: 30px; line-height: 30px; font-size: 24px; font-weight: bold;}
+.popup-icon{height: 45px;}
 .popup-icon > i{display: block; margin: 0 auto; width: 45px; height: 45px; background: url(../images/icons_all.png) no-repeat;}
 .popup-icon > i.confirm{background-position: -65px -100px;}
 .popup-icon > i.success{background-position: 0 -100px;}
 .popup-icon > i.check{background-position: -325px -100px;}
-
-.popup-btn-block{position: absolute; bottom: 10px; width: 100%; margin-top: 10px;}
-.popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
-
 .popup-info{margin-top: 10px; padding: 0 60px; color: #989da8; text-align: center;}
+.popup-btn-block{position: absolute; bottom: 20px; margin-top: 10px; margin-right: 0; margin-left: 0; width: 100%;}
+.popup-btn-block .btn{width: 100%;}
+
+
+
+/** 弹出输入框 **/
+.popup-fill{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -170px; margin-left: -310px; width: 620px; height: 340px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-fill .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa;}
+.popup-fill form{margin-top: 20px; margin-bottom: 20px;}
+.popup-fill textarea{resize: none;}
+.popup-fill .control-label{font-weight: normal;}
+.popup-fill .btn{width: 100%;}
 
 
 /** --------commodityManagement-------- **/

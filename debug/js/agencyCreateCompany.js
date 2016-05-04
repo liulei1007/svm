@@ -8,7 +8,10 @@ $(function() {
 
 	// 点击“下一步”，提交表单
 	$(".btn-next").on("click", function() {
+		// $(".pop").loadTemp("popConfirmDelete","nochangeurl");
+
 		derict(this, "agencyAddAccount", "nochangeurl");
+
 		// $(".work-space").loadTemp("agencyAddAccount","nochangeurl");
 		// $("#addAccount").on("click", ".back", function() {
 		// 	alert("back");
