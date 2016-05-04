@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>color</title>
+</head>
+<!--公用基础文件-->
+<script language="javascript" src="../js/plumecommon.js" ></script>
+<!--声明-->
+<script>
+ var _PLUME={
+  "config":"../config/svm.xml",
+  "initPage":"color"
+ }
+</script>
+<body>
+<input id=kkk1 style=position:absolute;left:0;top:0/>
+<input id=kkk2 style=position:absolute;left:200;top:0/>
+<input id=kkk3 style=position:absolute;left:400;top:0/>
+<input id=kkk4 style=position:absolute;left:600;top:0/>
+<div id=RainBowDiv style='position:absolute;left:200;top:30;'></div>
+<script>
+var iW = '70';//共有6种颜色，每种颜色的宽为iW。iW*6为色带的宽。
+var iH = '400';//iH为色带的高。
+//计算HSV颜色代码。
+function HSV(){
+kkk1.value = 'X:'+event.offsetX+'   Y:'+event.offsetY;
+var H,S,V;
+var pY = event.offsetY;
+if(pY == 0){H = S = 0; V = 100;}
+else{
+ if(pY == iH-1) H = S = V = 0;
+ else{
+  H = Math.floor(360*event.offsetX/(iW*6));
+  S = Math.round(50*(iH-pY)/(iH/2));
+  V = Math.round(100-50*pY/iH);
+  }
+ }
+kkk2.value='HSV('+H+','+S+'%,'+V+'%)';
+HSVtoRGB(H,S/100,V/100);
+}
+
+//计算RGB颜色代码。
+function HSVtoRGB(h,s,v){
+var i, f ,p1 ,p2 ,p3;
+var r = g = b = 0;
+if(s < 0) s=0;
+if(s > 1) s=1;
+if(v < 0) v=0;
+if(v > 1) v=1;
+h %= 360;
+if(h < 0) h+=360;
+h /= 60;
+i = Math.floor(h);
+f = h-i;
+p1 = v*(1-s);
+p2 = v*(1-s*f);
+p3 = v*(1-s*(1-f));
+if(i == 0){r=v; g=p3; b=p1;}
+else if(i == 1){r=p2; g=v; b=p1;}
+else if(i == 2){r=p1; g=v; b=p3;}
+else if(i == 3){r=p1; g=p2; b=v;}
+else if(i == 4){r=p3; g=p1; b=v;}
+else if(i == 5){r=v; g=p1; b=p2;}
+kkk3.value='RGB('+Math.round(r*255)+','+Math.round(g*255)+','+Math.round(b*255)+')';
+RGBtoHTML(Math.round(r*255),Math.round(g*255),Math.round(b*255))
+}
+
+//计算HTML颜色代码。
+function RGBtoHTML(r,g,b){
+r=(r>=16)?r.toString(16):('0'+r.toString(16))
+g=(g>=16)?g.toString(16):('0'+g.toString(16))
+b=(b>=16)?b.toString(16):('0'+b.toString(16))
+kkk4.value='HTML #'+r+g+b;
+}
+
+function window.onload(){
+var RainBow = new Array(255,0,0,  255,255,0,  0,255,0,  0,255,255,  0,0,255,  255,0,255,  255,0,0);
+for(var i=0;i<6;i++){
+ var R1 = RainBow[i*3];
+ var G1 = RainBow[i*3+1];
+ var B1 = RainBow[i*3+2];
+ var R2 = RainBow[(i+1)*3];
+ var G2 = RainBow[(i+1)*3+1];
+ var B2 = RainBow[(i+1)*3+2];
+ RainBowDiv.innerHTML += "<div style='position:absolute;left:"+i*iW+";top:0;width:"+iW+";height:"+iH+";background:rgb("+R1+","+G1+","+B1+");'></div><div style='position:absolute;left:"+i*iW+";top:0;width:"+iW+";height:"+iH+";background:rgb("+R2+","+G2+","+B2+");filter:alpha(opacity=0,finishopacity=100,Style=1);'></div>"
+ }
+RainBowDiv.innerHTML += "<div style=position:absolute;left:0;top:0;width:"+6*iW+";height:"+iH+";background:rgb(128,128,128);filter:alpha(opacity=0,finishOpacity=100,style=1,starty=0,finishy=100,startx=0,finishx=0)></div><div style='position:absolute;left:0;top:0;width:"+(6*iW+1)+";height:"+iH+";' onmousemove=HSV()></div>"
+}
+</script>
+</body>
+</html>
