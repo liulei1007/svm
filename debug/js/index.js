@@ -57,7 +57,7 @@ $(function () {
 
     $('.releaseSelfGoods').bind("click", function () {
         derict(this, "releaseSelfGoods", "nochangeurl")
-    })
+    });
 
     $(".seriesManage").bind("click", function () {
         derict(this, "seriesManage", "nochangeurl");
@@ -245,5 +245,12 @@ function formCtrl() {
         else {
             $(this).siblings(".form-horizontal").slideDown();
         }
+    });
+}
+//表格全选
+function tablecheckbox() {
+    $(".table-block").find("table").find("th").find("input:checkbox").bind("click",function(){
+        var c=$(this).is(':checked');
+        $(".table-block").find("table").find("td").find("input:checkbox").prop("checked",c);
     });
 }

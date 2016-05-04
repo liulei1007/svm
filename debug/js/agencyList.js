@@ -2,6 +2,7 @@
 $(function() {
 	plumeLog("进入agencyList模板自定义js-"+plumeTime());
 	getTableData();
+	tablecheckbox();
 	var $removeLine;
 	// 点击“删除”，弹出层提示是否确认删除
 	$(".btn-delete").on("click", function() {
