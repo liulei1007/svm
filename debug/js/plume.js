@@ -351,7 +351,8 @@ $.fn.extend({
 setTimeout(function () {
     $(window).on('popstate', function () {
         console.log("-----执行plumeback方法-----------")
-        $.plumeBack(window.document.location.href);
+        //$.plumeBack(window.document.location.href);
+        window.location.reload();
     });
 }, 1000);
 //plume工具类
@@ -470,6 +471,7 @@ var $$ = {
         } else {
             plumeLog("ajax传参错误");
         }
+        this.$$_monitor_end(arguments);
     }
 };
 
