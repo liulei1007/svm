@@ -8,6 +8,8 @@ $(function() {
 
 	// 点击“下一步”，提交表单
 	$(".btn-next").on("click", function() {
+		// $(".pop").loadTemp("popConfirmDelete","nochangeurl");
+
 		derict(this, "agencyAddAccount", "nochangeurl");
 	});
 	// 点击“取消”，返回至列表页
