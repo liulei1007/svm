@@ -191,6 +191,11 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .releaseGoods .releaseGoods-discount span,
 .releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
 .btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
+.block-padding{padding:30px;background-color: #f0f2fa;}
+.goodsAttr-content .control-label{text-align: left;}
+.goodsPic-content p{color:#5ea6c2;background-color:#d2eded;padding: 10px 12px;margin:20px 0;}
+
+
 /*.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}*/
 .releaseGoods-btn{text-align: center;}
 .commodity-inquire .commodity-name span,
