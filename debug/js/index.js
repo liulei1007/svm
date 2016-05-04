@@ -228,3 +228,16 @@ function turnPage(turnURL) {
 	$(".pop").off("click", ".btn-back").hide().find(".popup").remove();
 	derict(this, turnURL, "nochangeurl");
 }
+//表单控制
+function formCtrl(){
+	$(".form-block-contractive").on("click", ".block-title", function() {
+		var $formBlock = $(this).parents(".form-block-contractive");
+		$formBlock.toggleClass("contractive");
+		if ($formBlock.hasClass("contractive")) {
+			$(this).siblings(".form-horizontal").slideUp();
+		}
+		else {
+			$(this).siblings(".form-horizontal").slideDown();
+		}
+	});
+}

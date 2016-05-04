@@ -2,6 +2,7 @@ var thisUrl = "agencyCreateCompany";
 
 $(function() {
 	// 选择日期
+	formCtrl();
 	$('#startTime').cxCalendar();
 	$("#endTime").cxCalendar();
 
