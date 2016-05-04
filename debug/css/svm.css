@@ -219,19 +219,24 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .basicDataManagement-remark{margin:60px 0 25px 10px;}
 
 /** --------录入-------- **/
-.body-typein{margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
+.body-typein{position: relative; margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
-.body-typein .module-title{margin-top: 20px; margin-bottom: 20px; /*margin-left: 15px;*/ /*width: 120px;*/ height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
+.body-typein .module-title{margin-top: 20px; margin-bottom: 20px; height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
+.body-typein .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa; cursor: pointer;}
+.body-typein .block-title > div{position: relative; text-align: right;}
+.body-typein .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg);}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
+.body-typein .form-horizontal label{font-weight: normal;}
 .body-typein .form-horizontal .alert{margin-bottom: 0; padding: 7px 15px;}
 .body-typein .form-horizontal i{margin-right: 5px; font-size: 16px; font-style: normal; color: #f00;}
 .body-typein .form-horizontal .divid{float: left; padding-top: 7px;}
-.body-typein .form-horizontal .btn{width: 100%;}
-.body-typein .form-horizontal .btn-block{margin-top: 30px; margin-bottom: 20px;}
-.body-typein .form-horizontal .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
-.body-typein .form-horizontal .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
+.body-typein .btn{width: 100%;}
+.body-typein .btn-block{margin-top: 30px; margin-bottom: 20px;}
+.body-typein .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
+.body-typein .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
 .body-typein .form-horizontal .row-canAdd .form-control{margin-bottom: 10px;}
+
 
 /** 提示 **/
 .body-typein .form-horizontal .tips-block{margin-top: 10px; margin-bottom: 0; font-size: 12px; color: #989da8;}
@@ -270,3 +275,19 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-panel{width:auto;padding:0 0 0 50px}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
+
+
+/** --------页面导航-------- **/
+.nav-page{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}
+.nav-page a, .nav-page a:hover{display: block; color: inherit; text-decoration: none;}
+.nav-page p{margin: 0; padding: 0; height: 35px; line-height: 35px; border-bottom: solid #ced1dc 1px;}
+.nav-page p:last-child{border-bottom: none;}
+.nav-page p.nav-title{color: #fff; background-color: #0c5689;}
+.nav-page p.active{color: #fff; background-color: #1397da;}
+
+
+.page-nav{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}
+.page-nav .nav-title{width: 100%; height: 35px; line-height: 35px; color: #fff; background-color: #0c5689;}
+.page-nav .nav-list li a{display: block; margin: 0; padding: 0; color: inherit; text-decoration: none;}
+.page-nav .nav-list li a, .page-nav .nav-list li a:hover, .page-nav .nav-list li a:focus{margin: 0; padding: 0; height: 35px; line-height: 35px; text-align: center;}
+.page-nav .nav-list li.active a{color: #fff; background-color: #1397da;}
