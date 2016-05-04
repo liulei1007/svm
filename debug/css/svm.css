@@ -231,9 +231,11 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-typein{position: relative; margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
 .body-typein .module-title{margin-top: 20px; margin-bottom: 20px; height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
-.body-typein .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa; cursor: pointer;}
-.body-typein .block-title > div{position: relative; text-align: right;}
-.body-typein .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg);}
+/** 可收缩的表单 **/
+.form-block-contractive .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa; cursor: pointer;}
+.form-block-contractive .block-title > div{position: relative; text-align: right;}
+.form-block-contractive .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
+.form-block-contractive.contractive .block-title > div:after{margin-top: -8px; transform: rotate(135deg);}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
 .body-typein .form-horizontal label{font-weight: normal;}
