@@ -1,4 +1,6 @@
 $(function() {
+	plumeLog("进入agencyList模板自定义js-"+plumeTime());
+	getTableData();
 	$(".btn-delete").on("click", function() {
 		var $removeLine = $(this).parents("tr");
 		$(".pop").loadTemp("popConfirmDelete","nochangeurl");
@@ -26,12 +28,19 @@ $(function() {
 	});
 	// 查看公司经销/代理商
 	$(".btn-show-company").on("click", function() {
-		$(".work-space").loadTemp("agencyShowCompany","nochangeurl");
+		derict(this, "agencyShowCompany", "nochangeurl");
+		//$(".work-space").loadTemp("agencyShowCompany","nochangeurl");
 	});
 	// 查看个人经销/代理商
 	$(".btn-show-personal").on("click", function() {
-		$(".work-space").loadTemp("agencyShowPersonal","nochangeurl");
+		derict(this, "agencyShowPersonal", "nochangeurl");
+		//$(".work-space").loadTemp("agencyShowPersonal","nochangeurl");
 	});
+	function getTableData(){
+		$.get(plumeApi["listAgentsBrandInfoList"],{"page":0,"perPage":3},function(data){
+			$(".table-block").setPageData(data);
+		})
+	}
 });
 
 function removeRecord(removeObj) {

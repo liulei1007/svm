@@ -10,15 +10,10 @@ $(function() {
 	// 点击“下一步”，提交表单
 	$(".btn-next").on("click", function() {
 		derict(this, "agencyAddAccount", "nochangeurl");
-		// $(".work-space").loadTemp("agencyAddAccount","nochangeurl");
-		// $("#addAccount").on("click", ".back", function() {
-		// 	alert("back");
-		// 	$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
-		// });
 	});
 	// 点击“取消”，返回至列表页
 	$(".btn-back").on("click", function() {
-		$(".work-space").loadTemp("agencyList","nochangeurl");
+		derict(this, "agencyList", "nochangeurl");
 	});
 });
 
@@ -28,13 +23,7 @@ function deleteInfo(deleteObj) {
 }
 
 function turnBack() {
-	alert("BACK!!");
 	$(".back").bind("click", function() {
-		alert("NOWBACK");
-		$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
+		derict(this, "agencyCreateCompany", "nochangeurl");
 	});
-	// $("#addAccount").on("click", ".back", function() {
-	// 	alert("back");
-	// 	$(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
-	// });
 }

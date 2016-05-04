@@ -265,7 +265,9 @@
 	</page>
 
 	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
-	<ajax-urls>
-
-	</ajax-urls>
+	<api>
+		<listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
+		<listAgentsBrandInfoList-brand>http://192.168.222.162:8080/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
+		<listAgentsBrandInfoList>http://192.168.222.162:8080/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
+	</api>
 </config>
