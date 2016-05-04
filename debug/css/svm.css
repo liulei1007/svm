@@ -114,19 +114,19 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .slidebar-title i.shop{background-position: -325px 0;}
 .slidebar-title i.brand{background-position: -390px 0;}
 
-/** --------面包屑-------- **/
-.breadcrumb{color: #989da8;}
-.breadcrumb > .active{color: #333;}
-
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
 /** --------表单-------- **/
-.search-block{padding: 5px 10px;}
 .form-control{border-radius: 0;}
-.form-inline .form-group{margin-top: 5px; margin-right: 10px; margin-bottom: 5px;}
-.form-inline .form-control{width: 140px;}
+
+.search-block{padding: 5px 10px;}
+.search-block label{font-weight: normal;}
+.search-block .btn{margin-right: 10px; width: 80px;}
+.search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
+.search-block .form-inline .form-control{margin-left: 10px;}
+.search-block .form-inline input.form-control{width: 170px;}
 
 /** --------按钮-------- **/
 .btn-block{margin-top: 20px; margin-bottom: 20px;}
@@ -159,18 +159,27 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------弹出-------- **/
 .pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;}
-.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -110px; margin-left: -140px; width: 280px; height: 220px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-title{margin-top: 15px; height: 30px; font-size: 24px; font-weight: bold;}
-.popup-icon{margin-top: 20px; height: 45px;}
+/** 弹出提示框 **/
+.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; width: 300px; height: 240px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup .popup-title{margin-top: 25px; margin-bottom: 20px; height: 30px; line-height: 30px; font-size: 24px; font-weight: bold;}
+.popup-icon{height: 45px;}
 .popup-icon > i{display: block; margin: 0 auto; width: 45px; height: 45px; background: url(../images/icons_all.png) no-repeat;}
 .popup-icon > i.confirm{background-position: -65px -100px;}
 .popup-icon > i.success{background-position: 0 -100px;}
 .popup-icon > i.check{background-position: -325px -100px;}
-
-.popup-btn-block{position: absolute; bottom: 10px; width: 100%; margin-top: 10px;}
-.popup-btn-block .btn{margin-right: 10px; margin-left: 10px;}
-
 .popup-info{margin-top: 10px; padding: 0 60px; color: #989da8; text-align: center;}
+.popup-btn-block{position: absolute; bottom: 20px; margin-top: 10px; margin-right: 0; margin-left: 0; width: 100%;}
+.popup-btn-block .btn{width: 100%;}
+
+
+
+/** 弹出输入框 **/
+.popup-fill{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -170px; margin-left: -310px; width: 620px; height: 340px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-fill .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa;}
+.popup-fill form{margin-top: 20px; margin-bottom: 20px;}
+.popup-fill textarea{resize: none;}
+.popup-fill .control-label{font-weight: normal;}
+.popup-fill .btn{width: 100%;}
 
 
 /** --------commodityManagement-------- **/
@@ -224,19 +233,41 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .basicDataManagement-remark{margin:60px 0 25px 10px;}
 
 /** --------录入-------- **/
-.body-typein{margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
+.body-typein{position: relative; margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
-.body-typein .module-title{margin-top: 20px; margin-bottom: 20px; /*margin-left: 15px;*/ /*width: 120px;*/ height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
+.body-typein .module-title{margin-top: 20px; margin-bottom: 20px; height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
+/** 可收缩的表单 **/
+.form-block-contractive .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa; cursor: pointer;}
+.form-block-contractive .block-title > div{position: relative; text-align: right;}
+.form-block-contractive .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
+.form-block-contractive.contractive .block-title > div:after{margin-top: -8px; transform: rotate(135deg);}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
+.body-typein .form-horizontal label{font-weight: normal;}
 .body-typein .form-horizontal .alert{margin-bottom: 0; padding: 7px 15px;}
 .body-typein .form-horizontal i{margin-right: 5px; font-size: 16px; font-style: normal; color: #f00;}
 .body-typein .form-horizontal .divid{float: left; padding-top: 7px;}
-.body-typein .form-horizontal .btn{width: 100%;}
-.body-typein .form-horizontal .btn-block{margin-top: 30px; margin-bottom: 20px;}
-.body-typein .form-horizontal .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
-.body-typein .form-horizontal .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
+.body-typein .btn{width: 100%;}
+.body-typein .btn-block{margin-top: 30px; margin-bottom: 20px;}
+.body-typein .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
 .body-typein .form-horizontal .row-canAdd .form-control{margin-bottom: 10px;}
+
+
+
+/** 表单——资料上传 **/
+.form-loading{position: relative;}
+/** 表单中的大图展示区域 **/
+.form-loading .media-show{position: absolute; bottom: -10px; right: 20px; width: 400px; height: 400px; box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
+.form-loading .media-show .btn-close{position: absolute; top: 0; right: 0; padding: 5px; width: 35px; height: 35px; background: url(../images/icons_all.png) no-repeat; background-position: -715px -200px; cursor: pointer;}
+/** 表单中图片 **/
+.body-typein .form-horizontal .media{float: left; position: relative; width: 34px; height: 34px; cursor: pointer;}
+/** 鼠标滑过图片显示放大镜图片 **/
+.form-loading .media:hover:before, .form-loading .media:hover:after{content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.form-loading .media:hover:before{background-color: rgba(51,51,51,.5);}
+.form-loading .media:hover:after{background: url(../images/icons_all.png) no-repeat; background-position: -650px -200px;}
+.form-loading .media img, .form-loading .media-show img{width: 100%; height: 100%; object-fit: cover;}
+/** 删除按钮 **/
+.body-typein .btn-link-delete{width: auto; color: #ced1dc; text-decoration: underline;}
 
 /** 提示 **/
 .body-typein .form-horizontal .tips-block{margin-top: 10px; margin-bottom: 0; font-size: 12px; color: #989da8;}
@@ -254,19 +285,42 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
 .reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
 .table-block td div{height:22px;line-height:22px;padding:0 10px}
-
 .cpdstep2{display:none}
-
-.sd-btn-back{position:absolute;top:-180px;left:-180px}
-.sd-choose-step1,.sd-choose-step2{width:500px;height:220px;margin:200px auto;position:relative;display: none}
-.sd-btn-radius{height:210px;width:210px;border-radius: 210px;color:#fff;margin:0 20px;float:left;line-height:210px;text-align:center}
-
+.sd-btn-back{position:absolute;top:-110px;left:-110px}
+.sd-choose-step1,.sd-choose-step2{width:720px;height:220px;margin:130px auto;position:relative;display: none}
+.sd-btn-radius{width:320px;color:#fff;margin:0 20px;float:left;text-align:center;position: relative;background:#fff;padding:0;border:0;border-top:6px solid #0094da}
+.sd-btn-radius:hover{box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);border-top:6px solid #0094da}
+.sd-btn-radius .div1{height:100px;width:100%;background:#00aaf2;line-height:100px;float: left}
+.sd-btn-radius .div1:hover{background:#0094da}
+.sd-btn-radius .div2{font-size:12px;display:none;width:100%;background:#fff;float: left;color:#333;padding:10px 10px 20px 10px;white-space: normal;text-align: left;display:none}
+.sd-btn-radius .div2 .p-title{color:#0094da;margin:10px 0 0 0}
+.sd-btn-radius .div2 .p-cont{color:#aaa;margin: 5px 0 0 0}
 .index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
-.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:90px;display: none}
-.index-head-user .ihu-title-block div{border-top:1px solid #fff;color:#fff;font-size:14px;cursor:pointer}
-.btn-index{background:#0c5689}
+.index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:100px;display: none;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc;background: #fff}
+.index-head-user .ihu-title-block div{border-top:0px solid #fff;font-size:14px;cursor:pointer}
+.btn-index{background:#0c5689;color:#fff;}
 .btn-index:hover{background:#337ab7}
+.btn-index-child{background:#fff;color:#333;height:33px;line-height:33px}
+.btn-index-child:hover{background:#1397da;color:#fff}
 .body-panel{width:auto;padding:0 0 0 50px}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
+
+
+
+/** --------页面导航-------- **/
+.nav-page{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}
+.nav-page a, .nav-page a:hover{display: block; color: inherit; text-decoration: none;}
+.nav-page p{margin: 0; padding: 0; height: 35px; line-height: 35px; border-bottom: solid #ced1dc 1px;}
+.nav-page p:last-child{border-bottom: none;}
+.nav-page p.nav-title{color: #fff; background-color: #0c5689;}
+.nav-page p.active{color: #fff; background-color: #1397da;}
+
+
+.page-nav{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}
+.page-nav .nav-title{width: 100%; height: 35px; line-height: 35px; color: #fff; background-color: #0c5689;}
+.page-nav .nav-list li a{display: block; margin: 0; padding: 0; color: inherit; text-decoration: none;}
+.page-nav .nav-list li a, .page-nav .nav-list li a:hover, .page-nav .nav-list li a:focus{margin: 0; padding: 0; height: 35px; line-height: 35px; text-align: center;}
+.page-nav .nav-list li.active a{color: #fff; background-color: #1397da;}
+

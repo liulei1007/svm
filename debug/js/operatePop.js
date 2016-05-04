@@ -31,6 +31,7 @@ function unBind() {
 
 // 提交成功
 function submitRecord(turnURL, url, data) {
+	alert("already");
 	$(".pop").loadTemp("popSubmitSuccess", "nochangeurl", function() {
 		var timeOut = setTimeout(function() { turnPage(turnURL); }, 3000);
 		$(".pop").on("click", ".btn-back", function() {

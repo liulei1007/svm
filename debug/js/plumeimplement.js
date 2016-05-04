@@ -105,20 +105,15 @@ function applySeries_init(){
     plumeLog("完成applySeries模板加载-"+plumeTime());
 }
 
-
-//--新增单笔自采商品模板初始化函数--
-function createMyGoods_init(){
-    plumeLog("初始化applySeries模板-"+plumeTime());
-    plumeUtil.js(plumePath+"/js/createMyGoods.js");
-    plumeLog("完成applySeries模板加载-"+plumeTime());
-}
-
-
 function agencyList_init() {
     plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/agencyList.js");
 }
+function agencyShowCompany_init() {
+    plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
+}
 function agencyCreateCompany_init() {
+    plumeUtil.js(plumePath+"/js/formControl.js");
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
 }
 function agencyCreatePersonal_init() {
@@ -191,13 +186,6 @@ function brandCreateCompany_init(){
     plumeUtil.js(plumePath+"/js/brandCreateCompany.js");
     plumeLog("完成brandCreateCompany模板加载-"+plumeTime());
 }
-
-function applyPopup_init(){
-    plumeLog("初始化applyPopup模板-"+plumeTime());
-    plumeUtil.js(plumePath+"/js/applyPopup.js");
-    plumeLog("完成applyPopup模板加载-"+plumeTime());
-}
-
 //--brandList模板初始化函数--
 function brandList_init(){
     plumeLog("初始化brandList模板-"+plumeTime());

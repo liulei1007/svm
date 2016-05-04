@@ -159,7 +159,6 @@ $.extend({
 			name=name.substring(0,name.indexOf("?"));
 
 		}
-		plumeLog(name+"--"+prams)
 		var dom=document.body;
 		$(dom).find("*").unbind()
 		if(!flag){flag=""}
@@ -199,7 +198,7 @@ $.extend({
 			url=url.substring(0,url.indexof("?"));
 		}
 		for(key in configJson){
-			plumeLog(configJson[key]["pageUrl"]);
+			plumeLog("返回:"+configJson[key]["pageUrl"]+"-"+plumeTime());
 			if(url.indexOf(configJson[key]["pageUrl"])!=-1){
 				$.loadUrlData(key,false,document.body);
 				break;
@@ -262,8 +261,6 @@ $.fn.extend({
 		}
 		try{
 			if(fun){
-				console.log("fun!!!!!!");
-				console.log(fun);
 				fun();
 			}
 		}catch(e){
@@ -339,25 +336,34 @@ setTimeout(function(){
  */
 var plumeUtil = {
 	css: function(path) {
-		if (!path || path.length === 0) {
-			throw new Error('argument "path" is required !');
+		try{
+			if (!path || path.length === 0) {
+				throw new Error('argument "path" is required !');
+			}
+			var head = document.getElementsByTagName('head')[0];
+			var link = document.createElement('link');
+			link.href = path;
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			head.appendChild(link);
+		}catch(e){
+			plumeLog("加载"+path+"CSS异常-"+plumeTime());
 		}
-		var head = document.getElementsByTagName('head')[0];
-		var link = document.createElement('link');
-		link.href = path;
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		head.appendChild(link);
+
 	},
 	js: function(path) {
-		if (!path || path.length === 0) {
-			throw new Error('argument "path" is required !');
+		try{
+			if (!path || path.length === 0) {
+				throw new Error('argument "path" is required !');
+			}
+			var head = document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.src = path;
+			script.type = 'text/javascript';
+			head.appendChild(script);
+		}catch(e){
+			plumeLog("加载"+path+"JS异常-"+plumeTime());
 		}
-		var head = document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.src = path;
-		script.type = 'text/javascript';
-		head.appendChild(script);
 	}
 }
 //重写扩展jquery中ajax,提供对象$$
@@ -441,12 +447,6 @@ var $$={
 		}
 	}
 };
-
-
-//表单删除
-$.fn.extend({
-	
-});
 
 //内部测试方法,获取时间戳
 function plumeTime(){
