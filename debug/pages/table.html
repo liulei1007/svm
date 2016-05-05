@@ -1,23 +1,250 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--公用基础文件-->
-    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <script language="javascript" src="../js/plumecommon.js"></script>
     <!--声明-->
     <script>
-        var _PLUME={
-            "config":"../config/svm.xml",
-            "initPage":"mytable"
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "mytable"
         }
     </script>
 </head>
 
 <body>
+<style>
+    .lv1 {
+        padding-left: 20px
+    }
+
+    .lv2 {
+        padding-left: 40px
+    }
+
+    .lv3 {
+        padding-left: 60px
+    }
+
+    .td-lv {
+        cursor: pointer
+    }
+    .clonetemp{background: #00c8c1}
+</style>
+<script>
+    $(function () {
+        //收缩展开
+        $(".td-lv").bind("click", function () {
+            var tag = parseInt($(this).parent().attr("tag"));
+            var flag = $(this).find("span").text();
+            if (flag == "-") {
+                $(this).find("span").text("+");
+            } else if (flag == "+") {
+                $(this).find("span").text("-");
+            } else {
+                return;
+            }
+            nextdom($(this), tag, flag);
+            function nextdom(o, tag, flag) {
+                var nextParent = o.parent().next();
+                if (nextParent.length > 0) {
+                    var nextTag = parseInt(nextParent.attr("tag"));
+                    if (nextTag - tag == 1) {
+                        if (flag == "-") {
+                            if (nextParent.find(".td-lv").find("span").text() == "-") {
+                                nextParent.find(".td-lv").find("span").text("+");
+                            }
+                            nextParent.hide();
+                        } else {
+                            nextParent.show();
+                        }
+                        nextdom(nextParent.find(".td-lv"), tag, flag);
+                    } else if (nextTag > tag) {
+                        if (flag == "-") {
+                            nextParent.hide();
+                        }
+                        nextdom(nextParent.find(".td-lv"), tag, flag);
+                    }
+                }
+            };
+        });
+        //上移
+        $(".btn-up").bind("click", function () {
+            var tag = parseInt($(this).parent().parent().attr("tag"));
+            var point;
+            getPointObj($(this), tag);
+            function getPointObj(o, tag) {
+                var pointParent = o.parent().parent().prev();
+                if (pointParent.length > 0) {
+                    var pointTag = parseInt(pointParent.attr("tag"));
+
+                    if (pointTag == tag) {
+                        point = pointParent;
+                    } else if (pointTag > tag) {
+                        getPointObj(pointParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+
+            if (point) {
+                $(this).parent().parent().addClass("clonetemp");
+            } else {
+                return;
+            }
+            getCloneTemp($(this), tag);
+            function getCloneTemp(o, tag) {
+                var nextParent = o.parent().parent().next();
+                if (nextParent.length > 0) {
+                    var nextTag = parseInt(nextParent.attr("tag"));
+                    if (nextTag > tag) {
+                        nextParent.addClass("clonetemp");
+                        getCloneTemp(nextParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+
+            var tempobj = $(".clonetemp");
+            point.before(tempobj);
+            setTimeout(function(){$(".clonetemp").removeClass("clonetemp");},500);
+
+        });
+        //下移
+        $(".btn-down").bind("click", function () {
+            var tag = parseInt($(this).parent().parent().attr("tag"));
+            var point;
+            var nextIndex = 0;
+            getPointObj($(this), tag);
+            function getPointObj(o, tag) {
+                var pointParent = o.parent().parent().next();
+                if (pointParent.length > 0) {
+                    var pointTag = parseInt(pointParent.attr("tag"));
+                    if (pointTag == tag) {
+                        nextIndex++;
+                        if (nextIndex == 2) {
+                            point = pointParent;
+                            return;
+                        } else {
+                            getPointObj(pointParent.find(".btn-down"), tag);
+                        }
+                    } else if (pointTag > tag) {
+                        getPointObj(pointParent.find(".btn-down"), tag);
+                    } else {
+                        point = pointParent;
+                        return;
+                    }
+                } else {
+                    point = pointParent;
+                    return;
+                }
+            }
+            if (point) {
+                $(this).parent().parent().addClass("clonetemp");
+            } else {
+                return;
+            }
+            getCloneTemp($(this), tag);
+            function getCloneTemp(o, tag) {
+                var nextParent = o.parent().parent().next();
+                if (nextParent.length > 0) {
+                    var nextTag = parseInt(nextParent.attr("tag"));
+                    if (nextTag > tag) {
+                        nextParent.addClass("clonetemp");
+                        getCloneTemp(nextParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+
+            var tempobj = $(".clonetemp");
+            point.before(tempobj);
+            setTimeout(function(){$(".clonetemp").removeClass("clonetemp");},500);
+        });
+        //上移到顶
+        $(".btn-ups").bind("click", function () {
+            var tag = parseInt($(this).parent().parent().attr("tag"));
+            var point;
+            getPointObj($(this), tag);
+            function getPointObj(o, tag) {
+                var pointParent = o.parent().parent().prev();
+                if (pointParent.length > 0) {
+                    var pointTag = parseInt(pointParent.attr("tag"));
+                    if (pointTag == tag) {
+                        point = pointParent;
+                    }
+                    getPointObj(pointParent.find(".btn-up"), tag);
+                }
+            }
+            if (point) {
+                $(this).parent().parent().addClass("clonetemp");
+            } else {
+                return;
+            }
+            getCloneTemp($(this), tag);
+            function getCloneTemp(o, tag) {
+                var nextParent = o.parent().parent().next();
+                if (nextParent.length > 0) {
+                    var nextTag = parseInt(nextParent.attr("tag"));
+                    if (nextTag > tag) {
+                        nextParent.addClass("clonetemp");
+                        getCloneTemp(nextParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+
+            var tempobj = $(".clonetemp");
+            point.before(tempobj);
+            setTimeout(function(){$(".clonetemp").removeClass("clonetemp");},500);
+        });
+        //上移到底
+        $(".btn-downs").bind("click", function () {
+            var tag = parseInt($(this).parent().parent().attr("tag"));
+            var point,type;
+            getPointObj($(this), tag);
+            function getPointObj(o, tag) {
+                var pointParent = o.parent().parent().next();
+                if (pointParent.length > 0) {
+                    var pointTag = parseInt(pointParent.attr("tag"));
+                    if (pointTag < tag) {
+                        point = pointParent;
+                        type=true;
+                    }else{
+                        point = pointParent;
+                        type=false;
+                        getPointObj(pointParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+            if (point) {
+                $(this).parent().parent().addClass("clonetemp");
+            } else {
+                return;
+            }
+            getCloneTemp($(this), tag);
+            function getCloneTemp(o, tag) {
+                var nextParent = o.parent().parent().next();
+                if (nextParent.length > 0) {
+                    var nextTag = parseInt(nextParent.attr("tag"));
+                    if (nextTag > tag) {
+                        nextParent.addClass("clonetemp");
+                        getCloneTemp(nextParent.find(".btn-up"), tag);
+                    }
+                }
+            }
+
+            var tempobj = $(".clonetemp");
+            if(type){
+                point.before(tempobj);
+            }else{
+                point.after(tempobj);
+            }
+            setTimeout(function(){$(".clonetemp").removeClass("clonetemp");},500);
+        });
+    })
+</script>
 <div class="doc-temp-body">
     <div class="title-block">
         查询经销商/代理商店铺
@@ -37,23 +264,200 @@
         </form>
     </div>
     <div class="table-block">
-        <table class="table table1">
-            <tr class="">
-                <td>1</td>
+        <table class="table table-bordered table-hover ">
+            <thead>
+            <tr>
+                <th><input type="checkbox"/></th>
+                <th>树形菜单</th>
+                <th>添加时间</th>
+                <th>权限</th>
+                <th>操作</th>
             </tr>
-            <tr class="row1">
-                <td>2</td>
+            </thead>
+            <tbody>
+            <tr tag="1">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv1">-</span>第一级XX</td>
+                <td>2016-03-02</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
             </tr>
-            <tr class="">
-                <td>3</td>
+            <tr tag="2">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv2">-</span>第二级FG</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
             </tr>
-            <tr class="row1">
-                <td>4</td>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级123</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
             </tr>
-            <tr class="">
-                <td>5</td>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级212sd3</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
             </tr>
-          
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级SAD</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级FG</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="2">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv2">-</span>第二级XZC</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级DF</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级DD</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="1">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv1">-</span>第一级SS</td>
+                <td>2016-03-02</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="2">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv2">-</span>第二级ASD1</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级HJK</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            <tr tag="3">
+                <td><input type="checkbox"/></td>
+                <td class="td-lv"><span class="lv3"></span>第三级FGH</td>
+                <td>2016-03-01</td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm">配置</div>
+                </td>
+                <td>
+                    <div type="div" class="btn btn-default btn-sm btn-ups">上移到顶</div>
+                    <div type="div" class="btn btn-default btn-sm btn-up">上移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-down">下移</div>
+                    <div type="div" class="btn btn-default btn-sm btn-downs">下移到底</div>
+                </td>
+            </tr>
+            </tbody>
         </table>
     </div>
 </div>
