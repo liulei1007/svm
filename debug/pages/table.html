@@ -166,16 +166,23 @@
         //上移到顶
         $(".btn-ups").bind("click", function () {
             var tag = parseInt($(this).parent().parent().attr("tag"));
-            var point;
+            var point,type;
             getPointObj($(this), tag);
             function getPointObj(o, tag) {
                 var pointParent = o.parent().parent().prev();
                 if (pointParent.length > 0) {
                     var pointTag = parseInt(pointParent.attr("tag"));
-                    if (pointTag == tag) {
+                    if(pointTag == tag-1){
                         point = pointParent;
+                        type=true;
+                    }else{
+                        if(pointTag == tag){
+                            point = pointParent;
+                            type=false;
+                        }
+                        getPointObj(pointParent.find(".btn-up"), tag);
                     }
-                    getPointObj(pointParent.find(".btn-up"), tag);
+
                 }
             }
             if (point) {
@@ -196,7 +203,12 @@
             }
 
             var tempobj = $(".clonetemp");
-            point.before(tempobj);
+            if(!type){
+                point.before(tempobj);
+            }else{
+                point.after(tempobj);
+            }
+
             setTimeout(function(){$(".clonetemp").removeClass("clonetemp");},500);
         });
         //上移到底
