@@ -271,6 +271,11 @@
 		<page-name>popFillIn</page-name>
 		<page-url>/pages/popFillIn.html</page-url>
 	</page>
+	<page>
+		<page-name>childIdCreate</page-name>
+		<page-url>/pages/childIdCreate.html</page-url>
+		<init>childIdCreate_init</init>
+	</page>
 	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
 	<api>
 		<listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>

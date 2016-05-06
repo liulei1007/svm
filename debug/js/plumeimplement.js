@@ -220,8 +220,15 @@ function reviewShowPersonal_init(){
     plumeUtil.js(plumePath+"/js/reviewShowPersonal.js");
     plumeLog("完成reviewShowPersonal模板加载-"+plumeTime());
 }
+//--applyPriceTagManage模板初始化函数--
 function applyPriceTagManage_init(){
     plumeLog("初始化applyPriceTagManage模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/applyPriceTagManage.js");
     plumeLog("完成applyPriceTagManage模板加载-"+plumeTime());
+}
+//--childIdCreate模板初始化函数--
+function childIdCreate_init(){
+    plumeLog("初始化childIdCreate模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/childIdCreate.js");
+    plumeLog("完成childIdCreate模板加载-"+plumeTime());
 }
