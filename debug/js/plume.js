@@ -8,7 +8,7 @@
  --2016/04/20 v1.4
  **/
 var configJson = {};//配置文件数据集合
-var plumeApi={};//配置文件中接口集合--v1.3功能较单一需扩展
+var plumeApi = {};//配置文件中接口集合--v1.3功能较单一需扩展
 var pathName = window.document.location.pathname;
 var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
 $(function () {
@@ -28,7 +28,7 @@ $(function () {
             configJson[pageName] = temp;
         });
         $(data).find("api").children().each(function () {
-            var tagname=$(this)[0].tagName;
+            var tagname = $(this)[0].tagName;
             plumeApi[tagname] = $(this).text();
         });
         var page_init = $(data).find("index-init").text();
