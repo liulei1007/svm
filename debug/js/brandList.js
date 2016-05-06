@@ -1,12 +1,8 @@
-var brandList_json={
-	"pram1":"",
-	"pram2":""
-};
 $(function(){
 	plumeLog("进入brandList模板自定义js-"+plumeTime());
-	getTableData();
+	//getTableData();
 	$(".btn-addbrand").bind("click",function(){
-		brandList_json.pram1="xxxxx";
+		session.pram1="xxxxx";
 		derict(this,"brandAdd","nochangeurl",function(){
 			$(".ba-back").bind("click",function(){
 				derict(this,"brandList","nochangeurl");

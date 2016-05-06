@@ -257,3 +257,7 @@ function tablecheckbox() {
         $(".table-block").find("table").find("td").find("input:checkbox").prop("checked",c);
     });
 }
+//缓存接口
+var session=function(){
+    return {};
+}
