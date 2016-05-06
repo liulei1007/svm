@@ -118,8 +118,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
-.table-striped > tbody > tr:nth-of-type(odd){background-color: #f0f2fa;}
-.table-striped > tbody > tr:nth-of-type(even){background-color: #fff;}
+.table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #f0f2fa;}
+.table-striped > tbody > tr:nth-of-type(even){background-color: #f0f2fa;}
+.table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
@@ -169,7 +170,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-icon > i.confirm{background-position: -65px -100px;}
 .popup-icon > i.success{background-position: 0 -100px;}
 .popup-icon > i.check{background-position: -325px -100px;}
-.popup-info{margin-top: 10px; padding: 0 60px; color: #989da8; text-align: center;}
+.popup-icon > i.warning{background-position: -130px -100px;}
+.popup-info{margin-top: 10px; padding: 0 30px; color: #989da8; text-align: center;}
 .popup-btn-block{position: absolute; bottom: 20px; margin-top: 10px; margin-right: 0; margin-left: 0; width: 100%;}
 .popup-btn-block .btn{width: 100%;}
 
