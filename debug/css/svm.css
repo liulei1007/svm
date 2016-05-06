@@ -333,3 +333,5 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .pagination > li > a:hover{color: #26aff5; background-color: transparent; border: solid #26aff5 1px;}
 .pagination > li > a:focus, .pagination > li.active > a, .pagination > li.active > a:hover, .pagination > li.active > a:focus{color: #989DA8; background-color: #f0f2fa; border-color: #ddd;}
 
+.table-ctrl{font-weight: bold;float:left;cursor: pointer;coloe:#333}
+.table-ctrl:hover{color:#0c5689}
