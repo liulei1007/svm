@@ -121,6 +121,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
+.table-block .table .btn-link{margin-right: 10px; padding: 0; color: #333; text-decoration: underline;}
+.table-block .table .btn-link:hover{color: #17adf2;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
@@ -159,6 +161,18 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .alert-info{color: #099D99; background-color: #d2eeed; border: none;}
 .alert-warning{color: #6f5400; background-color: #ffe799; border: none;}
 .alert-danger{color: #892e16; background-color: #f0d6d0; border: none;}
+
+
+/** --------校验状态的表单-------- **/
+.has-warning .control-label, .has-warning .help-block, .has-error .control-label, .has-error .help-block{color: #333;}
+.has-warning .form-control, .has-warning .form-control:focus{border-color: #26aff5;}
+.has-error .form-control, .has-error .form-control:focus{border-color: #f76c4a;}
+
+/** --------标记-------- **/
+.mark{display: block; margin: 0; padding: 0 10px; color: #fff; text-align: center;}
+.mark-default{background-color: #989da8;}
+.mark-success{background-color: #00c052;}
+.mark-danger{background-color: #f56c50;}
 
 /** --------弹出-------- **/
 .pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;}

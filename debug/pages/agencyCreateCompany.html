@@ -18,28 +18,14 @@
 </head>
 
 <body>
-<!-- <div id="pageNav-agencyCreateCompany" class="nav nav-page" role="tablist">
-  <p class="nav-title">快速导航</p>
-  <p><a href="#base">基础信息</a></p>
-  <p class="active"><a href="#accredit">授权信息</a></p>
-</div> -->
-
-<nav id="pageNav-agencyCreateCompany" class="page-nav">
-    <div class="nav-title">快速导航</div>
-    <ul class="nav nav-list" role="tablist">
-        <li class="active"><a href="#base">基础信息</a></li>
-        <li><a href="#accredit">授权信息</a></li>
-    </ul>
-</nav>
-
-
 <div class="body-typein" data-spy="scroll" data-target="#pageNav-agencyCreateCompany">
     <div class="title-block">创建公司经销/代理商</div>
     <form class="form-horizontal">
-        <div class="form-group">
+        <div class="form-group has-warning">
             <label class="col-sm-3 control-label"><i>*</i>品牌信息</label>
 
             <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入品牌"></div>
+            <div class="col-sm-2 alert alert-info">请输入</div>
         </div>
     </form>
 
@@ -48,11 +34,11 @@
             <div class="col-sm-2 col-sm-offset-1">基础信息</div>
         </div>
         <form class="form-horizontal">
-            <div class="form-group">
+            <div class="form-group has-error">
                 <label class="col-sm-3 control-label"><i>*</i>公司名称</label>
 
                 <div class="col-sm-6"><input type="text" class="form-control"></div>
-                <div class="col-sm-2 alert alert-danger" role="alert">公司名已经存在！</div>
+                <div class="col-sm-2 alert alert-danger">公司名已经存在！</div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label"><i>*</i>所在省市</label>
