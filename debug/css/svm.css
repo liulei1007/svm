@@ -182,7 +182,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-fill .btn{width: 100%;}
 
 
-/** --------commodityManagement-------- **/
+/** --------商品管理-------- **/
 .doc-commodityManagement1{position: relative;padding-bottom: 40px;}
 .commodity-btn-apply{margin-left:20px;}
 .commodity-classify{margin-bottom:50px;font-size: 16px;}
@@ -201,10 +201,26 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .releaseGoods .releaseGoods-stock span{width:90px;text-align: center;display: inline-block;}
 .btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
 .block-padding{padding:30px;background-color: #f0f2fa;}
-.goodsAttr-content .control-label{text-align: left;}
 .goodsPic-content p{color:#5ea6c2;background-color:#d2eded;padding: 10px 12px;margin:20px 0;}
-
-
+.sizeAttr-content .add p {display: inline-block;color:#26aff5;height: 24px;float:left;}
+.sizeAttr-content .add .icon-add{margin-right:5px;width: 24px;height: 24px;line-height: 15px; text-align: center;border-radius: 24px;border: 2px solid #26aff5;font-size: 24px;}
+.addTip p{color:#5ea6c2;background-color:#d2eded;padding: 10px 12px;}
+.add{margin-top: 10px;float:left;}
+.addTip{float:left;}
+.goodsPic-upload{padding:20px;}
+.goodsPic-upload ul{list-style: none;padding:0;margin:0;}
+.goodsPic-upload li{width: 100px;height: 100px;margin-right: 20px;float:left;position:relative;}
+.goodsPic-upload li img{width: 100%;}
+.goodsPic-upload .upload-btn{width: 32px;height:24px;background-color: #000;opacity: 0.5;position: absolute;bottom:0;cursor:pointer;}
+.goodsPic-upload .upload-btn-left{left:0;}
+.goodsPic-upload .upload-btn-delect{right:0;}
+.goodsPic-upload .upload-btn-right{left:50px;margin-left:-16px;}
+.arrow-left{width:0; height:0; border-top:6px solid transparent;border-bottom:6px solid transparent; border-right:10px solid #01bd48;position: absolute;left:10px;top:6px;}
+.arrow-right{width:0; height:0; border-top:6px solid transparent;border-bottom:6px solid transparent; border-left:10px solid #01bd48;position: absolute;left:10px;top:6px;}
+.arrow-close{color: red;line-height: 20px;text-align: center;height: 20px;width: 20px;font-size: 14px;padding: 1px;position: absolute;top:0px;left:5px;}
+.arrow-close::before {content: "\2716";}
+.first-upload-btn .arrow-left{border-top:6px solid transparent;border-bottom:6px solid transparent; border-right:10px solid #969494;}
+.last-upload-btn .arrow-right{border-top:6px solid transparent;border-bottom:6px solid transparent; border-left:10px solid #969494;}
 /*.btn-cancel{width: 142px; height:45px;color:#989da8;font-size: 18px;}*/
 .releaseGoods-btn{text-align: center;}
 .commodity-inquire .commodity-name span,
@@ -216,8 +232,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .doc-commodityManagement{padding:10px;}
 .doc-commodityManagement table{margin-top: 10px;}
 .table-info span{color:red;}
-
-/** --------basicDataManagement-------- **/
+.addGoods-table>div>div{margin: 20px 0;}
+/** --------基础数据管理-------- **/
 .table-title{padding:20px 0;}
 .doc-basicDataManagement{padding:10px;}
 .doc-basicDataManagement table{margin-top: 10px;}
@@ -233,7 +249,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .basicDataManagement-remark{margin:60px 0 25px 10px;}
 
 /** --------录入-------- **/
-.body-typein{position: relative; margin: 0 auto; padding: 0 20px; width: 1040px; overflow-x: hidden;}
+.body-typein{position: relative; margin: 0 auto; padding: 0 20px; /*width: 1040px; */overflow-x: hidden;}
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
 .body-typein .module-title{margin-top: 20px; margin-bottom: 20px; height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
 /** 可收缩的表单 **/
@@ -306,7 +322,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-panel{width:auto;padding:0 0 0 50px}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
-
+.goodsPic-upload{background-color:#f0f2fa;padding:20px;}
 
 
 /** --------页面导航-------- **/
