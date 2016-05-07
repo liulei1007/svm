@@ -20,135 +20,310 @@
 <body>
   <div class="body-typein">
     <div class="title-block">发布新商品</div>
-    <form class="form-horizontal">
-      <div class="basicInfo-content">
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>品牌名称</label>
-        <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>系列名称</label>
-        <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">商品数据ID号</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
-        <div class="col-sm-9"><input type="text" class="form-control"></div>
-        <div class="col-sm-offset-3 col-sm-8 tips-block">
-        <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
+      <div class="form-block-contractive">
+        <div id="basicInfo" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">基础信息</div>
+        </div>
+         <form class="form-horizontal">
+             <div class="basicInfo-content row"> 
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>品牌名称</label>
+                  <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>系列名称</label>
+                  <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
+                  <div class="col-sm-6"><input type="text" class="form-control"></div>
+                  <div class="col-sm-offset-3 col-sm-8 tips-block">
+                  <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
+                  </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
+                    <div class="col-sm-6"><textarea class="form-control" style="resize:none"></textarea></div>
+                    <div class="col-sm-offset-3 col-sm-8 tips-block">
+                    <p>文字说明：举例子说明文字说明：举列子说明</p>
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                    <label class="col-sm-3 control-label"><i>*</i>产地</label>
+                    <div class="col-sm-2">
+                      <select class="form-control">
+                        <option>上海</option>
+                      </select>
+                    </div> 
+                    <div class="col-sm-2">
+                      <select class="form-control">
+                        <option>上海</option>
+                      </select>
+                    </div>
+                </div> 
+                 <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>型号</label>
+                  <div class="col-sm-6"><input type="text" class="form-control"></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>材质</label>
+                  <div class="col-sm-6"><input type="text" class="form-control"></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>重量</label>
+                  <div class="col-sm-6"><input type="text" class="form-control"></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
+                  <div class="col-sm-6">
+                    <select class="form-control">
+                      <option>类型一</option>
+                      <option>类型二</option>
+                    </select>
+                  </div>
+                </div>
+                 <div class="form-group required">
+                  <label class="col-sm-3 control-label"><i>*</i>等级</label>
+                  <div class="col-sm-6">
+                    <select class="form-control">
+                      <option>一等品</option>
+                      <option>二等品</option>
+                    </select>
+                 </div>                   
+             </div>
+         </form> 
         </div>
       </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
-        <div class="col-sm-9"><textarea class="form-control" style="resize:none"></textarea></div>
-        <div class="col-sm-offset-3 col-sm-8 tips-block">
-        <p>文字说明：举例子说明文字说明：举列子说明</p>
-        </div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>产地</label>
-        <div class="col-sm-2">
-          <select class="form-control">
-            <option>上海</option>
-          </select>
-        </div> 
-        <div class="col-sm-2">
-          <select class="form-control">
-            <option>上海</option>
-          </select>
-        </div>
-      </div>
-       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>型号</label>
-        <div class="col-sm-9"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>材质</label>
-        <div class="col-sm-9"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>重量</label>
-        <div class="col-sm-9"><input type="text" class="form-control"></div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
-        <div class="col-sm-9">
-          <select class="form-control">
-            <option>类型一</option>
-            <option>类型二</option>
-          </select>
-        </div>
-      </div>
-       <div class="form-group required">
-        <label class="col-sm-3 control-label"><i>*</i>等级</label>
-        <div class="col-sm-9">
-          <select class="form-control">
-            <option>一等品</option>
-            <option>二等品</option>
-          </select>
-        </div>
-      </div>
-      </div>
-      <div class="goodsAttr-content">
-          <div class="block-padding col-sm-offset-2">
-              <div class="form-group required">
-                <label class="col-sm-2 control-label">分类</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-                <label class="col-sm-2 control-label">基材</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-              </div>
-              <div class="form-group required">
-                <label class="col-sm-2 control-label">安装方式</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-                <label class="col-sm-2 control-label">辅材</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-              </div>
-              <div class="form-group required">
-                <label class="col-sm-2 control-label">运输方式</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-                <label class="col-sm-2 control-label">饰面</label>
-                <div class="col-sm-4"><select type="text" class="form-control"><option></option></select></div>
-              </div>
+        <div class="form-block-contractive">
+          <div id="goodAttr" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">商品属性</div>
           </div>
-      </div>
-      <div class="colorAttr-content">
-        
-      </div>
-      <div class="sizeAttr-content">
-        
-      </div>
-      <div class="goodsPic-content">
-          <div>请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为 gif,png,jpg,jpeg大小不得超过5M</div>
-      </div>
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">状态</label>
-        <div class="col-sm-6">
-          <div class="radio-inline">
-            <label>
-              <input type="radio" name="status" checked="" />上架
-            </label>
-          </div>
-          <div class="radio-inline">
-            <label>
-              <input type="radio" name="status" />下架
-            </label>
-          </div>
+            <form class="form-horizontal">
+                 <div class="goodsAttr-content row">
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label">分类</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                  <label class="col-sm-2 control-label">基材</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label">安装方式</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                  <label class="col-sm-2 control-label">辅材</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label">运输方式</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                  <label class="col-sm-2 control-label">饰面</label>
+                  <div class="col-sm-2"><select type="text" class="form-control"><option></option></select></div>
+                </div>
+               </div>
+            </form>  
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-6 col-sm-offset-3">
-          <img src="">
-        </div>
-      </div>
 
-      <div class="col-sm-8 col-sm-offset-3 btn-block">
-        <button type="button" class="btn btn-lg btn-success btn-next">提交</button>
-        <button type="button" class="btn btn-lg btn-warning btn-back">取消</button>
-      </div>
-    </form>
+
+        <div class="form-block-contractive">
+           <div id="colorAttr" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">颜色属性</div>
+          </div>
+           <form class="form-horizontal">
+               <div class="colorAttr-content row">
+                  <div class="col-sm-1 col-sm-offset-2">颜色分类</div>
+                  <div class="col-sm-8">
+                      <div class="color-type">
+                          <div class="row">
+                              <div class="col-sm-1">
+                                  <div class="color-title"></div>
+                                  <div class="color-font">红色</div>
+                              </div> 
+                               <div class="col-sm-1">
+                                  白色
+                              </div>
+                               <div class="col-sm-1">
+                                  白色
+                              </div>
+                               <div class="col-sm-1">
+                                  白色
+                              </div> 
+                          </div>
+                          <div class="row">
+                            
+                          </div>
+                      </div>
+                      <div class="color-type-pic">
+                        
+                      </div>
+                  </div>
+               </div>
+           </form>
+        </div>
+      
+        <div class="form-block-contractive">
+           <div id="sizeAttr" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">规格属性</div>
+          </div>
+           <form class="form-horizontal">
+               <div class="sizeAttr-content row">
+                     <div class="addGoods col-sm-offset-3">
+                         <div class="row">
+                            <div class="add">
+                                <p class="icon-add">+</p>
+                                <p class>添加规格</p>
+                            </div>
+                            <div class="col-sm-8 addTip">
+                                <p>例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm:</p>
+                            </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-sm-4"><input type="text" class="form-control"></div>
+                             <div class="col-sm-1"><button class="btn btn-primary">添加</button></div>    
+                         </div>
+                     </div>
+                     <div class="addGoods-table col-sm-offset-2">
+                      <div class="row">
+                          <div class="col-sm-10">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="active">
+                                        <th>颜色分类</th>
+                                        <th>规格</th>
+                                        <th>市场参考价</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td rowspan="0">乳白色</td>
+                                      <td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>
+                                      <td><input type="text" class="form-control" value="3580.00"></td>
+                                      <td><button type="button" class="btn btn-default btn-sm">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>
+                                      <td><input type="text" class="form-control" value="3580.00"></td>
+                                      <td><button type="button" class="btn btn-default btn-sm">删除</button></td>
+                                    </tr>
+                                    <tr>
+                                      <td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>
+                                      <td><input type="text" class="form-control" value="3580.00"></td>
+                                      <td><button type="button" class="btn btn-default btn-sm">删除</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                     </div> 
+               </div>
+           </form>
+        </div>  
+        
+          
+        <div class="form-block-contractive">
+           <div id="goodsPic" class="row block-title">
+              <div class="col-sm-2 col-sm-offset-1">商品图片</div>
+           </div>
+           <form class="form-horizontal">
+               <div class="goodsPic-content">
+              <div class="row">
+              <div class="col-sm-offset-2 col-sm-8"><p>请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为 gif,png,jpg,jpeg大小不得超过5M</p></div>
+              </div>  
+              <div class="row">
+                 <div class="col-sm-offset-2 col-sm-9">
+                    <div class="goodsPic-upload">
+                        <ul class="row">
+                            <li>
+                                <img src="images/temp/upload.jpg" />
+                            </li>
+                            <li class="goodsPic">
+                               <img src="images/temp/upload-1.png">
+                               <div class="upload-btn upload-btn-left">
+                                  <div class="arrow-left"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-right">
+                                  <div class="arrow-right"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-delect">
+                                 <div class="arrow-close"></div>
+                               </div>
+                            </li>
+                             <li class="goodsPic">
+                               <img src="images/temp/upload-2.jpg">
+                               <div class="upload-btn upload-btn-left">
+                                  <div class="arrow-left"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-right">
+                                  <div class="arrow-right"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-delect">
+                                 <div class="arrow-close"></div>
+                               </div>
+                            </li>
+                              <li class="goodsPic">
+                               <img src="images/temp/upload-2.jpg">
+                               <div class="upload-btn upload-btn-left">
+                                  <div class="arrow-left"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-right">
+                                  <div class="arrow-right"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-delect">
+                                 <div class="arrow-close"></div>
+                               </div>
+                            </li>
+                              <li class="goodsPic">
+                               <img src="images/temp/upload-2.jpg">
+                               <div class="upload-btn upload-btn-left">
+                                  <div class="arrow-left"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-right">
+                                  <div class="arrow-right"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-delect">
+                                 <div class="arrow-close"></div>
+                               </div>
+                            </li>
+                             <li class="goodsPic">
+                               <img src="images/temp/upload-3.png">
+                               <div class="upload-btn upload-btn-left">
+                                  <div class="arrow-left"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-right">
+                                  <div class="arrow-right"></div>
+                               </div>
+                               <div class="upload-btn upload-btn-delect">
+                                 <div class="arrow-close"></div>
+                               </div>
+                            </li>
+                        </ul>
+                    </div>
+                 </div>
+              </div>
+                </div>
+                <div class="form-group required">
+                  <label class="col-sm-3 control-label">状态</label>
+                  <div class="col-sm-6">
+                    <div class="radio-inline">
+                      <label>
+                        <input type="radio" name="status" checked="" />上架
+                      </label>
+                    </div>
+                    <div class="radio-inline">
+                      <label>
+                        <input type="radio" name="status" />下架
+                      </label>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+           </form>
+       
+
+        <div class="col-sm-8 col-sm-offset-3 btn-block">
+          <button type="button" class="btn btn-lg btn-success btn-next">提交</button>
+          <button type="button" class="btn btn-lg btn-warning btn-back">取消</button>
+        </div>
+    </div>
   </div>
 </body>
 </html>

@@ -34,8 +34,13 @@ function deleteInfo(deleteObj) {
 // 点击上传的资料图片，在右侧显示大图
 function showBigImage(showObj) {
 	var imgSrc = $(showObj).find("img").attr("src");
-	console.log(imgSrc);
-	$(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
+	// 首先判断是否已经有大图显示
+	if ($(".form-loading .media-show").html()) {
+		$(".form-loading .media-show img").attr("src", imgSrc);
+	}
+	else {
+		$(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
+	}
 }
 
 // 关闭大图显示

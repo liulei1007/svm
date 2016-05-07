@@ -226,9 +226,17 @@ function applyPriceTagManage_init(){
     plumeUtil.js(plumePath+"/js/applyPriceTagManage.js");
     plumeLog("完成applyPriceTagManage模板加载-"+plumeTime());
 }
+
+function createMyGoods_init() {
+    plumeLog("初始化createMyGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/formControl.js");
+    plumeUtil.js(plumePath + "/js/createMyGoods.js")
+    plumeLog("完成createMyGoods模板加载-" + plumeTime());
+}
 //--childIdCreate模板初始化函数--
 function childIdCreate_init(){
     plumeLog("初始化childIdCreate模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/childIdCreate.js");
     plumeLog("完成childIdCreate模板加载-"+plumeTime());
+
 }

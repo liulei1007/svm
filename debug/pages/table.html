@@ -62,13 +62,16 @@
                             if (nextParent.find(".td-lv").find("span").text() == "-") {
                                 nextParent.find(".td-lv").find("span").text("+");
                             }
+                            nextParent.addClass("xxx");
                             nextParent.hide();
                         } else {
+                            nextParent.removeClass("xxx");
                             nextParent.show();
                         }
                         nextdom(nextParent.find(".td-lv"), tag, flag);
                     } else if (nextTag > tag) {
                         if (flag == "-") {
+                            nextParent.addClass("xxx");
                             nextParent.hide();
                         }
                         nextdom(nextParent.find(".td-lv"), tag, flag);
