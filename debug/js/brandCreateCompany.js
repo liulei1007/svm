@@ -1,3 +1,4 @@
 $(function() {
-    plumeLog("进入brandCreateCompany模板自定义js-"+plumeTime());
+    plumeLog("杩涘叆brandCreateCompany妯℃澘鑷畾涔塲s-"+plumeTime());
+    formCtrl();
 });

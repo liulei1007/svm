@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "childIdCreate"
+        }
+    </script>
+</head>
+
+<body>
+
+
+<div class="body-typein" data-spy="scroll" data-target="#pageNav-agencyCreateCompany">
+    <div class="title-block">添加子账号</div>
+
+
+    <div class="form-block-contractive">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">手机号</label>
+                <div class="col-sm-6"><input type="text" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" role="alert">手机号已经存在！</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">密码</label>
+                <div class="col-sm-6"><input type="password" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" role="alert">xxx！</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">确认密码</label>
+                <div class="col-sm-6"><input type="password" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" role="alert">xxxx！</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">权限配置</label>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-default btn-onload">配置</button>
+                </div>
+                <p class="form-control-static">经销商管理,品牌管理</p>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">关联品牌</label>
+                <div class="col-sm-5"><input type="password" class="form-control"></div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-default cic-btn-add">+</button>
+                </div>
+            </div>
+            <div class="form-group cic-brand">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-5"><input type="password" class="form-control"></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-3 btn-block">
+            <button type="button" class="btn btn-lg btn-success btn-next">下一步</button>
+            <button type="button" class="btn btn-lg btn-warning btn-back">取消</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
