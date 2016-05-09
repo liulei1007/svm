@@ -281,5 +281,7 @@
 		<listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
 		<listAgentsBrandInfoList-brand>http://192.168.222.162:8080/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
 		<listAgentsBrandInfoList>http://192.168.222.162:8080/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
+
+		<listShopInfo>http://192.168.222.162:8080/shopInfo/listShopInfo</listShopInfo>
 	</api>
 </config>
