@@ -6,7 +6,7 @@ $(function() {
 	});
 
 	function getData() {
-		$.get(plumeApi["listShopInfo"],{},function(data){
+		$.post(plumeApi["listShopInfo"],{},function(data){
 			console.log(data);
 		})
 	}

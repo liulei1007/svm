@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "popUpload"
+        }
+    </script>
+</head>
+<body>
+<div class="popup-default popup-upload">
+    <p class="popup-title">图片上传</p>
+
+    <form class="form-horizontal">
+        <div class="checkbox">
+            <label for="exampleInputFile">
+            <input type="file" id="exampleInputFile">
+            </label>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-3">
+            <button type="button" class="btn btn-success pu-ok">确定</button>
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-warning pu-cancel">取消</button>
+        </div>
+    </div>
+</div>
+</body>
