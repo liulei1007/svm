@@ -49,12 +49,12 @@ $(function () {
     }
 
     //图片上传
-    $("#cmg-upload").bind("click",function(){
-        uploadPop(function(){
-            $(".pu-ok").bind("click",function(){
+    $("#cmg-upload").bind("click", function () {
+        uploadPop(function () {
+            $(".pu-ok").bind("click", function () {
                 closeUploadPop();
             });
-            $(".pu-cancel").bind("click",function(){
+            $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
             });
         });
