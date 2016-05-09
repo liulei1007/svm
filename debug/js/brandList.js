@@ -9,8 +9,8 @@ $(function(){
 			})
 		});
 	});
-	function getTableData(){
-		$.get(plumeApi["listAgentsBrandInfoList-brand"],{"page":0,"perPage":3},function(data){
+	function getTableData(pram){
+		$.get(plumeApi["listAgentsBrandInfoList-brand"],pram,function(data){
 			$(".table-block").setPageData(data);
 		})
 	}

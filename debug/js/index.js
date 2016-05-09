@@ -128,6 +128,9 @@ $(function () {
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
+    $('.userType').bind("click", function() {
+        derict(this, "userType","nochangeurl");
+    })
     // 左侧导航栏鼠标滑过显示二级分类
     $(".slidebar-title").bind("mouseenter", function () {
         $(this).find(".slidebar-list").show();
@@ -261,3 +264,29 @@ function tablecheckbox() {
 var session=function(){
     return {};
 }
+//pop
+$.fn.extend({
+    pop:function(temp,fun){
+        if(!($(".lockbg").length>0)){
+            $(".work-space-active").append("<div class='lockbg'></div>");
+        }
+        $(".lockbg").fadeIn();
+        var o=$(this);
+        o.loadTemp(temp,"nochangeurl",function(){
+            plumeLog("pop加载完毕."+plumeTime());
+            o.show();
+            try {
+                if (fun) {
+                    fun();
+                }
+            } catch (e) {
+                plumeLog("提示:" + e.message);
+            }
+        });
+    },
+    pophide:function(){
+        $(this).html("").hide();
+        $(".lockbg").fadeOut();
+    }
+
+})
