@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "popAuth"
+        }
+    </script>
+</head>
+<body>
+<div class="popup-auth">
+    <p class="popup-title">权限配置</p>
+
+    <form class="form-horizontal">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">经销商管理
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">店铺管理
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">审核管理
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">商品管理
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">系统管理
+            </label>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-3">
+            <button type="button" class="btn btn-success">确定</button>
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-warning">取消</button>
+        </div>
+    </div>
+</div>
+</body>

@@ -261,3 +261,16 @@ function tablecheckbox() {
 var session=function(){
     return {};
 }
+//pop
+$.fn.extend({
+    pop:function(temp){
+        $(".work-space-active").append("<div class='lockbg'></div>");
+        $(".lockbg").fadeIn();
+        var o=$(this);
+        o.loadTemp(temp,"nochangeurl",function(){
+            plumeLog("pop加载完毕."+plumeTime());
+            o.show();
+        });
+    },
+
+})
