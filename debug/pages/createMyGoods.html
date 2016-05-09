@@ -129,30 +129,103 @@
           </div>
            <form class="form-horizontal">
                <div class="colorAttr-content row">
-                  <div class="col-sm-1 col-sm-offset-2">颜色分类</div>
-                  <div class="col-sm-8">
+                  <div class="col-sm-1 col-sm-offset-1">颜色分类</div>
+                  <div class="col-sm-9">
                       <div class="color-type">
                           <div class="row">
-                              <div class="col-sm-1">
+                            <ul>
+                               <li>
                                   <div class="color-title"></div>
-                                  <div class="color-font">红色</div>
-                              </div> 
-                               <div class="col-sm-1">
-                                  白色
-                              </div>
-                               <div class="col-sm-1">
-                                  白色
-                              </div>
-                               <div class="col-sm-1">
-                                  白色
-                              </div> 
+                                  <div class="color-font sel">白色系</div>
+                              </li> 
+                               <li>
+                                  <div class="color-title" style="background-color:#ced1dc"></div>
+                                  <div class="color-font">灰色系</div>
+                              </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#242424"></div>
+                                  <div class="color-font">黑色系</div>
+                              </li> 
+                               <li>
+                                  <div class="color-title" style="background-color:#f26c4e"></div>
+                                  <div class="color-font">红色系</div>
+                              </li>
+                              <li>
+                                  <div class="color-title" style="background-color:#fbf831"></div>
+                                  <div class="color-font">黄色系</div>
+                               </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#02be49"></div>
+                                  <div class="color-font">绿色系</div>
+                               </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#26aff5"></div>
+                                  <div class="color-font">蓝色系</div>
+                               </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#b846e8"></div>
+                                  <div class="color-font">紫色系</div>
+                              </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#ae6109"></div>
+                                  <div class="color-font">棕色系</div>
+                              </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#ced1dc"></div>
+                                  <div class="color-font">花色系</div>
+                              </li>
+                               <li>
+                                  <div class="color-title" style="background-color:#ced1dc"></div>
+                                  <div class="color-font">透明系</div>
+                              </li>                             
+                            </ul>  
                           </div>
                           <div class="row">
-                            
+                            <div class="color-select">
+                              <div class="row">
+                                  <div class="col-sm-offset-1 col-sm-2">
+                                    <input type="checkbox"/>
+                                    <div>
+                                        <div class="color-select-title" style="background-color:#fdf9f6"></div>
+                                        <p>乳白色</p>
+                                    </div>
+                                     <input type="text" class="col-sm-1 form-control none-input-color">
+                                  </div>
+                                  <div class="col-sm-2">
+                                     <input type="checkbox"/>
+                                    <div>
+                                        <div class="color-select-title" style="background-color:#fdf9f6"></div>
+                                        <p>乳白色</p>
+                                    </div>
+                                     <input type="text" class="col-sm-1 form-control none-input-color">
+                                  </div>
+                                  <div class="col-sm-2">
+                                     <input type="checkbox"/>
+                                    <div>
+                                        <div class="color-select-title" style="background-color:#fdf9f6"></div>
+                                        <p>乳白色</p>
+                                    </div>
+                                     <input type="text" class="col-sm-1 form-control none-input-color">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="addTip col-sm-offset-1"><p>备注：（可以修改名称如：乳白色改成珍珠白，单色值不能变）</p></div>
+                              </div>
+                            </div>
                           </div>
                       </div>
-                      <div class="color-type-pic">
-                        
+                      <div class="color-type-talbe">
+                          <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                    <th>颜色分类</th>
+                                    <th>图片（无图片可以不填）</th>
+                                </tr>
+                              </thead>  
+                              <tbody>
+
+                              </tbody>  
+                          </table>
                       </div>
                   </div>
                </div>
@@ -305,12 +378,12 @@
                   <div class="col-sm-6">
                     <div class="radio-inline">
                       <label>
-                        <input type="radio" name="status" checked="" />上架
+                        <input type="radio" name="status" checked="" />启用
                       </label>
                     </div>
                     <div class="radio-inline">
                       <label>
-                        <input type="radio" name="status" />下架
+                        <input type="radio" name="status" />禁用
                       </label>
                     </div>
                   </div>
