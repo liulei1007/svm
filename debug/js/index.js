@@ -128,6 +128,9 @@ $(function () {
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
+    $('.userType').bind("click", function() {
+        derict(this, "userType","nochangeurl");
+    })
     // 左侧导航栏鼠标滑过显示二级分类
     $(".slidebar-title").bind("mouseenter", function () {
         $(this).find(".slidebar-list").show();
