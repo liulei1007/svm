@@ -16,6 +16,10 @@ $(function () {
         derict(this, "idmanage", "nochangeurl");
     });
     $(".btn-myset").bind("click",function(){
-        $(".cic-pop").pop("popAuth");
+        $(".cic-pop").pop("popAuth",function(){
+            $(".pa-cancel").bind("click",function(){
+                $(".cic-pop").pophide();
+            })
+        });
     });
 });

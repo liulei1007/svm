@@ -266,14 +266,27 @@ var session=function(){
 }
 //pop
 $.fn.extend({
-    pop:function(temp){
-        $(".work-space-active").append("<div class='lockbg'></div>");
+    pop:function(temp,fun){
+        if(!($(".lockbg").length>0)){
+            $(".work-space-active").append("<div class='lockbg'></div>");
+        }
         $(".lockbg").fadeIn();
         var o=$(this);
         o.loadTemp(temp,"nochangeurl",function(){
             plumeLog("pop加载完毕."+plumeTime());
             o.show();
+            try {
+                if (fun) {
+                    fun();
+                }
+            } catch (e) {
+                plumeLog("提示:" + e.message);
+            }
         });
+    },
+    pophide:function(){
+        $(this).html("").hide();
+        $(".lockbg").fadeOut();
     }
 
 })
