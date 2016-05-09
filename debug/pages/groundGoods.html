@@ -36,7 +36,7 @@
             <option>所有</option>
           </select>
         </div>
-        <button class="btn btn-default btn-sm">查询</button>
+        <button class="btn btn-primary btn-sm">查询</button>
       </form>
     </div>
     <div class="table-block">   
@@ -49,7 +49,6 @@
               <tr>
                 <th><input type="checkbox" /></th>
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
@@ -61,30 +60,38 @@
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td node-name="$n.psgId"></td>
+                <td node-name="$n.productInfo.productName"></td>
+                <td node-name="$n.productInfo.seriesName"></td>
+                <td node-name="$n.productInfo.brandName"></td>
+                <td node-name="$n.productInfo.modelNumber"></td>
+                <td node-name="$n.productInfo.createOperator"></td>
+                <td node-name="$n.productInfo.createDate"></td>
+                <td node-name="$n.productInfo.lvInfo"></td>
+                <td node-name="$n.productInfo.reviewStatus"></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>13764223456</td>
-                <td>2015.12.06</td>
-                <td>工厂</td>
-                <td>下架中</td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">调取</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">删除</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">上架</button>
+                  <button type="button" class="btn btn-link btn-taking">调取</button>
+                  <button type="button" class="btn btn-link btn-delect">删除</button>
+                  <button type="button" class="btn btn-link btn-ground">上架</button>
                 </td>
               </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="pull-right pagination">
+        <ul class="pagination">
+            <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
+            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
+            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
+            <li class="page-number"><a href="javascript:void(0)">2</a></li>
+            <li class="page-number"><a href="javascript:void(0)">3</a></li>
+            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
+            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li>
+        </ul>
     </div>
 </div>
 

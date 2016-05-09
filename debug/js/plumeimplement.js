@@ -227,6 +227,12 @@ function applyPriceTagManage_init(){
     plumeLog("完成applyPriceTagManage模板加载-"+plumeTime());
 }
 
+function compileGoods_init(){
+    plumeLog("初始化compileGoods模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/compileGoods.js");
+    plumeLog("完成compileGoods模板加载-"+plumeTime());
+}
+
 function createMyGoods_init() {
     plumeLog("初始化createMyGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/formControl.js");

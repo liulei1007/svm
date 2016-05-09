@@ -1,9 +1,21 @@
-<<<<<<< HEAD
-=======
 $(function(){
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
-	$('.btn-delect').bind('click',function(){
-		delectData(this)
-	})
+	$('.table-block').on('click','.btn-delect',function(){
+		delectData(this);
+	});
+	$('.table-block').on('click','.btn-taking',function() {
+		derict(this, "compileGoods", "nochangeurl");
+	});
+
+	function getTableData(){
+		$.get("test/data.txt",function(data){
+			data=$.parseJSON(data);
+			$(".table-block").setPageData(data);
+
+			
+
+		});
+	}
+	getTableData()
 })
->>>>>>> 025613e8a31df887cbcc4ab493124586332579cd
+
