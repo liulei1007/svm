@@ -271,6 +271,6 @@ $.fn.extend({
             plumeLog("pop加载完毕."+plumeTime());
             o.show();
         });
-    },
+    }
 
 })
