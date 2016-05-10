@@ -288,5 +288,21 @@ $.fn.extend({
         $(this).html("").hide();
         $(".lockbg").fadeOut();
     }
-
-})
+});
+//上传图片pop
+function uploadPop(fun){
+    if(!($(".pop-upload").length>0)){
+        $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
+    }
+    $(".pop-upload").pop("popUpload",fun);
+}
+function closeUploadPop(fun){
+    $(".pop-upload").pophide();
+    try {
+        if (fun) {
+            fun();
+        }
+    } catch (e) {
+        plumeLog("提示:" + e.message);
+    }
+}

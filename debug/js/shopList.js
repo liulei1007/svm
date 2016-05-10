@@ -25,6 +25,7 @@ $(function() {
 	});
 
 	function getData() {
+<<<<<<< HEAD
 		data = JSON.stringify(data);
 		$.ajax({
 			url: "datas/shopList.txt",
@@ -73,5 +74,10 @@ $(function() {
 		else {
 			alert(result.resDescription);
 		}
+=======
+		$.post(plumeApi["listShopInfo"],{},function(data){
+			console.log(data);
+		})
+>>>>>>> c7a1fc735c6dc80ff8e234a87dd66ef2d2ccfbfa
 	}
 });

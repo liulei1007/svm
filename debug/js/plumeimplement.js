@@ -229,7 +229,6 @@ function applyPriceTagManage_init(){
 
 function createMyGoods_init() {
     plumeLog("初始化createMyGoods模板-" + plumeTime());
-    plumeUtil.js(plumePath + "/js/formControl.js");
     plumeUtil.js(plumePath + "/js/createMyGoods.js")
     plumeLog("完成createMyGoods模板加载-" + plumeTime());
 }

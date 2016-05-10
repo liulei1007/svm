@@ -285,6 +285,10 @@
 		<page-name>popAuth</page-name>
 		<page-url>/pages/popAuth.html</page-url>
 	</page>
+	<page>
+		<page-name>popUpload</page-name>
+		<page-url>/pages/popUpload.html</page-url>
+	</page>
 	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
 	<api>
 		<listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
