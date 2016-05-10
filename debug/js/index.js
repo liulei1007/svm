@@ -175,7 +175,7 @@ function derict(o, temp, cache, fun) {
     })
 }
 function pathInit() {
-    plumeLog("进入setPrams-" + plumeTime());
+    plumeLog("进入pathInit-" + plumeTime());
     var path = window.location.href + "";
     if (path.indexOf(".html") != -1) {
         return;
@@ -188,6 +188,17 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
+        var auth=sessionStorage.auth;
+        if(auth){
+            $(".slidebar-title").each(function(){
+                var slidebarAuth=$(this).attr("auth");
+                if(auth.indexOf(slidebarAuth)!=-1){
+                    $(this).show();
+                }else{
+                    $(this).hide();
+                }
+            });
+        }
         $(".container-fixed").fadeIn();
     }
     try {
