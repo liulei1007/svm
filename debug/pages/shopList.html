@@ -18,50 +18,37 @@
 </head>
 
 <body>
-  <div class="pop"></div>
-
   <div class="doc-temp-body">
     <div class="title-block">店铺列表</div>
     <div class="search-block">
       <form class="form-inline">
         <div class="form-group">
-          <label for="agencyName">店铺名称</label>
-          <input type="text" class="form-control input-sm" id="agencyName">
+          <label>店铺名称</label>
+          <input type="text" id="shopName" class="form-control input-sm" />
         </div>
         <div class="form-group">
-          <label for="">展位号</label>
-          <input type="text" class="form-control input-sm">
+          <label>展位号</label>
+          <input type="text" id="boothNo" class="form-control input-sm">
         </div>
         <div class="form-group">
-          <label>店铺类型</label>
-          <select class="form-control input-sm">
-            <option>经销</option>
-            <option>代理</option>
-            <option>直营</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="">商场</label>
-          <input type="text" class="form-control input-sm" id="">
+          <label>商场</label>
+          <input type="text" id="marketName" class="form-control input-sm">
         </div>
         <div class="form-group">
           <label>审核</label>
-          <select class="form-control input-sm">
-            <option>通过</option>
-            <option>审核中</option>
-            <option>未通过</option>
+          <select id="shopStatus" class="form-control input-sm">
+            <option value="1" selected>开启</option>
+            <option value="2">关闭</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="">店铺联系人</label>
-          <input type="text" class="form-control input-sm" id="">
+          <label>店铺联系人</label>
+          <input type="text" id="contacts" class="form-control input-sm">
         </div>
-        <button class="btn btn-primary btn-sm">搜索</button>
+        <div class="btn btn-primary btn-sm btn-search">搜索</div>
       </form>
     </div>
-    <div class="btn-block">
-      <button type="button" class="btn btn-primary">直营店申请</button>
-    </div>
+    
     <div class="table-block">
       <table class="table table-striped">
         <thead>
@@ -77,7 +64,6 @@
             <th>店铺联系人</th>
             <th>联系人手机号</th>
             <th>店铺状态</th>
-            <th>操作</th>
           </tr>
         </thead>
         <tbody>
@@ -93,9 +79,6 @@
             <td>法兰蒂斯</td>
             <td>13472500299</td>
             <td><span class="mark mark-success">开启</span></td>
-            <td>
-              <button type="button" class="btn btn-link">查看</button>
-            </td>
           </tr>
           <tr>
             <td><input type="checkbox" /></td>
@@ -109,9 +92,6 @@
             <td>法兰蒂斯</td>
             <td>13472500299</td>
             <td><span class="mark mark-danger">关闭</span></td>
-            <td>
-              <button type="button" class="btn btn-link">查看</button>
-            </td>
           </tr> -->
         </tbody>
       </table>

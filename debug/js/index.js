@@ -204,7 +204,12 @@ function pathInit() {
 
 function delectData(_this) {
     var removeList = $(_this).parents('tr');
-    $('.pop').loadTemp("popConfirmDelete", "nochangeurl", function () {
+    $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
             removeList.remove();
             $('.pop').hide();
@@ -239,6 +244,7 @@ function turnPage(turnURL) {
 }
 //表单控制
 function formCtrl() {
+    // $(".page-content").on("click", ".form-block-contractive .block-title", function () {
     $(".form-block-contractive").on("click", ".block-title", function () {
         var $formBlock = $(this).parents(".form-block-contractive");
         $formBlock.toggleClass("contractive");
@@ -252,9 +258,9 @@ function formCtrl() {
 }
 //表格全选
 function tablecheckbox() {
-    $(".table-block").find("table").find("th").find("input:checkbox").bind("click",function(){
+    $(".table-block").find("thead input:checkbox").bind("click",function(){
         var c=$(this).is(':checked');
-        $(".table-block").find("table").find("td").find("input:checkbox").prop("checked",c);
+        $(".table-block").find("tbody input:checkbox").prop("checked",c);
     });
 }
 //缓存接口

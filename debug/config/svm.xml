@@ -260,8 +260,8 @@
 		<init>reviewPersonal_init</init>
 	</page>
 	<page>
-		<page-name>popConfirmDelete</page-name>
-		<page-url>/pages/popConfirmDelete.html</page-url>
+		<page-name>popConfirm</page-name>
+		<page-url>/pages/popConfirm.html</page-url>
 	</page>
 	<page>
 		<page-name>popSubmitSuccess</page-name>
@@ -270,6 +270,11 @@
 	<page>
 		<page-name>popFillIn</page-name>
 		<page-url>/pages/popFillIn.html</page-url>
+	</page>
+	<page>
+		<page-name>popTips</page-name>
+		<page-url>/pages/popTips.html</page-url>
+		<init>popTips_init</init>
 	</page>
 	<page>
 		<page-name>childIdCreate</page-name>
