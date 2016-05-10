@@ -167,87 +167,29 @@
                 <div class="col-sm-1 col-sm-offset-1">颜色分类</div>
                 <div class="col-sm-9">
                     <div class="color-type">
-                        <div class="row">
-                            <ul class="color-row">
-                                <li>
-                                    <div class="color-title"></div>
-                                    <div class="color-font sel">白色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#ced1dc"></div>
-                                    <div class="color-font">灰色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#242424"></div>
-                                    <div class="color-font">黑色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#f26c4e"></div>
-                                    <div class="color-font">红色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#fbf831"></div>
-                                    <div class="color-font">黄色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#02be49"></div>
-                                    <div class="color-font">绿色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#26aff5"></div>
-                                    <div class="color-font">蓝色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#b846e8"></div>
-                                    <div class="color-font">紫色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#ae6109"></div>
-                                    <div class="color-font">棕色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#ced1dc"></div>
-                                    <div class="color-font">花色系</div>
-                                </li>
-                                <li>
-                                    <div class="color-title" style="background-color:#ced1dc"></div>
-                                    <div class="color-font">透明系</div>
+                        <div class="row cm-color-title">
+                            <ul class="color-row" data-list="$p.data">
+                                <li list-temp="true">
+                                    <div class="color-title" node-name="bg-color:'#'+$n.colorValue"></div>
+                                    <div class="color-font" node-name="$n.colorName" ></div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="row">
+                        <div class="row  cm-color-body">
                             <div class="color-select">
-                                <div class="row">
-                                    <div class="col-sm-offset-1 col-sm-2">
+                                <div class="row"  data-list="$p.subColorVos">
+                                    <div class="col-sm-offset-1 col-sm-2" list-temp="true">
                                         <input type="checkbox"/>
 
                                         <div>
-                                            <div class="color-select-title" style="background-color:#fdf9f6"></div>
-                                            <p>乳白色</p>
-                                        </div>
-                                        <input type="text" class="col-sm-1 form-control none-input-color">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="checkbox"/>
-
-                                        <div>
-                                            <div class="color-select-title" style="background-color:#fdf9f6"></div>
-                                            <p>乳白色</p>
-                                        </div>
-                                        <input type="text" class="col-sm-1 form-control none-input-color">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="checkbox"/>
-
-                                        <div>
-                                            <div class="color-select-title" style="background-color:#fdf9f6"></div>
-                                            <p>乳白色</p>
+                                            <div class="color-select-title" node-name="bg-color:'#'+$n.colorValue"></div>
+                                            <p><input type="text" value="" node-name="$n.colorName" /></p>
                                         </div>
                                         <input type="text" class="col-sm-1 form-control none-input-color">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="addTip col-sm-offset-1"><p>备注：（可以修改名称如：乳白色改成珍珠白，单色值不能变）</p></div>
+                                    <div class="addTip col-sm-offset-1"><p>备注：（可以修改名称如：乳白色改成珍珠白，但色值不能变）</p></div>
                                 </div>
                             </div>
                         </div>

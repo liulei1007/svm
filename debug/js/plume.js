@@ -311,8 +311,11 @@ $.fn.extend({
                         $(this).attr("href", "tel:" + eval(tag.substring(4)));
                     }
                 } else {
-                    if (tag.indexOf("bg:") != -1) {
-                        $(this).css({"backgroundImage": "url(" + (eval(tag.substring(3)) + ")")});
+
+                    if (tag.indexOf("bg-image:") != -1) {
+                        $(this).css({"backgroundImage": "url(" + (eval(tag.substring(9)) + ")")});
+                    }else if (tag.indexOf("bg-color:") != -1) {
+                        $(this).css({"backgroundColor": ""+(eval(tag.substring(9)))});
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
@@ -332,10 +335,10 @@ $.fn.extend({
             var listObj = $(this);
             var temp = $(this).find("[list-temp]").prop("outerHTML");
             temp = temp.replace("list-temp", "list-node");
-            $(this).find("[list-temp]").remove();
+           // $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
-                $(temp).appendTo(listObj).show();
+                $(temp).appendTo(listObj).show().attr("plumeindex",i);
                 var dataListNode = $(this).find("[list-node]:last");
                 $n = listData[i];
                 $(dataListNode).find("[node-name]").each(function (x, e) {

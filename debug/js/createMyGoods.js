@@ -59,11 +59,26 @@ $(function () {
             });
         });
     });
-    //切换颜色标签
-    $(".color-row").find("li").bind("click", function () {
-        $(".color-row").find(".sel").removeClass("sel");
-        $(this).find(".color-font").addClass("sel");
-    });
+    //颜色初始化
+    function setColors(){
+        $.get(plumeApi["getColorSeries"],{},function(data){
+            $(".cm-color-title").setPageData(data);
+            console.log($(".color-font")[0].outerHTML)
+            $($(".color-font")[1]).addClass("sel");
+            $(".cm-color-body").setPageData(data.data[0]);
+            //切换颜色标签
+            $(".color-row").find("li").bind("click", function () {
+                var i=parseInt($(this).attr("plumeindex"));
+                $(".color-row").find(".sel").removeClass("sel");
+                $(this).find(".color-font").addClass("sel");
+                $(".cm-color-body").find("[list-node]").remove();
+                $(".cm-color-body").setPageData(data.data[i]);
+            });
+
+        });
+    }
+    setColors();
+    //提交
     var pram_str = '{';
     pram_str += '"productName": "商品11",';
     pram_str += '"productSecondName": "商品22",';
@@ -116,11 +131,12 @@ $(function () {
         $.ajax({
             type: "POST",
             url: plumeApi["addProductInfo"],
-            data:pram_str,
+            data: pram_str,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();
+                alert("提交成功");
                 console.log(data);
             }
         });
