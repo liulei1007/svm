@@ -1,10 +1,10 @@
 $(function() {
 	// 起始商品序号
-	var startNum = 0;
+	var startNum = 0, limitNum = 2;
 	// 初始化传输数据
 	var data = {
 		"start": startNum,
-		"limit": 0,
+		"limit": limitNum,
 		"shopType": "",
 		"shopName": "",
 		"provinceId": "",
@@ -19,19 +19,28 @@ $(function() {
 	
 	// 获取数据
 	getData();
+
 	// 点击“申请直营店”
 	$(".btn-create").on("click", function() {
 		derict(this, "shopCreate", "nochangeurl");
 	});
 
+	// 查看店铺信息
+	$("table").on("click", ".btn-detail", function() {
+		// var shopID = $(this).parents("tr").attr("shopID");
+		// 传参：shopID
+		session.shopID = $(this).parents("tr").attr("shopID");
+		derict(this, "shopShow", "nochangeurl");
+	});
+
+	// 从服务器获取数据
 	function getData() {
-<<<<<<< HEAD
 		data = JSON.stringify(data);
 		$.ajax({
-			url: "datas/shopList.txt",
-			// url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
+			// url: "datas/shopList.txt",
+			url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
 			data: data,
-			// type: "POST",
+			type: "POST",
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
 			success: function(result) {showData(result);},
@@ -39,14 +48,21 @@ $(function() {
 		});
 	}
 
+	// 将获得的数据显示出来
 	function showData(result) {
 		if (result.ok) {
 			// 总记录数
 			console.log(result.countRecord);
+
+			// 下方分页
+			var pageList = "";
+			// 总页数
+			var totalPages = Math.ceil(result.countRecord / limitNum);
+
 			var tableList = "";
 			result.data.map(function(list) {
 				console.log(list);
-				tableList += '<tr>';
+				tableList += '<tr shopID="' + list.shopId + '">';
 				tableList += '<td><input type="checkbox" /></td>';
 				tableList += '<td>' + (++startNum) + '</td>';
 				tableList += '<td>' + list.shopName + '</td>';
@@ -64,20 +80,14 @@ $(function() {
 				tableList += '<td>' + list.contacts + '</td>';
 				tableList += '<td>' + list.contactsTel + '</td>';
 				// 店铺状态
-				if (list.shopStatus == 2) {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
-				else if (list.shopStatus == 1) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
-				else tableList += '<td><span class="mark mark-default">未设定</span></td>';
-				tableList += '<td><button type="button" class="btn btn-link">查看</button></td>';
+				if (list.shopStatus == 1) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
+				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
+				tableList += '<td><button type="button" class="btn btn-link btn-detail">查看</button></td>';
 			});
 			$("table tbody").html(tableList);
 		}
 		else {
 			alert(result.resDescription);
 		}
-=======
-		$.post(plumeApi["listShopInfo"],{},function(data){
-			console.log(data);
-		})
->>>>>>> c7a1fc735c6dc80ff8e234a87dd66ef2d2ccfbfa
 	}
 });

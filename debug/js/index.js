@@ -35,8 +35,8 @@ $(function () {
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
     });
-    $(".shopShowAgency").bind("click", function () {
-        derict(this, "shopShowAgency", "nochangeurl");
+    $(".shopShow").bind("click", function () {
+        derict(this, "shopShow", "nochangeurl");
     });
     $(".shopAlterAgency").bind("click", function () {
         derict(this, "shopAlterAgency", "nochangeurl");
@@ -47,9 +47,6 @@ $(function () {
     });
     $(".shopCreate").bind("click", function () {
         derict(this, "shopCreate", "nochangeurl");
-    });
-    $(".shopShowCompany").bind("click", function () {
-        derict(this, "shopShowCompany", "nochangeurl");
     });
     $(".shopAlter").bind("click", function () {
         derict(this, "shopAlter", "nochangeurl");

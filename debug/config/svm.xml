@@ -169,9 +169,9 @@
 		<init>shopCreateAgency_init</init>
 	</page>
 	<page>
-		<page-name>shopShowAgency</page-name>
-		<page-url>/pages/shopShow-agency.html</page-url>
-		<init>shopShowAgency_init</init>
+		<page-name>shopShow</page-name>
+		<page-url>/pages/shopShow.html</page-url>
+		<init>shopShow_init</init>
 	</page>
 	<page>
 	<page-name>userType</page-name>
@@ -193,11 +193,6 @@
 		<page-name>shopCreate</page-name>
 		<page-url>/pages/shopCreate.html</page-url>
 		<init>shopCreate_init</init>
-	</page>
-	<page>
-		<page-name>shopShowCompany</page-name>
-		<page-url>/pages/shopShowCompany.html</page-url>
-		<init>shopShowCompany_init</init>
 	</page>
 	<page>
 		<page-name>shopAlter</page-name>
