@@ -12,7 +12,7 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"shopShowCompany"
+            "initPage":"shopShow"
         }
     </script>
 </head>
@@ -26,7 +26,6 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>序号</th>
             <th>合同编号</th>
             <th>展位编号</th>
             <th>合同开始时间</th>
@@ -36,9 +35,8 @@
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>03038457595</td>
-            <td>3344-3345-3333</td>
+            <td data-name="$p.merchantCode"></td>
+            <td data-name="$p.boothNo">3344-3345-3333</td>
             <td>2015-03-24</td>
             <td>2016-03-24</td>
             <td>2016-03-24</td>
@@ -51,63 +49,58 @@
       <div class="row block-title">
         <div class="col-sm-2 col-sm-offset-1">基本信息</div>
       </div>
+      <div class="form-horizontal">
+        <div class="form-group required">
+          <label class="col-sm-3 control-label">公司名称</label>
+          <p class="col-sm-6 form-control-static" data-name="$p.boothNo"></p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">所在省市</label>
+          <p class="col-sm-1 form-control-static">上海</p>
+          <p class="col-sm-1 form-control-static">上海</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">税务登记号</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">组织机构代码</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">营业执照注册地</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">营业执照注册号</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">法人</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">银行开户许可证编号</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">公司电话</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">联系人</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">联系电话</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">联系邮箱</label>
+          <p class="col-sm-6 form-control-static">名称</p>
+        </div>
+      </div>
     </div>
-
-
-    <div class="row">
-      <div class="col-sm-2 col-sm-offset-1 module-title">基础信息</div>
-    </div>
-    <form class="form-horizontal">
-      <div class="form-group required">
-        <label class="col-sm-3 control-label">公司名称</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">所在省市</label>
-        <p class="col-sm-1 form-control-static">上海</p>
-        <p class="col-sm-1 form-control-static">上海</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">税务登记号</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">组织机构代码</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">营业执照注册地</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">营业执照注册号</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">法人</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">银行开户许可证编号</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">公司电话</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">联系人</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">联系电话</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">联系邮箱</label>
-        <p class="col-sm-6 form-control-static">名称</p>
-      </div>
-    </form>
 
     <div class="row">
       <div class="col-sm-2 col-sm-offset-1 module-title">授权信息</div>

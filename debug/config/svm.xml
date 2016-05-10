@@ -183,7 +183,6 @@
         <page-url>/pages/shopAlter-agency.html</page-url>
         <init>shopAlterAgency_init</init>
     </page>
-
     <page>
         <page-name>shopList</page-name>
         <page-url>/pages/shopList.html</page-url>
