@@ -1,0 +1,62 @@
+{
+  "resCode": "200",
+  "data": [
+    {
+      "shopId": 1,
+      "shopType": 2,
+      "shopName": "1111",
+      "agentsType": 0,
+      "marketName": "",
+      "contactsTel": "",
+      "contacts": "",
+      "boothNo": "",
+      "shopStatus": 0
+    },
+    {
+      "shopId": 2,
+      "shopType": 2,
+      "shopName": "2222",
+      "agentsType": 0,
+      "marketName": "",
+      "contactsTel": "",
+      "contacts": "",
+      "boothNo": "",
+      "shopStatus": 0
+    },
+    {
+      "shopId": 3,
+      "shopType": 2,
+      "shopName": "3333",
+      "agentsType": 0,
+      "marketName": "",
+      "contactsTel": "",
+      "contacts": "",
+      "boothNo": "",
+      "shopStatus": 0
+    },
+    {
+      "shopId": 4,
+      "shopType": 2,
+      "shopName": "4444",
+      "agentsType": 0,
+      "marketName": "",
+      "contactsTel": "",
+      "contacts": "",
+      "boothNo": "",
+      "shopStatus": 0
+    },
+    {
+      "shopId": 5,
+      "shopType": 2,
+      "shopName": "45566",
+      "agentsType": 0,
+      "marketName": "",
+      "contactsTel": "",
+      "contacts": "",
+      "boothNo": "",
+      "shopStatus": 0
+    }
+  ],
+  "countRecord": 5,
+  "ok": true
+}

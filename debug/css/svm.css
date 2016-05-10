@@ -121,8 +121,10 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
+.table-block .table-title{padding: 20px 0 0 10px; width: 100%; height: 60px; font-size: 16px; font-weight: bold;}
 .table-block .table .btn-link{margin-right: 10px; padding: 0; color: #333; text-decoration: underline;}
 .table-block .table .btn-link:hover{color: #17adf2;}
+.table-block .table .mark{width: 65px;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
