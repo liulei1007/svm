@@ -59,4 +59,9 @@ $(function () {
             });
         });
     });
+    //切换颜色标签
+    $(".color-row").find("li").bind("click",function(){
+        $(".color-row").find(".sel").removeClass("sel");
+        $(this).find(".color-font").addClass("sel");
+    })
 })

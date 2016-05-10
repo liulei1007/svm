@@ -411,12 +411,6 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
 #cmg-upload{cursor: pointer}
 .popup-upload{width: 300px; height: 200px; }
-.loading {
-    height: 50px;
-    width: 50px;
-    background: url("../images/loading.png") no-repeat 0 0;
-    -webkit-animation: bounce 1.0s infinite linear;
-    animation: bounce 1.0s infinite linear;
-}
+.loading {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }
 
 
