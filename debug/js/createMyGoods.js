@@ -60,8 +60,69 @@ $(function () {
         });
     });
     //切换颜色标签
-    $(".color-row").find("li").bind("click",function(){
+    $(".color-row").find("li").bind("click", function () {
         $(".color-row").find(".sel").removeClass("sel");
         $(this).find(".color-font").addClass("sel");
-    })
+    });
+    var pram_str = '{';
+    pram_str += '"productName": "商品11",';
+    pram_str += '"productSecondName": "商品22",';
+    pram_str += ' "brandId": 0,';
+    pram_str += ' "seriesId": 0,';
+    pram_str += ' "seriesName": "",';
+    pram_str += ' "brandName": "",';
+    pram_str += ' "countryId": "",';
+    pram_str += ' "countryName": "",';
+    pram_str += ' "provinceId": "",';
+    pram_str += ' "provinceName": "",';
+    pram_str += '  "cityId": "",';
+    pram_str += ' "cityName": "",';
+    pram_str += '"modelNumber": "",';
+    pram_str += '"materialQuality": "",';
+    pram_str += ' "weight": 0,';
+    pram_str += ' "marketPrice": 0,';
+    pram_str += ' "priceType": "",';
+    pram_str += '  "lvInfo": "",';
+    pram_str += ' "categoryId": 0,';
+    pram_str += '  "subCategoryId": 0,';
+    pram_str += '  "subCategoryName": "",';
+    pram_str += '   "saleStatus": "",';
+    pram_str += '  "attributes": [';
+    pram_str += '   {';
+    pram_str += '     "attrValueId": 0,';
+    pram_str += '       "attrValue": "",';
+    pram_str += '        "attributeId": 0';
+    pram_str += '    }';
+    pram_str += ' ],';
+    pram_str += '   "photos": [';
+    pram_str += '   {';
+    pram_str += '      "colorId": 0,';
+    pram_str += '       "picUrl": "123"';
+    pram_str += '    }';
+    pram_str += ' ],';
+    pram_str += '   "goods": [';
+    pram_str += '   {';
+    pram_str += '      "colorId": 0,';
+    pram_str += '      "colorRgb": "",';
+    pram_str += '      "color": "",';
+    pram_str += '     "standard": "",';
+    pram_str += '      "salePrice": 0';
+    pram_str += '  }';
+    pram_str += ' ]';
+    pram_str += ' }';
+
+    $(".cmg-ok").bind("click", function () {
+        loading();
+        $.ajax({
+            type: "POST",
+            url: plumeApi["addProductInfo"],
+            data:pram_str,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                console.log(data);
+            }
+        });
+    });
 })

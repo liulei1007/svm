@@ -309,3 +309,21 @@ function closeUploadPop(fun){
         plumeLog("提示:" + e.message);
     }
 }
+//loading
+function loading(){
+    if(!($(".lockbg").length>0)){
+        $(".work-space-active").append("<div class='lockbg'></div>");
+    }
+
+    if(!($(".loading").length>0)){
+        $(".work-space-active").append("<div class='loading popcenter'></div>");
+    }
+}
+function unloading(){
+    $(".lockbg").fadeOut(function(){
+        $(this).remove();
+    });
+    $(".lockbg").fadeOut(function(){
+        $(this).remove();
+    });
+}
