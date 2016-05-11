@@ -160,9 +160,19 @@
     </page>
 
     <page>
+        <page-name>shopList</page-name>
+        <page-url>/pages/shopList.html</page-url>
+        <init>shopList_init</init>
+    </page>
+    <page>
         <page-name>shopListAgency</page-name>
         <page-url>/pages/shopList-agency.html</page-url>
         <init>shopListAgency_init</init>
+    </page>
+    <page>
+        <page-name>shopShowAgency</page-name>
+        <page-url>/pages/shopShow-agency.html</page-url>
+        <init>shopShowAgency_init</init>
     </page>
     <page>
         <page-name>shopCreateAgency</page-name>
@@ -173,11 +183,6 @@
         <page-name>userType</page-name>
         <page-url>/pages/userType.html</page-url>
         <init>userType_init</init>
-    </page>
-    <page>
-        <page-name>shopList</page-name>
-        <page-url>/pages/shopList.html</page-url>
-        <init>shopList_init</init>
     </page>
     <page>
         <page-name>brandCreateCompany</page-name>

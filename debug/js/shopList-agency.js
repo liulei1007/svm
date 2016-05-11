@@ -30,12 +30,12 @@ $(function() {
 
 	// 点击“申请直营店”
 	$(".btn-create").on("click", function() {
-		$('.pop').loadTemp("popTips", "nochangeurl", function() {
-			$(".pop").find(".popup-title").html("申请提示");
-			$(".pop").find(".popup-icon").html('<i class="confirm"></i>');
-			$(".pop").find(".popup-info").html("请确认申请@@@");
-		});
-		// derict(this, "shopCreate", "nochangeurl");
+		// $('.pop').loadTemp("popTips", "nochangeurl", function() {
+		// 	$(".pop").find(".popup-title").html("申请提示");
+		// 	$(".pop").find(".popup-icon").html('<i class="confirm"></i>');
+		// 	$(".pop").find(".popup-info").html("请确认申请@@@");
+		// });
+		derict(this, "shopCreateAgency", "nochangeurl");
 	});
 
 	// 查看店铺信息
@@ -43,7 +43,7 @@ $(function() {
 		// var shopID = $(this).parents("tr").attr("shopID");
 		// 传参：shopID
 		session.shopID = $(this).parents("tr").attr("shopID");
-		derict(this, "shopShow", "nochangeurl");
+		derict(this, "shopShowAgency", "nochangeurl");
 	});
 
 	// 从服务器获取数据

@@ -35,21 +35,12 @@ $(function () {
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
     });
-    $(".shopShow").bind("click", function () {
-        derict(this, "shopShow", "nochangeurl");
-    });
-    $(".shopAlterAgency").bind("click", function () {
-        derict(this, "shopAlterAgency", "nochangeurl");
+    $(".shopShowAgency").bind("click", function () {
+        derict(this, "shopShowAgency", "nochangeurl");
     });
 
     $(".shopList").bind("click", function () {
         derict(this, "shopList", "nochangeurl");
-    });
-    $(".shopCreate").bind("click", function () {
-        derict(this, "shopCreate", "nochangeurl");
-    });
-    $(".shopAlter").bind("click", function () {
-        derict(this, "shopAlter", "nochangeurl");
     });
 
     $('.releaseSelfGoods').bind("click", function () {
