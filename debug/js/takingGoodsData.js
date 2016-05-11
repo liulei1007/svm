@@ -3,6 +3,5 @@ $(function(){
 	$('.table-block').on('click','.btn-taking',function() {
 		derict(this, "takingGoods", "nochangeurl");
 	});		
-
 	getGoodsDate();
 })

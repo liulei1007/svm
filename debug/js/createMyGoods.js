@@ -59,4 +59,86 @@ $(function () {
             });
         });
     });
+    //颜色初始化
+    function setColors(){
+        $.get(plumeApi["getColorSeries"],{},function(data){
+            $(".cm-color-title").setPageData(data);
+            console.log($(".color-font")[0].outerHTML)
+            $($(".color-font")[1]).addClass("sel");
+            $(".cm-color-body").setPageData(data.data[0]);
+            //切换颜色标签
+            $(".color-row").find("li").bind("click", function () {
+                var i=parseInt($(this).attr("plumeindex"));
+                $(".color-row").find(".sel").removeClass("sel");
+                $(this).find(".color-font").addClass("sel");
+                $(".cm-color-body").find("[list-node]").remove();
+                $(".cm-color-body").setPageData(data.data[i]);
+            });
+
+        });
+    }
+    setColors();
+    //提交
+    var pram_str = '{';
+    pram_str += '"productName": "商品11",';
+    pram_str += '"productSecondName": "商品22",';
+    pram_str += ' "brandId": 0,';
+    pram_str += ' "seriesId": 0,';
+    pram_str += ' "seriesName": "",';
+    pram_str += ' "brandName": "",';
+    pram_str += ' "countryId": "",';
+    pram_str += ' "countryName": "",';
+    pram_str += ' "provinceId": "",';
+    pram_str += ' "provinceName": "",';
+    pram_str += '  "cityId": "",';
+    pram_str += ' "cityName": "",';
+    pram_str += '"modelNumber": "",';
+    pram_str += '"materialQuality": "",';
+    pram_str += ' "weight": 0,';
+    pram_str += ' "marketPrice": 0,';
+    pram_str += ' "priceType": "",';
+    pram_str += '  "lvInfo": "",';
+    pram_str += ' "categoryId": 0,';
+    pram_str += '  "subCategoryId": 0,';
+    pram_str += '  "subCategoryName": "",';
+    pram_str += '   "saleStatus": "",';
+    pram_str += '  "attributes": [';
+    pram_str += '   {';
+    pram_str += '     "attrValueId": 0,';
+    pram_str += '       "attrValue": "",';
+    pram_str += '        "attributeId": 0';
+    pram_str += '    }';
+    pram_str += ' ],';
+    pram_str += '   "photos": [';
+    pram_str += '   {';
+    pram_str += '      "colorId": 0,';
+    pram_str += '       "picUrl": "123"';
+    pram_str += '    }';
+    pram_str += ' ],';
+    pram_str += '   "goods": [';
+    pram_str += '   {';
+    pram_str += '      "colorId": 0,';
+    pram_str += '      "colorRgb": "",';
+    pram_str += '      "color": "",';
+    pram_str += '     "standard": "",';
+    pram_str += '      "salePrice": 0';
+    pram_str += '  }';
+    pram_str += ' ]';
+    pram_str += ' }';
+
+    $(".cmg-ok").bind("click", function () {
+        loading();
+        $.ajax({
+            type: "POST",
+            url: plumeApi["addProductInfo"],
+            data: pram_str,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                alert("提交成功");
+                console.log(data);
+            }
+        });
+    });
 })

@@ -134,8 +134,8 @@ function shopCreate_init() {
     plumeUtil.js(plumePath+"/js/operatePop.js");
     plumeUtil.js(plumePath+"/js/shopCreate.js");
 }
-function shopShowCompany_init() {
-    plumeUtil.js(plumePath+"/js/shopShowCompany.js");
+function shopShow_init() {
+    plumeUtil.js(plumePath+"/js/shopShow.js");
 }
 function shopAlter_init() {
     plumeUtil.js(plumePath+"/js/shopAlter.js");
@@ -147,11 +147,13 @@ function shopListAgency_init() {
 function shopCreateAgency_init() {
     plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
 }
-function shopShowAgency_init() {
-    plumeUtil.js(plumePath+"/js/shopShow-agency.js");
-}
 function shopAlterAgency_init() {
     plumeUtil.js(plumePath+"/js/shopAlter-agency.js");
+}
+
+// ----弹出框----
+function popTips_init() {
+    plumeUtil.js(plumePath+"/js/popTips.js");
 }
 
 //--idmanage模板初始化函数--

@@ -35,8 +35,8 @@ $(function () {
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
     });
-    $(".shopShowAgency").bind("click", function () {
-        derict(this, "shopShowAgency", "nochangeurl");
+    $(".shopShow").bind("click", function () {
+        derict(this, "shopShow", "nochangeurl");
     });
     $(".shopAlterAgency").bind("click", function () {
         derict(this, "shopAlterAgency", "nochangeurl");
@@ -47,9 +47,6 @@ $(function () {
     });
     $(".shopCreate").bind("click", function () {
         derict(this, "shopCreate", "nochangeurl");
-    });
-    $(".shopShowCompany").bind("click", function () {
-        derict(this, "shopShowCompany", "nochangeurl");
     });
     $(".shopAlter").bind("click", function () {
         derict(this, "shopAlter", "nochangeurl");
@@ -248,7 +245,13 @@ function getGoodsDate(){
 
 //删除商品数据
 function delectGoodsData() {
-    $('.pop').loadTemp("popConfirmDelete", "nochangeurl", function () {
+  
+    $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
            $.ajax({
             url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
@@ -293,6 +296,7 @@ function turnPage(turnURL) {
 }
 //表单控制
 function formCtrl() {
+    // $(".page-content").on("click", ".form-block-contractive .block-title", function () {
     $(".form-block-contractive").on("click", ".block-title", function () {
         var $formBlock = $(this).parents(".form-block-contractive");
         $formBlock.toggleClass("contractive");
@@ -357,4 +361,22 @@ function closeUploadPop(fun){
     } catch (e) {
         plumeLog("提示:" + e.message);
     }
+}
+//loading
+function loading(){
+    if(!($(".lockbg").length>0)){
+        $(".work-space-active").append("<div class='lockbg'></div>");
+    }
+
+    if(!($(".loading").length>0)){
+        $(".work-space-active").append("<div class='loading popcenter'></div>");
+    }
+}
+function unloading(){
+    $(".lockbg").fadeOut(function(){
+        $(this).remove();
+    });
+    $(".lockbg").fadeOut(function(){
+        $(this).remove();
+    });
 }

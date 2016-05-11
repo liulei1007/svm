@@ -121,8 +121,10 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
+.table-block .table-title{padding: 20px 0 0 10px; width: 100%; height: 60px; font-size: 16px; font-weight: bold;}
 .table-block .table .btn-link{margin-right: 10px; padding: 0; color: #333; text-decoration: underline;}
 .table-block .table .btn-link:hover{color: #17adf2;}
+.table-block .table .mark{width: 65px;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
@@ -276,6 +278,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-select>div>div>input{float:left;margin: 10px 12px 0 0;}
 .color-select>div>div>div{float:left;width:68px;}
 .color-select>div>div>div>p{height:22px;width:68px;border:1px solid #dadce5;text-align: center;}
+.color-select>div>div>div>p>input{height:100%;width:100%;border:0px solid #dadce5;text-align: center;}
 .color-select-title{height:8px;border: 1px solid #dadce5;border-bottom: none;}
 .none-input-color{display: none;}
 .color-type{margin-bottom: 20px;}
@@ -409,10 +412,28 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-default .control-label{font-weight: normal;}
 .popup-default .btn{width: 100%;}
 .popup-auth{width: 320px; height: 340px; }
-.lockbg{position: absolute;width:100%;height:100%;background: #000;z-index:2;left: 0;top: 0; filter: Alpha(opacity=40); -moz-opacity:0.4; opacity:0.4;display: none}
+.lockbg{position: absolute;width:100%;height:100%;background: #000;z-index:2;left: 0;top: 0; filter: Alpha(opacity=60); -moz-opacity:0.6; opacity:0.6;display: none}
 .cic-pop{width: 320px; height: 340px; position: absolute;background: #fff;display: none}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
 #cmg-upload{cursor: pointer}
 .popup-upload{width: 300px; height: 200px; }
-
+.loading {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }
+@-webkit-keyframes bounce {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes bounce {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
 

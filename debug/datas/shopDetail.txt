@@ -1,0 +1,25 @@
+{
+  "resCode": "200",
+  "data": {
+    "shopId": 1,
+    "shopType": 2,
+    "shopName": "1111",
+    "agentsType": 0,
+    "provinceId": "0",
+    "provinceName": "",
+    "cityId": "0",
+    "cityName": "",
+    "marketId": 0,
+    "marketName": "",
+    "contactsTel": "",
+    "contacts": "",
+    "companyBankName": "",
+    "bankAccount": "",
+    "bankSubName": "",
+    "bankProvinceId": "0",
+    "bankCityId": "0",
+    "taxId": "",
+    "remark": ""
+  },
+  "ok": true
+}
