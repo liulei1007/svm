@@ -116,8 +116,8 @@ $(function () {
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
-    $('.userType').bind("click", function() {
-        derict(this, "userType","nochangeurl");
+    $('.userType').bind("click", function () {
+        derict(this, "userType", "nochangeurl");
     })
     // 左侧导航栏鼠标滑过显示二级分类
     $(".slidebar-title").bind("mouseenter", function () {
@@ -142,8 +142,8 @@ $(function () {
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
     });
-    $(".index-head-logo").bind("click",function(){
-       window.location.href="index";
+    $(".index-head-logo").bind("click", function () {
+        window.location.href = "index";
     });
 });
 var derict_lock = false;
@@ -182,13 +182,13 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
-        var auth=sessionStorage.auth;
-        if(auth){
-            $(".slidebar-title").each(function(){
-                var slidebarAuth=$(this).attr("auth");
-                if(auth.indexOf(slidebarAuth)!=-1){
+        var auth = sessionStorage.auth;
+        if (auth) {
+            $(".slidebar-title").each(function () {
+                var slidebarAuth = $(this).attr("auth");
+                if (auth.indexOf(slidebarAuth) != -1) {
                     $(this).show();
-                }else{
+                } else {
                     $(this).hide();
                 }
             });
@@ -212,45 +212,50 @@ function pathInit() {
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('#psgId').html();
-    session.goods={psgId:psgId};
+    session.goods = {psgId: psgId};
 }
 
 
 //换取商品信息
-function getGoodsInfo(){
-    try{
-    $.ajax({
-        url:"http://192.168.222.162:8080/productShopGoods/getProductShopGoods/"+session.goods.psgId,
-        type:"GET",
-        contentType: "application/json;charset=UTF-8",
-        success:function(data){
-            $('.body-typein').setPageData(data.data);
-        }
-    })  }catch(e){window.location.href="/debug/"}
+function getGoodsInfo() {
+    try {
+        $.ajax({
+            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods.psgId,
+            type: "GET",
+            contentType: "application/json;charset=UTF-8",
+            success: function (data) {
+                $('.body-typein').setPageData(data.data);
+            }
+        })
+    } catch (e) {
+        window.location.href = "/debug/"
+    }
 }
 
 
 //加载商品列表
-function getGoodsDate(){
-        $.ajax({
-            url:"http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
-            type:"POST",
-            contentType: "application/json;charset=UTF-8",
-            data:JSON.stringify(
-             {"productName": "",
-              "modelNumber": "",
-               "saleStatus": ""}
-          ),
-            success:function(data){
-                $("[list-node]").remove();
-                $(".table-block").setPageData(data);
+function getGoodsDate() {
+    $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(
+            {
+                "productName": "",
+                "modelNumber": "",
+                "saleStatus": ""
             }
-        })
+        ),
+        success: function (data) {
+            $("[list-node]").remove();
+            $(".table-block").setPageData(data);
+        }
+    })
 }
 
 //删除商品数据
 function delectGoodsData() {
-  
+
     $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
         // 改变弹出框中文字和图标显示
         $(".pop").find(".popup-title").html("删除确认？");
@@ -258,14 +263,14 @@ function delectGoodsData() {
         $(".pop").find(".popup-info").html("是否确认删除记录？");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
-           $.ajax({
-            url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
-            type:"GET",
-            contentType: "application/json;charset=UTF-8",
-            success:function(data){
-                getGoodsDate()
-            }
-        });
+            $.ajax({
+                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods.psgId,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    getGoodsDate()
+                }
+            });
 
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
@@ -278,8 +283,6 @@ function delectGoodsData() {
         });
     });
 }
-
-
 
 
 // 提交成功
@@ -315,26 +318,26 @@ function formCtrl() {
 }
 //表格全选
 function tablecheckbox() {
-    $(".table-block").find("thead input:checkbox").bind("click",function(){
-        var c=$(this).is(':checked');
-        $(".table-block").find("tbody input:checkbox").prop("checked",c);
+    $(".table-block").find("thead input:checkbox").bind("click", function () {
+        var c = $(this).is(':checked');
+        $(".table-block").find("tbody input:checkbox").prop("checked", c);
     });
 }
 
 //缓存接口
-var session=function(){
+var session = function () {
     return {};
 }
 //pop
 $.fn.extend({
-    pop:function(temp,fun){
-        if(!($(".lockbg").length>0)){
+    pop: function (temp, fun) {
+        if (!($(".lockbg").length > 0)) {
             $(".work-space-active").append("<div class='lockbg'></div>");
         }
         $(".lockbg").fadeIn();
-        var o=$(this);
-        o.loadTemp(temp,"nochangeurl",function(){
-            plumeLog("pop加载完毕."+plumeTime());
+        var o = $(this);
+        o.loadTemp(temp, "nochangeurl", function () {
+            plumeLog("pop加载完毕." + plumeTime());
             o.show();
             try {
                 if (fun) {
@@ -345,19 +348,19 @@ $.fn.extend({
             }
         });
     },
-    pophide:function(){
+    pophide: function () {
         $(this).html("").hide();
-        $(".lockbg").fadeOut();
+        $(".lockbg").remove();
     }
 });
 //上传图片pop
-function uploadPop(fun){
-    if(!($(".pop-upload").length>0)){
+function uploadPop(fun) {
+    if (!($(".pop-upload").length > 0)) {
         $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
     }
-    $(".pop-upload").pop("popUpload",fun);
+    $(".pop-upload").pop("popUpload", fun);
 }
-function closeUploadPop(fun){
+function closeUploadPop(fun) {
     $(".pop-upload").pophide();
     try {
         if (fun) {
@@ -367,22 +370,44 @@ function closeUploadPop(fun){
         plumeLog("提示:" + e.message);
     }
 }
+
 //loading
-function loading(){
-    if(!($(".lockbg").length>0)){
+var transmit_a = 0;
+var transmit_d = true;
+var transmit_loop;
+function transmit_showLoad() {
+    $(".loading").hide();
+    $($(".loading")[transmit_a]).show();
+    if (transmit_d) {
+        transmit_a++;
+    } else {
+        transmit_a--
+    }
+    if (transmit_a == 34) {
+        transmit_d = false;
+    }
+    if (transmit_a == 0) {
+        transmit_d = true;
+    }
+    transmit_loop=setTimeout("transmit_showLoad()", 35);
+}
+function loading() {
+    if (!($(".lockbg").length > 0)) {
         $(".work-space-active").append("<div class='lockbg'></div>");
-        $(".lockbg").fadeIn();
+        $(".lockbg").show();
     }
 
-    if(!($(".loading").length>0)){
-        $(".work-space-active").append("<div class='loadings popcenter'></div>");
+    if (!($(".loading").length > 0)) {
+        var temp = '';
+        for (var i = 1; i < 36; i++) {
+            temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
+        }
+        $(".work-space-active").append(temp);
+        clearTimeout(transmit_loop)
+        transmit_showLoad();
     }
 }
-function unloading(){
-    $(".lockbg").fadeOut(function(){
-        $(this).remove();
-    });
-    $(".loadings").fadeOut(function(){
-        $(this).remove();
-    });
+function unloading() {
+    $(".lockbg").remove();
+    $(".loading").remove();
 }

@@ -1,41 +1,16 @@
-
-$(function() {
-    plumeLog("进入goodsDataManage模板自定义js-"+plumeTime());
+$(function () {
+    plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
     getTableData();
     tablecheckbox();
-    var $removeLine;
 
-    $(".btn-delete").on("click", function() {
-        $removeLine = $(this).parents("tr");
-        deleteRecode($removeLine, "url1", "key1");
-    });
-
-    $(".btn-createCompany").on("click", function() {
-        derict(this, "agencyCreateCompany", "nochangeurl");
-        // $(".work-space").loadTemp("agencyCreateCompany","nochangeurl");
-    });
-
-    $(".btn-createPersonal").on("click", function() {
-        derict(this, "agencyCreatePersonal", "nochangeurl");
-        // $(".work-space").loadTemp("agencyCreatePersonal","nochangeurl");
-    });
-
-    $(".btn-show-company").on("click", function() {
-        derict(this, "agencyShowCompany", "nochangeurl");
-
-    });
-
-    $(".btn-show-personal").on("click", function() {
-        derict(this, "agencyShowPersonal", "nochangeurl");
-    });
-    function getTableData(){
+    function getTableData() {
         loading();
-        var pram_str='{';
-        pram_str+='"productName": "",';
-        pram_str+=' "modelNumber": "",';
-        pram_str+='  "categoryId": 0,';
-        pram_str+=' "saleStatus": ""';
-        pram_str+='}';
+        var pram_str = '{';
+        pram_str += '"productName": "",';
+        pram_str += ' "modelNumber": "",';
+        pram_str += '  "categoryId": 0,';
+        pram_str += ' "saleStatus": ""';
+        pram_str += '}';
         $.ajax({
             type: "POST",
             url: plumeApi["listProductInfo"],
@@ -46,15 +21,34 @@ $(function() {
                 unloading();
                 console.log(data);
                 $(".gdm-table-data").setPageData(data);
+
+                $(".gdm-btn-del").unbind().bind("click", function () {
+                    if(confirm("是否确认删除?")){
+                        loading();
+                        var productId = $(this).parent().parent().children().first().attr("productId");
+                        $.get(plumeApi["delProductInfo"] + "/" + productId, {}, function (data) {
+                            unloading();
+                            if (data.ok) {
+                                $("[list-node]").remove();
+                                getTableData();
+                                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                    $(".pop").find(".popup-title").html("信息提示");
+                                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                                    $(".pop").find(".popup-info").html("删除成功");
+                                });
+                            } else {
+                                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                    $(".pop").find(".popup-title").html("信息提示");
+                                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                                    $(".pop").find(".popup-info").html("删除失败");
+                                });
+                            }
+                        });
+                    }
+
+                });
+
             }
         });
     }
 });
-
-function unBind() {
-    $(".pop").off("click", ".btn-sure");
-    $(".pop").off("click", ".btn-cancel");
-    $(".pop .popup").remove();
-    $(".pop").hide();
-    // $(".pop .popup").hide();
-}
