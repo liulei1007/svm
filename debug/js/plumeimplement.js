@@ -136,25 +136,16 @@ function agencyAddAccount_init() {
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
 }
-function shopCreate_init() {
-    plumeUtil.js(plumePath+"/js/operatePop.js");
-    plumeUtil.js(plumePath+"/js/shopCreate.js");
-}
-function shopShow_init() {
-    plumeUtil.js(plumePath+"/js/shopShow.js");
-}
-function shopAlter_init() {
-    plumeUtil.js(plumePath+"/js/shopAlter.js");
-}
 
 function shopListAgency_init() {
     plumeUtil.js(plumePath+"/js/shopList-agency.js");
 }
-function shopCreateAgency_init() {
-    plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
+function shopShowAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopShow-agency.js");
 }
-function shopAlterAgency_init() {
-    plumeUtil.js(plumePath+"/js/shopAlter-agency.js");
+function shopCreateAgency_init() {
+    console.log("yes")
+    plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
 }
 
 // ----弹出框----

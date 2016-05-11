@@ -29,6 +29,7 @@ $(function(){
         	});
 		});
 	});
+
 	getGoodsData();
 
 	$('.btn-search').bind('click',function() {
@@ -37,5 +38,6 @@ $(function(){
 		var saleStatus=$('#saleStatus').val();
 		getGoodsData(productName,modelNumber,saleStatus)
 	})
+
 })
 

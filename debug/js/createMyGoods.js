@@ -61,6 +61,7 @@ $(function () {
     });
     //颜色初始化
     function setColors(){
+        return;
         $.get(plumeApi["getColorSeries"],{},function(data){
             $(".cm-color-title").setPageData(data);
             console.log($(".color-font")[0].outerHTML)
@@ -136,7 +137,19 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
-                alert("提交成功");
+                if(data.ok){
+                    $('.pop').loadTemp("popTips", "nochangeurl", function() {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                        $(".pop").find(".popup-info").html("增加成功");
+                    });
+                }else{
+                    $('.pop').loadTemp("popTips", "nochangeurl", function() {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("增加失败");
+                    });
+                }
                 console.log(data);
             }
         });

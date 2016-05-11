@@ -35,21 +35,12 @@ $(function () {
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
     });
-    $(".shopShow").bind("click", function () {
-        derict(this, "shopShow", "nochangeurl");
-    });
-    $(".shopAlterAgency").bind("click", function () {
-        derict(this, "shopAlterAgency", "nochangeurl");
+    $(".shopShowAgency").bind("click", function () {
+        derict(this, "shopShowAgency", "nochangeurl");
     });
 
     $(".shopList").bind("click", function () {
         derict(this, "shopList", "nochangeurl");
-    });
-    $(".shopCreate").bind("click", function () {
-        derict(this, "shopCreate", "nochangeurl");
-    });
-    $(".shopAlter").bind("click", function () {
-        derict(this, "shopAlter", "nochangeurl");
     });
 
     $('.releaseSelfGoods').bind("click", function () {
@@ -125,8 +116,8 @@ $(function () {
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
-    $('.userType').bind("click", function() {
-        derict(this, "userType","nochangeurl");
+    $('.userType').bind("click", function () {
+        derict(this, "userType", "nochangeurl");
     })
     // 左侧导航栏鼠标滑过显示二级分类
     $(".slidebar-title").bind("mouseenter", function () {
@@ -150,6 +141,9 @@ $(function () {
     });
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
+    });
+    $(".index-head-logo").bind("click", function () {
+        window.location.href = "index";
     });
 });
 var derict_lock = false;
@@ -188,13 +182,13 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
-        var auth=sessionStorage.auth;
-        if(auth){
-            $(".slidebar-title").each(function(){
-                var slidebarAuth=$(this).attr("auth");
-                if(auth.indexOf(slidebarAuth)!=-1){
+        var auth = sessionStorage.auth;
+        if (auth) {
+            $(".slidebar-title").each(function () {
+                var slidebarAuth = $(this).attr("auth");
+                if (auth.indexOf(slidebarAuth) != -1) {
                     $(this).show();
-                }else{
+                } else {
                     $(this).hide();
                 }
             });
@@ -218,7 +212,7 @@ function pathInit() {
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
-    session.goods={psgId:psgId};
+    session.goods = {psgId: psgId};
 }
 
 //换取productId
@@ -230,16 +224,19 @@ function getProductId(_this){
 
 
 //换取商品信息
-function getGoodsInfo(){
-    try{
-    $.ajax({
-        url:"http://192.168.222.162:8080/productShopGoods/getProductShopGoods/"+session.goods.psgId,
-        type:"GET",
-        contentType: "application/json;charset=UTF-8",
-        success:function(data){
-            $('.body-typein').setPageData(data.data);
-        }
-    })  }catch(e){window.location.href="/debug/"}
+function getGoodsInfo() {
+    try {
+        $.ajax({
+            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods.psgId,
+            type: "GET",
+            contentType: "application/json;charset=UTF-8",
+            success: function (data) {
+                $('.body-typein').setPageData(data.data);
+            }
+        })
+    } catch (e) {
+        window.location.href = "/debug/"
+    }
 }
 
 //获取单个产品信息
@@ -269,6 +266,7 @@ function getProductInfo(){
                 for(s in size) {
                     sizeList+='<div class="checkbox-inline"><label><input type="checkbox" />'+s+'</label></div>'
                 }
+
 
                 $("tbody").append(trList);
                 $(".taking-color").append(colorList);
@@ -307,8 +305,8 @@ function getGoodsData(productName,modelNumber,saleStatus){
                        btnGround.html('下架');
                   }
                 })
-            }
-        })
+        }
+    });
 }
 
 //工厂商品列表
@@ -353,7 +351,7 @@ function soldOutGoods() {
 
 //删除商品数据
 function delectGoodsData() {
-  
+
     $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
         // 改变弹出框中文字和图标显示
         $(".pop").find(".popup-title").html("删除确认？");
@@ -361,6 +359,7 @@ function delectGoodsData() {
         $(".pop").find(".popup-info").html("是否确认删除记录？");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
+
            $.ajax({
             url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
             type:"GET",
@@ -369,7 +368,6 @@ function delectGoodsData() {
                 getGoodsData()
             }
         });
-
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
@@ -386,8 +384,6 @@ function delectGoodsData() {
 function getLocalTime(nS) {     
     return new Date(parseInt(nS) * 1000).toLocaleString().substr(0,10)
 }     
-
-
 
 // 提交成功
 function submitRecord(turnURL, url, data) {
@@ -422,26 +418,26 @@ function formCtrl() {
 }
 //表格全选
 function tablecheckbox() {
-    $(".table-block").find("thead input:checkbox").bind("click",function(){
-        var c=$(this).is(':checked');
-        $(".table-block").find("tbody input:checkbox").prop("checked",c);
+    $(".table-block").find("thead input:checkbox").bind("click", function () {
+        var c = $(this).is(':checked');
+        $(".table-block").find("tbody input:checkbox").prop("checked", c);
     });
 }
 
 //缓存接口
-var session=function(){
+var session = function () {
     return {};
 }
 //pop
 $.fn.extend({
-    pop:function(temp,fun){
-        if(!($(".lockbg").length>0)){
+    pop: function (temp, fun) {
+        if (!($(".lockbg").length > 0)) {
             $(".work-space-active").append("<div class='lockbg'></div>");
         }
         $(".lockbg").fadeIn();
-        var o=$(this);
-        o.loadTemp(temp,"nochangeurl",function(){
-            plumeLog("pop加载完毕."+plumeTime());
+        var o = $(this);
+        o.loadTemp(temp, "nochangeurl", function () {
+            plumeLog("pop加载完毕." + plumeTime());
             o.show();
             try {
                 if (fun) {
@@ -452,19 +448,19 @@ $.fn.extend({
             }
         });
     },
-    pophide:function(){
+    pophide: function () {
         $(this).html("").hide();
-        $(".lockbg").fadeOut();
+        $(".lockbg").remove();
     }
 });
 //上传图片pop
-function uploadPop(fun){
-    if(!($(".pop-upload").length>0)){
+function uploadPop(fun) {
+    if (!($(".pop-upload").length > 0)) {
         $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
     }
-    $(".pop-upload").pop("popUpload",fun);
+    $(".pop-upload").pop("popUpload", fun);
 }
-function closeUploadPop(fun){
+function closeUploadPop(fun) {
     $(".pop-upload").pophide();
     try {
         if (fun) {
@@ -474,21 +470,44 @@ function closeUploadPop(fun){
         plumeLog("提示:" + e.message);
     }
 }
+
 //loading
-function loading(){
-    if(!($(".lockbg").length>0)){
+var transmit_a = 0;
+var transmit_d = true;
+var transmit_loop;
+function transmit_showLoad() {
+    $(".loading").hide();
+    $($(".loading")[transmit_a]).show();
+    if (transmit_d) {
+        transmit_a++;
+    } else {
+        transmit_a--
+    }
+    if (transmit_a == 34) {
+        transmit_d = false;
+    }
+    if (transmit_a == 0) {
+        transmit_d = true;
+    }
+    transmit_loop=setTimeout("transmit_showLoad()", 35);
+}
+function loading() {
+    if (!($(".lockbg").length > 0)) {
         $(".work-space-active").append("<div class='lockbg'></div>");
+        $(".lockbg").show();
     }
 
-    if(!($(".loading").length>0)){
-        $(".work-space-active").append("<div class='loading popcenter'></div>");
+    if (!($(".loading").length > 0)) {
+        var temp = '';
+        for (var i = 1; i < 36; i++) {
+            temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
+        }
+        $(".work-space-active").append(temp);
+        clearTimeout(transmit_loop)
+        transmit_showLoad();
     }
 }
-function unloading(){
-    $(".lockbg").fadeOut(function(){
-        $(this).remove();
-    });
-    $(".lockbg").fadeOut(function(){
-        $(this).remove();
-    });
+function unloading() {
+    $(".lockbg").remove();
+    $(".loading").remove();
 }
