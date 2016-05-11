@@ -174,6 +174,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .mark{display: block; margin: 0; padding: 0 10px; color: #fff; text-align: center;}
 .mark-default{background-color: #989da8;}
 .mark-success{background-color: #00c052;}
+.mark-info{background-color: #00dbd3;}
 .mark-danger{background-color: #f56c50;}
 
 /** --------弹出-------- **/
@@ -440,7 +441,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .loading{height:45px;width:45px;display: none}
 .loading img{height:100%;width:100%}
 
-.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #fff;padding: 10px}
+/*.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #fff;padding: 10px}*/
+.body-welcome{margin: 10px auto; width: 1080px; overflow: hidden;}
 .bw-block1{border:1px solid #ced1dc ;border-top:6px solid #0094da;height:100px;width:1080px;padding:5px 10px}
 .bw-block1-left{border-right:1px solid #ced1dc}
 .bw-block1-left,.bw-block1-right{width:520px;height:100%;float:left;padding:0 10px}
@@ -451,11 +453,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bwb-cont1 div span:hover,.bwb-cont2 div span:hover{background: #289c98}
 
 .bw-block2{width:1080px;margin:10px 0 0 0}
-.bw-block2-left{margin:0 10px 0 0}
-.bw-block2-left{width:525px;float:left;}
-.bw-block2-right{width:545px;float:left;}
-.bw-block-item{border:1px solid #ced1dc ;border-top:6px solid #0094da;width:100%;margin:0 0 10px 0;float:left;padding: 0 0 10px 0}
-.bw-item-title{height:36px;line-height: 36px;text-align: left;float:left;width:100%;font-size:16px;padding:0 0 0 20px}
+.bw-block2-left{/*margin:0 10px 0 0*/}
+.bw-block2-left{/*width:525px;*/float: left; width: 50%; padding-right: 10px; box-sizing: border-box;}
+.bw-block2-right{/*width:545px;*/float: left; width: 50%; padding-left: 10px; box-sizing: border-box;}
+.bw-block-item{border:1px solid #ced1dc ;border-top:6px solid #0094da;width:100%;margin:0 0 10px 0;float:left;}
+.bw-item-title{position: relative; margin-left: 20px; padding: 6px 0; font-size:16px; cursor: pointer;}
+.bw-item-title:after{content: ''; position: absolute; top: 50%; right: 20px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
+.contractive .bw-item-title:after{margin-top: -8px; transform: rotate(135deg);}
 .bw-table1{margin-bottom:0}
 .bw-table1 tr{border-bottom:1px solid #f0f2fa}
 .bw-table1 th{background: #f0f2fa;border:none}
@@ -467,9 +471,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bw-item-btns .bw-item-btn{height:36px;padding:0 10px;float:left;border:1px solid #ced1dc;text-align:center;line-height:36px;margin:10px;cursor:pointer}
 .bw-item-btns .bw-item-btn:hover{color:#18c7c0;border-color:#18c7c0}
 
-
-
-
-
-
+/*.index-contractive .table{margin-bottom: 0;}*/
+.bw-table1 thead tr{background-color: #f0f2fa;}
+.bw-table1 tbody tr{border-bottom: solid #f0f2fa 1px;}
+.bw-table1 tfoot td{padding-top: 20px;}
+.bw-table1 .mark{display: inline-block; margin-left: 10px;}
 
