@@ -151,6 +151,9 @@ $(function () {
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
     });
+    $(".index-head-logo").bind("click",function(){
+       window.location.href="index";
+    });
 });
 var derict_lock = false;
 function derict(o, temp, cache, fun) {
@@ -377,17 +380,18 @@ function closeUploadPop(fun){
 function loading(){
     if(!($(".lockbg").length>0)){
         $(".work-space-active").append("<div class='lockbg'></div>");
+        $(".lockbg").fadeIn();
     }
 
     if(!($(".loading").length>0)){
-        $(".work-space-active").append("<div class='loading popcenter'></div>");
+        $(".work-space-active").append("<div class='loadings popcenter'></div>");
     }
 }
 function unloading(){
     $(".lockbg").fadeOut(function(){
         $(this).remove();
     });
-    $(".lockbg").fadeOut(function(){
+    $(".loadings").fadeOut(function(){
         $(this).remove();
     });
 }

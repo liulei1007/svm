@@ -61,6 +61,7 @@ $(function () {
     });
     //颜色初始化
     function setColors(){
+        return;
         $.get(plumeApi["getColorSeries"],{},function(data){
             $(".cm-color-title").setPageData(data);
             console.log($(".color-font")[0].outerHTML)
