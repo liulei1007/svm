@@ -36,11 +36,13 @@
           <label for="model">型号</label>
           <input type="text" class="form-control input-sm" id="agencyPhone" placeholder="">
         </div>
-        <button class="btn btn-default btn-sm">查询</button>
+        <button class="btn btn-primary btn-sm">查询</button>
       </form>
     </div>
     <div class="table-block">   
         <div class="table-info">
+            <button class="btn btn-primary" type="button">选择模板</button>
+            <button class="btn btn-primary" type="button">打印</button>
             当前已申请<span>112</span>条商品数据
         </div>
         <table class="table table1 table-striped">
@@ -48,7 +50,6 @@
               <tr>
                 <th><input type="checkbox" /></th>
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
@@ -56,56 +57,42 @@
                 <th>添加人</th>
                 <th>添加时间</th>
                 <th>状态</th>
+                <th></th>
+                <th>来源</th>
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td node-name="$n.psgId" id="psgId"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td>已打印</td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>13764223456</td>
-                <td>2015.12.06</td>
-                <td>
-                  <p>审核不通过</p>
-                  <a href="#">查看原因</a>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-compile">编辑</button>
-                </td>
-              </tr>
-               <tr>
-                <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
-                <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>13764223456</td>
-                <td>2015.12.06</td>
-                <td>
-                  <p>审核通过</p>
-                  <a href="#">已打印</a>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-compile">删除</button>
+                  <button type="button" class="btn btn-link btn-compile">编辑</button>
                 </td>
               </tr>
             </tbody>
         </table>
     </div>
-    <div class="pop"></div>
+    <div class="pull-right pagination">
+        <ul class="pagination">
+            <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
+            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
+            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
+            <li class="page-number"><a href="javascript:void(0)">2</a></li>
+            <li class="page-number"><a href="javascript:void(0)">3</a></li>
+            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
+            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li>
+        </ul>
+    </div>
 </div>
 
 </body>

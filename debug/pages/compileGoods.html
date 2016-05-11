@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "agencyCreateCompany"
+        }
+    </script>
+</head>
+
+<body>
+<div class="body-typein" data-spy="scroll" data-target="#pageNav-agencyCreateCompany"  >
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">基础信息</div>
+        </div>
+        <form class="form-horizontal">
+          	<div class="form-group">
+        		<label class="col-sm-3 control-label">品牌名称：</label>
+        		<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.brandName"></p>
+      		</div>
+	      	<div class="form-group">
+	            <label class="col-sm-3 control-label">系列名称：</label>
+	            <p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">商品数据ID号：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.productGoodsId"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">商品名称：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.productInfo.productName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">商品标语：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">产地：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.productInfo.cityName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">型号：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">等级：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">市场参考价：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">价格类型：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div> 
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">分类：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div> 
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">材质：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>  
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">基材：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">辅材：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">饰面：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">工艺：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.seriesName"></p>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label">重量：</label>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productGoodsORM.productInfo.weight"></p>
+	        </div>     
+        </form>
+    </div>
+
+    <div class="form-block-contractive">
+        <div id="accredit" class="row block-title">
+            <div class="col-sm-2 col-sm-offset-1">授权信息</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>零售价：</label>
+
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="price">
+                </div>元
+             
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>价格类型：</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="priceType">
+                        <option>明码实价</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-3 btn-block btn-compileGoods">
+            <button type="button" class="btn btn-lg btn-success btn-next">修改</button>
+            <button type="button" class="btn btn-lg btn-default btn-back">取消</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

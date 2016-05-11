@@ -36,20 +36,19 @@
             <option>所有</option>
           </select>
         </div>
-        <button class="btn btn-default btn-sm">查询</button>
+        <button class="btn btn-primary btn-sm">查询</button>
       </form>
     </div>
     <div class="table-block">   
         <div class="table-title">
             <button class="btn btn-primary">申请打印</button>
-            <a href="#">已申请价格管理</a>
+            <a href="http://localhost/debug/applyPriceTagManage">已申请价格管理</a>
         </div>
         <table class="table table1 table-striped">
             <thead>
               <tr>
                 <th><input type="checkbox" /></th>
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
@@ -61,30 +60,44 @@
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td id="psgId" node-name="$n.psgId"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.seriesName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.brandName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.modelNumber"></td>
+                <td node-name="$n.productGoodsORM.productInfo.createOperator"></td>
+                <td id="time" node-name="$n.productGoodsORM.productInfo.createDate"></td>
+                <td node-name="$n.productGoodsORM.productInfo.lvInfo"></td>
+                <td><span node-name="$n.productGoodsORM.productInfo.reviewStatus" class="mark mark-success"></span></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>13764223456</td>
-                <td>2015.12.06</td>
-                <td>工厂</td>
-                <td>下架中</td>
-                <td>
+<<<<<<< HEAD
                   <button type="button" class="btn btn-default btn-sm btn-releaseGoods">调取</button>
                   <button type="button" class="btn btn-default btn-sm btn-delect">删除</button>
                   <button type="button" class="btn btn-default btn-sm btn-releaseGoods">上架</button>
+=======
+                  <button type="button" class="btn btn-link btn-compile">编辑</button>
+                  <button type="button" class="btn btn-link btn-delect">删除</button>
+                  <button type="button" class="btn btn-link btn-ground">上架</button>
+>>>>>>> 92deca2e04c6467ab8c5ad0b332426e75f1382c3
                 </td>
               </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="pull-right pagination">
+        <ul class="pagination">
+            <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
+            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
+            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
+            <li class="page-number"><a href="javascript:void(0)">2</a></li>
+            <li class="page-number"><a href="javascript:void(0)">3</a></li>
+            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
+            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li>
+        </ul>
     </div>
 </div>
 

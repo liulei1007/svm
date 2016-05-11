@@ -153,7 +153,7 @@ function derict(o, temp, cache, fun) {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
         $(".work-space-active").loadTemp("transmit", "nochangeurl");
-        $(".work-space-active").delay(300).fadeOut(function () {
+        $(".work-space-active").delay(800).fadeOut(function () {
             $(this).html("").fadeIn();
             $(".work-space-active").loadTemp(temp, cache, fun);
             try {
@@ -166,7 +166,7 @@ function derict(o, temp, cache, fun) {
     })
 }
 function pathInit() {
-    plumeLog("进入setPrams-" + plumeTime());
+    plumeLog("进入pathInit-" + plumeTime());
     var path = window.location.href + "";
     if (path.indexOf(".html") != -1) {
         return;
@@ -179,6 +179,17 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
+        var auth=sessionStorage.auth;
+        if(auth){
+            $(".slidebar-title").each(function(){
+                var slidebarAuth=$(this).attr("auth");
+                if(auth.indexOf(slidebarAuth)!=-1){
+                    $(this).show();
+                }else{
+                    $(this).hide();
+                }
+            });
+        }
         $(".container-fixed").fadeIn();
     }
     try {
@@ -193,8 +204,50 @@ function pathInit() {
 
 }
 
-function delectData(_this) {
+
+//换取商品ID
+function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
+    var psgId = removeList.find('#psgId').html();
+    session.goods={psgId:psgId};
+}
+
+
+//换取商品信息
+function getGoodsInfo(){
+    try{
+    $.ajax({
+        url:"http://192.168.222.162:8080/productShopGoods/getProductShopGoods/"+session.goods.psgId,
+        type:"GET",
+        contentType: "application/json;charset=UTF-8",
+        success:function(data){
+            $('.body-typein').setPageData(data.data);
+        }
+    })  }catch(e){window.location.href="/debug/"}
+}
+
+
+//加载商品列表
+function getGoodsDate(){
+        $.ajax({
+            url:"http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
+            type:"POST",
+            contentType: "application/json;charset=UTF-8",
+            data:JSON.stringify(
+             {"productName": "",
+              "modelNumber": "",
+               "saleStatus": ""}
+          ),
+            success:function(data){
+                $("[list-node]").remove();
+                $(".table-block").setPageData(data);
+            }
+        })
+}
+
+//删除商品数据
+function delectGoodsData() {
+  
     $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
         // 改变弹出框中文字和图标显示
         $(".pop").find(".popup-title").html("删除确认？");
@@ -202,7 +255,15 @@ function delectData(_this) {
         $(".pop").find(".popup-info").html("是否确认删除记录？");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
-            removeList.remove();
+           $.ajax({
+            url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
+            type:"GET",
+            contentType: "application/json;charset=UTF-8",
+            success:function(data){
+                getGoodsDate()
+            }
+        });
+
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
@@ -211,9 +272,11 @@ function delectData(_this) {
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
-        })
+        });
     });
 }
+
+
 
 
 // 提交成功
@@ -254,6 +317,7 @@ function tablecheckbox() {
         $(".table-block").find("tbody input:checkbox").prop("checked",c);
     });
 }
+
 //缓存接口
 var session=function(){
     return {};

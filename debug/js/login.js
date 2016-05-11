@@ -1,6 +1,11 @@
 $(function(){
 	plumeLog("进入login模板自定义js-"+plumeTime());
-	$(".login-btn").bind("click",function(){
+	$(".login-btn-brand").bind("click",function(){
+		sessionStorage.auth=[1,2,4,5,6,8];
+		window.location.href="../index";
+	});
+	$(".login-btn-supplier").bind("click",function(){
+		sessionStorage.auth=[3,4,5,7];
 		window.location.href="../index";
 	});
 	$(".reg-btn").bind("click",function(){
