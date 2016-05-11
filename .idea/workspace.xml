@@ -21,41 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="createMyGoods.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/debug/js/createMyGoods.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6579378">
-              <caret line="138" column="25" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/debug/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.678572">
-              <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.285714">
-              <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+            <state vertical-scroll-proportion="-35.75">
+              <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="svm.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="414" column="163" selection-start-line="414" selection-start-column="150" selection-end-line="414" selection-end-column="163" />
+            <state vertical-scroll-proportion="0.8134206">
+              <caret line="475" column="0" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/debug/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="389" column="18" selection-start-line="389" selection-start-column="9" selection-end-line="389" selection-end-column="18" />
+              <caret line="380" column="18" selection-start-line="380" selection-start-column="9" selection-end-line="380" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -84,8 +64,8 @@
       <file leaf-file-name="agencyCreateCompany.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/agencyCreateCompany.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3571428">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state vertical-scroll-proportion="-8.142858">
+              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -143,10 +123,10 @@
         <option value="$PROJECT_DIR$/debug/js/login.js" />
         <option value="$PROJECT_DIR$/debug/pages/transmit.html" />
         <option value="$PROJECT_DIR$/debug/js/transmit.js" />
-        <option value="$PROJECT_DIR$/debug/pages/welcome.html" />
         <option value="$PROJECT_DIR$/debug/js/createMyGoods.js" />
-        <option value="$PROJECT_DIR$/debug/css/svm.css" />
         <option value="$PROJECT_DIR$/debug/js/index.js" />
+        <option value="$PROJECT_DIR$/debug/pages/welcome.html" />
+        <option value="$PROJECT_DIR$/debug/css/svm.css" />
       </list>
     </option>
   </component>
@@ -744,14 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.285714">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/agencyCreateCompany.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -760,26 +732,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/agencyCreateCompany.html">
+    <entry file="file://$PROJECT_DIR$/debug/js/createMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3571428">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.6579378">
+          <caret line="138" column="25" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.678572">
-          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+        <state vertical-scroll-proportion="1.5214409">
+          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
+    <entry file="file://$PROJECT_DIR$/debug/pages/agencyCreateCompany.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="414" column="163" selection-start-line="414" selection-start-column="150" selection-end-line="414" selection-end-column="163" />
+        <state vertical-scroll-proportion="-8.142858">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/welcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-35.75">
+          <caret line="80" column="37" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -787,15 +767,15 @@
     <entry file="file://$PROJECT_DIR$/debug/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="389" column="18" selection-start-line="389" selection-start-column="9" selection-end-line="389" selection-end-column="18" />
+          <caret line="380" column="18" selection-start-line="380" selection-start-column="9" selection-end-line="380" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/createMyGoods.js">
+    <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6579378">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.8134206">
+          <caret line="475" column="0" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
           <folding />
         </state>
       </provider>
