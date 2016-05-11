@@ -53,7 +53,9 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .form-block .block-down1{height:100px;width:100%;background: #fff;padding:20px 40px 0 40px}
 .form-block .block-down .right-lable{float:right}
 .form-block .form-block-title{position:absolute;height:50px;width:100%;top:-60px;left:0;text-align:center;line-height:50px;color:#2abbf7;font-size:24px}
-.form-block .form-block-msg{position:absolute;height:26px;width:100%;top:0px;left:0;text-align:center;line-height:26px;color:#892e16;font-size:12px;background:#f0d6d0}
+.form-block .form-block-msg{position:absolute;height:26px;width:100%;top:0px;left:0;text-align:center;line-height:26px;font-size:12px;}
+.reg-msg1,.login-msg1{color:#892e16;background:#f0d6d0;display: none}
+.reg-msg2,.login-msg2{color:#019836;background:#d2f2cf;display: none}
 .reg-block{display:none}
 #codetitle{width:100%;float: left}
 #msgcode{width:70%;float: left;}

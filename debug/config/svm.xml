@@ -284,5 +284,7 @@
         <addProductInfo>http://192.168.222.162:8080/productInfo/addProductInfo</addProductInfo>
         <listProductInfo>http://192.168.222.162:8080/productInfo/listProductInfo</listProductInfo>
         <delProductInfo>http://192.168.222.162:8080/productInfo/delProductInfo</delProductInfo>
+        <sendMsg>http://192.168.222.162:8080/userInfo/sendMsg</sendMsg>
+        <registerUserInfo>http://192.168.222.162:8080/userInfo/registerUserInfo</registerUserInfo>
     </api>
 </config>
