@@ -145,6 +145,7 @@ function shopListAgency_init() {
     plumeUtil.js(plumePath+"/js/shopList-agency.js");
 }
 function shopCreateAgency_init() {
+    console.log("yes")
     plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
 }
 function shopAlterAgency_init() {

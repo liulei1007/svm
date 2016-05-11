@@ -45,9 +45,6 @@ $(function () {
     $(".shopList").bind("click", function () {
         derict(this, "shopList", "nochangeurl");
     });
-    $(".shopCreate").bind("click", function () {
-        derict(this, "shopCreate", "nochangeurl");
-    });
     $(".shopAlter").bind("click", function () {
         derict(this, "shopAlter", "nochangeurl");
     });
