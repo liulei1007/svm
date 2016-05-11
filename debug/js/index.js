@@ -214,11 +214,18 @@ function pathInit() {
 }
 
 
-//换取商品ID
+//换取psgId
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
-    var psgId = removeList.find('#psgId').html();
+    var psgId = removeList.find('.psgId').html();
     session.goods={psgId:psgId};
+}
+
+//换取productId
+function getProductId(_this){
+    var removeList =$(_this).parents('tr');
+    var productId = removeList.find('.productId').html();
+    session.productGoods={productId:productId};
 }
 
 
@@ -235,24 +242,114 @@ function getGoodsInfo(){
     })  }catch(e){window.location.href="/debug/"}
 }
 
+//获取单个产品信息
+function getProductInfo(){
+    try{
+        $.ajax({
+            url:"http://192.168.222.162:8080/productInfo/getProductInfo/"+23, //session.productGoods.productId,
+            type:"GET",
+            contentType: "application/json;charset=UTF-8",
+            success:function(data){
+                $('.body-typein').setPageData(data.data);
+                var trList;
+                var color = {};
+                var colorList="";
+                var size = {};
+                var sizeList="";
+                $(data.data.productGoods).each(function(i,data){
+                color[data.color]=1;
+                size[data.standard]=1
+                trList+='<tr><td>'+data.color+'</td><td>'+data.standard+'</td><td>'+data.marketPrice+'</td><td><input type="text" class="form-control" value="'+data.marketPrice+'"></td><td><select class="form-control"><option>明码实价</option><option>明码仪价</option></select></td><td><button type="button" class="btn btn-default btn-sm">删除</button></td></tr>'
+                });
 
-//加载商品列表
-function getGoodsDate(){
+                for(c in color) {
+                    colorList+='<div class="checkbox-inline"><label><input type="checkbox" />'+c+'</label></div>'
+                }
+
+                for(s in size) {
+                    sizeList+='<div class="checkbox-inline"><label><input type="checkbox" />'+s+'</label></div>'
+                }
+
+                $("tbody").append(trList);
+                $(".taking-color").append(colorList);
+                $(".taking-size").append(sizeList);
+            }
+        })
+        }catch(e){window.location.href="/debug/"}
+}
+
+
+
+//上下架商品列表
+function getGoodsData(productName,modelNumber,saleStatus){
         $.ajax({
             url:"http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
             type:"POST",
             contentType: "application/json;charset=UTF-8",
             data:JSON.stringify(
-             {"productName": "",
-              "modelNumber": "",
-               "saleStatus": ""}
+             {"productName": productName,
+              "modelNumber": modelNumber,
+               "saleStatus": saleStatus}
           ),
             success:function(data){
                 $("[list-node]").remove();
                 $(".table-block").setPageData(data);
+                $('.createDate').each(function() {
+                  $(this).html(getLocalTime($(this).html()));
+                  var aTr=$(this).parents('tr');
+                  var saleStatus= aTr.find('.saleStatus');
+                  var btnGround = aTr.find('.btn-ground');
+                  if(saleStatus.html()==0){
+                       saleStatus.html('下架中').removeClass('mark-success,mark-danger').addClass('mark-danger');
+                       btnGround.html('上架');
+                  }else{
+                       saleStatus.html('上架中').removeClass('mark-success,mark-danger').addClass('mark-success'); 
+                       btnGround.html('下架');
+                  }
+                })
             }
         })
 }
+
+//工厂商品列表
+function getProductGoodsData(keyword) {
+    $.ajax({
+         url:"http://192.168.222.162:8080/productShopGoods/listProductGoods",
+            type:"GET",
+            contentType: "application/json;charset=UTF-8",
+            data:{"keyword": keyword},
+            success:function(data){
+                $("[list-node]").remove();
+                $(".table-block").setPageData(data);
+         }
+    }); 
+}
+
+
+//商品上架
+function groundGoods() {
+     $.ajax({
+        url:"http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/"+session.goods.psgId,
+        type:"GET",
+        contentType: "application/json;charset=UTF-8",
+        success:function(data){
+            getGoodsData()
+        }
+    });
+}
+
+function soldOutGoods() {
+      $.ajax({
+        url:"http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/"+session.goods.psgId,
+        type:"GET",
+        contentType: "application/json;charset=UTF-8",
+        success:function(data){
+            getGoodsData()
+        }
+    });
+}
+
+
 
 //删除商品数据
 function delectGoodsData() {
@@ -269,7 +366,7 @@ function delectGoodsData() {
             type:"GET",
             contentType: "application/json;charset=UTF-8",
             success:function(data){
-                getGoodsDate()
+                getGoodsData()
             }
         });
 
@@ -285,6 +382,10 @@ function delectGoodsData() {
     });
 }
 
+//时间戳转日期
+function getLocalTime(nS) {     
+    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0,10)
+}     
 
 
 

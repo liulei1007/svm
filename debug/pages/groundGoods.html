@@ -24,19 +24,21 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="goodsName">商品名称</label>
-          <input type="text" class="form-control input-sm" id="" placeholder="">
+          <input type="text" class="form-control input-sm" id="productName" placeholder="">
         </div>
         <div class="form-group">
           <label for="model">型号</label>
-          <input type="text" class="form-control input-sm" id="" placeholder="">
+          <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
         </div>
          <div class="form-group">
           <label>状态</label>
-          <select class="form-control input-sm">
-            <option>所有</option>
+          <select class="form-control input-sm" id="saleStatus">
+            <option value="">所有</option>
+            <option value="1">上架商品</option>
+            <option value="0">下架商品</option>
           </select>
         </div>
-        <button class="btn btn-primary btn-sm">查询</button>
+        <div class="btn btn-primary btn-sm btn-search">查询</div>
       </form>
     </div>
     <div class="table-block">   
@@ -63,15 +65,15 @@
             <tbody data-list="$p.data">
               <tr list-temp="true">
                 <td><input type="checkbox" /></td>
-                <td id="psgId" node-name="$n.psgId"></td>
-                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
-                <td node-name="$n.productGoodsORM.productInfo.seriesName"></td>
-                <td node-name="$n.productGoodsORM.productInfo.brandName"></td>
-                <td node-name="$n.productGoodsORM.productInfo.modelNumber"></td>
-                <td node-name="$n.productGoodsORM.productInfo.createOperator"></td>
-                <td id="time" node-name="$n.productGoodsORM.productInfo.createDate"></td>
-                <td node-name="$n.productGoodsORM.productInfo.lvInfo"></td>
-                <td><span node-name="$n.productGoodsORM.productInfo.reviewStatus" class="mark mark-success"></span></td>
+                <td class="psgId" node-name="$n.psgId"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.seriesName"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.brandName"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.modelNumber"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.createOperator"></td>
+                <td class="createDate" node-name="$n.productGoodsORM.productInfoORM.createDate"></td>
+                <td node-name="$n.productGoodsORM.productInfoORM.lvInfo"></td>
+                <td><span node-name="$n.saleStatus" class="mark mark-success saleStatus"></span></td>
                 <td>
                   <button type="button" class="btn btn-link btn-compile">编辑</button>
                   <button type="button" class="btn btn-link btn-delect">删除</button>

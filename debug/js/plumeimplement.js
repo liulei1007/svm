@@ -92,6 +92,12 @@ function takingGoodsData_init(){
     plumeUtil.js(plumePath+"/js/takingGoodsData.js");
     plumeLog("完成takingGoodsData模板加载-"+plumeTime());
 }
+
+function takingGoods_init(){
+    plumeLog("初始化takingGoods模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/takingGoods.js");
+    plumeLog("完成takingGoods模板加载-"+plumeTime());
+}
 //--groundGoods模板初始化函数--
 function groundGoods_init(){
     plumeLog("初始化groundGoods模板-"+plumeTime());

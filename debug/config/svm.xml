@@ -87,6 +87,11 @@
         <init>takingGoodsData_init</init>
     </page>
     <page>
+        <page-name>takingGoods</page-name>
+        <page-url>/pages/takingGoods.html</page-url>
+        <init>takingGoods_init</init>
+    </page>
+    <page>
         <page-name>groundGoods</page-name>
         <page-url>/pages/groundGoods.html</page-url>
         <init>groundGoods_init</init>

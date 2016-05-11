@@ -26,71 +26,51 @@
         <form class="form-horizontal">
           	<div class="form-group">
         		<label class="col-sm-3 control-label">品牌名称：</label>
-        		<p class="col-sm-6 form-control-static">TOTO</p>
+        		<p class="col-sm-6 form-control-static" data-name="$p.brandName"></p>
       		</div>
 	      	<div class="form-group">
 	            <label class="col-sm-3 control-label">系列名称：</label>
-	            <p class="col-sm-6 form-control-static">欧式风格</p>
+	            <p class="col-sm-6 form-control-static" data-name="$p.seriesName"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">商品数据ID号：</label>
-	        	<p class="col-sm-6 form-control-static">265454545343</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productId"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">商品名称：</label>
-	        	<p class="col-sm-6 form-control-static">简单艾伦 精美床</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productName"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">商品标语：</label>
-	        	<p class="col-sm-6 form-control-static">适合田园风格 大气</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.productSecondName"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">产地：</label>
-	        	<p class="col-sm-6 form-control-static">北京市</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.cityName"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">型号：</label>
-	        	<p class="col-sm-6 form-control-static">QT256333DL</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.modelNumber"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">等级：</label>
-	        	<p class="col-sm-6 form-control-static">一等品</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.lvInfo"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">市场参考价：</label>
-	        	<p class="col-sm-6 form-control-static">1200元</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.marketPrice"></p>
 	        </div>
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">价格类型：</label>
-	        	<p class="col-sm-6 form-control-static">明码标价</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.priceType"></p>
 	        </div> 
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">分类：</label>
-	        	<p class="col-sm-6 form-control-static">双人床</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.subCategoryName"></p>
 	        </div> 
 	        <div class="form-group">
-	            <label class="col-sm-3 control-label">材质：</label>
-	        	<p class="col-sm-6 form-control-static">实木</p>
-	        </div>  
-	        <div class="form-group">
-	            <label class="col-sm-3 control-label">基材：</label>
-	        	<p class="col-sm-6 form-control-static">实木</p>
-	        </div>
-	        <div class="form-group">
-	            <label class="col-sm-3 control-label">辅材：</label>
-	        	<p class="col-sm-6 form-control-static">海绵</p>
-	        </div>
-	        <div class="form-group">
-	            <label class="col-sm-3 control-label">饰面：</label>
-	        	<p class="col-sm-6 form-control-static">实木</p>
-	        </div>
-	        <div class="form-group">
-	            <label class="col-sm-3 control-label">工艺：</label>
-	        	<p class="col-sm-6 form-control-static">铁艺</p>
-	        </div>
-	        <div class="form-group">
 	            <label class="col-sm-3 control-label">重量：</label>
-	        	<p class="col-sm-6 form-control-static">20KG</p>
+	        	<p class="col-sm-6 form-control-static" data-name="$p.weight"></p>
 	        </div>     
         </form>
     </div>
@@ -112,62 +92,36 @@
 						</div>
 					</div>
                 </div> -->
-                <div class="col-sm-6">
-                	<div class="checkbox-inline">
-						<label>
-							<input type="checkbox" />
-							<div class="color-block">
-								<div class="title" style="background-color: #e5d8a3"></div>
-								<div class="font">米白色</div>
-							</div>
-						</label>
-                	</div>
-                	<div class="checkbox-inline">
-                		<label>
-							<input type="checkbox" />
-							<div class="color-block">
-								<div class="title"></div>
-								<div class="font">白色</div>
-							</div>
-						</label>
-                	</div>
+                <div class="col-sm-6 taking-color">
+                	
                 </div>
             </div>
              <div class="form-group">
                 <label class="col-sm-3 control-label">规格</label>
 
-                <div class="col-sm-6">
-                    <div class="checkbox-inline">
-                    	<label>
-                    		<input type="checkbox" />
-                    		180*200*50
-                    	</label>
-                    </div>
-                    <div class="checkbox-inline">
-                    	<label>
-	                    	<input type="checkbox" />
-	                    	200*220*50
-                    	</label>
-                    </div>
+                <div class="col-sm-6 taking-size">
+         
                 </div>
             </div>
-            <div class="form-group required">
-                <label class="col-sm-3 control-label">状态</label>
-
-                <div class="col-sm-6">
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="status" checked=""/>启用
-                        </label>
-                    </div>
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="status"/>禁用
-                        </label>
-                    </div>
+            <div class="form-group">
+            	<div class="col-sm-7 col-sm-offset-3">
+	            	<table class="table table-bordered">
+	                    <thead>
+	                    <tr class="active">
+	                        <th>颜色分类</th>
+	                        <th>规格</th>
+	                        <th>市场参考价</th>
+	                        <th>零售价</th>
+	                        <th>价格类型</th>
+	                        <th>操作</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    
+	                    </tbody>
+	                </table>
                 </div>
             </div>
-        </form>
     </div>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-3 btn-block btn-compileGoods">
