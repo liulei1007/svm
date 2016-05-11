@@ -43,7 +43,7 @@ $(function() {
 		// var shopID = $(this).parents("tr").attr("shopID");
 		// 传参：shopID
 		session.shopID = $(this).parents("tr").attr("shopID");
-		derict(this, "shopShow", "nochangeurl");
+		derict(this, "shopShowAgency", "nochangeurl");
 	});
 
 	// 从服务器获取数据

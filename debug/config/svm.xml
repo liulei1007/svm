@@ -57,6 +57,11 @@
         <init>goodsAuditManage_init</init>
     </page>
     <page>
+        <page-name>compileGoods</page-name>
+        <page-url>/pages/compileGoods.html</page-url>
+        <init>compileGoods_init</init>
+    </page>
+    <page>
         <page-name>addGoodsData</page-name>
         <page-url>/pages/addGoodsData.html</page-url>
         <init>addGoodsData_init</init>
@@ -79,7 +84,7 @@
     <page>
         <page-name>takingGoodsData</page-name>
         <page-url>/pages/takingGoodsData.html</page-url>
-        <init>commoditytakingGoodsData_init</init>
+        <init>takingGoodsData_init</init>
     </page>
     <page>
         <page-name>groundGoods</page-name>
@@ -155,9 +160,19 @@
     </page>
 
     <page>
+        <page-name>shopList</page-name>
+        <page-url>/pages/shopList.html</page-url>
+        <init>shopList_init</init>
+    </page>
+    <page>
         <page-name>shopListAgency</page-name>
         <page-url>/pages/shopList-agency.html</page-url>
         <init>shopListAgency_init</init>
+    </page>
+    <page>
+        <page-name>shopShowAgency</page-name>
+        <page-url>/pages/shopShow-agency.html</page-url>
+        <init>shopShowAgency_init</init>
     </page>
     <page>
         <page-name>shopCreateAgency</page-name>
@@ -169,106 +184,101 @@
         <page-url>/pages/userType.html</page-url>
         <init>userType_init</init>
     </page>
-	<page>
-		<page-name>shopList</page-name>
-		<page-url>/pages/shopList.html</page-url>
-		<init>shopList_init</init>
-	</page>
-	<page>
-		<page-name>brandCreateCompany</page-name>
-		<page-url>/pages/brandCreateCompany.html</page-url>
-		<init>brandCreateCompany_init</init>
-	</page>
-	<page>
-		<page-name>brandList</page-name>
-		<page-url>/pages/brandList.html</page-url>
-		<init>brandList_init</init>
-	</page>
-	<page>
-		<page-name>brandAdd</page-name>
-		<page-url>/pages/brandAdd.html</page-url>
-		<init>brandAdd_init</init>
-	</page>
-	<page>
-		<page-name>msgAdd</page-name>
-		<page-url>/pages/msgAdd.html</page-url>
-		<init>msgAdd_init</init>
-	</page>
-	<page>
-		<page-name>reviewList</page-name>
-		<page-url>/pages/reviewList.html</page-url>
-		<init>reviewList_init</init>
-	</page>
-	<page>
-		<page-name>reviewShowCompany</page-name>
-		<page-url>/pages/reviewShowCompany.html</page-url>
-		<init>reviewShowCompany_init</init>
-	</page>
-	<page>
-		<page-name>reviewShowPersonal</page-name>
-		<page-url>/pages/reviewShowPersonal.html</page-url>
-		<init>reviewShowPersonal_init</init>
-	</page>
-	<page>
-		<page-name>reviewCompany</page-name>
-		<page-url>/pages/reviewCompany.html</page-url>
-		<init>reviewCompany_init</init>
-	</page>
-	<page>
-		<page-name>releaseSelfGoods</page-name>
-		<page-url>/pages/releaseSelfGoods.html</page-url>
-		<init>releaseSelfGoods_init</init>
-	</page>
-	<page>
-		<page-name>applyPriceTagManage</page-name>
-		<page-url>/pages/applyPriceTagManage.html</page-url>
-		<init>applyPriceTagManage_init</init>
-	</page>
-	<page>
-		<page-name>createMyGoods</page-name>
-		<page-url>/pages/createMyGoods.html</page-url>
-		<init>createMyGoods_init</init>
-	</page>
-	<page>
-		<page-name>reviewPersonal</page-name>
-		<page-url>/pages/reviewPersonal.html</page-url>
-		<init>reviewPersonal_init</init>
-	</page>
-	<page>
-		<page-name>popConfirm</page-name>
-		<page-url>/pages/popConfirm.html</page-url>
-	</page>
-	<page>
-		<page-name>popSubmitSuccess</page-name>
-		<page-url>/pages/popSubmitSuccess.html</page-url>
-	</page>
-	<page>
-		<page-name>popFillIn</page-name>
-		<page-url>/pages/popFillIn.html</page-url>
-	</page>
-	<page>
-		<page-name>popTips</page-name>
-		<page-url>/pages/popTips.html</page-url>
-		<init>popTips_init</init>
-	</page>
-	<page>
-		<page-name>childIdCreate</page-name>
-		<page-url>/pages/childIdCreate.html</page-url>
-		<init>childIdCreate_init</init>
-	</page>
-	<page>
-		<page-name>popAuth</page-name>
-		<page-url>/pages/popAuth.html</page-url>
-	</page>
-	<page>
-		<page-name>popUpload</page-name>
-		<page-url>/pages/popUpload.html</page-url>
-	</page>
-	<!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
-	<api>
-		<listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
-		<listAgentsBrandInfoList-brand>http://192.168.222.162:8080/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
-		<listAgentsBrandInfoList>http://192.168.222.162:8080/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
+    <page>
+        <page-name>brandCreateCompany</page-name>
+        <page-url>/pages/brandCreateCompany.html</page-url>
+        <init>brandCreateCompany_init</init>
+    </page>
+    <page>
+        <page-name>brandList</page-name>
+        <page-url>/pages/brandList.html</page-url>
+        <init>brandList_init</init>
+    </page>
+    <page>
+        <page-name>brandAdd</page-name>
+        <page-url>/pages/brandAdd.html</page-url>
+        <init>brandAdd_init</init>
+    </page>
+    <page>
+        <page-name>msgAdd</page-name>
+        <page-url>/pages/msgAdd.html</page-url>
+        <init>msgAdd_init</init>
+    </page>
+    <page>
+        <page-name>reviewList</page-name>
+        <page-url>/pages/reviewList.html</page-url>
+        <init>reviewList_init</init>
+    </page>
+    <page>
+        <page-name>reviewShowCompany</page-name>
+        <page-url>/pages/reviewShowCompany.html</page-url>
+        <init>reviewShowCompany_init</init>
+    </page>
+    <page>
+        <page-name>reviewShowPersonal</page-name>
+        <page-url>/pages/reviewShowPersonal.html</page-url>
+        <init>reviewShowPersonal_init</init>
+    </page>
+    <page>
+        <page-name>reviewCompany</page-name>
+        <page-url>/pages/reviewCompany.html</page-url>
+        <init>reviewCompany_init</init>
+    </page>
+    <page>
+        <page-name>releaseSelfGoods</page-name>
+        <page-url>/pages/releaseSelfGoods.html</page-url>
+        <init>releaseSelfGoods_init</init>
+    </page>
+    <page>
+        <page-name>applyPriceTagManage</page-name>
+        <page-url>/pages/applyPriceTagManage.html</page-url>
+        <init>applyPriceTagManage_init</init>
+    </page>
+    <page>
+        <page-name>createMyGoods</page-name>
+        <page-url>/pages/createMyGoods.html</page-url>
+        <init>createMyGoods_init</init>
+    </page>
+    <page>
+        <page-name>reviewPersonal</page-name>
+        <page-url>/pages/reviewPersonal.html</page-url>
+        <init>reviewPersonal_init</init>
+    </page>
+    <page>
+        <page-name>popConfirm</page-name>
+        <page-url>/pages/popConfirm.html</page-url>
+    </page>
+    <page>
+        <page-name>popSubmitSuccess</page-name>
+        <page-url>/pages/popSubmitSuccess.html</page-url>
+    </page>
+    <page>
+        <page-name>popFillIn</page-name>
+        <page-url>/pages/popFillIn.html</page-url>
+    </page>
+    <page>
+        <page-name>popTips</page-name>
+        <page-url>/pages/popTips.html</page-url>
+        <init>popTips_init</init>
+    </page>
+    <page>
+        <page-name>childIdCreate</page-name>
+        <page-url>/pages/childIdCreate.html</page-url>
+        <init>childIdCreate_init</init>
+    </page>
+    <page>
+        <page-name>popAuth</page-name>
+        <page-url>/pages/popAuth.html</page-url>
+    </page>
+    <page>
+        <page-name>popUpload</page-name>
+        <page-url>/pages/popUpload.html</page-url>
+    </page>
+    <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
+    <api>
+        <listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
+        <listAgentsBrandInfoList-brand>http://192.168.222.162:8080/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
+        <listAgentsBrandInfoList>http://192.168.222.162:8080/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
 
         <listShopInfo>http://192.168.222.162:8080/shopInfo/listShopInfo</listShopInfo>
         <addProductInfo>http://192.168.222.162:8080/productInfo/addProductInfo</addProductInfo>

@@ -130,16 +130,6 @@ function agencyAddAccount_init() {
 function shopList_init() {
     plumeUtil.js(plumePath+"/js/shopList.js");
 }
-function shopCreate_init() {
-    plumeUtil.js(plumePath+"/js/operatePop.js");
-    plumeUtil.js(plumePath+"/js/shopCreate.js");
-}
-function shopShow_init() {
-    plumeUtil.js(plumePath+"/js/shopShow.js");
-}
-function shopAlter_init() {
-    plumeUtil.js(plumePath+"/js/shopAlter.js");
-}
 
 function shopListAgency_init() {
     plumeUtil.js(plumePath+"/js/shopList-agency.js");

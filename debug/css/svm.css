@@ -275,6 +275,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-select>div>div>input{float:left;margin: 10px 12px 0 0;}
 .color-select>div>div>div{float:left;width:68px;}
 .color-select>div>div>div>p{height:22px;width:68px;border:1px solid #dadce5;text-align: center;}
+.color-select>div>div>div>p>input{height:100%;width:100%;border:0px solid #dadce5;text-align: center;}
 .color-select-title{height:8px;border: 1px solid #dadce5;border-bottom: none;}
 .none-input-color{display: none;}
 .color-type{margin-bottom: 20px;}
