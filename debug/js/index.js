@@ -205,11 +205,60 @@ function pathInit() {
 
 }
 
-function delectData(_this) {
+
+//换取商品ID
+function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
+    var psgId = removeList.find('#psgId').html();
+    session.goods={psgId:psgId};
+}
+
+
+//换取商品信息
+function getGoodsInfo(){
+    try{
+    $.ajax({
+        url:"http://192.168.222.162:8080/productShopGoods/getProductShopGoods/"+session.goods.psgId,
+        type:"GET",
+        contentType: "application/json;charset=UTF-8",
+        success:function(data){
+            $('.body-typein').setPageData(data.data);
+        }
+    })  }catch(e){window.location.href="/debug/"}
+}
+
+
+//加载商品列表
+function getGoodsDate(){
+        $.ajax({
+            url:"http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
+            type:"POST",
+            contentType: "application/json;charset=UTF-8",
+            data:JSON.stringify(
+             {"productName": "",
+              "modelNumber": "",
+               "saleStatus": ""}
+          ),
+            success:function(data){
+                $("[list-node]").remove();
+                $(".table-block").setPageData(data);
+            }
+        })
+}
+
+//删除商品数据
+function delectGoodsData() {
     $('.pop').loadTemp("popConfirmDelete", "nochangeurl", function () {
         $('.pop').on('click', '.btn-sure', function () {
-            removeList.remove();
+           $.ajax({
+            url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
+            type:"GET",
+            contentType: "application/json;charset=UTF-8",
+            success:function(data){
+                getGoodsDate()
+            }
+        });
+
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
@@ -218,9 +267,11 @@ function delectData(_this) {
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
-        })
+        });
     });
 }
+
+
 
 
 // 提交成功
@@ -255,12 +306,55 @@ function formCtrl() {
 }
 //表格全选
 function tablecheckbox() {
-    $(".table-block").find("table").find("th").find("input:checkbox").bind("click",function(){
+    $(".table-block").find("thead input:checkbox").bind("click",function(){
         var c=$(this).is(':checked');
-        $(".table-block").find("table").find("td").find("input:checkbox").prop("checked",c);
+        $(".table-block").find("tbody input:checkbox").prop("checked",c);
     });
 }
+
 //缓存接口
 var session=function(){
     return {};
+}
+//pop
+$.fn.extend({
+    pop:function(temp,fun){
+        if(!($(".lockbg").length>0)){
+            $(".work-space-active").append("<div class='lockbg'></div>");
+        }
+        $(".lockbg").fadeIn();
+        var o=$(this);
+        o.loadTemp(temp,"nochangeurl",function(){
+            plumeLog("pop加载完毕."+plumeTime());
+            o.show();
+            try {
+                if (fun) {
+                    fun();
+                }
+            } catch (e) {
+                plumeLog("提示:" + e.message);
+            }
+        });
+    },
+    pophide:function(){
+        $(this).html("").hide();
+        $(".lockbg").fadeOut();
+    }
+});
+//上传图片pop
+function uploadPop(fun){
+    if(!($(".pop-upload").length>0)){
+        $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
+    }
+    $(".pop-upload").pop("popUpload",fun);
+}
+function closeUploadPop(fun){
+    $(".pop-upload").pophide();
+    try {
+        if (fun) {
+            fun();
+        }
+    } catch (e) {
+        plumeLog("提示:" + e.message);
+    }
 }

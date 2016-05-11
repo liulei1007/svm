@@ -32,8 +32,8 @@
           <label for="goodsName">搜索品牌工厂库商品：</label>
           <input type="text" class="form-control input-sm" id="" placeholder="">
         </div>
-        <button class="btn btn-default btn-sm">搜索</button>
-        <button class="btn btn-default btn-sm">发布自采商品</button>
+        <button class="btn btn-primary btn-sm">搜索</button>
+        <button class="btn btn-primary btn-sm">发布自采商品</button>
       </form>
     </div>
     <div class="table-block">   
@@ -44,7 +44,6 @@
             <thead>
               <tr class="active">
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
@@ -52,19 +51,16 @@
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>282727622</td>
-                <td><img src="" /></td>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td id="psgId" node-name="$n.psgId"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">调取</button>
+                  <button type="button" class="btn btn-link btn-sm btn-taking">调取</button>
+                  <button type="button" class="btn btn-link btn-sm btn-compile">错误反馈</button>
                 </td>
               </tr>
             </tbody>

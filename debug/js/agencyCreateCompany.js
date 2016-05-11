@@ -2,10 +2,11 @@ var thisUrl = "agencyCreateCompany";
 
 $(function() {
 	// 选择日期
-	formCtrl();
 	$('#startTime').cxCalendar();
 	$("#endTime").cxCalendar();
 
+	// 表单操作
+	formCtrl();
 
 	// 点击“下一步”，提交表单
 	$(".btn-next").on("click", function() {

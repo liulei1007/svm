@@ -332,7 +332,7 @@ $.fn.extend({
             var listObj = $(this);
             var temp = $(this).find("[list-temp]").prop("outerHTML");
             temp = temp.replace("list-temp", "list-node");
-            $(this).find("[list-temp]").remove();
+         //   $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
                 $(temp).appendTo(listObj).show();

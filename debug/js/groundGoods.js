@@ -1,21 +1,21 @@
 $(function(){
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
 	$('.table-block').on('click','.btn-delect',function(){
-		delectData(this);
+		getGoodsPsgId(this);
+		delectGoodsData();
 	});
-	$('.table-block').on('click','.btn-taking',function() {
+	$('.table-block').on('click','.btn-compile',function() {
+		getGoodsPsgId(this);
 		derict(this, "compileGoods", "nochangeurl");
 	});
-
-	function getTableData(){
-		$.get("test/data.txt",function(data){
-			data=$.parseJSON(data);
-			$(".table-block").setPageData(data);
-
-			
-
+	$('.table-block').on('click','.btn-ground',function() {
+		$('.pop').loadTemp("popGroundSuccess", "nochangeurl", function () {
+				$('.pop').on('click', '.btn-back', function () {
+             	$('.pop').hide();
+             	$('.pop').off('click', '.btn-back');
+        	});
 		});
-	}
-	getTableData()
+	});
+	getGoodsDate();
 })
 

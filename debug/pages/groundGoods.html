@@ -42,7 +42,7 @@
     <div class="table-block">   
         <div class="table-title">
             <button class="btn btn-primary">申请打印</button>
-            <a href="#">已申请价格管理</a>
+            <a href="http://localhost/debug/applyPriceTagManage">已申请价格管理</a>
         </div>
         <table class="table table1 table-striped">
             <thead>
@@ -63,17 +63,17 @@
             <tbody data-list="$p.data">
               <tr list-temp="true">
                 <td><input type="checkbox" /></td>
-                <td node-name="$n.psgId"></td>
-                <td node-name="$n.productInfo.productName"></td>
-                <td node-name="$n.productInfo.seriesName"></td>
-                <td node-name="$n.productInfo.brandName"></td>
-                <td node-name="$n.productInfo.modelNumber"></td>
-                <td node-name="$n.productInfo.createOperator"></td>
-                <td node-name="$n.productInfo.createDate"></td>
-                <td node-name="$n.productInfo.lvInfo"></td>
-                <td node-name="$n.productInfo.reviewStatus"></td>
+                <td id="psgId" node-name="$n.psgId"></td>
+                <td node-name="$n.productGoodsORM.productInfo.productName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.seriesName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.brandName"></td>
+                <td node-name="$n.productGoodsORM.productInfo.modelNumber"></td>
+                <td node-name="$n.productGoodsORM.productInfo.createOperator"></td>
+                <td id="time" node-name="$n.productGoodsORM.productInfo.createDate"></td>
+                <td node-name="$n.productGoodsORM.productInfo.lvInfo"></td>
+                <td><span node-name="$n.productGoodsORM.productInfo.reviewStatus" class="mark mark-success"></span></td>
                 <td>
-                  <button type="button" class="btn btn-link btn-taking">调取</button>
+                  <button type="button" class="btn btn-link btn-compile">编辑</button>
                   <button type="button" class="btn btn-link btn-delect">删除</button>
                   <button type="button" class="btn btn-link btn-ground">上架</button>
                 </td>
