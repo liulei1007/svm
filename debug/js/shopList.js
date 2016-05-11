@@ -68,14 +68,12 @@ $(function() {
 				tableList += '<td><input type="checkbox" /></td>';
 				// 序号
 				tableList += '<td>' + (++startNum) + '</td>';
-				// 店铺名称
-				tableList += '<td>' + list.shopName + '</td>';
 				// 展位号
 				tableList += '<td>' + list.boothNo + '</td>';
-				// 店铺类型
-				if (list.shopType == 2) {tableList += '<td>经代店</td>';}
-				else if (list.shopType == 1) {tableList += '<td>直营店</td>';}
-				else tableList += '<td>未设定</td>';
+				// 公司名称
+				tableList += '<td>' + '公司名称' + '</td>';
+				// 系列
+				tableList += '<td>系列</td>';
 				// 所属商场名称
 				tableList += '<td>' + list.marketName + '</td>';
 				// 认证类型

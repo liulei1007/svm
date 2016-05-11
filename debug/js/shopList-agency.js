@@ -80,12 +80,12 @@ $(function() {
 				tableList += '<td>' + (++startNum) + '</td>';
 				// 展位号
 				tableList += '<td>' + list.boothNo + '</td>';
+				// 系列
+				tableList += '<td>' + '系列' + '</td>';
 				// 品牌名
 				tableList += '<td>' + list.brandName + '</td>';
-				// 申请时间
-				tableList += '<td>' + list.createDate + '</td>';
 				// 店铺地址------------------------------------------
-				tableList += '<td>' + list.contacts + '</td>';
+				tableList += '<td>' + '店铺地址' + '</td>';
 				// 店铺联系人
 				tableList += '<td>' + list.contacts + '</td>';
 				// 联系人手机号
@@ -93,6 +93,8 @@ $(function() {
 				// 店铺状态
 				if (list.shopStatus == 1) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
+				// 申请时间
+				tableList += '<td>' + list.createDate + '</td>';
 				tableList += '<td><button type="button" class="btn btn-link btn-detail">查看</button></td>';
 			});
 			$("table tbody").html(tableList);
