@@ -134,12 +134,12 @@ function shopList_init() {
 function shopListAgency_init() {
     plumeUtil.js(plumePath+"/js/shopList-agency.js");
 }
+function shopShowAgency_init() {
+    plumeUtil.js(plumePath+"/js/shopShow-agency.js");
+}
 function shopCreateAgency_init() {
     console.log("yes")
     plumeUtil.js(plumePath+"/js/shopCreate-agency.js");
-}
-function shopAlterAgency_init() {
-    plumeUtil.js(plumePath+"/js/shopAlter-agency.js");
 }
 
 // ----弹出框----

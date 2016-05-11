@@ -2,6 +2,7 @@ $(function() {
 	// 表单操作
 	formCtrl();
 
+	// 获取数据
 	getData();
 
 	// 从服务器获取数据
