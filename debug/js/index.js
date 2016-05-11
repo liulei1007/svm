@@ -216,21 +216,23 @@ function getGoodsPsgId(_this) {
 }
 
 //换取productId
-function getProductId(_this){
-    var removeList =$(_this).parents('tr');
+function getProductId(_this) {
+    var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods={productId:productId};
+    session.productGoods = {productId: productId};
 }
 
 
 //换取商品信息
 function getGoodsInfo() {
     try {
+        loading();
         $.ajax({
             url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods.psgId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
+                unloading();
                 $('.body-typein').setPageData(data.data);
             }
         })
@@ -240,31 +242,33 @@ function getGoodsInfo() {
 }
 
 //获取单个产品信息
-function getProductInfo(){
-    try{
+function getProductInfo() {
+    loading();
+    try {
         $.ajax({
-            url:"http://192.168.222.162:8080/productInfo/getProductInfo/"+23, //session.productGoods.productId,
-            type:"GET",
+            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" + 23, //session.productGoods.productId,
+            type: "GET",
             contentType: "application/json;charset=UTF-8",
-            success:function(data){
+            success: function (data) {
+                unloading();
                 $('.body-typein').setPageData(data.data);
                 var trList;
                 var color = {};
-                var colorList="";
+                var colorList = "";
                 var size = {};
-                var sizeList="";
-                $(data.data.productGoods).each(function(i,data){
-                color[data.color]=1;
-                size[data.standard]=1
-                trList+='<tr><td>'+data.color+'</td><td>'+data.standard+'</td><td>'+data.marketPrice+'</td><td><input type="text" class="form-control" value="'+data.marketPrice+'"></td><td><select class="form-control"><option>明码实价</option><option>明码仪价</option></select></td><td><button type="button" class="btn btn-default btn-sm">删除</button></td></tr>'
+                var sizeList = "";
+                $(data.data.productGoods).each(function (i, data) {
+                    color[data.color] = 1;
+                    size[data.standard] = 1
+                    trList += '<tr><td>' + data.color + '</td><td>' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control" value="' + data.marketPrice + '"></td><td><select class="form-control"><option>明码实价</option><option>明码仪价</option></select></td><td><button type="button" class="btn btn-default btn-sm">删除</button></td></tr>'
                 });
 
-                for(c in color) {
-                    colorList+='<div class="checkbox-inline"><label><input type="checkbox" />'+c+'</label></div>'
+                for (c in color) {
+                    colorList += '<div class="checkbox-inline"><label><input type="checkbox" />' + c + '</label></div>'
                 }
 
-                for(s in size) {
-                    sizeList+='<div class="checkbox-inline"><label><input type="checkbox" />'+s+'</label></div>'
+                for (s in size) {
+                    sizeList += '<div class="checkbox-inline"><label><input type="checkbox" />' + s + '</label></div>'
                 }
 
 
@@ -273,80 +277,90 @@ function getProductInfo(){
                 $(".taking-size").append(sizeList);
             }
         })
-        }catch(e){window.location.href="/debug/"}
+    } catch (e) {
+        window.location.href = "/debug/"
+    }
 }
 
 
-
 //上下架商品列表
-function getGoodsData(productName,modelNumber,saleStatus){
-        $.ajax({
-            url:"http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
-            type:"POST",
-            contentType: "application/json;charset=UTF-8",
-            data:JSON.stringify(
-             {"productName": productName,
-              "modelNumber": modelNumber,
-               "saleStatus": saleStatus}
-          ),
-            success:function(data){
-                $("[list-node]").remove();
-                $(".table-block").setPageData(data);
-                $('.createDate').each(function() {
-                  $(this).html(getLocalTime($(this).html()));
-                  var aTr=$(this).parents('tr');
-                  var saleStatus= aTr.find('.saleStatus');
-                  var btnGround = aTr.find('.btn-ground');
-                  if(saleStatus.html()==0){
-                       saleStatus.html('下架中').removeClass('mark-success,mark-danger').addClass('mark-danger');
-                       btnGround.html('上架');
-                  }else{
-                       saleStatus.html('上架中').removeClass('mark-success,mark-danger').addClass('mark-success'); 
-                       btnGround.html('下架');
-                  }
-                })
+function getGoodsData(productName, modelNumber, saleStatus) {
+    loading();
+    $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        data: JSON.stringify(
+            {
+                "productName": productName,
+                "modelNumber": modelNumber,
+                "saleStatus": saleStatus
+            }
+        ),
+        success: function (data) {
+            unloading();
+            $("[list-node]").remove();
+            $(".table-block").setPageData(data);
+            $('.createDate').each(function () {
+                $(this).html(getLocalTime($(this).html()));
+                var aTr = $(this).parents('tr');
+                var saleStatus = aTr.find('.saleStatus');
+                var btnGround = aTr.find('.btn-ground');
+                if (saleStatus.html() == 0) {
+                    saleStatus.html('下架中').removeClass('mark-success,mark-danger').addClass('mark-danger');
+                    btnGround.html('上架');
+                } else {
+                    saleStatus.html('上架中').removeClass('mark-success,mark-danger').addClass('mark-success');
+                    btnGround.html('下架');
+                }
+            })
         }
     });
 }
 
 //工厂商品列表
 function getProductGoodsData(keyword) {
+    loading();
     $.ajax({
-         url:"http://192.168.222.162:8080/productShopGoods/listProductGoods",
-            type:"GET",
-            contentType: "application/json;charset=UTF-8",
-            data:{"keyword": keyword},
-            success:function(data){
-                $("[list-node]").remove();
-                $(".table-block").setPageData(data);
-         }
-    }); 
+        url: "http://192.168.222.162:8080/productShopGoods/listProductGoods",
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        data: {"keyword": keyword},
+        success: function (data) {
+            unloading();
+            $("[list-node]").remove();
+            $(".table-block").setPageData(data);
+        }
+    });
 }
 
 
 //商品上架
 function groundGoods() {
-     $.ajax({
-        url:"http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/"+session.goods.psgId,
-        type:"GET",
+    loading();
+    $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods.psgId,
+        type: "GET",
         contentType: "application/json;charset=UTF-8",
-        success:function(data){
+        success: function (data) {
+            unloading();
             getGoodsData()
         }
     });
 }
 
 function soldOutGoods() {
-      $.ajax({
-        url:"http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/"+session.goods.psgId,
-        type:"GET",
+    loading();
+    $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods.psgId,
+        type: "GET",
         contentType: "application/json;charset=UTF-8",
-        success:function(data){
+        success: function (data) {
+            unloading();
             getGoodsData()
         }
     });
 }
-
 
 
 //删除商品数据
@@ -359,15 +373,16 @@ function delectGoodsData() {
         $(".pop").find(".popup-info").html("是否确认删除记录？");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
-
-           $.ajax({
-            url:"http://192.168.222.162:8080/productShopGoods/delProductShopGoods/"+session.goods.psgId,
-            type:"GET",
-            contentType: "application/json;charset=UTF-8",
-            success:function(data){
-                getGoodsData()
-            }
-        });
+            loading();
+            $.ajax({
+                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods.psgId,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    unloading();
+                    getGoodsData()
+                }
+            });
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
@@ -381,9 +396,9 @@ function delectGoodsData() {
 }
 
 //时间戳转日期
-function getLocalTime(nS) {     
-    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0,10)
-}     
+function getLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10)
+}
 
 // 提交成功
 function submitRecord(turnURL, url, data) {
@@ -489,7 +504,7 @@ function transmit_showLoad() {
     if (transmit_a == 0) {
         transmit_d = true;
     }
-    transmit_loop=setTimeout("transmit_showLoad()", 35);
+    transmit_loop = setTimeout("transmit_showLoad()", 35);
 }
 function loading() {
     if (!($(".lockbg").length > 0)) {
