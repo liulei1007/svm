@@ -23,7 +23,7 @@
     <div class="search-block">
       <form class="form-inline">
         <div class="form-group">
-          <label for="goodsName">商品名称</label>
+          <label for="agencyName">商品名称</label>
           <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
         </div>
         <div class="form-group">
@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
           <label for="model">型号</label>
-          <input type="text" class="form-control input-sm" id="agencyPhone" placeholder="">
+          <input type="text" class="form-control input-sm" id="model" placeholder="">
         </div>
          <div class="form-group">
           <label>状态</label>
@@ -56,12 +56,11 @@
             <button class="btn btn-primary">规格属性</button>
             <a href="#">待审核商品管理</a>
         </div>
-        <table class="table table1 table-striped">
+        <table class="table table1 table-striped gdm-table-data">
             <thead>
               <tr>
                 <th><input type="checkbox" /></th>
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
@@ -72,26 +71,23 @@
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody data-list="$p.data">
+              <tr list-temp="ture">
                 <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
+                <td node-name="$n.productId"></td>
+
+                <td node-name="$n.productName"></td>
+                <td node-name="$n.seriesName "></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.updateDate"></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>审核中</td>
-                <td>红色，白色</td>
-                <td>200*180</td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">编辑</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">复制</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">启用</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">删除</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">编辑</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">复制</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">启用</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">删除</button>
                 </td>
               </tr>
             </tbody>

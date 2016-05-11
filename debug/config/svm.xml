@@ -282,6 +282,6 @@
 
         <listShopInfo>http://192.168.222.162:8080/shopInfo/listShopInfo</listShopInfo>
         <addProductInfo>http://192.168.222.162:8080/productInfo/addProductInfo</addProductInfo>
-
+        <listProductInfo>http://192.168.222.162:8080/productInfo/listProductInfo</listProductInfo>
     </api>
 </config>
