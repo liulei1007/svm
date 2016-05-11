@@ -162,7 +162,7 @@ function derict(o, temp, cache, fun) {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
         $(".work-space-active").loadTemp("transmit", "nochangeurl");
-        $(".work-space-active").delay(300).fadeOut(function () {
+        $(".work-space-active").delay(800).fadeOut(function () {
             $(this).html("").fadeIn();
             $(".work-space-active").loadTemp(temp, cache, fun);
             try {
@@ -175,7 +175,7 @@ function derict(o, temp, cache, fun) {
     })
 }
 function pathInit() {
-    plumeLog("进入setPrams-" + plumeTime());
+    plumeLog("进入pathInit-" + plumeTime());
     var path = window.location.href + "";
     if (path.indexOf(".html") != -1) {
         return;
@@ -188,6 +188,17 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
+        var auth=sessionStorage.auth;
+        if(auth){
+            $(".slidebar-title").each(function(){
+                var slidebarAuth=$(this).attr("auth");
+                if(auth.indexOf(slidebarAuth)!=-1){
+                    $(this).show();
+                }else{
+                    $(this).hide();
+                }
+            });
+        }
         $(".container-fixed").fadeIn();
     }
     try {
