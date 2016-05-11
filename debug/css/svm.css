@@ -73,6 +73,7 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 /*.row1{background:#f0f2fa;}*/
 
 .table-block .table1{border:0px solid #f0f2fa}
+.table-block .table1 th{background:#989da8;color:#fff}
 
 
 
