@@ -80,8 +80,6 @@ $(function() {
 				if (list.agentsType == 2) {tableList += '<td>个人</td>';}
 				else if (list.agentsType == 1) {tableList += '<td>公司</td>';}
 				else tableList += '<td>未设定</td>';
-				// 申请时间
-				tableList += '<td>' + list.createDate + '</td>';
 				// 店铺联系人
 				tableList += '<td>' + list.contacts + '</td>';
 				// 联系人手机号
@@ -89,6 +87,8 @@ $(function() {
 				// 店铺状态
 				if (list.shopStatus == 1) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
+				// 申请时间
+				tableList += '<td>' + list.createDate + '</td>';
 			});
 			$("table tbody").html(tableList);
 		}
