@@ -463,7 +463,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bwb-cont1 div span,.bwb-cont2 div span{display:inline;height:20px;width:20px;line-height: 20px;text-align: center;background: #0fdbd3;color: #fff;padding:0 5px;margin:0 0 0 5px;cursor:pointer}
 .bwb-cont1 div span:hover,.bwb-cont2 div span:hover{background: #289c98}*/
 
-.bw-block2{width:1080px;margin:10px 0 0 0}
+.bw-block2{margin-top: 20px; margin-bottom: 20px; width: 100%;}
 .bw-block2-left{/*margin:0 10px 0 0*/}
 .bw-block2-left{/*width:525px;*/float: left; width: 50%; padding-right: 10px; box-sizing: border-box;}
 .bw-block2-right{/*width:545px;*/float: left; width: 50%; padding-left: 10px; box-sizing: border-box;}
@@ -472,19 +472,19 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bw-item-title:after{content: ''; position: absolute; top: 50%; right: 20px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
 .contractive .bw-item-title:after{margin-top: -8px; transform: rotate(135deg);}
 .bw-table1{margin-bottom:0}
-.bw-table1 tr{border-bottom:1px solid #f0f2fa}
-.bw-table1 th{background: #f0f2fa;border:none}
+
 .bw-item-table,.bw-item-btns{padding: 10px;border-top:1px solid #ced1dc;float:left;width:100%}
 .bw-table-text{color:#fff;background:#989da8;padding:2px 5px;font-size:11px}
 .bw-table-link{color:#18c7c0}
 .bw-table-link:hover{text-decoration: underline;cursor:pointer}
 .bw-block2-cont{height:30px;line-height: 30px;text-align: left;float:left;width:100%;padding: 0 0 0 20px}
-.bw-item-btns .bw-item-btn{height:36px;padding:0 10px;float:left;border:1px solid #ced1dc;text-align:center;line-height:36px;margin:10px;cursor:pointer}
+/*.bw-item-btns .bw-item-btn{height:36px;padding:0 10px;float:left;border:1px solid #ced1dc;text-align:center;line-height:36px;margin:10px;cursor:pointer}*/
+.bw-item-btns .bw-item-btn{float: left; margin: 10px 1.5%;width: 30%; text-align: center; border: solid #ced1dc 1px; cursor: pointer;}
 .bw-item-btns .bw-item-btn:hover{color:#18c7c0;border-color:#18c7c0}
 
 /*.index-contractive .table{margin-bottom: 0;}*/
 .bw-table1 thead tr{background-color: #f0f2fa;}
 .bw-table1 tbody tr{border-bottom: solid #f0f2fa 1px;}
-.bw-table1 tfoot td{padding-top: 20px;}
+.bw-table1 tfoot tr td{padding-top: 20px;}
 .bw-table1 .mark{display: inline-block; margin-left: 10px;}
 
