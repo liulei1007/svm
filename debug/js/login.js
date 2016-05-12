@@ -24,7 +24,7 @@ $(function () {
         $(".form-block-msg").hide();
         var tel = $("#tel").val();
         if (isMobile(tel)) {
-            $.get(plumeApi["sendMsg"] + "/" + tel + "/10003", {}, function (data) {
+            $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
                 if (data.ok) {
                     $(".reg-msg2").text("短信验证码发送成功").fadeIn();
                 }
@@ -39,8 +39,8 @@ $(function () {
         var logintel = $("#logintel").val();
         var loginpwd = $("#loginpwd").val();
         var pram_str = '{';
-        pram_str += '"mobilePhone": "",';
-        pram_str += '"password": ""';
+        pram_str += '"mobilePhone": "'+logintel+'",';
+        pram_str += '"password": "'+loginpwd+'"';
         pram_str += '}';
         if (logintel == "") {
             $(".login-msg1").text("请输入用户名").fadeIn();

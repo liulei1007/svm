@@ -19,44 +19,31 @@
 
 <body>
 <div class="doc-commodityManagement">
-    <div class="search-block">
-        <form class="form-inline">
-            <div class="form-group">
-                <label>请选择经常使用的类目</label>
-                <select class="form-controlc userType-select">
-                    <option>所有</option>
-                </select>
-            </div>
-        </form>
-    </div>
-
+    <!--<div class="search-block">-->
+        <!--<form class="form-inline">-->
+            <!--<div class="form-group">-->
+                <!--<label>请选择经常使用的类目</label>-->
+                <!--<select class="form-controlc userType-select">-->
+                    <!--<option>所有</option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
     <div class="type-block">
         <div class="row">
-            <div class="type-first" tag="type-first">
-                <ul>
-                    <li class="sel">家具</li>
-                    <li>建材</li>
-                    <li>软装电器</li>
+            <div class="type-first" tag="0">
+                <ul data-list="$p.data">
+                    <li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
                 </ul>
             </div>
-            <div class="type-second" tag="type-second">
-                <ul>
-                    <li class="sel">书房家具</li>
-                    <li>阳台/户外</li>
-                    <li>客厅家具</li>
-                    <li>商业办公</li>
-                    <li>卧室家具</li>
-                    <li>储物家居</li>
-                    <li>餐厅家具</li>
+            <div class="type-second" tag="1">
+                <ul data-list="$p.data">
+                    <li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
                 </ul>
             </div>
-            <div class="type-third" tag="type-third">
-                <ul>
-                    <li class="sel">餐厅</li>
-                    <li>餐边柜</li>
-                    <li>酒柜</li>
-                    <li>餐椅/吧台椅</li>
-                    <li>特殊商品</li>
+            <div class="type-third" tag="2">
+                <ul data-list="$p.data">
+                    <li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
                 </ul>
             </div>
         </div>
