@@ -441,8 +441,8 @@ function tablecheckbox() {
 
 //缓存接口
 var session = function () {
-    return {};
-}
+    return sessionStorage;
+}();
 //pop
 $.fn.extend({
     pop: function (temp, fun) {

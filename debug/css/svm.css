@@ -296,7 +296,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .type-third{width:305px;height:545px;background-color:#fff;float:left;margin-right: 25px;}
 .type-first li,
 .type-second li,
-.type-third li{position: relative;list-style: none;font-size: 16px;padding: 5px 20px;}
+.type-third li{position: relative;list-style: none;font-size: 16px;padding: 5px 20px;cursor: pointer}
+
 .type-block ul {padding:0;margin: 0px;}
 .type-block .sel{background-color: #1397da;color:#fff;}
 .type-block .sel::after{border-right: 2px solid #fff;border-top: 2px solid #fff;content: "";height: 10px;margin-top: -2px;position: absolute;right: 40px;top: 50%;transform: rotate(45deg);width: 10px;}
@@ -488,3 +489,5 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bw-table1 tfoot tr td{padding-top: 20px;}
 .bw-table1 .mark{display: inline-block; margin-left: 10px;}
 
+.changeType{ color: #333; text-decoration: underline;cursor: pointer}
+.changeType:hover{color: #17adf2;}

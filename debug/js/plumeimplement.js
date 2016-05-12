@@ -244,3 +244,9 @@ function childIdCreate_init(){
     plumeLog("完成childIdCreate模板加载-"+plumeTime());
 
 }
+//userType模板初始化函数
+function userType_init(){
+    plumeLog("初始化userType模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/userType.js");
+    plumeLog("完成userType模板加载-"+plumeTime());
+}

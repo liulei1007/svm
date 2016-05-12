@@ -345,8 +345,6 @@ $.fn.extend({
                     $(this).setNodeData("$n", $n, "node-name");
                 });
             }
-            var b = new Date().getTime();
-            plumeLog(b);
         });
     }
 });

@@ -1,5 +1,10 @@
 $(function () {
     formCtrl();
+    //类目参数
+    function userTypeInit(){
+        $(".userType").text(session.goods_userType);
+    }
+    userTypeInit();
     var len;
     var list
     $('.upload-btn-left').bind('click', leftEvent);
