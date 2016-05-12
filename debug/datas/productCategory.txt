@@ -1,0 +1,51 @@
+{
+  "resCode": "200",
+  "data": [
+    {
+      "categoryId": 91,
+      "categoryParentId": 0,
+      "categoryAncestor": "0|",
+      "categoryLevel": 1,
+      "categoryRange": "0,1,2",
+      "categoryName": "½¨²Ä",
+      "useState": 1,
+      "imgUrl": "",
+      "displayOrder": 1,
+      "createDate": 1423304269000,
+      "createOperator": "system",
+      "updateDate": 1462625788000,
+      "updateOperator": "system"
+    },
+    {
+      "categoryId": 271,
+      "categoryParentId": 0,
+      "categoryAncestor": "0|",
+      "categoryLevel": 1,
+      "categoryRange": "0,1,2",
+      "categoryName": "Èí×°/µçÆ÷",
+      "useState": 1,
+      "imgUrl": "",
+      "displayOrder": 91,
+      "createDate": 1423304276000,
+      "createOperator": "system",
+      "updateDate": 1462625788000,
+      "updateOperator": "system"
+    },
+    {
+      "categoryId": 398,
+      "categoryParentId": 0,
+      "categoryAncestor": "0|",
+      "categoryLevel": 1,
+      "categoryRange": "0,1",
+      "categoryName": "²âÊÔ",
+      "useState": 1,
+      "imgUrl": "",
+      "displayOrder": 271,
+      "createDate": 1449554944000,
+      "createOperator": "admin",
+      "updateDate": 1462625788000,
+      "updateOperator": "system"
+    }
+  ],
+  "ok": true
+}

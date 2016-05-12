@@ -191,6 +191,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-icon > i.success{background-position: 0 -100px;}
 .popup-icon > i.check{background-position: -325px -100px;}
 .popup-icon > i.warning{background-position: -130px -100px;}
+.popup-icon > i.danger{background-position: -455px -100px;}
 .popup-info{margin-top: 10px; padding: 0 30px; color: #989da8; text-align: center;}
 .popup-btn-block{position: absolute; bottom: 20px; margin-top: 10px; margin-right: 0; margin-left: 0; width: 100%;}
 .popup-btn-block .btn{width: 100%;}
@@ -299,8 +300,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .type-third li{position: relative;list-style: none;font-size: 16px;padding: 5px 20px;}
 .type-block ul {padding:0;margin: 0px;}
 .type-block .sel{background-color: #1397da;color:#fff;}
-.type-block .sel::after{border-right: 2px solid #fff;border-top: 2px solid #fff;content: "";height: 10px;margin-top: -2px;position: absolute;right: 40px;top: 50%;transform: rotate(45deg);width: 10px;}
-.type-second li::after{border-right: 2px solid #000;border-top: 2px solid #000;content: "";height: 10px;margin-top: -2px;position: absolute;right: 40px;top: 50%;transform: rotate(45deg);width: 10px;}
+.type-block .sel::after{border-right: 2px solid #fff;border-top: 2px solid #fff;content: "";height: 10px;margin-top: -2px;position: absolute;right: 40px;top: 50%;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);width: 10px;}
+.type-second li::after{border-right: 2px solid #000;border-top: 2px solid #000;content: "";height: 10px;margin-top: -2px;position: absolute;right: 40px;top: 50%;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);width: 10px;}
 .type-btn{margin-top:100px;}
 /** --------录入-------- **/
 
@@ -311,8 +312,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** 可收缩的表单 **/
 .form-block-contractive .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f0f2fa; cursor: pointer;}
 .form-block-contractive .block-title > div{position: relative; text-align: right;}
-.form-block-contractive .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
-.form-block-contractive.contractive .block-title > div:after{margin-top: -8px; transform: rotate(135deg);}
+.form-block-contractive .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); transition: all 0.5s ease;}
+.form-block-contractive.contractive .block-title > div:after{margin-top: -8px; -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg);}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
 .body-typein .form-horizontal label{font-weight: normal;}
@@ -469,8 +470,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .bw-block2-right{/*width:545px;*/float: left; width: 50%; padding-left: 10px; box-sizing: border-box;}
 .bw-block-item{border:1px solid #ced1dc ;border-top:6px solid #0094da;width:100%;margin:0 0 10px 0;float:left;}
 .bw-item-title{position: relative; margin-left: 20px; padding: 6px 0; font-size:16px; cursor: pointer;}
-.bw-item-title:after{content: ''; position: absolute; top: 50%; right: 20px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; transform: rotate(-45deg); transition: all 0.5s ease;}
-.contractive .bw-item-title:after{margin-top: -8px; transform: rotate(135deg);}
+.bw-item-title:after{content: ''; position: absolute; top: 50%; right: 20px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); transition: all 0.5s ease;}
+.contractive .bw-item-title:after{margin-top: -8px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(135deg);}
 .bw-table1{margin-bottom:0}
 
 .bw-item-table,.bw-item-btns{padding: 10px;border-top:1px solid #ced1dc;float:left;width:100%}

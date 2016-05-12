@@ -222,7 +222,6 @@ function getProductId(_this) {
     session.productGoods = {productId: productId};
 }
 
-
 //换取商品信息
 function getGoodsInfo() {
     try {
@@ -525,4 +524,136 @@ function loading() {
 function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
+}
+
+// 检验表单中的必填项是否填写
+function checkForm() {
+    // 必填项输入框或文本框失去焦点时，检查输入是否为空
+    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function() {
+        checkNull($(this));
+    });
+}
+// 检验单个必填项是否填写
+function checkNull(checkObj) {
+    // 清除可能存在的提示信息
+    $(checkObj).parents(".form-group").removeClass("has-warning").find(".alert").remove();
+    if ($(checkObj).val().trim() == "") {
+        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入</div>');
+        return false;
+    }
+    else return true;
+}
+
+// 单笔自采商品操作
+function checkSelfGoods(operateName, selfGoods, url) {
+	var flag = true;
+	// 首先检验必填项是否都已经填写
+	$(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function() {
+		if (!checkNull($(this))) { flag = false; }
+	});
+	if (flag) {
+		// 获取表单中填入的信息
+		selfGoods.brandName = $("#brandName").val().trim();
+		selfGoods.pdtName = $("#pdtName").val().trim();
+		selfGoods.categoryId = $("#sortSelect").val();
+		selfGoods.categoryName = $("#sortSelect option:selected").text();
+
+		selfGoods.pgtType = $("#pgtType").val().trim();
+		selfGoods.standard = $("#standard").val().trim();
+		selfGoods.material = $("#material").val().trim();
+		selfGoods.orgName = $("#orgName").val().trim();
+		selfGoods.priceType = $("#priceType").val().trim();
+		selfGoods.salePrice = $("#salePrice").val().trim();
+		selfGoods.discount = $("#discount").val().trim();
+		selfGoods.inventory = $("#inventory").val().trim();
+		selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
+		// 操作数据库
+		controlSelfGoods(operateName, selfGoods, url);
+	}
+}
+// 单笔自采商品数据库操作
+function controlSelfGoods(operateName, selfGoods, url) {
+	var newData = JSON.stringify(selfGoods);
+	$.ajax({
+		url: url,
+		type: "POST",
+		data: newData,
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+			if (result.ok) {
+				$('.pop').loadTemp("popTips", "nochangeurl", function() {
+					$(".pop").find(".popup-title").html(operateName + "自采商品");
+					$(".pop").find(".popup-icon").html('<i class="success"></i>');
+					$(".pop").find(".popup-info").html("自采商品" + operateName + "成功！");
+				});
+			}
+			else {
+				$('.pop').loadTemp("popTips", "nochangeurl", function() {
+					$(".pop").find(".popup-title").html(operateName + "自采商品");
+					$(".pop").find(".popup-icon").html('<i class="danger"></i>');
+					$(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
+				});
+			}
+		},
+		error:function(error) {console.log(error);}
+	});
+}
+
+// 获取自采商品信息
+function getSelfData(showObj, stashId) {
+	loading();
+	$.ajax({
+		url: "http://192.168.222.162:8080/productStash/getProductStashById/" + stashId,
+		type: "GET",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+			unloading();
+			var data = result.data;
+			$(showObj).find("#brandName").val(data.brandName);
+			$(showObj).find("#stashId").text(data.stashId);
+			$(showObj).find("#pdtName").val(data.pdtName);
+			$(showObj).find("#sortSelect").html('<option value="' + data.categoryId + '">' + data.categoryName + '</option>');
+			// 获取商品一级分类信息
+			getFirstCategory(showObj, data.categoryId);
+
+			$(showObj).find("#pgtType").val(data.pgtType);
+			$(showObj).find("#standard").val(data.standard);
+			$(showObj).find("#material").val(data.material);
+			// 单位名称
+			$(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
+			// 价格类型
+			$(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
+			$(showObj).find("#salePrice").val(data.salePrice);
+			$(showObj).find("#discount").val(data.discount);
+			$(showObj).find("#inventory").val(data.inventory);
+			// 状态
+			$(showObj).find("#saleStatus input[value='" + data.saleStatus + "']").prop("checked", "checked");
+		},
+		error:function(er){}
+	});
+}
+
+// 获取产品一级分类
+function getFirstCategory(showObj, categoryId) {
+	$.ajax({
+		url: "http://192.168.222.162:8080/productCategory/listProductCategory",
+		type: "GET",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+			var sortHtml = "";
+			result.data.map(function(sort) {
+				if (sort.categoryId == categoryId) {
+					sortHtml += '<option value=' + sort.categoryId + ' selected="selected">' + sort.categoryName + '</option>';
+				}
+				else {
+					sortHtml += '<option value=' + sort.categoryId + '>' + sort.categoryName + '</option>';
+					}
+				});
+			$(showObj).find("#sortSelect").html(sortHtml);
+		},
+		error:function(error) {console.log(error);}
+	});
 }
