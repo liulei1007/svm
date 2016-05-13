@@ -7,17 +7,18 @@ $(function(){
 
 	$('.btn-compileGoods').on('click','.btn-next',function() {
 		var price = $("#price").val();
-		var priceType = $("#priceType").val()==="明码标价"?0 : 1 ;
+		var priceType = $("#priceType").val();
+		var inventory =$("#inventory").val();
 		 $.ajax({
             url:"http://192.168.222.162:8080/productShopGoods/editProductShopGoods",
             type:"POST",
             contentType: "application/json;charset=UTF-8",
             data:JSON.stringify(
             {
-			  "psgId": session.goods.psgId,
+			  "psgId": session.goods_psgId,
 			  "salePrice": price,
 			  "discount": 0,
-			  "inventory": 0,
+			  "inventory": inventory,
 			  "saleStatus":priceType
 			}
           	),

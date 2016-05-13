@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "createSelfGoods"
+        }
+    </script>
+</head>
+
+<body>
+<div class="body-typein">
+    <div class="title-block">发布自采商品</div>
+
+    <form class="form-horizontal">
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>品牌名称</label>
+            <div class="col-sm-6">
+                <input type="text" id="brandName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
+            <div class="col-sm-6">
+                <input type="text" id="pdtName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>分类</label>
+            <div class="col-sm-6">
+                <select id="sortSelect" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>型号</label>
+            <div class="col-sm-6">
+                <input type="text" id="pgtType" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>规格</label>
+            <div class="col-sm-6">
+                <input type="text" id="standard" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>主要用料</label>
+            <div class="col-sm-6">
+                <input type="text" id="material" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>单位名称</label>
+            <div class="col-sm-6">
+                <select id="orgName" class="form-control">
+                    <option value="只" selected="">只</option>
+                    <option value="把">把</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
+            <div class="col-sm-6">
+                <select id="priceType" class="form-control">
+                    <option value="明码实价" selected="">明码实价</option>
+                    <option value="明码议价">明码议价</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>零售价</label>
+            <div class="col-sm-6">
+                <input type="text" id="salePrice" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">折扣</label>
+            <div class="col-sm-6">
+                <input type="text" id="discount" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">库存</label>
+            <div class="col-sm-6">
+                <input type="text" id="inventory" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态</label>
+            <div id="saleStatus" class="col-sm-6">
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="status" value="1" checked=""/>上架
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="status" value="0" />下架
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-3 btn-block">
+        <button type="button" class="btn btn-lg btn-success btn-submit">提交</button>
+        <button type="button" class="btn btn-lg btn-default btn-cancel">取消</button>
+      </div>
+    </div>
+</div>
+</body>
+</html>

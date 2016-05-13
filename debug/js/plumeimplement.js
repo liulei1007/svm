@@ -244,9 +244,32 @@ function childIdCreate_init(){
     plumeLog("完成childIdCreate模板加载-"+plumeTime());
 
 }
+
+function releaseSelfGoods_init() {
+    plumeUtil.js(plumePath+"/js/releaseSelfGoods.js");
+}
+
+function showSelfGoods_init() {
+    plumeUtil.js(plumePath+"/js/showSelfGoods.js");
+}
+
+function createSelfGoods_init() {
+    plumeUtil.js(plumePath+"/js/createSelfGoods.js");
+}
+
+function editSelfGoods_init() {
+    plumeUtil.js(plumePath+"/js/editSelfGoods.js");
+}
+
 //userType模板初始化函数
 function userType_init(){
     plumeLog("初始化userType模板-"+plumeTime());
     plumeUtil.js(plumePath+"/js/userType.js");
     plumeLog("完成userType模板加载-"+plumeTime());
+}
+
+//-- 新的login模板初始化函数
+function loginNew_init(){
+    plumeUtil.js(plumePath+"/js/bootstrap.min.js");
+    plumeUtil.js(plumePath+"/js/login-new.js");
 }

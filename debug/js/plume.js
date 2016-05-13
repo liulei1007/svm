@@ -348,7 +348,6 @@ $.fn.extend({
                 $(temp).appendTo(listObj).show().attr("plumeindex", i);
                 var dataListNode = $(this).find("[list-node]:last");
                 $n = listData[i];
-                $(dataListNode).setNodeData("$n", $n, "node-name");
                 $(dataListNode).find("[node-name]").each(function (x, e) {
                     $(this).setNodeData("$n", $n, "node-name");
                 });

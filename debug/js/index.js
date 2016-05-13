@@ -212,23 +212,22 @@ function pathInit() {
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
-    session.goods = {psgId: psgId};
+    session.goods_psgId=psgId;
 }
 
 //换取productId
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods = {productId: productId};
+    session.productGoods_productId=productId;
 }
-
 
 //换取商品信息
 function getGoodsInfo() {
     try {
         loading();
         $.ajax({
-            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods.psgId,
+            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods_psgId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -246,7 +245,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" + 23, //session.productGoods.productId,
+            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" +session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -260,25 +259,74 @@ function getProductInfo() {
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
                     size[data.standard] = 1
-                    trList += '<tr><td>' + data.color + '</td><td>' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control" value="' + data.marketPrice + '"></td><td><select class="form-control"><option>明码实价</option><option>明码仪价</option></select></td><td><button type="button" class="btn btn-default btn-sm">删除</button></td></tr>'
+                    trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' +data.productGoodsId+ '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
                 for (c in color) {
-                    colorList += '<div class="checkbox-inline"><label><input type="checkbox" />' + c + '</label></div>'
+                    colorList += '<div class="checkbox-inline"><label><input type="checkbox" checked="checked" /><p>' + c + '</p></label></div>'
                 }
 
                 for (s in size) {
-                    sizeList += '<div class="checkbox-inline"><label><input type="checkbox" />' + s + '</label></div>'
+                    sizeList += '<div class="checkbox-inline"><label><input type="checkbox" checked="checked"/><p>' + s + '</p></label></div>'
                 }
-
-
                 $("tbody").append(trList);
                 $(".taking-color").append(colorList);
                 $(".taking-size").append(sizeList);
+
+                var colorArr = [];
+                var sizeArr = []; 
+                getColorArr()
+                getSizeArr()
+                function getColorArr() {
+                     $(".taking-color input").each(function(i) {
+                        if($(this).prop('checked')===true){
+                            colorArr.push($(this).next('p').html());      
+                        }
+                    });
+                }
+
+                 function getSizeArr() {
+                     $(".taking-size input").each(function(i) {
+                        if($(this).prop('checked')===true){
+                            sizeArr.push($(this).next('p').html());      
+                        }
+                    });
+                }
+
+
+                function change() {
+                     $('tbody tr').hide().each(function() {
+                        var tr =$(this);
+                        $(colorArr).each(function(i,c) {
+                            if(c==tr.find(".color").html()){
+                               $(sizeArr).each(function(i,s) {
+                                    if(s==tr.find('.size').html()){
+                                        tr.show();
+                                    }
+                               })
+                            }
+                        })
+                    })
+                }
+
+                $(".taking-color input").bind("change",function() {
+                    colorArr =[];
+                    getColorArr();
+                    change();
+                });
+
+                $(".taking-size input").bind("change",function() {
+                    sizeArr=[];
+                    getSizeArr();
+                    change();
+                })
+
+            
+              
             }
-        })
+        });
     } catch (e) {
-        window.location.href = "/debug/"
+        window.location.href = "/debug/";
     }
 }
 
@@ -307,10 +355,10 @@ function getGoodsData(productName, modelNumber, saleStatus) {
                 var saleStatus = aTr.find('.saleStatus');
                 var btnGround = aTr.find('.btn-ground');
                 if (saleStatus.html() == 0) {
-                    saleStatus.html('下架中').removeClass('mark-success,mark-danger').addClass('mark-danger');
+                    saleStatus.html('下架中');
                     btnGround.html('上架');
                 } else {
-                    saleStatus.html('上架中').removeClass('mark-success,mark-danger').addClass('mark-success');
+                    saleStatus.html('上架中');
                     btnGround.html('下架');
                 }
             })
@@ -339,7 +387,7 @@ function getProductGoodsData(keyword) {
 function groundGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods.psgId,
+        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
@@ -352,15 +400,30 @@ function groundGoods() {
 function soldOutGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods.psgId,
+        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
+        data: {"keyword": keyword},
         success: function (data) {
             unloading();
             getGoodsData()
         }
     });
 }
+
+
+//新增店铺商品
+function addProductShopGoods(body) {
+     $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/addProductShopGoods",
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+            data: {"body": JSON.stringify(body)},
+            success: function (data) {
+                alert(1)
+            }
+    });
+} 
 
 
 //删除商品数据
@@ -375,7 +438,7 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods.psgId,
+                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods_psgId,
                 type: "GET",
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
@@ -525,4 +588,138 @@ function loading() {
 function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
+}
+
+// 检验表单中的必填项是否填写
+function checkForm() {
+    // 必填项输入框或文本框失去焦点时，检查输入是否为空
+    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function() {
+        checkNull($(this));
+    });
+}
+// 检验单个必填项是否填写
+function checkNull(checkObj) {
+    // 清除可能存在的提示信息
+    $(checkObj).parents(".form-group").removeClass("has-warning").find(".alert").remove();
+    if ($(checkObj).val().trim() == "") {
+        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入</div>');
+        return false;
+    }
+    else return true;
+}
+
+// 单笔自采商品操作
+function checkSelfGoods(operateName, selfGoods, url) {
+	var flag = true;
+	// 首先检验必填项是否都已经填写
+	$(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function() {
+		if (!checkNull($(this))) { flag = false; }
+	});
+	if (flag) {
+		// 获取表单中填入的信息
+		selfGoods.brandName = $("#brandName").val().trim();
+		selfGoods.pdtName = $("#pdtName").val().trim();
+		selfGoods.categoryId = $("#sortSelect").val();
+		selfGoods.categoryName = $("#sortSelect option:selected").text();
+
+		selfGoods.pgtType = $("#pgtType").val().trim();
+		selfGoods.standard = $("#standard").val().trim();
+		selfGoods.material = $("#material").val().trim();
+		selfGoods.orgName = $("#orgName").val().trim();
+		selfGoods.priceType = $("#priceType").val().trim();
+		selfGoods.salePrice = $("#salePrice").val().trim();
+		selfGoods.discount = $("#discount").val().trim();
+		selfGoods.inventory = $("#inventory").val().trim();
+		selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
+		// 操作数据库
+		controlSelfGoods(operateName, selfGoods, url);
+	}
+}
+// 单笔自采商品数据库操作
+function controlSelfGoods(operateName, selfGoods, url) {
+    loading();
+	var newData = JSON.stringify(selfGoods);
+	$.ajax({
+		url: url,
+		type: "POST",
+		data: newData,
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+            unloading();
+			if (result.ok) {
+				$('.pop').loadTemp("popTips", "nochangeurl", function() {
+					$(".pop").find(".popup-title").html(operateName + "自采商品");
+					$(".pop").find(".popup-icon").html('<i class="success"></i>');
+					$(".pop").find(".popup-info").html("自采商品" + operateName + "成功！");
+				});
+			}
+			else {
+				$('.pop').loadTemp("popTips", "nochangeurl", function() {
+					$(".pop").find(".popup-title").html(operateName + "自采商品");
+					$(".pop").find(".popup-icon").html('<i class="danger"></i>');
+					$(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
+				});
+			}
+		},
+		error:function(error) {console.log(error);}
+	});
+}
+
+// 获取自采商品信息
+function getSelfData(showObj, stashId) {
+	loading();
+	$.ajax({
+		url: "http://192.168.222.162:8080/productStash/getProductStashById/" + stashId,
+		type: "GET",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+			unloading();
+			var data = result.data;
+			$(showObj).find("#brandName").val(data.brandName);
+			$(showObj).find("#stashId").text(data.stashId);
+			$(showObj).find("#pdtName").val(data.pdtName);
+			$(showObj).find("#sortSelect").html('<option value="' + data.categoryId + '">' + data.categoryName + '</option>');
+			// 获取商品一级分类信息
+			getFirstCategory(showObj, data.categoryId);
+
+			$(showObj).find("#pgtType").val(data.pgtType);
+			$(showObj).find("#standard").val(data.standard);
+			$(showObj).find("#material").val(data.material);
+			// 单位名称
+			$(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
+			// 价格类型
+			$(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
+			$(showObj).find("#salePrice").val(data.salePrice);
+			$(showObj).find("#discount").val(data.discount);
+			$(showObj).find("#inventory").val(data.inventory);
+			// 状态
+			$(showObj).find("#saleStatus input[value='" + data.saleStatus + "']").prop("checked", "checked");
+		},
+		error:function(er){}
+	});
+}
+
+// 获取产品一级分类
+function getFirstCategory(showObj, categoryId) {
+	$.ajax({
+		url: "http://192.168.222.162:8080/productCategory/listProductCategory",
+		type: "GET",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(result) {
+			var sortHtml = "";
+			result.data.map(function(sort) {
+				if (sort.categoryId == categoryId) {
+					sortHtml += '<option value=' + sort.categoryId + ' selected="selected">' + sort.categoryName + '</option>';
+				}
+				else {
+					sortHtml += '<option value=' + sort.categoryId + '>' + sort.categoryName + '</option>';
+					}
+				});
+			$(showObj).find("#sortSelect").html(sortHtml);
+		},
+		error:function(error) {console.log(error);}
+	});
 }
