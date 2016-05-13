@@ -86,7 +86,37 @@ $(function () {
                 $(".cm-color-body").find("[list-node]").remove();
                 $(".cm-color-body").setPageData(data.data[i]);
             });
-
+            //选择颜色
+            $(".color-box").bind("click",function(){
+                var c = $(this).is(':checked');
+                var colorid=$(this).attr("colorid");
+                var colorValue=$(this).parent().find(".cmg-colorValue").attr("colorValue");
+                var colorName=$(this).parent().find(".cmg-colorName").val();
+                var colorDesc=$(this).parent().find(".cmg-colorDesc").val();
+                var n=colorName;
+                if(colorDesc!=""){
+                    n=colorDesc;
+                }
+                if(c){
+                    $(this).parent().find(".color-desc").show();
+                    var temp="<tr class='tr"+colorid+"'  colorValue='"+colorValue+"' coloid='"+colorid+"'><td class='colorName' colorDesc='"+colorDesc+"' colorName='"+colorName+"' >"+n+"</td><td></td></tr>"
+                    $(".cmg-table-color").append(temp);
+                }else{
+                    $(this).parent().find(".color-desc").hide();
+                    $(".cmg-table-color").find(".tr"+colorid).remove();
+                }
+            });
+            //描述填写
+            $(".cmg-colorDesc").bind("blur",function(){
+                var colorid=$(this).parent().parent().parent().find(".color-box").attr("colorid");
+                var colorName=$(this).parent().parent().parent().find(".cmg-colorName").val();
+                var desc=$(this).val();
+                if(desc!=""){
+                    $(".cmg-table-color").find(".tr"+colorid).find(".colorName").text(desc);
+                }else{
+                    $(".cmg-table-color").find(".tr"+colorid).find(".colorName").text(colorName);
+                }
+            });
         });
     }
     setColors();
@@ -168,4 +198,17 @@ $(function () {
     $(".cm-btn-del").bind("click",function(){
         $(this).parent().parent().remove();
     });
+    //地区下拉列表
+    function getlistNationRegion(){
+        $.get(plumeApi["listNationRegion"],{},function(data){
+            console.log(data)
+            $(".cmg-region1").setPageData(data);
+            $(".cmg-region1").find(".form-control").bind("change",function(){
+                //$(".cmg-region2")
+                console.log("111");
+            })
+
+        })
+    }
+    getlistNationRegion();
 })

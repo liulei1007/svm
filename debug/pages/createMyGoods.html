@@ -79,14 +79,14 @@
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>产地</label>
 
-                    <div class="col-sm-2">
-                        <select class="form-control">
-                            <option>上海</option>
+                    <div class="col-sm-2 cmg-region1">
+                        <select class="form-control" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.adress" ></option>
                         </select>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 cmg-region2">
                         <select class="form-control" id="cityId">
-                            <option>上海</option>
+                            <option list-temp="true" node-name="$n.adress" ></option>
                         </select>
                     </div>
                 </div>
@@ -206,12 +206,12 @@
                             <div class="color-select">
                                 <div class="row" data-list="$p.subColorVos">
                                     <div class="col-sm-offset-1 col-sm-2" list-temp="true">
-                                        <input type="checkbox"/>
+                                        <input class="color-box" type="checkbox" node-name="attr-colorid:$n.id" />
 
                                         <div>
-                                            <div class="color-select-title"
-                                                 node-name="bg-color:'#'+$n.colorValue"></div>
-                                            <p><input type="text" value="" node-name="$n.colorName"/></p>
+                                            <div class="color-select-title cmg-colorValue" node-name="bg-color:'#'+$n.colorValue,attr-colorValue:$n.colorValue"></div>
+                                            <p><input type="text" readonly value="" class="cmg-colorName" node-name="$n.colorName"/></p>
+                                            <div class="color-desc">备注:<input type="text" class="cmg-colorDesc" value="" /></div>
                                         </div>
                                         <input type="text" class="col-sm-1 form-control none-input-color">
                                     </div>
@@ -223,8 +223,8 @@
                         </div>
                     </div>
                     <div class="color-type-talbe">
-                        <table class="table table-bordered">
-                            <thead>
+                        <table class="table table-bordered ">
+                            <thead class="cmg-table-color">
                             <tr>
                                 <th>颜色分类</th>
                                 <th>图片（无图片可以不填）</th>

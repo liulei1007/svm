@@ -493,7 +493,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 .changeType{ color: #333; text-decoration: underline;cursor: pointer}
 .changeType:hover{color: #17adf2;}
-.test-block{height:600px;width:800px;background: #122b40;position: absolute;left: 50px;top:60px;z-index:9998;display:none;overflow:hidden}
+.test-block{height:500px;width:1000px;background: #122b40;position: absolute;left: 50px;top:70px;z-index:9998;display:none;overflow:hidden}
 .test-block-body{height:100%;width:100%;position:relative}
 .testdiv1{height:30px;width:30px;background: #1397da;position:absolute;left:100px;top:140px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
 .testdiv2{height:130px;width:80px;background: #66afe9;position:absolute;left:600px;top:20px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
@@ -501,6 +501,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .testdiv4{height:50px;width:80px;background: #FF0F13;position:absolute;left:600px;top:440px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
 .testdiv5{height:110px;width:89px;background: #f8f8f8;position:absolute;left:700px;top:190px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
 .testdiv6{height:90px;width:130px;background: #e9ae00;position:absolute;left:400px;top:240px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
+
+.color-desc{display: none}
 
 
 
@@ -558,3 +560,4 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .login-text-block{margin-top: 30px; color: #fff; text-align: center;}
 .login-text-block > .title{margin-bottom: 10px; font-size: 48px;}
 .login-text-block > .text{margin-top: 5px; margin-bottom: 5px; font-size: 18px;}
+

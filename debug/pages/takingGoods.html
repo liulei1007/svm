@@ -123,6 +123,44 @@
 	                </table>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>零售价：</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="all-price"/>
+                </div>元
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>价格类型：</label>
+                <div class="col-sm-2">
+                    <select class="form-control" id="all-priceType">
+                        <option value="1">明码实价</option>
+                        <option value="2">明码议价</option>
+                    </select>				
+                </div>
+            </div> 
+             <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>库存：</label>
+                <div class="col-sm-2">
+                   <input type="text" class="form-control" id="all-inventory" />
+                </div>
+            </div>
+             <div class="form-group">
+				<label class="col-sm-3 control-label">状态：</label>
+				<div class="col-sm-6">
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="ground"  value="1" checked="checked"/>
+							上架
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label>
+							<input type="radio" name="ground" value="0"/>
+							下架
+						</label>
+					</div>
+				</div>
+			</div>
     </div>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-3 btn-block btn-compileGoods">
