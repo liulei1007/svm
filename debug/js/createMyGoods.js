@@ -121,54 +121,61 @@ $(function () {
     }
     setColors();
     //提交
-    var pram_str = '{';
-    pram_str += '"productName": "商品11",';
-    pram_str += '"productSecondName": "商品22",';
-    pram_str += ' "brandId": 0,';
-    pram_str += ' "seriesId": 0,';
-    pram_str += ' "seriesName": "",';
-    pram_str += ' "brandName": "",';
-    pram_str += ' "countryId": "",';
-    pram_str += ' "countryName": "",';
-    pram_str += ' "provinceId": "",';
-    pram_str += ' "provinceName": "",';
-    pram_str += '  "cityId": "",';
-    pram_str += ' "cityName": "",';
-    pram_str += '"modelNumber": "",';
-    pram_str += '"materialQuality": "",';
-    pram_str += ' "weight": 0,';
-    pram_str += ' "marketPrice": 0,';
-    pram_str += ' "priceType": "",';
-    pram_str += '  "lvInfo": "",';
-    pram_str += ' "categoryId": 0,';
-    pram_str += '  "subCategoryId": 0,';
-    pram_str += '  "subCategoryName": "",';
-    pram_str += '   "saleStatus": "",';
-    pram_str += '  "attributes": [';
-    pram_str += '   {';
-    pram_str += '     "attrValueId": 0,';
-    pram_str += '       "attrValue": "",';
-    pram_str += '        "attributeId": 0';
-    pram_str += '    }';
-    pram_str += ' ],';
-    pram_str += '   "photos": [';
-    pram_str += '   {';
-    pram_str += '      "colorId": 0,';
-    pram_str += '       "picUrl": "123"';
-    pram_str += '    }';
-    pram_str += ' ],';
-    pram_str += '   "goods": [';
-    pram_str += '   {';
-    pram_str += '      "colorId": 0,';
-    pram_str += '      "colorRgb": "",';
-    pram_str += '      "color": "",';
-    pram_str += '     "standard": "",';
-    pram_str += '      "salePrice": 0';
-    pram_str += '  }';
-    pram_str += ' ]';
-    pram_str += ' }';
+
+
 
     $(".cmg-ok").bind("click", function () {
+        var pram_str = '{';
+        pram_str += '"productName": "'+$("#productName").val()+'",';
+        pram_str += '"productSecondName": "'+$("#productSecondName").val()+'",';
+        pram_str += '"brandId": '+$("#brandId").val()+',';
+        pram_str += ' "seriesId": '+$("#seriesId").val()+',';
+        pram_str += '"seriesName": "",';
+        pram_str += ' "brandName": "",';
+        pram_str += ' "countryId": "",';
+        pram_str += '"countryName": "",';
+        pram_str += '"provinceId": "",';
+        pram_str += '"provinceName": "",';
+        pram_str += '"cityId": "'+$("#cityId").val()+'",';
+        pram_str += '"cityName": "'+$("#cityId").find("option:selected").text()+'",';
+        pram_str += '"modelNumber": "",';
+        pram_str += ' "materialQuality": "'+$("#materialQuality").val()+'",';
+        pram_str += '"weight": '+$("#weight").val()+',';
+        pram_str += '"chargeUnit": "",';
+        pram_str += '"material": "",';
+        pram_str += ' "material1": "",';
+        pram_str += ' "material2": "",';
+        pram_str += '"material3": "",';
+        pram_str += '"marketPrice": 0,';
+        pram_str += ' "priceType": "",';
+        pram_str += '"lvInfo": "",';
+        pram_str += '"categoryId": 0,';
+        pram_str += ' "subCategoryId": 0,';
+        pram_str += '"subCategoryName": "",';
+        pram_str += ' "saleStatus": "",';
+        pram_str += '"attributes": [';
+        pram_str += ' {';
+        pram_str += '"attrValueId": 0,';
+        pram_str += ' "attrValue": "",';
+        pram_str += ' "attributeId": 0';
+        pram_str += '}';
+        pram_str += '],';
+        pram_str += '  "photos": [';
+        pram_str += '{';
+        pram_str += '  "colorId": 0,';
+        pram_str += ' "picUrl": "1"';
+        pram_str += ' }';
+        pram_str += ' ],';
+        pram_str += ' "goods": [';
+        pram_str += '{';
+        pram_str += ' "colorId": 0,';
+        pram_str += '"colorRgb": "",';
+        pram_str += '"color": "",';
+        pram_str += '"standard": "",';
+        pram_str += ' "salePrice": 0';
+        pram_str += '}';
+        pram_str += ']';
+        pram_str += '}';
         loading();
         $.ajax({
             type: "POST",
@@ -188,7 +195,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("增加失败");
+                        $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
                 console.log(data);
@@ -201,14 +208,16 @@ $(function () {
     //地区下拉列表
     function getlistNationRegion(){
         $.get(plumeApi["listNationRegion"],{},function(data){
-            console.log(data)
             $(".cmg-region1").setPageData(data);
             $(".cmg-region1").find(".form-control").bind("change",function(){
-                //$(".cmg-region2")
-                console.log("111");
-            })
-
-        })
+                var adresscode=$(this).find("option:selected").attr("adresscode");
+                loading();
+                $.get(plumeApi["listNationRegion"]+"/"+adresscode,{},function(data){
+                    unloading();
+                    $(".cmg-region2").setPageData(data);
+                });
+            });
+        });
     }
     getlistNationRegion();
 })
