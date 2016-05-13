@@ -15,7 +15,7 @@ $(function(){
             contentType: "application/json;charset=UTF-8",
             data:JSON.stringify(
             {
-			  "psgId": session.goods.psgId,
+			  "psgId": session.goods_psgId,
 			  "salePrice": price,
 			  "discount": 0,
 			  "inventory": inventory,

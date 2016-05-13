@@ -27,7 +27,7 @@ $(function(){
 
 
 		var body = {
-			"productId":session.productGoods.productId,
+			"productId":session.productGoods_productId,
 			"productShopGoodsAddVos":productShopGoodsAddVos
 		}
 

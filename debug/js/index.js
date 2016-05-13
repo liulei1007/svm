@@ -212,14 +212,14 @@ function pathInit() {
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
-    session.goods = {psgId: psgId};
+    session.goods_psgId=psgId;
 }
 
 //换取productId
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods = {productId: productId};
+    session.productGoods_productId=productId;
 }
 
 //换取商品信息
@@ -227,7 +227,7 @@ function getGoodsInfo() {
     try {
         loading();
         $.ajax({
-            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods.psgId,
+            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods_psgId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -245,7 +245,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" +session.productGoods.productId,
+            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" +session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -387,7 +387,7 @@ function getProductGoodsData(keyword) {
 function groundGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods.psgId,
+        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
@@ -400,7 +400,7 @@ function groundGoods() {
 function soldOutGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods.psgId,
+        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         data: {"keyword": keyword},
@@ -438,7 +438,7 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods.psgId,
+                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods_psgId,
                 type: "GET",
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
