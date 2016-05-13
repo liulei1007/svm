@@ -18,7 +18,7 @@ $(function() {
 
 	// 绑定“单笔新增自采商品”按钮
 	$(".btn-createNew").bind("click", function() {
-		session.stashGoods = {operate: "create"};
+		session.stashGoods_operate = "create";
 		derict(this, "createSelfGoods", "nochangeurl");
 	});
 
@@ -26,17 +26,19 @@ $(function() {
 	$(".table-block").on("click", ".link-show", function() {
 		// 查看自采商品
 		var stashId = $(this).parents("tr").find(".stashId").text();
-		session.stashGoods = {stashId: stashId};
+		session.stashGoods_stashId = stashId;
 		derict(this, "showSelfGoods", "nochangeurl");
 	}).on("click", ".btn-edit", function() {
 		// 编辑自采商品
 		var stashId = $(this).parents("tr").find(".stashId").text();
-		session.stashGoods = {stashId: stashId};
+		session.stashGoods_stashId = stashId;
 		derict(this, "editSelfGoods", "nochangeurl");
 	}).on("click", ".btn-copy", function() {
 		// 复制自采商品
 		var stashId = $(this).parents("tr").find(".stashId").text();
-		session.stashGoods = {stashId: stashId, operate: "edit"};
+		session.stashGoods_operate = "edit";
+		session.stashGoods_stashId = stashId;
+		// session.stashGoods = {stashId: stashId, operate: "edit"};
 		derict(this, "createSelfGoods", "nochangeurl");
 	});
 

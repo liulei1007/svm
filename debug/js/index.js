@@ -156,7 +156,7 @@ function derict(o, temp, cache, fun) {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
         $(".work-space-active").loadTemp("transmit", "nochangeurl");
-        $(".work-space-active").delay(800).fadeOut(function () {
+        $(".work-space-active").fadeOut(function () {
             $(this).html("").fadeIn();
             $(".work-space-active").loadTemp(temp, cache, fun);
             try {
@@ -440,8 +440,8 @@ function tablecheckbox() {
 
 //缓存接口
 var session = function () {
-    return {};
-}
+    return sessionStorage;
+}();
 //pop
 $.fn.extend({
     pop: function (temp, fun) {

@@ -18,7 +18,7 @@ $(function() {
 	}
 
 	// 获取当前商品的数据，并将信息写入表单
-	getSelfData($(".body-typein"), session.stashGoods.stashId);
+	getSelfData($(".body-typein"), session.stashGoods_stashId);
 
 	// 绑定“确定”按钮
 	$(".btn-sure").bind("click", function() {

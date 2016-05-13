@@ -1,8 +1,13 @@
 $(function() {
 	// 获取自采商品编号
-	var stashId = session.stashGoods.stashId;
+	var stashId = session.stashGoods_stashId;
 
 	getData();
+
+	// 绑定“返回”按钮
+	$(".body-typein .btn-back").bind("click", function() {
+		derict(this, "releaseSelfGoods", "nochangeurl");
+	});
 
 	// 从服务器获取数据
 	function getData() {

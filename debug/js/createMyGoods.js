@@ -1,5 +1,13 @@
 $(function () {
     formCtrl();
+    //类目参数
+    function userTypeInit(){
+        $(".userType").text(session.goods_userType);
+    }
+    userTypeInit();
+    $(".changeType").bind("click",function(){
+        derict(this, "userType", "nochangeurl");
+    });
     var len;
     var list
     $('.upload-btn-left').bind('click', leftEvent);

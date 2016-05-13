@@ -2,7 +2,9 @@ $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
     getTableData();
     tablecheckbox();
-
+    $(".btn-primary").bind("click", function () {
+        derict(this, "userType", "nochangeurl");
+    });
     function getTableData() {
         loading();
         var pram_str = '{';
@@ -19,11 +21,10 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
-                console.log(data);
                 $(".gdm-table-data").setPageData(data);
 
                 $(".gdm-btn-del").unbind().bind("click", function () {
-                    if(confirm("是否确认删除?")){
+                    if (confirm("是否确认删除?")) {
                         loading();
                         var productId = $(this).parent().parent().children().first().attr("productId");
                         $.get(plumeApi["delProductInfo"] + "/" + productId, {}, function (data) {

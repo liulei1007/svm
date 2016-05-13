@@ -17,8 +17,8 @@ $(function() {
 	}
 
 	// 如果是复制，将复制的商品的信息写入表单
-	if (session.stashGoods.operate == "edit") {
-		getSelfData($(".body-typein"), session.stashGoods.stashId);
+	if (session.stashGoods_operate == "edit") {
+		getSelfData($(".body-typein"), session.stashGoods_stashId);
 	}
 	// 如果是新增商品信息，获取产品一级分类
 	else getFirstCategory($(".body-typein"), null);

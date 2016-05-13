@@ -344,9 +344,8 @@ $.fn.extend({
                 $(dataListNode).find("[node-name]").each(function (x, e) {
                     $(this).setNodeData("$n", $n, "node-name");
                 });
+
             }
-            var b = new Date().getTime();
-            plumeLog(b);
         });
     }
 });
