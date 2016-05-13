@@ -293,7 +293,14 @@ $.fn.extend({
     //内部方法,dom级别绑定赋值
     setNodeData: function (dataname, data, nodename) {
         eval("var " + dataname + "=data");
-        var tags = ($(this).attr(nodename)).split(",");
+        console.log($(this).attr(nodename))
+        if ($(this).attr(nodename)) {
+            if ($(this).attr(nodename) != "") {
+                var tags = ($(this).attr(nodename)).split(",");
+            }
+        }else{
+            return;
+        }
         var tagName = $(this)[0].tagName;
         for (var i = 0; i < tags.length; i++) {
             tag = tags[i];
@@ -314,8 +321,8 @@ $.fn.extend({
 
                     if (tag.indexOf("bg-image:") != -1) {
                         $(this).css({"backgroundImage": "url(" + (eval(tag.substring(9)) + ")")});
-                    }else if (tag.indexOf("bg-color:") != -1) {
-                        $(this).css({"backgroundColor": ""+(eval(tag.substring(9)))});
+                    } else if (tag.indexOf("bg-color:") != -1) {
+                        $(this).css({"backgroundColor": "" + (eval(tag.substring(9)))});
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
@@ -335,10 +342,10 @@ $.fn.extend({
             var listObj = $(this);
             var temp = $(this).find("[list-temp]").prop("outerHTML");
             temp = temp.replace("list-temp", "list-node");
-         //   $(this).find("[list-temp]").remove();
+            //   $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
-                $(temp).appendTo(listObj).show().attr("plumeindex",i);
+                $(temp).appendTo(listObj).show().attr("plumeindex", i);
                 var dataListNode = $(this).find("[list-node]:last");
                 $n = listData[i];
                 $(dataListNode).find("[node-name]").each(function (x, e) {

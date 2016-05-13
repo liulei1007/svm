@@ -308,5 +308,6 @@
         <registerUserInfo>http://192.168.222.162:8080/userInfo/registerUserInfo</registerUserInfo>
         <login>http://192.168.222.162:8080/userInfo/login</login>
         <listProductCategory>http://172.16.108.38:8080/productCategory/listProductCategory</listProductCategory>
+        <getColorSeries>http://192.168.222.162:8080/colorSeries/getColorSeries</getColorSeries>
     </api>
 </config>
