@@ -6,9 +6,11 @@ $(function(){
 	})
 
 	$('.btn-compileGoods').on('click','.btn-next',function() {
+		loading()
 		var price = $("#price").val();
 		var priceType = $("#priceType").val();
-		var inventory =$("#inventory").val();
+		var inventory = $("#inventory").val();
+		var saleStatus = $("input[name='ground']:checked").val()
 		 $.ajax({
             url:"http://192.168.222.162:8080/productShopGoods/editProductShopGoods",
             type:"POST",
@@ -17,13 +19,14 @@ $(function(){
             {
 			  "psgId": session.goods_psgId,
 			  "salePrice": price,
-			  "discount": 0,
+			  "priceType":priceType,
 			  "inventory": inventory,
-			  "saleStatus":priceType
+			  "saleStatus":saleStatus
 			}
           	),
             success:function(data){
-            	window.location.href="/debug/groundGoods"
+            	unloading()
+            	derict(this, "groundGoods", "nochangeurl");
             }
         })
 	})

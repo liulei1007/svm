@@ -20,174 +20,50 @@
 <body>
   <div class="body-typein">
     <div class="title-block">查看店铺信息</div>
-    
-    <div class="table-block">
-      <p class="table-title">原合同信息</p>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>合同编号</th>
-            <th>展位编号</th>
-            <th>合同开始时间</th>
-            <th>合同结束时间</th>
-            <th>计划终止时间</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-name="$p.merchantCode"></td>
-            <td data-name="$p.boothNo"></td>
-            <td>2015-03-24</td>
-            <td>2016-03-24</td>
-            <td>2016-03-24</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <div class="form-block-contractive">
+    <!-- <div class="form-block-contractive">
       <div class="row block-title">
         <div class="col-sm-2 col-sm-offset-1">基本信息</div>
-      </div>
+      </div> -->
       <div class="form-horizontal">
         <div class="form-group required">
-          <label class="col-sm-3 control-label">公司代码</label>
-          <p class="col-sm-6 form-control-static">上海红星美凯龙家居市场经营管理有限公司(2014)</p>
+          <label class="col-sm-3 control-label">合同编号</label>
+          <p class="col-sm-6 form-control-static" data-name="$p.merchantCode"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">商业实体</label>
-          <p class="col-sm-6 form-control-static">红星上海汶水商场(2012)</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同类型</label>
-          <p class="col-sm-6 form-control-static">展位租赁合同</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">SAP合同号</label>
-          <p class="col-sm-6 form-control-static">0201410003111</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同起始时间</label>
-          <p class="col-sm-6 form-control-static">2016-03-26</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同截止时间</label>
-          <p class="col-sm-6 form-control-static">2017-03-25</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同单价(元/㎡)</label>
-          <p class="col-sm-6 form-control-static">215</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同总面积(元/㎡)</label>
-          <p class="col-sm-6 form-control-static">60.63</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同总收入(元)</label>
-          <p class="col-sm-6 form-control-static">156425.4</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">提前收款天数</label>
-          <p class="col-sm-6 form-control-static">15</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">首期款到期日</label>
-          <p class="col-sm-6 form-control-static">2016-04-30</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">是否签约待定商户</label>
-          <p class="col-sm-6 form-control-static">否</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">合同状态</label>
-          <p class="col-sm-6 form-control-static">待财务复核(30)</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">备注</label>
-          <p class="col-sm-6 form-control-static"></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-block-contractive">
-      <div class="row block-title">
-        <div class="col-sm-3">展位及品牌信息</div>
-      </div>
-      <div class="form-horizontal">
-        <div class="form-group required">
           <label class="col-sm-3 control-label">展位编号</label>
-          <p class="col-sm-6 form-control-static">10059-A01-T8-01162</p>
+          <p class="col-sm-6 form-control-static" data-name="$p.boothNo"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">实测面积(㎡)</label>
-          <p class="col-sm-6 form-control-static">60.63</p>
+          <label class="col-sm-3 control-label">商场名称</label>
+          <p class="col-sm-6 form-control-static" data-name="$p.shopName"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">预算单价(元/㎡)</label>
-          <p class="col-sm-6 form-control-static">213.00</p>
+          <label class="col-sm-3 control-label">公司代码</label>
+          <p class="col-sm-6 form-control-static"></p>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">主品牌</label>
-          <p class="col-sm-6 form-control-static">欧普乐</p>
+          <p class="col-sm-6 form-control-static"></p>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">系列</label>
-          <p class="col-sm-6 form-control-static">欧普乐</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">主品牌面积(㎡)</label>
-          <p class="col-sm-6 form-control-static">60.63</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-block-contractive">
-      <div class="row block-title">
-        <div class="col-sm-2 col-sm-offset-1">承租方信息</div>
-      </div>
-      <div class="form-horizontal">
-        <div class="form-group required">
-          <label class="col-sm-3 control-label">承租方名称</label>
-          <p class="col-sm-6 form-control-static">上海莘固实业有限公司</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">承租方联系地址</label>
           <p class="col-sm-6 form-control-static"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">承租方身份证号码(组织机构代码证)</label>
-          <p class="col-sm-6 form-control-static">78110329-8</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">承租方联系人</label>
-          <p class="col-sm-6 form-control-static">杨惠仙</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">承租方注册地址(或地址)</label>
+          <label class="col-sm-3 control-label">合同开始时间</label>
           <p class="col-sm-6 form-control-static"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">承租方联系电话</label>
-          <p class="col-sm-6 form-control-static">13701799072</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">承租方法定代表人(负责人)</label>
-          <p class="col-sm-6 form-control-static">杨惠仙</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">授权代表(委托代签人)</label>
+          <label class="col-sm-3 control-label">合同结束时间</label>
           <p class="col-sm-6 form-control-static"></p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">承租方法定代表人(负责人)联系方式</label>
-          <p class="col-sm-6 form-control-static">13701799072</p>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">承租方授权代表(委托代签人)身份证</label>
+          <label class="col-sm-3 control-label">计划终止时间</label>
           <p class="col-sm-6 form-control-static"></p>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-3 btn-block">

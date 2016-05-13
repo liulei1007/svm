@@ -51,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createMyGoods.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createMyGoods.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/createMyGoods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5866209">
+            <state vertical-scroll-proportion="-12.214286">
               <caret line="141" column="10" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plume.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plume.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.59574467">
               <caret line="294" column="42" selection-start-line="294" selection-start-column="42" selection-end-line="294" selection-end-column="42" />
               <folding />
             </state>
@@ -126,9 +126,9 @@
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/css/svm.css" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
-        <option value="$PROJECT_DIR$/debug/js/plume.js" />
         <option value="$PROJECT_DIR$/debug/pages/createMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/createMyGoods.js" />
+        <option value="$PROJECT_DIR$/debug/js/plume.js" />
       </list>
     </option>
   </component>
@@ -667,7 +667,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="633" column="16" selection-start-line="633" selection-start-column="16" selection-end-line="633" selection-end-column="16" />
           <folding>
-            <marker date="1463125686887" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1463136319500" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -728,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="294" column="42" selection-start-line="294" selection-start-column="42" selection-end-line="294" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -762,11 +754,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/createMyGoods.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5866209">
+        <state vertical-scroll-proportion="-12.214286">
           <caret line="141" column="10" selection-start-line="141" selection-start-column="10" selection-end-line="141" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59574467">
+          <caret line="294" column="42" selection-start-line="294" selection-start-column="42" selection-end-line="294" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

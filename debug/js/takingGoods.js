@@ -29,9 +29,37 @@ $(function(){
 		var body = {
 			"productId":session.productGoods_productId,
 			"productShopGoodsAddVos":productShopGoodsAddVos
-		}
+		}	
 
-		console.log(body)
-		addProductShopGoods(body)
+		addProductShopGoods(body);
 	});
+
+	$('#all-price').bind('keyup',function() {
+		var allPriceValue = $(this).val();
+		$('.salePrice').each(function() {
+			$(this).val(allPriceValue);
+		});
+	});
+
+	$('#all-priceType').bind('change',function() {
+		var allPriceType = $(this).val();
+		if(allPriceType==1){
+			$('.priceType').each(function() {
+				$(this).val(1)
+			});
+		}else{
+			$('.priceType').each(function() {
+				$(this).val(2)
+			});
+		}
+	});
+
+	$('#all-inventory ').bind('keyup',function() {
+		var allInventoryValue = $(this).val();
+		$('.inventory').each(function() {
+			$(this).val(allInventoryValue);
+		});
+	});
+
+
 })
