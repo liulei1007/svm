@@ -1,7 +1,7 @@
 $(function() {
 	// 初始化传输数据
 	var data = {
-		"stashId": stashId,
+		"stashId": session.stashGoods_stashId,
 		"brandName": "",
 		"pdtName": "",
 		"categoryId": 0,
