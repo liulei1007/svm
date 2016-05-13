@@ -637,6 +637,7 @@ function checkSelfGoods(operateName, selfGoods, url) {
 }
 // 单笔自采商品数据库操作
 function controlSelfGoods(operateName, selfGoods, url) {
+    loading();
 	var newData = JSON.stringify(selfGoods);
 	$.ajax({
 		url: url,
@@ -645,6 +646,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
 		success: function(result) {
+            unloading();
 			if (result.ok) {
 				$('.pop').loadTemp("popTips", "nochangeurl", function() {
 					$(".pop").find(".popup-title").html(operateName + "自采商品");
