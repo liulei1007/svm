@@ -501,3 +501,60 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .testdiv4{height:50px;width:80px;background: #FF0F13;position:absolute;left:600px;top:440px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
 .testdiv5{height:110px;width:89px;background: #f8f8f8;position:absolute;left:700px;top:190px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
 .testdiv6{height:90px;width:130px;background: #e9ae00;position:absolute;left:400px;top:240px;z-index: 9999;box-shadow: 0 0 9px 0 rgba(0,0,0,0.18);}
+
+
+
+/** --------新登录-------- **/
+.login-container{position: absolute; top: 0; right: 0; bottom: 0; left: 0; min-width: 1300px; min-height: 580px; overflow: hidden;}
+/** ----新登录——头部---- **/
+.login-navbar{position: fixed; z-index: 999; top: 0; right: 0; left: 0; height: 70px;}
+.login-navbar-header{margin: 12px auto; width: 1080px; height: 46px; line-height: 46px;}
+.login-navbar-brand{float: left; color: #989da8;}
+.login-navbar-brand .logo{float: left; margin-right: 10px; width: 35px; height: 46px;}
+.login-navbar-brand .brand-name{float: left; margin-left: 10px; margin-right: 10px; font-size: 24px;}
+.login-navbar-brand .brand-slogon{float: left;}
+
+/** ----新登录——底部---- **/
+.login-footer{position: absolute; z-index: 99; right: 0; bottom: 0; left: 0; height: 100px; text-align: center; background-color: rgba(170,186,200,.6);}
+.login-footer-foot{margin-top: 23px; display: inline-block; text-align: left;}
+.login-footer-foot .logo-company{float: left; margin-top: 5px; width: 113px; height: 35px;}
+.login-footer-foot .footer-relative{float: left; margin-left: 20px; font-size: 12px; line-height: 14px;}
+.login-footer-foot .footer-relative .footer-relative-block{padding-top: 4px; padding-bottom: 4px;}
+.login-footer-foot .footer-link{float: left; padding: 0 10px; font-weight: normal; color: #fff; border-right: solid #fff 1px; cursor: pointer;}
+.login-footer-foot .footer-link:last-child{border-right: none;}
+
+/** ----新登录——表单---- **/
+.login-form{position: absolute; z-index: 99; top: 50%; right: 200px; margin-top: -170px; width: 310px; height: 340px; background: url(../images/temp/login-form.jpg) no-repeat; background-color: #fff; border-radius: 5px; box-shadow: 6px 5px 16px 0 rgba(74,49,19,.85); opacity: .8;}
+.login-form-container{padding: 0 20px;}
+.login-form-title{margin-top: 16px; font-size: 24px;}
+
+/** ----新登录——轮播---- **/
+.carousel{width: 100%; height: 100%;}
+.carousel-inner{width: 100%; height: 100%;}
+.carousel-inner > .item{width: 100%; height: 100%;}
+.carousel-inner > .item > img{width: 100%; height: 100%; object-fit: cover;}
+/** -- 轮播——箭头 -- **/
+.carousel-control{top: 50%; margin-top: -35px; width: 40px; height: 70px; overflow: hidden; text-shadow: none;}
+.carousel-control.left{left: 60px; background: url(../images/icons_arrows.png) no-repeat;}
+.carousel-control.right{right: 60px; background: url(../images/icons_arrows.png) no-repeat -50px 0;}
+
+.login-left-block{position: absolute; top: 0;/* right: 550px;*/ bottom: 100px; left: 210px; width: 700px;}
+.login-icons-block{position: relative; width: 100%; height: 60%; max-height: 520px;}
+.login-icons-block .icons{position: absolute;}
+.login-icons-block .circle-out{left: 50%; bottom: 0; margin-left: -352px;}
+.login-icons-block .icons-logo{left: 50%; bottom: 0; margin-left: -64px;}
+.login-icons-block .icons-base{left: 30px; bottom: -20px;}
+.login-icons-block .icons-data{top: 34%; left: 10px;}
+.login-icons-block .icons-brand{left: 230px; bottom: 150px;}
+.login-icons-block .icons-audit{left: 214px; bottom: 310px;}
+.login-icons-block .icons-goods{right: 156px; bottom: 176px;}
+.login-icons-block .icons-m{right: 15px; bottom: 134px;}
+.login-icons-block .icons-orange{left: 115px; bottom: 119px;}
+.login-icons-block .icons-agency{right: 254px; bottom: 217px;}
+.login-icons-block .icons-purple{right: 94px; bottom: 343px;}
+/*.login-icons-block .icons-circle-small{right: 94px; bottom: 343px;}*/
+
+
+.login-text-block{margin-top: 30px; color: #fff; text-align: center;}
+.login-text-block > .title{margin-bottom: 10px; font-size: 48px;}
+.login-text-block > .text{margin-top: 5px; margin-bottom: 5px; font-size: 18px;}
