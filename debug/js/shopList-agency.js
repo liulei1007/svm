@@ -50,9 +50,9 @@ $(function() {
 	function getData() {
 		data = JSON.stringify(data);
 		$.ajax({
-			url: "datas/shopList.txt",
-			// url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
-			// type: "POST",
+			// url: "datas/shopList.txt",
+			url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
+			type: "POST",
 			data: data,
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",

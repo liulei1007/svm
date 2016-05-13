@@ -544,14 +544,14 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .login-icons-block .circle-out{left: 50%; bottom: 0; margin-left: -352px;}
 .login-icons-block .icons-logo{left: 50%; bottom: 0; margin-left: -64px;}
 .login-icons-block .icons-base{left: 30px; bottom: -20px;}
-.login-icons-block .icons-data{top: 34%; left: 10px;}
+.login-icons-block .icons-data{left: 10px; bottom: 277px;}
 .login-icons-block .icons-brand{left: 230px; bottom: 150px;}
 .login-icons-block .icons-audit{left: 214px; bottom: 310px;}
-.login-icons-block .icons-goods{right: 156px; bottom: 176px;}
-.login-icons-block .icons-m{right: 15px; bottom: 134px;}
+.login-icons-block .icons-goods{left: 495px; bottom: 176px;}
+.login-icons-block .icons-m{left: 637px; bottom: 134px;}
 .login-icons-block .icons-orange{left: 115px; bottom: 119px;}
-.login-icons-block .icons-agency{right: 254px; bottom: 217px;}
-.login-icons-block .icons-purple{right: 94px; bottom: 343px;}
+.login-icons-block .icons-agency{left: 373px; bottom: 217px;}
+.login-icons-block .icons-purple{left: 553px; bottom: 343px;}
 /*.login-icons-block .icons-circle-small{right: 94px; bottom: 343px;}*/
 
 
