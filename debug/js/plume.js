@@ -293,7 +293,7 @@ $.fn.extend({
     //内部方法,dom级别绑定赋值
     setNodeData: function (dataname, data, nodename) {
         eval("var " + dataname + "=data");
-        console.log($(this).attr(nodename))
+        //console.log($(this).attr(nodename))
         if ($(this).attr(nodename)) {
             if ($(this).attr(nodename) != "") {
                 var tags = ($(this).attr(nodename)).split(",");

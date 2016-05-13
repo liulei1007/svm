@@ -392,21 +392,39 @@ function groundGoods() {
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             unloading();
-            getGoodsData()
+            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+            $(".pop").find(".popup-title").html("上架成功");   
+            $(".pop").find(".popup-icon").html('<i class="confirm"></i>');
+            $(".pop").find(".popup-info").html("确认");
+            $('.pop').on('click', '.btn-back', function () {
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-back');
+                });
+            });
+            getGoodsData();
         }
     });
 }
 
+//商品下架
 function soldOutGoods() {
     loading();
     $.ajax({
         url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
-        data: {"keyword": keyword},
         success: function (data) {
             unloading();
-            getGoodsData()
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                $(".pop").find(".popup-title").html("下架成功");   
+                $(".pop").find(".popup-icon").html('<i class="confirm"></i>');
+                $(".pop").find(".popup-info").html("确认");
+                $('.pop').on('click', '.btn-back', function () {
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-back');
+                    });
+                });
+            getGoodsData();
         }
     });
 }
