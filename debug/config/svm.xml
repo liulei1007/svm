@@ -230,11 +230,6 @@
         <init>reviewCompany_init</init>
     </page>
     <page>
-        <page-name>releaseSelfGoods</page-name>
-        <page-url>/pages/releaseSelfGoods.html</page-url>
-        <init>releaseSelfGoods_init</init>
-    </page>
-    <page>
         <page-name>applyPriceTagManage</page-name>
         <page-url>/pages/applyPriceTagManage.html</page-url>
         <init>applyPriceTagManage_init</init>
@@ -279,12 +274,32 @@
         <page-name>popUpload</page-name>
         <page-url>/pages/popUpload.html</page-url>
     </page>
+    <page>
+        <page-name>releaseSelfGoods</page-name>
+        <page-url>/pages/releaseSelfGoods.html</page-url>
+        <init>releaseSelfGoods_init</init>
+    </page>
+    <page>
+        <page-name>showSelfGoods</page-name>
+        <page-url>/pages/showSelfGoods.html</page-url>
+        <init>showSelfGoods_init</init>
+    </page>
+    <page>
+        <page-name>createSelfGoods</page-name>
+        <page-url>/pages/createSelfGoods.html</page-url>
+        <init>createSelfGoods_init</init>
+    </page>
+    <page>
+        <page-name>editSelfGoods</page-name>
+        <page-url>/pages/editSelfGoods.html</page-url>
+        <init>editSelfGoods_init</init>
+    </page>
+
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
     <api>
         <listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
         <listAgentsBrandInfoList-brand>http://192.168.222.162:8080/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
         <listAgentsBrandInfoList>http://192.168.222.162:8080/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
-
         <listShopInfo>http://192.168.222.162:8080/shopInfo/listShopInfo</listShopInfo>
         <addProductInfo>http://192.168.222.162:8080/productInfo/addProductInfo</addProductInfo>
         <listProductInfo>http://192.168.222.162:8080/productInfo/listProductInfo</listProductInfo>
@@ -292,5 +307,7 @@
         <sendMsg>http://192.168.222.162:8080/userInfo/sendMsg</sendMsg>
         <registerUserInfo>http://192.168.222.162:8080/userInfo/registerUserInfo</registerUserInfo>
         <login>http://192.168.222.162:8080/userInfo/login</login>
+        <listProductCategory>http://172.16.108.38:8080/productCategory/listProductCategory</listProductCategory>
+        <getColorSeries>http://192.168.222.162:8080/colorSeries/getColorSeries</getColorSeries>
     </api>
 </config>

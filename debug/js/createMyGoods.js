@@ -1,5 +1,14 @@
 $(function () {
     formCtrl();
+    //类目参数
+    function userTypeInit() {
+        $(".userType").text(session.goods_userType);
+    }
+
+    userTypeInit();
+    $(".changeType").bind("click", function () {
+        derict(this, "userType", "nochangeurl");
+    });
     var len;
     var list
     $('.upload-btn-left').bind('click', leftEvent);
@@ -60,16 +69,18 @@ $(function () {
         });
     });
     //颜色初始化
-    function setColors(){
-        return;
-        $.get(plumeApi["getColorSeries"],{},function(data){
+    function setColors() {
+        //return;
+        loading();
+        $.get(plumeApi["getColorSeries"], {}, function (data) {
+            unloading();
             $(".cm-color-title").setPageData(data);
             console.log($(".color-font")[0].outerHTML)
             $($(".color-font")[1]).addClass("sel");
             $(".cm-color-body").setPageData(data.data[0]);
             //切换颜色标签
             $(".color-row").find("li").bind("click", function () {
-                var i=parseInt($(this).attr("plumeindex"));
+                var i = parseInt($(this).attr("plumeindex"));
                 $(".color-row").find(".sel").removeClass("sel");
                 $(this).find(".color-font").addClass("sel");
                 $(".cm-color-body").find("[list-node]").remove();
@@ -137,14 +148,14 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
-                if(data.ok){
-                    $('.pop').loadTemp("popTips", "nochangeurl", function() {
+                if (data.ok) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("增加成功");
                     });
-                }else{
-                    $('.pop').loadTemp("popTips", "nochangeurl", function() {
+                } else {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                         $(".pop").find(".popup-info").html("增加失败");
@@ -153,5 +164,8 @@ $(function () {
                 console.log(data);
             }
         });
+    });
+    $(".cm-btn-del").bind("click",function(){
+        $(this).parent().parent().remove();
     });
 })
