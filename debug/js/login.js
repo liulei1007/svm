@@ -137,7 +137,7 @@ $(function () {
     function isMobile(n) {
         return /^1\d{10}$/.test(n) && n != 11111111111;
     }
-   // login_move.testmove();
+    login_move.testmove();
 
 });
 
