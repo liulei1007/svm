@@ -246,7 +246,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" + 23, //session.productGoods.productId,
+            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" +session.productGoods.productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -260,25 +260,74 @@ function getProductInfo() {
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
                     size[data.standard] = 1
-                    trList += '<tr><td>' + data.color + '</td><td>' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control" value="' + data.marketPrice + '"></td><td><select class="form-control"><option>明码实价</option><option>明码仪价</option></select></td><td><button type="button" class="btn btn-default btn-sm">删除</button></td></tr>'
+                    trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' +data.productGoodsId+ '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
                 for (c in color) {
-                    colorList += '<div class="checkbox-inline"><label><input type="checkbox" />' + c + '</label></div>'
+                    colorList += '<div class="checkbox-inline"><label><input type="checkbox" checked="checked" /><p>' + c + '</p></label></div>'
                 }
 
                 for (s in size) {
-                    sizeList += '<div class="checkbox-inline"><label><input type="checkbox" />' + s + '</label></div>'
+                    sizeList += '<div class="checkbox-inline"><label><input type="checkbox" checked="checked"/><p>' + s + '</p></label></div>'
                 }
-
-
                 $("tbody").append(trList);
                 $(".taking-color").append(colorList);
                 $(".taking-size").append(sizeList);
+
+                var colorArr = [];
+                var sizeArr = []; 
+                getColorArr()
+                getSizeArr()
+                function getColorArr() {
+                     $(".taking-color input").each(function(i) {
+                        if($(this).prop('checked')===true){
+                            colorArr.push($(this).next('p').html());      
+                        }
+                    });
+                }
+
+                 function getSizeArr() {
+                     $(".taking-size input").each(function(i) {
+                        if($(this).prop('checked')===true){
+                            sizeArr.push($(this).next('p').html());      
+                        }
+                    });
+                }
+
+
+                function change() {
+                     $('tbody tr').hide().each(function() {
+                        var tr =$(this);
+                        $(colorArr).each(function(i,c) {
+                            if(c==tr.find(".color").html()){
+                               $(sizeArr).each(function(i,s) {
+                                    if(s==tr.find('.size').html()){
+                                        tr.show();
+                                    }
+                               })
+                            }
+                        })
+                    })
+                }
+
+                $(".taking-color input").bind("change",function() {
+                    colorArr =[];
+                    getColorArr();
+                    change();
+                });
+
+                $(".taking-size input").bind("change",function() {
+                    sizeArr=[];
+                    getSizeArr();
+                    change();
+                })
+
+            
+              
             }
-        })
+        });
     } catch (e) {
-        window.location.href = "/debug/"
+        window.location.href = "/debug/";
     }
 }
 
@@ -307,10 +356,10 @@ function getGoodsData(productName, modelNumber, saleStatus) {
                 var saleStatus = aTr.find('.saleStatus');
                 var btnGround = aTr.find('.btn-ground');
                 if (saleStatus.html() == 0) {
-                    saleStatus.html('下架中').removeClass('mark-success,mark-danger').addClass('mark-danger');
+                    saleStatus.html('下架中');
                     btnGround.html('上架');
                 } else {
-                    saleStatus.html('上架中').removeClass('mark-success,mark-danger').addClass('mark-success');
+                    saleStatus.html('上架中');
                     btnGround.html('下架');
                 }
             })
@@ -355,12 +404,27 @@ function soldOutGoods() {
         url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods.psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
+        data: {"keyword": keyword},
         success: function (data) {
             unloading();
             getGoodsData()
         }
     });
 }
+
+
+//新增店铺商品
+function addProductShopGoods(body) {
+     $.ajax({
+        url: "http://192.168.222.162:8080/productShopGoods/addProductShopGoods",
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+            data: {"body": JSON.stringify(body)},
+            success: function (data) {
+                alert(1)
+            }
+    });
+} 
 
 
 //删除商品数据
