@@ -1,18 +1,18 @@
 $(function() {
+
 	// 起始商品序号
 	var startNum = 0, limitNum = 2;
 	// 初始化传输数据
 	var data = {
 		"start": startNum,
 		"limit": limitNum,
-		"shopType": "",
-		"shopName": "",
-		"provinceId": "",
-		"cityId": "",
-		"marketId": 0,
-		"contacts": "",
-		"boothNo": "",
-		"shopStatus": ""
+		"marketName": "",
+		"boothCode": "",
+		"doorplateRemarks": "",
+		"boothDesc": "",
+		"brandName": "",
+		"seriesName": "",
+		"isDel": 0
 	}
 
 	// data.shopType = "2";
@@ -75,23 +75,23 @@ $(function() {
 			var tableList = "";
 			result.data.map(function(list) {
 				// console.log(list);
-				tableList += '<tr shopID="' + list.shopId + '">';
+				tableList += '<tr shopID="' + list.id + '">';
 				tableList += '<td><input type="checkbox" /></td>';
 				tableList += '<td>' + (++startNum) + '</td>';
 				// 展位号
-				tableList += '<td>' + list.boothNo + '</td>';
+				tableList += '<td>' + list.boothCode + '</td>';
 				// 系列
-				tableList += '<td>' + '系列' + '</td>';
+				tableList += '<td>' + list.seriesName + '</td>';
 				// 品牌名
 				tableList += '<td>' + list.brandName + '</td>';
-				// 店铺地址------------------------------------------
-				tableList += '<td>' + '店铺地址' + '</td>';
+				// 所属商场名称------------------------------------------
+				tableList += '<td>' + list.marketName + '</td>';
 				// 店铺联系人
-				tableList += '<td>' + list.contacts + '</td>';
+				tableList += '<td>' + list.personDealerName + '</td>';
 				// 联系人手机号
-				tableList += '<td>' + list.contactsTel + '</td>';
+				tableList += '<td>' + list.tel + '</td>';
 				// 店铺状态
-				if (list.shopStatus == 1) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
+				if (list.isDel == 0) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
 				// 申请时间
 				tableList += '<td>' + list.createDate + '</td>';
@@ -100,7 +100,7 @@ $(function() {
 			$("table tbody").html(tableList);
 		}
 		else {
-			alert(result.resDescription);
+			console.log(result.resDescription);
 		}
 	}
 });
