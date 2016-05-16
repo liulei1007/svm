@@ -1,5 +1,6 @@
 $(function () {
     formCtrl();
+    $(".alert-danger").hide();
     //类目参数
     function userTypeInit() {
         $(".userType").text(session.goods_userType);
@@ -75,9 +76,9 @@ $(function () {
         $.get(plumeApi["getColorSeries"], {}, function (data) {
             unloading();
             $(".cm-color-title").setPageData(data);
-            console.log($(".color-font")[0].outerHTML)
             $($(".color-font")[1]).addClass("sel");
             $(".cm-color-body").setPageData(data.data[0]);
+            bindFunc();
             //切换颜色标签
             $(".color-row").find("li").bind("click", function () {
                 var i = parseInt($(this).attr("plumeindex"));
@@ -85,67 +86,89 @@ $(function () {
                 $(this).find(".color-font").addClass("sel");
                 $(".cm-color-body").find("[list-node]").remove();
                 $(".cm-color-body").setPageData(data.data[i]);
+                //选择颜色
+                bindFunc();
+                $(".colortr").each(function () {
+                    var colorid=$(this).attr("colorid");
+                    var colorName=$(this).find(".colorName").attr("colorName");
+                    var colorDesc=$(this).find(".colorName").attr("colordesc");
+                    console.log(colorDesc)
+                    $(".color-box").each(function(){
+                        var colorid_temp=$(this).attr("colorid");
+                        if(colorid_temp==colorid){
+                            $(this).prop("checked",true);
+                            $(this).parent().find(".cmg-colorDesc").val(colorDesc).show();
+                            $(this).parent().find(".color-desc").show();
+                        }
+                    });
+                })
             });
-            //选择颜色
-            $(".color-box").bind("click",function(){
+
+        });
+        function bindFunc() {
+            $(".color-box").unbind().bind("click", function () {
                 var c = $(this).is(':checked');
-                var colorid=$(this).attr("colorid");
-                var colorValue=$(this).parent().find(".cmg-colorValue").attr("colorValue");
-                var colorName=$(this).parent().find(".cmg-colorName").val();
-                var colorDesc=$(this).parent().find(".cmg-colorDesc").val();
-                var n=colorName;
-                if(colorDesc!=""){
-                    n=colorDesc;
+                var colorid = $(this).attr("colorid");
+                var colorValue = $(this).parent().find(".cmg-colorValue").attr("colorValue");
+                var colorName = $(this).parent().find(".cmg-colorName").val();
+                var colorDesc = $(this).parent().find(".cmg-colorDesc").val();
+                var n = colorName;
+                if (colorDesc != "") {
+                    n = colorDesc;
                 }
-                if(c){
+                if (c) {
                     $(this).parent().find(".color-desc").show();
-                    var temp="<tr class='tr"+colorid+"'  colorValue='"+colorValue+"' coloid='"+colorid+"'><td class='colorName' colorDesc='"+colorDesc+"' colorName='"+colorName+"' >"+n+"</td><td></td></tr>"
+                    var temp = "<tr class='colortr tr" + colorid + "'  colorValue='" + colorValue + "' colorid='" + colorid + "'><td class='colorName' colorDesc='' colorName='" + colorName + "' >" + n + "</td><td></td></tr>"
                     $(".cmg-table-color").append(temp);
-                }else{
+                } else {
                     $(this).parent().find(".color-desc").hide();
-                    $(".cmg-table-color").find(".tr"+colorid).remove();
+                    $(".cmg-table-color").find(".tr" + colorid).remove();
                 }
             });
             //描述填写
-            $(".cmg-colorDesc").bind("blur",function(){
-                var colorid=$(this).parent().parent().parent().find(".color-box").attr("colorid");
-                var colorName=$(this).parent().parent().parent().find(".cmg-colorName").val();
-                var desc=$(this).val();
-                if(desc!=""){
-                    $(".cmg-table-color").find(".tr"+colorid).find(".colorName").text(desc);
-                }else{
-                    $(".cmg-table-color").find(".tr"+colorid).find(".colorName").text(colorName);
+            $(".cmg-colorDesc").unbind().bind("blur", function () {
+                var colorid = $(this).parent().parent().parent().find(".color-box").attr("colorid");
+                var colorName = $(this).parent().parent().parent().find(".cmg-colorName").val();
+                var desc = $(this).val();
+                if (desc != "") {
+                    $(".cmg-table-color").find(".tr" + colorid).find(".colorName").attr("colorDesc",desc);
+                    $(".cmg-table-color").find(".tr" + colorid).find(".colorName").text(desc);
+                } else {
+                    $(".cmg-table-color").find(".tr" + colorid).find(".colorName").text(colorName);
                 }
             });
-        });
+        }
     }
+
     setColors();
     //提交
 
 
-
     $(".cmg-ok").bind("click", function () {
+        if (validata()) {
+            return false;
+        }
         var pram_str = '{';
-        pram_str += '"productName": "'+$("#productName").val()+'",';
-        pram_str += '"productSecondName": "'+$("#productSecondName").val()+'",';
-        pram_str += '"brandId": '+$("#brandId").val()+',';
-        pram_str += ' "seriesId": '+$("#seriesId").val()+',';
+        pram_str += '"productName": "' + $("#productName").val() + '",';
+        pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
+        pram_str += '"brandId": ' + $("#brandId").val() + ',';
+        pram_str += ' "seriesId": ' + $("#seriesId").val() + ',';
         pram_str += '"seriesName": "",';
         pram_str += ' "brandName": "",';
         pram_str += ' "countryId": "",';
         pram_str += '"countryName": "",';
         pram_str += '"provinceId": "",';
         pram_str += '"provinceName": "",';
-        pram_str += '"cityId": "'+$("#cityId").val()+'",';
-        pram_str += '"cityName": "'+$("#cityId").find("option:selected").text()+'",';
-        pram_str += '"modelNumber": "",';
-        pram_str += ' "materialQuality": "'+$("#materialQuality").val()+'",';
-        pram_str += '"weight": '+$("#weight").val()+',';
+        pram_str += '"cityId": "' + $("#cityId").val() + '",';
+        pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
+        pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
+        pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
+        pram_str += '"weight": ' + $("#weight").val() + ',';
         pram_str += '"chargeUnit": "",';
         pram_str += '"material": "",';
-        pram_str += ' "material1": "",';
-        pram_str += ' "material2": "",';
-        pram_str += '"material3": "",';
+        pram_str += ' "material1": "' + $("#material1").val() + '",';
+        pram_str += ' "material2": "' + $("#material2").val() + '",';
+        pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
         pram_str += ' "priceType": "",';
         pram_str += '"lvInfo": "",';
@@ -202,22 +225,73 @@ $(function () {
             }
         });
     });
-    $(".cm-btn-del").bind("click",function(){
-        $(this).parent().parent().remove();
-    });
+
     //地区下拉列表
-    function getlistNationRegion(){
-        $.get(plumeApi["listNationRegion"],{},function(data){
+    function getlistNationRegion() {
+        $.get(plumeApi["listNationRegion"], {}, function (data) {
             $(".cmg-region1").setPageData(data);
-            $(".cmg-region1").find(".form-control").bind("change",function(){
-                var adresscode=$(this).find("option:selected").attr("adresscode");
+            $(".cmg-region1").find(".form-control").bind("change", function () {
+                var adresscode = $(this).find("option:selected").attr("adresscode");
                 loading();
-                $.get(plumeApi["listNationRegion"]+"/"+adresscode,{},function(data){
+                $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                     unloading();
                     $(".cmg-region2").setPageData(data);
                 });
             });
         });
     }
+
     getlistNationRegion();
-})
+    //表单验证
+    function validata() {
+        //$(".notNull").each(function () {
+        //    if ($(this).val() == "") {
+        //        console.log($(this).attr("id"))
+        //        $(this).focus();
+        //        $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+        //        return false;
+        //    } else {
+        //        $(this).parent().parent().find(".alert-danger").hide();
+        //        return true;
+        //    }
+        //});
+        var re = /^[0-9]+.?[0-9]*$/;
+        $(".num").each(function () {
+            console.log($(this).attr("id"))
+            if (re.test($(this).val())) {
+                $(this).parent().parent().find(".alert-danger").hide();
+                return true;
+            } else {
+                $(this).focus();
+                $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
+                return false;
+
+            }
+        });
+    }
+
+    //规格
+    function setStandard() {
+        $(".cmg-btn-addStandard").bind("click", function () {
+            var stand = $("#standard").val();
+            var marketPrice=$("#marketPrice").val();
+            $(".colortr").each(function () {
+                var colorid = $(this).attr("colorid");
+                var colorname=$(this).find(".colorName").attr("colorname");
+                var temp='<tr>';
+                temp+='<td colorid="'+colorid+'">'+colorname+'</td>';
+                temp+='<td><input type="text" class="form-control" value="'+stand+'"></td>';
+                temp+='<td><input type="text" class="form-control" value="'+marketPrice+'"></td>';
+                temp+='<td>';
+                temp+='<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                temp+='</td>';
+                temp+='</tr>';
+                $(".standardtbody").append(temp);
+                $(".cm-btn-del").unbind().bind("click", function () {
+                    $(this).parent().parent().remove();
+                });
+            });
+        });
+    }
+    setStandard();
+});

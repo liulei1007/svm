@@ -267,6 +267,12 @@ function userType_init(){
     plumeUtil.js(plumePath+"/js/userType.js");
     plumeLog("完成userType模板加载-"+plumeTime());
 }
+//popUpload模板初始化函数
+function popUpload_init(){
+    plumeLog("初始化popUpload模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/popUpload.js");
+    plumeLog("完成popUpload模板加载-"+plumeTime());
+}
 
 
 //-- 新的login模板初始化函数

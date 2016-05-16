@@ -273,6 +273,7 @@
     <page>
         <page-name>popUpload</page-name>
         <page-url>/pages/popUpload.html</page-url>
+        <init>popUpload_init</init>
     </page>
     <page>
         <page-name>releaseSelfGoods</page-name>
