@@ -74,7 +74,7 @@
             <tbody data-list="$p.data">
               <tr list-temp="ture"  node-name="attr-productId:$n.productId">
                 <td  node-name="attr-productId:$n.productId"><input type="checkbox"/></td>
-                <td node-name="$n.productId"></td>
+                <td node-name="$n.productId" class="productId"></td>
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.productSecondName"></td>
@@ -85,7 +85,7 @@
                 <td>
                   <button type="button" class="btn btn-link btn-sm gdm-btn-edit">编辑</button>
                   <button type="button" class="btn btn-link btn-sm gdm-btn-copy">复制</button>
-                  <button type="button" class="btn btn-link btn-sm gdm-btn-open">启用</button>
+                  <button type="button" class="btn btn-link btn-sm gdm-btn-open" node-name="$n.saleStatus"></button>
                   <button type="button" class="btn btn-link btn-sm gdm-btn-del">删除</button>
                 </td>
               </tr>

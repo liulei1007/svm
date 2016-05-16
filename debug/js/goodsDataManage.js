@@ -48,8 +48,46 @@ $(function () {
                     }
 
                 });
+                
+
+                $('.gdm-btn-open').each(function() {
+                    if($(this).html()==1){
+                        $(this).html('禁用');
+                    }else{
+                        $(this).html('启用');
+                    }
+                })
 
             }
         });
     }
+
+    $(".table-block").on("click",".gdm-btn-open",function() {
+        getProductId(this);
+        var _this = this;
+         $.ajax({
+            url: "http://192.168.222.162:8080/productInfo/enableSaleStatus/" + session.productGoods_productId,
+            type: "GET",
+            contentType: "application/json;charset=UTF-8",
+            success: function (data) {
+                unloading();
+                if($(_this).html()=="禁用"){
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("已禁用");
+                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                        $(".pop").find(".popup-info").html("禁用成功");
+                    });
+                }else{
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("已启用");
+                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    $(".pop").find(".popup-info").html("启用成功");
+                    });
+                }
+                getTableData();
+            }
+        })
+    })
+
+
 });
