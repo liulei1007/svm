@@ -293,7 +293,6 @@ $.fn.extend({
     //内部方法,dom级别绑定赋值
     setNodeData: function (dataname, data, nodename) {
         eval("var " + dataname + "=data");
-        //console.log($(this).attr(nodename))
         if ($(this).attr(nodename)) {
             if ($(this).attr(nodename) != "") {
                 var tags = ($(this).attr(nodename)).split(",");
@@ -348,6 +347,7 @@ $.fn.extend({
                 $(temp).appendTo(listObj).show().attr("plumeindex", i);
                 var dataListNode = $(this).find("[list-node]:last");
                 $n = listData[i];
+                $(dataListNode).setNodeData("$n", $n, "node-name");
                 $(dataListNode).find("[node-name]").each(function (x, e) {
                     $(this).setNodeData("$n", $n, "node-name");
                 });

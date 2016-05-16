@@ -536,28 +536,96 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .carousel-inner > .item{width: 100%; height: 100%;}
 .carousel-inner > .item > img{width: 100%; height: 100%; object-fit: cover;}
 /** -- 轮播——箭头 -- **/
-.carousel-control{top: 50%; margin-top: -35px; width: 40px; height: 70px; overflow: hidden; text-shadow: none;}
-.carousel-control.left{left: 60px; background: url(../images/icons_arrows.png) no-repeat;}
-.carousel-control.right{right: 60px; background: url(../images/icons_arrows.png) no-repeat -50px 0;}
-
 .login-left-block{position: absolute; top: 0;/* right: 550px;*/ bottom: 100px; left: 210px; width: 700px;}
-.login-icons-block{position: relative; width: 100%; height: 60%; max-height: 520px;}
+.login-icons-block{position: relative; width: 100%; height: 60%; max-height: 520px;top:100px}
 .login-icons-block .icons{position: absolute;}
 .login-icons-block .circle-out{left: 50%; bottom: 0; margin-left: -352px;}
-.login-icons-block .icons-logo{left: 50%; bottom: 0; margin-left: -64px;}
+.login-icons-block .icons-logo{left: 50%; bottom: 0; margin-left: -64px;z-index:9999}
 .login-icons-block .icons-base{left: 30px; bottom: -20px;}
-.login-icons-block .icons-data{top: 34%; left: 10px;}
+.login-icons-block .icons-data{left: 10px; bottom: 277px;}
 .login-icons-block .icons-brand{left: 230px; bottom: 150px;}
 .login-icons-block .icons-audit{left: 214px; bottom: 310px;}
-.login-icons-block .icons-goods{right: 156px; bottom: 176px;}
-.login-icons-block .icons-m{right: 15px; bottom: 134px;}
+.login-icons-block .icons-goods{left: 495px; bottom: 176px;}
+.login-icons-block .icons-m{left: 637px; bottom: 134px;}
 .login-icons-block .icons-orange{left: 115px; bottom: 119px;}
-.login-icons-block .icons-agency{right: 254px; bottom: 217px;}
-.login-icons-block .icons-purple{right: 94px; bottom: 343px;}
+.login-icons-block .icons-agency{left: 373px; bottom: 217px;}
+.login-icons-block .icons-purple{left: 553px; bottom: 343px;}
 /*.login-icons-block .icons-circle-small{right: 94px; bottom: 343px;}*/
 
 
-.login-text-block{margin-top: 30px; color: #fff; text-align: center;}
-.login-text-block > .title{margin-bottom: 10px; font-size: 48px;}
+.login-text-block{margin-top: 130px; color: #fff; text-align: center;}
+.login-text-block > .title{margin-bottom: 10px;  -webkit-animation: bounce2 2s  ease forwards;  animation: bounce2 2s  ease forwards;}
+@-webkit-keyframes bounce2 {
+    0% {
+        font-size: 0px;
+    }
+    100% {
+        font-size: 48px;
+    }
+}
+@keyframes bounce2 {
+    0% {
+        font-size: 0px;
+    }
+    100% {
+        font-size: 48px;
+    }
+}
 .login-text-block > .text{margin-top: 5px; margin-bottom: 5px; font-size: 18px;}
 
+
+.icon-rot {  -webkit-animation: bouncex 0.2s infinite linear;  animation: bouncex 0.2s infinite ease;  }
+.icon-rot1 {  -webkit-animation: bounce1 1s  linear;  animation: bounce1 1s  ease;  }
+@-webkit-keyframes bouncex {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    25% {
+        -webkit-transform: rotate(10deg)
+    }
+    50% {
+        -webkit-transform: rotate(0deg)
+    }
+    75% {
+        -webkit-transform: rotate(-10deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+@keyframes bouncex {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    25% {
+        -webkit-transform: rotate(10deg)
+    }
+    50% {
+        -webkit-transform: rotate(0deg)
+    }
+    75% {
+        -webkit-transform: rotate(-10deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+@-webkit-keyframes bounce1 {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes bounce1 {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+.moveitem{display: none}

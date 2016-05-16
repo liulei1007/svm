@@ -81,12 +81,12 @@
 
                     <div class="col-sm-2 cmg-region1">
                         <select class="form-control" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.adress" ></option>
+                            <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode" ></option>
                         </select>
                     </div>
                     <div class="col-sm-2 cmg-region2">
-                        <select class="form-control" id="cityId">
-                            <option list-temp="true" node-name="$n.adress" ></option>
+                        <select class="form-control" id="cityId" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.adress,attr-value:$n.id" ></option>
                         </select>
                     </div>
                 </div>
@@ -99,13 +99,13 @@
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>材质</label>
 
-                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+                    <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control"></div>
                     <div class="col-sm-2 alert alert-danger">请输入材质！</div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>重量</label>
 
-                    <div class="col-sm-5"><input type="text" class="form-control"></div>
+                    <div class="col-sm-5"><input type="text" id="weight" value="0" class="form-control"></div>
                     <label class="col-sm-1 control-label">KG</label>
 
                     <div class="col-sm-2 alert alert-danger">请输入重量！</div>
@@ -129,6 +129,12 @@
                             <option>二等品</option>
                         </select>
                     </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-3 control-label"><i>*</i>市场参考价</label>
+
+                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+                    <div class="col-sm-2 alert alert-danger">请输入市场参考价！</div>
                 </div>
             </div>
         </form>
