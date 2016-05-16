@@ -315,5 +315,9 @@
         <listProductCategory>http://172.16.108.38:8080/productCategory/listProductCategory</listProductCategory>
         <getColorSeries>http://192.168.222.162:8080/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://192.168.222.162:8080/common/listNationRegion/CN</listNationRegion>
+        <listProductShopGoods>http://192.168.222.162:8080/productShopGoods/listProductShopGoods</listProductShopGoods>
+        <delProductShopGoods>http://192.168.222.162:8080/productShopGoods/delProductShopGoods/</delProductShopGoods>
+        <enableProductShopGoods>http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/</enableProductShopGoods>
+        <disableProductShopGoods>http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/</disableProductShopGoods>
     </api>
 </config>

@@ -21,7 +21,7 @@ $(function(){
 				"salePrice":$(this).find('.salePrice').val(),
 				"priceType":$(this).find('.priceType').val(),
 				"inventory":$(this).find('.inventory').val(),
-				"saleStatus": ""
+				"saleStatus": $(".allState").find("input[name='ground']:checked").val()
 			}
 		});
 
@@ -30,7 +30,7 @@ $(function(){
 			"productId":session.productGoods_productId,
 			"productShopGoodsAddVos":productShopGoodsAddVos
 		}	
-
+		
 		addProductShopGoods(body);
 	});
 

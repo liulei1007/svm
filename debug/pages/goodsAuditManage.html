@@ -51,35 +51,26 @@
               <tr>
                 <th><input type="checkbox" /></th>
                 <th>商品数据ID号</th>
-                <th></th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
                 <th>型号</th>
-                <th>状态</th>
-                <th>颜色</th>
                 <th>规格</th>
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
                 <td><input type="checkbox"/></td>
-                <td>JJ_20160402_001</td>
-                <td><img src="" /></td>
+                <td node-name="$n.productId"></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.productId"></td>
+                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.productId"></td>
+                <td node-name="$n.productSecondName"></td>
                 <td>
-                    <p>我是商品名称，我是商品名称</p>
-                    <p>标语标语</p>
-                </td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>QTP2026DL</td>
-                <td>审核中</td>
-                <td>红色，白色</td>
-                <td>200*180</td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">查看</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">审核</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">查看</button>
+                  <button type="button" class="btn btn-link btn-sm btn-releaseGoods">审核</button>
                 </td>
               </tr>
             </tbody>
