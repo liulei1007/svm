@@ -208,21 +208,21 @@ function pathInit() {
 }
 
 
-//换取psgId
+//获取psgId
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
     session.goods_psgId=psgId;
 }
 
-//换取productId
+//获取productId
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
     session.productGoods_productId=productId;
 }
 
-//换取商品信息
+//获取商品信息
 function getGoodsInfo() {
     try {
         loading();
