@@ -60,7 +60,7 @@ $(function () {
                         $(this).html('启用');
                     }
                 });
-                $('.gdm-btn-copy').each(function () {
+                $('.gdm-btn-copy').unbind().bind("click", function () {
                     var productId = $(this).parent().parent().children().first().attr("productId");
                     session.goods_edit_productId=productId;
                     derict(this, "copyMyGoods", "nochangeurl");
