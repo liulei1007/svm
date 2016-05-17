@@ -1,20 +1,18 @@
 $(function() {
 	// 起始商品序号
-	var startNum = 0, limitNum = 2;
+	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
 	var data = {
 		"start": startNum,
 		"limit": limitNum,
-		"shopType": "",
-		"shopName": "",
-		"provinceId": "",
-		"cityId": "",
-		"marketId": 0,
-		"contacts": "",
-		"boothNo": "",
-		"shopStatus": ""
+		"marketName": "",
+		"boothCode": "",
+		"doorplateRemarks": "",
+		"boothDesc": "",
+		"brandName": "",
+		"seriesName": "",
+		"isDel": 0
 	}
-
 	// data.shopType = "2";
 	
 	// 获取数据
@@ -72,6 +70,8 @@ $(function() {
 				tableList += '<td>' + list.boothNo + '</td>';
 				// 公司名称
 				tableList += '<td>' + '公司名称' + '</td>';
+				// 品牌名
+				tableList += '<td>' + '品牌名' + '</td>';
 				// 系列
 				tableList += '<td>系列</td>';
 				// 所属商场名称
@@ -93,7 +93,7 @@ $(function() {
 			$("table tbody").html(tableList);
 		}
 		else {
-			alert(result.resDescription);
+			console.log(result.resDescription);
 		}
 	}
 });
