@@ -61,35 +61,9 @@ $(function () {
                     }
                 });
                 $('.gdm-btn-copy').each(function () {
-                    function getGoodsInfo() {
-                        loading();
-                        var productId = $(this).parent().parent().children().first().attr("productId");
-                        $.ajax({
-                            type: "get",
-                            url: plumeApi["getProductInfo"] + "/" + productId,
-                            data: "",
-                            async:"",
-                            contentType: "application/json",
-                            dataType: "json",
-                            success: function (data) {
-                                unloading();
-                                alert("查询商品成功,调用复制接口.")
-                                var d = data.data;
-                                $("#productName").val(d.productName);
-                                $("#productSecondName").val(d.productSecondName);
-                                $("#brandId").val(d.brandId);
-                                $("#seriesId").val(d.seriesId);
-                                $("#cityId").val(d.cityId);
-                                $("#modelNumber ").val(d.modelNumber);
-                                $("#materialQuality").val(d.materialQuality);
-                                $("#weight").val(d.weight);
-                                $("#material1").val(d.material1);
-                                $("#material2").val(d.material2);
-                                $("#material3").val(d.material3);
-                            }
-                        })
-                    }
-                    getGoodsInfo();
+                    var productId = $(this).parent().parent().children().first().attr("productId");
+                    session.goods_edit_productId=productId;
+                    derict(this, "copyMyGoods", "nochangeurl");
                 })
 
             }

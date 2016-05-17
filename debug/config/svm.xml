@@ -245,6 +245,11 @@
         <init>editMyGoods_init</init>
     </page>
     <page>
+        <page-name>copyMyGoods</page-name>
+        <page-url>/pages/copyMyGoods.html</page-url>
+        <init>copyMyGoods_init</init>
+    </page>
+    <page>
         <page-name>reviewPersonal</page-name>
         <page-url>/pages/reviewPersonal.html</page-url>
         <init>reviewPersonal_init</init>

@@ -279,6 +279,12 @@ function editMyGoods_init(){
     plumeUtil.js(plumePath + "/js/editMyGoods.js")
     plumeLog("完成editMyGoods模板加载-" + plumeTime());
 }
+//editMyGoods_init
+function copyMyGoods_init(){
+    plumeLog("初始化copyMyGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/copyMyGoods.js")
+    plumeLog("完成copyMyGoods模板加载-" + plumeTime());
+}
 
 
 //-- 新的login模板初始化函数
