@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "shopListAgency", "nochangeurl");
+        derict(this, "agencyCreatePersonal", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -227,7 +227,7 @@ function getGoodsInfo() {
     try {
         loading();
         $.ajax({
-            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods_psgId,
+            url: plumeApi["getProductShopGoods"] + session.goods_psgId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -241,7 +241,7 @@ function getGoodsInfo() {
             }
         })
     } catch (e) {
-        window.location.href = "/debug/"
+        window.location.href = "/debug/";
     }
 }
 
@@ -250,7 +250,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" + session.productGoods_productId,
+            url: plumeApi["getProductInfo"] + session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -261,10 +261,10 @@ function getProductInfo() {
                 var colorList = "";
                 var size = {};
                 var sizeList = "";
-                var formsList = ""
+                var formsList = "";
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
-                    size[data.standard] = 1
+                    size[data.standard] = 1;
                     trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' +data.productGoodsId+ '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
@@ -281,8 +281,8 @@ function getProductInfo() {
 
                 var colorArr = [];
                 var sizeArr = []; 
-                getColorArr()
-                getSizeArr()
+                getColorArr();
+                getSizeArr();
                 function getColorArr() {
                      $(".taking-color input").each(function(i) {
                         if($(this).prop('checked')===true){
@@ -380,7 +380,7 @@ function getGoodsData(productName, modelNumber, saleStatus) {
 function getProductGoodsData(keyword) {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/listProductGoods",
+        url: plumeApi["listProductGoods"],
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         data: {"keyword": keyword},
@@ -395,7 +395,7 @@ function getProductGoodsData(keyword) {
 //待审核产品列表
 function listProductInfoUpt() {
     $.ajax({
-        url:"http://192.168.222.162:8080/productInfo/listProductInfoUpt",
+        url:plumeApi["listProductInfoUpt"],
         type:"POST",
         contentType: "application/json;charset=UTF-8",
         data:JSON.stringify(
@@ -466,7 +466,7 @@ function soldOutGoods() {
 function addProductShopGoods(body) {
     loading()
      $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/addProductShopGoods",
+        url: plumeApi["addProductShopGoods"],
         type: "POST",
         contentType: "application/json;charset=UTF-8",
             data: JSON.stringify(body),
@@ -490,9 +490,9 @@ function editProductShopGoods() {
     var priceType = $("#priceType").val();
     var inventory = $("#inventory").val();
     var saleStatus = $("input[name='ground']:checked").val()
-    loading()
+    loading();
      $.ajax({
-        url:"http://192.168.222.162:8080/productShopGoods/editProductShopGoods",
+        url:plumeApi["editProductShopGoods"],
         type:"POST",
         contentType: "application/json;charset=UTF-8",
         data:JSON.stringify(
@@ -771,7 +771,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
 function getSelfData(showObj, stashId) {
 	loading();
 	$.ajax({
-		url: "http://192.168.222.162:8080/productStash/getProductStashById/" + stashId,
+		url: plumeApi["getProductStashById"] + stashId,
 		type: "GET",
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
@@ -806,7 +806,7 @@ function getSelfData(showObj, stashId) {
 // 获取产品一级分类
 function getFirstCategory(showObj, categoryId) {
 	$.ajax({
-		url: "http://192.168.222.162:8080/productCategory/listProductCategory",
+		url: plumeApi["listProductCategory"],
 		type: "GET",
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
