@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "shopListAgency", "nochangeurl");
+        derict(this, "agencyCreatePersonal", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -758,7 +758,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
 			}
 			else {
 				$('.pop').loadTemp("popTips", "nochangeurl", function() {
-					$(".pop").find(".popup-title").html(operateName + "自采商品");
+		            $(".pop").find(".popup-title").html(operateName + "自采商品");
 					$(".pop").find(".popup-icon").html('<i class="danger"></i>');
 					$(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
 				});

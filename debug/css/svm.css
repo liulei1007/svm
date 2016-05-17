@@ -1,6 +1,7 @@
 @charset "utf-8";
 *{font-family:"Microsoft Yahei"}
 html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background:#fff;}
+textarea{resize: none;}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
 .login-head{height:70px;width:100%;background:#fff;position:relative}
 .login-head .login-head-logo{background:url("../images/logo.png") no-repeat 0 0;height:31px;width:130px;position: absolute;left:10%;top:20px}
