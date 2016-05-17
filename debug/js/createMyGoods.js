@@ -7,16 +7,35 @@ $(function () {
     }
 
     userTypeInit();
+    function getbrandList(){
+        loading();
+        $.get(plumeApi["listBrandBusinessInfo"],{},function(data){
+            $(".cmg-brand").setPageData(data);
+            unloading();
+            $("#brandId").bind("change",function(){
+                loading();
+                var brandId=$(this).val();
+                $.get(plumeApi["brandSeries"]+"/"+brandId,{},function(data){
+                    unloading();
+                    $(".cmg-series").find("[list-node]").remove();
+                    $(".cmg-series").setPageData(data);
+                });
+            });
+        });
+    }
+    getbrandList();
+    //修改类目参数
     $(".changeType").bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
+    //初始化图片移动
     var len;
     var list
     $('.upload-btn-left').bind('click', leftEvent);
     $('.upload-btn-right').bind('click', rightEvent);
     $('.upload-btn-delect').bind('click', delectEvent);
     initialize()
-    // 初始化
+
     function initialize() {
         list = $('.goodsPic');
         len = list.length;
@@ -24,7 +43,6 @@ $(function () {
         list.last().addClass('last-upload-btn').find('.upload-btn-right').unbind('click', rightEvent);
     }
 
-    // 左按钮事件
     function leftEvent() {
         var iIndex = $('.upload-btn-left').index($(this));
         if (iIndex == len - 1) {
@@ -37,7 +55,6 @@ $(function () {
         initialize();
     }
 
-    //右按钮事件
     function rightEvent() {
         var iIndex = $('.upload-btn-right').index($(this));
         if (iIndex == 0) {
@@ -51,7 +68,6 @@ $(function () {
         initialize();
     }
 
-    //删除事件
     function delectEvent() {
         $(this).parents('li').remove();
         initialize();
@@ -102,7 +118,6 @@ $(function () {
                     });
                 })
             });
-
         });
         function bindFunc() {
             $(".color-box").unbind().bind("click", function () {
@@ -138,11 +153,8 @@ $(function () {
             });
         }
     }
-
     setColors();
     //提交
-
-
     $(".cmg-ok").bind("click", function () {
         if (validata()) {
             return false;
@@ -292,6 +304,5 @@ $(function () {
             });
         });
     }
-
     setStandard();
 });

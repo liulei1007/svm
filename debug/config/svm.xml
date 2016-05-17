@@ -332,18 +332,19 @@
         <editProductInfo>http://192.168.222.162:8080/productInfo/editProductInfo</editProductInfo>
         <getProductInfo>http://192.168.222.162:8080/productInfo/getProductInfo</getProductInfo>
         <listProductShopGoods>http://192.168.222.162:8080/productShopGoods/listProductShopGoods</listProductShopGoods>
-        <delProductShopGoods>http://192.168.222.162:8080/productShopGoods/delProductShopGoods/</delProductShopGoods>
-        <enableProductShopGoods>http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/</enableProductShopGoods>
-        <disableProductShopGoods>http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/</disableProductShopGoods>
-        <getProductShopGoods>http://192.168.222.162:8080/productShopGoods/getProductShopGoods/</getProductShopGoods>
+        <delProductShopGoods>http://192.168.222.162:8080/productShopGoods/delProductShopGoods</delProductShopGoods>
+        <enableProductShopGoods>http://192.168.222.162:8080/productShopGoods/enableProductShopGoods</enableProductShopGoods>
+        <disableProductShopGoods>http://192.168.222.162:8080/productShopGoods/disableProductShopGoods</disableProductShopGoods>
+        <getProductShopGoods>http://192.168.222.162:8080/productShopGoods/getProductShopGoods</getProductShopGoods>
         <getProductInfo>http://192.168.222.162:8080/productInfo/getProductInfo/</getProductInfo>
         <listProductGoods>http://192.168.222.162:8080/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://192.168.222.162:8080/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addProductShopGoods>http://192.168.222.162:8080/productShopGoods/addProductShopGoods</addProductShopGoods>
         <editProductShopGoods>http://192.168.222.162:8080/productShopGoods/editProductShopGoods</editProductShopGoods>
-        <getProductStashById>http://192.168.222.162:8080/productStash/getProductStashById/</getProductStashById>
+        <getProductStashById>http://192.168.222.162:8080/productStash/getProductStashById</getProductStashById>
         <listProductCategory>http://192.168.222.162:8080/productCategory/listProductCategory</listProductCategory>
         <reviewProductInfo>http://192.168.222.162:8080/productInfo/reviewProductInfo</reviewProductInfo>
-
+        <brandSeries>http://192.168.222.162:8080/brandSeries/listBrandSeries</brandSeries>
+        <listBrandBusinessInfo>http://192.168.222.162:8080/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
     </api>
 </config>
