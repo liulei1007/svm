@@ -409,7 +409,7 @@ function listProductInfoUpt() {
             if(data.ok) {
                  unloading();
                  $("[list-node]").remove();
-                 $(".table-block").setPageData(data);
+                 $(".form-body").setPageData(data);
             }else{
                 alert('error');
             }

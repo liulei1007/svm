@@ -47,11 +47,14 @@
         <button class="btn btn-default btn-sm">查询</button>
       </form>
     </div>
-     <div class="basicDataManagement-table">   
-        <div class="table-title">
+
+    <!-- 有问题！！！！！缺数据 -->
+    <div class="alert alert-info">当前总共还有<strong data-name="$p.countRecord"></strong>条商品数据需要继续补充信息!</div>
+
+    <div class="table-block basicDataManagement-table">   
+        <div class="btn-block clearFix">
             <button class="btn btn-primary">确认</button>
-            <button class="btn btn-primary">删除</button>
-            <span>当前总共还有<b>320</b>条商品数据需要继续补充信息!</span>      
+            <button class="btn btn-primary">删除</button>   
         </div>
         <table class="table table1 table-striped">
             <thead>
@@ -84,9 +87,9 @@
                 <td>红色，白色</td>
                 <td>200*180，150*200</td>
                 <td>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">编辑</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">删除</button>
-                  <button type="button" class="btn btn-default btn-sm btn-releaseGoods">确认</button>
+                  <button type="button" class="btn btn-link btn-releaseGoods">编辑</button>
+                  <button type="button" class="btn btn-link btn-releaseGoods">确认</button>
+                  <button type="button" class="btn btn-link btn-link-delete btn-releaseGoods">删除</button>
                 </td>
               </tr>
             </tbody>
