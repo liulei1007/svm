@@ -50,10 +50,13 @@ $(function () {
         window.location.href = "../changepwd?fullscreen";
     });
     $("#send").bind("click", function () {
+
         $(".form-block-msg").hide();
         var tel = $("#tel").val();
         if (isMobile(tel)) {
+            loading();
             $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
+                unloading();
                 if (data.ok) {
                     $(".reg-msg2").text("短信验证码发送成功").fadeIn();
                 }
@@ -79,6 +82,7 @@ $(function () {
             $(".login-msg1").text("请输入密码").fadeIn();
             return;
         }
+        loading();
         $.ajax({
             type: "POST",
             url: plumeApi["login"],
@@ -86,6 +90,7 @@ $(function () {
             contentType: "application/json,charset=UTF-8",
             dataType: "json",
             success: function (data) {
+                unloading();
                 if (data.ok) {
                     $(".login-msg2").text("登录成功,用户id:" + data.data + "仅验证登录,跳转请使用另外两个测试按钮.").fadeIn();
                 } else {
@@ -118,6 +123,7 @@ $(function () {
             $(".reg-msg1").text("请输入验证码").fadeIn();
             return;
         }
+        loading();
         $.ajax({
             type: "POST",
             url: plumeApi["registerUserInfo"],
@@ -125,6 +131,7 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                unloading();
                 if (data.ok) {
                     $(".reg-msg2").text("注册成功").fadeIn();
                 } else {
@@ -140,5 +147,43 @@ $(function () {
 
 });
 
+//loading
+var transmit_a = 0;
+var transmit_d = true;
+var transmit_loop;
+function transmit_showLoad() {
+    $(".loading").hide();
+    $($(".loading")[transmit_a]).show();
+    if (transmit_d) {
+        transmit_a++;
+    } else {
+        transmit_a--
+    }
+    if (transmit_a == 34) {
+        transmit_d = false;
+    }
+    if (transmit_a == 0) {
+        transmit_d = true;
+    }
+    transmit_loop = setTimeout("transmit_showLoad()", 35);
+}
+function loading() {
+    if (!($(".lockbg").length > 0)) {
+        $(document.body).append("<div class='lockbg'></div>");
+        $(".lockbg").show();
+    }
 
-
+    if (!($(".loading").length > 0)) {
+        var temp = '';
+        for (var i = 1; i < 36; i++) {
+            temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
+        }
+        $(document.body).append(temp);
+        clearTimeout(transmit_loop)
+        transmit_showLoad();
+    }
+}
+function unloading() {
+    $(".lockbg").remove();
+    $(".loading").remove();
+}
