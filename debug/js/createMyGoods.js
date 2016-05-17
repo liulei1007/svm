@@ -243,17 +243,17 @@ $(function () {
     getlistNationRegion();
     //表单验证
     function validata() {
-        $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                console.log($(this).attr("id"))
-                $(this).focus();
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                return false;
-            } else {
-                $(this).parent().parent().find(".alert-danger").hide();
-                return true;
-            }
-        });
+        //$(".notNull").each(function () {
+        //    if ($(this).val() == "") {
+        //        console.log($(this).attr("id"))
+        //        $(this).focus();
+        //        $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+        //        return false;
+        //    } else {
+        //        $(this).parent().parent().find(".alert-danger").hide();
+        //        return true;
+        //    }
+        //});
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {

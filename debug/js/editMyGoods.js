@@ -4,7 +4,7 @@ $(function () {
         loading();
         var productId = session.goods_edit_productId;
         $.ajax({
-            type: "POST",
+            type: "get",
             url: plumeApi["getProductInfo"] + "/" + productId,
             data: "",
             async:"",
@@ -178,6 +178,8 @@ $(function () {
             return false;
         }
         var pram_str = '{';
+
+        pram_str += '"productId": "' + session.goods_edit_productId + '",';
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": ' + $("#brandId").val() + ',';
@@ -231,7 +233,7 @@ $(function () {
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["addProductInfo"],
+            url: plumeApi["editProductInfo"],
             data: pram_str,
             contentType: "application/json",
             dataType: "json",
@@ -241,7 +243,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("增加成功");
+                        $(".pop").find(".popup-info").html("修改成功");
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
@@ -322,6 +324,5 @@ $(function () {
             });
         });
     }
-
     setStandard();
 });
