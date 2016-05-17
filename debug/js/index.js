@@ -476,6 +476,7 @@ function addProductShopGoods(body) {
                     popTips("商品编辑成功","success");
                     derict(this, "groundGoods", "nochangeurl");
             }else{
+                alert(1)
                 unloading();
                 popTips("商品编辑失败","warning");
                 derict(this, "groundGoods", "nochangeurl");
