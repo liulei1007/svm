@@ -344,6 +344,6 @@
         <getProductStashById>http://192.168.222.162:8080/productStash/getProductStashById/</getProductStashById>
         <listProductCategory>http://192.168.222.162:8080/productCategory/listProductCategory</listProductCategory>
         <reviewProductInfo>http://192.168.222.162:8080/productInfo/reviewProductInfo</reviewProductInfo>
-
+        <listFeedBack>http://192.168.222.162:8080/feedback/listFeedBack/</listFeedBack>
     </api>
 </config>
