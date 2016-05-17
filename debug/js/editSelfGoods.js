@@ -23,6 +23,7 @@ $(function() {
 	// 绑定“确定”按钮
 	$(".btn-sure").bind("click", function() {
 		checkSelfGoods("修改", data, "http://192.168.222.162:8080/productStash/editProductStash");
+		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
 
 	// 绑定“取消”按钮
