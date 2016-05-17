@@ -273,6 +273,18 @@ function popUpload_init(){
     plumeUtil.js(plumePath+"/js/popUpload.js");
     plumeLog("完成popUpload模板加载-"+plumeTime());
 }
+//editMyGoods_init
+function editMyGoods_init(){
+    plumeLog("初始化editMyGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/editMyGoods.js")
+    plumeLog("完成editMyGoods模板加载-" + plumeTime());
+}
+//editMyGoods_init
+function copyMyGoods_init(){
+    plumeLog("初始化copyMyGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/copyMyGoods.js")
+    plumeLog("完成copyMyGoods模板加载-" + plumeTime());
+}
 
 
 //-- 新的login模板初始化函数

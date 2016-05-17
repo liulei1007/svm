@@ -1,5 +1,35 @@
 $(function () {
     formCtrl();
+    function getGoodsInfo() {
+        loading();
+        var productId = session.goods_edit_productId;
+        $.ajax({
+            type: "get",
+            url: plumeApi["getProductInfo"] + "/" + productId,
+            data: "",
+            async:"",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                var d = data.data;
+                $("#productName").val(d.productName);
+                $("#productSecondName").val(d.productSecondName);
+                $("#brandId").val(d.brandId);
+                $("#seriesId").val(d.seriesId);
+                //$("#cityId").val(d.cityId);
+                $("#modelNumber ").val(d.modelNumber);
+                $("#materialQuality").val(d.materialQuality);
+                $("#weight").val(d.weight);
+                $("#material1").val(d.material1);
+                $("#material2").val(d.material2);
+                $("#material3").val(d.material3);
+            }
+        })
+    }
+
+    getGoodsInfo();
+
     $(".alert-danger").hide();
     //类目参数
     function userTypeInit() {
@@ -148,6 +178,8 @@ $(function () {
             return false;
         }
         var pram_str = '{';
+
+        pram_str += '"productId": "' + session.goods_edit_productId + '",';
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": ' + $("#brandId").val() + ',';
@@ -156,7 +188,7 @@ $(function () {
         pram_str += ' "brandName": "",';
         pram_str += ' "countryId": "",';
         pram_str += '"countryName": "",';
-        pram_str += '"provinceId": "",';
+        pram_str += '"provinceId": "' + 1 + '",';
         pram_str += '"provinceName": "",';
         pram_str += '"cityId": "' + $("#cityId").val() + '",';
         pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
@@ -201,7 +233,7 @@ $(function () {
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["addProductInfo"],
+            url: plumeApi["editProductInfo"],
             data: pram_str,
             contentType: "application/json",
             dataType: "json",
@@ -211,7 +243,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("增加成功");
+                        $(".pop").find(".popup-info").html("修改成功");
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
@@ -254,7 +286,6 @@ $(function () {
         //        return true;
         //    }
         //});
-
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
             console.log($(this).attr("id"))
@@ -265,6 +296,7 @@ $(function () {
                 $(this).focus();
                 $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
                 return false;
+
             }
         });
     }
@@ -292,6 +324,5 @@ $(function () {
             });
         });
     }
-
     setStandard();
 });
