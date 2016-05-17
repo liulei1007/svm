@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "agencyCreatePersonal", "nochangeurl");
+        derict(this, "shopListAgency", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
