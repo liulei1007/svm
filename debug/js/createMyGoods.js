@@ -3,19 +3,19 @@ $(function () {
     $(".alert-danger").hide();
     //类目参数
     function userTypeInit() {
-        $(".userType").text(session.goods_userType);
+        $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
     }
 
     userTypeInit();
-    function getbrandList(){
+    function getbrandList() {
         loading();
-        $.get(plumeApi["listBrandBusinessInfo"],{},function(data){
+        $.get(plumeApi["listBrandBusinessInfo"], {}, function (data) {
             $(".cmg-brand").setPageData(data);
             unloading();
-            $("#brandId").bind("change",function(){
+            $("#brandId").bind("change", function () {
                 loading();
-                var brandId=$(this).val();
-                $.get(plumeApi["brandSeries"]+"/"+brandId,{},function(data){
+                var brandId = $(this).val();
+                $.get(plumeApi["brandSeries"] + "/" + brandId, {}, function (data) {
                     unloading();
                     $(".cmg-series").find("[list-node]").remove();
                     $(".cmg-series").setPageData(data);
@@ -23,7 +23,16 @@ $(function () {
             });
         });
     }
+
     getbrandList();
+    //获取商品属性
+    function getProductAttribute() {
+        var categoryId = $(".userType").attr("categoryId");
+        $.get(plumeApi["listProductAttribute"]+"/"+categoryId,{},function(data){
+            console.log(data);
+        });
+    }
+    getProductAttribute();
     //修改类目参数
     $(".changeType").bind("click", function () {
         derict(this, "userType", "nochangeurl");
@@ -132,7 +141,7 @@ $(function () {
                 }
                 if (c) {
                     $(this).parent().find(".color-desc").show();
-                    var temp = "<tr class='colortr tr" + colorid + "'  colorValue='" + colorValue + "' colorid='" + colorid + "'><td class='colorName' colorDesc='' colorName='" + colorName + "' >" + n + "</td><td></td></tr>"
+                    var temp = "<tr class='colortr tr" + colorid + "'  colorValue='" + colorValue + "' colorid='" + colorid + "'><td class='colorName' colorDesc='' colorName='" + colorName + "' >" + n + "</td></tr>"
                     $(".cmg-table-color").append(temp);
                 } else {
                     $(this).parent().find(".color-desc").hide();
@@ -153,10 +162,11 @@ $(function () {
             });
         }
     }
+
     setColors();
     //提交
     $(".cmg-ok").bind("click", function () {
-        if (validata()) {
+        if (!validata()) {
             return false;
         }
         var pram_str = '{';
@@ -164,12 +174,12 @@ $(function () {
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": ' + $("#brandId").val() + ',';
         pram_str += ' "seriesId": ' + $("#seriesId").val() + ',';
-        pram_str += '"seriesName": "",';
-        pram_str += ' "brandName": "",';
+        pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
+        pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
         pram_str += ' "countryId": "",';
         pram_str += '"countryName": "",';
-        pram_str += '"provinceId": "",';
-        pram_str += '"provinceName": "",';
+        pram_str += '"provinceId": "' + $("#provinceId").val() + '",';
+        pram_str += '"provinceName": "' + $("#provinceName").find("option:selected").text() + '",';
         pram_str += '"cityId": "' + $("#cityId").val() + '",';
         pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
@@ -255,30 +265,29 @@ $(function () {
     getlistNationRegion();
     //表单验证
     function validata() {
-        //$(".notNull").each(function () {
-        //    if ($(this).val() == "") {
-        //        console.log($(this).attr("id"))
-        //        $(this).focus();
-        //        $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-        //        return false;
-        //    } else {
-        //        $(this).parent().parent().find(".alert-danger").hide();
-        //        return true;
-        //    }
-        //});
+        var flag = true;
+        $(".notNull").each(function () {
+            if ($(this).val() == "") {
+                $(this).addClass("cmg-error")
+                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag = false;
+            } else {
+                $(this).parent().parent().find(".alert-danger").hide();
+            }
+        });
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
-            console.log($(this).attr("id"))
             if (re.test($(this).val())) {
                 $(this).parent().parent().find(".alert-danger").hide();
-                return true;
             } else {
-                $(this).focus();
+                $(this).addClass("cmg-error")
                 $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
-                return false;
+                flag = false;
             }
         });
+        $($(".cmg-error")[0]).focus();
+        return flag;
     }
 
     //规格
@@ -304,5 +313,6 @@ $(function () {
             });
         });
     }
+
     setStandard();
 });

@@ -44,6 +44,7 @@
                             <option list-temp="true" node-name="$n.brandName,attr-value:$n.brandId"></option>
                         </select>
                     </div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>系列名称</label>
@@ -53,13 +54,14 @@
                             <option value="" list-temp="true" node-name="$n.seriesName,attr-value:$n.seriesId"></option>
                         </select>
                     </div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
 
                     <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName ">
                     </div>
-                    <div class="col-sm-2 alert alert-danger" id="productSecondName_msg">请输入商品标语!</div>
+                    <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
                     <div class="col-sm-offset-3 col-sm-8 tips-block">
                         <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
                     </div>
@@ -69,7 +71,7 @@
 
                     <div class="col-sm-6"><input type="text" class="form-control notNull" id="productName"/>
                     </div>
-                    <div class="col-sm-2 alert alert-danger">请输入商品名称！</div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                     <div class="col-sm-offset-3 col-sm-8 tips-block">
                         <p>文字说明：举例子说明文字说明：举列子说明</p>
                     </div>
@@ -78,7 +80,7 @@
                     <label class="col-sm-3 control-label"><i>*</i>产地</label>
 
                     <div class="col-sm-2 cmg-region1">
-                        <select class="form-control" data-list="$p.data">
+                        <select class="form-control" id="provinceId" data-list="$p.data">
                             <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
                         </select>
                     </div>
@@ -92,14 +94,14 @@
                     <label class="col-sm-3 control-label"><i>*</i>型号</label>
 
                     <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入型号！</div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>材质</label>
 
                     <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control notNull">
                     </div>
-                    <div class="col-sm-2 alert alert-danger">请输入材质！</div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>重量</label>
@@ -108,7 +110,7 @@
                     </div>
                     <label class="col-sm-1 control-label">KG</label>
 
-                    <div class="col-sm-2 alert alert-danger">请输入重量！</div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
@@ -119,6 +121,7 @@
                             <option>类型二</option>
                         </select>
                     </div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>等级</label>
@@ -129,15 +132,16 @@
                             <option>二等品</option>
                         </select>
                     </div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-3 control-label"><i>*</i>市场参考价</label>
 
-                    <div class="col-sm-5"><input type="text" id="marketPrice" class="form-control notNull num">
+                    <div class="col-sm-5"><input type="text" id="marketPrice" value="0" class="form-control notNull num">
                     </div>
                     <label class="col-sm-1 control-label">元</label>
 
-                    <div class="col-sm-2 alert alert-danger">请输入市场参考价！</div>
+                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
             </div>
         </form>
@@ -240,7 +244,6 @@
                             <thead class="cmg-table-color">
                             <tr>
                                 <th>颜色分类</th>
-                                <th>图片（无图片可以不填）</th>
                             </tr>
                             </thead>
                             <tbody>

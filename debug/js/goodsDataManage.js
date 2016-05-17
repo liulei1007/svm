@@ -50,7 +50,7 @@ $(function () {
 
                 $(".gdm-btn-edit").unbind().bind("click", function () {
                     var productId = $(this).parent().parent().children().first().attr("productId");
-                    session.goods_edit_productId=productId;
+                    session.goods_edit_productId = productId;
                     derict(this, "editMyGoods", "nochangeurl");
                 });
                 $('.gdm-btn-open').each(function () {
@@ -62,7 +62,7 @@ $(function () {
                 });
                 $('.gdm-btn-copy').unbind().bind("click", function () {
                     var productId = $(this).parent().parent().children().first().attr("productId");
-                    session.goods_edit_productId=productId;
+                    session.goods_edit_productId = productId;
                     derict(this, "copyMyGoods", "nochangeurl");
                 })
 
