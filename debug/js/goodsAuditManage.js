@@ -1,14 +1,34 @@
 $(function () {
 	listProductInfoUpt();
+
+    tablecheckbox();
 	$('.table-block').on('click','.btn-audit',function() {
-		var uptId = $(this).parents("tr").find(".uptId").html()
-		 $('.pop').loadTemp("popAudit", "nochangeurl",function() {
-		 	$('.pop').on('click', '.btn-sure', function () {
-		 	var audit = {
-		 		"uptId":uptId,
-		 		"reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
-  				"remark": $('.remark').val()
-		 	};
+		var uptIds = [];
+        uptIds.push($(this).parents("tr").find(".uptId").html());
+		auditFun();
+	});
+    
+    $('.btn-allAudit').click(function() {
+        var uptIds = [];
+        $('tbody input:checkbox').each(function(i,checkbox) {
+            if($(this).prop('checked')==true){
+                uptIds.push($(this).parents('tr').find('.uptId').html());
+            }
+        });
+        auditFun();
+    });
+});
+
+
+
+function auditFun() {
+    $('.pop').loadTemp("popAudit", "nochangeurl",function() {
+            $('.pop').on('click', '.btn-sure', function () {
+            var audit = {
+                "uptIds":uptIds,
+                "reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
+                "remark": $('.remark').val()
+            };
             loading();
             $.ajax({
                 url:plumeApi["reviewProductInfo"] ,
@@ -19,11 +39,11 @@ $(function () {
                     if(data.ok){
                         unloading();
                         popTips("审核成功","success");
-                       	listProductInfoUpt();
+                        listProductInfoUpt();
                     }else{
                         unloading();
                         popTips("审核失败","warning");
-                       	listProductInfoUpt();
+                        listProductInfoUpt();
                 }
             }
             });
@@ -36,6 +56,5 @@ $(function () {
             $('.pop').off('click', '.btn-sure');
             $('.pop').off('click', '.btn-cancel');
         });
-		 }); 
-	});
-})
+         }); 
+}

@@ -221,13 +221,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 
 /** 弹出输入框 **/
-.popup-fill{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -170px; margin-left: -310px; width: 620px; height: 340px; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-fill .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f8f9fa;}
+.popup-fill{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -170px; margin-left: -310px; width: 620px; height: 340px; /*text-align: center;*/ background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-fill .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; text-align: center; background-color: #f8f9fa;}
 .popup-fill form{margin-top: 20px; margin-bottom: 20px;}
 .popup-fill textarea{resize: none;}
 .popup-fill .control-label{font-weight: normal;}
 .popup-fill .btn{width: 100%;}
-
+.popup-fill .alert{margin-top: 10px; padding-top: 5px; padding-bottom: 5px;}
 
 /** --------商品管理-------- **/
 .doc-commodityManagement1{position: relative;padding-bottom: 40px;}
@@ -423,7 +423,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 
 /** --------分页-------- **/
-.nav-pagination{text-align: right;}
+.nav-pagination{margin-bottom: 30px; text-align: right;}
 .pagination{float: right; margin-top: 0; margin-bottom: 0;}
 /** 普通页码的样式 **/
 .pagination > li > a, .pagination > li > span{width: 44px; color: #989da8; text-align: center; border-color: #ced1dc;}

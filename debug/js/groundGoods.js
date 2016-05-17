@@ -1,4 +1,5 @@
 $(function(){
+	tablecheckbox();
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
 	$('.table-block').on('click','.btn-delect',function(){
 		getGoodsPsgId(this);

@@ -51,11 +51,10 @@
         <button class="btn btn-default btn-sm">查询</button>
       </form>
     </div>
-    <div class="table-block">   
-        <div class="table-title">
-            <button class="btn btn-primary">新增商品数据</button>
-            <a >待审核商品管理</a>
-        </div>
+    <div class="btn-block clearFix">
+      <button class="btn btn-primary">新增商品数据</button>
+    </div>
+    <div class="table-block">
         <table class="table table1 table-striped gdm-table-data">
             <thead>
               <tr>
@@ -83,10 +82,10 @@
                 <td node-name="$n.productSecondName"></td>
                 <td node-name="$n.updateDate"></td>
                 <td>
-                  <button type="button" class="btn btn-link btn-sm gdm-btn-edit">编辑</button>
-                  <button type="button" class="btn btn-link btn-sm gdm-btn-copy">复制</button>
-                  <button type="button" class="btn btn-link btn-sm gdm-btn-open" node-name="$n.saleStatus"></button>
-                  <button type="button" class="btn btn-link btn-sm gdm-btn-del">删除</button>
+                  <button type="button" class="btn btn-link gdm-btn-edit">编辑</button>
+                  <button type="button" class="btn btn-link gdm-btn-copy">复制</button>
+                  <button type="button" class="btn btn-link gdm-btn-open" node-name="$n.saleStatus"></button>
+                  <button type="button" class="btn btn-link btn-link-delete gdm-btn-del">删除</button>
                 </td>
               </tr>
             </tbody>
