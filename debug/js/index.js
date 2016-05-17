@@ -529,6 +529,7 @@ function delectGoodsData() {
         $(".pop").find(".popup-title").html("删除确认？");
         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
         $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
             loading();

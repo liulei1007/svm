@@ -1,5 +1,7 @@
 $(function () {
 	listProductInfoUpt();
+
+    tablecheckbox();
 	$('.table-block').on('click','.btn-audit',function() {
 		var uptId = $(this).parents("tr").find(".uptId").html()
 		 $('.pop').loadTemp("popAudit", "nochangeurl",function() {
