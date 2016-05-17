@@ -6,7 +6,6 @@ var login_move = {
             var w = $(this).width();
             var t = $(this).position().top;
             var l = $(this).position().left;
-            console.log(h);
             $(this).animate({
                 "height": h * p.size,
                 "width": w * p.size,
@@ -137,7 +136,7 @@ $(function () {
     function isMobile(n) {
         return /^1\d{10}$/.test(n) && n != 11111111111;
     }
-    login_move.testmove();
+  //  login_move.testmove();
 
 });
 

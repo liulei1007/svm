@@ -1,5 +1,35 @@
 $(function () {
     formCtrl();
+    function getGoodsInfo() {
+        loading();
+        var productId = session.goods_edit_productId;
+        $.ajax({
+            type: "POST",
+            url: plumeApi["getProductInfo"] + "/" + productId,
+            data: "",
+            async:"",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                var d = data.data;
+                $("#productName").val(d.productName);
+                $("#productSecondName").val(d.productSecondName);
+                $("#brandId").val(d.brandId);
+                $("#seriesId").val(d.seriesId);
+                //$("#cityId").val(d.cityId);
+                $("#modelNumber ").val(d.modelNumber);
+                $("#materialQuality").val(d.materialQuality);
+                $("#weight").val(d.weight);
+                $("#material1").val(d.material1);
+                $("#material2").val(d.material2);
+                $("#material3").val(d.material3);
+            }
+        })
+    }
+
+    getGoodsInfo();
+
     $(".alert-danger").hide();
     //类目参数
     function userTypeInit() {
@@ -156,7 +186,7 @@ $(function () {
         pram_str += ' "brandName": "",';
         pram_str += ' "countryId": "",';
         pram_str += '"countryName": "",';
-        pram_str += '"provinceId": "",';
+        pram_str += '"provinceId": "' + 1 + '",';
         pram_str += '"provinceName": "",';
         pram_str += '"cityId": "' + $("#cityId").val() + '",';
         pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
@@ -243,18 +273,17 @@ $(function () {
     getlistNationRegion();
     //表单验证
     function validata() {
-        $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                console.log($(this).attr("id"))
-                $(this).focus();
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                return false;
-            } else {
-                $(this).parent().parent().find(".alert-danger").hide();
-                return true;
-            }
-        });
-
+        //$(".notNull").each(function () {
+        //    if ($(this).val() == "") {
+        //        console.log($(this).attr("id"))
+        //        $(this).focus();
+        //        $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+        //        return false;
+        //    } else {
+        //        $(this).parent().parent().find(".alert-danger").hide();
+        //        return true;
+        //    }
+        //});
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
             console.log($(this).attr("id"))
@@ -265,6 +294,7 @@ $(function () {
                 $(this).focus();
                 $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
                 return false;
+
             }
         });
     }

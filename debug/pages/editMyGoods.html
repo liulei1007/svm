@@ -19,7 +19,7 @@
 
 <body>
 <div class="body-typein">
-    <div class="title-block">新增商品数据</div>
+    <div class="title-block">编辑商品数据</div>
     <form class="form-horizontal">
         <div class="form-group required">
             <label class="col-sm-3 control-label">当前类目</label>
@@ -42,7 +42,7 @@
                         <div class="col-sm-4">
                             <select type="text" id="brandId" class="form-control notNull">
                                 <option value="0">法恩莎</option>
-                                <option value="1">法恩莎</option>
+                                <option value="1">雅马哈</option>
                                 <option value="2">雅马哈</option>
                             </select>
                         </div>
@@ -52,7 +52,7 @@
 
                         <div class="col-sm-4">
                             <select type="text" id="seriesId" class="form-control notNull">
-                                <option value="0">中式</option>
+                                <option value="0">韩式</option>
                                 <option value="1">韩式</option>
                                 <option value="2">西式</option>
                             </select>
@@ -61,7 +61,7 @@
                     <div class="form-group required">
                         <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
 
-                        <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName ">
+                        <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName">
                         </div>
                         <div class="col-sm-2 alert alert-danger" id="productSecondName_msg">请输入商品标语!</div>
                         <div class="col-sm-offset-3 col-sm-8 tips-block">
@@ -82,8 +82,8 @@
                         <label class="col-sm-3 control-label"><i>*</i>产地</label>
 
                         <div class="col-sm-2 cmg-region1">
-                            <select class="form-control" data-list="$p.data">
-                                <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                            <select class="form-control" id="provinceId" data-list="$p.data">
+                                <option list-temp="true" value="" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
                             </select>
                         </div>
                         <div class="col-sm-2 cmg-region2 ">

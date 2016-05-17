@@ -46,14 +46,17 @@ $(function () {
                             }
                         });
                     }
-
                 });
-                
 
-                $('.gdm-btn-open').each(function() {
-                    if($(this).html()==1){
+                $(".gdm-btn-edit").unbind().bind("click", function () {
+                    var productId = $(this).parent().parent().children().first().attr("productId");
+                    session.goods_edit_productId=productId;
+                    derict(this, "editMyGoods", "nochangeurl");
+                });
+                $('.gdm-btn-open').each(function () {
+                    if ($(this).html() == 1) {
                         $(this).html('禁用');
-                    }else{
+                    } else {
                         $(this).html('启用');
                     }
                 })
@@ -62,26 +65,26 @@ $(function () {
         });
     }
 
-    $(".table-block").on("click",".gdm-btn-open",function() {
+    $(".table-block").on("click", ".gdm-btn-open", function () {
         getProductId(this);
         var _this = this;
-         $.ajax({
+        $.ajax({
             url: "http://192.168.222.162:8080/productInfo/enableSaleStatus/" + session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
                 unloading();
-                if($(_this).html()=="禁用"){
+                if ($(_this).html() == "禁用") {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("已禁用");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("禁用成功");
                     });
-                }else{
+                } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("已启用");
-                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                    $(".pop").find(".popup-info").html("启用成功");
+                        $(".pop").find(".popup-title").html("已启用");
+                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                        $(".pop").find(".popup-info").html("启用成功");
                     });
                 }
                 getTableData();
