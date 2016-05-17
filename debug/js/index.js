@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "agencyCreatePersonal", "nochangeurl");
+        derict(this, "shopListAgency", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -409,7 +409,7 @@ function listProductInfoUpt() {
             if(data.ok) {
                  unloading();
                  $("[list-node]").remove();
-                 $(".table-block").setPageData(data);
+                 $(".form-body").setPageData(data);
             }else{
                 alert('error');
             }

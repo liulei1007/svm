@@ -55,7 +55,7 @@ $(function() {
 			contentType: "application/json; charset=utf-8",
 			success: function(result) {
 				unloading();
-				$(".table-block").setPageData(result);
+				$(".doc-commodityManagement").setPageData(result);
 			},
 			error:function(error) {console.log(error);}
 		});
