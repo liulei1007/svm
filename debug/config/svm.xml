@@ -327,7 +327,7 @@
         <getProductInfo>http://192.168.222.162:8080/productInfo/getProductInfo/</getProductInfo>
         <listProductGoods>http://192.168.222.162:8080/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://192.168.222.162:8080/productInfo/listProductInfoUpt</listProductInfoUpt>
-        <addProductShopGoods>http://192.168.222.162:8080/addProductShopGoods</addProductShopGoods>
+        <addProductShopGoods>http://192.168.222.162:8080/productShopGoods/addProductShopGoods</addProductShopGoods>
         <editProductShopGoods>http://192.168.222.162:8080/productShopGoods/editProductShopGoods</editProductShopGoods>
         <getProductStashById>http://192.168.222.162:8080/productStash/getProductStashById/</getProductStashById>
         <listProductCategory>http://192.168.222.162:8080/productCategory/listProductCategory</listProductCategory>
