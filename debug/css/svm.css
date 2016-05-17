@@ -1,6 +1,7 @@
 @charset "utf-8";
 *{font-family:"Microsoft Yahei"}
 html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background:#fff;}
+textarea{resize: none;}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
 .login-head{height:70px;width:100%;background:#fff;position:relative}
 .login-head .login-head-logo{background:url("../images/logo.png") no-repeat 0 0;height:31px;width:130px;position: absolute;left:10%;top:20px}
@@ -66,12 +67,11 @@ html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background
 .bottom-block .d1 a{color:#333;border-right:1px solid #aaa;text-align: center;display: block;width:70px;float:left}
 .bottom-block .d1 .right-a{border-right:none}
 .bottom-block .d2{height:34px;text-align: center;line-height:34px;float:left;width:100%}
-.title-block{height:60px;width:100%;padding:20px 0 0 10px;font-size:16px;/*float:left;*/font-weight: bold}
-.search-block{width:100%;background:#f8f9fa;/*float:left;*//*padding:10px*/}
+.title-block{margin-top: 20px; margin-bottom: 10px; margin-left: 20px; font-size: 16px; font-weight: bold;}
 .table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
 /*.table-block table td{border-top:none}*/
 
-.table1{border:10px solid #f8f9fa}
+.table1{/*border:10px solid #f8f9fa*/}
 /*.row1{background:#f8f9fa;}*/
 
 .table-block .table1{border:0px solid #f8f9fa}
@@ -105,8 +105,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** 导航栏——选中状态 **/
 .slidebar-title:hover > li, .slidebar-title.active > li{color: #00a8f5; background-color: #fff;}
 .slidebar-title.active > li:after{content: ''; position: absolute; top: 0; right: -1px; width: 1px; height: 100%; background-color: #fff;}
-.slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 220px; background-color: #fff; border: solid #ced1dc 1px;}
-.slidebar-list > li{padding: 5px 20px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
+.slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 160px; background-color: #fff; border: solid #ced1dc 1px;}
+.slidebar-list > li{padding: 5px 20px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 .slidebar-list > li:hover{color: #fff; background-color: #1397da;}
 /** 图标 **/
@@ -146,10 +146,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .table-block .table .btn-link-delete{color: #f26c4e; border-color: #f26c4e;}
 .table-block .table .btn-link-delete:hover{background-color: #f26c4e;}
 .table-block .table .mark{width: 65px;}
+.table-block .table tfoot .mark{width: auto;}
+.table-block .link-show{color: #26aff5; cursor: pointer;}
+.table-block .link-show:hover{text-decoration: underline;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
-.search-block{padding: 5px 10px;}
+.search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #f8f9fa;}
 .search-block label{font-weight: normal;}
 .search-block .btn{margin-right: 10px; min-width:80px;}
 .search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
@@ -157,7 +160,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .search-block .form-inline input.form-control{width: 170px;}
 
 /** --------按钮-------- **/
-.btn-block{margin-top: 20px; margin-bottom: 20px;}
+.btn-block{margin-top: 20px; margin-bottom: 20px; line-height: 34px;}
+.btn-block .btn{float: left; margin-right: 10px; min-width: 80px;}
 .btn{box-sizing: border-box; border-radius: 0;}
 .btn-default{color: #333; background-color: #f8f9fa; border-color: #ced1dc;}
 .btn-default:hover, .btn-default.focus, .btn-default:focus{background-color: #ced1dc; border-color: #ced1dc;}
@@ -178,7 +182,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 
 /** --------警告-------- **/
-.alert{border-radius: 0;}
+.alert{padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; border-radius: 0;}
 .alert-standard{color: #989da8; background-color: #f8f9fa; border: none;}
 .alert-success{color: #00642c; background-color: #d0f4d0; border: none;}
 .alert-info{color: #099D99; background-color: #d2eeed; border: none;}
@@ -420,9 +424,23 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------分页-------- **/
 .nav-pagination{text-align: right;}
-.pagination{margin-top: 0; margin-bottom: 0;}
-.pagination > li > a:hover{color: #26aff5; background-color: transparent; border: solid #26aff5 1px;}
-.pagination > li > a:focus, .pagination > li.active > a, .pagination > li.active > a:hover, .pagination > li.active > a:focus{color: #989DA8; background-color: #f8f9fa; border-color: #ddd;}
+.pagination{float: right; margin-top: 0; margin-bottom: 0;}
+/** 普通页码的样式 **/
+.pagination > li > a, .pagination > li > span{width: 44px; color: #989da8; text-align: center; border-color: #ced1dc;}
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{border-radius: 0;}
+/* 普通页码鼠标聚焦的样式 */
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:hover{color: #989da8; background-color: #fff; border-color: #26aff5; cursor: pointer;}
+/** 当前页码的样式 **/
+.pagination > li.active > a, .pagination > li.active > span, .pagination > li.active > a:focus, .pagination > li.active > a:hover, .pagination > li.active > span:hover{color: #fff; background-color: #26aff5; border-color: #26aff5; cursor: default;}
+/** 不可点击的页码的样式 **/
+.pagination > li.disabled > a, .pagination > li.disabled > a:focus, .pagination > li.disabled > a:hover, .pagination > li.disabled > span, .pagination > li.disabled > span:hover{color: #989da8; background-color: #f0f2fa; border-color: #ced1dc;}
+/** 页码中"..."的样式 **/
+.pagination > li.more > span, .pagination > li.more > span:hover{border-color: transparent #ced1dc transparent #ced1dc; cursor: default;}
+/** ----跳转---- **/
+.nav-pagination .turn{float: right; margin-left: 30px;}
+.nav-pagination .turn > span{float: left; display: block; padding: 6px 8px; color: #989da8;}
+.nav-pagination .turn > .form-control{float: left; width: 50px; text-align: center;}
+.nav-pagination .turn > .btn{float: left; margin-left: 5px; color: #333;}
 
 .table-ctrl{font-weight: bold;float:left;cursor: pointer;coloe:#333}
 .table-ctrl:hover{color:#0c5689}
