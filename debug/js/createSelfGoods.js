@@ -29,6 +29,7 @@ $(function() {
 	// 绑定“提交”按钮
 	$(".body-typein .btn-submit").bind("click", function() {
 		checkSelfGoods("发布", data, "http://192.168.222.162:8080/productStash/addProductStash");
+		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
 
 	// 绑定“取消”按钮

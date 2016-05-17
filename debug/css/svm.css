@@ -103,7 +103,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .slidebar-title{position: relative;}
 .slidebar-title > li{padding-top: 5px; padding-bottom: 5px; height: 80px; text-align: center; border-bottom: solid #ced1dc 1px; cursor: pointer;}
 /** 导航栏——选中状态 **/
-.slidebar-title:hover > li, .slidebar-title.active > li{background-color: #fff;}
+.slidebar-title:hover > li, .slidebar-title.active > li{color: #00a8f5; background-color: #fff;}
 .slidebar-title.active > li:after{content: ''; position: absolute; top: 0; right: -1px; width: 1px; height: 100%; background-color: #fff;}
 .slidebar-list{display: none; position: absolute; top: -1px; left: 100%; width: 220px; background-color: #fff; border: solid #ced1dc 1px;}
 .slidebar-list > li{padding: 5px 20px; height: 35px; border-bottom: solid #ced1dc 1px; box-sizing: border-box; cursor: pointer;}
@@ -112,16 +112,32 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** 图标 **/
 .slidebar-title i{display: block; margin: 5px auto; margin-bottom: 10px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
 .slidebar-title i.agency{background-position: 0 0;}
+.slidebar-title:hover i.agency, .slidebar-title.active i.agency{background-position: 0 -50px;}
+
 .slidebar-title i.baseData{background-position: -65px 0;}
+.slidebar-title:hover i.baseData, .slidebar-title.active i.baseData{background-position: -65px -50px;}
+
 .slidebar-title i.check{background-position: -130px 0;}
+.slidebar-title:hover i.check, .slidebar-title.active i.check{background-position: -130px -50px;}
+
 .slidebar-title i.setting{background-position: -195px 0;}
+.slidebar-title:hover i.setting, .slidebar-title.active i.setting{background-position: -195px -50px;}
+
 .slidebar-title i.goods{background-position: -260px 0;}
+.slidebar-title:hover i.goods, .slidebar-title.active i.goods{background-position: -260px -50px;}
+
 .slidebar-title i.shop{background-position: -325px 0;}
+.slidebar-title:hover i.shop, .slidebar-title.active i.shop{background-position: -325px -50px;}
+
 .slidebar-title i.brand{background-position: -390px 0;}
+.slidebar-title:hover i.brand, .slidebar-title.active i.brand{background-position: -390px -50px;}
+
+.slidebar-title i.cooperate{background-position: -455px 0;}
+.slidebar-title:hover i.cooperate, .slidebar-title.active i.cooperate{background-position: -455px -50px;}
 
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{vertical-align: middle; border-top: none; border-bottom: none;}
-.table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #f0f2fa;}
+.table-striped > thead > tr > th, .table-striped > thead > tr > td{color: #fff; background-color: #989da8;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f0f2fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
 .table-block .table-title{padding: 20px 0 0 10px; width: 100%; height: 60px; font-size: 16px; font-weight: bold;}

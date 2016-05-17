@@ -281,6 +281,10 @@
         <init>popUpload_init</init>
     </page>
     <page>
+        <page-name>popAudit</page-name>
+        <page-url>/pages/popAudit.html</page-url>
+    </page>
+    <page>
         <page-name>releaseSelfGoods</page-name>
         <page-url>/pages/releaseSelfGoods.html</page-url>
         <init>releaseSelfGoods_init</init>
@@ -305,7 +309,6 @@
         <page-url>/login-new.html</page-url>
         <init>loginNew_init</init>
     </page>
-
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
     <api>
         <listBrandSeriesList>http://192.168.222.162:8080/brandSeries/listBrandSeriesList</listBrandSeriesList>
@@ -321,7 +324,23 @@
         <listProductCategory>http://172.16.108.38:8080/productCategory/listProductCategory</listProductCategory>
         <getColorSeries>http://192.168.222.162:8080/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://192.168.222.162:8080/common/listNationRegion/CN</listNationRegion>
+
         <editProductInfo>http://192.168.222.162:8080/productInfo/editProductInfo</editProductInfo>
         <getProductInfo>http://192.168.222.162:8080/productInfo/getProductInfo</getProductInfo>
+
+        <listProductShopGoods>http://192.168.222.162:8080/productShopGoods/listProductShopGoods</listProductShopGoods>
+        <delProductShopGoods>http://192.168.222.162:8080/productShopGoods/delProductShopGoods/</delProductShopGoods>
+        <enableProductShopGoods>http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/</enableProductShopGoods>
+        <disableProductShopGoods>http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/</disableProductShopGoods>
+        <getProductShopGoods>http://192.168.222.162:8080/productShopGoods/getProductShopGoods/</getProductShopGoods>
+        <getProductInfo>http://192.168.222.162:8080/productInfo/getProductInfo/</getProductInfo>
+        <listProductGoods>http://192.168.222.162:8080/productShopGoods/listProductGoods</listProductGoods>
+        <listProductInfoUpt>http://192.168.222.162:8080/productInfo/listProductInfoUpt</listProductInfoUpt>
+        <addProductShopGoods>http://192.168.222.162:8080/addProductShopGoods</addProductShopGoods>
+        <editProductShopGoods>http://192.168.222.162:8080/productShopGoods/editProductShopGoods</editProductShopGoods>
+        <getProductStashById>http://192.168.222.162:8080/productStash/getProductStashById/</getProductStashById>
+        <listProductCategory>http://192.168.222.162:8080/productCategory/listProductCategory</listProductCategory>
+        <reviewProductInfo>http://192.168.222.162:8080/productInfo/reviewProductInfo</reviewProductInfo>
+
     </api>
 </config>

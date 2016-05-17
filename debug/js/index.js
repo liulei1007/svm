@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "shopListAgency", "nochangeurl");
+        derict(this, "agencyCreatePersonal", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -208,35 +208,40 @@ function pathInit() {
 }
 
 
-//换取psgId
+//获取psgId
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
     session.goods_psgId=psgId;
 }
 
-//换取productId
+//获取productId
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
     session.productGoods_productId=productId;
 }
 
-//换取商品信息
+//获取商品信息
 function getGoodsInfo() {
     try {
         loading();
         $.ajax({
-            url: "http://192.168.222.162:8080/productShopGoods/getProductShopGoods/" + session.goods_psgId,
+            url: plumeApi["getProductShopGoods"] + session.goods_psgId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
                 unloading();
                 $('.body-typein').setPageData(data.data);
+                var formsList = "";
+                 $(data.data.productGoodsORM.productInfoORM.productInfoAttrORMs).each(function(i,good) {
+                    formsList+='<div class="form-group"><label class="col-sm-3 control-label">'+good.productAttribute.attrNameBack+'：</label><p class="col-sm-6 form-control-static">'+good.attrValue+'</p></div>'
+                });
+                $(".forms-block").append(formsList);   
             }
         })
     } catch (e) {
-        window.location.href = "/debug/"
+        window.location.href = "/debug/";
     }
 }
 
@@ -245,7 +250,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: "http://192.168.222.162:8080/productInfo/getProductInfo/" +session.productGoods_productId,
+            url: plumeApi["getProductInfo"] + session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
@@ -256,9 +261,10 @@ function getProductInfo() {
                 var colorList = "";
                 var size = {};
                 var sizeList = "";
+                var formsList = "";
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
-                    size[data.standard] = 1
+                    size[data.standard] = 1;
                     trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' +data.productGoodsId+ '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
@@ -275,8 +281,8 @@ function getProductInfo() {
 
                 var colorArr = [];
                 var sizeArr = []; 
-                getColorArr()
-                getSizeArr()
+                getColorArr();
+                getSizeArr();
                 function getColorArr() {
                      $(".taking-color input").each(function(i) {
                         if($(this).prop('checked')===true){
@@ -321,8 +327,12 @@ function getProductInfo() {
                     change();
                 })
 
-            
-              
+                $(data.data.productInfoAttrORMs).each(function(i,good) {
+                    formsList+='<div class="form-group"><label class="col-sm-3 control-label">'+good.productAttribute.attrNameBack+'：</label><p class="col-sm-6 form-control-static">'+good.attrValue+'</p></div>'
+                });
+                
+                $(".forms-block").append(formsList);
+
             }
         });
     } catch (e) {
@@ -335,7 +345,7 @@ function getProductInfo() {
 function getGoodsData(productName, modelNumber, saleStatus) {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/listProductShopGoods",
+        url: plumeApi["listProductShopGoods"],
         type: "POST",
         contentType: "application/json;charset=UTF-8",
         data: JSON.stringify(
@@ -370,7 +380,7 @@ function getGoodsData(productName, modelNumber, saleStatus) {
 function getProductGoodsData(keyword) {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/listProductGoods",
+        url: plumeApi["listProductGoods"],
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         data: {"keyword": keyword},
@@ -382,27 +392,51 @@ function getProductGoodsData(keyword) {
     });
 }
 
+//待审核产品列表
+function listProductInfoUpt() {
+    $.ajax({
+        url:plumeApi["listProductInfoUpt"],
+        type:"POST",
+        contentType: "application/json;charset=UTF-8",
+        data:JSON.stringify(
+            {
+                "productName": "",
+                "seriesName": "",
+                "saleStatus": ""
+            }
+        ),
+        success:function(data){
+            if(data.ok) {
+                 unloading();
+                 $("[list-node]").remove();
+                 $(".table-block").setPageData(data);
+            }else{
+                alert('error');
+            }
+        }
+    })
+}
+
+
 
 //商品上架
 function groundGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/enableProductShopGoods/" + session.goods_psgId,
+        url: plumeApi["enableProductShopGoods"] + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
+            if(data.ok){
             unloading();
-            $('.pop').loadTemp("popTips", "nochangeurl", function () {
-            $(".pop").find(".popup-title").html("上架成功");   
-            $(".pop").find(".popup-icon").html('<i class="confirm"></i>');
-            $(".pop").find(".popup-info").html("确认");
-            $('.pop').on('click', '.btn-back', function () {
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-back');
-                });
-            });
+            popTips("上架成功","success");            
+            getGoodsData();
+            }else{
+            unloading();
+            popTips("上架失败","warning");
             getGoodsData();
         }
+     }
     });
 }
 
@@ -410,21 +444,19 @@ function groundGoods() {
 function soldOutGoods() {
     loading();
     $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/disableProductShopGoods/" + session.goods_psgId,
+        url: plumeApi["disableProductShopGoods"] + session.goods_psgId,
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
+            if(data.ok){
             unloading();
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                $(".pop").find(".popup-title").html("下架成功");   
-                $(".pop").find(".popup-icon").html('<i class="confirm"></i>');
-                $(".pop").find(".popup-info").html("确认");
-                $('.pop').on('click', '.btn-back', function () {
-                $('.pop').hide();
-                $('.pop').off('click', '.btn-back');
-                    });
-                });
+            popTips("下架成功","success");            
             getGoodsData();
+            }else{
+            unloading();
+            popTips("下架失败","warning");
+            getGoodsData();
+            }
         }
     });
 }
@@ -432,16 +464,60 @@ function soldOutGoods() {
 
 //新增店铺商品
 function addProductShopGoods(body) {
+    loading()
      $.ajax({
-        url: "http://192.168.222.162:8080/productShopGoods/addProductShopGoods",
+        url: plumeApi["addProductShopGoods"],
         type: "POST",
         contentType: "application/json;charset=UTF-8",
-            data: {"body": JSON.stringify(body)},
+            data: JSON.stringify(body),
             success: function (data) {
-                alert(1)
+                if(data.ok){
+                    unloading();
+                    popTips("商品编辑成功","success");
+                    derict(this, "groundGoods", "nochangeurl");
+            }else{
+                unloading();
+                popTips("商品编辑失败","warning");
+                derict(this, "groundGoods", "nochangeurl");
             }
+        }
     });
 } 
+
+//编辑店铺商品
+function editProductShopGoods() {
+    var price = $("#price").val();
+    var priceType = $("#priceType").val();
+    var inventory = $("#inventory").val();
+    var saleStatus = $("input[name='ground']:checked").val()
+    loading();
+     $.ajax({
+        url:plumeApi["editProductShopGoods"],
+        type:"POST",
+        contentType: "application/json;charset=UTF-8",
+        data:JSON.stringify(
+        {
+          "psgId": session.goods_psgId,
+          "salePrice": price,
+          "priceType":priceType,
+          "inventory": inventory,
+          "saleStatus":saleStatus
+        }
+        ),
+        success:function(data){
+            if(data.ok){
+                unloading();
+                popTips("商品编辑成功","success");
+                derict(this, "groundGoods", "nochangeurl");
+            }else{
+                unloading();
+                popTips("商品编辑失败","warning");
+                derict(this, "groundGoods", "nochangeurl");
+            }
+        }
+    });
+}
+
 
 
 //删除商品数据
@@ -456,13 +532,20 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url: "http://192.168.222.162:8080/productShopGoods/delProductShopGoods/" + session.goods_psgId,
+                url:plumeApi["delProductShopGoods"] + session.goods_psgId,
                 type: "GET",
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
-                    unloading();
-                    getGoodsData()
+                    if(data.ok){
+                        unloading();
+                        popTips("删除成功","success");
+                        getGoodsData();
+                    }else{
+                        unloading();
+                        popTips("删除失败","warning");
+                        getGoodsData();
                 }
+            }
             });
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
@@ -688,7 +771,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
 function getSelfData(showObj, stashId) {
 	loading();
 	$.ajax({
-		url: "http://192.168.222.162:8080/productStash/getProductStashById/" + stashId,
+		url: plumeApi["getProductStashById"] + stashId,
 		type: "GET",
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
@@ -719,10 +802,11 @@ function getSelfData(showObj, stashId) {
 	});
 }
 
+
 // 获取产品一级分类
 function getFirstCategory(showObj, categoryId) {
 	$.ajax({
-		url: "http://192.168.222.162:8080/productCategory/listProductCategory",
+		url: plumeApi["listProductCategory"],
 		type: "GET",
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
@@ -740,4 +824,14 @@ function getFirstCategory(showObj, categoryId) {
 		},
 		error:function(error) {console.log(error);}
 	});
+}
+
+
+//弹出层
+function popTips(popupTitle,popupIcon) {
+    $('.pop').loadTemp("popTips", "nochangeurl", function() {
+    $(".pop").find(".popup-title").html(popupTitle);
+    $(".pop").find(".popup-icon").html('<i class='+popupIcon+'></i>');
+    $(".pop").find(".popup-info").html("确认");    
+    });            
 }
