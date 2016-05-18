@@ -45,7 +45,6 @@ $(function(){
                 unloading();
                 if (data.ok) {
                     $(".reg-msg1").text("短信验证码发送成功").fadeIn();
-
                     settime(60);
                 } else {
  					$(".reg-msg1").text("短信验证码发送异常").fadeIn();
@@ -63,12 +62,13 @@ function isMobile(n) {
  
 function settime(countdown) { 
 	if (countdown == 0) { 
-		$("#cpdsendcode").removeAttribute("disabled");
-		$("#cpdsendcode").find(".btn-default")[0].innerHTML("获取验证码"); 
+		$("#cpdsendcode").removeAttr("disabled");
+		$(".timeshow").html("获取验证码"); 
+		sendMsgCount = 0;
 		return;
 	} else { 
-		$("#cpdsendcode").attr("disabled", true); 
-		$("#cpdsendcode").find(".btn-default")[0].innerHTML(countdown+"s后重新发送"); 
+		$("#cpdsendcode").attr("disabled", "disabled"); 
+		$(".timeshow").html(countdown+"s后重新发送"); 
 		countdown--; 
 	} 
 	setTimeout(function() { 
