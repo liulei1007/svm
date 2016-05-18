@@ -87,7 +87,7 @@ $(function () {
             type: "POST",
             url: plumeApi["login"],
             data: pram_str,
-            contentType: "application/json,charset=UTF-8",
+            contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();

@@ -33,28 +33,29 @@
             <tr>
                 <th><input type="checkbox" /></th>
                 <th>品牌名称</th>
-                <th>品牌id</th>
                 <th>问题类型</th>
-                <th>类目</th>
                 <th>反馈信息</th>
                 <th>反馈人</th>
                 <th>反馈日期</th>
                 <th>状态</th>
                 <th>结果</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true">
                 <td><input type="checkbox" /></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.brandId"></td>
                 <td class="feedbackType" node-name="$n.feedbackType"></td>
-                <td node-name="$n.feedbackCategory"></td>
                 <td node-name="$n.feedbackContent"></td>
                 <td node-name="$n.feedbackUser"></td>
                 <td class="createDate" node-name="$n.createDate"></td>
                 <td class="feedbackStatus" node-name="$n.feedbackStatus"></td>
                 <td node-name="$n.feedbackResult"></td>
+                <td>
+                  <button type="button" class="btn btn-link btn-compile">编辑</button>
+                  <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
+                </td>
               </tr>
             </tbody>
             <tbody>

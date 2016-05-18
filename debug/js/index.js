@@ -30,7 +30,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "shopListAgency", "nochangeurl");
+        derict(this, "agencyCreatePersonal", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -419,7 +419,7 @@ function listProductInfoUpt() {
 
 
 
-//商品上架
+//商品上架 
 function groundGoods() {
     loading();
     $.ajax({
@@ -529,6 +529,7 @@ function delectGoodsData() {
         $(".pop").find(".popup-title").html("删除确认？");
         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
         $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
         // 绑定按钮事件
         $('.pop').on('click', '.btn-sure', function () {
             loading();
@@ -758,11 +759,12 @@ function controlSelfGoods(operateName, selfGoods, url) {
 			}
 			else {
 				$('.pop').loadTemp("popTips", "nochangeurl", function() {
-					$(".pop").find(".popup-title").html(operateName + "自采商品");
+		            $(".pop").find(".popup-title").html(operateName + "自采商品");
 					$(".pop").find(".popup-icon").html('<i class="danger"></i>');
 					$(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
 				});
 			}
+           derict(this, "releaseSelfGoods", "nochangeurl");
 		},
 		error:function(error) {console.log(error);}
 	});
