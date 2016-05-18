@@ -23,31 +23,35 @@
     <form class="form-horizontal cpdstep1">
         <div class="form-group required">
             <label class="col-sm-3 control-label">手机号</label>
-            <div class="col-sm-6"><input type="text" class="form-control"></div>
+            <div class="col-sm-6"><input type="text" class="form-control mobile"></div>
         </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label">验证码</label>
-            <div class="col-sm-3"><input type="text" class="form-control"  placeholder="请输入验证码" ></div>
+            <div class="col-sm-3"><input type="text" class="form-control verifycode"  placeholder="请输入验证码" ></div>
             <div class="col-sm-2" id="cpdsendcode" >
                 <div class="btn btn-default">获取验证码</div>
             </div>
+            <!--
             <label class="col-sm-3 form-control-static">59s后重新发送</label>
+        -->
         </div>
         <div class="col-sm-8 col-sm-offset-3 btn-block">
+            <div class="form-block-msg reg-msg1"></div>
             <div type="button" class="btn btn-lg btn-success btn-next" id="cpdnext">下一步</div>
         </div>
     </form>
     <form class="form-horizontal cpdstep2">
         <div class="form-group required">
             <label class="col-sm-3 control-label">输入新密码</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="输入新密码" ></div>
+            <div class="col-sm-6"><input type="text" class="form-control password" placeholder="输入新密码" ></div>
         </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label">确认新密码</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="确认新密码" ></div>
+            <div class="col-sm-6"><input type="text" class="form-control repassword" placeholder="确认新密码" ></div>
         </div>
 
         <div class="col-sm-8 col-sm-offset-3 btn-block">
+            <div class="form-block-msg reg-msg2"></div>
             <div type="button" class="btn btn-lg btn-success btn-next" id="cpdsub">提交</div>
         </div>
     </form>

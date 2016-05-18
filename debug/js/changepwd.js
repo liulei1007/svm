@@ -1,11 +1,111 @@
 $(function(){
 	plumeLog("进入changepwd模板自定义js-"+plumeTime());
 	$("#cpdnext").bind("click",function(){
+		$(".reg-msg1").hide();
+		var verifycode = $('.verifycode').val();
+		if (verifycode == '') {
+			$(".reg-msg1").text("短信验证码发送成功").fadeIn();
+			return;
+		};
+
 		$(".cpdstep1").hide();
 		$(".cpdstep2").fadeIn();
 	});
 	$("#cpdsub").bind("click",function(){
-		$(".cpdstep2").hide();
-		$(".cpdstep1").fadeIn();
+		$(".reg-msg2").hide();
+		var password = $('.password').val();
+		var repassword = $('.repassword').val();
+		if(password == '') {
+			$(".reg-msg2").text("请输入新密码").fadeIn();
+			return;
+		}
+
+		if (repassword == '') {
+			$(".reg-msg2").text("请输入确认密码").fadeIn();
+			return;
+		};
+
+		if (password != repassword) {
+			$(".reg-msg2").text("秘密不一致").fadeIn();
+			return;
+		};
+
+		resetPassword();
+
+	//	$(".cpdstep2").hide();
+	//	$(".cpdstep1").fadeIn();
 	});
+
+	$("#cpdsendcode").bind("click", function() {
+		var mobile = $(".mobile").val();
+		$(".reg-msg1").hide();
+        if (isMobile(mobile)) {
+            loading();
+            $.get(plumeApi["sendMsg"] + "/" + mobile + "/10003", {}, function (data) {
+                unloading();
+                if (data.ok) {
+                    $(".reg-msg1").text("短信验证码发送成功").fadeIn();
+
+                    settime(60);
+                } else {
+ 					$(".reg-msg1").text("短信验证码发送异常").fadeIn();
+                }
+            });
+        } else {
+            $(".reg-msg1").text("手机号输入错误").fadeIn();
+        }
+	})
 })
+
+function isMobile(n) {
+    return /^1\d{10}$/.test(n) && n != 11111111111;
+}
+ 
+function settime(countdown) { 
+	if (countdown == 0) { 
+		$("#cpdsendcode").removeAttribute("disabled");
+		$("#cpdsendcode").find(".btn-default")[0].innerHTML("获取验证码"); 
+		return;
+	} else { 
+		$("#cpdsendcode").attr("disabled", true); 
+		$("#cpdsendcode").find(".btn-default")[0].innerHTML(countdown+"s后重新发送"); 
+		countdown--; 
+	} 
+	setTimeout(function() { 
+		settime(countdown) 
+	},1000);
+}
+
+function resetPassword() {
+	var mobile = $(".mobile").val();
+	var verifycode = $('.verifycode').val();
+	var password = $('.password').val();
+	var repassword = $('.repassword').val();
+
+	$(".reg-msg2").hide();
+
+	loading();
+	$.ajax({
+		url: plumeApi["resetPassword"],
+		type: "POST",
+		data: JSON.stringify({
+				"mobilePhone":mobile,
+				"password":password,
+				"rePassword":repassword,
+				"verifyCode":verifycode
+			}),
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		success: function(data) {
+			unloading();
+            if (data.ok) {
+                $(".reg-msg2").text("密码重置成功").fadeIn();
+                window.location.href = "login";
+            } else {
+				$(".reg-msg2").text("密码重置失败").fadeIn();
+            }
+		},
+		error:function(error) {console.log(error);}
+	});
+
+}
