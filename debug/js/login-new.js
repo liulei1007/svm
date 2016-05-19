@@ -1,6 +1,14 @@
-$(function () {
+$(function() {
     var timeOut;
-    plumeLog("进入loginNew模板自定义js-" + plumeTime());
+    $(".swiper-slide").show();
+
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        autoplay : 5000,
+        loop: true
+    });
+
     $(".login-left-icons .icons-toggle").each(function() {
         var delayTime = $(this).attr("data-delay");
         console.log(delayTime);
@@ -16,7 +24,4 @@ $(function () {
             $this.removeClass("animate");
         }, 2000);
     });
-});
-
-
-
+})

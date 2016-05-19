@@ -286,10 +286,8 @@ function copyMyGoods_init(){
     plumeLog("完成copyMyGoods模板加载-" + plumeTime());
 }
 
-
 //-- 新的login模板初始化函数
 function loginNew_init(){
-    plumeUtil.css(plumePath+"/css/login.css");
-    plumeUtil.js(plumePath+"/js/bootstrap.min.js");
+    plumeUtil.css(plumePath+"/css/swiper.min.css");
     plumeUtil.js(plumePath+"/js/login-new.js");
 }
