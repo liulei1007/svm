@@ -10,6 +10,7 @@ $(function () {
     });
     var cls=["type-first","type-second","type-third"];
     function getFirstCategory(categoryId,tag){
+        console.log(categoryId+"--"+tag);
         loading();
         $.get(plumeApi["listProductCategory"]+"/"+categoryId,{},function(data){
             unloading();
