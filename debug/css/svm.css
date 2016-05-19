@@ -463,7 +463,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .sd-btn-radius .div2{font-size:12px;display:none;width:100%;background:#fff;float: left;color:#333;padding:10px 10px 20px 10px;white-space: normal;text-align: left;display:none}
 .sd-btn-radius .div2 .p-title{color:#0094da;margin:10px 0 0 0}
 .sd-btn-radius .div2 .p-cont{color:#aaa;margin: 5px 0 0 0}
-.index-head-logo{height:45px;width:200px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
+.index-head-logo{height:45px;width:240px;line-height:45px;text-align:center;font-size:16px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}
 .index-head-user .ihu-title-block{position:absolute;top:45px;left:0;width:200px;height:100px;display: none;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc;background: #fff}
 .index-head-user .ihu-title-block div{border-top:0px solid #fff;font-size:14px;cursor:pointer}
@@ -735,3 +735,5 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 @-o-keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
 @keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
 
+.index-head-logo span{font-size:24px}
+.index-head-logopic{background: url("../images/logos.png")no-repeat 0 0;height:36px;width:27px;float:left;margin:4px 0 0 20px}
