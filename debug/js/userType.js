@@ -30,5 +30,4 @@ $(function () {
         })
     }
     getFirstCategory(0,0);
-
 });

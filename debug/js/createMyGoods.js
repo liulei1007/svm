@@ -7,20 +7,39 @@ $(function () {
     }
 
     userTypeInit();
+    //设置品牌
     function getbrandList() {
         loading();
-        $.get(plumeApi["listBrandBusinessInfo"], {}, function (data) {
-            $(".cmg-brand").setPageData(data);
-            unloading();
-            $("#brandId").bind("change", function () {
-                loading();
-                var brandId = $(this).val();
-                $.get(plumeApi["brandSeries"] + "/" + brandId, {}, function (data) {
-                    unloading();
-                    $(".cmg-series").find("[list-node]").remove();
-                    $(".cmg-series").setPageData(data);
+        var pram_str = '{';
+        pram_str += '"start": 0,';
+        pram_str += '"limit": 0,';
+        pram_str += '"brandName": "",';
+        pram_str += '"contract": "",';
+        pram_str += '"contractTel": "",';
+        pram_str += '"objectId": 0';
+        pram_str += '}';
+        $.ajax({
+            type: "POST",
+            url: plumeApi["listOmsBrand"],
+            data: pram_str,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                $(".cmg-brand").setPageData(data);
+                unloading();
+                $("#brandId").bind("change", function () {
+                    loading();
+                    var brandId = $(this).val();
+                    $.get(plumeApi["listOmsBrandSeries"] + "/" + brandId, {}, function (data) {
+                        unloading();
+                        $(".cmg-series").find("[list-node]").remove();
+                        $(".cmg-series").setPageData(data);
+                    });
                 });
-            });
+            }
+        })
+        $.get(plumeApi["listOmsBrand"], {}, function (data) {
+
         });
     }
 
@@ -28,10 +47,11 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        $.get(plumeApi["listProductAttribute"]+"/"+categoryId,{},function(data){
+        $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
         });
     }
+
     getProductAttribute();
     //修改类目参数
     $(".changeType").bind("click", function () {
@@ -176,8 +196,8 @@ $(function () {
         pram_str += ' "seriesId": ' + $("#seriesId").val() + ',';
         pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
         pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
-        pram_str += ' "countryId": "",';
-        pram_str += '"countryName": "",';
+        pram_str += ' "countryId": "CN",';
+        pram_str += '"countryName": "中国",';
         pram_str += '"provinceId": "' + $("#provinceId").val() + '",';
         pram_str += '"provinceName": "' + $("#provinceName").find("option:selected").text() + '",';
         pram_str += '"cityId": "' + $("#cityId").val() + '",';
@@ -185,7 +205,7 @@ $(function () {
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": ' + $("#weight").val() + ',';
-        pram_str += '"chargeUnit": "",';
+        pram_str += '"chargeUnit": "元",';
         pram_str += '"material": "",';
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
@@ -211,15 +231,26 @@ $(function () {
         pram_str += ' }';
         pram_str += ' ],';
         pram_str += ' "goods": [';
-        pram_str += '{';
-        pram_str += ' "colorId": 0,';
-        pram_str += '"colorRgb": "",';
-        pram_str += '"color": "",';
-        pram_str += '"standard": "",';
-        pram_str += ' "salePrice": 0';
-        pram_str += '}';
+        var goods_pram_str = "";
+        $(".cmg-goodstr").each(function () {
+            goods_pram_str += '{';
+            goods_pram_str += ' "colorId": ' + $(this).attr("colorid") + ',';
+            goods_pram_str += '"colorRgb": "' + $(this).attr("colorvalue") + '",';
+            goods_pram_str += '"color": "' + $(this).attr("colorname") + '",';
+            goods_pram_str += '"standard": "' + $(this).find("stand").val() + '",';
+            goods_pram_str += ' "salePrice": ' + $(this).find("marketPrice").val() + '';
+            goods_pram_str += '},';
+        });
+        pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
         pram_str += ']';
         pram_str += '}';
+        //待审核工厂商品新增Vo {
+        //    colorId (integer, optional): 颜色ID,
+        //        colorRgb (string, optional): 颜色RGB,
+        //        color (string, optional): 颜色名称,
+        //        standard (string, optional): 规格,
+        //        salePrice (number, optional): 商品市场参考价
+        //}
         loading();
         $.ajax({
             type: "POST",
@@ -297,11 +328,12 @@ $(function () {
             var marketPrice = $("#marketPrice").val();
             $(".colortr").each(function () {
                 var colorid = $(this).attr("colorid");
+                var colorvalue = $(this).attr("colorvalue");
                 var colorname = $(this).find(".colorName").attr("colorname");
-                var temp = '<tr>';
-                temp += '<td colorid="' + colorid + '">' + colorname + '</td>';
-                temp += '<td><input type="text" class="form-control" value="' + stand + '"></td>';
-                temp += '<td><input type="text" class="form-control" value="' + marketPrice + '"></td>';
+                var temp = '<tr class="cmg-goodstr">';
+                temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
+                temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
                 temp += '<td>';
                 temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                 temp += '</td>';

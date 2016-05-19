@@ -165,7 +165,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .btn{box-sizing: border-box; border-radius: 0;}
 .btn-default{color: #333; background-color: #f8f9fa; border-color: #ced1dc;}
 .btn-default:hover, .btn-default.focus, .btn-default:focus{background-color: #ced1dc; border-color: #ced1dc;}
-.btn-primary{color: #fff; background-color: #17adf2; border-color: #17adf2;}
+.btn-primary{color: #fff; background-color: #17adf2; border-color: #17adf2;min-width:80px}
 .btn-primary:hover, .btn-primary.focus, .btn-primary:focus{background-color: #0094da; border-color: #0094da;}
 .btn-success{color: #fff; background-color: #02be49; border-color: #02be49;}
 .btn-success:hover, .btn-success.focus, .btn-success:focus{background-color: #009b39; border-color: #009b39;}
@@ -283,7 +283,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .doc-commodityManagement{padding:10px;}
 .doc-commodityManagement table{margin-top: 10px;}
 .table-info span{color:red;}
-.addGoods-table>div>div{margin: 20px 0;}
+.addGoods-table>div>div{margin: 10px 0 0 0;}
 /** --------基础数据管理-------- **/
 .table-title{padding:20px 0;}
 .doc-basicDataManagement{padding:10px;}
@@ -302,14 +302,14 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-title{height:16px;}
 .color-font{text-align: center;line-height: 33px;width:73px;}
 .color-type .sel{position: absolute; top:17px;border-bottom: 1px solid #fff;z-index: 9;}
-.color-select{border:1px solid #dadce5;height:151px;margin-left: 40px;padding-top: 35px;width:824px}
+.color-select{border:1px solid #dadce5;height:151px;margin-left: 15px;padding-top: 35px;width:824px}
 .color-select>div>div>input{float:left;margin: 10px 12px 0 0;}
 .color-select>div>div>div{float:left;width:68px;}
 .color-select>div>div>div>p{height:22px;width:68px;border:1px solid #dadce5;text-align: center;}
 .color-select>div>div>div>p>input{height:100%;width:100%;border:0px solid #dadce5;text-align: center;}
 .color-select-title{height:8px;border: 1px solid #dadce5;border-bottom: none;}
 .none-input-color{display: none;}
-.color-type{margin-bottom: 20px;}
+.color-type{margin-bottom: 10px;}
 .color-type-talbe{  padding-left: 25px;width: 849px;}
 
 /** --------使用类目-------- **/
@@ -665,3 +665,6 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
     }
 }
 .moveitem{display: none}
+.color-desc input{height: 100%;width:100%}
+.color-row{margin-left:-25px}
+.table-bordered{margin-bottom:0px}

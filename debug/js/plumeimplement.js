@@ -289,5 +289,5 @@ function copyMyGoods_init(){
 
 //-- 新的login模板初始化函数
 function loginNew_init(){
-    plumeUtil.js(plumePath+"/js/login-new.js");
+    plumeUtil.js(plumePath+"/js/loginNew.js");
 }

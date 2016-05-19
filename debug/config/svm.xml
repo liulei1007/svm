@@ -315,6 +315,10 @@
         <init>loginNew_init</init>
     </page>
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
+    <!--192.168.221.222:8080-->
+    <!-- api.longguo.hxmklmall.cn:80-->
+    <!--192.168.222.162:8080-->
+    <!--api.longguo.hxmklmall.cn:80/-->
     <api>
         <listBrandSeriesList>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeriesList</listBrandSeriesList>
         <listAgentsBrandInfoList-brand>http://api.longguo.hxmklmall.cn:80/agentsBrandInfo/listAgentsBrandInfoList</listAgentsBrandInfoList-brand>
@@ -346,5 +350,7 @@
         <reviewProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/reviewProductInfo</reviewProductInfo>
         <brandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeries</brandSeries>
         <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
+        <listOmsBrand>http://192.168.222.164:8080/brandSeries/listOmsBrand</listOmsBrand>
+        <listOmsBrandSeries>http://192.168.222.164:8080/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
     </api>
 </config>
