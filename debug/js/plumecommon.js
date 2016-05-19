@@ -1,3 +1,6 @@
+
+//document.domain = "longguo.hxmklmall.cn";
+console.log("domain:"+document.domain);
 var PLUME_PROJECT = "debug";
 var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/css/bootstrap.min.css",
@@ -10,7 +13,9 @@ var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/js/plumeimplement.js",
     "/" + PLUME_PROJECT + "/js/swiper.min.js"
 ];
+
 for (var i = 0; i < PLUME_FILE.length; i++) {
+
     if (PLUME_FILE[i].toLowerCase().indexOf(".js") != -1) {
         document.write("<script src='" + PLUME_FILE[i] + "'><\/script>");
     } else if (PLUME_FILE[i].toLowerCase().indexOf(".css") != -1) {
