@@ -15,142 +15,142 @@
 		</script>
 	</head>
 	<body>
-	<div class="login-container">
-		<!-- 登录表单 -->
-		<div class="login-form">
-			<div class="login-form-container">
-				<p class="login-form-title">用户登录</p>
-				<div class="form">
-					<div class="form-group clearFix">
-						<i class="user"></i>
-						<input type="text" placeholder="请输入您的手机号" />
-					</div>
-					<div class="form-group clearFix">
-						<i class="password"></i>
-						<input type="password" placeholder="请输入密码" />
-					</div>
-				</div>
-				<div class="btn-login">登录</div>
-				<div class="options clearFix">
-					<div class="pull-left">
-						<div class="checkbox-inline">
-							<label><input type="checkbox">记住密码</label>
+		<div class="login-container">
+			<!-- 登录表单 -->
+			<div class="login-form">
+				<div class="login-form-container">
+					<p class="login-form-title">用户登录</p>
+					<div class="form">
+						<div class="form-group clearFix">
+							<i class="user"></i>
+							<input type="text" id="logintel" placeholder="请输入您的手机号" />
+						</div>
+						<div class="form-group clearFix">
+							<i class="password"></i>
+							<input type="password" id="loginpwd" placeholder="请输入密码" />
 						</div>
 					</div>
-					<div class="pull-right">忘记密码？</div>
+					<div class="btn-login">登录</div>
+					<div class="options clearFix">
+						<div class="pull-left">
+							<div class="checkbox-inline">
+								<label><input type="checkbox">记住密码</label>
+							</div>
+						</div>
+						<div class="pull-right fetchpwd">忘记密码？</div>
+					</div>
+				</div>
+				<div class="register-line">没有账号？<span class="btn-register">立即注册！</span></div>
+			</div>
+
+			<!-- 头部 -->
+			<div class="login-navbar">
+				<div class="login-navbar-header clearFix">
+					<div class="login-navbar-brand">
+						<img class="logo" src="images/logo.png"/>
+						<span class="brand-name">龙果</span>
+						<span class="brand-slogon">家居行业数据平台</span>
+					</div>
 				</div>
 			</div>
-			<div class="register-line">没有账号？<span class="btn-register">立即注册！</span></div>
-		</div>
 
-    <!-- 头部 -->
-    <div class="login-navbar">
-        <div class="login-navbar-header clearFix">
-            <div class="login-navbar-brand">
-                <img class="logo" src="images/logo.png"/>
-                <span class="brand-name">龙果</span>
-                <span class="brand-slogon">家居行业数据平台</span>
-            </div>
-        </div>
-    </div>
+			<!-- 底部 -->
+			<div class="login-footer">
+				<div class="login-footer-foot clearFix">
+					<img class="logo-company" src="images/logo-company.jpg"/>
 
-    <!-- 底部 -->
-    <div class="login-footer">
-        <div class="login-footer-foot clearFix">
-            <img class="logo-company" src="images/logo-company.jpg"/>
+					<div class="footer-relative">
+						<div class="footer-relative-block clearFix">
+							<sapn class="footer-link">关于我们</sapn>
+							<sapn class="footer-link">诚招英才</sapn>
+							<sapn class="footer-link">商家入驻</sapn>
+							<sapn class="footer-link">广告服务</sapn>
+							<sapn class="footer-link">上海红星美凯龙网络技术有限公司版权所有 Copyright 2016-2020</sapn>
+						</div>
+						<div class="footer-relative-block clearFix">
+							<sapn class="footer-link">红星美凯龙官网</sapn>
+							<sapn class="footer-link">红美商城</sapn>
+							<sapn class="footer-link">红星装修工</sapn>
+							<sapn class="footer-link">家倍得</sapn>
+							<sapn class="footer-link">红星O2O商城</sapn>
+							<sapn class="footer-link">家金所</sapn>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="footer-relative">
-                <div class="footer-relative-block clearFix">
-                    <sapn class="footer-link">关于我们</sapn>
-                    <sapn class="footer-link">诚招英才</sapn>
-                    <sapn class="footer-link">商家入驻</sapn>
-                    <sapn class="footer-link">广告服务</sapn>
-                    <sapn class="footer-link">上海红星美凯龙网络技术有限公司版权所有 Copyright 2016-2020</sapn>
-                </div>
-                <div class="footer-relative-block clearFix">
-                    <sapn class="footer-link">红星美凯龙官网</sapn>
-                    <sapn class="footer-link">红美商城</sapn>
-                    <sapn class="footer-link">红星装修工</sapn>
-                    <sapn class="footer-link">家倍得</sapn>
-                    <sapn class="footer-link">红星O2O商城</sapn>
-                    <sapn class="footer-link">家金所</sapn>
-                </div>
-            </div>
-        </div>
-    </div>
+			<!-- 可轮播的背景 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!-- 屏一 -->
+					<div id="screen-1" class="swiper-slide" style="display: block;">
+						<img src="images/login/bg-login-1.jpg" />
+						<div class="login-left-icons">
+							<div class="icons-lines"></div>
 
-    <!-- 可轮播的背景 -->
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
-				<!-- 屏一 -->
-				<div id="screen-1" class="item active">
-					<img src="images/login/bg-login-1.jpg" />
-					<div class="login-left-icons">
-						<div class="icons-lines"></div>
+							<div id="logo" class="icons icons-bottom" style="margin-left: -64px; width: 130px; height: 170px;">
+								<img class="front" src="images/login/icons-logo-1.png" />
+								<img class="back" src="images/login/icons-logo-1-back.png" />
+							</div>
 
-						<div id="logo" class="icons icons-bottom" style="margin-left: -64px; width: 130px; height: 170px;">
-							<img class="front" src="images/login/icons-logo-1.png" />
-							<img class="back" src="images/login/icons-logo-1-back.png" />
+							<div data-delay="1.6s" class="icons icons-bottom icons-toggle" style="bottom: -21px; margin-left: -330px; width: 70px; height: 70px;"><img src="images/login/icons-base.png" /></div>
+							<div data-delay="0.7s" class="icons icons-bottom icons-toggle" style="bottom: 280px; margin-left: -345px; width: 63px; height: 63px;"><img src="images/login/icons-data.png" /></div>
+							<div data-delay="0s" class="icons icons-bottom icons-toggle" style="bottom: 122px; margin-left: -235px; width: 78px; height: 78px;"><img src="images/login/icons-orange.png" /></div>
+							<div data-delay="1.2s" class="icons icons-bottom icons-toggle" style="bottom: 151px; margin-left: -126px; width: 69px; height: 69px;"><img src="images/login/icons-brand.png" /></div>
+							<div data-delay="0.6s" class="icons icons-bottom icons-toggle" style="bottom: 311px; margin-left: -145px; width: 92px; height: 92px;"><img src="images/login/icons-audit.png" /></div>
+
+
+							<div data-delay="0.2s" class="icons icons-bottom icons-toggle" style="bottom: 217px; margin-left: 18px; width: 80px; height: 80px;"><img src="images/login/icons-agency.png" /></div>
+							<div data-delay="1.4s" class="icons icons-bottom icons-toggle" style="bottom: 25px; margin-left: 150px; width: 86px; height: 86px;"><img src="images/login/icons-shop.png" /></div>
+							<div data-delay="0.4s" class="icons icons-bottom icons-toggle" style="bottom: 176px; margin-left: 138px; width: 55px; height: 55px;"><img src="images/login/icons-goods.png" /></div>
+							<div data-delay="1.1s" class="icons icons-bottom icons-toggle" style="bottom: 343px; margin-left: 135px; width: 60px; height: 60px;"><img src="images/login/icons-purple.png" /></div>
+							<div data-delay="0.9s" class="icons icons-bottom icons-toggle" style="bottom: 135px; margin-left: 280px; width: 50px; height: 50px;"><img src="images/login/icons-m.png" /></div>
 						</div>
 
-						<div data-delay="1.6s" class="icons icons-bottom icons-toggle" style="bottom: -21px; margin-left: -330px; width: 70px; height: 70px;"><img src="images/login/icons-base.png" /></div>
-						<div data-delay="0.7s" class="icons icons-bottom icons-toggle" style="bottom: 280px; margin-left: -345px; width: 63px; height: 63px;"><img src="images/login/icons-data.png" /></div>
-						<div data-delay="0s" class="icons icons-bottom icons-toggle" style="bottom: 122px; margin-left: -235px; width: 78px; height: 78px;"><img src="images/login/icons-orange.png" /></div>
-						<div data-delay="1.2s" class="icons icons-bottom icons-toggle" style="bottom: 151px; margin-left: -126px; width: 69px; height: 69px;"><img src="images/login/icons-brand.png" /></div>
-						<div data-delay="0.6s" class="icons icons-bottom icons-toggle" style="bottom: 311px; margin-left: -145px; width: 92px; height: 92px;"><img src="images/login/icons-audit.png" /></div>
-
-
-						<div data-delay="0.2s" class="icons icons-bottom icons-toggle" style="bottom: 217px; margin-left: 18px; width: 80px; height: 80px;"><img src="images/login/icons-agency.png" /></div>
-						<div data-delay="1.4s" class="icons icons-bottom icons-toggle" style="bottom: 25px; margin-left: 150px; width: 86px; height: 86px;"><img src="images/login/icons-shop.png" /></div>
-						<div data-delay="0.4s" class="icons icons-bottom icons-toggle" style="bottom: 176px; margin-left: 138px; width: 55px; height: 55px;"><img src="images/login/icons-goods.png" /></div>
-						<div data-delay="1.1s" class="icons icons-bottom icons-toggle" style="bottom: 343px; margin-left: 135px; width: 60px; height: 60px;"><img src="images/login/icons-purple.png" /></div>
-						<div data-delay="0.9s" class="icons icons-bottom icons-toggle" style="bottom: 135px; margin-left: 280px; width: 50px; height: 50px;"><img src="images/login/icons-m.png" /></div>
+						<div class="login-text-block" style="color: #efd6d0">运筹帷幄 <strong>决胜</strong>云端</div>
 					</div>
 
-					<div class="login-text-block" style="color: #efd6d0">运筹帷幄 <strong>决胜</strong>云端</div>
-				</div>
+					<!-- 屏二 -->
+					<div id="screen-2" class="swiper-slide" style="display: none;">
+						<img src="images/login/bg-login-2.jpg" />
+						<div class="login-left-icons">
 
-				<!-- 屏二 -->
-				<div id="screen-2" class="item">
-					<img src="images/login/bg-login-2.jpg" />
-					<div class="login-left-icons">
+							<div class="icons-lines"><img src="images/login/img-lines-2.png" /></div>
 
-						<div class="icons-lines"><img src="images/login/img-lines-2.png" /></div>
+							<div data-delay="0s" class="icons icons-middle icons-toggle" style="left: 272px; margin-bottom: 32px; width: 100px; height: 100px;"><img src="images/login/icons-orange.png" /></div>
+							<div data-delay="0.3s" class="icons icons-middle icons-toggle" style="left: 471px; margin-bottom: 32px; width: 100px; height: 100px;"><img src="images/login/icons-agency.png" /></div>
 
-						<div data-delay="0s" class="icons icons-middle icons-toggle" style="left: 272px; margin-bottom: 32px; width: 100px; height: 100px;"><img src="images/login/icons-orange.png" /></div>
-						<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="left: 471px; margin-bottom: 32px; width: 100px; height: 100px;"><img src="images/login/icons-agency.png" /></div>
+							<div data-delay="0.6s" class="icons icons-middle icons-toggle" style="left: 186px; margin-bottom: 166px; width: 55px; height: 55px;"><img src="images/login/icons-goods-2.png" /></div>
+							<div data-delay="1.3s" class="icons icons-middle icons-toggle" style="left: 260px; margin-bottom: -86px; width: 54px; height: 54px;"><img src="images/login/icons-brand-2.png" /></div>
+							<div data-delay="0.8s" class="icons icons-middle icons-toggle" style="left: 602px; margin-bottom: 210px; width: 67px; height: 67px;"><img src="images/login/icons-base.png" /></div>
+							<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="left: 603px; margin-bottom: -60px; width: 68px; height: 68px;"><img src="images/login/icons-data-2.png" /></div>
+						</div>
 
-						<div data-delay="0.2s" class="icons icons-middle icons-toggle" style="left: 186px; margin-bottom: 166px; width: 55px; height: 55px;"><img src="images/login/icons-goods-2.png" /></div>
-						<div data-delay="1s" class="icons icons-middle icons-toggle" style="left: 260px; margin-bottom: -86px; width: 54px; height: 54px;"><img src="images/login/icons-brand-2.png" /></div>
-						<div data-delay="0.5s" class="icons icons-middle icons-toggle" style="left: 602px; margin-bottom: 210px; width: 67px; height: 67px;"><img src="images/login/icons-base.png" /></div>
-						<div data-delay="1.2s" class="icons icons-middle icons-toggle" style="left: 603px; margin-bottom: -60px; width: 68px; height: 68px;"><img src="images/login/icons-data-2.png" /></div>
+						<div class="login-text-block" style="color: #ffe599">行业平台 <strong>共享</strong>盛世</div>
 					</div>
 
-					<div class="login-text-block" style="color: #ffe599">行业平台 <strong>共享</strong>盛世</div>
-				</div>
+					<!-- 屏三 -->
+					<div id="screen-3" class="swiper-slide" style="display: none;">
+						<img src="images/login/bg-login-3.jpg" />
+						<div class="login-left-icons">
 
-				<!-- 屏三 -->
-				<div id="screen-3" class="item">
-					<img src="images/login/bg-login-3.jpg" />
-					<div class="login-left-icons">
+							<div class="icons-lines"></div>
 
-						<div class="icons-lines"></div>
-
-						<div class="icons icons-middle" style="right: 183px; margin-bottom: -102px; width: 130px; height: 170px;"><img src="images/login/icons-logo-3.png" /></div>
-						<div data-delay="0.7s" class="icons icons-middle icons-toggle" style="right: 403px; margin-bottom: -7px; width: 44px; height: 44px;"><img src="images/login/icons-brand-3.png" /></div>
-						<div data-delay="0s" class="icons icons-middle icons-toggle" style="right: 460px; margin-bottom: -72px; width: 38px; height: 38px;"><img src="images/login/icons-data-3.png" /></div>
-						<div data-delay="1s" class="icons icons-middle icons-toggle" style="right: 525px; margin-bottom: 58px; width: 56px; height: 56px;"><img src="images/login/icons-audit-3.png" /></div>
-						<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="right: 620px; margin-bottom: -95px; width: 85px; height: 85px;"><img src="images/login/icons-base-3.png" /></div>
-						<div data-delay="0.2s" class="icons icons-middle icons-toggle" style="right: 703px; margin-bottom: 59px; width: 38px; height: 38px;"><img src="images/login/icons-goods-3.png" /></div>
+							<div class="icons icons-middle" style="right: 183px; margin-bottom: -102px; width: 130px; height: 170px;"><img src="images/login/icons-logo-3.png" /></div>
+							<div data-delay="0.7s" class="icons icons-middle icons-toggle" style="right: 403px; margin-bottom: -7px; width: 44px; height: 44px;"><img src="images/login/icons-brand-3.png" /></div>
+							<div data-delay="0s" class="icons icons-middle icons-toggle" style="right: 460px; margin-bottom: -72px; width: 38px; height: 38px;"><img src="images/login/icons-data-3.png" /></div>
+							<div data-delay="1s" class="icons icons-middle icons-toggle" style="right: 525px; margin-bottom: 58px; width: 56px; height: 56px;"><img src="images/login/icons-audit-3.png" /></div>
+							<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="right: 620px; margin-bottom: -95px; width: 85px; height: 85px;"><img src="images/login/icons-base-3.png" /></div>
+							<div data-delay="0.2s" class="icons icons-middle icons-toggle" style="right: 703px; margin-bottom: 59px; width: 38px; height: 38px;"><img src="images/login/icons-goods-3.png" /></div>
+						</div>
+						<div class="login-text-block" style="color: #0fdbd3">立足<strong>红星</strong> 纵横天下</div>
 					</div>
-					<div class="login-text-block" style="color: #0fdbd3">立足<strong>红星</strong> 纵横天下</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- 控制轮播的按钮 -->
-		<a class="carousel-control left" href="#carousel-example-generic" data-slide="prev"></a>
-		<a class="carousel-control right" href="#carousel-example-generic" data-slide="next"></a>
-</div>
-</body>
+			<!-- 控制轮播的按钮 -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</body>
 </html>

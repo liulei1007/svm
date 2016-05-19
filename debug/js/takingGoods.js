@@ -60,6 +60,4 @@ $(function(){
 			$(this).val(allInventoryValue);
 		});
 	});
-
-
 })
