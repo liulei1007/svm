@@ -47,68 +47,19 @@
                 <th>操作</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
+            <tbody data-list="$p.data">
+              <tr list-temp="true"  node-name="attr-managid:$n.id">
                 <td><input type="checkbox" /></td>
-                <td>13929294856</td>
-                <td>2016-03-02</td>
+                <td node-name="$n.mobilePhone"></td>
+                <td class="createDate" node-name="$n.createDate"></td>
                 <td>
                     <div type="div" class="table-ctrl">配置</div>
                 </td>
                 <td>
-                    <div type="div" class="table-ctrl">删除</div>
-                    <div type="div" class="table-ctrl">查看</div>
+                    <button type="button" class="btn btn-link btn-compile">编辑</button>
+                    <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
                 </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>13722812293</td>
-                <td>2016-03-01</td>
-                <td>
-                    <div type="div" class="table-ctrl">配置</div>
-                </td>
-                <td>
-                    <div type="div" class="table-ctrl">删除</div>
-                    <div type="div" class="table-ctrl">查看</div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>13722812293</td>
-                <td>2016-03-01</td>
-                <td>
-                    <div type="div" class="table-ctrl">配置</div>
-                </td>
-                <td>
-                    <div type="div" class="table-ctrl">删除</div>
-                    <div type="div" class="table-ctrl">查看</div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>13722812293</td>
-                <td>2016-03-01</td>
-                <td>
-                    <div type="div" class="table-ctrl">配置</div>
-                </td>
-                <td>
-                    <div type="div" class="table-ctrl">删除</div>
-                    <div type="div" class="table-ctrl">查看</div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>13722812293</td>
-                <td>2016-03-01</td>
-                <td>
-                    <div type="div" class="table-ctrl">配置</div>
-                </td>
-                <td>
-                    <div type="div" class="table-ctrl">删除</div>
-                    <div type="div" class="table-ctrl">查看</div>
-                </td>
-            </tr>
-
+              </tr>
             </tbody>
         </table>
     </div>
