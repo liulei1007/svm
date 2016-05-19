@@ -49,12 +49,17 @@
                 <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
             </div>
             <div class="form-group">
-                <label>状态</label>
+                <label>审核状态</label>
                 <select class="form-control input-sm" id="saleStatus">
                     <option value="0">待审核</option>
                     <option value="1">已审核</option>
-                    <option value="2">已启用</option>
-                    <option value="3">已禁用</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>启用状态</label>
+                <select class="form-control input-sm" id="">
+                    <option value="0">已启用</option>
+                    <option value="1">已禁用</option>
                 </select>
             </div>
             <div class="btn btn-default btn-sm gdm-btn-search">查询</div>
@@ -70,14 +75,12 @@
             <thead>
             <tr>
                 <th><input type="checkbox"/></th>
-                <th>商品数据ID号</th>
+                <th>商品编号</th>
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
-                <th>型号</th>
-                <th>状态</th>
-                <th>颜色</th>
-                <th>规格</th>
+                <th>产地</th>
+                <th>修改时间</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -87,10 +90,8 @@
                 <td node-name="$n.productId" class="productId"></td>
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
-                <td node-name="$n.productSecondName"></td>
-                <td node-name="$n.productSecondName"></td>
-                <td node-name="$n.productSecondName"></td>
-                <td node-name="$n.productSecondName"></td>
+                <td node-name="$n.brandName"></td>
+                <td node-name="$n.cityName"></td>
                 <td node-name="$n.updateDate"></td>
                 <td>
                     <button type="button" class="btn btn-link gdm-btn-edit">编辑</button>
