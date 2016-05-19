@@ -93,6 +93,7 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     $(".login-msg2").text("登录成功,用户id:" + data.data + "仅验证登录,跳转请使用另外两个测试按钮.").fadeIn();
+                    window.location.href = "index";
                 } else {
                     $(".login-msg1").text(data.resDescription).fadeIn();
                 }
@@ -119,6 +120,10 @@ $(function () {
             $(".reg-msg1").text("请输入密码").fadeIn();
             return;
         }
+        if (!pwdCheck(pwd)) {
+            $(".reg-msg1").text("密码必须是6-15位数字和字母组合").fadeIn();
+            return;
+        }
         if (msgcode == "") {
             $(".reg-msg1").text("请输入验证码").fadeIn();
             return;
@@ -134,6 +139,7 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     $(".reg-msg2").text("注册成功").fadeIn();
+                    window.location.href = "index";
                 } else {
                     $(".reg-msg1").text(data.resDescription).fadeIn();
                 }
@@ -146,6 +152,11 @@ $(function () {
   //  login_move.testmove();
 
 });
+
+//密码验证: 6-15位字符，建议数字和字母组合
+function pwdCheck(pwd) {
+    return /^[0-9A-Za-z]{6,15}$/.test(pwd);
+}
 
 //loading
 var transmit_a = 0;

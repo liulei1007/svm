@@ -350,7 +350,15 @@
         <reviewProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/reviewProductInfo</reviewProductInfo>
         <brandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeries</brandSeries>
         <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
+
         <listOmsBrand>http://192.168.222.164:8080/brandSeries/listOmsBrand</listOmsBrand>
         <listOmsBrandSeries>http://192.168.222.164:8080/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
+
+        <listFeedBack>http://api.longguo.hxmklmall.cn:80/feedback/listFeedBack/</listFeedBack>
+        <addFeedbackInfo>http://api.longguo.hxmklmall.cn:80/feedback/addFeedbackInfo/</addFeedbackInfo>
+        <delFeedback>http://api.longguo.hxmklmall.cn:80/feedback/delFeedback/</delFeedback>
+        <resetPassword>http://api.longguo.hxmklmall.cn:80/userInfo/resetPassword/</resetPassword>
+
+
     </api>
 </config>

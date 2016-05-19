@@ -289,5 +289,10 @@ function copyMyGoods_init(){
 
 //-- 新的login模板初始化函数
 function loginNew_init(){
+
     plumeUtil.js(plumePath+"/js/loginNew.js");
+
+    plumeUtil.css(plumePath+"/css/login.css");
+    plumeUtil.js(plumePath+"/js/bootstrap.min.js");
+    plumeUtil.js(plumePath+"/js/login-new.js");
 }

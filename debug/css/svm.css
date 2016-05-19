@@ -1,5 +1,11 @@
 @charset "utf-8";
-*{font-family:"Microsoft Yahei"}
+@font-face {font-family: lightFont; src: url("../fonts/PingFang Light.ttf");}  
+@font-face {font-family: normalFont; src: url("../fonts/PingFang Regular.ttf");}  
+
+@font-face {font-family: boldFont; src: url("../fonts/PingFang Bold.ttf");}  
+
+
+*{font-family: normalFont, "Microsoft Yahei"}
 html,body{height:100%; width:100%; overflow:auto; margin:0; padding:0;background:#fff;}
 textarea{resize: none;}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
@@ -512,7 +518,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .contractive .bw-item-title:after{margin-top: -8px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(135deg);}
 .bw-table1{margin-bottom:0}
 
-.bw-item-table,.bw-item-btns{padding: 10px;border-top:1px solid #ced1dc;float:left;width:100%}
+.bw-item-table,.bw-item-btns{margin-top: 0; padding: 10px;border-top:1px solid #ced1dc;float:left;width:100%}
 .bw-table-text{color:#fff;background:#989da8;padding:2px 5px;font-size:11px}
 .bw-table-link{color:#26aff5;}
 .bw-table-link:hover{text-decoration: underline;cursor:pointer}

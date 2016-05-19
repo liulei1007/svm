@@ -25,9 +25,10 @@
             <label class="col-sm-3 control-label">问题类型</label>
 
             <div class="col-sm-3">
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
+                <select class="form-control feedbackType">
+                    <option value="1">类目缺失</option>
+                    <option value="2">属性缺失</option>
+                    <option value="3">商品缺失</option>
                 </select>
             </div>
         </div>
@@ -62,7 +63,7 @@
         <!--</div>-->
         <div class="form-group required">
             <label class="col-sm-3 control-label">反馈信息</label>
-            <div class="col-sm-6"><textarea type="text" class="form-control"></textarea></div>
+            <div class="col-sm-6"><textarea type="text" class="form-control feedbackContent"></textarea></div>
         </div>
         <div class="col-sm-8 col-sm-offset-3 btn-block">
             <button type="button" class="btn btn-lg btn-success ma-btn-sub">提交</button>
