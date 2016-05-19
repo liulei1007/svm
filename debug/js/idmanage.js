@@ -5,18 +5,40 @@ $(function(){
 		derict(this, "childIdCreate", "nochangeurl");
 	});
 
+	//搜索
 	$(".btn-sm").bind("click",function(){
 		listSubUserDate(1, 10);
 	});
 
-	$(".btn-compile").bind("click",function(){
-		
-	});
+	//权限配置
+	$('.table-block').on('click','.btn-acset',function() {
+        $(".cic-pop").pop("popAuth",function(){
+            $(".pa-cancel").bind("click",function(){
+                $(".cic-pop").pophide();
+            })
+        });
+    });
 
-	$(".btn-delect").bind("click",function(){
-		
-	});
+	//编辑
+	$('.table-block').on('click','.btn-compile',function() {
+		var removeList = $(this).parents('tr');
+    	var managid = removeList.attr("managid");
+		sessionStorage.modifyAcId=managid;
+        derict(this, "childIdCreate", "nochangeurl");
+    });
 
+	//删除
+    $('.table-block').on('click','.btn-delect',function() {
+        
+        var removeList = $(this).parents('tr');
+    	var managid = removeList.attr("managid");
+    	
+    	delSubUserData(managid);
+
+    });
+
+
+	listSubUserDate(1, 10);
 
 });
 
@@ -47,13 +69,11 @@ function listSubUserDate(page, perPage) {
 	$.ajax({
         url: apiName,
         type: "GET",
-        data: JSON.stringify(
-            {
+        data: {
                 "mobilePhone": mobilePhone,
                 "page": page,
                 "perPage": perPage
-            }
-        ),
+            },
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             unloading();
@@ -61,9 +81,55 @@ function listSubUserDate(page, perPage) {
             if(data.ok) {
                 $(".table-block").setPageData(data);
                 $('.createDate').each(function () {
-                    $(this).html(getLocalTime($(this).html()));
+                	if($(this).html() != '')
+                    	$(this).html(getLocalTime($(this).html()));
                 });
             }
         }
+    });
+}
+
+//时间戳转日期
+function getLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10)
+}
+
+//删除子账号
+function delSubUserData(managid) {
+
+    $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+        // 绑定按钮事件
+        $('.pop').on('click', '.btn-sure', function () {
+            loading();
+            $.ajax({
+                url:plumeApi["delSubUserInfo"]+"?id="+managid,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    if(data.ok){
+                        unloading();
+                        popTips("删除成功","success");
+                        listSubUserDate();
+                    }else{
+                        unloading();
+                        popTips("删除失败","warning");
+                        listSubUserDate();
+                }
+            }
+            });
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+        $('.pop').on('click', '.btn-cancel', function () {
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
     });
 }
