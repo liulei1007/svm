@@ -1,4 +1,10 @@
 $(function () {
+
+    //显示登录名称
+    if (sessionStorage.login_mobilePhone) {
+        $("#login-name").html(sessionStorage.login_mobilePhone);
+    };
+    
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {

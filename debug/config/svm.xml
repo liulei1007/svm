@@ -350,8 +350,8 @@
         <addFeedbackInfo>http://api.longguo.hxmklmall.cn:80/feedback/addFeedbackInfo/</addFeedbackInfo>
         <delFeedback>http://api.longguo.hxmklmall.cn:80/feedback/delFeedback/</delFeedback>
         <resetPassword>http://api.longguo.hxmklmall.cn:80/userInfo/resetPassword/</resetPassword>
-
-
-
+        <getLoginUser>http://api.longguo.hxmklmall.cn:80/userInfo/getLoginUser/</getLoginUser>
+        <listSubUserInfo>http://192.168.152.1:8080/subUserInfo/listSubUserInfo/</listSubUserInfo>
+        <listManuSubUserInfo>http://192.168.152.1:8080/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
     </api>
 </config>
