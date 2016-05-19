@@ -4,17 +4,19 @@ $(function () {
         derict(this, "msgmanage", "nochangeurl");
     });
     $(".ma-btn-sub").bind("click", function () {
+        var feedbackType = $('.feedbackType').val();
+        var feedbackContent = $('.feedbackContent').val();
         var pram_str = '{';
         pram_str += '"brandId": 0,';
         pram_str += '"brandName": "",';
-        pram_str += '"feedbackType": "",';
+        pram_str += '"feedbackType": "'+feedbackType+'",';
         pram_str += '"feedbackCategory": "",';
-        pram_str += '"feedbackContent": ""';
+        pram_str += '"feedbackContent": "'+feedbackContent+'"';
         pram_str += '}';
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["addProductInfo"],
+            url: plumeApi["addFeedbackInfo"],
             data: pram_str,
             contentType: "application/json",
             dataType: "json",
