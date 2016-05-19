@@ -1,4 +1,7 @@
+
+
 $(function(){
+
 	tablecheckbox();
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
 	$('.table-block').on('click','.btn-delect',function(){
@@ -17,14 +20,13 @@ $(function(){
 				soldOutGoods()
 			}
 	});
-
-	getGoodsData();
-
+	var nowPage =1;
+	getGoodsData(nowPage);
 	$('.btn-search').bind('click',function() {
 		var productName=$('#productName').val();
 		var modelNumber=$('#modelNumber').val();
 		var saleStatus=$('#saleStatus').val();
-		getGoodsData(productName,modelNumber,saleStatus)
+		getGoodsData(nowPage,productName,modelNumber,saleStatus)
 	})
 
 })

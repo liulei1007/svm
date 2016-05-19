@@ -2,17 +2,19 @@ $(function() {
 	// 起始商品序号
 	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
-	var data = {
-		"start": startNum,
-		"limit": limitNum,
-		"marketName": "",
-		"boothCode": "",
-		"doorplateRemarks": "",
-		"boothDesc": "",
-		"brandName": "",
-		"seriesName": "",
-		"isDel": 0
-	}
+	var data ={
+  "start": 0,
+  "limit": 0,
+  "marketName": "",
+  "boothCode": "",
+  "personDealerName": "",
+  "boothDesc": "",
+  "brandName": "",
+  "seriesName": "",
+  "isDel": 0,
+  "companyId": 0,
+  "dealerId": 0
+}
 	// data.shopType = "2";
 	
 	// 获取数据
@@ -39,7 +41,7 @@ $(function() {
 		var newData = JSON.stringify(data);
 		$.ajax({
 			// url: "datas/shopList.txt",
-			url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
+			url: "http://192.168.222.164:8080/shopInfo/listShopInfo",
 			type: "POST",
 			data: newData,
 			dataType: "json",
