@@ -329,7 +329,7 @@
         <delProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/delProductInfo</delProductInfo>
         <sendMsg>http://api.longguo.hxmklmall.cn:80/userInfo/sendMsg</sendMsg>
         <registerUserInfo>http://api.longguo.hxmklmall.cn:80/userInfo/registerUserInfo</registerUserInfo>
-        <login>http://api.longguo.hxmklmall.cn:80/userInfo/login</login>
+        <login>api.longguo.hxmklmall.cn:80/userInfo/login</login>
         <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory</listProductCategory>
         <getColorSeries>http://api.longguo.hxmklmall.cn:80/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://api.longguo.hxmklmall.cn:80/common/listNationRegion/CN</listNationRegion>
@@ -358,6 +358,10 @@
         <addFeedbackInfo>http://api.longguo.hxmklmall.cn:80/feedback/addFeedbackInfo/</addFeedbackInfo>
         <delFeedback>http://api.longguo.hxmklmall.cn:80/feedback/delFeedback/</delFeedback>
         <resetPassword>http://api.longguo.hxmklmall.cn:80/userInfo/resetPassword/</resetPassword>
+
+        <getLoginUser>api.longguo.hxmklmall.cn:80/userInfo/getLoginUser/</getLoginUser>
+        <listSubUserInfo>api.longguo.hxmklmall.cn:80/subUserInfo/listSubUserInfo/</listSubUserInfo>
+        <listManuSubUserInfo>api.longguo.hxmklmall.cn:80/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
 
     </api>
 </config>
