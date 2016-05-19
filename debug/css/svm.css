@@ -410,7 +410,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
 .goodsPic-upload{background-color:#f8f9fa;padding:20px;}
-
+.body-typein .btn-errors{width:100px;}
 
 /** --------页面导航-------- **/
 .nav-page{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}

@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--公用基础文件-->
-    <script language="javascript" src="../js/plumecommon.js"></script>
+    <script language="javascript" src="../js/plumecommon.js" ></script>
     <!--声明-->
     <script>
-        var _PLUME = {
-            "config": "../config/svm.xml",
-            "initPage": "brandList"
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"commodityManagement2"
         }
     </script>
 </head>
 
 <body>
-
-<div class="doc-temp-body">
-    <div class="title-block">
-        品牌列表
-    </div>
+<div class="doc-commodityManagement">
+   <div class="title-block">品牌列表</div>
     <div class="search-block">
-        <form class="form-inline">
-
-            <div class="form-group">
-                <label for="brandname">品牌名称</label>
-                <input type="text" class="form-control input-sm" id="brandname" placeholder="请输入品牌名称">
-                <label for="linkman">联系人</label>
-                <input type="text" class="form-control input-sm" id="linkman" placeholder="请输入联系人">
-            </div>
-
-            <div type="" class="btn btn-default">查询</div>
-            <div type="" class="btn btn-default">导出</div>
-        </form>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="modelNumber">品牌名称</label>
+          <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
+        </div>
+        <div class="form-group">
+          <label for="modelNumber">联系人</label>
+          <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
+        </div> 
+        <div class="form-group">
+          <label for="telNumber">手机号</label>
+          <input type="text" class="form-control input-sm" id="telNumber" placeholder="">
+        </div> 
+        <div class="btn btn-default btn-sm btn-search">搜索</div>
+      </form>
     </div>
-    <div class="btn-block clearFix">
-        <div type="div" class="btn btn-primary btn-addbrand">添加品牌</div>
-        <div type="div" class="btn btn-primary">删除</div>
-    </div>
-    <div class="table-block">
-        <table class="table table-striped table1">
+    <div class="table-block">   
+        <div class="btn-block clearFix">
+            <button class="btn btn-primary">申请打印</button>
+            <!--<a href="http://localhost/debug/applyPriceTagManage">已申请价格管理</a>-->
+        </div>
+        <table class="table table1 table-striped">
             <thead>
-            <tr>
-                <th><input type="checkbox"/></th>
+              <tr>
+                <th><input type="checkbox" /></th>
                 <th>序号</th>
                 <th>品牌名称</th>
-                <th>邮件地址</th>
                 <th>联系人</th>
-                <th>联系人手机号</th>
-            </tr>
+                <th>手机号</th>
+                <th>系列数量</th>
+                <th>操作</th>
+              </tr>
             </thead>
-            <tbody>
-            <tr list-temp="true">
-                <td><input type="checkbox"/></td>
-                <td node-name="$n.id"></td>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td class="id" node-name="$n.id"></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.email"></td>
-                <td node-name="$n.contacts"></td>
-                <td node-name="$n.tel"></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>1</td>
-                <td>左右沙发</td>
-                <td>2342323@qq.com</td>
-                <td>张三</td>
-                <td>13929294856</td>
-            </tr>
+                <td node-name="$n.contract"></td>
+                <td node-name="$n.contractTel"></td>
+                <td node-name="$n.seriesCnt"></td>
+                <td>
+                  <button type="button" class="btn btn-link">查看</button>
+                </td>
+              </tr>
             </tbody>
         </table>
     </div>
-    <div class="nav-pagination">
+
+    <div class="nav-pagination clearFix">
         <ul class="pagination">
             <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
             <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
