@@ -1,17 +1,47 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
-    getTableData();
+    getTableData("","",0,"");
     tablecheckbox();
-    $(".btn-primary").bind("click", function () {
+    $(".gdm-add-goods").bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
-    function getTableData() {
+    $(".gdm-btn-search").bind("click",function(){
+        var productName=$("#productName").val();
+        var modelNumber=$("#modelNumber").val();
+        var categoryId=$("#categoryId").val();
+      if(categoryId==""){
+          categoryId=0;
+      }
+        var saleStatus=$("#saleStatus").val();
+        getTableData(productName,modelNumber,categoryId,saleStatus);
+    });
+    //分类
+    var cls=["gdm-type-first","gdm-type-second","gdm-type-third"];
+    function getFirstCategory(categoryId,tag){
+        loading();
+        $.get(plumeApi["listProductCategory"]+"/"+categoryId,{},function(data){
+            unloading();
+            $("."+cls[tag]).find("[list-node]").remove();
+            $("."+cls[tag]).setPageData(data);
+            $("."+cls[tag]).find("select").unbind().bind("change", function () {
+                var nowtag=parseInt($(this).attr("tag"))+1;
+                var cid=$(this).val();
+                if(nowtag<3){
+                    getFirstCategory(cid,nowtag)
+                }
+            });
+        })
+    }
+    getFirstCategory(0,0);
+    //获取表格数据
+    function getTableData(productName,modelNumber,categoryId,saleStatus) {
+        $("[list-node]").remove();
         loading();
         var pram_str = '{';
-        pram_str += '"productName": "",';
-        pram_str += ' "modelNumber": "",';
-        pram_str += '  "categoryId": 0,';
-        pram_str += ' "saleStatus": ""';
+        pram_str += '"productName": "'+productName+'",';
+        pram_str += ' "modelNumber": "'+productName+'",';
+        pram_str += '  "categoryId": '+categoryId+',';
+        pram_str += ' "saleStatus": "'+saleStatus+'"';
         pram_str += '}';
         $.ajax({
             type: "POST",

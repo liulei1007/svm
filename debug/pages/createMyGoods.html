@@ -22,7 +22,7 @@
     <div class="title-block">新增商品数据</div>
     <form class="form-horizontal">
         <div class="form-group required">
-            <label class="col-sm-3 control-label">当前类目</label>
+            <label class="col-sm-2 control-label">当前类目</label>
 
             <div class="col-sm-4">
                 <div class="col-sm-8 form-control-static userType"></div>
@@ -32,12 +32,12 @@
     </form>
     <div class="form-block-contractive">
         <div id="basicInfo" class="row block-title">
-            <div class="col-sm-2 col-sm-offset-1">基础信息</div>
+            <div class="col-sm-2">基础信息</div>
         </div>
         <form class="form-horizontal">
             <div class="basicInfo-content row">
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>品牌名称</label>
+                    <label class="col-sm-2 control-label"><i>*</i>品牌名称</label>
 
                     <div class="col-sm-4 cmg-brand">
                         <select type="text" id="brandId" class="form-control notNull" data-list="$p.data">
@@ -47,7 +47,7 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>系列名称</label>
+                    <label class="col-sm-2 control-label"><i>*</i>系列名称</label>
 
                     <div class="col-sm-4 cmg-series">
                         <select type="text" id="seriesId" class="form-control notNull" data-list="$p.data">
@@ -57,27 +57,27 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>商品标语</label>
+                    <label class="col-sm-2 control-label"><i>*</i>商品标语</label>
 
                     <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName ">
                     </div>
                     <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
-                    <div class="col-sm-offset-3 col-sm-8 tips-block">
+                    <div class="col-sm-offset-2 col-sm-8 tips-block">
                         <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
                     </div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>商品名称</label>
+                    <label class="col-sm-2 control-label"><i>*</i>商品名称</label>
 
                     <div class="col-sm-6"><input type="text" class="form-control notNull" id="productName"/>
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
-                    <div class="col-sm-offset-3 col-sm-8 tips-block">
+                    <div class="col-sm-offset-2 col-sm-8 tips-block">
                         <p>文字说明：举例子说明文字说明：举列子说明</p>
                     </div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>产地</label>
+                    <label class="col-sm-2 control-label"><i>*</i>产地</label>
 
                     <div class="col-sm-2 cmg-region1">
                         <select class="form-control" id="provinceId" data-list="$p.data">
@@ -91,20 +91,20 @@
                     </div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>型号</label>
+                    <label class="col-sm-2 control-label"><i>*</i>型号</label>
 
                     <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>材质</label>
+                    <label class="col-sm-2 control-label"><i>*</i>材质</label>
 
                     <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control notNull">
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>重量</label>
+                    <label class="col-sm-2 control-label"><i>*</i>重量</label>
 
                     <div class="col-sm-5"><input type="text" id="weight" value="0" class="form-control notNull num">
                     </div>
@@ -113,7 +113,7 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>价格类型</label>
+                    <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
 
                     <div class="col-sm-6">
                         <select class="form-control notNull">
@@ -124,7 +124,7 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>等级</label>
+                    <label class="col-sm-2 control-label"><i>*</i>等级</label>
 
                     <div class="col-sm-6">
                         <select class="form-control notNull">
@@ -135,9 +135,10 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-3 control-label"><i>*</i>市场参考价</label>
+                    <label class="col-sm-2 control-label"><i>*</i>市场参考价</label>
 
-                    <div class="col-sm-5"><input type="text" id="marketPrice" value="0" class="form-control notNull num">
+                    <div class="col-sm-5"><input type="text" id="marketPrice" value="0"
+                                                 class="form-control notNull num">
                     </div>
                     <label class="col-sm-1 control-label">元</label>
 
@@ -149,7 +150,7 @@
     </div>
     <div class="form-block-contractive">
         <div id="goodAttr" class="row block-title">
-            <div class="col-sm-2 col-sm-offset-1">商品属性</div>
+            <div class="col-sm-2">商品属性</div>
         </div>
         <form class="form-horizontal">
             <div class="goodsAttr-content row">
@@ -197,20 +198,19 @@
         </form>
     </div>
 
-
     <div class="form-block-contractive">
         <div id="colorAttr" class="row block-title">
-            <div class="col-sm-2 col-sm-offset-1">颜色属性</div>
+            <div class="col-sm-2">颜色属性</div>
         </div>
         <form class="form-horizontal">
             <div class="colorAttr-content row">
-                <div class="col-sm-1 col-sm-offset-1">颜色分类</div>
+                <div class="col-sm-2 control-label">颜色分类</div>
                 <div class="col-sm-9">
                     <div class="color-type">
                         <div class="row cm-color-title">
                             <ul class="color-row" data-list="$p.data">
                                 <li list-temp="true">
-                                    <div class="color-title" node-name="bg-color:'#'+$n.colorValue"></div>
+                                    <div class="color-title" node-name="bg-color:$n.colorValue"></div>
                                     <div class="color-font" node-name="$n.colorName"></div>
                                 </li>
                             </ul>
@@ -223,31 +223,34 @@
 
                                         <div>
                                             <div class="color-select-title cmg-colorValue"
-                                                 node-name="bg-color:'#'+$n.colorValue,attr-colorValue:$n.colorValue"></div>
-                                            <p><input type="text" readonly value="" class="cmg-colorName"
-                                                      node-name="$n.colorName"/></p>
+                                                 node-name="bg-color:$n.colorValue,attr-colorValue:$n.colorValue"></div>
+                                            <p>
+                                                <input type="text" readonly value="" class="cmg-colorName"
+                                                       node-name="$n.colorName"/>
+                                            </p>
 
-                                            <div class="color-desc">备注:<input type="text" class="cmg-colorDesc"
-                                                                              value=""/></div>
+                                            <div class="color-desc"><input type="text" class="cmg-colorDesc"
+                                                                           placeholder="备注" value=""/></div>
                                         </div>
                                         <input type="text" class="col-sm-1 form-control none-input-color">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="addTip col-sm-offset-1"><p>备注：（可以修改名称如：乳白色改成珍珠白，但色值不能变）</p></div>
-                                </div>
+
                             </div>
+
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="addTip col-sm-8"><p>备注：（可以修改名称如：乳白色改成珍珠白，但色值不能变）</p></div>
+                    </div>
                     <div class="color-type-talbe">
-                        <table class="table table-bordered ">
+                        <table class="table table-bordered " style="display: block">
                             <thead class="cmg-table-color">
                             <tr>
                                 <th>颜色分类</th>
                             </tr>
                             </thead>
                             <tbody>
-
                             </tbody>
                         </table>
                     </div>
@@ -258,20 +261,18 @@
 
     <div class="form-block-contractive">
         <div id="sizeAttr" class="row block-title">
-            <div class="col-sm-2 col-sm-offset-1">规格属性</div>
+            <div class="col-sm-2 ">规格属性</div>
         </div>
         <form class="form-horizontal">
             <div class="sizeAttr-content row">
-                <div class="addGoods col-sm-offset-3">
+                <div class="addGoods col-sm-offset-2">
                     <div class="row">
-                        <div class="add">
-                            <p class="icon-add">+</p>
+                        <!--<div class="add">-->
+                        <!--<p class="icon-add">+</p>-->
 
-                            <p class>添加规格</p>
-                        </div>
-                        <div class="col-sm-8 addTip">
-                            <p>例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm:</p>
-                        </div>
+                        <!--<p class>添加规格</p>-->
+                        <!--</div>-->
+
                     </div>
                     <div class="row">
                         <div class="col-sm-4"><input type="text" class="form-control" id="standard"></div>
@@ -293,32 +294,12 @@
                                 </tr>
                                 </thead>
                                 <tbody class="standardtbody">
-                                <!--<tr>-->
-                                <!--<td>乳白色</td>-->
-                                <!--<td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>-->
-                                <!--<td><input type="text" class="form-control" value="3580.00"></td>-->
-                                <!--<td>-->
-                                <!--<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>-->
-                                <!--</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                <!--<td>乳白色</td>-->
-                                <!--<td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>-->
-                                <!--<td><input type="text" class="form-control" value="3580.00"></td>-->
-                                <!--<td>-->
-                                <!--<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>-->
-                                <!--</td>-->
-                                <!--</tr>-->
-                                <!--<tr>-->
-                                <!--<td rowspan="0">乳白色</td>-->
-                                <!--<td><input type="text" class="form-control" value="110*cm850cm*120cm"></td>-->
-                                <!--<td><input type="text" class="form-control" value="3580.00"></td>-->
-                                <!--<td>-->
-                                <!--<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>-->
-                                <!--</td>-->
-                                <!--</tr>-->
+
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col-sm-8 addTip">
+                            <p>例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm:</p>
                         </div>
                     </div>
                 </div>
@@ -329,14 +310,11 @@
 
     <div class="form-block-contractive">
         <div id="goodsPic" class="row block-title">
-            <div class="col-sm-2 col-sm-offset-1">商品图片</div>
+            <div class="col-sm-2 ">商品图片</div>
         </div>
         <form class="form-horizontal">
             <div class="goodsPic-content">
-                <div class="row">
-                    <div class="col-sm-offset-2 col-sm-8"><p>请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为
-                        gif,png,jpg,jpeg大小不得超过5M</p></div>
-                </div>
+
                 <div class="row">
                     <div class="col-sm-offset-2 col-sm-9">
                         <div class="goodsPic-upload">
@@ -413,9 +391,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-8"><p>请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为
+                        gif,png,jpg,jpeg大小不得超过5M</p></div>
+                </div>
             </div>
-            <div class="form-group required">
-                <label class="col-sm-3 control-label">状态</label>
+            <div class="form-group required" style="display: none">
+                <label class="col-sm-2 control-label">状态</label>
 
                 <div class="col-sm-6">
                     <div class="radio-inline">
