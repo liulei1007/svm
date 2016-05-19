@@ -80,8 +80,8 @@ textarea{resize: none;}
 .table1{/*border:10px solid #f8f9fa*/}
 /*.row1{background:#f8f9fa;}*/
 
-.table-block .table1{border:0px solid #f8f9fa}
-.table-block .table1 th{background:#989da8;color:#fff; font-weight: normal;}
+/*.table-block .table1{border:0px solid #f8f9fa}
+.table-block .table1 th{background:#989da8;color:#fff; font-weight: normal;}*/
 
 
 
@@ -143,7 +143,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{font-weight: normal; vertical-align: middle; border-top: none; border-bottom: none;}
-.table-striped > thead > tr > th, .table-striped > thead > tr > td{color: #fff; background-color: #989da8;}
+/*.table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #fafafa;}*/
+.table-striped > thead > tr{background-color: #fafafa; border: solid #e1e1e1 1px;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f8f9fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
 .table-block .table-title{padding: 20px 0 0 10px; width: 100%; height: 60px; font-size: 16px; font-weight: bold;}
@@ -158,9 +159,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
-.search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #f8f9fa;}
+.search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px;}
 .search-block label{font-weight: normal;}
-.search-block .btn{margin-right: 10px; min-width:80px;}
+.search-block .btn{margin-right: 10px; min-width:80px; font-size: 14px;}
 .search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
 .search-block .form-inline .form-control{margin-left: 10px;}
 .search-block .form-inline input.form-control{width: 170px;}
@@ -185,6 +186,28 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .btn-special:hover, .btn-special.focus, .btn-special:focus{color: #fff; background-color: #333; border-color: #333;}
 .btn-link{color: #1397da; background-color: transparent; border-color: transparent;}
 .btn-link:hover, .btn-link.focus, .btn-link:focus{text-decoration: underline;}
+
+/** 批量按钮 **/
+.btn-batch{color: #0094da; background-color: transparent; border: solid #0094da 1px;}
+.btn-batch:hover{color: #fff; background-color: #0094da;}
+.btn-batch-delete{color: #f26c4e; background-color: transparent; border: solid #f26c4e 1px;}
+.btn-batch-delete:hover{color: #fff; background-color: #f26c4e;}
+
+
+.btn-icons{position: relative; padding-left: 40px;}
+.btn-icons:before{content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 34px; overflow: hidden; background: url(../images/icons_buttons.png) no-repeat;}
+/** 申请打印 **/
+.btn-applyPrint:before{background-position: 0 0;}
+/** 新增商品数据 **/
+.btn-addGoods:before{background-position: -40px 0;}
+/** 单笔自采 **/
+.btn-publishSingle:before{background-position: -80px 0;}
+/** 批量自采 **/
+.btn-publishBatch:before{background-position: -120px 0;}
+/** 添加子账号 **/
+.btn-addAccount:before{background-position: -160px 0;}
+/** 新增单个 **/
+.btn-addSingle:before{background-position: -200px 0;}
 
 
 /** --------警告-------- **/
