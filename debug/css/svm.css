@@ -410,7 +410,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-panel .title-block{padding-left:0}
 .ba-back{margin:50px 0 0 0}
 .goodsPic-upload{background-color:#f8f9fa;padding:20px;}
-
+.body-typein .btn-errors{width:100px;}
 
 /** --------页面导航-------- **/
 .nav-page{position: fixed; z-index: 9999; top: 50%; right: 50px; margin-top: -100px; width: 100px; text-align: center; background-color: #fff; border: solid #ced1dc 1px;}
@@ -567,110 +567,105 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .login-footer-foot .footer-link{float: left; padding: 0 10px; font-weight: normal; color: #fff; border-right: solid #fff 1px; cursor: pointer;}
 .login-footer-foot .footer-link:last-child{border-right: none;}
 
-/** ----新登录——表单---- **/
-.login-form{position: absolute; z-index: 99; top: 50%; right: 200px; margin-top: -170px; width: 310px; height: 340px; background: url(../images/temp/login-form.jpg) no-repeat; background-color: #fff; border-radius: 5px; box-shadow: 6px 5px 16px 0 rgba(74,49,19,.85); opacity: .8;}
+
+.login-form{position: absolute; z-index: 99; top: 50%; right: 200px; overflow: hidden; margin-top: -170px; width: 310px; height: 340px;/* background: url(../images/temp/login-form.jpg) no-repeat;*/ background-color: #fff; border-radius: 5px; box-shadow: 6px 5px 16px 0 rgba(74,49,19,.85); opacity: .8;}
 .login-form-container{padding: 0 20px;}
 .login-form-title{margin-top: 16px; font-size: 24px;}
-
-/** ----新登录——轮播---- **/
-.carousel{width: 100%; height: 100%;}
-.carousel-inner{width: 100%; height: 100%;}
-.carousel-inner > .item{width: 100%; height: 100%;}
-.carousel-inner > .item > img{width: 100%; height: 100%; object-fit: cover;}
-/** -- 轮播——箭头 -- **/
-.login-left-block{position: absolute; top: 0;/* right: 550px;*/ bottom: 100px; left: 210px; width: 700px;}
-.login-icons-block{position: relative; width: 100%; height: 60%; max-height: 520px;top:100px}
-.login-icons-block .icons{position: absolute;}
-.login-icons-block .circle-out{left: 50%; bottom: 0; margin-left: -352px;}
-.login-icons-block .icons-logo{left: 50%; bottom: 0; margin-left: -64px;z-index:9999}
-.login-icons-block .icons-base{left: 30px; bottom: -20px;}
-.login-icons-block .icons-data{left: 10px; bottom: 277px;}
-.login-icons-block .icons-brand{left: 230px; bottom: 150px;}
-.login-icons-block .icons-audit{left: 214px; bottom: 310px;}
-.login-icons-block .icons-goods{left: 495px; bottom: 176px;}
-.login-icons-block .icons-m{left: 637px; bottom: 134px;}
-.login-icons-block .icons-orange{left: 115px; bottom: 119px;}
-.login-icons-block .icons-agency{left: 373px; bottom: 217px;}
-.login-icons-block .icons-purple{left: 553px; bottom: 343px;}
-/*.login-icons-block .icons-circle-small{right: 94px; bottom: 343px;}*/
+/* 表单 */
+.login-form .form{margin-top: 21px; margin-bottom: 36px;}
+.login-form .form-group{margin-top: 20px;/* margin-bottom: 17px;*/ width: 100%; height: 45px; padding-top: 5px; padding-right: 0; padding-bottom: 5px; padding-left: 0; box-sizing: border-box; border: solid rgba(51,51,51,.4) 1px; border-radius: 3px;}
+.login-form .form-group i{float: left; display: block; width: 47px; height: 100%; background: url(../images/login/icons-login.png) no-repeat; border-right: solid #333 1px;}
+.login-form .form-group i.user{background-position: 10px 5px;}
+.login-form .form-group i.password{background-position: 10px -35px;}
+.login-form .form-group input{float: left; padding: 6px 10px; width: 220px; height: 100%; box-sizing: border-box; border: none; outline: none;}
+/* 登录按钮 */
+.login-form .btn-login{padding: 10px 0; width: 100%; font-size: 18px; color: #fff; text-align: center; background-color: rgba(38,175,245,.7); border-radius: 3px; cursor: pointer;}
+/* 记住密码等 */
+.login-form .options{margin-top: 8px; color: rgba(51,51,51,.7);}
+.login-form .options label{margin-bottom: 0; font-weight: normal;/* cursor: pointer;*/}
+.login-form .options > div{cursor: pointer;}
+/* 注册 */
+.login-form .register-line{position: absolute; bottom: 0; left: 0; padding: 6px 0; width: 100%; color: #fff; text-align: center; background-color: rgba(51,51,51,.6);}
+.login-form .btn-register{color: #ffc800; cursor: pointer;}
 
 
-.login-text-block{margin-top: 130px; color: #fff; text-align: center;}
-.login-text-block > .title{margin-bottom: 10px;  -webkit-animation: bounce2 2s  ease forwards;  animation: bounce2 2s  ease forwards;}
-@-webkit-keyframes bounce2 {
-    0% {
-        font-size: 0px;
-    }
-    100% {
-        font-size: 48px;
-    }
-}
-@keyframes bounce2 {
-    0% {
-        font-size: 0px;
-    }
-    100% {
-        font-size: 48px;
-    }
-}
-.login-text-block > .text{margin-top: 5px; margin-bottom: 5px; font-size: 18px;}
+/** ----新登录---- **/
+/** swiper **/
+.swiper-container{width: 100%; height: 100%;}
+.swiper-slide > img{width: 100%; height: 100%; object-fit: cover;}
+.login-container .swiper-button-prev, .login-container .swiper-button-next{top: 50%; margin-top: -35px; width: 40px; height: 70px; overflow: hidden; text-shadow: none; opacity: .5;}
+.login-container .swiper-button-prev:hover, .swiper-button-next:hover{opacity: 1;}
+.login-container .swiper-button-prev{left: 60px; background: url(../images/icons_arrows.png) no-repeat;}
+.login-container .swiper-button-next{right: 60px; background: url(../images/icons_arrows.png) no-repeat -50px 0;}
+
+/** ---- 底部文字 ---- **/
+.login-text-block{position: absolute; top: 65%; left: 14%; width: 800px; font-size: 48px; color: #fff; text-align: center; opacity: 0;}
+@media screen and (max-width: 1500px) { .login-text-block{left: 5%;} }
+.login-text-block strong{font-family: lightFont; font-size: 64px;}
+/* 切换到当前页面时，执行动画 */
+.swiper-slide-active .login-text-block{-webkit-animation: toggleShow 2s 0.3s forwards; -moz-animation: toggleShow 2s 0.3s forwards; -o-animation: toggleShow 2s 0.3s forwards; animation: toggleShow 2s 0.3s forwards;}
+
+/** ---- 小图标 ---- **/
+.login-left-icons img{width: 100%; height: 100%; object-fit: cover;}
+.login-left-icons .icons{position: absolute;}
+.login-left-icons .icons-middle{bottom: 50%;}
+.login-left-icons .icons-bottom{bottom: 0; left: 50%;}
+.icons-toggle{opacity: 0;}
+/* 切换到当前页面时，执行动画 */
+.swiper-slide-active .login-left-icons .icons-toggle{-webkit-animation: toggleShow 1.8s infinite alternate; -moz-animation: toggleShow 1.8s infinite alternate; -o-animation: toggleShow 1.8s infinite alternate; animation: toggleShow 1.8s infinite alternate;}
+
+#logo{cursor: pointer;}
+#logo > img{position: absolute; top: 0; left: 0;}
+#logo .front{opacity: 1; transform: rotateY(0deg);}
+#logo.animate .front{animation: rotateFront 2s;}
+
+#logo .back{opacity: 0; transform: rotateY(-78deg);}
+#logo.animate .back{animation: rotateBack 2s;}
 
 
-.icon-rot {  -webkit-animation: bouncex 0.2s infinite linear;  animation: bouncex 0.2s infinite ease;  }
-.icon-rot1 {  -webkit-animation: bounce1 1s  linear;  animation: bounce1 1s  ease;  }
-@-webkit-keyframes bouncex {
-    0% {
-        -webkit-transform: rotate(0deg)
-    }
-    25% {
-        -webkit-transform: rotate(10deg)
-    }
-    50% {
-        -webkit-transform: rotate(0deg)
-    }
-    75% {
-        -webkit-transform: rotate(-10deg)
-    }
-    100% {
-        -webkit-transform: rotate(0deg)
-    }
+/** 点击翻转的动画 **/
+@keyframes rotateFront{
+    0%{opacity: 1; transform: rotateY(0deg);}
+    20%{opacity: 0; transform: rotateY(102deg);}
+    80%{opacity: 0; transform: rotateY(102deg);}
+    100%{opacity: 1; transform: rotateY(0deg);}
 }
-@keyframes bouncex {
-    0% {
-        -webkit-transform: rotate(0deg)
-    }
-    25% {
-        -webkit-transform: rotate(10deg)
-    }
-    50% {
-        -webkit-transform: rotate(0deg)
-    }
-    75% {
-        -webkit-transform: rotate(-10deg)
-    }
-    100% {
-        -webkit-transform: rotate(0deg)
-    }
+@keyframes rotateBack{
+    20%{opacity: 0; transform: rotateY(-78deg);}
+    40%{opacity: 1; transform: rotateY(0deg);}
+    60%{opacity: 1; transform: rotateY(0deg);}
+    80%{opacity: 0; transform: rotateY(-78deg);}
 }
-@-webkit-keyframes bounce1 {
-    0% {
-        -webkit-transform: rotate(0deg)
-    }
-    100% {
-        -webkit-transform: rotate(360deg)
-    }
-}
-@keyframes bounce1 {
-    0% {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-    }
-}
-.moveitem{display: none}
-.color-desc input{height: 100%;width:100%}
-.color-row{margin-left:-25px}
-.table-bordered{margin-bottom:0px}
+
+/** ---- 屏一 ---- **/
+/** 左侧小图标区域 **/
+#screen-1 .login-left-icons{position: absolute; top: 0; left: 16.5%; bottom: 0; width: 705px; height: 60%;}
+@media screen and (max-width: 1500px) { #screen-1 .login-left-icons{left: 8%;} }
+/*@media screen and (max-width: 1500px) { #screen-2 .login-left-icons{left: 5%;} }*/
+#screen-1 .icons-lines{position: absolute; right: 0; bottom: 0; width: 820px; height: 100%; background: url(../images/login/img-lines-1.png) no-repeat center bottom;}
+
+/** ---- 屏二 ---- **/
+/** 左侧小图标区域 **/
+#screen-2 .login-left-icons{position: absolute; top: 0; left: 14%; bottom: 0; width: 800px;}
+@media screen and (max-width: 1500px) { #screen-2 .login-left-icons{left: 5%;} }
+#screen-2 .icons-lines{width: 100%; height: 100%;}
+
+/** ---- 屏三 ---- **/
+/** 左侧小图标区域 **/
+#screen-3 .login-left-icons{position: absolute; top: 13%; right: 40%; /*left: 0;*/ bottom: 0; width: 1090px; height: 390px;}
+@media screen and (max-height: 650px) { #screen-3 .login-left-icons{top: 3%;} }
+#screen-3 .icons-lines{float: right; text-align: right; width: 347px; height: 390px; overflow: hidden; background: url(../images/login/img-lines-3.png) no-repeat right center;}
+#screen-3.swiper-slide-active .icons-lines{-webkit-animation: spreadToRight 1.8s ease forwards; -moz-animation: spreadToRight 1.8s ease forwards; -o-animation: spreadToRight 1.8s ease forwards; animation: spreadToRight 1.8s ease forwards;}
+
+/** 从左向右展开的动画 **/
+@-webkit-keyframes spreadToRight{ 100%{width: 100%;} }
+@-moz-keyframes spreadToRight{ 100%{width: 100%;} }
+@-o-keyframes spreadToRight{ 100%{width: 100%;} }
+@keyframes spreadToRight{ 100%{width: 100%;} }
+
+/** 渐隐渐现的动画 **/
+@-webkit-keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
+@-moz-keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
+@-o-keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
+@keyframes toggleShow{ 0%{opacity: 0;} 7%{opacity: 0;} 90%{opacity: 1;} 100%{opacity: 1;} }
+

@@ -45,10 +45,20 @@
 	            <label class="col-sm-3 control-label">商品标语：</label>
 	        	<p class="col-sm-6 form-control-static" data-name="$p.productSecondName"></p>
 	        </div>
-	        <div class="form-group">
-	            <label class="col-sm-3 control-label">产地：</label>
-	        	<p class="col-sm-6 form-control-static" data-name="$p.cityName"></p>
-	        </div>
+          	<!-- <div class="form-group">
+                <label class="col-sm-3 control-label"><i>*</i>产地</label>
+
+                <div class="col-sm-2 cmg-region1">
+                    <select class="form-control" id="provinceId" data-list="$p.data">
+                        <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                    </select>
+                </div>
+                <div class="col-sm-2 cmg-region2 ">
+                    <select class="form-control notNull" id="cityId" data-list="$p.data">
+                        <option list-temp="true" node-name="$n.adress,attr-value:$n.id"></option>
+                    </select>
+                </div>
+            </div> -->
 	        <div class="form-group">
 	            <label class="col-sm-3 control-label">型号：</label>
 	        	<p class="col-sm-6 form-control-static" data-name="$p.modelNumber"></p>
@@ -75,7 +85,10 @@
 	        </div> 
 	        <div class="forms-block">
 	        	<div class="form-group"></div>
-	        </div>    
+	        </div>   
+	        <div class="form-group">
+	        	<div class="btn btn-primary col-sm-offset-3 btn-errors">错误反馈</div>
+	        </div> 
         </form>
     </div>
 

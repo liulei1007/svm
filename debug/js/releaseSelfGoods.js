@@ -48,7 +48,7 @@ $(function() {
 		$("[list-node]").remove();
 		$.ajax({
 			// url: "datas/shopList.txt",
-			url: "http://192.168.222.162:8080/productStash/listProductStash",
+			url: "http://192.168.221.92:8080/productStash/listProductStash",
 			type: "GET",
 			data: data,
 			dataType: "json",

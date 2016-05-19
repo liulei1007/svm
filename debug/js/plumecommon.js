@@ -7,7 +7,8 @@ var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/js/jquery.cxcalendar.min.js",
     "/" + PLUME_PROJECT + "/js/jquery.form.js",
     "/" + PLUME_PROJECT + "/js/plume.js",
-    "/" + PLUME_PROJECT + "/js/plumeimplement.js"
+    "/" + PLUME_PROJECT + "/js/plumeimplement.js",
+    "/" + PLUME_PROJECT + "/js/swiper.min.js"
 ];
 for (var i = 0; i < PLUME_FILE.length; i++) {
     if (PLUME_FILE[i].toLowerCase().indexOf(".js") != -1) {

@@ -89,6 +89,7 @@ function amendmentInfo_init(){
 //--takingGoodsData模板初始化函数--
 function takingGoodsData_init(){
     plumeLog("初始化takingGoodsData模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/paginationControl.js");
     plumeUtil.js(plumePath+"/js/takingGoodsData.js");
     plumeLog("完成takingGoodsData模板加载-"+plumeTime());
 }
@@ -101,6 +102,7 @@ function takingGoods_init(){
 //--groundGoods模板初始化函数--
 function groundGoods_init(){
     plumeLog("初始化groundGoods模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/paginationControl.js");
     plumeUtil.js(plumePath+"/js/groundGoods.js");
     plumeLog("完成groundGoods模板加载-"+plumeTime());
 }
@@ -186,6 +188,7 @@ function brandCreateCompany_init(){
 //--brandList模板初始化函数--
 function brandList_init(){
     plumeLog("初始化brandList模板-"+plumeTime());
+    plumeUtil.js(plumePath+"/js/paginationControl.js");
     plumeUtil.js(plumePath+"/js/brandList.js");
     plumeLog("完成brandList模板加载-"+plumeTime());
 }
@@ -286,13 +289,10 @@ function copyMyGoods_init(){
     plumeLog("完成copyMyGoods模板加载-" + plumeTime());
 }
 
-
 //-- 新的login模板初始化函数
 function loginNew_init(){
 
-    plumeUtil.js(plumePath+"/js/loginNew.js");
+    plumeUtil.css(plumePath+"/css/swiper.min.css");
 
-    plumeUtil.css(plumePath+"/css/login.css");
-    plumeUtil.js(plumePath+"/js/bootstrap.min.js");
     plumeUtil.js(plumePath+"/js/login-new.js");
 }

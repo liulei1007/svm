@@ -359,6 +359,5 @@
         <delFeedback>http://api.longguo.hxmklmall.cn:80/feedback/delFeedback/</delFeedback>
         <resetPassword>http://api.longguo.hxmklmall.cn:80/userInfo/resetPassword/</resetPassword>
 
-
     </api>
 </config>
