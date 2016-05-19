@@ -4,7 +4,7 @@ $(function(){
 		$(".reg-msg1").hide();
 		var verifycode = $('.verifycode').val();
 		if (verifycode == '') {
-			$(".reg-msg1").text("短信验证码发送成功").fadeIn();
+			alert("短信验证码发送成功");
 			return;
 		};
 
@@ -16,17 +16,17 @@ $(function(){
 		var password = $('.password').val();
 		var repassword = $('.repassword').val();
 		if(password == '') {
-			$(".reg-msg2").text("请输入新密码").fadeIn();
+			alert("请输入新密码");
 			return;
 		}
 
 		if (repassword == '') {
-			$(".reg-msg2").text("请输入确认密码").fadeIn();
+			alert("请输入确认密码");
 			return;
 		};
 
 		if (password != repassword) {
-			$(".reg-msg2").text("秘密不一致").fadeIn();
+			alert("秘密不一致");
 			return;
 		};
 
@@ -44,14 +44,14 @@ $(function(){
             $.get(plumeApi["sendMsg"] + "/" + mobile + "/10003", {}, function (data) {
                 unloading();
                 if (data.ok) {
-                    $(".reg-msg1").text("短信验证码发送成功").fadeIn();
+                    alert("短信验证码发送成功");
                     settime(60);
                 } else {
- 					$(".reg-msg1").text("短信验证码发送异常").fadeIn();
+                	alert("短信验证码发送异常");
                 }
             });
         } else {
-            $(".reg-msg1").text("手机号输入错误").fadeIn();
+            alert("手机号输入错误");
         }
 	})
 })
@@ -99,10 +99,10 @@ function resetPassword() {
 		success: function(data) {
 			unloading();
             if (data.ok) {
-                $(".reg-msg2").text("密码重置成功").fadeIn();
+            	alert("密码重置成功");
                 window.location.href = "login";
             } else {
-				$(".reg-msg2").text("密码重置失败").fadeIn();
+            	alert("密码重置失败");
             }
 		},
 		error:function(error) {console.log(error);}
