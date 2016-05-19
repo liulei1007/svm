@@ -25,17 +25,34 @@ $(function() {
         }, 2000);
     });
 
+    // 点击“立即注册”
+    $("#registerNow").bind("click", function() {
+        $(".login-form").slideUp();
+        $(".register-form").slideDown();
+    });
+
+    // 点击“登录”
+    $("#loginNow").bind("click", function() {
+        $(".register-form").slideUp();
+        $(".login-form").slideDown();
+    });
+
+    // 关闭提示框
+    $(".alert-dismissible .close").bind("click", function() {
+        $(this).parents(".alert").hide();
+    })
+
     $(".fetchpwd").bind("click", function () {
         window.location.href = "../changepwd?fullscreen";
     });
 
-    $(".btn-register").bind("click", function () {
-//        window.location.href = "";
-        alert("程序猿加班更新中......");
-    });
+    // $(".btn-register").bind("click", function () {
+    //     // window.location.href = "";
+    //     alert("程序猿加班更新中......");
+    // });
 
 
-    $(".btn-login").bind("click", function () {
+    $(".login-form .btn-login").bind("click", function () {
         $(".form-block-msg").hide();
         var logintel = $("#logintel").val();
         var loginpwd = $("#loginpwd").val();
