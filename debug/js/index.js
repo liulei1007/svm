@@ -147,7 +147,7 @@ $(function () {
         $(".index-head-user .ihu-title-block").hide();
     });
     $(".ihu-exit").bind("click", function () {
-        window.location.href = "login";
+        window.location.href = "../";
     });
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
