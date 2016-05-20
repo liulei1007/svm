@@ -5,7 +5,10 @@ $(function() {
     var swiper = new Swiper('.swiper-container', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        autoplay : 5000,
+        simulateTouch: false,
+        lazyLoading: true,
+        lazyLoadingOnTransitionStart: true,
+        autoplay: 5000,
         loop: true
     });
 
@@ -101,7 +104,7 @@ $(function() {
 
     //注册
     $(".register-form .btn-register").bind("click", function () {
-//        $(".alert-dismissible .reg-alert").hide();
+        $(".register-form .login-alert").hide();
         var tel = $("#tel").val();
         var pwd = $("#pwd").val();
         var verifycode = $("#verifycode").val();
@@ -112,27 +115,24 @@ $(function() {
         pram_str += '"regVerifycode": "' + verifycode + '"';
         pram_str += '}';
         if (!isMobile(tel)) {
-//           $("#reg-errormsg").text("手机号输入错误");
-//           $(".alert-dismissible .reg-alert").fadeIn();
-            alert("手机号输入错误");
+           $("#reg-errormsg").text("手机号输入错误");
+           $(".register-form .login-alert").fadeIn();
             return;
         }
         if (pwd == "") {
-//            $("#reg-errormsg").text("请输入密码");
-//            $(".alert-dismissible .reg-alert").fadeIn();
-            alert("请输入密码");
+            $("#reg-errormsg").text("请输入密码");
+            $(".register-form .login-alert").fadeIn();
             return;
         }
         if (!pwdCheck(pwd)) {
-//            $("#reg-errormsg").text("密码必须是6-15位数字和字母组合");
-//            $(".alert-dismissible .reg-alert").fadeIn();
-            alert("密码必须是6-15位数字和字母组合");
+            $("#reg-errormsg").text("密码必须是6-15位数字或字母组合");
+            $(".register-form .login-alert").fadeIn();
+
             return;
         }
-        if (msgcode == "") {
-//            $("#reg-errormsg").text("请输入验证码");
- //           $(".alert-dismissible .reg-alert").fadeIn();
-            alert("请输入验证码");
+        if (verifycode == "") {
+            $("#reg-errormsg").text("请输入验证码");
+            $(".register-form .login-alert").fadeIn();
             return;
         }
         loading();
@@ -145,11 +145,11 @@ $(function() {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    window.location.href = "login";
+                    $(".register-form").slideUp();
+                    $(".login-form").slideDown();
                 } else {
- //                   $("#reg-errormsg").text("注册失败:"+data.resDescription);
- //                   $(".alert-dismissible .reg-alert").fadeIn();
-                    alert("注册失败:"+data.resDescription);
+                    $("#reg-errormsg").text("注册失败:"+data.resDescription);
+                    $(".register-form .login-alert").fadeIn();
                 }
             }
         });
@@ -167,7 +167,8 @@ $(function() {
                 }
             });
         } else {
-            alert("手机号输入错误");
+            $("#reg-errormsg").text("手机号输入错误");
+            $(".register-form .login-alert").fadeIn();
         }
     });
 
