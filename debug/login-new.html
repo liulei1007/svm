@@ -18,7 +18,7 @@
 		<div class="login-container">
 			<!-- 登录表单 -->
 			<div class="login-form">
-				<div class="alert alert-danger alert-dismissible login-alert"><div class="close"><span aria-hidden="true">&times;</span></div>错！！！！</div>
+				<div class="alert alert-danger alert-dismissible login-alert" style="display: none;"><div class="close"><span aria-hidden="true">&times;</span></div><span id="login-errormsg">错！！！！</span></div>
 				<div class="login-form-container">
 					<p class="login-form-title">用户登录</p>
 					<div class="form">
@@ -50,13 +50,13 @@
 					<p class="login-form-title">用户注册</p>
 					<div class="form">
 						<div class="form-group clearFix">
-							<input type="text" placeholder="请输入11位手机号" />
+							<input type="text" id="tel" placeholder="请输入11位手机号" />
 						</div>
 						<div class="form-group clearFix">
-							<input type="password" placeholder="6-20位字符，建议数字字母组合" />
+							<input type="password" id="pwd" placeholder="6-20位字符，建议数字字母组合" />
 						</div>
 						<div class="form-group clearFix">
-							<input class="login-input-code" type="text" placeholder="请输入验证码" />
+							<input class="login-input-code" type="text" id="verifycode" placeholder="请输入验证码" />
 							<div class="btn-getCode">获取验证码</div>
 						</div>
 					</div>
