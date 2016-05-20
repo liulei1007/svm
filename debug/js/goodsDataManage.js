@@ -1,6 +1,16 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
-    getTableData("","",0,"");
+    var datas={
+  "productName": "",
+  "modelNumber": "",
+  "categoryId": 0,
+  "subCategoryId": 0,
+  "baseCategoryId": 0,
+  "saleStatus": "",
+  "reviewStatus": "",
+  "seriesName": ""
+}
+    getTableData();
     tablecheckbox();
     $(".gdm-add-goods").bind("click", function () {
         derict(this, "userType", "nochangeurl");
@@ -13,7 +23,7 @@ $(function () {
           categoryId=0;
       }
         var saleStatus=$("#saleStatus").val();
-        getTableData(productName,modelNumber,categoryId,saleStatus);
+        getTableData();
     });
     //分类
     var cls=["gdm-type-first","gdm-type-second","gdm-type-third"];
@@ -34,19 +44,14 @@ $(function () {
     }
     getFirstCategory(0,0);
     //获取表格数据
-    function getTableData(productName,modelNumber,categoryId,saleStatus) {
+    function getTableData() {
+        var newData = JSON.stringify(datas)
         $("[list-node]").remove();
         loading();
-        var pram_str = '{';
-        pram_str += '"productName": "'+productName+'",';
-        pram_str += ' "modelNumber": "'+productName+'",';
-        pram_str += '  "categoryId": '+categoryId+',';
-        pram_str += ' "saleStatus": "'+saleStatus+'"';
-        pram_str += '}';
         $.ajax({
             type: "POST",
             url: plumeApi["listProductInfo"],
-            data: pram_str,
+            data: newData,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
@@ -125,6 +130,13 @@ $(function () {
                 getTableData();
             }
         })
+    })
+
+//批量导入按钮
+    $(".btn-import-data").bind("click",function() {
+         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+            $('.loadFile').click()
+         });
     })
 
 

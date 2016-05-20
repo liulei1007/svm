@@ -242,13 +242,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** 弹出提示框 **/
 .popup-load{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; padding: 10px; width: 300px; height: 240px; box-sizing: border-box; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
-.popup-load .load-alert{position: absolute; top: 10px; right: 10px; left: 10px; padding-top: 5px; padding-bottom: 5px; text-align: center;}
+.popup-load .load-alert{position: absolute; z-index: 10; top: 10px; right: 10px; left: 10px; padding-top: 5px; padding-bottom: 5px; max-height: 215px; overflow-y: auto; text-align: center;}
 .popup-load .load-alert .close{top: -10px; right: -20px;}
 .popup-load .load-alert p{margin-top: 0; margin-bottom: 0;}
 .popup-load .load-alert strong{font-size: 14px;}
 .popup-load .btn-loadFile{margin: 70px auto 20px; width: 120px;}
 .popup-load .text-bottom{position: absolute; bottom: 10px; left: 0; width: 100%; text-align: center;}
-.popup-load .btn-loadModule{display: inline-block;}
+.popup-load .btn-loadModule{display: inline-block; margin: 0 10px;}
 .popup-load .btn-loadModule i{float: left; display: inline-block; margin-top: 2px; margin-right: 10px; width: 17px; height: 17px; overflow: hidden; background: url(../images/icons_all.png) no-repeat -390px -300px;}
 
 /** 弹出输入框 **/
@@ -765,3 +765,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /*.index-head-logo span{font-size:20px}
 .index-head-logopic{background: url("../images/logos.png")no-repeat 0 17px;height:70px;width:27px;float:left;margin-left: 20px; margin-right: 10px;}*/
+
+/** --------按钮组-------- **/
+.nav-tabs{margin-bottom: 10px;}
+.nav-tabs > li > a{/*padding-top: 6px; padding-bottom: 6px; */color: #1397da; border-radius: 0;}
+.nav-tabs > li.active > a{color: #333;}
+.nav-tabs-agency{margin-top: 20px; margin-bottom: 20px;}

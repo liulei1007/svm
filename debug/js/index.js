@@ -396,31 +396,6 @@ function getProductInfo() {
 
 
 
-//待审核产品列表
-function listProductInfoUpt() {
-    $.ajax({
-        url:plumeApi["listProductInfoUpt"],
-        type:"POST",
-        contentType: "application/json;charset=UTF-8",
-        data:JSON.stringify(
-            {
-                "productName": "",
-                "seriesName": "",
-                "saleStatus": ""
-            }
-        ),
-        success:function(data){
-            if(data.ok) {
-                 unloading();
-                 $("[list-node]").remove();
-                 $(".form-body").setPageData(data);
-            }else{
-                alert('error');
-            }
-        }
-    })
-}
-
 
 
 //商品上架 
