@@ -221,6 +221,7 @@ function pathInit() {
 //获取当前登录用户信息，同时放入sessionStorage中
 function getLoginInfoToSession(){
     $.ajax({
+        headers:{'Cookie' : document.cookie },
         type: "get",
         url: plumeApi["getLoginUser"],
         contentType: "application/json",
