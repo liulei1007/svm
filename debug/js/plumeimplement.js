@@ -119,6 +119,12 @@ function agencyList_init() {
 function agencyShowCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyShowCompany.js");
 }
+function agencyCreate_init() {
+    plumeUtil.js(plumePath+"/js/agencyCreate.js");
+}
+function factoryCreate_init() {
+    plumeUtil.js(plumePath+"/js/factoryCreate.js");
+}
 function agencyCreateCompany_init() {
     plumeUtil.js(plumePath+"/js/agencyCreateCompany.js");
 }
@@ -313,3 +319,9 @@ function shopListShow_init(){
     plumeUtil.js(plumePath + "/js/shopListShow.js")
     plumeLog("完成shopListShow模板加载-" + plumeTime());
 }
+$.ajaxSetup({
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+});

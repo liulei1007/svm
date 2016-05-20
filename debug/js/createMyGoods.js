@@ -127,7 +127,8 @@ $(function () {
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $(".pu-ok").bind("click", function () {
-                //closeUploadPop();
+                //http://10.11.25.215/group01/M00/00/82/CgsZ2Fc-uPGADkdMAABXomkTTPc662.jpg
+
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
@@ -260,10 +261,13 @@ $(function () {
         //        attributeId (integer, optional): 属性ID
         //}
         pram_str += '  "photos": [';
-        pram_str += '{';
-        pram_str += '  "colorId": 0,';
-        pram_str += ' "picUrl": "1"';
-        pram_str += ' }';
+        $(".cmg-goodsimgs").each(function(){
+            pram_str += '{';
+            pram_str += '  "colorId": 0,';
+            pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            pram_str += ' }';
+        });
+
         pram_str += ' ],';
         pram_str += ' "goods": [';
         var goods_pram_str = "";
@@ -279,13 +283,7 @@ $(function () {
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
         pram_str += ']';
         pram_str += '}';
-        //待审核工厂商品新增Vo {
-        //    colorId (integer, optional): 颜色ID,
-        //        colorRgb (string, optional): 颜色RGB,
-        //        color (string, optional): 颜色名称,
-        //        standard (string, optional): 规格,
-        //        salePrice (number, optional): 商品市场参考价
-        //}
+
         loading();
         $.ajax({
             type: "POST",

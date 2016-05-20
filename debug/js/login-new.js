@@ -14,7 +14,6 @@ $(function() {
 
     $(".login-left-icons .icons-toggle").each(function() {
         var delayTime = $(this).attr("data-delay");
-        console.log(delayTime);
         $(this).css({"-webkit-animation-delay": delayTime, "-moz-animation-delay": delayTime, "-o-animation-delay": delayTime, "animation-delay": delayTime});
     });
 
@@ -80,6 +79,7 @@ $(function() {
             return;
         }
         loading();
+
         $.ajax({
             type: "POST",
             url: plumeApi["login"],

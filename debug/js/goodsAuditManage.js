@@ -64,6 +64,10 @@ function auditFun() {
                 success: function (data) {
                     if(data.ok){
                         unloading();
+                         totalPage=Math.ceil(data.countRecord/10);
+                        newPage(totalPage,function(i){
+
+                        })
                         popTips("审核成功","success");
                         listProductInfoUpt();
                     }else{

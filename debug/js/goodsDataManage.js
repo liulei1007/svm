@@ -56,6 +56,10 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
+                totalPage=Math.ceil(data.countRecord/10);
+                newPage(totalPage,function(i){
+
+                })
                 $(".gdm-table-data").setPageData(data);
 
                 $(".gdm-btn-del").unbind().bind("click", function () {
@@ -134,10 +138,11 @@ $(function () {
 
 //批量导入按钮
     $(".btn-import-data").bind("click",function() {
-         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
-            $('.loadFile').click()
-         });
-    })
-
+        $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+            $(".btn-loadModule").bind("click",function() {
+              window.location="http://api.longguo.hxmklmall.cn:80/excel/importProductGoods/1/1/1/1"
+            });
+        });
+    })  
 
 });
