@@ -13,8 +13,8 @@
     </page>
     <page>
         <page-name>login</page-name>
-        <page-url>/</page-url>
-        <init>login_init</init>
+        <page-url>/login-new.html</page-url>
+        <init>loginNew_init</init>
     </page>
     <page>
         <page-name>test</page-name>
