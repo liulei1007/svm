@@ -1,7 +1,7 @@
 $(function () {
 
     //获取登录信息放入session中
-    //getLoginInfoToSession();
+    getLoginInfoToSession();
 
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
