@@ -5,10 +5,12 @@ $(function(){
 	});
 
     $('.table-block').on('click','.btn-delect',function() {
-        //获取记录id  （目前缺失，待询问专业人士）
+        //获取记录id 
+        var removeList = $(this).parents('tr');
+        var msgid = removeList.attr("msgid");
 
         //调用删除     
-        delFeedBackData(1);
+        delFeedBackData(msgid);
     });
 
 	listFeedBackData();
