@@ -1,5 +1,5 @@
 
-//document.domain = "longguo.hxmklmall.cn";
+document.domain = "api.longguo.hxmklmall.cn";
 console.log("domain:"+document.domain);
 var PLUME_PROJECT = "../";
 var PLUME_FILE = [

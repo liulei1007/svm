@@ -222,10 +222,14 @@ function pathInit() {
 function getLoginInfoToSession(){
     $.ajax({
         headers:{'Cookie' : document.cookie },
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
         type: "get",
         url: plumeApi["getLoginUser"],
         contentType: "application/json",
-        dataType: "json",
+        dataType: "jsonp",
         async: false,
         success: function (data) {
             if (data.ok) {  
