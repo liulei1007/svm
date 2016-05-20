@@ -1,7 +1,12 @@
 $(function(){
-	var brandName ="";
-	var contract ="";
-	var telNumber ="";
+	var datas={
+		  "start": 0,
+		  "limit": 0,
+		  "brandName": "",
+		  "contract": "",
+		  "contractTel": "",
+		  "objectId": 0
+	}
 
 	plumeLog("进入brandList模板自定义js-"+plumeTime());
 	//getTableData();
@@ -20,12 +25,41 @@ $(function(){
 	})
 
 	$(".btn-search").bind('click',function() {
-		 brandName =$("#brandName").val();
-		 contract =$("#contract").val();
-	     telNumber =$("#telNumber").val();
-		getTableData(brandName,contract,telNumber)
+		 datas.brandName =$("#brandName").val();
+		 datas.contract =$("#contract").val();
+	     datas.contractTel =$("#telNumber").val();
+		getTableData()
 	})
 
-
-	getTableData(brandName,contract,telNumber)
+	//商品管理列表
+function getTableData(){
+	var newData = JSON.stringify(datas)  
+     $.ajax({
+        url: plumeApi["listAgentsBrandInfoList-brand"],
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        data:newData,
+        success:function(data){
+            $("[list-node]").remove();
+            $(".table-block").setPageData(data);
+            totalPage=Math.ceil(data.countRecord/10);
+            newPage(totalPage,function(i){
+			datas.start = (i-1)*10;
+			var newData = JSON.stringify(datas);
+			$.ajax({
+				url: plumeApi["listAgentsBrandInfoList-brand"],
+				type: "POST",
+				data: newData,
+				dataType: "json",
+				contentType: "application/json; charset=utf-8",
+				success: function(data) {
+					 $("[list-node]").remove();
+           			 $(".table-block").setPageData(data);
+				},
+				});
+			});
+        }
+    });
+}
+	getTableData()
 });

@@ -48,7 +48,7 @@ $(function() {
 		$("[list-node]").remove();
 		$.ajax({
 			// url: "datas/shopList.txt",
-			url: "http://192.168.221.92:8080/productStash/listProductStash",
+			url: plumeApi["listProductStash"],
 			type: "GET",
 			data: data,
 			dataType: "json",
@@ -56,6 +56,21 @@ $(function() {
 			success: function(result) {
 				unloading();
 				$(".doc-commodityManagement").setPageData(result);
+				totalPage=Math.ceil(result.countRecord/10);
+            	newPage(totalPage,function(i){
+					data.start = (i-1)*10;
+					$.ajax({
+						url: plumeApi["listProductStash"],
+						type: "GET",
+						data: data,
+						dataType: "json",
+						contentType: "application/json; charset=utf-8",
+						success: function(result) {
+							    unloading();
+								$(".doc-commodityManagement").setPageData(result);
+						},
+					});
+				});
 			},
 			error:function(error) {console.log(error);}
 		});
