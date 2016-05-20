@@ -384,5 +384,6 @@
         <delSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/delSubUserInfo/</delSubUserInfo>
         <getManuSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
         <getAgentsSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+        <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
     </api>
 </config>

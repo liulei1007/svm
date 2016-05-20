@@ -5,7 +5,10 @@ $(function() {
     var swiper = new Swiper('.swiper-container', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        autoplay : 5000,
+        simulateTouch: false,
+        lazyLoading: true,
+        lazyLoadingOnTransitionStart: true,
+        autoplay: 5000,
         loop: true
     });
 
@@ -88,6 +91,7 @@ $(function() {
                 if (data.ok) {
 //                    alert("登录成功");
                     $(".login-alert").hide();
+                    //$.cookie('JSESSIONID', '');
                     window.location.href = "index";
 
                 } else {
