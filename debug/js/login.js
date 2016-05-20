@@ -93,11 +93,16 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     $(".login-msg2").text("登录成功,用户id:" + data.data + "仅验证登录,跳转请使用另外两个测试按钮.").fadeIn();
+                    $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
                     window.location.href = "index";
 
                 } else {
                     $(".login-msg1").text(data.resDescription).fadeIn();
                 }
+            },
+            error:function() {
+                unloading();
+                $(".login-msg1").text("网路异常").fadeIn();
             }
         });
     });
