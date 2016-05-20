@@ -1,4 +1,5 @@
 $(function() {
+	var totalPage;
 	// 起始商品序号
 	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
@@ -18,7 +19,7 @@ $(function() {
 	// data.shopType = "2";
 	
 	// 获取数据
-	getData();
+	
 	// 表格全选事件绑定
 	tablecheckbox();
 
@@ -35,13 +36,21 @@ $(function() {
 		getData();
 	});
 
+	//点击“查看”
+	$('tbody').on('click','.btn-look',function() {
+		getShopId(this);
+		derict(this,"shopListShow","nochangeurl");
+	})
+
+
+
 	// 从服务器获取数据
 	function getData() {
 		loading();
 		var newData = JSON.stringify(data);
 		$.ajax({
 			// url: "datas/shopList.txt",
-			url: "http://192.168.222.164:8080/shopInfo/listShopInfo",
+			url: plumeApi["listShopInfo"],
 			type: "POST",
 			data: newData,
 			dataType: "json",
@@ -66,10 +75,10 @@ $(function() {
 			var tableList = "";
 			result.data.map(function(list) {
 				console.log(list);
-				tableList += '<tr shopID="' + list.shopId + '">';
+				tableList += '<tr>';
 				tableList += '<td><input type="checkbox" /></td>';
 				// 序号
-				tableList += '<td>' + (++startNum) + '</td>';
+				tableList += '<td class="shopId">' + list.id + '</td>';
 				// 展位号
 				tableList += '<td>' + list.boothCode + '</td>';
 				// 公司名称
@@ -87,6 +96,8 @@ $(function() {
 				// 店铺状态
 				if (list.isDel == 0) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
+
+				tableList += '<td><div class="btn btn-link btn-look">查看</div><td>'
 			});
 			$("table tbody").html(tableList);
 		}
@@ -94,4 +105,10 @@ $(function() {
 			console.log(result.resDescription);
 		}
 	}
+
+
+
+	newPage(10,function(i){
+		getData()
+	})
 });
