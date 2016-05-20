@@ -18,6 +18,7 @@
 		<div class="login-container">
 			<!-- 登录表单 -->
 			<div class="login-form">
+				<div class="alert alert-danger alert-dismissible login-alert"><div class="close"><span aria-hidden="true">&times;</span></div>错！！！！</div>
 				<div class="login-form-container">
 					<p class="login-form-title">用户登录</p>
 					<div class="form">
@@ -40,7 +41,28 @@
 						<div class="pull-right fetchpwd">忘记密码？</div>
 					</div>
 				</div>
-				<div class="register-line">没有账号？<span class="btn-register">立即注册！</span></div>
+				<div class="register-line">没有账号？<span id="registerNow" class="btn-register">立即注册！</span></div>
+			</div>
+
+			<!-- 注册表单 -->
+			<div class="register-form">
+				<div class="login-form-container">
+					<p class="login-form-title">用户注册</p>
+					<div class="form">
+						<div class="form-group clearFix">
+							<input type="text" placeholder="请输入11位手机号" />
+						</div>
+						<div class="form-group clearFix">
+							<input type="password" placeholder="6-20位字符，建议数字字母组合" />
+						</div>
+						<div class="form-group clearFix">
+							<input class="login-input-code" type="text" placeholder="请输入验证码" />
+							<div class="btn-getCode">获取验证码</div>
+						</div>
+					</div>
+					<div class="btn-register">注册</div>
+				</div>
+				<div class="login-line">已有账号？<span id="loginNow" class="btn-login">登录</span></div>
 			</div>
 
 			<!-- 头部 -->

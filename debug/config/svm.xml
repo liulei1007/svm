@@ -317,7 +317,7 @@
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
     <!--192.168.221.222:8081-->
     <!-- api.longguo.hxmklmall.cn:80-->
-    <!--192.168.222.162:8081-->
+    <!--192.168.222.164:8080-->
     <!--api.longguo.hxmklmall.cn:80/-->
     <api>
         <listBrandSeriesList>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeriesList</listBrandSeriesList>
@@ -329,7 +329,7 @@
         <delProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/delProductInfo</delProductInfo>
         <sendMsg>http://api.longguo.hxmklmall.cn:80/userInfo/sendMsg</sendMsg>
         <registerUserInfo>http://api.longguo.hxmklmall.cn:80/userInfo/registerUserInfo</registerUserInfo>
-        <login>api.longguo.hxmklmall.cn:80/userInfo/login</login>
+        <login>http://api.longguo.hxmklmall.cn:80/userInfo/login</login>
         <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory</listProductCategory>
         <getColorSeries>http://api.longguo.hxmklmall.cn:80/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://api.longguo.hxmklmall.cn:80/common/listNationRegion/CN</listNationRegion>
@@ -359,9 +359,15 @@
         <delFeedback>http://api.longguo.hxmklmall.cn:80/feedback/delFeedback/</delFeedback>
         <resetPassword>http://api.longguo.hxmklmall.cn:80/userInfo/resetPassword/</resetPassword>
 
-        <getLoginUser>api.longguo.hxmklmall.cn:80/userInfo/getLoginUser/</getLoginUser>
-        <listSubUserInfo>api.longguo.hxmklmall.cn:80/subUserInfo/listSubUserInfo/</listSubUserInfo>
-        <listManuSubUserInfo>api.longguo.hxmklmall.cn:80/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
+        <getLoginUser>http://api.longguo.hxmklmall.cn:80/userInfo/getLoginUser/</getLoginUser>
+        <listSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/listSubUserInfo/</listSubUserInfo>
+        <listManuSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
+        <delSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/delSubUserInfo/</delSubUserInfo>
+        <getManuSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
+        <getAgentsSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+                
 
+    
+        
     </api>
 </config>

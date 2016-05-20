@@ -5,7 +5,6 @@ $(function () {
     function userTypeInit() {
         $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
     }
-
     userTypeInit();
     //设置品牌
     function getbrandList() {
@@ -38,9 +37,9 @@ $(function () {
                 });
             }
         })
-        $.get(plumeApi["listOmsBrand"], {}, function (data) {
-
-        });
+        //$.get(plumeApi["listOmsBrand"], {}, function (data) {
+        //
+        //});
     }
 
     getbrandList();
@@ -52,7 +51,7 @@ $(function () {
         });
     }
 
-    getProductAttribute();
+    //getProductAttribute();
     //修改类目参数
     $(".changeType").bind("click", function () {
         derict(this, "userType", "nochangeurl");
@@ -153,7 +152,7 @@ $(function () {
                 var c = $(this).is(':checked');
                 var colorid = $(this).attr("colorid");
                 var colorValue = $(this).parent().find(".cmg-colorValue").attr("colorValue");
-                var colorName = $(this).parent().find(".cmg-colorName").val();
+                var colorName = $(this).parent().find(".cmg-colorName").text();
                 var colorDesc = $(this).parent().find(".cmg-colorDesc").val();
                 var n = colorName;
                 if (colorDesc != "") {
@@ -170,8 +169,8 @@ $(function () {
             });
             //描述填写
             $(".cmg-colorDesc").unbind().bind("blur", function () {
-                var colorid = $(this).parent().parent().parent().find(".color-box").attr("colorid");
-                var colorName = $(this).parent().parent().parent().find(".cmg-colorName").val();
+                var colorid = $(this).parent().parent().find(".color-box").attr("colorid");
+                var colorName = $(this).parent().parent().find(".cmg-colorName").text();
                 var desc = $(this).val();
                 if (desc != "") {
                     $(".cmg-table-color").find(".tr" + colorid).find(".colorName").attr("colorDesc", desc);
@@ -329,7 +328,7 @@ $(function () {
             $(".colortr").each(function () {
                 var colorid = $(this).attr("colorid");
                 var colorvalue = $(this).attr("colorvalue");
-                var colorname = $(this).find(".colorName").attr("colorname");
+                var colorname = $(this).find(".colorName").text();
                 var temp = '<tr class="cmg-goodstr">';
                 temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';

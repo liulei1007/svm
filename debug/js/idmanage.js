@@ -4,4 +4,132 @@ $(function(){
 	$(".im-btn-add").bind("click",function(){
 		derict(this, "childIdCreate", "nochangeurl");
 	});
+
+	//搜索
+	$(".btn-sm").bind("click",function(){
+		listSubUserDate(1, 10);
+	});
+
+	//权限配置
+	$('.table-block').on('click','.btn-acset',function() {
+        $(".cic-pop").pop("popAuth",function(){
+            $(".pa-cancel").bind("click",function(){
+                $(".cic-pop").pophide();
+            })
+        });
+    });
+
+	//编辑
+	$('.table-block').on('click','.btn-compile',function() {
+		var removeList = $(this).parents('tr');
+    	var managid = removeList.attr("managid");
+		sessionStorage.modifyAcId=managid;
+        derict(this, "childIdCreate", "nochangeurl");
+    });
+
+	//删除
+    $('.table-block').on('click','.btn-delect',function() {
+        
+        var removeList = $(this).parents('tr');
+    	var managid = removeList.attr("managid");
+    	
+    	delSubUserData(managid);
+
+    });
+
+
+	listSubUserDate(1, 10);
+
 });
+
+//查询子账号分页信息 page：第几页；perPage：每页多少条记录
+function listSubUserDate(page, perPage) {
+	//获取子账号列表的url
+	var apiName = "";
+
+	//获取登录人的用户类型：0：未设定,1:工厂,2:经销商代理商
+	var userType = sessionStorage.login_userType;
+	if(userType == null || userType == 0) {
+		return;
+	} else if(userType == 1) {
+		apiName = plumeApi["listManuSubUserInfo"];
+	} else if (userType == 2) {
+		apiName = plumeApi["listSubUserInfo"];
+	} else {
+		return;
+	}
+
+	var mobilePhone = $("#tel").val();
+	if(page == null)
+		page = 1;
+	if(perPage == null)
+		perPage = 10;
+	
+	loading();
+	$.ajax({
+        url: apiName,
+        type: "GET",
+        data: {
+                "mobilePhone": mobilePhone,
+                "page": page,
+                "perPage": perPage
+            },
+        contentType: "application/json;charset=UTF-8",
+        success: function (data) {
+            unloading();
+            $("[list-node]").remove();
+            if(data.ok) {
+                $(".table-block").setPageData(data);
+                $('.createDate').each(function () {
+                	if($(this).html() != '')
+                    	$(this).html(getLocalTime($(this).html()));
+                });
+            }
+        }
+    });
+}
+
+//时间戳转日期
+function getLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().substr(0, 10)
+}
+
+//删除子账号
+function delSubUserData(managid) {
+
+    $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+        // 绑定按钮事件
+        $('.pop').on('click', '.btn-sure', function () {
+            loading();
+            $.ajax({
+                url:plumeApi["delSubUserInfo"]+"?id="+managid,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    if(data.ok){
+                        unloading();
+                        popTips("删除成功","success");
+                        listSubUserDate();
+                    }else{
+                        unloading();
+                        popTips("删除失败","warning");
+                        listSubUserDate();
+                }
+            }
+            });
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+        $('.pop').on('click', '.btn-cancel', function () {
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+    });
+}
