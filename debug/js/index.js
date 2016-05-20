@@ -234,9 +234,9 @@ function getLoginInfoToSession(){
                 sessionStorage.login_userType=data.data.userType;
                 sessionStorage.login_id=data.data.id;
                 sessionStorage.login_openId=data.data.openId;
-                sessionStorage.login_parentId=data.data.parentId
-                sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId
-                sessionStorage.login_manuId=data.data.manuId
+                sessionStorage.login_parentId=data.data.parentId;
+                sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId;
+                sessionStorage.login_manuId=data.data.manuId;
             } else {
                 alert("获取登录信息失败:"+data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
