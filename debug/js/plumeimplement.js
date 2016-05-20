@@ -319,3 +319,9 @@ function shopListShow_init(){
     plumeUtil.js(plumePath + "/js/shopListShow.js")
     plumeLog("完成shopListShow模板加载-" + plumeTime());
 }
+$.ajaxSetup({
+    xhrFields: {
+        withCredentials: true
+    },
+    crossDomain: true,
+});

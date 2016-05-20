@@ -1,5 +1,4 @@
 $(function () {
-
     //获取登录信息放入session中
     getLoginInfoToSession();
 
@@ -9,7 +8,7 @@ $(function () {
     } else {
         $("#login-name").html("admim");
     }
-    
+
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {
@@ -219,30 +218,25 @@ function pathInit() {
 }
 
 //获取当前登录用户信息，同时放入sessionStorage中
-function getLoginInfoToSession(){
+function getLoginInfoToSession() {
     $.ajax({
-        headers:{'Cookie' : document.cookie },
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
         type: "get",
         url: plumeApi["getLoginUser"],
         contentType: "application/json",
-        dataType: "jsonp",
+        dataType: "json",
         async: false,
         success: function (data) {
-            if (data.ok) {  
+            if (data.ok) {
                 //待确认，不知道这种方式是否可以
                 sessionStorage.login_mobilePhone = data.data.mobilePhone;
-                sessionStorage.login_userType=data.data.userType;
-                sessionStorage.login_id=data.data.id;
-                sessionStorage.login_openId=data.data.openId;
-                sessionStorage.login_parentId=data.data.parentId
-                sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId
-                sessionStorage.login_manuId=data.data.manuId
+                sessionStorage.login_userType = data.data.userType;
+                sessionStorage.login_id = data.data.id;
+                sessionStorage.login_openId = data.data.openId;
+                sessionStorage.login_parentId = data.data.parentId
+                sessionStorage.login_agentsBusinessId = data.data.agentsBusinessId
+                sessionStorage.login_manuId = data.data.manuId
             } else {
-                alert("获取登录信息失败:"+data.resDescription);
+                alert("获取登录信息失败:" + data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
 //                window.location.href = "login";
             }
@@ -255,29 +249,29 @@ function getLoginInfoToSession(){
 function getGoodsPsgId(_this) {
     var removeList = $(_this).parents('tr');
     var psgId = removeList.find('.psgId').html();
-    session.goods_psgId=psgId;
+    session.goods_psgId = psgId;
 }
 
 //获取productId
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods_productId=productId;
+    session.productGoods_productId = productId;
 }
 
 //获取brandId
-function getBrandId(_this){
+function getBrandId(_this) {
     var removeList = $(_this).parents('tr');
     var brandId = removeList.find('.brandId').html();
-    session.brand_brandId=brandId;
+    session.brand_brandId = brandId;
 }
 
 
 //获取shopId
-function getShopId(_this){
+function getShopId(_this) {
     var removeList = $(_this).parents('tr');
     var shopId = removeList.find('.shopId').html();
-    session.shop_shopId=shopId;
+    session.shop_shopId = shopId;
 }
 
 
@@ -293,10 +287,10 @@ function getGoodsInfo() {
                 unloading();
                 $('.body-typein').setPageData(data.data);
                 var formsList = "";
-                 $(data.data.productGoodsORM.productInfoORM.productInfoAttrORMs).each(function(i,good) {
-                    formsList+='<div class="form-group"><label class="col-sm-3 control-label">'+good.productAttribute.attrNameBack+'：</label><p class="col-sm-6 form-control-static">'+good.attrValue+'</p></div>'
+                $(data.data.productGoodsORM.productInfoORM.productInfoAttrORMs).each(function (i, good) {
+                    formsList += '<div class="form-group"><label class="col-sm-3 control-label">' + good.productAttribute.attrNameBack + '：</label><p class="col-sm-6 form-control-static">' + good.attrValue + '</p></div>'
                 });
-                $(".forms-block").append(formsList);   
+                $(".forms-block").append(formsList);
             }
         })
     } catch (e) {
@@ -324,7 +318,7 @@ function getProductInfo() {
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
                     size[data.standard] = 1;
-                    trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' +data.productGoodsId+ '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
+                    trList += '<tr><td class="color">' + data.color + '</td><td class="productGoodsId">' + data.productGoodsId + '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
                 for (c in color) {
@@ -339,57 +333,57 @@ function getProductInfo() {
                 $(".taking-size").append(sizeList);
 
                 var colorArr = [];
-                var sizeArr = []; 
+                var sizeArr = [];
                 getColorArr();
                 getSizeArr();
                 function getColorArr() {
-                     $(".taking-color input").each(function(i) {
-                        if($(this).prop('checked')===true){
-                            colorArr.push($(this).next('p').html());      
+                    $(".taking-color input").each(function (i) {
+                        if ($(this).prop('checked') === true) {
+                            colorArr.push($(this).next('p').html());
                         }
                     });
                 }
 
-                 function getSizeArr() {
-                     $(".taking-size input").each(function(i) {
-                        if($(this).prop('checked')===true){
-                            sizeArr.push($(this).next('p').html());      
+                function getSizeArr() {
+                    $(".taking-size input").each(function (i) {
+                        if ($(this).prop('checked') === true) {
+                            sizeArr.push($(this).next('p').html());
                         }
                     });
                 }
 
 
                 function change() {
-                     $('tbody tr').hide().each(function() {
-                        var tr =$(this);
-                        $(colorArr).each(function(i,c) {
-                            if(c==tr.find(".color").html()){
-                               $(sizeArr).each(function(i,s) {
-                                    if(s==tr.find('.size').html()){
+                    $('tbody tr').hide().each(function () {
+                        var tr = $(this);
+                        $(colorArr).each(function (i, c) {
+                            if (c == tr.find(".color").html()) {
+                                $(sizeArr).each(function (i, s) {
+                                    if (s == tr.find('.size').html()) {
                                         tr.show();
                                     }
-                               })
+                                })
                             }
                         })
                     })
                 }
 
-                $(".taking-color input").bind("change",function() {
-                    colorArr =[];
+                $(".taking-color input").bind("change", function () {
+                    colorArr = [];
                     getColorArr();
                     change();
                 });
 
-                $(".taking-size input").bind("change",function() {
-                    sizeArr=[];
+                $(".taking-size input").bind("change", function () {
+                    sizeArr = [];
                     getSizeArr();
                     change();
                 })
 
-                $(data.data.productInfoAttrORMs).each(function(i,good) {
-                    formsList+='<div class="form-group"><label class="col-sm-3 control-label">'+good.productAttribute.attrNameBack+'：</label><p class="col-sm-6 form-control-static">'+good.attrValue+'</p></div>'
+                $(data.data.productInfoAttrORMs).each(function (i, good) {
+                    formsList += '<div class="form-group"><label class="col-sm-3 control-label">' + good.productAttribute.attrNameBack + '：</label><p class="col-sm-6 form-control-static">' + good.attrValue + '</p></div>'
                 });
-                
+
                 $(".forms-block").append(formsList);
 
             }
@@ -400,26 +394,25 @@ function getProductInfo() {
 }
 
 
-
 //待审核产品列表
 function listProductInfoUpt() {
     $.ajax({
-        url:plumeApi["listProductInfoUpt"],
-        type:"POST",
+        url: plumeApi["listProductInfoUpt"],
+        type: "POST",
         contentType: "application/json;charset=UTF-8",
-        data:JSON.stringify(
+        data: JSON.stringify(
             {
                 "productName": "",
                 "seriesName": "",
                 "saleStatus": ""
             }
         ),
-        success:function(data){
-            if(data.ok) {
-                 unloading();
-                 $("[list-node]").remove();
-                 $(".form-body").setPageData(data);
-            }else{
+        success: function (data) {
+            if (data.ok) {
+                unloading();
+                $("[list-node]").remove();
+                $(".form-body").setPageData(data);
+            } else {
                 alert('error');
             }
         }
@@ -427,8 +420,7 @@ function listProductInfoUpt() {
 }
 
 
-
-//商品上架 
+//商品上架
 function groundGoods() {
     loading();
     $.ajax({
@@ -436,16 +428,16 @@ function groundGoods() {
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
-            if(data.ok){
-            unloading();
-            popTips("上架成功","success");            
-            getGoodsData(1);
-            }else{
-            unloading();
-            popTips("上架失败","warning");
-            getGoodsData(1);
+            if (data.ok) {
+                unloading();
+                popTips("上架成功", "success");
+                getGoodsData(1);
+            } else {
+                unloading();
+                popTips("上架失败", "warning");
+                getGoodsData(1);
+            }
         }
-     }
     });
 }
 
@@ -457,14 +449,14 @@ function soldOutGoods() {
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
-            if(data.ok){
-            unloading();
-            popTips("下架成功","success");            
-            getGoodsData(1);
-            }else{
-            unloading();
-            popTips("下架失败","warning");
-            getGoodsData(1);
+            if (data.ok) {
+                unloading();
+                popTips("下架成功", "success");
+                getGoodsData(1);
+            } else {
+                unloading();
+                popTips("下架失败", "warning");
+                getGoodsData(1);
             }
         }
     });
@@ -474,24 +466,24 @@ function soldOutGoods() {
 //新增店铺商品
 function addProductShopGoods(body) {
     loading()
-     $.ajax({
+    $.ajax({
         url: plumeApi["addProductShopGoods"],
         type: "POST",
         contentType: "application/json;charset=UTF-8",
-            data: JSON.stringify(body),
-            success: function (data) {
-                if(data.ok){
-                    unloading();
-                    popTips("商品编辑成功","success");
-                    derict(this, "groundGoods", "nochangeurl");
-            }else{
+        data: JSON.stringify(body),
+        success: function (data) {
+            if (data.ok) {
                 unloading();
-                popTips("商品编辑失败","warning");
+                popTips("商品编辑成功", "success");
+                derict(this, "groundGoods", "nochangeurl");
+            } else {
+                unloading();
+                popTips("商品编辑失败", "warning");
                 derict(this, "groundGoods", "nochangeurl");
             }
         }
     });
-} 
+}
 
 //编辑店铺商品
 function editProductShopGoods() {
@@ -500,27 +492,27 @@ function editProductShopGoods() {
     var inventory = $("#inventory").val();
     var saleStatus = $("input[name='ground']:checked").val()
     loading();
-     $.ajax({
-        url:plumeApi["editProductShopGoods"],
-        type:"POST",
+    $.ajax({
+        url: plumeApi["editProductShopGoods"],
+        type: "POST",
         contentType: "application/json;charset=UTF-8",
-        data:JSON.stringify(
-        {
-          "psgId": session.goods_psgId,
-          "salePrice": price,
-          "priceType":priceType,
-          "inventory": inventory,
-          "saleStatus":saleStatus
-        }
+        data: JSON.stringify(
+            {
+                "psgId": session.goods_psgId,
+                "salePrice": price,
+                "priceType": priceType,
+                "inventory": inventory,
+                "saleStatus": saleStatus
+            }
         ),
-        success:function(data){
-            if(data.ok){
+        success: function (data) {
+            if (data.ok) {
                 unloading();
-                popTips("商品编辑成功","success");
+                popTips("商品编辑成功", "success");
                 derict(this, "groundGoods", "nochangeurl");
-            }else{
+            } else {
                 unloading();
-                popTips("商品编辑失败","warning");
+                popTips("商品编辑失败", "warning");
                 derict(this, "groundGoods", "nochangeurl");
             }
         }
@@ -557,20 +549,20 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url:plumeApi["delProductShopGoods"] + session.goods_psgId,
+                url: plumeApi["delProductShopGoods"] + session.goods_psgId,
                 type: "GET",
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
-                    if(data.ok){
+                    if (data.ok) {
                         unloading();
-                        popTips("删除成功","success");
+                        popTips("删除成功", "success");
                         getGoodsData();
-                    }else{
+                    } else {
                         unloading();
-                        popTips("删除失败","warning");
+                        popTips("删除失败", "warning");
                         getGoodsData();
+                    }
                 }
-            }
             });
             $('.pop').hide();
             $('.pop').off('click', '.btn-sure');
@@ -719,7 +711,7 @@ function unloading() {
 // 检验表单中的必填项是否填写
 function checkForm() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function() {
+    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function () {
         checkNull($(this));
     });
 }
@@ -736,138 +728,145 @@ function checkNull(checkObj) {
 
 // 单笔自采商品操作
 function checkSelfGoods(operateName, selfGoods, url) {
-	var flag = true;
-	// 首先检验必填项是否都已经填写
-	$(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function() {
-		if (!checkNull($(this))) { flag = false; }
-	});
-	if (flag) {
-		// 获取表单中填入的信息
-		selfGoods.brandName = $("#brandName").val().trim();
-		selfGoods.pdtName = $("#pdtName").val().trim();
-		selfGoods.categoryId = $("#sortSelect").val();
-		selfGoods.categoryName = $("#sortSelect option:selected").text();
+    var flag = true;
+    // 首先检验必填项是否都已经填写
+    $(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function () {
+        if (!checkNull($(this))) {
+            flag = false;
+        }
+    });
+    if (flag) {
+        // 获取表单中填入的信息
+        selfGoods.brandName = $("#brandName").val().trim();
+        selfGoods.pdtName = $("#pdtName").val().trim();
+        selfGoods.categoryId = $("#sortSelect").val();
+        selfGoods.categoryName = $("#sortSelect option:selected").text();
 
-		selfGoods.pgtType = $("#pgtType").val().trim();
-		selfGoods.standard = $("#standard").val().trim();
-		selfGoods.material = $("#material").val().trim();
-		selfGoods.orgName = $("#orgName").val().trim();
-		selfGoods.priceType = $("#priceType").val().trim();
-		selfGoods.salePrice = $("#salePrice").val().trim();
-		selfGoods.discount = $("#discount").val().trim();
-		selfGoods.inventory = $("#inventory").val().trim();
-		selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
-		// 操作数据库
-		controlSelfGoods(operateName, selfGoods, url);
-	}
+        selfGoods.pgtType = $("#pgtType").val().trim();
+        selfGoods.standard = $("#standard").val().trim();
+        selfGoods.material = $("#material").val().trim();
+        selfGoods.orgName = $("#orgName").val().trim();
+        selfGoods.priceType = $("#priceType").val().trim();
+        selfGoods.salePrice = $("#salePrice").val().trim();
+        selfGoods.discount = $("#discount").val().trim();
+        selfGoods.inventory = $("#inventory").val().trim();
+        selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
+        // 操作数据库
+        controlSelfGoods(operateName, selfGoods, url);
+    }
 }
 // 单笔自采商品数据库操作
 function controlSelfGoods(operateName, selfGoods, url) {
     loading();
-	var newData = JSON.stringify(selfGoods);
-	$.ajax({
-		url: url,
-		type: "POST",
-		data: newData,
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		success: function(result) {
+    var newData = JSON.stringify(selfGoods);
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: newData,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
             unloading();
-			if (result.ok) {
-				$('.pop').loadTemp("popTips", "nochangeurl", function() {
-					$(".pop").find(".popup-title").html(operateName + "自采商品");
-					$(".pop").find(".popup-icon").html('<i class="success"></i>');
-					$(".pop").find(".popup-info").html("自采商品" + operateName + "成功！");
-				});
-			}
-			else {
-				$('.pop').loadTemp("popTips", "nochangeurl", function() {
-		            $(".pop").find(".popup-title").html(operateName + "自采商品");
-					$(".pop").find(".popup-icon").html('<i class="danger"></i>');
-					$(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
-				});
-			}
-           derict(this, "releaseSelfGoods", "nochangeurl");
-		},
-		error:function(error) {console.log(error);}
-	});
+            if (result.ok) {
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html(operateName + "自采商品");
+                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    $(".pop").find(".popup-info").html("自采商品" + operateName + "成功！");
+                });
+            }
+            else {
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html(operateName + "自采商品");
+                    $(".pop").find(".popup-icon").html('<i class="danger"></i>');
+                    $(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
+                });
+            }
+            derict(this, "releaseSelfGoods", "nochangeurl");
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 // 获取自采商品信息
 function getSelfData(showObj, stashId) {
-	loading();
-	$.ajax({
-		url: plumeApi["getProductStashById"] + stashId,
-		type: "GET",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		success: function(result) {
-			unloading();
-			var data = result.data;
-			$(showObj).find("#brandName").val(data.brandName);
-			$(showObj).find("#stashId").text(data.stashId);
-			$(showObj).find("#pdtName").val(data.pdtName);
-			$(showObj).find("#sortSelect").html('<option value="' + data.categoryId + '">' + data.categoryName + '</option>');
-			// 获取商品一级分类信息
-			getFirstCategory(showObj, data.categoryId);
+    loading();
+    $.ajax({
+        url: plumeApi["getProductStashById"] + stashId,
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            unloading();
+            var data = result.data;
+            $(showObj).find("#brandName").val(data.brandName);
+            $(showObj).find("#stashId").text(data.stashId);
+            $(showObj).find("#pdtName").val(data.pdtName);
+            $(showObj).find("#sortSelect").html('<option value="' + data.categoryId + '">' + data.categoryName + '</option>');
+            // 获取商品一级分类信息
+            getFirstCategory(showObj, data.categoryId);
 
-			$(showObj).find("#pgtType").val(data.pgtType);
-			$(showObj).find("#standard").val(data.standard);
-			$(showObj).find("#material").val(data.material);
-			// 单位名称
-			$(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
-			// 价格类型
-			$(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
-			$(showObj).find("#salePrice").val(data.salePrice);
-			$(showObj).find("#discount").val(data.discount);
-			$(showObj).find("#inventory").val(data.inventory);
-			// 状态
-			$(showObj).find("#saleStatus input[value='" + data.saleStatus + "']").prop("checked", "checked");
-		},
-		error:function(er){}
-	});
+            $(showObj).find("#pgtType").val(data.pgtType);
+            $(showObj).find("#standard").val(data.standard);
+            $(showObj).find("#material").val(data.material);
+            // 单位名称
+            $(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
+            // 价格类型
+            $(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
+            $(showObj).find("#salePrice").val(data.salePrice);
+            $(showObj).find("#discount").val(data.discount);
+            $(showObj).find("#inventory").val(data.inventory);
+            // 状态
+            $(showObj).find("#saleStatus input[value='" + data.saleStatus + "']").prop("checked", "checked");
+        },
+        error: function (er) {
+        }
+    });
 }
 
 
 // 获取产品一级分类
 function getFirstCategory(showObj, categoryId) {
-	$.ajax({
-		url: plumeApi["listProductCategory"],
-		type: "GET",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		success: function(result) {
-			var sortHtml = "";
-			result.data.map(function(sort) {
-				if (sort.categoryId == categoryId) {
-					sortHtml += '<option value=' + sort.categoryId + ' selected="selected">' + sort.categoryName + '</option>';
-				}
-				else {
-					sortHtml += '<option value=' + sort.categoryId + '>' + sort.categoryName + '</option>';
-					}
-				});
-			$(showObj).find("#sortSelect").html(sortHtml);
-		},
-		error:function(error) {console.log(error);}
-	});
+    $.ajax({
+        url: plumeApi["listProductCategory"],
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            var sortHtml = "";
+            result.data.map(function (sort) {
+                if (sort.categoryId == categoryId) {
+                    sortHtml += '<option value=' + sort.categoryId + ' selected="selected">' + sort.categoryName + '</option>';
+                }
+                else {
+                    sortHtml += '<option value=' + sort.categoryId + '>' + sort.categoryName + '</option>';
+                }
+            });
+            $(showObj).find("#sortSelect").html(sortHtml);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }
 
 
 //弹出层
-function popTips(popupTitle,popupIcon) {
-    $('.pop').loadTemp("popTips", "nochangeurl", function() {
-    $(".pop").find(".popup-title").html(popupTitle);
-    $(".pop").find(".popup-icon").html('<i class='+popupIcon+'></i>');
-    $(".pop").find(".popup-info").html("确认");    
-    });            
+function popTips(popupTitle, popupIcon) {
+    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+        $(".pop").find(".popup-title").html(popupTitle);
+        $(".pop").find(".popup-icon").html('<i class=' + popupIcon + '></i>');
+        $(".pop").find(".popup-info").html("确认");
+    });
 }
 
 
 //分页
-function newPage(totalPage,fun){
+function newPage(totalPage, fun) {
     var Tf = false
-    var nowPage=1;
-    loadPagination(nowPage,totalPage);
+    var nowPage = 1;
+    loadPagination(nowPage, totalPage);
 
     // 如果总页数大于5, 还需显示跳转表单
     if (totalPage > 10) {
@@ -881,27 +880,33 @@ function newPage(totalPage,fun){
     }
 
     // 绑定分页点击事件
-    $(".nav-pagination").on("click", ".num", function() {
+    $(".nav-pagination").on("click", ".num", function () {
         // 防止点击当前页
-        if ($(this).hasClass("active")) { return; }
+        if ($(this).hasClass("active")) {
+            return;
+        }
 
         nowPage = parseInt($(this).attr("data-page"));
         loadPagination(nowPage, totalPage);
-    }).on("click", ".first", function() {
+    }).on("click", ".first", function () {
         // 防止当前已是最前页
-        if ($(this).hasClass("disabled")) { return; }
+        if ($(this).hasClass("disabled")) {
+            return;
+        }
 
         nowPage = parseInt($(".nav-pagination").find(".num").eq(0).attr("data-page"));
         loadPagination(nowPage, totalPage);
-    }).on("click", ".last", function() {
+    }).on("click", ".last", function () {
         // 防止当前已是最后页
-        if ($(this).hasClass("disabled")) { return; }
+        if ($(this).hasClass("disabled")) {
+            return;
+        }
 
         nowPage = parseInt($(".nav-pagination").find(".num").last().attr("data-page"));
         loadPagination(nowPage, totalPage);
     });
     // 绑定跳转页面
-    $(".nav-pagination").on("click", ".btn-go", function() {
+    $(".nav-pagination").on("click", ".btn-go", function () {
         // 确保输入的数字
         if (!isNaN(parseInt($("#turnTo").val()))) {
             nowPage = parseInt($("#turnTo").val());
@@ -910,77 +915,89 @@ function newPage(totalPage,fun){
     });
 
 
-function loadPagination(nowPage, totalPage) {
+    function loadPagination(nowPage, totalPage) {
 
-    var paginationHtml = '';
-    // 回到最前页按钮
-    if (nowPage == 1) { paginationHtml += '<li class="first disabled"><span>&laquo;</span></li>'; }
-    else paginationHtml += '<li class="first"><span>&laquo;</span></li>';
+        var paginationHtml = '';
+        // 回到最前页按钮
+        if (nowPage == 1) {
+            paginationHtml += '<li class="first disabled"><span>&laquo;</span></li>';
+        }
+        else paginationHtml += '<li class="first"><span>&laquo;</span></li>';
 
-    // 如果总页数小于或者等于10
-    if (totalPage <= 10) {
-        for (var i = 0; i < totalPage; i++) {
-            if (i == nowPage - 1) { paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>'; }
-            else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
-        }
-    }
-    // 如果总页数大于10, 需显示"..."
-    else {
-        // 如果当前页 < 6, 左侧显示7个页码, 右侧显示2个页码
-        if (nowPage < 6) {
-            // 左侧7个页码
-            for (var i = 0; i < 7; i++) {
-                if (i == nowPage - 1) { paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>'; }
-                else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
-            }
-            // 中间"..."
-            paginationHtml += '<li class="more"><span>...</span></li>';
-            // 右侧2个页码
-            paginationHtml += '<li class="num" data-page="' + (totalPage - 1) + '"><span>' + (totalPage - 1) + '</span></li>';
-            paginationHtml += '<li class="num" data-page="' + totalPage + '"><span>' + totalPage + '</span></li>';
-        }
-        // 如果总页数 - 当前页 < 5, 左侧显示2个页码, 右侧显示7个页码
-        else if (totalPage - nowPage < 5) {
-            // 左侧2个页码
-            paginationHtml += '<li class="num" data-page="1"><span>1</span></li>';
-            paginationHtml += '<li class="num" data-page="2"><span>2</span></li>';
-            // 中间"..."
-            paginationHtml += '<li class="more"><span>...</span></li>';
-            // 右侧7个页码
-            for (var i = totalPage - 7; i < totalPage; i++) {
-                if (i == nowPage - 1) { paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>'; }
+        // 如果总页数小于或者等于10
+        if (totalPage <= 10) {
+            for (var i = 0; i < totalPage; i++) {
+                if (i == nowPage - 1) {
+                    paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                }
                 else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
             }
         }
-        // 否则, 左侧显示1个页码, 中间显示5个页码, 右侧显示2个页码
+        // 如果总页数大于10, 需显示"..."
         else {
-            // 左侧2个页码
-            paginationHtml += '<li class="num" data-page="1"><span>1</span></li>';
-            paginationHtml += '<li class="num" data-page="2"><span>2</span></li>';
-            // 中间"..."
-            paginationHtml += '<li class="more"><span>...</span></li>';
-            // 中间5个页码
-            for (var i = (nowPage - 3); i < (nowPage + 2); i++) {
-                if (i == nowPage - 1) { paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>'; }
-                else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+            // 如果当前页 < 6, 左侧显示7个页码, 右侧显示2个页码
+            if (nowPage < 6) {
+                // 左侧7个页码
+                for (var i = 0; i < 7; i++) {
+                    if (i == nowPage - 1) {
+                        paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                    }
+                    else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                }
+                // 中间"..."
+                paginationHtml += '<li class="more"><span>...</span></li>';
+                // 右侧2个页码
+                paginationHtml += '<li class="num" data-page="' + (totalPage - 1) + '"><span>' + (totalPage - 1) + '</span></li>';
+                paginationHtml += '<li class="num" data-page="' + totalPage + '"><span>' + totalPage + '</span></li>';
             }
-            // 中间"..."
-            paginationHtml += '<li class="more"><span>...</span></li>';
-            // 右侧2个页码
-            paginationHtml += '<li class="num" data-page="' + (totalPage - 1) + '"><span>' + (totalPage - 1) + '</span></li>';
-            paginationHtml += '<li class="num" data-page="' + totalPage + '"><span>' + totalPage + '</span></li>';
+            // 如果总页数 - 当前页 < 5, 左侧显示2个页码, 右侧显示7个页码
+            else if (totalPage - nowPage < 5) {
+                // 左侧2个页码
+                paginationHtml += '<li class="num" data-page="1"><span>1</span></li>';
+                paginationHtml += '<li class="num" data-page="2"><span>2</span></li>';
+                // 中间"..."
+                paginationHtml += '<li class="more"><span>...</span></li>';
+                // 右侧7个页码
+                for (var i = totalPage - 7; i < totalPage; i++) {
+                    if (i == nowPage - 1) {
+                        paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                    }
+                    else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                }
+            }
+            // 否则, 左侧显示1个页码, 中间显示5个页码, 右侧显示2个页码
+            else {
+                // 左侧2个页码
+                paginationHtml += '<li class="num" data-page="1"><span>1</span></li>';
+                paginationHtml += '<li class="num" data-page="2"><span>2</span></li>';
+                // 中间"..."
+                paginationHtml += '<li class="more"><span>...</span></li>';
+                // 中间5个页码
+                for (var i = (nowPage - 3); i < (nowPage + 2); i++) {
+                    if (i == nowPage - 1) {
+                        paginationHtml += '<li class="num active" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                    }
+                    else paginationHtml += '<li class="num" data-page="' + (i + 1) + '"><span>' + (i + 1) + '</span></li>';
+                }
+                // 中间"..."
+                paginationHtml += '<li class="more"><span>...</span></li>';
+                // 右侧2个页码
+                paginationHtml += '<li class="num" data-page="' + (totalPage - 1) + '"><span>' + (totalPage - 1) + '</span></li>';
+                paginationHtml += '<li class="num" data-page="' + totalPage + '"><span>' + totalPage + '</span></li>';
+            }
         }
-    }
 
-    // 跳到最后页按钮
-    if (nowPage == totalPage) { paginationHtml += '<li class="last disabled"><span>&raquo;</span></li>'; }
-    else paginationHtml += '<li class="last"><span>&raquo;</span></li>';
-    $(".pagination").html(paginationHtml);
-      if(fun){
-        if(Tf){
-        fun(nowPage);
+        // 跳到最后页按钮
+        if (nowPage == totalPage) {
+            paginationHtml += '<li class="last disabled"><span>&raquo;</span></li>';
         }
-        Tf = true;
+        else paginationHtml += '<li class="last"><span>&raquo;</span></li>';
+        $(".pagination").html(paginationHtml);
+        if (fun) {
+            if (Tf) {
+                fun(nowPage);
+            }
+            Tf = true;
+        }
     }
-}
 }

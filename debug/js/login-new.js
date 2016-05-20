@@ -79,6 +79,7 @@ $(function() {
             return;
         }
         loading();
+
         $.ajax({
             type: "POST",
             url: plumeApi["login"],
