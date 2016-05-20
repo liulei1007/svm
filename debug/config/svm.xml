@@ -277,6 +277,11 @@
         <init>popTips_init</init>
     </page>
     <page>
+        <page-name>popUpLoadBatch</page-name>
+        <page-url>/pages/popUpLoadBatch.html</page-url>
+        <init>popUpLoadBatch_init</init>
+    </page>
+    <page>
         <page-name>childIdCreate</page-name>
         <page-url>/pages/childIdCreate.html</page-url>
         <init>childIdCreate_init</init>
