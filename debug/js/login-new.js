@@ -141,7 +141,8 @@ $(function() {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    window.location.href = "login";
+                    $(".register-form").slideUp();
+                    $(".login-form").slideDown();
                 } else {
                     $("#reg-errormsg").text("注册失败:"+data.resDescription);
                     $(".register-form .login-alert").fadeIn();

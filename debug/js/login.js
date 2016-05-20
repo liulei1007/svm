@@ -140,7 +140,8 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     $(".reg-msg2").text("注册成功").fadeIn();
-                    window.location.href = "login";
+                    $(".reg-block").fadeOut();
+                    $(".login-block").fadeIn();
                 } else {
                     $(".reg-msg1").text(data.resDescription).fadeIn();
                 }
