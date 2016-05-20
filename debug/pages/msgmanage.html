@@ -24,8 +24,8 @@
         缺失信息反馈
     </div>
     <div class="btn-block clearFix">
-        <div type="div" id="mm-addmsg" class="btn btn-primary">新增反馈信息</div>
-        <div type="div" id="mm-delmsg" class="btn btn-primary">删除反馈信息</div>
+        <div type="div" id="mm-addmsg" class="btn btn-primary btn-icons btn-addSingle">新增反馈信息</div>
+        <div type="div" id="mm-delmsg" class="btn btn-batch-delete">批量删除反馈信息</div>
     </div>
     <div class="table-block">
         <table class="table table-striped table1">
@@ -43,7 +43,7 @@
             </tr>
             </thead>
             <tbody data-list="$p.data">
-              <tr list-temp="true">
+              <tr list-temp="true" node-name="attr-msgid:$n.id">
                 <td><input type="checkbox" /></td>
                 <td node-name="$n.brandName"></td>
                 <td class="feedbackType" node-name="$n.feedbackType"></td>
@@ -53,13 +53,11 @@
                 <td class="feedbackStatus" node-name="$n.feedbackStatus"></td>
                 <td node-name="$n.feedbackResult"></td>
                 <td>
-                    <intput type="hidden" class="fid" node-name="$n.id" />
                     <button type="button" class="btn btn-link btn-compile">编辑</button>
                     <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
                 </td>
               </tr>
             </tbody>
-            <tbody>
         </table>
     </div>
     <div class="pull-right pagination">

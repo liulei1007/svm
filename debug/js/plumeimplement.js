@@ -291,7 +291,9 @@ function copyMyGoods_init(){
 
 //-- 新的login模板初始化函数
 function loginNew_init(){
+
     plumeUtil.css(plumePath+"/css/swiper.min.css");
+
     plumeUtil.js(plumePath+"/js/login-new.js");
 }
 

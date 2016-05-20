@@ -1,4 +1,15 @@
 $(function () {
+
+    //获取登录信息放入session中
+    getLoginInfoToSession();
+
+    //显示登录名称
+    if (sessionStorage.login_mobilePhone) {
+        $("#login-name").html(sessionStorage.login_mobilePhone);
+    } else {
+        $("#login-name").html("admim");
+    }
+    
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {
@@ -205,6 +216,33 @@ function pathInit() {
         $(".work-space").loadTemp("welcome", "nochangeurl");
     }
 
+}
+
+//获取当前登录用户信息，同时放入sessionStorage中
+function getLoginInfoToSession(){
+    $.ajax({
+        type: "get",
+        url: plumeApi["getLoginUser"],
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {  
+                //待确认，不知道这种方式是否可以
+                sessionStorage.login_mobilePhone = data.data.mobilePhone;
+                sessionStorage.login_userType=data.data.userType;
+                sessionStorage.login_id=data.data.id;
+                sessionStorage.login_openId=data.data.openId;
+                sessionStorage.login_parentId=data.data.parentId
+                sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId
+                sessionStorage.login_manuId=data.data.manuId
+            } else {
+                alert("获取登录信息失败:"+data.resDescription);
+//                $(".login-msg1").text(data.resDescription).fadeIn();
+                window.location.href = "login";
+            }
+        }
+    });
 }
 
 
