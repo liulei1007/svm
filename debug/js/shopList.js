@@ -1,11 +1,10 @@
 $(function() {
+	//页数
 	var totalPage;
-	// 起始商品序号
-	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
 	var data ={
   "start": 0,
-  "limit": 0,
+  "limit": 10,
   "marketName": "",
   "boothCode": "",
   "personDealerName": "",
@@ -43,7 +42,6 @@ $(function() {
 	})
 
 
-
 	// 从服务器获取数据
 	function getData() {
 		loading();
@@ -55,7 +53,23 @@ $(function() {
 			data: newData,
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
-			success: function(result) {showData(result);},
+			success: function(result) {
+			showData(result);
+			totalPage=Math.ceil(result.countRecord/10);
+			newPage(totalPage,function(i){
+			data.start = (i-1)*10;
+			var newData = JSON.stringify(data);
+			$.ajax({
+				url: plumeApi["listShopInfo"],
+				type: "POST",
+				data: newData,
+				dataType: "json",
+				contentType: "application/json; charset=utf-8",
+				success: function(result) {showData(result);},
+		});
+	});
+
+			},
 			error:function(error) {console.log(error);}
 		});
 	}
@@ -70,7 +84,7 @@ $(function() {
 			// 下方分页
 			var pageList = "";
 			// 总页数
-			var totalPages = Math.ceil(result.countRecord / limitNum);
+			var totalPages = Math.ceil(result.countRecord / 10);
 
 			var tableList = "";
 			result.data.map(function(list) {
@@ -106,9 +120,5 @@ $(function() {
 		}
 	}
 
-
-
-	newPage(10,function(i){
-		getData()
-	})
+getData();
 });
