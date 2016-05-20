@@ -5,7 +5,10 @@ $(function() {
     var swiper = new Swiper('.swiper-container', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
-        autoplay : 5000,
+        simulateTouch: false,
+        lazyLoading: true,
+        lazyLoadingOnTransitionStart: true,
+        autoplay: 5000,
         loop: true
     });
 
@@ -51,9 +54,10 @@ $(function() {
     //     alert("程序猿加班更新中......");
     // });
 
-
+    //登录按钮
     $(".login-form .btn-login").bind("click", function () {
-        $(".form-block-msg").hide();
+       // $(".alert-dismissible .login-alert").hide();
+
         var logintel = $("#logintel").val();
         var loginpwd = $("#loginpwd").val();
         var pram_str = '{';
@@ -61,18 +65,18 @@ $(function() {
         pram_str += '"password": "' + loginpwd + '"';
         pram_str += '}';
         if (logintel == "") {
-            alert("请输入手机号码");
-//          $(".login-msg1").text("请输入手机号码").fadeIn();
+            $("#login-errormsg").text("请输入手机号码");
+            $(".login-alert").show();
             return;
         }
         if(!isMobile(logintel)) {
-            alert("手机格式不正确");
-//            $(".login-msg1").text("手机格式不正确").fadeIn();
+            $("#login-errormsg").text("手机格式不正确");
+            $(".login-alert").fadeIn();
             return;
         }
         if (loginpwd == "") {
-            alert("请输入密码");
-//            $(".login-msg1").text("请输入密码").fadeIn();
+            $("#login-errormsg").text("请输入密码");
+            $(".login-alert").fadeIn();
             return;
         }
         loading();
@@ -85,19 +89,97 @@ $(function() {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    alert("登录成功");
-//                    $(".login-msg2").text("登录成功,用户id:" + data.data + "仅验证登录,跳转请使用另外两个测试按钮.").fadeIn();
-                  window.location.href = "index";
+//                    alert("登录成功");
+                    $(".login-alert").hide();
+                    $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
+                    window.location.href = "index";
 
                 } else {
-                    alert("登录失败:"+data.resDescription);
-//                    $(".login-msg1").text(data.resDescription).fadeIn();
+                    $("#login-errormsg").text("登录失败:"+data.resDescription);
+                    $(".login-alert").fadeIn();
                 }
             }
         });
     });
+
+    //注册
+    $(".register-form .btn-register").bind("click", function () {
+        $(".register-form .login-alert").hide();
+        var tel = $("#tel").val();
+        var pwd = $("#pwd").val();
+        var verifycode = $("#verifycode").val();
+        var pram_str = '{';
+        pram_str += '"mobilePhone": "' + tel + '",';
+        pram_str += '"password": "' + pwd + '",';
+        pram_str += '"rePassword": "' + pwd + '",';
+        pram_str += '"regVerifycode": "' + verifycode + '"';
+        pram_str += '}';
+        if (!isMobile(tel)) {
+           $("#reg-errormsg").text("手机号输入错误");
+           $(".register-form .login-alert").fadeIn();
+            return;
+        }
+        if (pwd == "") {
+            $("#reg-errormsg").text("请输入密码");
+            $(".register-form .login-alert").fadeIn();
+            return;
+        }
+        if (!pwdCheck(pwd)) {
+            $("#reg-errormsg").text("密码必须是6-15位数字或字母组合");
+            $(".register-form .login-alert").fadeIn();
+
+            return;
+        }
+        if (verifycode == "") {
+            $("#reg-errormsg").text("请输入验证码");
+            $(".register-form .login-alert").fadeIn();
+            return;
+        }
+        loading();
+        $.ajax({
+            type: "POST",
+            url: plumeApi["registerUserInfo"],
+            data: pram_str,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                if (data.ok) {
+                    $(".register-form").slideUp();
+                    $(".login-form").slideDown();
+                } else {
+                    $("#reg-errormsg").text("注册失败:"+data.resDescription);
+                    $(".register-form .login-alert").fadeIn();
+                }
+            }
+        });
+    });
+
+    //发送验证码
+    $(".btn-getCode").bind("click", function () {
+        var tel = $("#tel").val();
+        if (isMobile(tel)) {
+            loading();
+            $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
+                unloading();
+                if (data.ok) {
+                    alert("短信验证码发送成功");
+                }
+            });
+        } else {
+            $("#reg-errormsg").text("手机号输入错误");
+            $(".register-form .login-alert").fadeIn();
+        }
+    });
+
 });
 
+//密码验证: 6-15位字符，建议数字和字母组合
+function pwdCheck(pwd) {
+    return /^[0-9A-Za-z]{6,15}$/.test(pwd);
+}
+
+//手机号验证
 function isMobile(n) {
     return /^1\d{10}$/.test(n) && n != 11111111111;
 }

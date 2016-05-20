@@ -37,9 +37,6 @@ $(function () {
                     });
                 });
             }
-        })
-        $.get(plumeApi["listOmsBrand"], {}, function (data) {
-
         });
     }
 
@@ -47,8 +44,32 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
+        categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
+            for (var i = 0; i < data.data.length; i++) {
+                var d = data.data[i];
+                var temp = '<div class="form-group required">';
+                temp += '<label class="col-sm-2 control-label">' + d.attrNameFront + '</label>';
+                temp += '<div class="col-sm-2">';
+
+
+                if (d.attr_input == "text") {
+                    temp += '<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>';
+                } else {
+                    temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attr_code="' + d.attr_code + '">';
+                    for (var j = 0; j < d.productAttributeValues.length; j++) {
+                        var x = d.productAttributeValues[j];
+                        temp += '<option value="' + x.attributeId + '">' + x.valueName + '</option>';
+                    }
+                    temp += '</select>';
+                }
+                temp += '</div>';
+                temp += '</div>';
+                console.log(temp);
+                $(".goodsAttr-content").append(temp);
+            }
+
         });
     }
 
@@ -153,7 +174,7 @@ $(function () {
                 var c = $(this).is(':checked');
                 var colorid = $(this).attr("colorid");
                 var colorValue = $(this).parent().find(".cmg-colorValue").attr("colorValue");
-                var colorName = $(this).parent().find(".cmg-colorName").val();
+                var colorName = $(this).parent().find(".cmg-colorName").text();
                 var colorDesc = $(this).parent().find(".cmg-colorDesc").val();
                 var n = colorName;
                 if (colorDesc != "") {
@@ -170,8 +191,8 @@ $(function () {
             });
             //描述填写
             $(".cmg-colorDesc").unbind().bind("blur", function () {
-                var colorid = $(this).parent().parent().parent().find(".color-box").attr("colorid");
-                var colorName = $(this).parent().parent().parent().find(".cmg-colorName").val();
+                var colorid = $(this).parent().parent().find(".color-box").attr("colorid");
+                var colorName = $(this).parent().parent().find(".cmg-colorName").text();
                 var desc = $(this).val();
                 if (desc != "") {
                     $(".cmg-table-color").find(".tr" + colorid).find(".colorName").attr("colorDesc", desc);
@@ -218,12 +239,26 @@ $(function () {
         pram_str += '"subCategoryName": "",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
-        pram_str += ' {';
-        pram_str += '"attrValueId": 0,';
-        pram_str += ' "attrValue": "",';
-        pram_str += ' "attributeId": 0';
-        pram_str += '}';
+        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>
+        $(".cmg-attrs").each(function(){
+            pram_str += ' {';
+            if($(this).attr("attr_type")==1){
+                pram_str += '"attrValueId": 0,';
+                pram_str += ' "attrValue": "'+$(this).val()+'",';
+            }else{
+                pram_str += '"attrValueId": '+$(this).val()+',';
+                pram_str += ' "attrValue": "",';
+            }
+            pram_str += ' "attributeId": '+$(this).attr("attr_code")+'';
+            pram_str += '}';
+        });
         pram_str += '],';
+
+        //待审核产品属性新增Vo {
+        //    attrValueId (integer, optional): 属性值ID(非文本输入型),
+        //        attrValue (string, optional): 属性值(文本输入型),
+        //        attributeId (integer, optional): 属性ID
+        //}
         pram_str += '  "photos": [';
         pram_str += '{';
         pram_str += '  "colorId": 0,';
@@ -329,7 +364,7 @@ $(function () {
             $(".colortr").each(function () {
                 var colorid = $(this).attr("colorid");
                 var colorvalue = $(this).attr("colorvalue");
-                var colorname = $(this).find(".colorName").attr("colorname");
+                var colorname = $(this).find(".colorName").text();
                 var temp = '<tr class="cmg-goodstr">';
                 temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';

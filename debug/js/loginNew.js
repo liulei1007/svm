@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var login_move = {
     testmove: function () {
         $(".moveitem").find("img").each(function () {
@@ -43,7 +43,7 @@ function blink(){
 $(function () {
     plumeLog("进入loginNew模板自定义js-" + plumeTime());
     //$(".moveitem").fadeIn();
-   // login_move.testmove();
+    // login_move.testmove();
     blink();
     $(".icons-logo").bind("click", function () {
         $(this).addClass("icon-rot");
@@ -57,9 +57,9 @@ $(function () {
         $(this).removeClass("icon-rot1");
     });
     $(".login-text-block").animate({
-        "fontsize":"48px"
+        "fontsize": "48px"
     })
-=======
+})
 // var login_move = {
 //     testmove: function () {
 //         $(".icons").each(function () {
@@ -90,13 +90,5 @@ $(function () {
 //         return p;
 //     }
 // }
-$(function () {
-    plumeLog("进入login模板自定义js-" + plumeTime());
-
-    // login_move.testmove();
-
->>>>>>> d01a8795244c53ea725861d587b54a961c6790b6
-});
-
 
 

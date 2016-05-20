@@ -18,7 +18,7 @@
 		<div class="login-container">
 			<!-- 登录表单 -->
 			<div class="login-form">
-				<div class="alert alert-danger alert-dismissible login-alert"><div class="close"><span aria-hidden="true">&times;</span></div>错！！！！</div>
+				<div class="alert alert-danger alert-dismissible login-alert" style="display: none;"><div class="close"><span aria-hidden="true">&times;</span></div><span id="login-errormsg">错！！！！</span></div>
 				<div class="login-form-container">
 					<p class="login-form-title">用户登录</p>
 					<div class="form">
@@ -46,17 +46,18 @@
 
 			<!-- 注册表单 -->
 			<div class="register-form">
+				<div class="alert alert-danger alert-dismissible login-alert" style="display: none;" ><div class="close"><span aria-hidden="true">&times;</span></div><span id="reg-errormsg">错！！！！</span></div>
 				<div class="login-form-container">
 					<p class="login-form-title">用户注册</p>
 					<div class="form">
 						<div class="form-group clearFix">
-							<input type="text" placeholder="请输入11位手机号" />
+							<input type="text" id="tel" placeholder="请输入11位手机号" />
 						</div>
 						<div class="form-group clearFix">
-							<input type="password" placeholder="6-20位字符，建议数字字母组合" />
+							<input type="password" id="pwd" placeholder="6-20位字符，建议数字字母组合" />
 						</div>
 						<div class="form-group clearFix">
-							<input class="login-input-code" type="text" placeholder="请输入验证码" />
+							<input class="login-input-code" type="text" id="verifycode" placeholder="请输入验证码" />
 							<div class="btn-getCode">获取验证码</div>
 						</div>
 					</div>
@@ -105,8 +106,9 @@
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					<!-- 屏一 -->
-					<div id="screen-1" class="swiper-slide" style="display: block;">
-						<img src="images/login/bg-login-1.jpg" />
+					<div id="screen-1" class="swiper-slide" style="display: block; background-color: #2b263a;">
+						<img class="swiper-lazy" data-src="images/login/bg-login-1.jpg" />
+						<!-- <img src="images/login/bg-login-1.jpg" /> -->
 						<div class="login-left-icons">
 							<div class="icons-lines"></div>
 
@@ -129,12 +131,14 @@
 							<div data-delay="0.9s" class="icons icons-bottom icons-toggle" style="bottom: 135px; margin-left: 280px; width: 50px; height: 50px;"><img src="images/login/icons-m.png" /></div>
 						</div>
 
-						<div class="login-text-block" style="color: #efd6d0">运筹帷幄 <strong>决胜</strong>云端</div>
+						<!-- <div class="login-text-block" style="color: #efd6d0">运筹帷幄 <strong>决胜</strong>云端</div> -->
+						<div class="login-text-block"><img src="images/login/text-1.png" /></div>
 					</div>
 
 					<!-- 屏二 -->
-					<div id="screen-2" class="swiper-slide" style="display: none;">
-						<img src="images/login/bg-login-2.jpg" />
+					<div id="screen-2" class="swiper-slide" style="display: none; background-color: #2b2529;">
+						<img class="swiper-lazy" data-src="images/login/bg-login-2.jpg" />
+						<!-- <img src="images/login/bg-login-2.jpg" /> -->
 						<div class="login-left-icons">
 
 							<div class="icons-lines"><img src="images/login/img-lines-2.png" /></div>
@@ -148,12 +152,14 @@
 							<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="left: 603px; margin-bottom: -60px; width: 68px; height: 68px;"><img src="images/login/icons-data-2.png" /></div>
 						</div>
 
-						<div class="login-text-block" style="color: #ffe599">行业平台 <strong>共享</strong>盛世</div>
+						<!-- <div class="login-text-block" style="color: #ffe599">行业平台 <strong>共享</strong>盛世</div> -->
+						<div class="login-text-block"><img src="images/login/text-2.png" /></div>
 					</div>
 
 					<!-- 屏三 -->
-					<div id="screen-3" class="swiper-slide" style="display: none;">
-						<img src="images/login/bg-login-3.jpg" />
+					<div id="screen-3" class="swiper-slide" style="display: none; background-color: #1e3c47;">
+						<img class="swiper-lazy" data-src="images/login/bg-login-3.jpg" />
+						<!-- <img src="images/login/bg-login-3.jpg" /> -->
 						<div class="login-left-icons">
 
 							<div class="icons-lines"></div>
@@ -165,7 +171,8 @@
 							<div data-delay="0.4s" class="icons icons-middle icons-toggle" style="right: 620px; margin-bottom: -95px; width: 85px; height: 85px;"><img src="images/login/icons-base-3.png" /></div>
 							<div data-delay="0.2s" class="icons icons-middle icons-toggle" style="right: 703px; margin-bottom: 59px; width: 38px; height: 38px;"><img src="images/login/icons-goods-3.png" /></div>
 						</div>
-						<div class="login-text-block" style="color: #0fdbd3">立足<strong>红星</strong> 纵横天下</div>
+						<!-- <div class="login-text-block" style="color: #0fdbd3">立足<strong>红星</strong> 纵横天下</div> -->
+						<div class="login-text-block"><img src="images/login/text-3.png" /></div>
 					</div>
 				</div>
 			</div>

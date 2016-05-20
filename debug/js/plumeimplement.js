@@ -155,6 +155,11 @@ function popTips_init() {
     plumeUtil.js(plumePath+"/js/popTips.js");
 }
 
+// ----弹出框----
+function popUpLoadBatch_init() {
+    plumeUtil.js(plumePath+"/js/popUpLoadBatch.js");
+}
+
 //--idmanage模板初始化函数--
 function idmanage_init(){
     plumeLog("初始化idmanage模板-"+plumeTime());
