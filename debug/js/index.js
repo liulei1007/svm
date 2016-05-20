@@ -4,7 +4,7 @@ $(function () {
 
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
-        $("#login-name").html(sessionStorage.login_mobilePhone);
+        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
     } else {
         $("#login-name").html("admim");
     }

@@ -1,58 +1,67 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
-    getTableData("","",0,"");
+    getTableData("", "", 0, 0, 0, "", "", "",1);
     tablecheckbox();
     $(".gdm-add-goods").bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
-    $(".gdm-btn-search").bind("click",function(){
-        var productName=$("#productName").val();
-        var modelNumber=$("#modelNumber").val();
-        var categoryId=$("#categoryId").val();
-      if(categoryId==""){
-          categoryId=0;
-      }
-        var saleStatus=$("#saleStatus").val();
-        getTableData(productName,modelNumber,categoryId,saleStatus);
+    $(".gdm-btn-search").bind("click", function () {
+        var productName = $("#productName").val();
+        var modelNumber = $("#modelNumber").val();
+        var baseCategoryId=$("#baseCategoryId").val();
+        var saleStatus =$("#saleStatus").val();
+        var subCategoryId=$("#subCategoryId").val();
+        var categoryId = $("#categoryId").val();
+        var reviewStatus=$("#reviewStatus").val();
+        if (categoryId == "") {
+            categoryId = 0;
+        }
+        var saleStatus = $("#saleStatus").val();
+        getTableData(productName, modelNumber, categoryId, subCategoryId, baseCategoryId, saleStatus, reviewStatus, "",1);
     });
     //分类
-    var cls=["gdm-type-first","gdm-type-second","gdm-type-third"];
-    function getFirstCategory(categoryId,tag){
+    var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
+
+    function getFirstCategory(categoryId, tag) {
         loading();
-        $.get(plumeApi["listProductCategory"]+"/"+categoryId,{},function(data){
+        $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             unloading();
-            $("."+cls[tag]).find("[list-node]").remove();
-            $("."+cls[tag]).setPageData(data);
-            $("."+cls[tag]).find("select").unbind().bind("change", function () {
-                var nowtag=parseInt($(this).attr("tag"))+1;
-                var cid=$(this).val();
-                if(nowtag<3){
-                    getFirstCategory(cid,nowtag)
+            $("." + cls[tag]).find("[list-node]").remove();
+            $("." + cls[tag]).setPageData(data);
+            $("." + cls[tag]).find("select").unbind().bind("change", function () {
+                var nowtag = parseInt($(this).attr("tag")) + 1;
+                var cid = $(this).val();
+                if (nowtag < 3) {
+                    getFirstCategory(cid, nowtag)
                 }
             });
         })
     }
-    getFirstCategory(0,0);
+
+    getFirstCategory(0, 0);
     //获取表格数据
-    function getTableData(productName,modelNumber,categoryId,saleStatus) {
+    function getTableData(productName, modelNumber, categoryId, subCategoryId, baseCategoryId, saleStatus, reviewStatus, seriesName,page) {
         $("[list-node]").remove();
         loading();
         var pram_str = '{';
-        pram_str += '"productName": "'+productName+'",';
-        pram_str += ' "modelNumber": "'+productName+'",';
-        pram_str += '  "categoryId": '+categoryId+',';
-        pram_str += ' "saleStatus": "'+saleStatus+'"';
+        pram_str += '"productName": "' + productName + '",';
+        pram_str += ' "modelNumber": "' + productName + '",';
+        pram_str += '  "categoryId": ' + categoryId + ',';
+        pram_str += ' "subCategoryId": "' + subCategoryId + '",';
+        pram_str += ' "baseCategoryId": "' + baseCategoryId + '",';
+        pram_str += ' "saleStatus": "' + saleStatus + '",';
+        pram_str += ' "reviewStatus": "' + reviewStatus + '",';
+        pram_str += ' "seriesName": "' + seriesName + '"';
         pram_str += '}';
         $.ajax({
             type: "POST",
-            url: plumeApi["listProductInfo"],
+            url: plumeApi["listProductInfoUpt"]+"?currentPage="+page+"&onePageCount=10",
             data: pram_str,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();
                 $(".gdm-table-data").setPageData(data);
-
                 $(".gdm-btn-del").unbind().bind("click", function () {
                     if (confirm("是否确认删除?")) {
                         loading();
