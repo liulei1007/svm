@@ -163,7 +163,6 @@
         <page-url>/pages/agencyAddAccount.html</page-url>
         <init>agencyAddAccount_init</init>
     </page>
-
     <page>
         <page-name>shopList</page-name>
         <page-url>/pages/shopList.html</page-url>
@@ -309,9 +308,10 @@
         <page-url>/pages/showSelfGoods.html</page-url>
         <init>showSelfGoods_init</init>
     </page>
+
     <page>
         <page-name>createSelfGoods</page-name>
-        <page-url>/pages/createSelfGoods.html</pgae-url>
+        <page-url>/pages/createSelfGoods.html</page-url>
         <init>createSelfGoods_init</init>
     </page>
     <page>
@@ -334,6 +334,7 @@
     <!-- api.longguo.hxmklmall.cn:80-->
     <!--192.168.222.164:8080-->
     <!--api.longguo.hxmklmall.cn:80/-->
+    <!--192.168.152.1:8080-->
     <api>
         <listBrandSeriesList>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeriesList</listBrandSeriesList>
         <listAgentsBrandInfoList-brand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listAgentsBrandInfoList-brand>
