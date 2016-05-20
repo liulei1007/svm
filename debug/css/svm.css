@@ -765,3 +765,9 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /*.index-head-logo span{font-size:20px}
 .index-head-logopic{background: url("../images/logos.png")no-repeat 0 17px;height:70px;width:27px;float:left;margin-left: 20px; margin-right: 10px;}*/
+
+/** --------按钮组-------- **/
+.nav-tabs{margin-bottom: 10px;}
+.nav-tabs > li > a{/*padding-top: 6px; padding-bottom: 6px; */color: #1397da; border-radius: 0;}
+.nav-tabs > li.active > a{color: #333;}
+.nav-tabs-agency{margin-top: 20px; margin-bottom: 20px;}

@@ -139,6 +139,16 @@
         <init>agencyList_init</init>
     </page>
     <page>
+        <page-name>agencyCreate</page-name>
+        <page-url>/pages/agencyCreate.html</page-url>
+        <init>agencyCreate_init</init>
+    </page>
+    <page>
+        <page-name>factoryCreate</page-name>
+        <page-url>/pages/factoryCreate.html</page-url>
+        <init>factoryCreate_init</init>
+    </page>
+    <page>
         <page-name>agencyCreateCompany</page-name>
         <page-url>/pages/agencyCreateCompany.html</page-url>
         <init>agencyCreateCompany_init</init>
