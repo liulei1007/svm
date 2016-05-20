@@ -311,7 +311,7 @@
     </page>
     <page>
         <page-name>createSelfGoods</page-name>
-        <page-url>/pages/createSelfGoods.html</pgae-url>
+        <page-url>/pages/createSelfGoods.html</page-url>
         <init>createSelfGoods_init</init>
     </page>
     <page>
