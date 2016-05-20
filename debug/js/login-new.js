@@ -53,7 +53,7 @@ $(function() {
 
     //登录按钮
     $(".login-form .btn-login").bind("click", function () {
-        $(".alert-dismissible .login-alert").hide();
+       // $(".alert-dismissible .login-alert").hide();
 
         var logintel = $("#logintel").val();
         var loginpwd = $("#loginpwd").val();
@@ -63,17 +63,17 @@ $(function() {
         pram_str += '}';
         if (logintel == "") {
             $("#login-errormsg").text("请输入手机号码");
-            $(".alert-dismissible .login-alert").fadeIn();
+            $(".login-alert").show();
             return;
         }
         if(!isMobile(logintel)) {
             $("#login-errormsg").text("手机格式不正确");
-            $(".alert-dismissible .login-alert").fadeIn();
+            $(".login-alert").fadeIn();
             return;
         }
         if (loginpwd == "") {
             $("#login-errormsg").text("请输入密码");
-            $(".alert-dismissible .login-alert").fadeIn();
+            $(".login-alert").fadeIn();
             return;
         }
         loading();
@@ -87,12 +87,12 @@ $(function() {
                 unloading();
                 if (data.ok) {
 //                    alert("登录成功");
-                    $(".alert-dismissible .login-alert").hide();
+                    $(".login-alert").hide();
                     window.location.href = "index";
 
                 } else {
                     $("#login-errormsg").text("登录失败:"+data.resDescription);
-                    $(".alert-dismissible .login-alert").fadeIn();
+                    $(".login-alert").fadeIn();
                 }
             }
         });
