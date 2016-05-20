@@ -239,7 +239,7 @@ function getLoginInfoToSession(){
             } else {
                 alert("获取登录信息失败:"+data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
-                window.location.href = "login";
+//                window.location.href = "login";
             }
         }
     });
