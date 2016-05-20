@@ -173,7 +173,6 @@
         <page-url>/pages/agencyAddAccount.html</page-url>
         <init>agencyAddAccount_init</init>
     </page>
-
     <page>
         <page-name>shopList</page-name>
         <page-url>/pages/shopList.html</page-url>
@@ -319,6 +318,7 @@
         <page-url>/pages/showSelfGoods.html</page-url>
         <init>showSelfGoods_init</init>
     </page>
+
     <page>
         <page-name>createSelfGoods</page-name>
         <page-url>/pages/createSelfGoods.html</page-url>
@@ -344,6 +344,7 @@
     <!-- api.longguo.hxmklmall.cn:80-->
     <!--192.168.222.164:8080-->
     <!--api.longguo.hxmklmall.cn:80/-->
+    <!--192.168.152.1:8080-->
     <api>
         <listBrandSeriesList>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeriesList</listBrandSeriesList>
         <listAgentsBrandInfoList-brand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listAgentsBrandInfoList-brand>
@@ -366,7 +367,7 @@
         <disableProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/disableProductShopGoods/</disableProductShopGoods>
         <getProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/getProductShopGoods/</getProductShopGoods>
         <getProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/getProductInfo/</getProductInfo>
-        <listProductGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/listProductGoods</listProductGoods>
+        <listProductGoods>http://api.longguo.hxmklmall.cn/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/addProductShopGoods</addProductShopGoods>
         <editProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/editProductShopGoods</editProductShopGoods>
@@ -376,6 +377,8 @@
         <brandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeries</brandSeries>
         <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
 
+        <listProductStash>http://api.longguo.hxmklmall.cn:80/productStash/listProductStash</listProductStash>
+     
         <listOmsBrand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listOmsBrand>
         <listOmsBrandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
 
@@ -393,5 +396,6 @@
         <delSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/delSubUserInfo/</delSubUserInfo>
         <getManuSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
         <getAgentsSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+        <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
     </api>
 </config>

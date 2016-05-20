@@ -1,7 +1,7 @@
 $(function () {
 
     //获取登录信息放入session中
-    //getLoginInfoToSession();
+    getLoginInfoToSession();
 
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
@@ -395,72 +395,6 @@ function getProductInfo() {
 }
 
 
-//上下架商品列表
-
-function getGoodsData(nowPage,productName, modelNumber, saleStatus) {
-    loading();
-    $.ajax({
-        url: plumeApi["listProductShopGoods"]+"?currentPage="+nowPage+"&onePageCount=10",
-        type: "POST",
-        contentType: "application/json;charset=UTF-8",
-        data: JSON.stringify(
-            {
-                "productName": productName,
-                "modelNumber": modelNumber,
-                "saleStatus": saleStatus
-            }
-        ),
-        success: function (data) {
-            unloading();
-            totalPage = Math.ceil(data.countRecord/10);
-            searchData={
-                productName:$('#productName').val(),
-                modelNumber:$('#modelNumber').val(),
-                saleStatus:$('#saleStatus').val()
-            }
-            page(nowPage,totalPage,searchData,function(i) {
-                getGoodsData(i,searchData.productName, searchData.modelNumber, searchData.saleStatus);
-            })
-            $("[list-node]").remove();
-            $(".table-block").setPageData(data);
-            $('.createDate').each(function () {
-                $(this).html(getLocalTime($(this).html()));
-                var aTr = $(this).parents('tr');
-                var saleStatus = aTr.find('.saleStatus');
-                var btnGround = aTr.find('.btn-ground');
-                if (saleStatus.html() == 0) {
-                    saleStatus.html('下架中');
-                    btnGround.html('上架');
-                } else {
-                    saleStatus.html('上架中');
-                    btnGround.html('下架');
-                }
-            })
-        }
-    });
-}
-
-//工厂商品列表
-
-function getProductGoodsData(nowPage,keyword) {
-    loading();
-    $.ajax({
-        url: plumeApi["listProductGoods"]+"?keyword="+keyword+"&currentPage="+nowPage+"&onePageCount=10",
-        type: "GET",
-        contentType: "application/json;charset=UTF-8",
-        success: function (data) {
-            totalPage = Math.ceil(data.countRecord/10);
-            unloading();
-            searchData=keyword;
-            page(nowPage,totalPage,searchData,function(i) {
-                getProductGoodsData(i,searchData);
-            });
-            $('.alert-info strong').html(data.countRecord);
-            $("[list-node]").remove();
-            $(".table-block").setPageData(data);
-        }
-    });
-}
 
 //待审核产品列表
 function listProductInfoUpt() {
@@ -487,26 +421,7 @@ function listProductInfoUpt() {
     })
 }
 
-//商品管理列表
-function getTableData(brandName,contract,telNumber){
-     $.ajax({
-        url: plumeApi["listAgentsBrandInfoList-brand"],
-        type: "POST",
-        contentType: "application/json;charset=UTF-8",
-        data:JSON.stringify({
-          "start": 0,
-          "limit": 0,
-          "brandName": brandName,
-          "contract": contract,
-          "contractTel": telNumber,
-          "objectId": 0
-        }),
-        success:function(data){
-            $("[list-node]").remove();
-            $(".table-block").setPageData(data);
-        }
-    });
-}
+
 
 //商品上架 
 function groundGoods() {
@@ -945,6 +860,7 @@ function popTips(popupTitle,popupIcon) {
 
 //分页
 function newPage(totalPage,fun){
+    var Tf = false
     var nowPage=1;
     loadPagination(nowPage,totalPage);
 
@@ -1056,7 +972,10 @@ function loadPagination(nowPage, totalPage) {
     else paginationHtml += '<li class="last"><span>&raquo;</span></li>';
     $(".pagination").html(paginationHtml);
       if(fun){
+        if(Tf){
         fun(nowPage);
+        }
+        Tf = true;
     }
 }
 }
