@@ -29,12 +29,12 @@
             <div class="form-group">
                 <label>分类</label>
                 <span class="gdm-type-first">
-                    <select class="form-control input-sm" data-list="$p.data" tag="0">
+                    <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
                 <span class="gdm-type-second">
-                    <select class="form-control input-sm " data-list="$p.data" tag="1">
+                    <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
@@ -50,16 +50,21 @@
             </div>
             <div class="form-group">
                 <label>审核状态</label>
-                <select class="form-control input-sm" id="saleStatus">
+                <select class="form-control input-sm" id="reviewStatus">
+                    <option value="">全部</option>
                     <option value="0">待审核</option>
-                    <option value="1">已审核</option>
+                    <option value="1">审核通过</option>
+                    <option value="2">审核失败</option>
+                    <option value="3">错误反馈</option>
+                    <option value="4">待完善</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>启用状态</label>
-                <select class="form-control input-sm" id="">
-                    <option value="0">已启用</option>
-                    <option value="1">已禁用</option>
+                <select class="form-control input-sm" id="saleStatus">
+                    <option value="">全部</option>
+                    <option value="0">禁用</option>
+                    <option value="1">启用</option>
                 </select>
             </div>
             <div class="btn btn-default btn-sm gdm-btn-search">查询</div>

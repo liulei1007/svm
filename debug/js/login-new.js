@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var timeOut;
     $(".swiper-slide").show();
 
@@ -12,35 +12,42 @@ $(function() {
         loop: true
     });
 
-    $(".login-left-icons .icons-toggle").each(function() {
+    $(".login-left-icons .icons-toggle").each(function () {
         var delayTime = $(this).attr("data-delay");
-        $(this).css({"-webkit-animation-delay": delayTime, "-moz-animation-delay": delayTime, "-o-animation-delay": delayTime, "animation-delay": delayTime});
+        $(this).css({
+            "-webkit-animation-delay": delayTime,
+            "-moz-animation-delay": delayTime,
+            "-o-animation-delay": delayTime,
+            "animation-delay": delayTime
+        });
     });
 
-    $("#logo").bind("mouseover", function() {
+    $("#logo").bind("mouseover", function () {
         var $this = $(this);
-        if ($this.hasClass("animate")) { return; }
+        if ($this.hasClass("animate")) {
+            return;
+        }
         $this.addClass("animate");
         clearTimeout(timeOut);
-        timeOut = setTimeout(function() {
+        timeOut = setTimeout(function () {
             $this.removeClass("animate");
         }, 2000);
     });
 
     // 点击“立即注册”
-    $("#registerNow").bind("click", function() {
+    $("#registerNow").bind("click", function () {
         $(".login-form").slideUp();
         $(".register-form").slideDown();
     });
 
     // 点击“登录”
-    $("#loginNow").bind("click", function() {
+    $("#loginNow").bind("click", function () {
         $(".register-form").slideUp();
         $(".login-form").slideDown();
     });
 
     // 关闭提示框
-    $(".alert-dismissible .close").bind("click", function() {
+    $(".alert-dismissible .close").bind("click", function () {
         $(this).parents(".alert").hide();
     })
 
@@ -55,7 +62,7 @@ $(function() {
 
     //登录按钮
     $(".login-form .btn-login").bind("click", function () {
-       // $(".alert-dismissible .login-alert").hide();
+        // $(".alert-dismissible .login-alert").hide();
 
         var logintel = $("#logintel").val();
         var loginpwd = $("#loginpwd").val();
@@ -68,7 +75,7 @@ $(function() {
             $(".login-alert").show();
             return;
         }
-        if(!isMobile(logintel)) {
+        if (!isMobile(logintel)) {
             $("#login-errormsg").text("手机格式不正确");
             $(".login-alert").fadeIn();
             return;
@@ -95,7 +102,7 @@ $(function() {
                     window.location.href = "index";
 
                 } else {
-                    $("#login-errormsg").text("登录失败:"+data.resDescription);
+                    $("#login-errormsg").text("登录失败:" + data.resDescription);
                     $(".login-alert").fadeIn();
                 }
             }
@@ -115,8 +122,8 @@ $(function() {
         pram_str += '"regVerifycode": "' + verifycode + '"';
         pram_str += '}';
         if (!isMobile(tel)) {
-           $("#reg-errormsg").text("手机号输入错误");
-           $(".register-form .login-alert").fadeIn();
+            $("#reg-errormsg").text("手机号输入错误");
+            $(".register-form .login-alert").fadeIn();
             return;
         }
         if (pwd == "") {
@@ -148,7 +155,7 @@ $(function() {
                     $(".register-form").slideUp();
                     $(".login-form").slideDown();
                 } else {
-                    $("#reg-errormsg").text("注册失败:"+data.resDescription);
+                    $("#reg-errormsg").text("注册失败:" + data.resDescription);
                     $(".register-form .login-alert").fadeIn();
                 }
             }
@@ -156,10 +163,17 @@ $(function() {
     });
 
     //发送验证码
+
+
     $(".btn-getCode").bind("click", function () {
+        if ($(this).attr("status") == 0) {
+            return;
+        }
+
         var tel = $("#tel").val();
         if (isMobile(tel)) {
             loading();
+            send_code_time();
             $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
                 unloading();
                 if (data.ok) {
@@ -225,4 +239,14 @@ function loading() {
 function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
+}
+var send_code = 60;
+function send_code_time() {
+    send_code--;
+    if (send_code == 0) {
+        $(".btn-getCode").text("获取验证码").attr("status", "1");
+    } else {
+        $(".btn-getCode").text("获取验证码" + "(" + send_code + ")").attr("status", "0");
+        setTimeout("send_code_time()", 1000);
+    }
 }
