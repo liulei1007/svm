@@ -36,22 +36,37 @@ $(function () {
                     });
                 });
             }
-        })
-        //$.get(plumeApi["listOmsBrand"], {}, function (data) {
-        //
-        //});
+        });
     }
 
     getbrandList();
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
+        categoryId=61;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
+            //<div class="form-group required">
+            //    <label class="col-sm-2 control-label">运输方式</label>
+            //
+            //    <div class="col-sm-2"><select type="text" class="form-control">
+            //    <option value="1">方式一</option>
+            //    <option value="2">方式二</option>
+            //    </select></div>
+            //
+            //<label class="col-sm-2 control-label">分类</label>
+            //
+            //    <div class="col-sm-2">
+            //    <select type="text" class="form-control">
+            //    <option>类型一</option>
+            //    <option>类型二</option>
+            //    </select>
+            //    </div>
+            //    </div>
         });
     }
 
-    //getProductAttribute();
+    getProductAttribute();
     //修改类目参数
     $(".changeType").bind("click", function () {
         derict(this, "userType", "nochangeurl");

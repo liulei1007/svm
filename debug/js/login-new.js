@@ -88,6 +88,7 @@ $(function() {
                 if (data.ok) {
 //                    alert("登录成功");
                     $(".login-alert").hide();
+                    //$.cookie('JSESSIONID', '');
                     window.location.href = "index";
 
                 } else {
