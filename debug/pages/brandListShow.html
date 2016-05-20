@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"agencyShowPersonal"
+        }
+    </script>
+</head>
+
+<body>
+  <div class="body-typein">
+    <div class="title-block">品牌信息</div>
+    <div class="form-block-contractive">
+    <div id="base" class="row block-title">
+      <div class="col-sm-2 col-sm-offset-1">品牌信息</div>
+    </div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">品牌系列</label>
+        <p class="col-sm-6 form-control-static" data-name="$p.seriesName"></p>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">品牌名称</label>
+        <p class="col-sm-6 form-control-static" data-name="$p.brandName"></p>
+      </div>
+    </form>
+  </div>
+   <div class="form-block-contractive">
+    <div id="base" class="row block-title">
+      <div class="col-sm-2 col-sm-offset-1">基础信息</div>
+    </div>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">联系人</label>
+        <p class="col-sm-6 form-control-static" data-name="$p.contract"></p>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">联系电话</label>
+        <p class="col-sm-6 form-control-static" data-name="$p.contractTel"></p>
+      </div>
+      <div class="col-sm-8 col-sm-offset-3 btn-block">
+        <button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</body>
+</html>

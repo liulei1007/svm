@@ -24,11 +24,11 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="modelNumber">品牌名称</label>
-          <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
+          <input type="text" class="form-control input-sm" id="brandName" placeholder="">
         </div>
         <div class="form-group">
           <label for="modelNumber">联系人</label>
-          <input type="text" class="form-control input-sm" id="modelNumber" placeholder="">
+          <input type="text" class="form-control input-sm" id="contract" placeholder="">
         </div> 
         <div class="form-group">
           <label for="telNumber">手机号</label>
@@ -57,13 +57,13 @@
             <tbody data-list="$p.data">
               <tr list-temp="true">
                 <td><input type="checkbox" /></td>
-                <td class="id" node-name="$n.id"></td>
+                <td class="brandId" node-name="$n.id"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.contract"></td>
                 <td node-name="$n.contractTel"></td>
                 <td node-name="$n.seriesCnt"></td>
                 <td>
-                  <button type="button" class="btn btn-link">查看</button>
+                  <div class="btn btn-link btn-look">查看</div>
                 </td>
               </tr>
             </tbody>

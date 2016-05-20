@@ -294,3 +294,15 @@ function loginNew_init(){
     plumeUtil.css(plumePath+"/css/swiper.min.css");
     plumeUtil.js(plumePath+"/js/login-new.js");
 }
+
+function brandListShow_init(){
+    plumeLog("初始化brandListShow模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/brandListShow.js")
+    plumeLog("完成brandListShow模板加载-" + plumeTime());
+}
+
+function shopListShow_init(){
+    plumeLog("初始化shopListShow模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/shopListShow.js")
+    plumeLog("完成shopListShow模板加载-" + plumeTime());
+}
