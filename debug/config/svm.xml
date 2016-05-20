@@ -306,7 +306,7 @@
     </page>
     <page>
         <page-name>createSelfGoods</page-name>
-        <page-url>/pages/createSelfGoods.html</page-url>
+        <page-url>/pages/createSelfGoods.html</pgae-url>
         <init>createSelfGoods_init</init>
     </page>
     <page>
