@@ -1,5 +1,5 @@
 
-//document.domain = "longguo.hxmklmall.cn";
+//document.domain = "hxmklmall.cn";
 console.log("domain:"+document.domain);
 var PLUME_PROJECT = "../";
 var PLUME_FILE = [
@@ -16,7 +16,6 @@ var PLUME_FILE = [
 ];
 
 for (var i = 0; i < PLUME_FILE.length; i++) {
-
     if (PLUME_FILE[i].toLowerCase().indexOf(".js") != -1) {
         document.write("<script src='" + PLUME_FILE[i] + "'><\/script>");
     } else if (PLUME_FILE[i].toLowerCase().indexOf(".css") != -1) {
