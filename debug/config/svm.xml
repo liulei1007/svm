@@ -351,8 +351,8 @@
         <brandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeries</brandSeries>
         <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
 
-        <listOmsBrand>http://192.168.222.164:80/brandSeries/listOmsBrand</listOmsBrand>
-        <listOmsBrandSeries>http://192.168.222.164:80/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
+        <listOmsBrand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listOmsBrand>
+        <listOmsBrandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
 
         <listFeedBack>http://api.longguo.hxmklmall.cn:80/feedback/listFeedBack/</listFeedBack>
         <addFeedbackInfo>http://api.longguo.hxmklmall.cn:80/feedback/addFeedbackInfo/</addFeedbackInfo>
