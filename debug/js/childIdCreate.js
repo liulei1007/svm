@@ -122,6 +122,7 @@ function getAccRole(accountId) {
 
 //判断权限哪些显示
 function rolesShow() {
+    console.log("userType="+sessionStorage.login_userType);
     //经销商权限 
     if(sessionStorage.login_userType == 2) {                  
         $(".digagentbox").fadeIn();
@@ -152,7 +153,9 @@ function subAccUpView(accountId) {
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             if (data.ok) {
-                
+                console.log("subAccUpView accountId="+accountId);
+                console.log("subAccUpView data="+JSON.stringify(data.data));
+
                 var mobilePhone = data.data.mobilePhone;
                 var remark = data.data.remark;
 
@@ -274,6 +277,8 @@ function subAccModify() {
         return;
     }
 
+    console.log("subAccModify paramData="+paramData);
+
     //修改请求
     loading();
     $.ajax({
@@ -361,6 +366,8 @@ function subAccAdd() {
     } else {
         return;
     }
+
+    console.log("subAccAdd paramData="+paramData);
 
     //添加请求
     loading();

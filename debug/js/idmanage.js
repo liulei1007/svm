@@ -47,6 +47,8 @@ $(function(){
         
         var removeList = $(this).parents('tr');
     	var managid = removeList.attr("managid");
+
+        console.log("remove managid="+managid);
     	
     	delSubUserData(managid);
 
@@ -63,6 +65,8 @@ function editUserRoles(managid) {
     $("input[name='rolebox']:checked").each(function(){
         roleCodes = roleCodes.concat($(this).val()).concat(",");
     });
+
+    console.log("editUserRoles managid="+managid+";roleCodes="+roleCodes);
 
     loading();
     $.ajax({
@@ -212,6 +216,7 @@ function getAccRole(accountId) {
 
 //判断权限哪些显示
 function rolesShow() {
+    console.log("userType = " + sessionStorage.login_userType);
     //经销商权限 
     if(sessionStorage.login_userType == 2) {                  
         $(".digagentbox").fadeIn();
