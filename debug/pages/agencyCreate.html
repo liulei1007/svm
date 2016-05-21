@@ -27,35 +27,35 @@
     <form id="form-hasAgency" class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>品牌名称</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入已有的代理品牌"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="brandName1" placeholder="请输入已有的代理品牌"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>联系人</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入联系人"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="contacts1" placeholder="请输入联系人"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>手机号码</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入手机号码"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="mobliephone1" placeholder="请输入手机号码"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
-            <div class="col-sm-3">
-            	<select class="form-control">
-            		<option>省</option>
-            	</select>
+            <div class="col-sm-3 ac-provinceId">
+                <select class="form-control" id="provinceId1" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                </select>
             </div>
-            <div class="col-sm-3">
-            	<select class="form-control">
-            		<option>市</option>
-            	</select>
+            <div class="col-sm-3 ac-cityId1">
+                <select class="form-control notNull" id="cityId1" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-value:$n.id"></option>
+                </select>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">入驻卖场</label>
             <div class="col-sm-3">
-            	<select class="form-control">
-            		<option>不入驻</option>
-            		<option>红星美凯龙真北店</option>
+            	<select class="form-control" id="marketId1">
+            		<option value="0">不入驻</option>
+            		<option value="1">红星美凯龙真北店</option>
             	</select>
             </div>
             <div class="col-sm-offset-2 col-sm-8 tips-block">
@@ -66,32 +66,32 @@
     <form id="form-findAgency" class="form-horizontal" style="display: none;">
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>联系人</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入联系人"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="contacts2" placeholder="请输入联系人"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>手机号码</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="请输入手机号码"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="mobliephone" placeholder="请输入手机号码"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
-            <div class="col-sm-3">
-            	<select class="form-control">
-            		<option>省</option>
-            	</select>
+            <div class="col-sm-3 ac-provinceId">
+                <select class="form-control" id="provinceId2" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                </select>
             </div>
-            <div class="col-sm-3">
-            	<select class="form-control">
-            		<option>市</option>
-            	</select>
+            <div class="col-sm-3 ac-cityId2">
+                <select class="form-control notNull" id="cityId2" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-value:$n.id"></option>
+                </select>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">品牌名称</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="你可以输入想要代理的品牌名字"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="brandName2" placeholder="你可以输入想要代理的品牌名字"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">代理类目</label>
-            <div class="col-sm-6"><input type="text" class="form-control" placeholder="你可以输入想要代理的类目：橱柜，瓷砖，卫浴，床"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="categoryName2" placeholder="你可以输入想要代理的类目：橱柜，瓷砖，卫浴，床"></div>
         </div>
     </form>
     <div class="row">

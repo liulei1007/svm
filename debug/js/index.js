@@ -147,7 +147,19 @@ $(function () {
         $(".index-head-user .ihu-title-block").hide();
     });
     $(".ihu-exit").bind("click", function () {
-        window.location.href = "../";
+        $.ajax({
+            type: "post",
+            url: plumeApi["logout"],
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                if(data.ok){
+                    window.location.href = "../";
+                }
+            }
+        })
+
     });
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
