@@ -1,6 +1,6 @@
 $(function () {
-    formCtrl();
     $(".alert-danger").hide();
+    formCtrl();
     //类目参数
     function userTypeInit() {
         $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
@@ -44,7 +44,7 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        categoryId = 63;
+        //categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {
@@ -57,7 +57,7 @@ $(function () {
                 if (d.attr_input == "text") {
                     temp += '<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>';
                 } else {
-                    temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attr_code="' + d.attr_code + '">';
+                    temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attributeId="' + d.attributeId + '">';
                     for (var j = 0; j < d.productAttributeValues.length; j++) {
                         var x = d.productAttributeValues[j];
                         temp += '<option value="' + x.attributeId + '">' + x.valueName + '</option>';
@@ -233,26 +233,31 @@ $(function () {
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
-        pram_str += ' "priceType": "",';
-        pram_str += '"lvInfo": "",';
-        pram_str += '"categoryId": 0,';
-        pram_str += ' "subCategoryId": 0,';
-        pram_str += '"subCategoryName": "",';
+        pram_str += ' "priceType": "'+$("#priceType").val()+'",';
+        pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
+        pram_str += '"categoryId": '+session.goods_categoryId+',';
+        pram_str += '"categoryName": "'+session.goods_categoryName+'",';
+        pram_str += ' "subCategoryId":'+session.goods_subCategoryId+',';
+        pram_str += '"subCategoryName": "'+session.goods_subCategoryName+'",';
+        pram_str += ' "baseCategoryId": '+session.goods_baseCategoryId+',';
+        pram_str += '"baseCategoryName": "'+session.goods_baseCategoryName+'",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
-        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>
+        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
+        var attrs_pram_str = "";
         $(".cmg-attrs").each(function(){
-            pram_str += ' {';
+            attrs_pram_str += ' {';
             if($(this).attr("attr_type")==1){
-                pram_str += '"attrValueId": 0,';
-                pram_str += ' "attrValue": "'+$(this).val()+'",';
+                attrs_pram_str += '"attrValueId": 0,';
+                attrs_pram_str += ' "attrValue": "'+$(this).val()+'",';
             }else{
-                pram_str += '"attrValueId": '+$(this).val()+',';
-                pram_str += ' "attrValue": "",';
+                attrs_pram_str += '"attrValueId": '+$(this).val()+',';
+                attrs_pram_str += ' "attrValue": "",';
             }
-            pram_str += ' "attributeId": '+$(this).attr("attr_code")+'';
-            pram_str += '}';
+            attrs_pram_str += ' "attributeId": '+$(this).attr("attributeId");
+            attrs_pram_str += '},';
         });
+        pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
         pram_str += '],';
 
         //待审核产品属性新增Vo {
@@ -261,23 +266,24 @@ $(function () {
         //        attributeId (integer, optional): 属性ID
         //}
         pram_str += '  "photos": [';
+        var imgs_pram_str = "";
         $(".cmg-goodsimgs").each(function(){
-            pram_str += '{';
-            pram_str += '  "colorId": 0,';
-            pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
-            pram_str += ' }';
+            imgs_pram_str += '{';
+            imgs_pram_str += '  "colorId": 0,';
+            imgs_pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            imgs_pram_str += ' },';
         });
-
+        pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);
         pram_str += ' ],';
         pram_str += ' "goods": [';
         var goods_pram_str = "";
         $(".cmg-goodstr").each(function () {
             goods_pram_str += '{';
-            goods_pram_str += ' "colorId": ' + $(this).attr("colorid") + ',';
-            goods_pram_str += '"colorRgb": "' + $(this).attr("colorvalue") + '",';
-            goods_pram_str += '"color": "' + $(this).attr("colorname") + '",';
-            goods_pram_str += '"standard": "' + $(this).find("stand").val() + '",';
-            goods_pram_str += ' "salePrice": ' + $(this).find("marketPrice").val() + '';
+            goods_pram_str += ' "colorId": ' + $(this).children().first().attr("colorid") + ',';
+            goods_pram_str += '"colorRgb": "' + $(this).children().first().attr("colorvalue") + '",';
+            goods_pram_str += '"color": "' + $(this).children().first().attr("colorname") + '",';
+            goods_pram_str += '"standard": "' + $(this).find(".stand").val() + '",';
+            goods_pram_str += ' "salePrice": ' + $(this).find(".marketPrice").val() + '';
             goods_pram_str += '},';
         });
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);

@@ -319,9 +319,14 @@ function shopListShow_init(){
     plumeUtil.js(plumePath + "/js/shopListShow.js")
     plumeLog("完成shopListShow模板加载-" + plumeTime());
 }
+function showMyGoods_init(){
+    plumeLog("初始化showMyGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/showMyGoods.js")
+    plumeLog("完成showMyGoods模板加载-" + plumeTime());
+}
 $.ajaxSetup({
     xhrFields: {
         withCredentials: true
     },
-    crossDomain: true,
+    crossDomain: true
 });

@@ -1,6 +1,33 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
+    function getProductInfoUpt() {
+        $.ajax({
+            type: "GET",
+            url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
+            data: "",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                //$(".cmg-brand").setPageData(data);
+                console.log(data);
+                unloading();
+                //$("#brandId").bind("change", function () {
+                //    loading();
+                //    var brandId = $(this).val();
+                //    $.get(plumeApi["listOmsBrandSeries"] + "/" + brandId, {}, function (data) {
+                //        unloading();
+                //        $(".cmg-series").find("[list-node]").remove();
+                //        $(".cmg-series").setPageData(data);
+                //    });
+                //});
+            }
+        });
+    }
+    getProductInfoUpt();
+
+
+    return;
     //类目参数
     function userTypeInit() {
         $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
@@ -44,7 +71,7 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        categoryId = 63;
+        //categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {
@@ -233,28 +260,28 @@ $(function () {
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
-        pram_str += ' "priceType": "'+$("#priceType").val()+'",';
-        pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
-        pram_str += '"categoryId": '+session.goods_categoryId+',';
-        pram_str += '"categoryName": "'+session.goods_categoryName+'",';
-        pram_str += ' "subCategoryId":'+session.goods_subCategoryId+',';
-        pram_str += '"subCategoryName": "'+session.goods_subCategoryName+'",';
-        pram_str += ' "baseCategoryId": '+session.goods_baseCategoryId+',';
-        pram_str += '"baseCategoryName": "'+session.goods_baseCategoryName+'",';
+        pram_str += ' "priceType": "' + $("#priceType").val() + '",';
+        pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
+        pram_str += '"categoryId": ' + session.goods_categoryId + ',';
+        pram_str += '"categoryName": "' + session.goods_categoryName + '",';
+        pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
+        pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
+        pram_str += ' "baseCategoryId": ' + session.goods_baseCategoryId + ',';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
         var attrs_pram_str = "";
-        $(".cmg-attrs").each(function(){
+        $(".cmg-attrs").each(function () {
             attrs_pram_str += ' {';
-            if($(this).attr("attr_type")==1){
+            if ($(this).attr("attr_type") == 1) {
                 attrs_pram_str += '"attrValueId": 0,';
-                attrs_pram_str += ' "attrValue": "'+$(this).val()+'",';
-            }else{
-                attrs_pram_str += '"attrValueId": '+$(this).val()+',';
+                attrs_pram_str += ' "attrValue": "' + $(this).val() + '",';
+            } else {
+                attrs_pram_str += '"attrValueId": ' + $(this).val() + ',';
                 attrs_pram_str += ' "attrValue": "",';
             }
-            attrs_pram_str += ' "attributeId": '+$(this).attr("attributeId");
+            attrs_pram_str += ' "attributeId": ' + $(this).attr("attributeId");
             attrs_pram_str += '},';
         });
         pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
@@ -267,10 +294,10 @@ $(function () {
         //}
         pram_str += '  "photos": [';
         var imgs_pram_str = "";
-        $(".cmg-goodsimgs").each(function(){
+        $(".cmg-goodsimgs").each(function () {
             imgs_pram_str += '{';
             imgs_pram_str += '  "colorId": 0,';
-            imgs_pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            imgs_pram_str += ' "picUrl": "' + $(this).attr("src") + '"';
             imgs_pram_str += ' },';
         });
         pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);

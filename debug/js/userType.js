@@ -5,7 +5,12 @@ $(function () {
     $(".type-third-span").text($(".type-third").find(".sel").text()).attr("categoryId",$(".type-third").find(".sel").attr("categoryId"));
     $(".ut-btn-next").bind("click",function(){
         session.goods_userType=$(".type-first-span").text()+">"+$(".type-second-span").text()+">"+$(".type-third-span").text();
-        session.goods_userTypeid=$(".type-third-span").attr("categoryId");
+        session.goods_categoryId=$(".type-third-span").attr("categoryId");
+        session.goods_categoryName=$(".type-third-span").text();
+        session.goods_subCategoryId=$(".type-second-span").attr("categoryId");
+        session.goods_subCategoryName=$(".type-second-span").text();
+        session.goods_baseCategoryId=$(".type-first-span").attr("categoryId");
+        session.goods_baseCategoryName=$(".type-first-span").attr("categoryId");
         derict(this, "createMyGoods", "nochangeurl");
     });
     var cls=["type-first","type-second","type-third"];

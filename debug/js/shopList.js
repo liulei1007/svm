@@ -54,9 +54,11 @@ $(function() {
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
 			success: function(result) {
+
 			showData(result);
 			totalPage=Math.ceil(result.countRecord/10);
 			newPage(totalPage,function(i){
+			$(".nav-pagination").show()
 			data.start = (i-1)*10;
 			var newData = JSON.stringify(data);
 			$.ajax({

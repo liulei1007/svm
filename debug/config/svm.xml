@@ -339,6 +339,11 @@
         <page-url>/login-new.html</page-url>
         <init>loginNew_init</init>
     </page>
+    <page>
+        <page-name>showMyGoods</page-name>
+        <page-url>/pages/showMyGoods.html</page-url>
+        <init>showMyGoods_init</init>
+    </page>
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
     <!--192.168.221.222:8081-->
     <!-- api.longguo.hxmklmall.cn:80-->
@@ -347,8 +352,10 @@
     <!--192.168.152.1:8080-->
     <api>
         <listBrandSeriesList>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeriesList</listBrandSeriesList>
-        <listAgentsBrandInfoList-brand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listAgentsBrandInfoList-brand>
-        <listAgentsBrandInfoList>http://api.longguo.hxmklmall.cn:80/agentsBusinessInfo/listAgentsBrandInfoList</listAgentsBrandInfoList>
+        <listAgentsBrandInfoList-brand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand
+        </listAgentsBrandInfoList-brand>
+        <listAgentsBrandInfoList>http://api.longguo.hxmklmall.cn:80/agentsBusinessInfo/listAgentsBrandInfoList
+        </listAgentsBrandInfoList>
         <listShopInfo>http://api.longguo.hxmklmall.cn:80/shopInfo/listShopInfo</listShopInfo>
         <addProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/addProductInfo</addProductInfo>
         <listProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/listProductInfo</listProductInfo>
@@ -356,29 +363,39 @@
         <sendMsg>http://api.longguo.hxmklmall.cn:80/userInfo/sendMsg</sendMsg>
         <registerUserInfo>http://api.longguo.hxmklmall.cn:80/userInfo/registerUserInfo</registerUserInfo>
         <login>http://api.longguo.hxmklmall.cn:80/userInfo/login</login>
-        <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory</listProductCategory>
+        <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory
+        </listProductCategory>
         <getColorSeries>http://api.longguo.hxmklmall.cn:80/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://api.longguo.hxmklmall.cn:80/common/listNationRegion/CN</listNationRegion>
         <editProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/editProductInfo</editProductInfo>
         <getProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/getProductInfo</getProductInfo>
-        <listProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/listProductShopGoods</listProductShopGoods>
-        <delProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/delProductShopGoods</delProductShopGoods>
-        <enableProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/enableProductShopGoods/</enableProductShopGoods>
-        <disableProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/disableProductShopGoods/</disableProductShopGoods>
-        <getProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/getProductShopGoods/</getProductShopGoods>
+        <listProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/listProductShopGoods
+        </listProductShopGoods>
+        <delProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/delProductShopGoods
+        </delProductShopGoods>
+        <enableProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/enableProductShopGoods/
+        </enableProductShopGoods>
+        <disableProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/disableProductShopGoods/
+        </disableProductShopGoods>
+        <getProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/getProductShopGoods/
+        </getProductShopGoods>
         <getProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/getProductInfo/</getProductInfo>
         <listProductGoods>http://api.longguo.hxmklmall.cn/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/listProductInfoUpt</listProductInfoUpt>
-        <addProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/addProductShopGoods</addProductShopGoods>
-        <editProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/editProductShopGoods</editProductShopGoods>
+        <addProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/addProductShopGoods
+        </addProductShopGoods>
+        <editProductShopGoods>http://api.longguo.hxmklmall.cn:80/productShopGoods/editProductShopGoods
+        </editProductShopGoods>
         <getProductStashById>http://api.longguo.hxmklmall.cn:80/productStash/getProductStashById/</getProductStashById>
-        <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory</listProductCategory>
+        <listProductCategory>http://api.longguo.hxmklmall.cn:80/productCategory/listProductCategory
+        </listProductCategory>
         <reviewProductInfo>http://api.longguo.hxmklmall.cn:80/productInfo/reviewProductInfo</reviewProductInfo>
         <brandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listBrandSeries</brandSeries>
-        <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo</listBrandBusinessInfo>
+        <listBrandBusinessInfo>http://api.longguo.hxmklmall.cn:80/brandBusinessInfo/listBrandBusinessInfo
+        </listBrandBusinessInfo>
 
         <listProductStash>http://api.longguo.hxmklmall.cn:80/productStash/listProductStash</listProductStash>
-     
+
         <listOmsBrand>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrand</listOmsBrand>
         <listOmsBrandSeries>http://api.longguo.hxmklmall.cn:80/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
 
@@ -394,6 +411,7 @@
         <listSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/listSubUserInfo/</listSubUserInfo>
         <listManuSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
         <delSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/delSubUserInfo/</delSubUserInfo>
+
         <getManuSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
         <getAgentsSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
         <getUserInfoByMobile>http://api.longguo.hxmklmall.cn:80/userInfo/getUserInfoByMobile/</getUserInfoByMobile>
@@ -403,7 +421,15 @@
         <editAgentsSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
         <listUserRole>http://api.longguo.hxmklmall.cn:80/subUserInfo/listUserRole/</listUserRole>
         <editUserRoles>http://api.longguo.hxmklmall.cn:80/subUserInfo/editUserRoles/</editUserRoles>
-        
         <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
+
+        <addCompanyInfoCompany>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
+        <editProductStash>http://api.longguo.hxmklmall.cn:80/productStash/editProductStash</editProductStash>
+        <addProductStash>http://api.longguo.hxmklmall.cn:80/productStash/addProductStash</addProductStash>        
+        <addCompanyInfoFactory>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
+        <logout>http://api.longguo.hxmklmall.cn:80/userInfo/logout</logout>
+        <getProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/getProductInfoUpt</getProductInfoUpt>
+        <addCompanyInfoPersonal>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
+
     </api>
 </config>
