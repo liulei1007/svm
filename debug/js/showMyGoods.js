@@ -1,6 +1,12 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
+    alert(session.goods_showMyGoods_uptId);
+
+
+
+
+    return;
     //类目参数
     function userTypeInit() {
         $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
@@ -44,7 +50,7 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        categoryId = 63;
+        //categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {
