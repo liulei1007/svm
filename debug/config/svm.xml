@@ -399,6 +399,9 @@
         <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
         <listProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addCompanyInfoCompany>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
+
+        <addCompanyInfoFactory>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
+        
         <logout>http://api.longguo.hxmklmall.cn:80/userInfo/logout</logout>
         <addCompanyInfoPersonal>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
     </api>
