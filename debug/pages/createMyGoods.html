@@ -53,7 +53,7 @@
 
                     <div class="col-sm-4 cmg-series">
                         <select type="text" id="seriesId" class="form-control notNull" data-list="$p.data">
-                            <option value="" list-temp="true" node-name="$n.seriesName,attr-value:$n.seriesId"></option>
+                            <option value="" list-temp="true" node-name="$n.seriesName,attr-value:$n.id"></option>
                         </select>
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
@@ -61,7 +61,7 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>商品标语</label>
 
-                    <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName ">
+                    <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName">
                     </div>
                     <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
                     <div class="col-sm-offset-2 col-sm-8 tips-block">
@@ -118,7 +118,7 @@
                     <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
 
                     <div class="col-sm-4">
-                        <select class="form-control notNull">
+                        <select class="form-control notNull" id="priceType">
                             <option value="0">明码议价</option>
                             <option value="1">明码实价</option>
                         </select>
@@ -129,8 +129,10 @@
                     <label class="col-sm-2 control-label"><i>*</i>等级</label>
 
                     <div class="col-sm-4">
-                        <select class="form-control notNull">
-                            <option value="0">一等品</option>
+                        <select class="form-control notNull" id="lvInfo">
+                            <option value="0">优等品</option>
+                            <option value="1">一等品</option>
+                            <option value="2">合格品</option>
                         </select>
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
