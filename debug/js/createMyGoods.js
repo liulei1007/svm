@@ -235,9 +235,12 @@ $(function () {
         pram_str += '"marketPrice": 0,';
         pram_str += ' "priceType": "'+$("#priceType").val()+'",';
         pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
-        pram_str += '"categoryId": 0,';
-        pram_str += ' "subCategoryId": 0,';
-        pram_str += '"subCategoryName": "",';
+        pram_str += '"categoryId": '+session.goods_categoryId+',';
+        pram_str += '"categoryName": "'+session.goods_categoryName+'",';
+        pram_str += ' "subCategoryId":'+session.goods_subCategoryId+',';
+        pram_str += '"subCategoryName": "'+session.goods_subCategoryName+'",';
+        pram_str += ' "baseCategoryId": '+session.goods_baseCategoryId+',';
+        pram_str += '"baseCategoryName": "'+session.goods_baseCategoryName+'",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
