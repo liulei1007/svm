@@ -1,6 +1,6 @@
 $(function () {
     //获取登录信息放入session中
-    getLoginInfoToSession();
+    //getLoginInfoToSession();
 
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
@@ -432,47 +432,8 @@ function listProductInfoUpt() {
 }
 
 
-//商品上架
-function groundGoods() {
-    loading();
-    $.ajax({
-        url: plumeApi["enableProductShopGoods"] + session.goods_psgId,
-        type: "GET",
-        contentType: "application/json;charset=UTF-8",
-        success: function (data) {
-            if (data.ok) {
-                unloading();
-                popTips("上架成功", "success");
-                getGoodsData(1);
-            } else {
-                unloading();
-                popTips("上架失败", "warning");
-                getGoodsData(1);
-            }
-        }
-    });
-}
 
-//商品下架
-function soldOutGoods() {
-    loading();
-    $.ajax({
-        url: plumeApi["disableProductShopGoods"] + session.goods_psgId,
-        type: "GET",
-        contentType: "application/json;charset=UTF-8",
-        success: function (data) {
-            if (data.ok) {
-                unloading();
-                popTips("下架成功", "success");
-                getGoodsData(1);
-            } else {
-                unloading();
-                popTips("下架失败", "warning");
-                getGoodsData(1);
-            }
-        }
-    });
-}
+
 
 
 //新增店铺商品
@@ -548,45 +509,7 @@ function getlistNationRegion() {
 
 // getlistNationRegion();
 
-//删除商品数据
-function delectGoodsData() {
 
-    $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
-        // 改变弹出框中文字和图标显示
-        $(".pop").find(".popup-title").html("删除确认？");
-        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-        $(".pop").find(".popup-info").html("是否确认删除记录？");
-        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
-        // 绑定按钮事件
-        $('.pop').on('click', '.btn-sure', function () {
-            loading();
-            $.ajax({
-                url: plumeApi["delProductShopGoods"] + session.goods_psgId,
-                type: "GET",
-                contentType: "application/json;charset=UTF-8",
-                success: function (data) {
-                    if (data.ok) {
-                        unloading();
-                        popTips("删除成功", "success");
-                        getGoodsData();
-                    } else {
-                        unloading();
-                        popTips("删除失败", "warning");
-                        getGoodsData();
-                    }
-                }
-            });
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-        $('.pop').on('click', '.btn-cancel', function () {
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-    });
-}
 
 //时间戳转日期
 function getLocalTime(nS) {

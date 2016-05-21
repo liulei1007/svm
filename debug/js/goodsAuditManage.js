@@ -17,7 +17,33 @@ $(function () {
         });
         auditFun();
     });
-});
+
+
+
+//待审核产品列表
+function listProductInfoUpt() {
+    $.ajax({
+        url:plumeApi["listProductInfoUpt"],
+        type:"POST",
+        contentType: "application/json;charset=UTF-8",
+        data:JSON.stringify(
+            {
+                "productName": "",
+                "seriesName": "",
+                "saleStatus": ""
+            }
+        ),
+        success:function(data){
+            if(data.ok) {
+                 unloading();
+                 $("[list-node]").remove();
+                 $(".form-body").setPageData(data);
+            }else{
+                alert('error');
+            }
+        }
+    })
+}
 
 
 
@@ -38,6 +64,10 @@ function auditFun() {
                 success: function (data) {
                     if(data.ok){
                         unloading();
+                         totalPage=Math.ceil(data.countRecord/10);
+                        newPage(totalPage,function(i){
+
+                        })
                         popTips("审核成功","success");
                         listProductInfoUpt();
                     }else{
@@ -58,3 +88,4 @@ function auditFun() {
         });
          }); 
 }
+});

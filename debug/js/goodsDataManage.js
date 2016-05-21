@@ -1,6 +1,16 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
-    getTableData("", "", 0, 0, 0, "", "", "",1);
+    var datas={
+  "productName": "",
+  "modelNumber": "",
+  "categoryId": 0,
+  "subCategoryId": 0,
+  "baseCategoryId": 0,
+  "saleStatus": "",
+  "reviewStatus": "",
+  "seriesName": ""
+}
+    getTableData();
     tablecheckbox();
     $(".gdm-add-goods").bind("click", function () {
         derict(this, "userType", "nochangeurl");
@@ -40,27 +50,22 @@ $(function () {
 
     getFirstCategory(0, 0);
     //获取表格数据
-    function getTableData(productName, modelNumber, categoryId, subCategoryId, baseCategoryId, saleStatus, reviewStatus, seriesName,page) {
+    function getTableData() {
+        var newData = JSON.stringify(datas)
         $("[list-node]").remove();
         loading();
-        var pram_str = '{';
-        pram_str += '"productName": "' + productName + '",';
-        pram_str += ' "modelNumber": "' + productName + '",';
-        pram_str += '  "categoryId": ' + categoryId + ',';
-        pram_str += ' "subCategoryId": "' + subCategoryId + '",';
-        pram_str += ' "baseCategoryId": "' + baseCategoryId + '",';
-        pram_str += ' "saleStatus": "' + saleStatus + '",';
-        pram_str += ' "reviewStatus": "' + reviewStatus + '",';
-        pram_str += ' "seriesName": "' + seriesName + '"';
-        pram_str += '}';
         $.ajax({
             type: "POST",
-            url: plumeApi["listProductInfoUpt"]+"?currentPage="+page+"&onePageCount=10",
-            data: pram_str,
+            url: plumeApi["listProductInfo"],
+            data: newData,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();
+                totalPage=Math.ceil(data.countRecord/10);
+                newPage(totalPage,function(i){
+
+                })
                 $(".gdm-table-data").setPageData(data);
                 $(".gdm-btn-del").unbind().bind("click", function () {
                     if (confirm("是否确认删除?")) {
@@ -136,5 +141,13 @@ $(function () {
         })
     })
 
+//批量导入按钮
+    $(".btn-import-data").bind("click",function() {
+        $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+            $(".btn-loadModule").bind("click",function() {
+              window.location="http://api.longguo.hxmklmall.cn:80/excel/importProductGoods/1/1/1/1"
+            });
+        });
+    })  
 
 });
