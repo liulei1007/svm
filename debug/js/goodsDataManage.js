@@ -1,58 +1,72 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
-    getTableData("","",0,"");
+    var datas={
+  "productName": "",
+  "modelNumber": "",
+  "categoryId": 0,
+  "subCategoryId": 0,
+  "baseCategoryId": 0,
+  "saleStatus": "",
+  "reviewStatus": "",
+  "seriesName": ""
+}
+    getTableData();
     tablecheckbox();
     $(".gdm-add-goods").bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
-    $(".gdm-btn-search").bind("click",function(){
-        var productName=$("#productName").val();
-        var modelNumber=$("#modelNumber").val();
-        var categoryId=$("#categoryId").val();
-      if(categoryId==""){
-          categoryId=0;
-      }
-        var saleStatus=$("#saleStatus").val();
-        getTableData(productName,modelNumber,categoryId,saleStatus);
+    $(".gdm-btn-search").bind("click", function () {
+        var productName = $("#productName").val();
+        var modelNumber = $("#modelNumber").val();
+        var baseCategoryId=$("#baseCategoryId").val();
+        var saleStatus =$("#saleStatus").val();
+        var subCategoryId=$("#subCategoryId").val();
+        var categoryId = $("#categoryId").val();
+        var reviewStatus=$("#reviewStatus").val();
+        if (categoryId == "") {
+            categoryId = 0;
+        }
+        var saleStatus = $("#saleStatus").val();
+        getTableData(productName, modelNumber, categoryId, subCategoryId, baseCategoryId, saleStatus, reviewStatus, "",1);
     });
     //分类
-    var cls=["gdm-type-first","gdm-type-second","gdm-type-third"];
-    function getFirstCategory(categoryId,tag){
+    var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
+
+    function getFirstCategory(categoryId, tag) {
         loading();
-        $.get(plumeApi["listProductCategory"]+"/"+categoryId,{},function(data){
+        $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             unloading();
-            $("."+cls[tag]).find("[list-node]").remove();
-            $("."+cls[tag]).setPageData(data);
-            $("."+cls[tag]).find("select").unbind().bind("change", function () {
-                var nowtag=parseInt($(this).attr("tag"))+1;
-                var cid=$(this).val();
-                if(nowtag<3){
-                    getFirstCategory(cid,nowtag)
+            $("." + cls[tag]).find("[list-node]").remove();
+            $("." + cls[tag]).setPageData(data);
+            $("." + cls[tag]).find("select").unbind().bind("change", function () {
+                var nowtag = parseInt($(this).attr("tag")) + 1;
+                var cid = $(this).val();
+                if (nowtag < 3) {
+                    getFirstCategory(cid, nowtag)
                 }
             });
         })
     }
-    getFirstCategory(0,0);
+
+    getFirstCategory(0, 0);
     //获取表格数据
-    function getTableData(productName,modelNumber,categoryId,saleStatus) {
+    function getTableData() {
+        var newData = JSON.stringify(datas)
         $("[list-node]").remove();
         loading();
-        var pram_str = '{';
-        pram_str += '"productName": "'+productName+'",';
-        pram_str += ' "modelNumber": "'+productName+'",';
-        pram_str += '  "categoryId": '+categoryId+',';
-        pram_str += ' "saleStatus": "'+saleStatus+'"';
-        pram_str += '}';
         $.ajax({
             type: "POST",
             url: plumeApi["listProductInfo"],
-            data: pram_str,
+            data: newData,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();
-                $(".gdm-table-data").setPageData(data);
+                totalPage=Math.ceil(data.countRecord/10);
+                newPage(totalPage,function(i){
 
+                })
+                $(".gdm-table-data").setPageData(data);
                 $(".gdm-btn-del").unbind().bind("click", function () {
                     if (confirm("是否确认删除?")) {
                         loading();
@@ -127,5 +141,13 @@ $(function () {
         })
     })
 
+//批量导入按钮
+    $(".btn-import-data").bind("click",function() {
+        $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+            $(".btn-loadModule").bind("click",function() {
+              window.location="http://api.longguo.hxmklmall.cn:80/excel/importProductGoods/1/1/1/1"
+            });
+        });
+    })  
 
 });

@@ -57,7 +57,7 @@ $(function () {
                 if (d.attr_input == "text") {
                     temp += '<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>';
                 } else {
-                    temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attr_code="' + d.attr_code + '">';
+                    temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attributeId="' + d.attributeId + '">';
                     for (var j = 0; j < d.productAttributeValues.length; j++) {
                         var x = d.productAttributeValues[j];
                         temp += '<option value="' + x.attributeId + '">' + x.valueName + '</option>';
@@ -127,7 +127,8 @@ $(function () {
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $(".pu-ok").bind("click", function () {
-                //closeUploadPop();
+                //http://10.11.25.215/group01/M00/00/82/CgsZ2Fc-uPGADkdMAABXomkTTPc662.jpg
+
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
@@ -232,26 +233,28 @@ $(function () {
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
-        pram_str += ' "priceType": "",';
-        pram_str += '"lvInfo": "",';
+        pram_str += ' "priceType": "'+$("#priceType").val()+'",';
+        pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
         pram_str += '"categoryId": 0,';
         pram_str += ' "subCategoryId": 0,';
         pram_str += '"subCategoryName": "",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
-        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>
+        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
+        var attrs_pram_str = "";
         $(".cmg-attrs").each(function(){
-            pram_str += ' {';
+            attrs_pram_str += ' {';
             if($(this).attr("attr_type")==1){
-                pram_str += '"attrValueId": 0,';
-                pram_str += ' "attrValue": "'+$(this).val()+'",';
+                attrs_pram_str += '"attrValueId": 0,';
+                attrs_pram_str += ' "attrValue": "'+$(this).val()+'",';
             }else{
-                pram_str += '"attrValueId": '+$(this).val()+',';
-                pram_str += ' "attrValue": "",';
+                attrs_pram_str += '"attrValueId": '+$(this).val()+',';
+                attrs_pram_str += ' "attrValue": "",';
             }
-            pram_str += ' "attributeId": '+$(this).attr("attr_code")+'';
-            pram_str += '}';
+            attrs_pram_str += ' "attributeId": '+$(this).attr("attributeId");
+            attrs_pram_str += '},';
         });
+        pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
         pram_str += '],';
 
         //待审核产品属性新增Vo {
@@ -260,32 +263,30 @@ $(function () {
         //        attributeId (integer, optional): 属性ID
         //}
         pram_str += '  "photos": [';
-        pram_str += '{';
-        pram_str += '  "colorId": 0,';
-        pram_str += ' "picUrl": "1"';
-        pram_str += ' }';
+        var imgs_pram_str = "";
+        $(".cmg-goodsimgs").each(function(){
+            imgs_pram_str += '{';
+            imgs_pram_str += '  "colorId": 0,';
+            imgs_pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            imgs_pram_str += ' },';
+        });
+        pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);
         pram_str += ' ],';
         pram_str += ' "goods": [';
         var goods_pram_str = "";
         $(".cmg-goodstr").each(function () {
             goods_pram_str += '{';
-            goods_pram_str += ' "colorId": ' + $(this).attr("colorid") + ',';
-            goods_pram_str += '"colorRgb": "' + $(this).attr("colorvalue") + '",';
-            goods_pram_str += '"color": "' + $(this).attr("colorname") + '",';
-            goods_pram_str += '"standard": "' + $(this).find("stand").val() + '",';
-            goods_pram_str += ' "salePrice": ' + $(this).find("marketPrice").val() + '';
+            goods_pram_str += ' "colorId": ' + $(this).children().first().attr("colorid") + ',';
+            goods_pram_str += '"colorRgb": "' + $(this).children().first().attr("colorvalue") + '",';
+            goods_pram_str += '"color": "' + $(this).children().first().attr("colorname") + '",';
+            goods_pram_str += '"standard": "' + $(this).find(".stand").val() + '",';
+            goods_pram_str += ' "salePrice": ' + $(this).find(".marketPrice").val() + '';
             goods_pram_str += '},';
         });
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
         pram_str += ']';
         pram_str += '}';
-        //待审核工厂商品新增Vo {
-        //    colorId (integer, optional): 颜色ID,
-        //        colorRgb (string, optional): 颜色RGB,
-        //        color (string, optional): 颜色名称,
-        //        standard (string, optional): 规格,
-        //        salePrice (number, optional): 商品市场参考价
-        //}
+
         loading();
         $.ajax({
             type: "POST",
