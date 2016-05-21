@@ -111,8 +111,6 @@ $(function () {
 
     //注册
     $(".register-form .btn-register").bind("click", function () {
-        window.location.href="secondreg?fullscreen";
-        return;
         $(".register-form .login-alert").hide();
         var tel = $("#tel").val();
         var pwd = $("#pwd").val();
@@ -154,8 +152,7 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    $(".register-form").slideUp();
-                    $(".login-form").slideDown();
+                    window.location.href="secondreg?fullscreen";
                 } else {
                     $("#reg-errormsg").text("注册失败:" + data.resDescription);
                     $(".register-form .login-alert").fadeIn();

@@ -427,5 +427,6 @@
         <logout>http://api.longguo.hxmklmall.cn:80/userInfo/logout</logout>
         <addCompanyInfoPersonal>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoPersonal
         </addCompanyInfoPersonal>
+        <getProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/getProductInfoUpt</getProductInfoUpt>
     </api>
 </config>
