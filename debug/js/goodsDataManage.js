@@ -56,7 +56,7 @@ $(function () {
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["listProductInfoUpt"],
+            url: plumeApi["listProductInfo"],
             data: newData,
             contentType: "application/json",
             dataType: "json",

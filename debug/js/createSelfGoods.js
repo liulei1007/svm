@@ -1,6 +1,6 @@
 $(function() {
 	// 初始化传输数据
-	var data = {
+	var datas = {
 		"brandName": "",
 		"pdtName": "",
 		"categoryId": 0,
@@ -28,7 +28,7 @@ $(function() {
 
 	// 绑定“提交”按钮
 	$(".body-typein .btn-submit").bind("click", function() {
-		checkSelfGoods("发布", data, "http://192.168.221.92:8080/productStash/addProductStash");
+		checkSelfGoods("发布", datas, plumeApi["addProductStash"]);
 	});
 
 	// 绑定“取消”按钮

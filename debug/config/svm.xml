@@ -399,7 +399,8 @@
         <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
         <listProductInfoUpt>http://api.longguo.hxmklmall.cn:80/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addCompanyInfoCompany>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
-
+        <editProductStash>http://api.longguo.hxmklmall.cn:80/productStash/editProductStash</editProductStash>
+        <addProductStash>http://api.longguo.hxmklmall.cn:80/productStash/addProductStash</addProductStash>
         <addCompanyInfoFactory>http://api.longguo.hxmklmall.cn:80/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
         
         <logout>http://api.longguo.hxmklmall.cn:80/userInfo/logout</logout>

@@ -1,6 +1,6 @@
 $(function() {
 	// 初始化传输数据
-	var data = {
+	var datas = {
 		"pdtName": "",
 		"brandName": "",
 		"page": 0,
@@ -11,8 +11,8 @@ $(function() {
 
 	// 绑定“搜索”按钮
 	$(".btn-search").bind("click", function() {
-		data.pdtName = $("#pdtName").val();
-		data.brandName = $("#brandName").val();
+		datas.pdtName = $("#pdtName").val();
+		datas.brandName = $("#brandName").val();
 		getData();
 	});
 
@@ -50,24 +50,25 @@ $(function() {
 			// url: "datas/shopList.txt",
 			url: plumeApi["listProductStash"],
 			type: "GET",
-			data: data,
+			data: datas,
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
-			success: function(result) {
+			success: function(data) {
 				unloading();
-				$(".doc-commodityManagement").setPageData(result);
-				totalPage=Math.ceil(result.countRecord/10);
+				$(".doc-commodityManagement").setPageData(data);
+				totalPage=Math.ceil(data.countRecord/10);
             	newPage(totalPage,function(i){
-					data.start = (i-1)*10;
+					datas.page = (i-1)*10;
 					$.ajax({
 						url: plumeApi["listProductStash"],
 						type: "GET",
-						data: data,
+						data: datas,
 						dataType: "json",
 						contentType: "application/json; charset=utf-8",
-						success: function(result) {
+						success: function(data) {
 							    unloading();
-								$(".doc-commodityManagement").setPageData(result);
+							    $("[list-node]").remove();
+								$(".doc-commodityManagement").setPageData(data);
 						},
 					});
 				});
