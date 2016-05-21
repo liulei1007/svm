@@ -28,23 +28,23 @@
         <form class="form-horizontal">
             <div class="form-group">
                 <label class="col-sm-3 control-label">手机号</label>
-                <div class="col-sm-6"><input type="text" class="form-control"></div>
-                <div class="col-sm-2 alert alert-danger" role="alert">手机号已经存在！</div>
+                <div class="col-sm-6"><input type="text" id="tel" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" id="tel-alert" role="alert" style="display: none;"></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">密码</label>
-                <div class="col-sm-6"><input type="password" class="form-control"></div>
-                <div class="col-sm-2 alert alert-danger" role="alert">xxx！</div>
+                <div class="col-sm-6"><input type="password" id="pwd" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" id="pwd-alert" role="alert" style="display: none;"></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">确认密码</label>
-                <div class="col-sm-6"><input type="password" class="form-control"></div>
-                <div class="col-sm-2 alert alert-danger" role="alert">xxxx！</div>
+                <div class="col-sm-6"><input type="password" id="repwd" class="form-control"></div>
+                <div class="col-sm-2 alert alert-danger" id="repwd-alert" role="alert" style="display: none;"></div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">备注</label>
                 <div class="col-sm-6">
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" id="remark"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -52,28 +52,42 @@
                 <div class="col-sm-2">
                     <button type="button" class="btn btn-default btn-myset">配置</button>
                 </div>
-                <p class="form-control-static">经销商管理,品牌管理</p>
             </div>
-            <div class="form-group">
+            <div class="form-group shops" style="display: none;">
+                <label class="col-sm-3 control-label">所属店铺</label>
+                <div class="col-sm-6">
+                    <select id="agentShop">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group brands"  style="display: none;">
+                <label class="col-sm-3 control-label">关联品牌</label>
+                <div class="col-sm-5 manuBrand">
+
+                </div>
+            </div>
+            <!--
+            <div class="form-group"  style="display: none;">
                 <label class="col-sm-3 control-label">关联品牌</label>
                 <div class="col-sm-5"><input type="text" class="form-control"></div>
                 <div class="col-sm-1">
                     <button type="button" class="btn btn-default cic-btn-add">添加</button>
                 </div>
             </div>
-            <div class="form-group cic-brand">
+            <div class="form-group cic-brand"  style="display: none;">
                 <label class="col-sm-3 control-label"></label>
                 <div class="col-sm-5"><input type="text" class="form-control"></div>
                 <div class="col-sm-1">
                     <div type="button" class="cic-btn-del"></div>
                 </div>
             </div>
+            -->
         </form>
     </div>
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-3 btn-block">
-            <button type="button" class="btn btn-lg btn-success btn-next">下一步</button>
+            <button type="button" class="btn btn-lg btn-success btn-next">提交</button>
             <button type="button" class="btn btn-lg btn-warning btn-back">取消</button>
         </div>
     </div>

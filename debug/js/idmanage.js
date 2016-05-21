@@ -1,6 +1,8 @@
 $(function(){
 	plumeLog("进入idmanage模板自定义js-"+plumeTime());
 	tablecheckbox();
+
+    //添加
 	$(".im-btn-add").bind("click",function(){
 		derict(this, "childIdCreate", "nochangeurl");
 	});
@@ -12,10 +14,23 @@ $(function(){
 
 	//权限配置
 	$('.table-block').on('click','.btn-acset',function() {
+        var removeList = $(this).parents('tr');
+        var managid = removeList.attr("managid");
+
         $(".cic-pop").pop("popAuth",function(){
+            getAccRole(managid);
+
+            rolesShow();
+
             $(".pa-cancel").bind("click",function(){
                 $(".cic-pop").pophide();
-            })
+            });
+
+            //权限配置弹出框 -- 确认
+            $(".btn-success").bind("click", function() {
+                editUserRoles(managid);
+            });
+
         });
     });
 
@@ -37,10 +52,37 @@ $(function(){
 
     });
 
-
+    //初始化数据
 	listSubUserDate(1, 10);
 
 });
+
+//更新用户权限
+function editUserRoles(managid) {
+    var roleCodes = "";
+    $("input[name='rolebox']:checked").each(function(){
+        roleCodes = roleCodes.concat($(this).val()).concat(",");
+    });
+
+    loading();
+    $.ajax({
+        url: plumeApi["editUserRoles"]+"?id="+managid+"&roleCodes="+roleCodes,
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        success: function (data) {
+            unloading();
+            if(data.ok) {
+                alert("权限调整成功!");
+                $(".cic-pop").pophide();
+            } else {
+                alert("权限调整失败!"+data.resDescription);
+            }
+        }
+    });
+
+
+
+}
 
 //查询子账号分页信息 page：第几页；perPage：每页多少条记录
 function listSubUserDate(page, perPage) {
@@ -132,4 +174,49 @@ function delSubUserData(managid) {
             $('.pop').off('click', '.btn-cancel');
         });
     });
+}
+
+//获取此账号已经有的配置权限
+function getAccRole(accountId) {
+    $.ajax({
+        url: plumeApi["listUserRole"] + "?id="+accountId,
+        type: "GET",
+        contentType: "application/json;charset=UTF-8",
+        success: function (data) {
+            if (data.ok) {
+                var roles = JSON.stringify(data.data);
+                console.log("roles = " + roles);
+   
+                //拼接经销商权限 
+                if(sessionStorage.login_userType == 2) {
+                    $(".digmanubox").hide();
+
+                    if(roles.indexOf("digital_dealer_emp") > -1) {
+                        $(".digagentbox [type='checkbox']").attr("checked", "checked");
+                    } 
+
+                 //拼接工厂权限    
+                } else if(sessionStorage.login_userType == 1) {
+                    $(".digagentbox").hide();
+
+                    if(roles.indexOf("digital_manu_emp") > -1) {
+                        $(".digmanubox [type='checkbox']").attr("checked", "checked");
+                    }
+                }           
+            } else {
+                alert("获取配置权限失败:"+data.resDescription);
+            }
+        }
+    })
+}
+
+//判断权限哪些显示
+function rolesShow() {
+    //经销商权限 
+    if(sessionStorage.login_userType == 2) {                  
+        $(".digagentbox").fadeIn();
+     //工厂权限    
+    } else if(sessionStorage.login_userType == 1) {
+        $(".digmanubox").fadeIn();     
+    } 
 }

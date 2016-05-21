@@ -396,6 +396,14 @@
         <delSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/delSubUserInfo/</delSubUserInfo>
         <getManuSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
         <getAgentsSubUserUpView>http://api.longguo.hxmklmall.cn:80/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+        <getUserInfoByMobile>http://api.longguo.hxmklmall.cn:80/userInfo/getUserInfoByMobile/</getUserInfoByMobile>
+        <addAgentsSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/addAgentsSubUserInfo/</addAgentsSubUserInfo>
+        <addManuSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/addManuSubUserInfo/</addManuSubUserInfo>
+        <editManuSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/editManuSubUserInfo/</editManuSubUserInfo>
+        <editAgentsSubUserInfo>http://api.longguo.hxmklmall.cn:80/subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
+        <listUserRole>http://api.longguo.hxmklmall.cn:80/subUserInfo/listUserRole/</listUserRole>
+        <editUserRoles>http://api.longguo.hxmklmall.cn:80/subUserInfo/editUserRoles/</editUserRoles>
+        
         <listProductAttribute>http://api.longguo.hxmklmall.cn:80/productAttribute/listProductAttribute</listProductAttribute>
     </api>
 </config>

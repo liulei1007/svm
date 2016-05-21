@@ -34,7 +34,6 @@
     </div>
     <div class="btn-block clearFix">
         <div class="btn btn-primary btn-icons btn-addAccount im-btn-add">添加子账号</div>
-        <div class="btn btn-batch-delete">批量删除</div>
     </div>
     <div class="table-block">
         <table class="table table-striped table1">
@@ -49,7 +48,7 @@
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true"  node-name="attr-managid:$n.id">
-                <td><input type="checkbox" /></td>
+                <td><input type="checkbox" name="multbox" /></td>
                 <td node-name="$n.mobilePhone"></td>
                 <td class="createDate" node-name="$n.createDate"></td>
                 <td>
