@@ -39,7 +39,7 @@ function getGoodsData() {
     loading();
     var newData = JSON.stringify(datas)
     $.ajax({
-        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount=10",
+        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount=1",
         type: "POST",
         contentType: "application/json;charset=UTF-8",
         data: newData,
@@ -49,11 +49,11 @@ function getGoodsData() {
             $(".table-block").setPageData(data);
             filter();
 
-            totalPage=Math.ceil(data.countRecord/10);
+            totalPage=Math.ceil(data.countRecord/1);
 			newPage(totalPage,function(i){
 			var newData = JSON.stringify(datas);
 			$.ajax({
-				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=10",
+				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=1",
 				type: "POST",
 				data: newData,
 				dataType: "json",
@@ -83,11 +83,11 @@ function groundGoods() {
             if (data.ok) {
                 unloading();
                 popTips("上架成功", "success");
-                getGoodsData(1);
+                getGoodsData();
             } else {
                 unloading();
                 popTips("上架失败", "warning");
-                getGoodsData(1);
+                getGoodsData();
             }
         }
     });
@@ -104,11 +104,11 @@ function soldOutGoods() {
             if (data.ok) {
                 unloading();
                 popTips("下架成功", "success");
-                getGoodsData(1);
+                getGoodsData();
             } else {
                 unloading();
                 popTips("下架失败", "warning");
-                getGoodsData(1);
+                getGoodsData();
             }
         }
     });
@@ -146,7 +146,7 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url: plumeApi["delProductShopGoods"] + session.goods_psgId,
+                url: plumeApi["delProductShopGoods"] +"/"+ session.goods_psgId,
                 type: "GET",
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
