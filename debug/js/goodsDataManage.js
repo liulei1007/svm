@@ -7,7 +7,7 @@ $(function () {
         "subCategoryId": "",
         "baseCategoryId": "",
         "saleStatus": "",
-        "reviewStatus": "",
+        "reviewStatus": 0,
         "seriesName": ""
     }
     getTableData();

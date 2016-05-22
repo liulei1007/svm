@@ -19,7 +19,7 @@ $(function () {
             getProductAttribute();
             setColors();
             getlistNationRegion();
-            setStandard();
+
 
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
@@ -63,19 +63,35 @@ $(function () {
             //    temp += '</div>';
             //    $(".goodsAttr-content").append(temp);
             //}
-            //for (var j = 0; j < d.productGoodsUpts.length; j++) {
-            //    var p = d.productGoodsUpts[j];
-            //    var temp = '<tr class="cmg-goodstr">';
-            //    temp += '<td>' + p.color + '</td>';
-            //    temp += '<td>' + p.standard + '</td>';
-            //    temp += '<td>' + p.salePrice + '</td>';
-            //    temp += '</tr>';
-            //    $(".standardtbody").append(temp);
-            //}
+            for (var j = 0; j < d.productGoodsUpts.length; j++) {
+                var p = d.productGoodsUpts[j];
+                var temp = '<tr class="cmg-goodstr">';
+                temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorvalue + '" colorid="' + p.colorid + '">' + p.color + '</td>';
+                temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' +  p.salePrice + '"></td>';
+                temp += '<td>';
+                temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                temp += '</td>';
+                temp += '</tr>';
+                $(".standardtbody").append(temp);
+            }
+            $(".cm-btn-del").unbind().bind("click", function () {
+                $(this).parent().parent().remove();
+            });
+            setStandard();
             for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
                 var p = d.productInfoPhotoUpts[k];
                 var temp = '<li class="goodsPic">';
-                temp += '<img src="' + p.picUrl + '"/>';
+                temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+                temp += '<div class="upload-btn upload-btn-left">';
+                temp += '<div class="arrow-left"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-right">';
+                temp += '<div class="arrow-right"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-delect">';
+                temp += '<div class="arrow-close"></div>';
+                temp += '</div>';
                 temp += '</li>';
                 $(".goodsPic-upload").append(temp);
             }

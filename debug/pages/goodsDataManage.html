@@ -51,7 +51,6 @@
             <div class="form-group">
                 <label>审核状态</label>
                 <select class="form-control input-sm" id="reviewStatus">
-                    <option value="">全部</option>
                     <option value="0">待审核</option>
                     <option value="1">审核通过</option>
                     <option value="2">审核失败</option>
@@ -96,7 +95,7 @@
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.cityName"></td>
-                <td node-name="$n.updateDate"></td>
+                <td node-name="getLocalTime($n.updateDate)"></td>
                 <td>
                     <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-uptId:$n.uptId">编辑</button>
                     <button type="button" class="btn btn-link gdm-btn-copy" node-name="attr-uptId:$n.uptId">复制</button>
