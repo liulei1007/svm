@@ -294,7 +294,7 @@ function getGoodsPsgId(_this) {
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods_productId = productId;
+    session.goods_showMyGoods_uptId = productId;
 }
 
 //获取brandId
