@@ -1,6 +1,5 @@
 $(function () {
-    //获取登录信息放入session中
-     getLoginInfoToSession();
+
 
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
@@ -204,6 +203,8 @@ function pathInit() {
         $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
         $(".container-fixed").fadeIn();
     } else {
+        //获取登录信息放入session中
+        getLoginInfoToSession();
         var auth = sessionStorage.auth;
         if (auth) {
             $(".slidebar-title").each(function () {

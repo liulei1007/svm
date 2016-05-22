@@ -20,30 +20,15 @@
 <div class="popup-default popup-auth">
     <p class="popup-title">权限配置</p>
 
-    <form class="form-horizontal">
-        <div class="checkbox">
+    <form class="form-horizontal roleboxes">
+        <div class="checkbox digagentbox" style="display: none;">
             <label>
-                <input type="checkbox">经销商管理
+                <input type="checkbox" name="rolebox" value="digital_dealer_emp" />龙果B端经销商员工
             </label>
         </div>
-        <div class="checkbox">
+        <div class="checkbox digmanubox" style="display: none;">
             <label>
-                <input type="checkbox">店铺管理
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox">审核管理
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox">商品管理
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox">系统管理
+                <input type="checkbox" name="rolebox" value="digital_manu_emp" />龙果B端工厂员工
             </label>
         </div>
     </form>
