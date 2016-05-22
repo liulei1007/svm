@@ -3,7 +3,7 @@ $(function () {
     if (sessionStorage.login_mobilePhone) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
     } else {
-        $("#login-name").html("admim");
+        $("#login-name").html("");
     }
 
     pathInit();
@@ -203,17 +203,19 @@ function pathInit() {
     } else {
         //获取登录信息放入session中
         getLoginInfoToSession();
-        var auth = sessionStorage.auth;
-        if (auth) {
-            $(".slidebar-title").each(function () {
-                var slidebarAuth = $(this).attr("auth");
-                if (auth.indexOf(slidebarAuth) != -1) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-        }
+        getAuth();
+        //$(".slidebar-title,.auth-menu-ul li").show();
+        //var auth = sessionStorage.auth;
+        //if (auth) {
+        //    $(".slidebar-title").each(function () {
+        //        var slidebarAuth = $(this).attr("auth");
+        //        if (auth.indexOf(slidebarAuth) != -1) {
+        //            $(this).show();
+        //        } else {
+        //            $(this).hide();
+        //        }
+        //    });
+        //}
         $(".container-fixed").fadeIn();
     }
     try {
@@ -228,6 +230,30 @@ function pathInit() {
 
 }
 
+function getAuth(){
+    $.ajax({
+        type: "get",
+        url: plumeApi["getSystemResourceTree"],
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {
+                for(var i=0;i<data.data.length;i++){
+                    var d=data.data[i];
+                    for(var j=0;j< d.children.length;j++){
+                        var c= d.children[j]
+                        var resurl= c.resourceUrl;
+                        $("."+resurl).show();
+                        $("."+resurl).parent().parent().show();
+                    }
+                }
+            } else {
+                plumeLog("获取登录信息失败:" + data.resDescription);
+            }
+        }
+    });
+}
 //获取当前登录用户信息，同时放入sessionStorage中
 function getLoginInfoToSession() {
     $.ajax({

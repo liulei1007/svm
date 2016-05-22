@@ -379,7 +379,7 @@
         </disableProductShopGoods>
         <getProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
         <getProductInfo>http://longguo.hxmklmall.cn/api/productInfo/getProductInfo/</getProductInfo>
-        <listProductGoods>http://api.longguo.hxmklmall.cn/productShopGoods/listProductGoods</listProductGoods>
+        <listProductGoods>http://longguo.hxmklmall.cn/api/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://longguo.hxmklmall.cn/api/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/addProductShopGoods
         </addProductShopGoods>
@@ -430,6 +430,6 @@
         <getProductInfoUpt>http://longguo.hxmklmall.cn/api/productInfo/getProductInfoUpt</getProductInfoUpt>
         <addCompanyInfoPersonal>http://longguo.hxmklmall.cn/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
         <editProductInfo>http://longguo.hxmklmall.cn/api/productInfo/editProductInfo</editProductInfo>
-
+        <getSystemResourceTree>http://longguo.hxmklmall.cn/api/common/getSystemResourceTree</getSystemResourceTree>
     </api>
 </config>

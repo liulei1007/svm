@@ -99,7 +99,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------左侧导航-------- **/
 .slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #364152;}
-.slidebar-title{position: relative;}
+.slidebar-title{position: relative;display: none}
+.auth-menu-ul li{display: none}
 .slidebar-title > li{padding-top: 10px; padding-bottom: 15px; color: #6e82a2; text-align: center; border-bottom: solid #4f5b70 1px; cursor: pointer;}
 /** 导航栏——选中状态 **/
 .slidebar-title:hover > li, .slidebar-title.active > li{color: #f3f7f6; background-color: #425167;}

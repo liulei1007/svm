@@ -1,4 +1,5 @@
 $(function () {
+    $.cookie('JSESSIONID', null, {path: '/', domain: 'hxmklmall.cn'});
     var timeOut;
     $(".swiper-slide").show();
 
