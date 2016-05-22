@@ -49,6 +49,22 @@ $(function () {
                         session.goods_showMyGoods_uptId = uptId;
                         derict(this, "showMyGoods", "nochangeurl");
                     });
+
+                    totalPage=Math.ceil(data.countRecord/10);
+                    newPage(totalPage,function(i){
+                    var newData = JSON.stringify(datas);
+                         $.ajax({
+                             url: plumeApi["listProductInfoUpt"],
+                             type: "POST",
+                             contentType: "application/json;charset=UTF-8",
+                             data: newData,
+                            success: function (data) {
+                                    unloading();
+                                    $("[list-node]").remove();
+                                    $(".form-body").setPageData(data);
+                            }
+                         });
+                    });
                 } else {
                     console.log('error');
                 }
