@@ -15,11 +15,10 @@ $(function () {
             $.ajaxSetup({
                 async: false
             });
+            getlistNationRegion();
             getbrandList();
             getProductAttribute();
             setColors();
-            getlistNationRegion();
-
 
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {

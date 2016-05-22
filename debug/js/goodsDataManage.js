@@ -84,7 +84,7 @@ $(function () {
                         }
                     });
                 });
-                $("[list-node]").remove();
+                $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
             }
