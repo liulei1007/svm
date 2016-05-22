@@ -5,11 +5,14 @@
       <p><strong>错误提示：请重新上传</strong></p>
       <p>第一行：格式错误</p>
     </div>
-  <form class="form-horizontal" id="myform" action="http://api.longguo.hxmklmall.cn:80/excel/exportProductGoodsTemplate/1/5/61/1" method="post">
+  <form class="form-horizontal" id="myform" action="http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate" method="post">
        
    
  <div class="btn-loadFile">
-        上传文件<input type="file" class="loadFile" name="file">
+        <input type="file" class="loadFile" name="file">
+        <input type="hidden" name="baseCategoryId" value="1">
+        <input type="hidden" name="subCategoryId" value="5">
+        <input type="hidden" name="categoryId" value="61">
   </div>
 
     <div class="row load-btn-block">

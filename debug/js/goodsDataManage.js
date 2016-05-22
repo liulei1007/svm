@@ -129,7 +129,9 @@ $(function () {
                     alert(data.resDescription);
                 }
             });
-
+            $('.btn-cancel').bind('click',function() {
+                $(".pop").hide();
+            })
 
             $(".ex-ok").bind("click", function () {
                 $('#myform').submit();

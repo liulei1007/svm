@@ -249,7 +249,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-load .load-alert strong{font-size: 14px;}
 .popup-load .btn-loadFile{position: relative; margin: 70px auto 20px; width: 120px;}
 
-.popup-load .loadFile{position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; font-size: 200;}
+/*.popup-load .loadFile{position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; font-size: 200;}*/
 .popup-load .load-btn-block{margin-right: 0; margin-left: 0;}
 .popup-load .load-btn-block .btn{width: 100%;}
 .popup-load .text-bottom{position: absolute; bottom: 10px; left: 0; width: 100%; text-align: center;}
