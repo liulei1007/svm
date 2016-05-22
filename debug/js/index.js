@@ -204,7 +204,8 @@ function pathInit() {
         //获取登录信息放入session中
         getLoginInfoToSession();
         getAuth();
-        var auth = sessionStorage.auth;
+        //$(".slidebar-title,.auth-menu-ul li").show();
+        //var auth = sessionStorage.auth;
         //if (auth) {
         //    $(".slidebar-title").each(function () {
         //        var slidebarAuth = $(this).attr("auth");
