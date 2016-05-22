@@ -28,7 +28,6 @@ $(function () {
             $("#productSecondName").val(d.productSecondName);
             $("#productName").val(d.productName);
             $("#provinceId").val(d.provinceId);
-            alert(d.provinceId)
             var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
             $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                 $(".cmg-region2").setPageData(data);
@@ -430,6 +429,9 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("修改成功");
+                        setTimeout(function () {
+                            derict(null, "goodsDataManage", "nochangeurl");
+                        }, 2000);
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {

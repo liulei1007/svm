@@ -176,7 +176,7 @@ $(function () {
             $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
                 unloading();
                 if (data.ok) {
-                    alert("短信验证码发送成功");
+                    plumeLog("短信验证码发送成功");
                 }
             });
         } else {
