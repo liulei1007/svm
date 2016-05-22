@@ -27,12 +27,14 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("增加成功");
+                        derict(this, "msgmanage", "nochangeurl");
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                         $(".pop").find(".popup-info").html("增加失败");
+                        derict(this, "msgmanage", "nochangeurl");
                     });
                 }
                 console.log(data);

@@ -8,7 +8,6 @@ $(function(){
         //获取记录id 
         var removeList = $(this).parents('tr');
         var msgid = removeList.attr("msgid");
-
         //调用删除     
         delFeedBackData(msgid);
     });
