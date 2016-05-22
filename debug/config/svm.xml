@@ -199,6 +199,11 @@
         <init>userType_init</init>
     </page>
     <page>
+        <page-name>userType2</page-name>
+        <page-url>/pages/userType2.html</page-url>
+        <init>userType2_init</init>
+    </page>
+    <page>
         <page-name>brandCreateCompany</page-name>
         <page-url>/pages/brandCreateCompany.html</page-url>
         <init>brandCreateCompany_init</init>

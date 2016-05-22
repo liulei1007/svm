@@ -124,9 +124,11 @@ $(function () {
             $('#myform').ajaxForm(function (data) {
                 unloading();
                 if (data.ok) {
-                    alert(1)
+                   alert("上传成功");
+                   $('.pop').hide();
                 } else {
-                    alert(data.resDescription);
+                    alert("上传失败")
+                    $('.pop').hide();
                 }
             });
             $('.btn-cancel').bind('click',function() {
@@ -136,8 +138,18 @@ $(function () {
             $(".ex-ok").bind("click", function () {
                 $('#myform').submit();
             });
-            $(".btn-loadModule").bind("click", function () {
-                window.location = "http://api.longguo.hxmklmall.cn:80/excel/exportProductGoodsTemplate/1/5/61/1"
+
+            $(".btn-selectType").bind('click',function() {
+                $(".pop").hide();
+               derict(this, "userType2", "nochangeurl");
+            });
+
+            $(".text-bottom1 .btn-loadModule").bind("click", function () {
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/100"
+            });
+
+              $(".text-bottom2 .btn-loadModule").bind("click", function () {
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/2/22/215/100"
             });
         });
     })
