@@ -324,9 +324,3 @@ function showMyGoods_init(){
     plumeUtil.js(plumePath + "/js/showMyGoods.js")
     plumeLog("完成showMyGoods模板加载-" + plumeTime());
 }
-$.ajaxSetup({
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true
-});
