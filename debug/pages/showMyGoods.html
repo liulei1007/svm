@@ -18,21 +18,21 @@
 </head>
 
 <body>
-<div class="body-typein createNewGoods">
+<div class="body-typein showGoods">
     <div class="title-block">查看商品数据</div>
     <form class="form-horizontal">
         <div class="form-group required">
             <label class="col-sm-2 control-label">当前类目</label>
 
             <!--<div class="col-sm-4">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-12 form-control-static userType"></div>-->
-                    <!--<div class="col-sm-12 changeType">重新选择类目</div>-->
-                <!--</div>-->
+            <!--<div class="row">-->
+            <!--<div class="col-sm-12 form-control-static userType"></div>-->
+            <!--<div class="col-sm-12 changeType">重新选择类目</div>-->
+            <!--</div>-->
             <!--</div>-->
         </div>
     </form>
-    <div class="form-block-contractive">
+    <div class="form-block-contractive smg-basicInfo">
         <div id="basicInfo" class="row block-title">
             <div class="col-sm-2">基础信息</div>
         </div>
@@ -42,110 +42,85 @@
                     <label class="col-sm-2 control-label"><i>*</i>品牌名称</label>
 
                     <div class="col-sm-4 cmg-brand">
-                        <select type="text" id="brandId" class="form-control notNull" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.brandName,attr-value:$n.id"></option>
-                        </select>
+                        <p class="col-sm-4 form-control-static" id="#brandId" data-name="$p.brandName"></p>
                     </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>系列名称</label>
 
                     <div class="col-sm-4 cmg-series">
-                        <select type="text" id="seriesId" class="form-control notNull" data-list="$p.data">
-                            <option value="" list-temp="true" node-name="$n.seriesName,attr-value:$n.id"></option>
-                        </select>
+
+                        <p class="col-sm-4 form-control-static" data-name="$p.seriesName"></p>
                     </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>商品标语</label>
 
-                    <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName">
-                    </div>
-                    <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
-                    <div class="col-sm-offset-2 col-sm-8 tips-block">
-                        <p>支持汉字、字母、数字、特殊字符格式、不得超过50个字节</p>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.productSecondName"></p>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>商品名称</label>
 
-                    <div class="col-sm-6"><input type="text" class="form-control notNull" id="productName"/>
-                    </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
-                    <div class="col-sm-offset-2 col-sm-8 tips-block">
-                        <p>文字说明：举例子说明文字说明：举列子说明</p>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.productName"></p>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>产地</label>
 
-                    <div class="col-sm-2 cmg-region1">
-                        <select class="form-control" id="provinceId" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
-                        </select>
-                    </div>
-                    <div class="col-sm-2 cmg-region2 ">
-                        <select class="form-control notNull" id="cityId" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.adress,attr-value:$n.id"></option>
-                        </select>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.cityName"></p>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>型号</label>
 
-                    <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
-                    <div class="col-sm-2 alert alert-danger"></div>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.modelNumber"></p>
+                    </div>
+
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>材质</label>
 
-                    <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control notNull">
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.materialQuality"></p>
                     </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
+
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>重量</label>
 
-                    <div class="col-sm-4"><input type="text" id="weight" class="form-control notNull num">
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.weight+' KG'"></p>
                     </div>
-                    <div class="col-sm-1 form-explain">KG</div>
 
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
 
-                    <div class="col-sm-4">
-                        <select class="form-control notNull" id="priceType">
-                            <option value="0">明码议价</option>
-                            <option value="1">明码实价</option>
-                        </select>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.priceType"></p>
                     </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>等级</label>
 
-                    <div class="col-sm-4">
-                        <select class="form-control notNull" id="lvInfo">
-                            <option value="0">优等品</option>
-                            <option value="1">一等品</option>
-                            <option value="2">合格品</option>
-                        </select>
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.lvInfo"></p>
                     </div>
+
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>市场参考价</label>
 
-                    <div class="col-sm-4">
-                        <input type="text" id="marketPrice" class="form-control notNull num">
+                    <div class="col-sm-6">
+                        <p class="col-sm-4 form-control-static" data-name="$p.marketPrice+' 元'"></p>
                     </div>
-                    <div class="col-sm-1 form-explain">元</div>
-
-                    <div class="col-sm-2 alert alert-danger"></div>
                 </div>
             </div>
         </form>
@@ -157,101 +132,27 @@
         </div>
         <form class="form-horizontal">
             <div class="goodsAttr-content row">
-                <div class="form-group required">
+                <div class="form-group required smg-base-attr">
                     <label class="col-sm-2 control-label"><i>*</i>饰面</label>
 
-                    <div class="col-sm-2"><input type="text" id="material3" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入饰面！</div>
+                    <div class="col-sm-2">
+                        <p class="col-sm-4 form-control-static" data-name="$p.material3"></p>
+                    </div>
                     <label class="col-sm-2 control-label"><i>*</i>基材</label>
 
-                    <div class="col-sm-2"><input type="text" id="material1" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入基材！</div>
+                    <div class="col-sm-2">
+                        <p class="col-sm-4 form-control-static" data-name="$p.material1"></p>
+                    </div>
                 </div>
-                <div class="form-group required">
+                <div class="form-group required smg-base-attr">
 
                     <label class="col-sm-2 control-label"><i>*</i>辅材</label>
 
-                    <div class="col-sm-2"><input type="text" id="material2" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入辅材！</div>
-                </div>
-
-            </div>
-        </form>
-    </div>
-
-    <div class="form-block-contractive">
-        <div id="colorAttr" class="row block-title">
-            <div class="col-sm-2">颜色属性</div>
-        </div>
-        <form class="form-horizontal">
-            <div class="colorAttr-content row">
-                <div class="col-sm-2 control-label">颜色分类</div>
-                <div class="col-sm-9">
-                    <div class="color-type">
-                        <div class="row cm-color-title">
-                            <ul class="color-row clearFix" data-list="$p.data">
-                                <li list-temp="true">
-                                    <div class="color-title" node-name="bg-color:$n.colorValue"></div>
-                                    <div class="color-font" node-name="$n.colorName"></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row  cm-color-body">
-                            <div class="color-select clearFix" data-list="$p.subColorVos">
-
-                                <div class="color-single" list-temp="true">
-                                    <input class="color-box" node-name="attr-colorid:$n.id" type="checkbox">
-
-                                    <div class="color-show">
-                                        <span class="color-select-title cmg-colorValue"
-                                              node-name="bg-color:$n.colorValue,attr-colorValue:$n.colorValue"></span>
-                                        <span class="cmg-colorName" node-name="$n.colorName"></span>
-                                    </div>
-                                    <div class="color-desc"><input class="form-control cmg-colorDesc" placeholder="备注"
-                                                                   type="text"></div>
-                                </div>
-
-
-                                <!-- <div class="row" data-list="$p.subColorVos">
-                                    <div class="col-sm-offset-1 col-sm-2" list-temp="true">
-                                        <input class="color-box" type="checkbox" node-name="attr-colorid:$n.id"/>
-
-                                        <div>
-                                            <div class="color-select-title cmg-colorValue"
-                                            node-name="bg-color:$n.colorValue,attr-colorValue:$n.colorValue"></div>
-                                            <p>
-                                                <input type="text" readonly value="" class="cmg-colorName"
-                                                node-name="$n.colorName"/>
-                                            </p>
-
-                                            <div class="color-desc"><input type="text" class="cmg-colorDesc"
-                                                placeholder="备注" value=""/></div>
-                                            </div>
-                                            <input type="text" class="col-sm-1 form-control none-input-color">
-                                        </div>
-                                    </div> -->
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8" style="width: auto;">
-                            <div class="alert alert-info">备注：（可以修改名称如：乳白色改成珍珠白，但色值不能变）</div>
-                        </div>
-                    </div>
-                    <div class="color-type-talbe" style="display: none">
-                        <table class="table table-bordered " style="display: block">
-                            <thead class="cmg-table-color">
-                            <tr>
-                                <th>颜色分类</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                    <div class="col-sm-2">
+                        <p class="col-sm-4 form-control-static" data-name="$p.material2"></p>
                     </div>
                 </div>
+
             </div>
         </form>
     </div>
@@ -262,15 +163,7 @@
         </div>
         <form class="form-horizontal">
             <div class="sizeAttr-content row">
-                <div class="addGoods col-sm-offset-2 clearFix">
 
-                    <!-- <div class="row"> -->
-                    <div class="col-sm-4"><input type="text" class="form-control" id="standard"></div>
-                    <div class="col-sm-1">
-                        <div class="btn btn-primary cmg-btn-addStandard">添加</div>
-                    </div>
-                    <!-- </div> -->
-                </div>
                 <div class="addGoods-table col-sm-offset-2">
                     <!-- <div class="row"> -->
                     <div class="col-sm-10">
@@ -280,7 +173,6 @@
                                 <th>颜色分类</th>
                                 <th>规格</th>
                                 <th>市场参考价</th>
-                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody class="standardtbody">
@@ -294,9 +186,7 @@
                     </div> -->
                     <!-- </div> -->
                 </div>
-                <div class="col-sm-8 col-sm-offset-2" style="width: auto;">
-                    <div class="alert alert-info">例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm</div>
-                </div>
+
             </div>
         </form>
     </div>
@@ -317,17 +207,17 @@
                                 <img src="images/temp/upload.jpg"/>
                             </li>
                             <!--<li class="goodsPic">-->
-                                <!--<img src="images/temp/upload-1.png">-->
+                            <!--<img src="images/temp/upload-1.png">-->
 
-                                <!--<div class="upload-btn upload-btn-left">-->
-                                    <!--<div class="arrow-left"></div>-->
-                                <!--</div>-->
-                                <!--<div class="upload-btn upload-btn-right">-->
-                                    <!--<div class="arrow-right"></div>-->
-                                <!--</div>-->
-                                <!--<div class="upload-btn upload-btn-delect">-->
-                                    <!--<div class="arrow-close"></div>-->
-                                <!--</div>-->
+                            <!--<div class="upload-btn upload-btn-left">-->
+                            <!--<div class="arrow-left"></div>-->
+                            <!--</div>-->
+                            <!--<div class="upload-btn upload-btn-right">-->
+                            <!--<div class="arrow-right"></div>-->
+                            <!--</div>-->
+                            <!--<div class="upload-btn upload-btn-delect">-->
+                            <!--<div class="arrow-close"></div>-->
+                            <!--</div>-->
                             <!--</li>-->
 
                         </ul>
