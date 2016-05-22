@@ -20,9 +20,7 @@ $(function () {
             setColors();
             getlistNationRegion();
             setStandard();
-            //$.ajaxSetup({
-            //    async: true
-            //});
+
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
                 $(".cmg-series").find("[list-node]").remove();
@@ -52,6 +50,9 @@ $(function () {
             session.goods_subCategoryName=d.subCategoryName;
             session.goods_baseCategoryId=d.baseCategoryId;
             session.goods_baseCategoryName=d.baseCategoryName;
+            //$.ajaxSetup({
+            //    async: true
+            //});
             //for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
             //    var p = d.productInfoAttrUptORMs[i];
             //    var temp = '<div class="form-group required smg-base-attr">';
