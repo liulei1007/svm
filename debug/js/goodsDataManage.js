@@ -135,8 +135,11 @@ $(function () {
                 $(".pop").hide();
             })
 
+
             $(".ex-ok").bind("click", function () {
+                if(($("#file").val())){
                 $('#myform').submit();
+                    }
             });
 
             $(".btn-selectType").bind('click',function() {
