@@ -3,7 +3,7 @@ $(function () {
     formCtrl();
     $.ajax({
         type: "GET",
-        url: plumeApi["getProductInfoUpt"] + "/" + session.productGoods_productId,
+        url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
         data: "",
         contentType: "application/json",
         dataType: "json",
@@ -28,6 +28,7 @@ $(function () {
             $("#productSecondName").val(d.productSecondName);
             $("#productName").val(d.productName);
             $("#provinceId").val(d.provinceId);
+            alert(d.provinceId)
             var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
             $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                 $(".cmg-region2").setPageData(data);

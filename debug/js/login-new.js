@@ -239,10 +239,10 @@ function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
 }
-var send_code = 60;
+var send_code = 1;
 function send_code_time() {
     send_code--;
-    if (send_code == 0) {
+    if (send_code < 1) {
         $(".btn-getCode").text("获取验证码").attr("status", "1");
     } else {
         $(".btn-getCode").text("获取验证码" + "(" + send_code + ")").attr("status", "0");
