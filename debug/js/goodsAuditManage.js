@@ -98,4 +98,12 @@ $(function () {
             });
         });
     }
+
+    function searchBtn(){
+        $(".gam-btn-search").bind("click",function(){
+            datas.productName=$("#agencyName").val();
+            listProductInfoUpt();
+        });
+    }
+    searchBtn();
 });

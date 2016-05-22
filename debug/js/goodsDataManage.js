@@ -3,9 +3,9 @@ $(function () {
     var datas = {
         "productName": "",
         "modelNumber": "",
-        "categoryId": 0,
-        "subCategoryId": 0,
-        "baseCategoryId": 0,
+        "categoryId": "",
+        "subCategoryId": "",
+        "baseCategoryId": "",
         "saleStatus": "",
         "reviewStatus": "",
         "seriesName": ""
