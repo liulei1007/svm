@@ -429,6 +429,7 @@
         <logout>http://longguo.hxmklmall.cn/api/userInfo/logout</logout>
         <getProductInfoUpt>http://longguo.hxmklmall.cn/api/productInfo/getProductInfoUpt</getProductInfoUpt>
         <addCompanyInfoPersonal>http://longguo.hxmklmall.cn/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
+        <editProductInfo>http://longguo.hxmklmall.cn/api/productInfo/editProductInfo</editProductInfo>
 
     </api>
 </config>

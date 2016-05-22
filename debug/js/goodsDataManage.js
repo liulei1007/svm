@@ -23,13 +23,18 @@ $(function () {
         var subCategoryId = $("#subCategoryId").val();
         var categoryId = $("#categoryId").val();
         var reviewStatus = $("#reviewStatus").val();
-        if (categoryId == "") {
-            categoryId = 0;
-        }
         var saleStatus = $("#saleStatus").val();
-        getTableData(productName, modelNumber, categoryId, subCategoryId, baseCategoryId, saleStatus, reviewStatus, "", 1);
+        datas.productName = productName;
+        datas.modelNumber = modelNumber;
+        datas.categoryId = categoryId;
+        datas.subCategoryId = subCategoryId;
+        datas.baseCategoryId = baseCategoryId;
+        datas.saleStatus = saleStatus;
+        datas.reviewStatus = reviewStatus;
+        datas.seriesName = saleStatus;
+        getTableData();
     });
-    //分类
+//分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
     function getFirstCategory(categoryId, tag) {
@@ -49,7 +54,7 @@ $(function () {
     }
 
     getFirstCategory(0, 0);
-    //获取表格数据
+//获取表格数据
     function getTableData() {
         var newData = JSON.stringify(datas)
        
@@ -82,8 +87,6 @@ $(function () {
                  $("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
-
-              
             }
         });
     }
@@ -118,19 +121,19 @@ $(function () {
 //批量导入按钮
     $(".btn-import-data").bind("click", function () {
         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
-              $('#myform').ajaxForm(function (data) {
+            $('#myform').ajaxForm(function (data) {
                 unloading();
-                if(data.ok){
+                if (data.ok) {
                     alert(1)
-                }else{
+                } else {
                     alert(data.resDescription);
                 }
             });
 
 
-            $(".ex-ok").bind("click",function () {
-                 $('#myform').submit();
-             });
+            $(".ex-ok").bind("click", function () {
+                $('#myform').submit();
+            });
             $(".btn-loadModule").bind("click", function () {
                 window.location = "http://api.longguo.hxmklmall.cn:80/excel/exportProductGoodsTemplate/1/5/61/1"
             });
@@ -182,8 +185,6 @@ $(function () {
                     session.goods_edit_productId = productId;
                     derict(this, "copyMyGoods", "nochangeurl");
                 })
-
-        
     }
 
 });

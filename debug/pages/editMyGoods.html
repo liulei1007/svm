@@ -24,12 +24,13 @@
         <div class="form-group required">
             <label class="col-sm-2 control-label">当前类目</label>
 
-            <!--<div class="col-sm-4">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-12 form-control-static userType"></div>-->
+            <div class="col-sm-4 emg-initdata">
+                <div class="row">
+                    <div class="col-sm-12 form-control-static cmg-categoryId" data-name="$p.categoryName,attr-categoryId:$p.categoryId"></div>
+                    <input type="hidden" id="productId" data-name="$p.productId" />
                     <!--<div class="col-sm-12 changeType">重新选择类目</div>-->
-                <!--</div>-->
-            <!--</div>-->
+                </div>
+            </div>
         </div>
     </form>
     <div class="form-block-contractive">
