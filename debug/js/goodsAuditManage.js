@@ -1,6 +1,6 @@
 $(function () {
     //初始化数据
-    datas = {
+   var datas = {
         "productName": "",
         "modelNumber": "",
         "categoryId": "",
@@ -11,13 +11,12 @@ $(function () {
         "seriesName": ""
     }
 
-
     listProductInfoUpt();
     tablecheckbox();
     $('.table-block').on('click', '.btn-audit', function () {
         var uptIds = [];
         uptIds.push($(this).parents("tr").find(".uptId").html());
-        auditFun();
+        auditFun(uptIds);
     });
 
     $('.btn-allAudit').click(function () {
@@ -27,7 +26,7 @@ $(function () {
                 uptIds.push($(this).parents('tr').find('.uptId').html());
             }
         });
-        auditFun();
+        auditFun(uptIds);
     });
 
 
@@ -73,7 +72,10 @@ $(function () {
         })
     }
 
-    function auditFun() {
+
+
+    //商品审核
+    function auditFun(uptIds) {
         $('.pop').loadTemp("popAudit", "nochangeurl", function () {
             $('.pop').on('click', '.btn-sure', function () {
                 var audit = {
@@ -81,6 +83,7 @@ $(function () {
                     "reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
                     "remark": $('.remark').val()
                 };
+                console.log(audit)
                 loading();
                 $.ajax({
                     url: plumeApi["reviewProductInfo"],
@@ -90,10 +93,6 @@ $(function () {
                     success: function (data) {
                         if (data.ok) {
                             unloading();
-                            totalPage = Math.ceil(data.countRecord / 10);
-                            newPage(totalPage, function (i) {
-
-                            })
                             popTips("审核成功", "success");
                             listProductInfoUpt();
                         } else {
