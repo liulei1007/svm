@@ -55,7 +55,7 @@ function getProductGoodsData() {
             newPage(totalPage,function(i){
 			var newData = JSON.stringify(datas);
 			$.ajax({
-				url: plumeApi["listProductGoods"],
+				url: plumeApi["listProductGoods"]+"?currentPage="+i+"&onePageCount=10",
 				type: "GET",
 				data: datas,
 				dataType: "json",
