@@ -377,8 +377,7 @@
         </enableProductShopGoods>
         <disableProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/disableProductShopGoods/
         </disableProductShopGoods>
-        <getProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/getProductShopGoods/
-        </getProductShopGoods>
+        <getProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
         <getProductInfo>http://longguo.hxmklmall.cn/api/productInfo/getProductInfo/</getProductInfo>
         <listProductGoods>http://api.longguo.hxmklmall.cn/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>http://longguo.hxmklmall.cn/api/productInfo/listProductInfoUpt</listProductInfoUpt>

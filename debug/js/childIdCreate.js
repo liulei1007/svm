@@ -210,7 +210,7 @@ function subAccUpView(accountId) {
                                 brandHtml += " checked='checked'";
                             } 
                             brandHtml += " />";
-                            brandHtml += brandList[i].brandName;label
+                            brandHtml += brandList[i].brandName;
                             brandHtml += '</label>';
                         }
                         $(".manuBrand").html(brandHtml);
