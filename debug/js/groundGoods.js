@@ -39,7 +39,7 @@ function getGoodsData() {
     loading();
     var newData = JSON.stringify(datas)
     $.ajax({
-        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount=1",
+        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount=10",
         type: "POST",
         contentType: "application/json;charset=UTF-8",
         data: newData,

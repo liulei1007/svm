@@ -79,12 +79,13 @@ $(function () {
         derict(this, "userType", "nochangeurl");
     });
     //初始化图片移动
-    var len;
-    var list
+    function picMove() {
+        var len;
+    var list;
     $('.upload-btn-left').bind('click', leftEvent);
     $('.upload-btn-right').bind('click', rightEvent);
     $('.upload-btn-delect').bind('click', delectEvent);
-    initialize()
+    initialize();
 
     function initialize() {
         list = $('.goodsPic');
@@ -122,6 +123,9 @@ $(function () {
         $(this).parents('li').remove();
         initialize();
     }
+    }
+
+    
 
     //图片上传
     $("#cmg-upload").bind("click", function () {
@@ -144,6 +148,9 @@ $(function () {
                     temp+='</li>';
                     $(".goodsPic-upload").append(temp);
                     closeUploadPop();
+                    picMove()
+
+
                 }else{
                     alert(data.resDescription);
                 }
