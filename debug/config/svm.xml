@@ -430,6 +430,6 @@
         <getProductInfoUpt>http://longguo.hxmklmall.cn/api/productInfo/getProductInfoUpt</getProductInfoUpt>
         <addCompanyInfoPersonal>http://longguo.hxmklmall.cn/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
         <editProductInfo>http://longguo.hxmklmall.cn/api/productInfo/editProductInfo</editProductInfo>
-
+        <getSystemResourceTree>http://longguo.hxmklmall.cn/api/common/getSystemResourceTree</getSystemResourceTree>
     </api>
 </config>
