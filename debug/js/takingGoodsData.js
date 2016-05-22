@@ -1,12 +1,10 @@
 $(function(){
-	plumeLog("进入commondityManagement1模板自定义js-"+plumeTime());
-
+	plumeLog("进入takingGoodsData模板自定义js-"+plumeTime());
 	var datas ={
 		"keyword":"",
 		"currentPage":0,
 		"onePageCount":10
 	}
-
 
 	$('.table-block').on('click','.btn-taking',function() {
 		getProductId(this);
@@ -26,8 +24,6 @@ $(function(){
 	$('.btn-selfGoods').bind('click',function() {
 		derict(this,"releaseSelfGoods","nochangeurl");
 	});
-
-
 
 
 
@@ -53,6 +49,7 @@ function getProductGoodsData() {
             $(".table-block").setPageData(data);
 
             newPage(totalPage,function(i){
+            datas.currentPage = i;
 			var newData = JSON.stringify(datas);
 			$.ajax({
 				url: plumeApi["listProductGoods"]+"?currentPage="+i+"&onePageCount=10",
