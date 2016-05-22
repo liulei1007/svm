@@ -112,7 +112,8 @@ $(function () {
                 });
                 $('.gdm-btn-copy').unbind().bind("click", function () {
                     var productId = $(this).parent().parent().children().first().attr("productId");
-                    session.goods_edit_productId = productId;
+                    var uptId = $(this).attr("uptId");
+                    session.goods_showMyGoods_uptId = uptId;
                     derict(this, "copyMyGoods", "nochangeurl");
                 })
 

@@ -118,7 +118,7 @@ $(function () {
 
     //获取商品属性
     function getProductAttribute() {
-        var categoryId = $(".userType").attr("categoryId");
+        var categoryId = $(".cmg-categoryId").attr("categoryId");
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {

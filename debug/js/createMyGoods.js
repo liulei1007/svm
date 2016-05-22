@@ -332,6 +332,9 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("增加成功");
+                        setTimeout(function () {
+                            derict(null, "goodsDataManage", "nochangeurl");
+                        }, 2000);
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
