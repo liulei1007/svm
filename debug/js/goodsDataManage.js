@@ -144,10 +144,28 @@ $(function () {
 //批量导入按钮
     $(".btn-import-data").bind("click", function () {
         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+              $('#myform').ajaxForm(function (data) {
+                unloading();
+                if(data.ok){
+                    alert(1)
+                }else{
+                    alert(data.resDescription);
+                }
+            });
+
+
+            $(".ex-ok").bind("click",function () {
+                 $('#myform').submit();
+             });
             $(".btn-loadModule").bind("click", function () {
-                window.location = "http://api.longguo.hxmklmall.cn:80/excel/importProductGoods/1/1/1/1"
+                window.location = "http://api.longguo.hxmklmall.cn:80/excel/exportProductGoodsTemplate/1/5/61/1"
             });
         });
     })
 
+   
+
+
 });
+
+
