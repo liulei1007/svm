@@ -84,7 +84,7 @@ $(function () {
                         }
                     });
                 });
-                $("[list-node]").remove();
+                $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
             }
@@ -173,12 +173,18 @@ $(function () {
                             $(".pop").find(".popup-title").html("信息提示");
                             $(".pop").find(".popup-icon").html('<i class="success"></i>');
                             $(".pop").find(".popup-info").html("删除成功");
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000);
                         });
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
                             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                             $(".pop").find(".popup-info").html("删除失败");
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000);
                         });
                     }
                 });

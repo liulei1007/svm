@@ -7,13 +7,12 @@ $(function(){
 	}
 
 	$('.table-block').on('click','.btn-taking',function() {
-		getProductId(this);
 		derict(this, "takingGoods", "nochangeurl");
 	});		
 
 	$('.table-block').on('click','.btn-compile',function() {
 		getGoodsPsgId(this);
-		derict(this, "compileGoods", "nochangeurl");
+		derict(this, "editMyGoods", "nochangeurl");
 	});
 
 	$(".btn-search").bind('click',function() {
