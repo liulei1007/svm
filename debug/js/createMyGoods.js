@@ -133,7 +133,7 @@ $(function () {
                 if (data.ok) {
                     $("#filepath").val(data.data);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + "http://img2.hxmklmall.cn" + $("#filepath").val() + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + "http://img1.mklimg.com" + $("#filepath").val() + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
