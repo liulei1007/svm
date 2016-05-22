@@ -32,7 +32,7 @@ $(function(){
 
 
 //工厂商品列表
-
+ $('.alert-info strong').html(0);	
 function getProductGoodsData() {
     loading();
     $.ajax({
@@ -44,7 +44,11 @@ function getProductGoodsData() {
         success: function (data) {
             totalPage = Math.ceil(data.countRecord/10);
             unloading();
+            if(data.countRecord){
             $('.alert-info strong').html(data.countRecord);
+        	}else{
+        	 $('.alert-info strong').html(0);	
+        	}
             $("[list-node]").remove();
             $(".table-block").setPageData(data);
 

@@ -49,11 +49,11 @@ function getGoodsData() {
             $(".table-block").setPageData(data);
             filter();
 
-            totalPage=Math.ceil(data.countRecord/1);
+            totalPage=Math.ceil(data.countRecord/10);
 			newPage(totalPage,function(i){
 			var newData = JSON.stringify(datas);
 			$.ajax({
-				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=1",
+				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=10",
 				type: "POST",
 				data: newData,
 				dataType: "json",
