@@ -148,11 +148,11 @@ $(function () {
             });
 
             $(".text-bottom1 .btn-loadModule").bind("click", function () {
-                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/100"
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/5"
             });
 
               $(".text-bottom2 .btn-loadModule").bind("click", function () {
-                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/2/22/215/100"
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/2/22/215/5"
             });
         });
     })

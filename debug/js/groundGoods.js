@@ -27,9 +27,9 @@ $(function(){
 	var nowPage =1;
 	getGoodsData();
 	$('.btn-search').bind('click',function() {
-		data.productName=$('#productName').val();
-		data.modelNumber=$('#modelNumber').val();
-		data.saleStatus=$('#saleStatus').val();
+		datas.productName=$('#productName').val();
+		datas.modelNumber=$('#modelNumber').val();
+		datas.saleStatus=$('#saleStatus').val();
 		getGoodsData();
 	})
 
