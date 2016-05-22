@@ -234,6 +234,9 @@ $(function () {
     }
 
     setColors();
+    $(".cmg-cancel").bind("click",function(){
+        derict(this, "goodsDataManage", "nochangeurl");
+    });
     //提交
     $(".cmg-ok").bind("click", function () {
         if (!validata()) {
