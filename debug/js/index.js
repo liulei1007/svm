@@ -539,7 +539,7 @@ function getlistNationRegion() {
 
 //时间戳转日期
 function getLocalTime(nS) {
-    return new Date(parseInt(nS) /1000).toLocaleString().substr(0, 10)
+    return new Date(parseInt(nS)).toLocaleString().substr(0, 10)
 }
 
 // 提交成功

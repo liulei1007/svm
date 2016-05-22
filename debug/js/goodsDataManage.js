@@ -124,10 +124,10 @@ $(function () {
             $('#myform').ajaxForm(function (data) {
                 unloading();
                 if (data.ok) {
-                   alert("上传成功");
+                   alert(data.data);
                    $('.pop').hide();
                 } else {
-                    alert("上传失败")
+                    alert(data.data)
                     $('.pop').hide();
                 }
             });
@@ -135,8 +135,11 @@ $(function () {
                 $(".pop").hide();
             })
 
+
             $(".ex-ok").bind("click", function () {
+                if(($("#file").val())){
                 $('#myform').submit();
+                    }
             });
 
             $(".btn-selectType").bind('click',function() {
