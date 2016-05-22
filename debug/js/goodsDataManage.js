@@ -124,10 +124,10 @@ $(function () {
             $('#myform').ajaxForm(function (data) {
                 unloading();
                 if (data.ok) {
-                   alert("上传成功");
+                   alert(data.data);
                    $('.pop').hide();
                 } else {
-                    alert("上传失败")
+                    alert(data.data)
                     $('.pop').hide();
                 }
             });
