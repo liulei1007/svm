@@ -10,7 +10,9 @@
 var configJson = {};//配置文件数据集合
 var plumeApi = {};//配置文件中接口集合--v1.3功能较单一需扩展
 var pathName = window.document.location.pathname;
-var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
+//var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
+var _plumePath=window.document.location+"";
+var plumePath=_plumePath.substring(0,_plumePath.lastIndexOf('/') + 1);
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
     var configurl = _PLUME.config ? _PLUME.config : "";
