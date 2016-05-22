@@ -27,12 +27,20 @@ $(function () {
                 for (var j = 0; j < d.productGoodsUpts.length; j++) {
                     var p = d.productGoodsUpts[j];
                     var temp = '<tr class="cmg-goodstr">';
-                    temp += '<td>'+ p.color+'</td>';
-                    temp += '<td>'+ p.standard+'</td>';
-                    temp += '<td>'+ p.salePrice+'</td>';
+                    temp += '<td>' + p.color + '</td>';
+                    temp += '<td>' + p.standard + '</td>';
+                    temp += '<td>' + p.salePrice + '</td>';
                     temp += '</tr>';
                     $(".standardtbody").append(temp);
                 }
+                for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
+                    var p = d.productInfoPhotoUpts[k];
+                    var temp = '<li class="goodsPic">';
+                    temp += '<img src="'+ p.picUrl+'"/>';
+                    temp += '</li>';
+                    $(".goodsPic-upload").append(temp);
+                }
+                //productInfoPhotoUpts
                 //$("#brandId").bind("change", function () {
                 //    loading();
                 //    var brandId = $(this).val();

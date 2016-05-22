@@ -1,6 +1,4 @@
 $(function () {
-
-
     //显示登录名称
     if (sessionStorage.login_mobilePhone) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
@@ -249,7 +247,7 @@ function getLoginInfoToSession() {
                 sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId;
                 sessionStorage.login_manuId=data.data.manuId;
             } else {
-                alert("获取登录信息失败:" + data.resDescription);
+                plumeLog("获取登录信息失败:" + data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
 //                window.location.href = "login";
             }

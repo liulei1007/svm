@@ -21,9 +21,12 @@
 <div class="body-typein showGoods">
     <div class="title-block">查看商品数据</div>
     <form class="form-horizontal">
-        <div class="form-group required">
+        <div class="form-group required smg-base-attr">
             <label class="col-sm-2 control-label">当前类目</label>
 
+            <div class="col-sm-4 cmg-brand">
+                <p class="col-sm-4 form-control-static"  data-name="$p.subCategoryName"></p>
+            </div>
             <!--<div class="col-sm-4">-->
             <!--<div class="row">-->
             <!--<div class="col-sm-12 form-control-static userType"></div>-->
@@ -201,38 +204,14 @@
 
                 <div class="row">
                     <div class="col-sm-offset-2 col-sm-9">
-                        <!-- <div class="goodsPic-upload"> -->
                         <ul class="goodsPic-upload clearFix">
-                            <li id="cmg-upload">
-                                <img src="images/temp/upload.jpg"/>
-                            </li>
-                            <!--<li class="goodsPic">-->
-                            <!--<img src="images/temp/upload-1.png">-->
 
-                            <!--<div class="upload-btn upload-btn-left">-->
-                            <!--<div class="arrow-left"></div>-->
-                            <!--</div>-->
-                            <!--<div class="upload-btn upload-btn-right">-->
-                            <!--<div class="arrow-right"></div>-->
-                            <!--</div>-->
-                            <!--<div class="upload-btn upload-btn-delect">-->
-                            <!--<div class="arrow-close"></div>-->
-                            <!--</div>-->
-                            <!--</li>-->
+
 
                         </ul>
-                        <!-- </div> -->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2" style="width: auto;">
-                        <div class="alert alert-info">请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为
-                            gif,png,jpg,jpeg大小不得超过5M
-                        </div>
-                    </div>
-                    <!-- <div class="col-sm-offset-2 col-sm-8"><p>请上传至少4张商品图片，图片尺寸为800*800以上，无水印；仅支持图片格式为
-                    gif,png,jpg,jpeg大小不得超过5M</p></div> -->
-                </div>
+
             </div>
             <div class="form-group required" style="display: none">
                 <label class="col-sm-2 control-label">状态</label>
@@ -256,12 +235,7 @@
               </div> -->
         </form>
     </div>
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 btn-block">
-            <button type="button" class="btn btn-lg btn-success btn-next cmg-ok">提交</button>
-            <button type="button" class="btn btn-lg btn-default btn-back cmg-cancel">取消</button>
-        </div>
-    </div>
+
 </div>
 </body>
 </html>
