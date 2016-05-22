@@ -6,6 +6,9 @@ var modifyAcId = sessionStorage.modifyAcId;
 //手机号是否存在
 var mobileExist = 1;
 
+//权限
+var roleCodes = "";
+
 $(function () {
     plumeLog("进入childIdCreate模板自定义js-" + plumeTime());
     tablecheckbox();
@@ -37,6 +40,11 @@ $(function () {
             });
             //权限配置弹出框 -- 确认
             $(".btn-success").bind("click", function() {
+                roleCodes = "";
+                $("input[name='rolebox']:checked").each(function(){
+                    roleCodes = roleCodes.concat($(this).val()).concat(",");
+                });
+
                 $(".cic-pop").pophide();
             });
         });
@@ -229,12 +237,6 @@ function subAccUpView(accountId) {
 function subAccModify() {
     var remark = $("#remark").val();
 
-    //权限
-    var roleCodes = "";
-    $("input[name='rolebox']:checked").each(function(){
-        roleCodes = roleCodes.concat($(this).val()).concat(",");
-    });
-
     //工厂
     var brandIds = "";
     $("input[name='brands']:checked").each(function(){
@@ -313,12 +315,6 @@ function subAccAdd() {
         return;
 
     var remark = $("#remark").val();
-
-    //权限
-    var roleCodes = "";
-    $("input[name='rolebox']:checked").each(function(){
-        roleCodes = roleCodes.concat($(this).val()).concat(",");
-    });
 
     //工厂
     var brandIds = "";
