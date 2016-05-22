@@ -44,7 +44,6 @@ $(function () {
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        //categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {
@@ -81,77 +80,76 @@ $(function () {
     //初始化图片移动
     function picMove() {
         var len;
-    var list;
-    $('.upload-btn-left').bind('click', leftEvent);
-    $('.upload-btn-right').bind('click', rightEvent);
-    $('.upload-btn-delect').bind('click', delectEvent);
-    initialize();
-
-    function initialize() {
-        list = $('.goodsPic');
-        len = list.length;
-        list.first().addClass('first-upload-btn').find('.upload-btn-left').unbind('click', leftEvent);
-        list.last().addClass('last-upload-btn').find('.upload-btn-right').unbind('click', rightEvent);
-    }
-
-    function leftEvent() {
-        var iIndex = $('.upload-btn-left').index($(this));
-        if (iIndex == len - 1) {
-            $(this).siblings('.upload-btn-right').bind('click', rightEvent).parents('li').removeClass('last-upload-btn');
-        }
-        if (iIndex == 1) {
-            list.first().removeClass('first-upload-btn').find('.upload-btn-left').bind('click', leftEvent);
-        }
-        $(this).parents('li').insertBefore($('.goodsPic').eq(iIndex - 1));
+        var list;
+        $('.upload-btn-left').bind('click', leftEvent);
+        $('.upload-btn-right').bind('click', rightEvent);
+        $('.upload-btn-delect').bind('click', delectEvent);
         initialize();
-    }
 
-    function rightEvent() {
-        var iIndex = $('.upload-btn-right').index($(this));
-        if (iIndex == 0) {
-            $(this).siblings('.upload-btn-left').bind('click', leftEvent).parents('li').removeClass('first-upload-btn');
-        }
-        if (iIndex == len - 2) {
-            list.last().removeClass('last-upload-btn').find('.upload-btn-right').bind('click', rightEvent)
+        function initialize() {
+            list = $('.goodsPic');
+            len = list.length;
+            list.first().addClass('first-upload-btn').find('.upload-btn-left').unbind('click', leftEvent);
+            list.last().addClass('last-upload-btn').find('.upload-btn-right').unbind('click', rightEvent);
         }
 
-        $(this).parents('li').insertAfter($('.goodsPic').eq(iIndex + 1));
-        initialize();
+        function leftEvent() {
+            var iIndex = $('.upload-btn-left').index($(this));
+            if (iIndex == len - 1) {
+                $(this).siblings('.upload-btn-right').bind('click', rightEvent).parents('li').removeClass('last-upload-btn');
+            }
+            if (iIndex == 1) {
+                list.first().removeClass('first-upload-btn').find('.upload-btn-left').bind('click', leftEvent);
+            }
+            $(this).parents('li').insertBefore($('.goodsPic').eq(iIndex - 1));
+            initialize();
+        }
+
+        function rightEvent() {
+            var iIndex = $('.upload-btn-right').index($(this));
+            if (iIndex == 0) {
+                $(this).siblings('.upload-btn-left').bind('click', leftEvent).parents('li').removeClass('first-upload-btn');
+            }
+            if (iIndex == len - 2) {
+                list.last().removeClass('last-upload-btn').find('.upload-btn-right').bind('click', rightEvent)
+            }
+
+            $(this).parents('li').insertAfter($('.goodsPic').eq(iIndex + 1));
+            initialize();
+        }
+
+        function delectEvent() {
+            $(this).parents('li').remove();
+            initialize();
+        }
     }
 
-    function delectEvent() {
-        $(this).parents('li').remove();
-        initialize();
-    }
-    }
-
-    
 
     //图片上传
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $('#myform').ajaxForm(function (data) {
                 unloading();
-                if(data.ok){
+                if (data.ok) {
                     $("#filepath").val(data.data);
-                    var temp='<li class="goodsPic">';
-                    temp+='<img class="cmg-goodsimgs" src="'+"http://img2.hxmklmall.cn"+$("#filepath").val()+'">';
-                    temp+='<div class="upload-btn upload-btn-left">';
-                    temp+='<div class="arrow-left"></div>';
-                    temp+='</div>';
-                    temp+='<div class="upload-btn upload-btn-right">';
-                    temp+='<div class="arrow-right"></div>';
-                    temp+='</div>';
-                    temp+='<div class="upload-btn upload-btn-delect">';
-                    temp+='<div class="arrow-close"></div>';
-                    temp+='</div>';
-                    temp+='</li>';
+                    var temp = '<li class="goodsPic">';
+                    temp += '<img class="cmg-goodsimgs" src="' + "http://img2.hxmklmall.cn" + $("#filepath").val() + '">';
+                    temp += '<div class="upload-btn upload-btn-left">';
+                    temp += '<div class="arrow-left"></div>';
+                    temp += '</div>';
+                    temp += '<div class="upload-btn upload-btn-right">';
+                    temp += '<div class="arrow-right"></div>';
+                    temp += '</div>';
+                    temp += '<div class="upload-btn upload-btn-delect">';
+                    temp += '<div class="arrow-close"></div>';
+                    temp += '</div>';
+                    temp += '</li>';
                     $(".goodsPic-upload").append(temp);
                     closeUploadPop();
                     picMove()
 
 
-                }else{
+                } else {
                     alert(data.resDescription);
                 }
             });
@@ -263,28 +261,28 @@ $(function () {
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
-        pram_str += ' "priceType": "'+$("#priceType").val()+'",';
-        pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
-        pram_str += '"categoryId": '+session.goods_categoryId+',';
-        pram_str += '"categoryName": "'+session.goods_categoryName+'",';
-        pram_str += ' "subCategoryId":'+session.goods_subCategoryId+',';
-        pram_str += '"subCategoryName": "'+session.goods_subCategoryName+'",';
-        pram_str += ' "baseCategoryId": '+session.goods_baseCategoryId+',';
-        pram_str += '"baseCategoryName": "'+session.goods_baseCategoryName+'",';
+        pram_str += ' "priceType": "' + $("#priceType").val() + '",';
+        pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
+        pram_str += '"categoryId": ' + session.goods_categoryId + ',';
+        pram_str += '"categoryName": "' + session.goods_categoryName + '",';
+        pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
+        pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
+        pram_str += ' "baseCategoryId": ' + session.goods_baseCategoryId + ',';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
         var attrs_pram_str = "";
-        $(".cmg-attrs").each(function(){
+        $(".cmg-attrs").each(function () {
             attrs_pram_str += ' {';
-            if($(this).attr("attr_type")==1){
+            if ($(this).attr("attr_type") == 1) {
                 attrs_pram_str += '"attrValueId": 0,';
-                attrs_pram_str += ' "attrValue": "'+$(this).val()+'",';
-            }else{
-                attrs_pram_str += '"attrValueId": '+$(this).val()+',';
+                attrs_pram_str += ' "attrValue": "' + $(this).val() + '",';
+            } else {
+                attrs_pram_str += '"attrValueId": ' + $(this).val() + ',';
                 attrs_pram_str += ' "attrValue": "",';
             }
-            attrs_pram_str += ' "attributeId": '+$(this).attr("attributeId");
+            attrs_pram_str += ' "attributeId": ' + $(this).attr("attributeId");
             attrs_pram_str += '},';
         });
         pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
@@ -297,10 +295,10 @@ $(function () {
         //}
         pram_str += '  "photos": [';
         var imgs_pram_str = "";
-        $(".cmg-goodsimgs").each(function(){
+        $(".cmg-goodsimgs").each(function () {
             imgs_pram_str += '{';
             imgs_pram_str += '  "colorId": 0,';
-            imgs_pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            imgs_pram_str += ' "picUrl": "' + $(this).attr("src") + '"';
             imgs_pram_str += ' },';
         });
         pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);

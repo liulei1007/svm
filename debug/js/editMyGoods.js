@@ -1,12 +1,87 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
-    //类目参数
-    function userTypeInit() {
-        $(".userType").text(session.goods_userType).attr("categoryId", session.goods_userTypeid);
-    }
 
-    userTypeInit();
+    $.ajax({
+        type: "GET",
+        url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
+        data: "",
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data) {
+            unloading();
+            var d = data.data
+            $(".emg-initdata").setPageData(d);
+            $.ajaxSetup({
+                async: false
+            });
+            getbrandList();
+            getProductAttribute();
+            setColors();
+            getlistNationRegion();
+            setStandard();
+            //$.ajaxSetup({
+            //    async: true
+            //});
+            $("#brandId").val(d.brandId);
+            $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
+                $(".cmg-series").find("[list-node]").remove();
+                $(".cmg-series").setPageData(data);
+            });
+            $("#seriesId").val(d.seriesId);
+            $("#productSecondName").val(d.productSecondName);
+            $("#productName").val(d.productName);
+            $("#provinceId").val(d.provinceId);
+            var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
+            $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
+                $(".cmg-region2").setPageData(data);
+            });
+            $("#cityId").val(d.cityId);
+            $("#modelNumber").val(d.modelNumber);
+            $("#materialQuality").val(d.materialQuality);
+            $("#marketPrice").val(d.marketPrice);
+            $("#weight").val(d.weight);
+            $("#priceType").val(d.priceType);
+            $("#lvInfo").val(d.lvInfo);
+            $("#material1").val(d.material1);
+            $("#material2").val(d.material2);
+            $("#material3").val(d.material3);
+            session.goods_categoryId= d.categoryId;
+            session.goods_categoryName= d.categoryName;
+            session.goods_subCategoryId=d.subCategoryId;
+            session.goods_subCategoryName=d.subCategoryName;
+            session.goods_baseCategoryId=d.baseCategoryId;
+            session.goods_baseCategoryName=d.baseCategoryName;
+            //for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
+            //    var p = d.productInfoAttrUptORMs[i];
+            //    var temp = '<div class="form-group required smg-base-attr">';
+            //    temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
+            //    temp += '<div class="col-sm-2">';
+            //    temp += '<p class="col-sm-4 form-control-static">' + p.attrValueId + '</p>';
+            //    temp += '</div>';
+            //    temp += '</div>';
+            //    $(".goodsAttr-content").append(temp);
+            //}
+            //for (var j = 0; j < d.productGoodsUpts.length; j++) {
+            //    var p = d.productGoodsUpts[j];
+            //    var temp = '<tr class="cmg-goodstr">';
+            //    temp += '<td>' + p.color + '</td>';
+            //    temp += '<td>' + p.standard + '</td>';
+            //    temp += '<td>' + p.salePrice + '</td>';
+            //    temp += '</tr>';
+            //    $(".standardtbody").append(temp);
+            //}
+            for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
+                var p = d.productInfoPhotoUpts[k];
+                var temp = '<li class="goodsPic">';
+                temp += '<img src="' + p.picUrl + '"/>';
+                temp += '</li>';
+                $(".goodsPic-upload").append(temp);
+            }
+            picMove();
+        }
+    });
+
     //设置品牌
     function getbrandList() {
         loading();
@@ -40,11 +115,9 @@ $(function () {
         });
     }
 
-    getbrandList();
     //获取商品属性
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
-        categoryId = 63;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
             console.log(data);
             for (var i = 0; i < data.data.length; i++) {
@@ -66,75 +139,97 @@ $(function () {
                 }
                 temp += '</div>';
                 temp += '</div>';
-                console.log(temp);
                 $(".goodsAttr-content").append(temp);
             }
 
         });
     }
 
-    getProductAttribute();
-    //修改类目参数
-    $(".changeType").bind("click", function () {
-        derict(this, "userType", "nochangeurl");
-    });
     //初始化图片移动
-    var len;
-    var list
-    $('.upload-btn-left').bind('click', leftEvent);
-    $('.upload-btn-right').bind('click', rightEvent);
-    $('.upload-btn-delect').bind('click', delectEvent);
-    initialize()
-
-    function initialize() {
-        list = $('.goodsPic');
-        len = list.length;
-        list.first().addClass('first-upload-btn').find('.upload-btn-left').unbind('click', leftEvent);
-        list.last().addClass('last-upload-btn').find('.upload-btn-right').unbind('click', rightEvent);
-    }
-
-    function leftEvent() {
-        var iIndex = $('.upload-btn-left').index($(this));
-        if (iIndex == len - 1) {
-            $(this).siblings('.upload-btn-right').bind('click', rightEvent).parents('li').removeClass('last-upload-btn');
-        }
-        if (iIndex == 1) {
-            list.first().removeClass('first-upload-btn').find('.upload-btn-left').bind('click', leftEvent);
-        }
-        $(this).parents('li').insertBefore($('.goodsPic').eq(iIndex - 1));
+    function picMove() {
+        var len;
+        var list;
+        $('.upload-btn-left').bind('click', leftEvent);
+        $('.upload-btn-right').bind('click', rightEvent);
+        $('.upload-btn-delect').bind('click', delectEvent);
         initialize();
-    }
 
-    function rightEvent() {
-        var iIndex = $('.upload-btn-right').index($(this));
-        if (iIndex == 0) {
-            $(this).siblings('.upload-btn-left').bind('click', leftEvent).parents('li').removeClass('first-upload-btn');
-        }
-        if (iIndex == len - 2) {
-            list.last().removeClass('last-upload-btn').find('.upload-btn-right').bind('click', rightEvent)
+        function initialize() {
+            list = $('.goodsPic');
+            len = list.length;
+            list.first().addClass('first-upload-btn').find('.upload-btn-left').unbind('click', leftEvent);
+            list.last().addClass('last-upload-btn').find('.upload-btn-right').unbind('click', rightEvent);
         }
 
-        $(this).parents('li').insertAfter($('.goodsPic').eq(iIndex + 1));
-        initialize();
-    }
+        function leftEvent() {
+            var iIndex = $('.upload-btn-left').index($(this));
+            if (iIndex == len - 1) {
+                $(this).siblings('.upload-btn-right').bind('click', rightEvent).parents('li').removeClass('last-upload-btn');
+            }
+            if (iIndex == 1) {
+                list.first().removeClass('first-upload-btn').find('.upload-btn-left').bind('click', leftEvent);
+            }
+            $(this).parents('li').insertBefore($('.goodsPic').eq(iIndex - 1));
+            initialize();
+        }
 
-    function delectEvent() {
-        $(this).parents('li').remove();
-        initialize();
-    }
+        function rightEvent() {
+            var iIndex = $('.upload-btn-right').index($(this));
+            if (iIndex == 0) {
+                $(this).siblings('.upload-btn-left').bind('click', leftEvent).parents('li').removeClass('first-upload-btn');
+            }
+            if (iIndex == len - 2) {
+                list.last().removeClass('last-upload-btn').find('.upload-btn-right').bind('click', rightEvent)
+            }
 
+            $(this).parents('li').insertAfter($('.goodsPic').eq(iIndex + 1));
+            initialize();
+        }
+
+        function delectEvent() {
+            $(this).parents('li').remove();
+            initialize();
+        }
+    }
     //图片上传
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
+            $('#myform').ajaxForm(function (data) {
+                unloading();
+                if (data.ok) {
+                    $("#filepath").val(data.data);
+                    var temp = '<li class="goodsPic">';
+                    temp += '<img class="cmg-goodsimgs" src="' + "http://img2.hxmklmall.cn" + $("#filepath").val() + '">';
+                    temp += '<div class="upload-btn upload-btn-left">';
+                    temp += '<div class="arrow-left"></div>';
+                    temp += '</div>';
+                    temp += '<div class="upload-btn upload-btn-right">';
+                    temp += '<div class="arrow-right"></div>';
+                    temp += '</div>';
+                    temp += '<div class="upload-btn upload-btn-delect">';
+                    temp += '<div class="arrow-close"></div>';
+                    temp += '</div>';
+                    temp += '</li>';
+                    $(".goodsPic-upload").append(temp);
+                    closeUploadPop();
+                    picMove()
+
+
+                } else {
+                    alert(data.resDescription);
+                }
+            });
             $(".pu-ok").bind("click", function () {
                 //http://10.11.25.215/group01/M00/00/82/CgsZ2Fc-uPGADkdMAABXomkTTPc662.jpg
-
+                loading();
+                $('#myform').submit();
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
             });
         });
     });
+
     //颜色初始化
     function setColors() {
         //return;
@@ -205,13 +300,15 @@ $(function () {
         }
     }
 
-    setColors();
+
+
     //提交
     $(".cmg-ok").bind("click", function () {
         if (!validata()) {
             return false;
         }
         var pram_str = '{';
+        pram_str += '"productId": "' + $("#productId").val() + '",';
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": ' + $("#brandId").val() + ',';
@@ -233,44 +330,38 @@ $(function () {
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
         pram_str += '"marketPrice": 0,';
-        pram_str += ' "priceType": "'+$("#priceType").val()+'",';
-        pram_str += '"lvInfo": "'+$("#lvInfo").val()+'",';
-        pram_str += '"categoryId": '+session.goods_categoryId+',';
-        pram_str += '"categoryName": "'+session.goods_categoryName+'",';
-        pram_str += ' "subCategoryId":'+session.goods_subCategoryId+',';
-        pram_str += '"subCategoryName": "'+session.goods_subCategoryName+'",';
-        pram_str += ' "baseCategoryId": '+session.goods_baseCategoryId+',';
-        pram_str += '"baseCategoryName": "'+session.goods_baseCategoryName+'",';
+        pram_str += ' "priceType": "' + $("#priceType").val() + '",';
+        pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
+        pram_str += '"categoryId": ' + session.goods_categoryId + ',';
+        pram_str += '"categoryName": "' + session.goods_categoryName + '",';
+        pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
+        pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
+        pram_str += ' "baseCategoryId": ' + session.goods_baseCategoryId + ',';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
         var attrs_pram_str = "";
-        $(".cmg-attrs").each(function(){
+        $(".cmg-attrs").each(function () {
             attrs_pram_str += ' {';
-            if($(this).attr("attr_type")==1){
+            if ($(this).attr("attr_type") == 1) {
                 attrs_pram_str += '"attrValueId": 0,';
-                attrs_pram_str += ' "attrValue": "'+$(this).val()+'",';
-            }else{
-                attrs_pram_str += '"attrValueId": '+$(this).val()+',';
+                attrs_pram_str += ' "attrValue": "' + $(this).val() + '",';
+            } else {
+                attrs_pram_str += '"attrValueId": ' + $(this).val() + ',';
                 attrs_pram_str += ' "attrValue": "",';
             }
-            attrs_pram_str += ' "attributeId": '+$(this).attr("attributeId");
+            attrs_pram_str += ' "attributeId": ' + $(this).attr("attributeId");
             attrs_pram_str += '},';
         });
         pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
         pram_str += '],';
-
-        //待审核产品属性新增Vo {
-        //    attrValueId (integer, optional): 属性值ID(非文本输入型),
-        //        attrValue (string, optional): 属性值(文本输入型),
-        //        attributeId (integer, optional): 属性ID
-        //}
         pram_str += '  "photos": [';
         var imgs_pram_str = "";
-        $(".cmg-goodsimgs").each(function(){
+        $(".cmg-goodsimgs").each(function () {
             imgs_pram_str += '{';
             imgs_pram_str += '  "colorId": 0,';
-            imgs_pram_str += ' "picUrl": "'+$(this).attr("src")+'"';
+            imgs_pram_str += ' "picUrl": "' + $(this).attr("src") + '"';
             imgs_pram_str += ' },';
         });
         pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);
@@ -289,11 +380,10 @@ $(function () {
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
         pram_str += ']';
         pram_str += '}';
-
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["addProductInfo"],
+            url: plumeApi["editProductInfo"]+"/"+session.goods_showMyGoods_uptId,
             data: pram_str,
             contentType: "application/json",
             dataType: "json",
@@ -303,7 +393,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("增加成功");
+                        $(".pop").find(".popup-info").html("修改成功");
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
@@ -332,7 +422,7 @@ $(function () {
         });
     }
 
-    getlistNationRegion();
+
     //表单验证
     function validata() {
         var flag = true;
@@ -385,5 +475,4 @@ $(function () {
         });
     }
 
-    setStandard();
 });
