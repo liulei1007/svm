@@ -60,4 +60,9 @@ $(function(){
 			$(this).val(allInventoryValue);
 		});
 	});
+
+	$(".btn-errors").bind('click',function() {
+		derict(this, "editMyGoods", "nochangeurl");
+	});
+
 })

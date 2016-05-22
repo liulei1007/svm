@@ -1,10 +1,9 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
-
     $.ajax({
         type: "GET",
-        url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
+        url: plumeApi["getProductInfoUpt"] + "/" + session.productGoods_productId,
         data: "",
         contentType: "application/json",
         dataType: "json",
