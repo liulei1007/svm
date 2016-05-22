@@ -1,10 +1,6 @@
 $(function () {
     //显示登录名称
-    if (sessionStorage.login_mobilePhone) {
-        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
-    } else {
-        $("#login-name").html("");
-    }
+
 
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
@@ -272,6 +268,11 @@ function getLoginInfoToSession() {
                 sessionStorage.login_parentId=data.data.parentId;
                 sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId;
                 sessionStorage.login_manuId=data.data.manuId;
+                if (sessionStorage.login_mobilePhone) {
+                    $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
+                } else {
+                    $("#login-name").html("");
+                }
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();

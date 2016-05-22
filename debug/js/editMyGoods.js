@@ -19,7 +19,7 @@ $(function () {
             getProductAttribute();
             setColors();
             getlistNationRegion();
-            setStandard();
+
 
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
@@ -50,9 +50,7 @@ $(function () {
             session.goods_subCategoryName=d.subCategoryName;
             session.goods_baseCategoryId=d.baseCategoryId;
             session.goods_baseCategoryName=d.baseCategoryName;
-            //$.ajaxSetup({
-            //    async: true
-            //});
+
             //for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
             //    var p = d.productInfoAttrUptORMs[i];
             //    var temp = '<div class="form-group required smg-base-attr">';
@@ -63,23 +61,59 @@ $(function () {
             //    temp += '</div>';
             //    $(".goodsAttr-content").append(temp);
             //}
-            //for (var j = 0; j < d.productGoodsUpts.length; j++) {
-            //    var p = d.productGoodsUpts[j];
-            //    var temp = '<tr class="cmg-goodstr">';
-            //    temp += '<td>' + p.color + '</td>';
-            //    temp += '<td>' + p.standard + '</td>';
-            //    temp += '<td>' + p.salePrice + '</td>';
-            //    temp += '</tr>';
-            //    $(".standardtbody").append(temp);
-            //}
+            for (var j = 0; j < d.productGoodsUpts.length; j++) {
+                var p = d.productGoodsUpts[j];
+                var temp = '<tr class="cmg-goodstr">';
+                temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' +  p.salePrice + '"></td>';
+                temp += '<td>';
+                temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                temp += '</td>';
+                temp += '</tr>';
+                $(".standardtbody").append(temp);
+                if($(".tr"+p.colorId).length==0){
+                    var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
+                    $(".cmg-table-color").append(temp1);
+                }
+            }
+            $(".colortr").each(function () {
+                var colorid = $(this).attr("colorid");
+                var colorName = $(this).find(".colorName").attr("colorName");
+                var colorDesc = $(this).find(".colorName").attr("colordesc");
+                $(".color-box").each(function () {
+                    var colorid_temp = $(this).attr("colorid");
+                    if (colorid_temp == colorid) {
+                        $(this).prop("checked", true);
+                        $(this).parent().find(".cmg-colorDesc").val(colorDesc).show();
+                        $(this).parent().find(".color-desc").show();
+                    }
+                });
+            })
+            $(".cm-btn-del").unbind().bind("click", function () {
+                $(this).parent().parent().remove();
+            });
+            setStandard();
             for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
                 var p = d.productInfoPhotoUpts[k];
                 var temp = '<li class="goodsPic">';
-                temp += '<img src="' + p.picUrl + '"/>';
+                temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+                temp += '<div class="upload-btn upload-btn-left">';
+                temp += '<div class="arrow-left"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-right">';
+                temp += '<div class="arrow-right"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-delect">';
+                temp += '<div class="arrow-close"></div>';
+                temp += '</div>';
                 temp += '</li>';
                 $(".goodsPic-upload").append(temp);
             }
             picMove();
+            $.ajaxSetup({
+                async: true
+            });
         }
     });
 
@@ -302,7 +336,9 @@ $(function () {
     }
 
 
-
+    $(".cmg-cancel").bind("click",function(){
+        derict(this, "goodsDataManage", "nochangeurl");
+    });
     //提交
     $(".cmg-ok").bind("click", function () {
         if (!validata()) {
