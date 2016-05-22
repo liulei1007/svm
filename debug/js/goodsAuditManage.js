@@ -44,11 +44,12 @@ $(function () {
                     unloading();
                     $("[list-node]").remove();
                     $(".form-body").setPageData(data);
-                    $(".btn-releaseGoods").bind("click", function () {
+                    $(".gam-btn-show").bind("click", function () {
                         var uptId = $(this).attr("uptId");
                         session.goods_showMyGoods_uptId = uptId;
                         derict(this, "showMyGoods", "nochangeurl");
                     });
+
 
                     totalPage=Math.ceil(data.countRecord/10);
                     newPage(totalPage,function(i){
@@ -71,7 +72,6 @@ $(function () {
             }
         })
     }
-
 
     function auditFun() {
         $('.pop').loadTemp("popAudit", "nochangeurl", function () {

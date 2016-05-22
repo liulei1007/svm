@@ -217,7 +217,7 @@ function pathInit() {
         $(".container-fixed").fadeIn();
     }
     try {
-        if (temp != "index" && temp != "") {
+        if (temp != "index" && temp != "" &&temp.indexOf("api")==-1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");
