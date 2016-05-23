@@ -25,7 +25,7 @@
             <label class="col-sm-2 control-label">当前类目</label>
 
             <div class="col-sm-4 cmg-brand">
-                <p class="col-sm-4 form-control-static"  data-name="$p.subCategoryName"></p>
+                <p class="col-sm-4 form-control-static" data-name="$p.subCategoryName"></p>
             </div>
             <!--<div class="col-sm-4">-->
             <!--<div class="row">-->
@@ -106,14 +106,14 @@
                     <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
 
                     <div class="col-sm-6">
-                        <p class="col-sm-4 form-control-static" data-name="$p.priceType"></p>
+                        <p class="col-sm-4 form-control-static" id="priceType" data-name="$p.priceType"></p>
                     </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>等级</label>
 
                     <div class="col-sm-6">
-                        <p class="col-sm-4 form-control-static" data-name="$p.lvInfo"></p>
+                        <p class="col-sm-4 form-control-static" id="lvInfo" data-name="$p.lvInfo"></p>
                     </div>
 
                     <div class="col-sm-2 alert alert-danger"></div>
@@ -207,7 +207,6 @@
                         <ul class="goodsPic-upload clearFix">
 
 
-
                         </ul>
                     </div>
                 </div>
@@ -229,10 +228,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-sm-8 col-sm-offset-3 btn-block">
-                <button type="button" class="btn btn-lg btn-success btn-next cmg-ok">提交</button>
-                <button type="button" class="btn btn-lg btn-warning btn-back cmg-cancel">取消</button>
-              </div> -->
+            <div class="col-sm-8 col-sm-offset-3 btn-block">
+                <!--<button type="button" class="btn btn-lg btn-success btn-next cmg-ok">提交</button>-->
+                <button type="button" class="btn btn-lg btn-default btn-back smg-back">返回</button>
+            </div>
         </form>
     </div>
 

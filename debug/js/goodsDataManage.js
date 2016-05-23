@@ -157,7 +157,6 @@ $(function () {
         });
     })
 
-
 //按钮绑定方法
     function binFun() {
         $(".gdm-btn-del").unbind().bind("click", function () {
@@ -208,6 +207,54 @@ $(function () {
         })
     }
 
+
+
+
+//点击删除按钮
+     $(".table-block").on("click",".btn-link-delete",function() {
+      
+     })
+
+
+
+
+
+//删除产品方法
+    function disableSaleStatus(){
+         $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+        // 绑定按钮事件
+        $('.pop').on('click', '.btn-sure', function () {
+            loading();
+            $.ajax({
+                url: plumeApi["delProductShopGoods"] +"/"+ session.goods_psgId,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    if (data.ok) {
+                        unloading();
+                        popTips("删除成功", "success");
+                        getGoodsData();
+                    } else {
+                        unloading();
+                        popTips("删除失败", "warning");
+                        getGoodsData();
+                    }
+                }
+            });
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+        $('.pop').on('click', '.btn-cancel', function () {
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+        });
+    }
 });
-
-

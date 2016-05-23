@@ -45,7 +45,6 @@ $(function () {
     function getProductAttribute() {
         var categoryId = $(".userType").attr("categoryId");
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
-            console.log(data);
             for (var i = 0; i < data.data.length; i++) {
                 var d = data.data[i];
                 var temp = '<div class="form-group required">';
@@ -133,7 +132,7 @@ $(function () {
                 if (data.ok) {
                     $("#filepath").val(data.data);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + "http://img1.mklimg.com" + $("#filepath").val() + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[0].codeValueCode + $("#filepath").val() + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
@@ -263,7 +262,7 @@ $(function () {
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
-        pram_str += '"marketPrice": 0,';
+        pram_str += '"marketPrice": '+$("#marketPrice").val()+',';
         pram_str += ' "priceType": "' + $("#priceType").val() + '",';
         pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
         pram_str += '"categoryId": ' + session.goods_categoryId + ',';
@@ -335,9 +334,7 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("增加成功");
-                        setTimeout(function () {
-                            derict(null, "goodsDataManage", "nochangeurl");
-                        }, 2000);
+                        derict(null, "goodsDataManage", "nochangeurl");
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
@@ -418,6 +415,11 @@ $(function () {
             });
         });
     }
-
     setStandard();
+
+    function dataInit(){
+        $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
+        $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
+    }
+    dataInit();
 });
