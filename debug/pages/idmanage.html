@@ -50,7 +50,7 @@
               <tr list-temp="true"  node-name="attr-managid:$n.id">
                 <td><input type="checkbox" name="multbox" /></td>
                 <td node-name="$n.mobilePhone"></td>
-                <td class="createDate" node-name="$n.createDate"></td>
+                <td class="createDate" node-name="getLocalTime($n.createDate)"></td>
                 <td>
                     <div type="div" class="table-ctrl btn-acset">配置</div>
                 </td>
@@ -61,17 +61,6 @@
               </tr>
             </tbody>
         </table>
-    </div>
-    <div class="pull-right pagination">
-        <ul class="pagination">
-            <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
-            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
-            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
-            <li class="page-number"><a href="javascript:void(0)">2</a></li>
-            <li class="page-number"><a href="javascript:void(0)">3</a></li>
-            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
-            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li>
-        </ul>
     </div>
     <div class="cic-pop popcenter"></div>
 </div>

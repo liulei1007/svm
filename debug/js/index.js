@@ -542,7 +542,6 @@ function getlistNationRegion() {
 function getLocalTime(nS) {
     return new Date(parseInt(nS)).toLocaleString().substr(0, 10)
 }
-
 // 提交成功
 function submitRecord(turnURL, url, data) {
     $(".pop").loadTemp("popSubmitSuccess", "nochangeurl", function () {
