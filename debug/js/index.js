@@ -271,9 +271,10 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
                 } else {
-                    $("#login-name").html("");
+                    window.location.href="/";
                 }
             } else {
+                window.location.href="/";
                 plumeLog("获取登录信息失败:" + data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
 //                window.location.href = "login";
