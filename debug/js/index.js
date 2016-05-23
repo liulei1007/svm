@@ -194,7 +194,7 @@ function pathInit() {
     if (prams.indexOf("fullscreen") != -1) {
         $(".slidebar").hide();
         $(".page-content").show();
-        $(".page-content").css({"width": ($(window).width() - 10), "left": 0});
+        $(".page-content").css({"left": 0});
         $(".container-fixed").fadeIn();
     } else {
         //获取登录信息放入session中
@@ -271,9 +271,10 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
                 } else {
-                    $("#login-name").html("");
+                  //  window.location.href="/";
                 }
             } else {
+               // window.location.href="/";
                 plumeLog("获取登录信息失败:" + data.resDescription);
 //                $(".login-msg1").text(data.resDescription).fadeIn();
 //                window.location.href = "login";

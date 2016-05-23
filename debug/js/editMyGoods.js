@@ -3,7 +3,7 @@ $(function () {
     formCtrl();
     $.ajax({
         type: "GET",
-        url: plumeApi["getProductInfoUpt"] + "/" + session.productGoods_productId,
+        url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
         data: "",
         contentType: "application/json",
         dataType: "json",
@@ -429,6 +429,9 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("修改成功");
+                        setTimeout(function () {
+                            derict(null, "goodsDataManage", "nochangeurl");
+                        }, 2000);
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {

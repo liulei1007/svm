@@ -112,6 +112,8 @@ $(function () {
 
     //注册
     $(".register-form .btn-register").bind("click", function () {
+        window.location.href="secondreg?fullscreen";
+        return;
         $(".register-form .login-alert").hide();
         var tel = $("#tel").val();
         var pwd = $("#pwd").val();
@@ -176,7 +178,7 @@ $(function () {
             $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
                 unloading();
                 if (data.ok) {
-                    alert("短信验证码发送成功");
+                    plumeLog("短信验证码发送成功");
                 }
             });
         } else {
@@ -239,10 +241,10 @@ function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
 }
-var send_code = 60;
+var send_code = 1;
 function send_code_time() {
     send_code--;
-    if (send_code == 0) {
+    if (send_code < 1) {
         $(".btn-getCode").text("获取验证码").attr("status", "1");
     } else {
         $(".btn-getCode").text("获取验证码" + "(" + send_code + ")").attr("status", "0");
