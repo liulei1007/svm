@@ -455,7 +455,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .body-typein .form-horizontal .form-onload > span{display: table-cell; color: #989da8; text-align: center; vertical-align: middle;}
 
 .row1{background:#f8f9fa;}
-.reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;margin:200px auto;border-top:6px solid #0094da}
+.reg-msg-block{background:#ffffff;box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);width:280px;height:220px;/*margin:200px auto;*/border-top:6px solid #0094da; position: absolute; top: 50%; left: 50%; margin-left: -140px; margin-top: -110px;}
 .reg-msg-block .rmb1{font-size: 22px;height:50px;width:100%;text-align: center;line-height: 50px;margin:10px 0 0 0}
 .reg-msg-block .rmb2{background: url("../images/icons_all.png") no-repeat 0px -100px;height:45px;width: 45px;margin:0 auto }
 .reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
@@ -778,3 +778,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .nav-tabs > li > a{/*padding-top: 6px; padding-bottom: 6px; */color: #1397da; border-radius: 0;}
 .nav-tabs > li.active > a{color: #333;}
 .nav-tabs-agency{margin-top: 20px; margin-bottom: 20px;}
+
+
+/** --------加速审核-------- **/
+.popup-waitCheck{border: none; box-shadow: none;}

@@ -20,10 +20,10 @@ $(function () {
         $(this).find(".div2").hide();
     });
     $(".sd-step1-btn2").bind("click", function () {
-        window.location.href = "factoryCreate?fullscreen";
+        window.location.href = "agencyCreate?fullscreen";
     });
     $(".sd-step1-btn1").bind("click", function () {
-        window.location.href = "agencyCreate?fullscreen";
+        window.location.href = "factoryCreate?fullscreen";
     });
 
 })

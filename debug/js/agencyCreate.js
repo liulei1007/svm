@@ -71,6 +71,7 @@ $(function () {
                             $(".pop").find(".popup-icon").html('<i class="success"></i>');
                             $(".pop").find(".popup-info").html("提交成功");
                         });
+                        window.location.href="waitCheck?fullscreen";
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
@@ -126,6 +127,10 @@ $(function () {
                 }
             });
         }
+    });
 
+    // 点击“返回”
+    $(".btn-back").bind("click", function() {
+        window.location.href="/";
     });
 });
