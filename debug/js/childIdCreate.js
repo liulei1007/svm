@@ -403,6 +403,8 @@ function subAccAdd() {
         contentType: "application/json;charset=UTF-8",
         data: paramData,
         success: function (data) {
+            console.log("url:" + apiName);
+            console.log(paramData);
             unloading();
             if (data.ok) {
                 popTips("添加成功","success");
