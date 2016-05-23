@@ -349,6 +349,11 @@
         <page-url>/pages/showMyGoods.html</page-url>
         <init>showMyGoods_init</init>
     </page>
+    <page>
+        <page-name>waitCheck</page-name>
+        <page-url>/pages/waitCheck.html</page-url>
+        <init>waitCheck_init</init>
+    </page>
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
     <!--192.168.221.222:8081-->
     <!-- api.longguo.hxmklmall.cn:80-->

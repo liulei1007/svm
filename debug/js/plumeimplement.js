@@ -329,6 +329,11 @@ function showMyGoods_init(){
     plumeUtil.js(plumePath + "/js/showMyGoods.js")
     plumeLog("完成showMyGoods模板加载-" + plumeTime());
 }
+function waitCheck_init(){
+    plumeLog("初始化waitCheck模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/waitCheck.js")
+    plumeLog("完成waitCheck模板加载-" + plumeTime());
+}
 var _test_path=window.location.href+"";
 if(_test_path.indexOf("localhost")!=""){
     $.ajaxSetup({

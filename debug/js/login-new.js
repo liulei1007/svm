@@ -112,6 +112,8 @@ $(function () {
 
     //注册
     $(".register-form .btn-register").bind("click", function () {
+        window.location.href="secondreg?fullscreen";
+        return;
         $(".register-form .login-alert").hide();
         var tel = $("#tel").val();
         var pwd = $("#pwd").val();
