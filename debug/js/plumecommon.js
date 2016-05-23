@@ -1,6 +1,10 @@
 
 //document.domain = "hxmklmall.cn";
 console.log("domain:"+document.domain);
+//»º´æ½Ó¿Ú
+var session = function () {
+    return sessionStorage;
+}();
 var PLUME_PROJECT = "../";
 var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/css/bootstrap.min.css",

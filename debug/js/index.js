@@ -147,7 +147,7 @@ $(function () {
             dataType: "json",
             async: false,
             success: function (data) {
-                if(data.ok){
+                if (data.ok) {
                     window.location.href = "../";
                 }
             }
@@ -198,8 +198,11 @@ function pathInit() {
         $(".container-fixed").fadeIn();
     } else {
         //获取登录信息放入session中
+        loading();
         getLoginInfoToSession();
         getAuth();
+        getListSystemCode();
+        unloading();
         //$(".slidebar-title,.auth-menu-ul li").show();
         //var auth = sessionStorage.auth;
         //if (auth) {
@@ -215,7 +218,7 @@ function pathInit() {
         $(".container-fixed").fadeIn();
     }
     try {
-        if (temp != "index" && temp != "" &&temp.indexOf("api")==-1) {
+        if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");
@@ -226,7 +229,7 @@ function pathInit() {
 
 }
 
-function getAuth(){
+function getAuth() {
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
@@ -235,13 +238,13 @@ function getAuth(){
         async: false,
         success: function (data) {
             if (data.ok) {
-                for(var i=0;i<data.data.length;i++){
-                    var d=data.data[i];
-                    for(var j=0;j< d.children.length;j++){
-                        var c= d.children[j]
-                        var resurl= c.resourceUrl;
-                        $("."+resurl).show();
-                        $("."+resurl).parent().parent().show();
+                for (var i = 0; i < data.data.length; i++) {
+                    var d = data.data[i];
+                    for (var j = 0; j < d.children.length; j++) {
+                        var c = d.children[j]
+                        var resurl = c.resourceUrl;
+                        $("." + resurl).show();
+                        $("." + resurl).parent().parent().show();
                     }
                 }
             } else {
@@ -262,27 +265,79 @@ function getLoginInfoToSession() {
             if (data.ok) {
                 //待确认，不知道这种方式是否可以
                 sessionStorage.login_mobilePhone = data.data.mobilePhone;
-                sessionStorage.login_userType=data.data.userType;
-                sessionStorage.login_id=data.data.id;
-                sessionStorage.login_openId=data.data.openId;
-                sessionStorage.login_parentId=data.data.parentId;
-                sessionStorage.login_agentsBusinessId=data.data.agentsBusinessId;
-                sessionStorage.login_manuId=data.data.manuId;
+                sessionStorage.login_userType = data.data.userType;
+                sessionStorage.login_id = data.data.id;
+                sessionStorage.login_openId = data.data.openId;
+                sessionStorage.login_parentId = data.data.parentId;
+                sessionStorage.login_agentsBusinessId = data.data.agentsBusinessId;
+                sessionStorage.login_manuId = data.data.manuId;
                 if (sessionStorage.login_mobilePhone) {
-                    $("#login-name").html(sessionStorage.login_mobilePhone.substring(0,7)+"****");
+                    $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {
-                  //  window.location.href="/";
-                }
-            } else {
-               // window.location.href="/";
                 plumeLog("获取登录信息失败:" + data.resDescription);
-//                $(".login-msg1").text(data.resDescription).fadeIn();
-//                window.location.href = "login";
+                window.location.href = "/";
+                }
+        }
+    }
+    });
+}
+//获取基础数据
+function getListSystemCode() {
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/price_tpye",
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.price_tpye = JSON.stringify(data);
+            } else {
+                plumeLog("获取price_tpye信息失败:" + data.resDescription);
+            }
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/product_lv",
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.product_lv = JSON.stringify(data);
+            } else {
+                plumeLog("获取price_tpye信息失败:" + data.resDescription);
+            }
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/img_url",
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.img_url = JSON.stringify(data);
+            } else {
+                plumeLog("获取price_tpye信息失败:" + data.resDescription);
             }
         }
     });
 }
-
+//设置基础数据
+function setListSystemCode(data, val) {
+    var str=""
+    for (var i = 0; i < data.data.length; i++) {
+        var d = data.data[i];
+        if (d.codeValueCode == val) {
+            str = d.codeValueName;
+            break;
+        }
+    }
+    return str;
+}
 
 //获取psgId
 function getGoodsPsgId(_this) {
@@ -333,7 +388,7 @@ function getGoodsInfo() {
             }
         })
     } catch (e) {
-        window.location.href = "/debug/";
+        window.location.href = "/";
     }
 }
 
@@ -428,7 +483,7 @@ function getProductInfo() {
             }
         });
     } catch (e) {
-        window.location.href = "/debug/";
+        window.location.href = "/";
     }
 }
 
@@ -457,10 +512,6 @@ function listProductInfoUpt() {
         }
     })
 }
-
-
-
-
 
 
 //新增店铺商品
@@ -537,7 +588,6 @@ function getlistNationRegion() {
 // getlistNationRegion();
 
 
-
 //时间戳转日期
 function getLocalTime(nS) {
     return new Date(parseInt(nS)).toLocaleString().substr(0, 10)
@@ -581,11 +631,6 @@ function tablecheckbox() {
         $(".table-block").find("tbody input:checkbox").prop("checked", c);
     });
 }
-
-//缓存接口
-var session = function () {
-    return sessionStorage;
-}();
 //pop
 $.fn.extend({
     pop: function (temp, fun) {

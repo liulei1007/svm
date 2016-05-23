@@ -13,6 +13,7 @@ var pathName = window.document.location.pathname;
 //var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
 var _plumePath=window.document.location+"";
 var plumePath=_plumePath.substring(0,_plumePath.lastIndexOf('/') + 1);
+var plumeApi_Host="";
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
     var configurl = _PLUME.config ? _PLUME.config : "";
@@ -29,9 +30,10 @@ $(function () {
             temp["init"] = init;
             configJson[pageName] = temp;
         });
+        plumeApi_Host=$(data).find("api-host").text();
         $(data).find("api").children().each(function () {
             var tagname = $(this)[0].tagName;
-            plumeApi[tagname] = $(this).text();
+            plumeApi[tagname] =plumeApi_Host+ $(this).text();
         });
         var page_init = $(data).find("index-init").text();
         try {
