@@ -368,7 +368,8 @@
         <sendMsg>http://longguo.hxmklmall.cn/api/userInfo/sendMsg</sendMsg>
         <registerUserInfo>http://longguo.hxmklmall.cn/api/userInfo/registerUserInfo</registerUserInfo>
         <login>http://longguo.hxmklmall.cn/api/userInfo/login</login>
-        <listProductCategory>http://longguo.hxmklmall.cn/api/productCategory/listProductCategory</listProductCategory>
+        <listProductCategory>http://longguo.hxmklmall.cn/api/productCategory/listProductCategory
+        </listProductCategory>
         <getColorSeries>http://longguo.hxmklmall.cn/api/colorSeries/getColorSeries</getColorSeries>
         <listNationRegion>http://longguo.hxmklmall.cn/api/common/listNationRegion/CN</listNationRegion>
         <editProductInfo>http://longguo.hxmklmall.cn/api/productInfo/editProductInfo</editProductInfo>
@@ -390,7 +391,8 @@
         <editProductShopGoods>http://longguo.hxmklmall.cn/api/productShopGoods/editProductShopGoods
         </editProductShopGoods>
         <getProductStashById>http://longguo.hxmklmall.cn/api/productStash/getProductStashById/</getProductStashById>
-
+        <listProductCategory>http://longguo.hxmklmall.cn/api/productCategory/listProductCategory
+        </listProductCategory>
         <reviewProductInfo>http://longguo.hxmklmall.cn/api/productInfo/reviewProductInfo</reviewProductInfo>
         <brandSeries>http://longguo.hxmklmall.cn/api/brandSeries/listBrandSeries</brandSeries>
         <listBrandBusinessInfo>http://longguo.hxmklmall.cn/api/brandBusinessInfo/listBrandBusinessInfo
@@ -434,7 +436,5 @@
         <addCompanyInfoPersonal>http://longguo.hxmklmall.cn/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
         <editProductInfo>http://longguo.hxmklmall.cn/api/productInfo/editProductInfo</editProductInfo>
         <getSystemResourceTree>http://longguo.hxmklmall.cn/api/common/getSystemResourceTree</getSystemResourceTree>
-        <exportProductGoodsTemplate>http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
-        <editSaleStatus>http://longguo.hxmklmall.cn/api/productInfo/editSaleStatus</editSaleStatus>
     </api>
 </config>
