@@ -355,91 +355,89 @@
         <init>waitCheck_init</init>
     </page>
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
-    <!--192.168.221.222:8081-->
-    <!-- api.longguo.hxmklmall.cn:80-->
-    <!--192.168.222.164:8080-->
-    <!--api.longguo.hxmklmall.cn:80/-->
-    <!--192.168.152.1:8080-->
+    <api-host>https://longguo.mmall.com</api-host>
+    <!--<api-host>http://longguo.hxmklmall.cn</api-host>-->
     <api>
-        <listBrandSeriesList>https://longguo.mmall.com/api/brandSeries/listBrandSeriesList</listBrandSeriesList>
-        <listAgentsBrandInfoList-brand>https://longguo.mmall.com/api/brandSeries/listOmsBrand
+        <listBrandSeriesList>/api/brandSeries/listBrandSeriesList</listBrandSeriesList>
+        <listAgentsBrandInfoList-brand>/api/brandSeries/listOmsBrand
         </listAgentsBrandInfoList-brand>
-        <listAgentsBrandInfoList>https://longguo.mmall.com/api/agentsBusinessInfo/listAgentsBrandInfoList
+        <listAgentsBrandInfoList>/api/agentsBusinessInfo/listAgentsBrandInfoList
         </listAgentsBrandInfoList>
-        <listShopInfo>https://longguo.mmall.com/api/shopInfo/listShopInfo</listShopInfo>
-        <addProductInfo>https://longguo.mmall.com/api/productInfo/addProductInfo</addProductInfo>
-        <listProductInfo>https://longguo.mmall.com/api/productInfo/listProductInfo</listProductInfo>
-        <delProductInfo>https://longguo.mmall.com/api/productInfo/delProductInfo</delProductInfo>
-        <sendMsg>https://longguo.mmall.com/api/userInfo/sendMsg</sendMsg>
-        <registerUserInfo>https://longguo.mmall.com/api/userInfo/registerUserInfo</registerUserInfo>
-        <login>https://longguo.mmall.com/api/userInfo/login</login>
-        <listProductCategory>https://longguo.mmall.com/api/productCategory/listProductCategory</listProductCategory>
-        <getColorSeries>https://longguo.mmall.com/api/colorSeries/getColorSeries</getColorSeries>
-        <listNationRegion>https://longguo.mmall.com/api/common/listNationRegion/CN</listNationRegion>
-        <editProductInfo>https://longguo.mmall.com/api/productInfo/editProductInfo</editProductInfo>
-        <getProductInfo>https://longguo.mmall.com/api/productInfo/getProductInfo</getProductInfo>
-        <listProductShopGoods>https://longguo.mmall.com/api/productShopGoods/listProductShopGoods
+        <listShopInfo>/api/shopInfo/listShopInfo</listShopInfo>
+        <addProductInfo>/api/productInfo/addProductInfo</addProductInfo>
+        <listProductInfo>/api/productInfo/listProductInfo</listProductInfo>
+        <delProductInfo>/api/productInfo/delProductInfo</delProductInfo>
+        <sendMsg>/api/userInfo/sendMsg</sendMsg>
+        <registerUserInfo>/api/userInfo/registerUserInfo</registerUserInfo>
+        <login>/api/userInfo/login</login>
+        <listProductCategory>/api/productCategory/listProductCategory</listProductCategory>
+        <getColorSeries>/api/colorSeries/getColorSeries</getColorSeries>
+        <listNationRegion>/api/common/listNationRegion/CN</listNationRegion>
+        <editProductInfo>/api/productInfo/editProductInfo</editProductInfo>
+        <getProductInfo>/api/productInfo/getProductInfo</getProductInfo>
+        <listProductShopGoods>/api/productShopGoods/listProductShopGoods
         </listProductShopGoods>
-        <delProductShopGoods>https://longguo.mmall.com/api/productShopGoods/delProductShopGoods
+        <delProductShopGoods>/api/productShopGoods/delProductShopGoods
         </delProductShopGoods>
-        <enableProductShopGoods>https://longguo.mmall.com/api/productShopGoods/enableProductShopGoods/
+        <enableProductShopGoods>/api/productShopGoods/enableProductShopGoods/
         </enableProductShopGoods>
-        <disableProductShopGoods>https://longguo.mmall.com/api/productShopGoods/disableProductShopGoods/
+        <disableProductShopGoods>/api/productShopGoods/disableProductShopGoods/
         </disableProductShopGoods>
-        <getProductShopGoods>https://longguo.mmall.com/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
-        <getProductInfo>https://longguo.mmall.com/api/productInfo/getProductInfo/</getProductInfo>
-        <listProductGoods>https://longguo.mmall.com/api/productShopGoods/listProductGoods</listProductGoods>
-        <listProductInfoUpt>https://longguo.mmall.com/api/productInfo/listProductInfoUpt</listProductInfoUpt>
-        <addProductShopGoods>https://longguo.mmall.com/api/productShopGoods/addProductShopGoods
+        <getProductShopGoods>/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
+        <getProductInfo>/api/productInfo/getProductInfo/</getProductInfo>
+        <listProductGoods>/api/productShopGoods/listProductGoods</listProductGoods>
+        <listProductInfoUpt>/api/productInfo/listProductInfoUpt</listProductInfoUpt>
+        <addProductShopGoods>/api/productShopGoods/addProductShopGoods
         </addProductShopGoods>
-        <editProductShopGoods>https://longguo.mmall.com/api/productShopGoods/editProductShopGoods
+        <editProductShopGoods>/api/productShopGoods/editProductShopGoods
         </editProductShopGoods>
-        <getProductStashById>https://longguo.mmall.com/api/productStash/getProductStashById/</getProductStashById>
+        <getProductStashById>/api/productStash/getProductStashById/</getProductStashById>
 
-        <reviewProductInfo>https://longguo.mmall.com/api/productInfo/reviewProductInfo</reviewProductInfo>
-        <brandSeries>https://longguo.mmall.com/api/brandSeries/listBrandSeries</brandSeries>
-        <listBrandBusinessInfo>https://longguo.mmall.com/api/brandBusinessInfo/listBrandBusinessInfo
+        <reviewProductInfo>/api/productInfo/reviewProductInfo</reviewProductInfo>
+        <brandSeries>/api/brandSeries/listBrandSeries</brandSeries>
+        <listBrandBusinessInfo>/api/brandBusinessInfo/listBrandBusinessInfo
         </listBrandBusinessInfo>
 
-        <listProductStash>https://longguo.mmall.com/api/productStash/listProductStash</listProductStash>
+        <listProductStash>/api/productStash/listProductStash</listProductStash>
 
-        <listOmsBrand>https://longguo.mmall.com/api/brandSeries/listOmsBrand</listOmsBrand>
-        <listOmsBrandSeries>https://longguo.mmall.com/api/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
+        <listOmsBrand>/api/brandSeries/listOmsBrand</listOmsBrand>
+        <listOmsBrandSeries>/api/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
 
-        <listFeedBack>https://longguo.mmall.com/api/feedback/listFeedBack/</listFeedBack>
-        <addFeedbackInfo>https://longguo.mmall.com/api/feedback/addFeedbackInfo/</addFeedbackInfo>
-        <delFeedback>https://longguo.mmall.com/api/feedback/delFeedback/</delFeedback>
-        <resetPassword>https://longguo.mmall.com/api/userInfo/resetPassword/</resetPassword>
+        <listFeedBack>/api/feedback/listFeedBack/</listFeedBack>
+        <addFeedbackInfo>/api/feedback/addFeedbackInfo/</addFeedbackInfo>
+        <delFeedback>/api/feedback/delFeedback/</delFeedback>
+        <resetPassword>/api/userInfo/resetPassword/</resetPassword>
 
-        <getOmsBrandDetail>https://longguo.mmall.com/api/brandSeries/getOmsBrandDetail/</getOmsBrandDetail>
-        <getShopDetail>https://longguo.mmall.com/api/shopInfo/getShopDetail/</getShopDetail>
+        <getOmsBrandDetail>/api/brandSeries/getOmsBrandDetail/</getOmsBrandDetail>
+        <getShopDetail>/api/shopInfo/getShopDetail/</getShopDetail>
 
-        <getLoginUser>https://longguo.mmall.com/api/userInfo/getLoginUser/</getLoginUser>
-        <listSubUserInfo>https://longguo.mmall.com/api/subUserInfo/listSubUserInfo/</listSubUserInfo>
-        <listManuSubUserInfo>https://longguo.mmall.com/api/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
-        <delSubUserInfo>https://longguo.mmall.com/api/subUserInfo/delSubUserInfo/</delSubUserInfo>
+        <getLoginUser>/api/userInfo/getLoginUser/</getLoginUser>
+        <listSubUserInfo>/api/subUserInfo/listSubUserInfo/</listSubUserInfo>
+        <listManuSubUserInfo>/api/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
+        <delSubUserInfo>/api/subUserInfo/delSubUserInfo/</delSubUserInfo>
 
-        <getManuSubUserUpView>https://longguo.mmall.com/api/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
-        <getAgentsSubUserUpView>https://longguo.mmall.com/api/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
-        <getUserInfoByMobile>https://longguo.mmall.com/api/userInfo/getUserInfoByMobile/</getUserInfoByMobile>
-        <addAgentsSubUserInfo>https://longguo.mmall.com/api/subUserInfo/addAgentsSubUserInfo/</addAgentsSubUserInfo>
-        <addManuSubUserInfo>https://longguo.mmall.com/api/subUserInfo/addManuSubUserInfo/</addManuSubUserInfo>
-        <editManuSubUserInfo>https://longguo.mmall.com/api/subUserInfo/editManuSubUserInfo/</editManuSubUserInfo>
-        <editAgentsSubUserInfo>https://longguo.mmall.com/api/subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
-        <listUserRole>https://longguo.mmall.com/api/subUserInfo/listUserRole/</listUserRole>
-        <editUserRoles>https://longguo.mmall.com/api/subUserInfo/editUserRoles/</editUserRoles>
-        <listProductAttribute>https://longguo.mmall.com/api/productAttribute/listProductAttribute</listProductAttribute>
+        <getManuSubUserUpView>/api/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
+        <getAgentsSubUserUpView>/api/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+        <getUserInfoByMobile>/api/userInfo/getUserInfoByMobile/</getUserInfoByMobile>
+        <addAgentsSubUserInfo>/api/subUserInfo/addAgentsSubUserInfo/</addAgentsSubUserInfo>
+        <addManuSubUserInfo>/api/subUserInfo/addManuSubUserInfo/</addManuSubUserInfo>
+        <editManuSubUserInfo>/api/subUserInfo/editManuSubUserInfo/</editManuSubUserInfo>
+        <editAgentsSubUserInfo>/api/subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
+        <listUserRole>/api/subUserInfo/listUserRole/</listUserRole>
+        <editUserRoles>/api/subUserInfo/editUserRoles/</editUserRoles>
+        <listProductAttribute>/api/productAttribute/listProductAttribute</listProductAttribute>
 
-        <addCompanyInfoCompany>https://longguo.mmall.com/api/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
-        <editProductStash>https://longguo.mmall.com/api/productStash/editProductStash</editProductStash>
-        <addProductStash>https://longguo.mmall.com/api/productStash/addProductStash</addProductStash>
-        <addCompanyInfoFactory>https://longguo.mmall.com/api/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
-        <logout>https://longguo.mmall.com/api/userInfo/logout</logout>
-        <getProductInfoUpt>https://longguo.mmall.com/api/productInfo/getProductInfoUpt</getProductInfoUpt>
-        <addCompanyInfoPersonal>https://longguo.mmall.com/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
-        <editProductInfo>https://longguo.mmall.com/api/productInfo/editProductInfo</editProductInfo>
-        <getSystemResourceTree>https://longguo.mmall.com/api/common/getSystemResourceTree</getSystemResourceTree>
-        <exportProductGoodsTemplate>https://longguo.mmall.com/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
-        <editSaleStatus>https://longguo.mmall.com/api/productInfo/editSaleStatus</editSaleStatus>
+        <addCompanyInfoCompany>/api/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
+        <editProductStash>/api/productStash/editProductStash</editProductStash>
+        <addProductStash>/api/productStash/addProductStash</addProductStash>
+        <addCompanyInfoFactory>/api/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
+        <logout>/api/userInfo/logout</logout>
+        <getProductInfoUpt>/api/productInfo/getProductInfoUpt</getProductInfoUpt>
+        <addCompanyInfoPersonal>/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
+        <editProductInfo>/api/productInfo/editProductInfo</editProductInfo>
+        <getSystemResourceTree>/api/common/getSystemResourceTree</getSystemResourceTree>
+        <exportProductGoodsTemplate>/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
+        <editSaleStatus>/api/productInfo/editSaleStatus</editSaleStatus>
+        <listSystemCode>/api/common/listSystemCode</listSystemCode>
     </api>
 </config>
