@@ -28,7 +28,8 @@ $(function () {
 
     //权限设置
     $(".btn-myset").bind("click",function(){
-        $(".cic-pop").pop("popAuth",function(){
+        $('.pop').loadTemp("popAuth", "nochangeurl", function () {
+        // $(".cic-pop").pop("popAuth",function(){
             rolesShow();
 
             if(isAdd == 0)
@@ -36,7 +37,8 @@ $(function () {
             
             //权限配置弹出框 -- 取消
             $(".pa-cancel").bind("click",function(){
-                $(".cic-pop").pophide();
+                $(".pop").pophide();
+                // $(".cic-pop").pophide();
             });
             //权限配置弹出框 -- 确认
             $(".btn-success").bind("click", function() {
@@ -44,8 +46,9 @@ $(function () {
                 $("input[name='rolebox']:checked").each(function(){
                     roleCodes = roleCodes.concat($(this).val()).concat(",");
                 });
+                $(".pop").pophide();
 
-                $(".cic-pop").pophide();
+                // $(".cic-pop").pophide();
             });
         });
     });
@@ -122,7 +125,8 @@ function getAccRole(accountId) {
                     $(".digmanubox [type='checkbox']").attr("checked", "checked");
                 }          
             } else {
-                alert("获取配置权限失败:"+data.resDescription);
+                popTips("获取配置权限失败","warning");
+                // alert("获取配置权限失败:"+data.resDescription);
             }
         }
     })
@@ -183,7 +187,8 @@ function subAccUpView(accountId) {
                     var shoplist = data.data.shoplist;
 
                     if(shoplist && shoplist.length > 0) {
-                        var shopHtml = '<option value="">请选择店铺...</option>';
+                        var shopHtml = '';
+                        // var shopHtml = '<option value="">请选择店铺...</option>';
                         for(var i=0; i<shoplist.length; i++) {
                             if(shopId == shoplist[i].id) {
                                 shopHtml += "<option value='"+shoplist[i].id+"' selected='selected' >"+shoplist[i].boothCode +"</option>";
@@ -212,7 +217,7 @@ function subAccUpView(accountId) {
                     if(brandList && brandList.length > 0) {
                         var brandHtml = "";
                         for(var i=0; i<brandList.length; i++) {
-                            brandHtml += "<label>";
+                            brandHtml += "<label class='checkbox-inline'>";
                             brandHtml += "<input type='checkbox' name='brands'  value='"+brandList[i].id+"'";
                             if(relationbrandstr.indexOf(":"+brandList[i].id+":") > -1) {
                                 brandHtml += " checked='checked'";
@@ -226,8 +231,10 @@ function subAccUpView(accountId) {
                     }
                 }
 
-            } else {
-                alert("添加失败:"+data.resDescription);
+            }
+            else {
+                popTips("添加失败","warning");
+                // alert("添加失败:"+data.resDescription);
             }
         }
     });
@@ -236,10 +243,12 @@ function subAccUpView(accountId) {
 //子账号编辑
 function subAccModify() {
     var remark = $("#remark").val();
+    var flag_brand = false;
 
     //工厂
     var brandIds = "";
     $("input[name='brands']:checked").each(function(){
+        flag_brand = true;
         brandIds = brandIds.concat($(this).val()).concat(",");
     });
 
@@ -255,6 +264,14 @@ function subAccModify() {
     if(userType == null || userType == 0) {
         return;
     } else if(userType == 1) {
+        if (!flag_brand) {
+            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('提交失败');
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html("请至少选择一个关联品牌！");
+                });
+            return;
+        }
         apiName = plumeApi["editManuSubUserInfo"];
 
         paramData = JSON.stringify(
@@ -291,10 +308,12 @@ function subAccModify() {
         success: function (data) {
             unloading();
             if (data.ok) {
-                alert("修改成功");
+                popTips("修改成功","success");
+                // alert("修改成功");
                 derict(this, "idmanage", "nochangeurl");
             } else {
-                alert("修改失败:"+data.resDescription);
+                popTips("修改失败","warning");
+                // alert("修改失败:"+data.resDescription);
             }
         }
     })
@@ -309,6 +328,8 @@ function subAccAdd() {
     var pwd = $("#pwd").val();
     var repwd = $("#repwd").val();
 
+    var flag_brand = false;
+
     if(!paramCheck(tel, pwd, repwd))
         return;
     if(mobileExist != 0)
@@ -319,6 +340,7 @@ function subAccAdd() {
     //工厂
     var brandIds = "";
      $("input[name='brands']:checked").each(function(){
+        flag_brand = true;
         brandIds = brandIds.concat($(this).val()).concat(",");
     });
 
@@ -334,6 +356,14 @@ function subAccAdd() {
     if(userType == null || userType == 0) {
         return;
     } else if(userType == 1) {
+        if (!flag_brand) {
+            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('提交失败');
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html("请至少选择一个关联品牌！");
+                });
+            return;
+        }
         apiName = plumeApi["addManuSubUserInfo"];
 
         paramData = JSON.stringify(
@@ -373,12 +403,16 @@ function subAccAdd() {
         contentType: "application/json;charset=UTF-8",
         data: paramData,
         success: function (data) {
+            console.log("url:" + apiName);
+            console.log(paramData);
             unloading();
             if (data.ok) {
-                alert("添加成功");
+                popTips("添加成功","success");
+                // alert("添加成功");
                 derict(this, "idmanage", "nochangeurl");
             } else {
-                alert("添加失败:"+data.resDescription);
+                popTips("修改失败","warning");
+                // alert("添加失败:"+data.resDescription);
             }
         }
     });

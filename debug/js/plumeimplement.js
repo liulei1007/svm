@@ -334,6 +334,11 @@ function waitCheck_init(){
     plumeUtil.js(plumePath + "/js/waitCheck.js")
     plumeLog("完成waitCheck模板加载-" + plumeTime());
 }
+function popUserType_init(){
+    plumeLog("初始化popUserType模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/popUserType.js")
+    plumeLog("完成popUserType模板加载-" + plumeTime());
+}
 var _test_path=window.location.href+"";
 if(_test_path.indexOf("localhost")!=""){
     $.ajaxSetup({
