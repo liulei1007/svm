@@ -47,11 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showMyGoods.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="showMyGoods.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32590052">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state vertical-scroll-proportion="-14.25">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.178572">
+              <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7364975">
+              <caret line="201" column="9" selection-start-line="201" selection-start-column="9" selection-end-line="201" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -93,7 +113,6 @@
         <option value="$PROJECT_DIR$/debug/pages/popUpload.html" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
         <option value="$PROJECT_DIR$/debug/js/takingGoodsData.js" />
-        <option value="$PROJECT_DIR$/debug/index.html" />
         <option value="$PROJECT_DIR$/debug/css/svm.css" />
         <option value="$PROJECT_DIR$/debug/js/plumecommon.js" />
         <option value="$PROJECT_DIR$/debug/pages/createMyGoods.html" />
@@ -107,12 +126,13 @@
         <option value="$PROJECT_DIR$/debug/pages/editMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/plumeimplement.js" />
-        <option value="$PROJECT_DIR$/debug/js/index.js" />
         <option value="$PROJECT_DIR$/debug/js/plume.js" />
         <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
         <option value="$PROJECT_DIR$/debug/js/msgmanage.js" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
+        <option value="$PROJECT_DIR$/debug/index.html" />
+        <option value="$PROJECT_DIR$/debug/js/index.js" />
       </list>
     </option>
   </component>
@@ -575,14 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.097770154">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15548281">
@@ -688,14 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/userType.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -770,8 +774,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32590052">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state vertical-scroll-proportion="-14.25">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="51" column="48" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7364975">
+          <caret line="201" column="9" selection-start-line="201" selection-start-column="9" selection-end-line="201" selection-end-column="9" />
           <folding />
         </state>
       </provider>
