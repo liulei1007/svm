@@ -28,29 +28,23 @@
         </div>
         <div class="form-group">
           <label>分类</label>
-          <select class="form-control input-sm">
-            <option>所有</option>
-          </select>
-          <select class="form-control input-sm">
-            <option>所有</option>
-          </select>
-          <select class="form-control input-sm">
-            <option>所有</option>
-          </select>
+          <span class="gdm-type-first">
+              <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0">
+                  <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
+              </select>
+          </span>
+          <span class="gdm-type-second">
+              <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1">
+                  <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
+              </select>
+          </span>
+          <span class="gdm-type-third">
+              <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2">
+                  <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
+              </select>
+          </span>
         </div>
-         <div class="form-group">
-          <label>系列名</label>
-          <select class="form-control input-sm">
-            <option>所有</option>
-          </select>
-        </div>
-         <div class="form-group">
-          <label>状态</label>
-          <select class="form-control input-sm">
-            <option>所有</option>
-          </select>
-        </div>
-        <button class="btn btn-default btn-sm">查询</button>
+        <div class="btn btn-default btn-sm btn-search">查询</div>
       </form>
     </div>
     
@@ -58,7 +52,7 @@
         <!-- <div class="table-title">
             您当前共有<span>12</span>条修正信息待处理
         </div> -->
-        <div class="alert alert-info">您当前共有<strong>120</strong>条修正信息待处理</div>
+        <div class="alert alert-info">您当前共有<strong data-name="$p.countRecord" class="infoNum"></strong>条修正信息待处理</div>
         <table class="table table-striped">
             <thead>
               <tr>
