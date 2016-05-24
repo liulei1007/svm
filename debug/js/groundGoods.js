@@ -118,7 +118,7 @@ function soldOutGoods() {
 //信息过滤
 	function filter() {
 		 $('.createDate').each(function () {
-                $(this).html(getLocalTime($(this).html()));
+                $(this).html(_getLocalTime($(this).html()));
                 var aTr = $(this).parents('tr');
                 var saleStatus = aTr.find('.saleStatus');
                 var btnGround = aTr.find('.btn-ground');
