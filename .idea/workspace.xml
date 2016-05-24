@@ -21,24 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="goodsDataManage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="259" column="52" selection-start-line="259" selection-start-column="52" selection-end-line="259" selection-end-column="52" />
-              <folding>
-                <marker date="1464074297522" expanded="true" signature="14:11773" placeholder="{...}" />
-                <marker date="1464074297522" expanded="true" signature="3427:3449" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="359" column="26" selection-start-line="359" selection-start-column="14" selection-end-line="359" selection-end-column="26" />
+              <caret line="368" column="38" selection-start-line="368" selection-start-column="29" selection-end-line="368" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -87,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plume.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plume.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60392797">
+            <state vertical-scroll-proportion="0.0">
               <caret line="331" column="46" selection-start-line="331" selection-start-column="46" selection-end-line="331" selection-end-column="46" />
               <folding />
             </state>
@@ -138,6 +125,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.0357144">
               <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goodsDataManage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.02618658">
+              <caret line="271" column="22" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -192,13 +189,13 @@
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/js/userType.js" />
         <option value="$PROJECT_DIR$/debug/js/editMyGoods.js" />
-        <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
         <option value="$PROJECT_DIR$/debug/pages/editMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/plumeimplement.js" />
         <option value="$PROJECT_DIR$/debug/js/index.js" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/js/plume.js" />
+        <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
       </list>
     </option>
   </component>
@@ -757,17 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="259" column="52" selection-start-line="259" selection-start-column="52" selection-end-line="259" selection-end-column="52" />
-          <folding>
-            <marker date="1464074297522" expanded="true" signature="14:11773" placeholder="{...}" />
-            <marker date="1464074297522" expanded="true" signature="3427:3449" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0357144">
@@ -795,14 +781,6 @@
             <element signature="e#11680#15123#0" expanded="false" />
             <element signature="e#21564#22419#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="359" column="26" selection-start-line="359" selection-start-column="14" selection-end-line="359" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,8 +831,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60392797">
+        <state vertical-scroll-proportion="0.0">
           <caret line="331" column="46" selection-start-line="331" selection-start-column="46" selection-end-line="331" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="368" column="38" selection-start-line="368" selection-start-column="29" selection-end-line="368" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.02618658">
+          <caret line="271" column="22" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
           <folding />
         </state>
       </provider>

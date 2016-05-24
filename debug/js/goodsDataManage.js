@@ -93,40 +93,40 @@ $(function () {
     $(".table-block").on("click", ".gdm-btn-open", function () {
         getProductIdm(this);
         var _this = this;
-        if ($(this).attr("saleStatus") == 1){
+        if ($(this).attr("saleStatus") == 1) {
 
-             $.ajax({
-            url: plumeApi["disableSaleStatus"] + session.productGoods_productIdm,
-            type: "GET",
-            contentType: "application/json;charset=UTF-8",
-            success: function (data) {
-                unloading();
+            $.ajax({
+                url: plumeApi["disableSaleStatus"] + session.productGoods_productIdm,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    unloading();
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("已禁用");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("禁用成功");
                     });
-                getTableData();
-            }
-         });
-        }else{
-             $.ajax({
-            url: plumeApi["enableSaleStatus"] + session.productGoods_productIdm,
-            type: "GET",
-            contentType: "application/json;charset=UTF-8",
-            success: function (data) {
-                unloading();
-                  $(_this).removeClass("gdm-off")
+                    getTableData();
+                }
+            });
+        } else {
+            $.ajax({
+                url: plumeApi["enableSaleStatus"] + session.productGoods_productIdm,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    unloading();
+                    $(_this).removeClass("gdm-off")
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("已启用");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("启用成功");
                     });
-                getTableData();
-            }
-         });
+                    getTableData();
+                }
+            });
         }
-       
+
     });
 
 
@@ -171,44 +171,41 @@ $(function () {
 
 //按钮绑定方法
     function binFun() {
-<<<<<<< HEAD
-        $(".gdm-btn-del").unbind().bind("click", function () {
-            if (confirm("是否确认删除?")) {
-                loading();
-                var uptid = $(this).attr("uptid");
-                $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
-                    unloading();
-                    if (data.ok) {
-                        $("[list-node]").remove();
-                        getTableData();
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                            $(".pop").find(".popup-info").html("删除成功");
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        });
-                    } else {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html("删除失败");
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        });
-                    }
-                });
-            }
-        });
+        //$(".gdm-btn-del").unbind().bind("click", function () {
+        //    if (confirm("是否确认删除?")) {
+        //        loading();
+        //        var uptid = $(this).attr("uptid");
+        //        $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
+        //            unloading();
+        //            if (data.ok) {
+        //                $("[list-node]").remove();
+        //                getTableData();
+        //                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+        //                    $(".pop").find(".popup-title").html("信息提示");
+        //                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+        //                    $(".pop").find(".popup-info").html("删除成功");
+        //                    setTimeout(function () {
+        //                        window.location.reload();
+        //                    }, 1000);
+        //                });
+        //            } else {
+        //                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+        //                    $(".pop").find(".popup-title").html("信息提示");
+        //                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        //                    $(".pop").find(".popup-info").html("删除失败");
+        //                    setTimeout(function () {
+        //                        window.location.reload();
+        //                    }, 1000);
+        //                });
+        //            }
+        //        });
+        //    }
+        //});
 
-=======
         $(".gdm-btn-edit").unbind().bind("click", function () {
             session.goods_showMyGoods_uptId = $(this).attr("uptid");
             derict(this, "editMyGoods", "nochangeurl");
         });
->>>>>>> 88fdac354282d3b776c21477feb9ce43e7980db7
         $('.gdm-btn-open').each(function () {
             if ($(this).attr("saleStatus") == 1) {
                 $(this).html('禁用');
@@ -228,82 +225,78 @@ $(function () {
         })
     }
 
-<<<<<<< HEAD
-//删除产品方法
-    function disableSaleStatus() {
-        $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
-            // 改变弹出框中文字和图标显示
-            $(".pop").find(".popup-title").html("删除确认？");
-            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-            $(".pop").find(".popup-info").html("是否确认删除记录？");
-            $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
-            // 绑定按钮事件
-            $('.pop').on('click', '.btn-sure', function () {
-                loading();
-                $.ajax({
-                    url: plumeApi["delProductShopGoods"] + "/" + session.goods_psgId,
-                    type: "GET",
-                    contentType: "application/json;charset=UTF-8",
-                    success: function (data) {
-                        if (data.ok) {
-                            unloading();
-                            popTips("删除成功", "success");
-                            getGoodsData();
-                        } else {
-                            unloading();
-                            popTips("删除失败", "warning");
-                            getGoodsData();
-                        }
-                    }
-                });
-                $('.pop').hide();
-                $('.pop').off('click', '.btn-sure');
-                $('.pop').off('click', '.btn-cancel');
-            });
-            $('.pop').on('click', '.btn-cancel', function () {
-                $('.pop').hide();
-                $('.pop').off('click', '.btn-sure');
-                $('.pop').off('click', '.btn-cancel');
-            });
-        });
-    }
-=======
 
+//删除产品方法
+//    function disableSaleStatus() {
+//        $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+//            // 改变弹出框中文字和图标显示
+//            $(".pop").find(".popup-title").html("删除确认？");
+//            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+//            $(".pop").find(".popup-info").html("是否确认删除记录？");
+//            $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+//            // 绑定按钮事件
+//            $('.pop').on('click', '.btn-sure', function () {
+//                loading();
+//                $.ajax({
+//                    url: plumeApi["delProductShopGoods"] + "/" + session.goods_psgId,
+//                    type: "GET",
+//                    contentType: "application/json;charset=UTF-8",
+//                    success: function (data) {
+//                        if (data.ok) {
+//                            unloading();
+//                            popTips("删除成功", "success");
+//                            getGoodsData();
+//                        } else {
+//                            unloading();
+//                            popTips("删除失败", "warning");
+//                            getGoodsData();
+//                        }
+//                    }
+//                });
+//                $('.pop').hide();
+//                $('.pop').off('click', '.btn-sure');
+//                $('.pop').off('click', '.btn-cancel');
+//            });
+//            $('.pop').on('click', '.btn-cancel', function () {
+//                $('.pop').hide();
+//                $('.pop').off('click', '.btn-sure');
+//                $('.pop').off('click', '.btn-cancel');
+//            });
+//        });
+//    }
 
 
 //删除按钮
- $(".table-block").on("click",".gdm-btn-del", function () {
-    if (confirm("是否确认删除?")) {
-        loading();
-        var uptid = $(this).attr("uptid");
-        $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
-            unloading();
-            if (data.ok) {
-                $("[list-node]").remove();
-                getTableData();
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                    $(".pop").find(".popup-info").html("删除成功");
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                });
-            } else {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html("删除失败");
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 1000);
-                });
-            }
-        });
-    }
-});
+    $(".table-block").on("click", ".gdm-btn-del", function () {
+        if (confirm("是否确认删除?")) {
+            loading();
+            var uptid = $(this).attr("uptid");
+            $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
+                unloading();
+                if (data.ok) {
+                    $("[list-node]").remove();
+                    getTableData();
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                        $(".pop").find(".popup-info").html("删除成功");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    });
+                } else {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("删除失败");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    });
+                }
+            });
+        }
+    });
 
 
-
->>>>>>> 88fdac354282d3b776c21477feb9ce43e7980db7
 });
