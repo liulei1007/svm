@@ -83,4 +83,12 @@ $(function() {
  		listToBePerfectProductInfo();
 	})
 
+
+	//点击编辑按钮
+	$('.table-block').on('click','.btn-releaseGoods',function() {
+		session.goods_showMyGoods_uptId = $(this).attr("uptid");
+		session.goods_showMyGoods_type = "edit";
+		  derict(this, "myGoods", "nochangeurl");
+	})
+
 });
