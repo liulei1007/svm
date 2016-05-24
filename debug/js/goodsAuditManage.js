@@ -7,7 +7,7 @@ $(function () {
         "categoryId": "",
         "subCategoryId": "",
         "baseCategoryId": "",
-        "saleStatus": "",
+        //"saleStatus": "",
         "reviewStatus": "",
         "seriesName": ""}
 
