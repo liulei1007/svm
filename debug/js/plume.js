@@ -329,7 +329,6 @@ $.fn.extend({
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
-                        console.log(eval(tag))
                         $(this).text(eval(tag));
                     }
                 }

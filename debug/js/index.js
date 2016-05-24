@@ -1,7 +1,6 @@
 $(function () {
     //显示登录名称
 
-
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {

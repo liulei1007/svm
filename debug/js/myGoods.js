@@ -1,4 +1,5 @@
 $(function () {
+    plumeLog("进入myGoods模板自定义js-" + plumeTime());
     //创建初始化
     function myGoodsCreateInit() {
         //隐藏错误提示
@@ -21,6 +22,7 @@ $(function () {
         setStandard();
         dataInit();
     }
+
     //编辑初始化
     function myGoodsEditInit() {
         //隐藏错误提示
@@ -33,6 +35,7 @@ $(function () {
         });
         getDataInit();
     }
+
     //复制初始化
     function myGoodsCopyInit() {
         //隐藏错误提示
@@ -48,13 +51,13 @@ $(function () {
 
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
-    } else if (session.goods_showMyGoods_type == "edit"){
+    } else if (session.goods_showMyGoods_type == "edit") {
         myGoodsEditInit();
-    }else if (session.goods_showMyGoods_type == "copy"){
+    } else if (session.goods_showMyGoods_type == "copy") {
         myGoodsCopyInit();
     }
     //获取初始化数据
-    function getDataInit(){
+    function getDataInit() {
         loading();
         $.ajax({
             type: "GET",
@@ -105,16 +108,6 @@ $(function () {
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
 
-                //for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
-                //    var p = d.productInfoAttrUptORMs[i];
-                //    var temp = '<div class="form-group required smg-base-attr">';
-                //    temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
-                //    temp += '<div class="col-sm-2">';
-                //    temp += '<p class="col-sm-4 form-control-static">' + p.attrValueId + '</p>';
-                //    temp += '</div>';
-                //    temp += '</div>';
-                //    $(".goodsAttr-content").append(temp);
-                //}
                 for (var j = 0; j < d.productGoodsUpts.length; j++) {
                     var p = d.productGoodsUpts[j];
                     var temp = '<tr class="cmg-goodstr">';
@@ -171,6 +164,7 @@ $(function () {
             }
         });
     }
+
     //设置品牌
     function getbrandList() {
         loading();
