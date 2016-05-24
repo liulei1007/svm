@@ -96,7 +96,7 @@ $(function () {
                 });
                 getlistNationRegion();
                 getbrandList();
-                getProductAttribute();
+
                 setColors();
                 dataInit();
 
@@ -129,7 +129,7 @@ $(function () {
                 session.goods_subCategoryName = d.subCategoryName;
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
-
+                getProductAttribute();
                 for (var j = 0; j < d.productGoodsUpts.length; j++) {
                     var p = d.productGoodsUpts[j];
                     var temp = '<tr class="cmg-goodstr">';

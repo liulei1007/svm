@@ -1,8 +1,6 @@
 $(function () {
-    $.cookie('JSESSIONID', null, {path: '/', domain: 'hxmklmall.cn'});
     var timeOut;
     $(".swiper-slide").show();
-
     var swiper = new Swiper('.swiper-container', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
