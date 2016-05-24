@@ -19,6 +19,7 @@ $(function () {
             getbrandList();
             getProductAttribute();
             setColors();
+            dataInit();
 
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
@@ -514,5 +515,11 @@ $(function () {
             });
         });
     }
+    //价格类型,等级
+    function dataInit(){
+        $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
+        $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
+    }
+
 
 });

@@ -274,11 +274,15 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {
-                plumeLog("获取登录信息失败:" + data.resDescription);
-                window.location.href = "/";
+                   // alert("获取登录信息失败!");
+                    window.location.href = "/";
                 }
+            } else {
+                plumeLog("获取登录信息失败:" + data.resDescription);
+                //alert("获取登录信息失败!");
+                window.location.href = "/";
+            }
         }
-    }
     });
 }
 //获取基础数据
@@ -328,7 +332,7 @@ function getListSystemCode() {
 }
 //设置基础数据
 function setListSystemCode(data, val) {
-    var str=""
+    var str = ""
     for (var i = 0; i < data.data.length; i++) {
         var d = data.data[i];
         if (d.codeValueCode == val) {

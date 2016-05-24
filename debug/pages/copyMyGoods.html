@@ -12,7 +12,7 @@
     <script>
         var _PLUME = {
             "config": "../config/svm.xml",
-            "initPage": "editMyGoods"
+            "initPage": "copyMyGoods"
         }
     </script>
 </head>
@@ -84,7 +84,7 @@
 
                     <div class="col-sm-2 cmg-region1">
                         <select class="form-control" id="provinceId" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                            <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.adressCode"></option>
                         </select>
                     </div>
                     <div class="col-sm-2 cmg-region2 ">
@@ -118,10 +118,9 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
 
-                    <div class="col-sm-4">
-                        <select class="form-control notNull" id="priceType">
-                            <option value="0">明码议价</option>
-                            <option value="1">明码实价</option>
+                    <div class="col-sm-4 cmg-initdata1">
+                        <select class="form-control notNull" id="priceType" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                         </select>
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
@@ -129,11 +128,9 @@
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>等级</label>
 
-                    <div class="col-sm-4">
-                        <select class="form-control notNull" id="lvInfo">
-                            <option value="0">优等品</option>
-                            <option value="1">一等品</option>
-                            <option value="2">合格品</option>
+                    <div class="col-sm-4 cmg-initdata2">
+                        <select class="form-control notNull" id="lvInfo" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                         </select>
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>

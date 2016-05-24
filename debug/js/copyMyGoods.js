@@ -1,7 +1,7 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
-
+    loading();
     $.ajax({
         type: "GET",
         url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
@@ -15,11 +15,11 @@ $(function () {
             $.ajaxSetup({
                 async: false
             });
+            getlistNationRegion();
             getbrandList();
             getProductAttribute();
             setColors();
-            getlistNationRegion();
-            setStandard();
+            dataInit();
 
             $("#brandId").val(d.brandId);
             $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
@@ -44,15 +44,13 @@ $(function () {
             $("#material1").val(d.material1);
             $("#material2").val(d.material2);
             $("#material3").val(d.material3);
-            session.goods_categoryId= d.categoryId;
-            session.goods_categoryName= d.categoryName;
-            session.goods_subCategoryId=d.subCategoryId;
-            session.goods_subCategoryName=d.subCategoryName;
-            session.goods_baseCategoryId=d.baseCategoryId;
-            session.goods_baseCategoryName=d.baseCategoryName;
-            //$.ajaxSetup({
-            //    async: true
-            //});
+            session.goods_categoryId = d.categoryId;
+            session.goods_categoryName = d.categoryName;
+            session.goods_subCategoryId = d.subCategoryId;
+            session.goods_subCategoryName = d.subCategoryName;
+            session.goods_baseCategoryId = d.baseCategoryId;
+            session.goods_baseCategoryName = d.baseCategoryName;
+
             //for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
             //    var p = d.productInfoAttrUptORMs[i];
             //    var temp = '<div class="form-group required smg-base-attr">';
@@ -63,23 +61,59 @@ $(function () {
             //    temp += '</div>';
             //    $(".goodsAttr-content").append(temp);
             //}
-            //for (var j = 0; j < d.productGoodsUpts.length; j++) {
-            //    var p = d.productGoodsUpts[j];
-            //    var temp = '<tr class="cmg-goodstr">';
-            //    temp += '<td>' + p.color + '</td>';
-            //    temp += '<td>' + p.standard + '</td>';
-            //    temp += '<td>' + p.salePrice + '</td>';
-            //    temp += '</tr>';
-            //    $(".standardtbody").append(temp);
-            //}
+            for (var j = 0; j < d.productGoodsUpts.length; j++) {
+                var p = d.productGoodsUpts[j];
+                var temp = '<tr class="cmg-goodstr">';
+                temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                temp += '<td>';
+                temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                temp += '</td>';
+                temp += '</tr>';
+                $(".standardtbody").append(temp);
+                if ($(".tr" + p.colorId).length == 0) {
+                    var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
+                    $(".cmg-table-color").append(temp1);
+                }
+            }
+            $(".colortr").each(function () {
+                var colorid = $(this).attr("colorid");
+                var colorName = $(this).find(".colorName").attr("colorName");
+                var colorDesc = $(this).find(".colorName").attr("colordesc");
+                $(".color-box").each(function () {
+                    var colorid_temp = $(this).attr("colorid");
+                    if (colorid_temp == colorid) {
+                        $(this).prop("checked", true);
+                        $(this).parent().find(".cmg-colorDesc").val(colorDesc).show();
+                        $(this).parent().find(".color-desc").show();
+                    }
+                });
+            })
+            $(".cm-btn-del").unbind().bind("click", function () {
+                $(this).parent().parent().remove();
+            });
+            setStandard();
             for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
                 var p = d.productInfoPhotoUpts[k];
                 var temp = '<li class="goodsPic">';
-                temp += '<img src="' + p.picUrl + '"/>';
+                temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+                temp += '<div class="upload-btn upload-btn-left">';
+                temp += '<div class="arrow-left"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-right">';
+                temp += '<div class="arrow-right"></div>';
+                temp += '</div>';
+                temp += '<div class="upload-btn upload-btn-delect">';
+                temp += '<div class="arrow-close"></div>';
+                temp += '</div>';
                 temp += '</li>';
                 $(".goodsPic-upload").append(temp);
             }
             picMove();
+            $.ajaxSetup({
+                async: true
+            });
         }
     });
 
@@ -192,6 +226,7 @@ $(function () {
             initialize();
         }
     }
+
     //图片上传
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
@@ -302,13 +337,16 @@ $(function () {
     }
 
 
-
+    $(".cmg-cancel").bind("click", function () {
+        derict(this, "goodsDataManage", "nochangeurl");
+    });
     //提交
     $(".cmg-ok").bind("click", function () {
         if (!validata()) {
             return false;
         }
         var pram_str = '{';
+       // pram_str += '"productId": "' + $("#productId").val() + '",';
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": ' + $("#brandId").val() + ',';
@@ -329,7 +367,7 @@ $(function () {
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
-        pram_str += '"marketPrice": 0,';
+        pram_str += '"marketPrice": '+$("#marketPrice").val()+',';
         pram_str += ' "priceType": "' + $("#priceType").val() + '",';
         pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
         pram_str += '"categoryId": ' + session.goods_categoryId + ',';
@@ -393,7 +431,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("增加成功");
+                        $(".pop").find(".popup-info").html("修改成功");
                         setTimeout(function () {
                             derict(null, "goodsDataManage", "nochangeurl");
                         }, 2000);
@@ -477,5 +515,11 @@ $(function () {
             });
         });
     }
+    //价格类型,等级
+    function dataInit(){
+        $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
+        $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
+    }
+
 
 });

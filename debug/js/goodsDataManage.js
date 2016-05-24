@@ -57,7 +57,6 @@ $(function () {
 //获取表格数据
     function getTableData() {
         var newData = JSON.stringify(datas)
-
         loading();
         $.ajax({
             type: "POST",
@@ -190,10 +189,6 @@ $(function () {
             }
         });
 
-        $(".gdm-btn-edit").unbind().bind("click", function () {
-            session.goods_showMyGoods_uptId = $(this).attr("uptid");
-            derict(this, "editMyGoods", "nochangeurl");
-        });
         $('.gdm-btn-open').each(function () {
             if ($(this).html() == 1) {
                 $(this).html('禁用');
@@ -201,60 +196,54 @@ $(function () {
                 $(this).html('启用');
             }
         });
+        $(".gdm-btn-edit").unbind().bind("click", function () {
+            session.goods_showMyGoods_uptId = $(this).attr("uptid");
+            session.goods_showMyGoods_type = "edit";
+            derict(this, "myGoods", "nochangeurl");
+        });
         $('.gdm-btn-copy').unbind().bind("click", function () {
             session.goods_showMyGoods_uptId = $(this).attr("uptid");
-            derict(this, "copyMyGoods", "nochangeurl");
+            session.goods_showMyGoods_type = "copy";
+            derict(this, "myGoods", "nochangeurl");
         })
     }
 
-
-
-
-//点击删除按钮
-     $(".table-block").on("click",".btn-link-delete",function() {
-      
-     })
-
-
-
-
-
 //删除产品方法
-    function disableSaleStatus(){
-         $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
-        // 改变弹出框中文字和图标显示
-        $(".pop").find(".popup-title").html("删除确认？");
-        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-        $(".pop").find(".popup-info").html("是否确认删除记录？");
-        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
-        // 绑定按钮事件
-        $('.pop').on('click', '.btn-sure', function () {
-            loading();
-            $.ajax({
-                url: plumeApi["delProductShopGoods"] +"/"+ session.goods_psgId,
-                type: "GET",
-                contentType: "application/json;charset=UTF-8",
-                success: function (data) {
-                    if (data.ok) {
-                        unloading();
-                        popTips("删除成功", "success");
-                        getGoodsData();
-                    } else {
-                        unloading();
-                        popTips("删除失败", "warning");
-                        getGoodsData();
+    function disableSaleStatus() {
+        $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+            // 改变弹出框中文字和图标显示
+            $(".pop").find(".popup-title").html("删除确认？");
+            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+            $(".pop").find(".popup-info").html("是否确认删除记录？");
+            $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+            // 绑定按钮事件
+            $('.pop').on('click', '.btn-sure', function () {
+                loading();
+                $.ajax({
+                    url: plumeApi["delProductShopGoods"] + "/" + session.goods_psgId,
+                    type: "GET",
+                    contentType: "application/json;charset=UTF-8",
+                    success: function (data) {
+                        if (data.ok) {
+                            unloading();
+                            popTips("删除成功", "success");
+                            getGoodsData();
+                        } else {
+                            unloading();
+                            popTips("删除失败", "warning");
+                            getGoodsData();
+                        }
                     }
-                }
+                });
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
             });
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-        $('.pop').on('click', '.btn-cancel', function () {
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
+            $('.pop').on('click', '.btn-cancel', function () {
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
+            });
         });
     }
 });
