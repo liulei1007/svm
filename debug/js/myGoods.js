@@ -425,7 +425,7 @@ $(function () {
                 if (data.ok) {
                     $("#filepath").val(data.data);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[0].codeValueCode + $("#filepath").val() + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[ parseInt(Math.random()*(JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';

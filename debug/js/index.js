@@ -186,6 +186,7 @@ function pathInit() {
     if (path.indexOf(".html") != -1) {
         return;
     }
+    getLoginInfoToSession();
     var prams = path.substring(path.indexOf("?") + 1);
     var temp = path.substring(path.lastIndexOf("/") + 1);
     if (prams.indexOf("fullscreen") != -1) {
@@ -196,7 +197,7 @@ function pathInit() {
     } else {
         //获取登录信息放入session中
         loading();
-        getLoginInfoToSession();
+       // getLoginInfoToSession();
         getAuth();
         getListSystemCode();
         unloading();
