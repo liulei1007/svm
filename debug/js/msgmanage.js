@@ -61,6 +61,7 @@ function listFeedBackData() {
 	$.ajax({
         url: plumeApi["listFeedBack"],
         type: "POST",
+        data:'{"start": 0, "limit": 30}',
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             unloading();
@@ -68,7 +69,7 @@ function listFeedBackData() {
             if(data.ok) {
                 $(".table-block").setPageData(data);
                 $('.createDate').each(function () {
-                    $(this).html(getLocalTime($(this).html()));
+                    $(this).html(_getLocalTime($(this).html()));
                     var aTr = $(this).parents('tr');
                     var feedbackType = aTr.find('.feedbackType');
                     var feedbackStatus = aTr.find('.feedbackStatus');
