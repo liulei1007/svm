@@ -8,7 +8,7 @@ $(function () {
         "subCategoryId": "",
         "baseCategoryId": "",
         //"saleStatus": "",
-        "reviewStatus": "",
+        "reviewStatus": "0",
         "seriesName": ""}
 
     listProductInfoUpt();
@@ -117,6 +117,7 @@ function auditFun(uptIds) {
 function searchBtn(){
         $(".gam-btn-search").bind("click",function(){
             datas.productName=$("#agencyName").val();
+            datas.reviewStatus=$("#reviewStatus").val();
             listProductInfoUpt();
         });
     }
