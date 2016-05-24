@@ -160,55 +160,21 @@ $(function () {
             });
 
             $(".text-bottom1 .btn-loadModule").bind("click", function () {
-                window.location = "https://longguo.mmall.com/api/excel/exportProductGoodsTemplate/1/5/61/5"
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/5"
             });
 
             $(".text-bottom2 .btn-loadModule").bind("click", function () {
-                window.location = "https://longguo.mmall.com/api/excel/exportProductGoodsTemplate/2/22/215/5"
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/2/22/215/5"
             });
         });
     })
 
 //按钮绑定方法
     function binFun() {
-<<<<<<< HEAD
-        $(".gdm-btn-del").unbind().bind("click", function () {
-            if (confirm("是否确认删除?")) {
-                loading();
-                var uptid = $(this).attr("uptid");
-                $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
-                    unloading();
-                    if (data.ok) {
-                        $("[list-node]").remove();
-                        getTableData();
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                            $(".pop").find(".popup-info").html("删除成功");
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        });
-                    } else {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html("删除失败");
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 1000);
-                        });
-                    }
-                });
-            }
-        });
-
-=======
         $(".gdm-btn-edit").unbind().bind("click", function () {
             session.goods_showMyGoods_uptId = $(this).attr("uptid");
             derict(this, "editMyGoods", "nochangeurl");
         });
->>>>>>> 88fdac354282d3b776c21477feb9ce43e7980db7
         $('.gdm-btn-open').each(function () {
             if ($(this).attr("saleStatus") == 1) {
                 $(this).html('禁用');
@@ -228,7 +194,6 @@ $(function () {
         })
     }
 
-<<<<<<< HEAD
 //删除产品方法
     function disableSaleStatus() {
         $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
@@ -267,7 +232,7 @@ $(function () {
             });
         });
     }
-=======
+
 
 
 
@@ -303,7 +268,4 @@ $(function () {
     }
 });
 
-
-
->>>>>>> 88fdac354282d3b776c21477feb9ce43e7980db7
 });
