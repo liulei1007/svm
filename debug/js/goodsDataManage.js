@@ -30,8 +30,8 @@ $(function () {
         datas.subCategoryId = subCategoryId;
         datas.baseCategoryId = baseCategoryId;
         datas.saleStatus = saleStatus;
-        datas.reviewStatus = reviewStatus;
-        datas.seriesName = saleStatus;
+       // datas.reviewStatus = reviewStatus;
+        //datas.seriesName = saleStatus;
         getTableData();
     });
 //分类
