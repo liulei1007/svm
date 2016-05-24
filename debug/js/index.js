@@ -353,6 +353,11 @@ function getProductId(_this) {
     session.productGoods_productId = productId;
 }
 
+function getProductIdm(_this) {
+    session.productGoods_productIdm = $(_this).attr("productId")
+}
+
+
 //获取brandId
 function getBrandId(_this) {
     var removeList = $(_this).parents('tr');

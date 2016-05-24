@@ -439,5 +439,7 @@
         <exportProductGoodsTemplate>/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
         <editSaleStatus>/api/productInfo/editSaleStatus</editSaleStatus>
         <listSystemCode>/api/common/listSystemCode</listSystemCode>
+        <disableSaleStatus>/api/productInfo/disableSaleStatus/</disableSaleStatus>
+        <enableSaleStatus>/api/productInfo/enableSaleStatus/</enableSaleStatus>
     </api>
 </config>
