@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "userType"
+        }
+    </script>
+</head>
+
+<body>
+	<div class="popup-sort">
+		<div class="title-block">请选择类目</div>
+
+		<div class="type-block">
+			<div class="select-block clearFix">
+				<div class="select-single">
+					<div class="type-first" tag="0">
+						<ul data-list="$p.data">
+							<li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="select-single">
+					<div class="type-second" tag="1">
+						<ul data-list="$p.data">
+							<li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="select-single">
+					<div class="type-third" tag="2">
+						<ul data-list="$p.data">
+							<li list-temp="true" node-name="$n.categoryName,attr-categoryId:$n.categoryId"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="type-btn">
+			<div class="select-result">
+				您选择的类目：<span class="type-first-span">一级类目</span>><span class="type-second-span">二级类目</span>><span class="type-third-span">三级目录</span>
+			</div>
+			<div class="btn btn-primary ut-btn-next">下一步</div>
+		</div>
+	</div>
+
+</body>
+</html>
