@@ -6,9 +6,9 @@ $(function () {
         "categoryId": "",
         "subCategoryId": "",
         "baseCategoryId": "",
-        "saleStatus": "",
-        "reviewStatus": 0,
-        "seriesName": ""
+        "saleStatus": ""
+        //"reviewStatus": 0,
+        //"seriesName": ""
     }
     getTableData();
     tablecheckbox();
