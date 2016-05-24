@@ -233,7 +233,7 @@ $(function () {
                     temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attributeId="' + d.attributeId + '">';
                     for (var j = 0; j < d.productAttributeValues.length; j++) {
                         var x = d.productAttributeValues[j];
-                        temp += '<option value="' + x.attributeId + '">' + x.valueName + '</option>';
+                        temp += '<option value="' + x.valueId + '">' + x.valueName + '</option>';
                     }
                     temp += '</select>';
                 }
