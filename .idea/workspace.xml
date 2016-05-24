@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5351882">
-              <caret line="424" column="30" selection-start-line="424" selection-start-column="30" selection-end-line="424" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="417" column="5" selection-start-line="417" selection-start-column="5" selection-end-line="417" selection-end-column="5" />
               <folding>
                 <element signature="e#110#704#0" expanded="false" />
                 <element signature="e#749#1041#0" expanded="false" />
@@ -43,6 +43,16 @@
                 <element signature="e#17862#18015#0" expanded="false" />
                 <element signature="e#19735#25994#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showMyGoods.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.32590052">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,7 +98,6 @@
         <option value="$PROJECT_DIR$/debug/js/plumecommon.js" />
         <option value="$PROJECT_DIR$/debug/pages/createMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/createMyGoods.js" />
-        <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/showMyGoods.js" />
         <option value="$PROJECT_DIR$/debug/pages/copyMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/copyMyGoods.js" />
@@ -103,6 +112,7 @@
         <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
         <option value="$PROJECT_DIR$/debug/js/msgmanage.js" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
+        <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
       </list>
     </option>
   </component>
@@ -597,14 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/showMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -744,8 +746,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5351882">
-          <caret line="424" column="30" selection-start-line="424" selection-start-column="30" selection-end-line="424" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="417" column="5" selection-start-line="417" selection-start-column="5" selection-end-line="417" selection-end-column="5" />
           <folding>
             <element signature="e#110#704#0" expanded="false" />
             <element signature="e#749#1041#0" expanded="false" />
@@ -763,6 +765,14 @@
             <element signature="e#17862#18015#0" expanded="false" />
             <element signature="e#19735#25994#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32590052">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
