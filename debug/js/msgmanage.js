@@ -78,13 +78,16 @@ function listFeedBackData() {
                 filter();
                   totalPage = Math.ceil(data.countRecord / 10);
                 newPage(totalPage, function (i) {
-                   loading(); 
+                   loading();
+                   datas.start=(i-1)*10; 
+                   var newData = JSON.stringify(datas)
                    $.ajax({
                     url: plumeApi["listFeedBack"],
                     type: "POST",
                     data: newData,
                     contentType: "application/json;charset=UTF-8",
                     success: function (data) {
+                        unloading();
                           if(data.ok) {
                              $("[list-node]").remove();
                             $(".table-block").setPageData(data);

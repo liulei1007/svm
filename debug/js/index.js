@@ -352,7 +352,7 @@ function getGoodsPsgId(_this) {
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods_productId = productId;
+    session.productGoods_productId=session.productGoods_productId= productId;
 }
 
 function getProductIdm(_this) {
@@ -404,7 +404,7 @@ function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: plumeApi["getProductInfo"] + session.productGoods_productId,
+            url: plumeApi["getProductInfo"] +"/"+ session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
