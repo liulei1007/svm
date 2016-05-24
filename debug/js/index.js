@@ -1,6 +1,5 @@
 $(function () {
-    //显示登录名称
-
+//显示登录名称
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {
@@ -150,8 +149,7 @@ $(function () {
                     window.location.href = "../";
                 }
             }
-        })
-
+        });
     });
     $(".ihu-changepwd").bind("click", function () {
         window.location.href = "changepwd";
@@ -159,7 +157,7 @@ $(function () {
     $(".index-head-logo").bind("click", function () {
         window.location.href = "index";
     });
-});
+})
 var derict_lock = false;
 function derict(o, temp, cache, fun) {
     if (derict_lock) {
@@ -1011,10 +1009,9 @@ function newPage(totalPage, fun) {
         else paginationHtml += '<li class="last"><span>&raquo;</span></li>';
         $(".pagination").html(paginationHtml);
         if (fun) {
-            if (Tf) {
-                fun(nowPage);
-            }
+            if (Tf) {fun(nowPage);}
             Tf = true;
         }
     }
 }
+

@@ -19,7 +19,7 @@ $(function () {
         session.goods_subCategoryName = $(".type-second-span").text();
         session.goods_baseCategoryId = $(".type-first-span").attr("categoryId");
         session.goods_baseCategoryName = $(".type-first-span").attr("categoryId");
-        derict(this, "createMyGoods", "nochangeurl");
+        $(".popSort").hide();
     });
     var cls = ["type-first", "type-second", "type-third"];
     //迭代获取类目

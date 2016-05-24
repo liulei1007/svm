@@ -159,12 +159,9 @@ $(function () {
                 derict(this, "userType2", "nochangeurl");
             });
 
-            $(".text-bottom1 .btn-loadModule").bind("click", function () {
-                window.location = "https://longguo.mmall.com/api/excel/exportProductGoodsTemplate/1/5/61/5"
-            });
 
-            $(".text-bottom2 .btn-loadModule").bind("click", function () {
-                window.location = "https://longguo.mmall.com/api/excel/exportProductGoodsTemplate/2/22/215/5"
+            $(".text-bottom .btn-loadModule").bind("click", function () {
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/5"
             });
         });
     })

@@ -250,14 +250,13 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-load .load-alert p{margin-top: 0; margin-bottom: 0;}
 .popup-load .load-alert strong{font-size: 14px;}
 .popup-load .btn-loadFile{position: relative; margin: 30px auto 20px; width: 120px;}
-.popup-load .btn-choose{margin-top: 30px;}
+.popup-load .btn-choose{margin: 30px 0 30px;}
 .popup-load .btn-choose .btn{float: left;}
 
 /*.popup-load .loadFile{position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; font-size: 200;}*/
 .popup-load .load-btn-block{margin-right: 0; margin-left: 0; margin-bottom: 10px;}
 .popup-load .load-btn-block .btn{width: 100%;}
-.popup-load .text-bottom1{position: absolute;bottom: 20px;left: 35px; width: 150px; text-align: center;}
-.popup-load .text-bottom2{position: absolute; bottom: 20px; left: 200px; width: 150px; text-align: center;}
+.popup-load .text-bottom{text-align: center;}
 .popup-load .btn-loadModule{display: inline-block; margin: 0 10px;cursor: pointer;}
 .popup-load .btn-loadModule i{float: left; display: inline-block; margin-top: 2px; margin-right: 10px; width: 17px; height: 17px; overflow: hidden; background: url(../images/icons_all.png) no-repeat -390px -300px;}
 

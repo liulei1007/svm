@@ -1,5 +1,3 @@
-
-
 $(function(){
 	datas={
 		  "productName": "",
@@ -60,8 +58,8 @@ function getGoodsData() {
 				contentType: "application/json; charset=utf-8",
 				success: function(data) {
 					 unloading();
-            $("[list-node]").remove();
-            $(".table-block").setPageData(data);
+                    $("[list-node]").remove();
+                    $(".table-block").setPageData(data);
             	filter();
 				},
 				});
@@ -118,7 +116,7 @@ function soldOutGoods() {
 //信息过滤
 	function filter() {
 		 $('.createDate').each(function () {
-                $(this).html(getLocalTime($(this).html()));
+                $(this).html(_getLocalTime($(this).html()));
                 var aTr = $(this).parents('tr');
                 var saleStatus = aTr.find('.saleStatus');
                 var btnGround = aTr.find('.btn-ground');
@@ -131,7 +129,6 @@ function soldOutGoods() {
                 }
             });
 	}
-})
 
 //删除商品数据
 function delectGoodsData() {
@@ -172,3 +169,7 @@ function delectGoodsData() {
         });
     });
 }
+
+
+})
+

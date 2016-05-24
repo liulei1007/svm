@@ -2,9 +2,9 @@ $(function() {
 	var datas = {
 	  "productName": "",
 	  "modelNumber": "",
-	  "categoryId": 0,
-	  "subCategoryId": 0,
-	  "baseCategoryId": 0,
+	  "categoryId": "",
+	  "subCategoryId": "",
+	  "baseCategoryId": "",
 	  "saleStatus": "",
 	  "reviewStatus": "",
 	  "seriesName": ""
@@ -56,13 +56,13 @@ $(function() {
                         dataType: "json",
                         success: function (data) {
                             unloading();
-                            $(".gdm-table-data").$("[list-node]").remove();
-                            $(".gdm-table-data").setPageData(data);
+                            $(".table-block").find("[list-node]").remove();
+                            $(".table-block").setPageData(data);
                         }
                     });
                 });
-                $(".gdm-table-data").find("[list-node]").remove();
-                $(".gdm-table-data").setPageData(data);
+                $(".table-block").find("[list-node]").remove();
+                $(".table-block").setPageData(data);
             }
         });
 	} 
@@ -72,4 +72,13 @@ $(function() {
 	//显示列表条数
 	if($(".infoNum")){$(".infoNum").html(0)}
 
+	//点击查询按钮
+	$(".btn-search").bind("click",function() {
+		datas.productName = $("#productName").val();
+		datas.baseCategoryId = $("#baseCategoryId").val();
+ 		datas.subCategoryId = $("#subCategoryId").val();
+ 		datas.categoryId = $("#categoryId").val();	
+ 		listErrorFeedbackProductInfo();
+	})	
+	
 })
