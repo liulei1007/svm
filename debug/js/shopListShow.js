@@ -1,6 +1,6 @@
 $(function() {
 	$('.btn-back').bind('click',function() {
-		derict(this,"brandList","nochangeurl");
+		derict(this,"shopListAgency","nochangeurl");
 	});
 
 	function getOmsBrandDetail() {

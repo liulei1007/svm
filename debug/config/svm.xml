@@ -314,6 +314,11 @@
         <page-url>/pages/popAudit.html</page-url>
     </page>
     <page>
+        <page-name>popUserType</page-name>
+        <page-url>/pages/popUserType.html</page-url>
+        <init>popUserType_init</init>
+    </page>
+    <page>
         <page-name>releaseSelfGoods</page-name>
         <page-url>/pages/releaseSelfGoods.html</page-url>
         <init>releaseSelfGoods_init</init>
@@ -444,5 +449,7 @@
         <exportProductGoodsTemplate>/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
         <editSaleStatus>/api/productInfo/editSaleStatus</editSaleStatus>
         <listSystemCode>/api/common/listSystemCode</listSystemCode>
+        <disableSaleStatus>/api/productInfo/disableSaleStatus/</disableSaleStatus>
+        <enableSaleStatus>/api/productInfo/enableSaleStatus/</enableSaleStatus>
     </api>
 </config>

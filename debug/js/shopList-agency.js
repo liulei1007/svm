@@ -4,15 +4,17 @@ $(function() {
 	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
 	var data = {
-		"start": startNum,
-		"limit": limitNum,
+		"start": 0,
+		"limit": 10,
 		"marketName": "",
 		"boothCode": "",
-		"doorplateRemarks": "",
+		"personDealerName": "",
 		"boothDesc": "",
 		"brandName": "",
 		"seriesName": "",
-		"isDel": 0
+		"isDel": 0,
+		"companyId": 0,
+		"dealerId": 0
 	}
 
 	// data.shopType = "2";
@@ -27,32 +29,47 @@ $(function() {
 	$(".btn-search").on("click", function() {
 		data.brandName = $("#brandName").val();
 		data.marketName = $("#marketName").val();
+		data.personDealerName = $("#personDealerName").val();
 		data.seriesName = $("#seriesName").val();
 		console.log(data);
 		getData();
 	});
 
-	// 查看店铺信息
-	$("table").on("click", ".btn-detail", function() {
-		// var shopID = $(this).parents("tr").attr("shopID");
-		// 传参：shopID
-		session.shopID = $(this).parents("tr").attr("shopID");
-		derict(this, "shopShowAgency", "nochangeurl");
-	});
+	//点击“查看”
+	$('tbody').on('click','.btn-look',function() {
+		getShopId(this);
+		derict(this,"shopListShow","nochangeurl");
+	})
 
 	// 从服务器获取数据
 	function getData() {
 		loading();
-		// $("[list-node]").remove();
 		var newData = JSON.stringify(data);
 		$.ajax({
 			// url: "datas/shopList.txt",
-			url: "http://192.168.222.162:8080/shopInfo/listShopInfo",
+			url: plumeApi["listShopInfo"],
 			type: "POST",
 			data: newData,
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
-			success: function(result) {showData(result);},
+			success: function(result) {
+				showData(result);
+				totalPage=Math.ceil(result.countRecord/10);
+				newPage(totalPage,function(i){
+					$(".nav-pagination").show()
+					data.start = (i-1)*10;
+					var newData = JSON.stringify(data);
+					$.ajax({
+						url: plumeApi["listShopInfo"],
+						type: "POST",
+						data: newData,
+						dataType: "json",
+						contentType: "application/json; charset=utf-8",
+						success: function(result) {showData(result);},
+					});
+				});
+
+			},
 			error:function(error) {console.log(error);}
 		});
 	}
@@ -72,15 +89,18 @@ $(function() {
 			var tableList = "";
 			result.data.map(function(list) {
 				// console.log(list);
-				tableList += '<tr shopID="' + list.id + '">';
+				tableList += '<tr>';
 				tableList += '<td><input type="checkbox" /></td>';
-				tableList += '<td>' + (++startNum) + '</td>';
+				// 序号
+				tableList += '<td class="shopId">' + list.id + '</td>';
 				// 展位号
 				tableList += '<td>' + list.boothCode + '</td>';
 				// 品牌名
 				tableList += '<td>' + list.brandName + '</td>';
-				// 系列
-				tableList += '<td>' + list.seriesName + '</td>';
+				// 系列, 防止数据为空
+				if (list.seriesName) {tableList += '<td>' + list.seriesName + '</td>';}
+				else tableList += '<td>' + '' + '</td>';
+				
 				// 所属商场名称------------------------------------------
 				tableList += '<td>' + list.marketName + '</td>';
 				// 店铺联系人
@@ -90,7 +110,7 @@ $(function() {
 				// 店铺状态
 				if (list.isDel == 0) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
-				tableList += '<td><button type="button" class="btn btn-link btn-detail">查看</button></td>';
+				tableList += '<td><button type="button" class="btn btn-link btn-look">查看</button></td>';
 			});
 			$("table tbody").html(tableList);
 		}

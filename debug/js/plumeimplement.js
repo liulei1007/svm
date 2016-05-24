@@ -334,6 +334,7 @@ function waitCheck_init() {
     plumeUtil.js(plumePath + "/js/waitCheck.js");
     plumeLog("完成waitCheck模板加载-" + plumeTime());
 }
+<<<<<<< HEAD
 function myGoods_init() {
     plumeLog("初始化waitCheck模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/myGoods.js");
@@ -341,6 +342,15 @@ function myGoods_init() {
 }
 var _test_path = window.location.href + "";
 if (_test_path.indexOf("localhost") != "") {
+=======
+function popUserType_init(){
+    plumeLog("初始化popUserType模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/popUserType.js")
+    plumeLog("完成popUserType模板加载-" + plumeTime());
+}
+var _test_path=window.location.href+"";
+if(_test_path.indexOf("localhost")!=""){
+>>>>>>> 88fdac354282d3b776c21477feb9ce43e7980db7
     $.ajaxSetup({
         xhrFields: {
             withCredentials: true

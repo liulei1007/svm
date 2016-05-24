@@ -357,6 +357,11 @@ function getProductId(_this) {
     session.productGoods_productId = productId;
 }
 
+function getProductIdm(_this) {
+    session.productGoods_productIdm = $(_this).attr("productId")
+}
+
+
 //获取brandId
 function getBrandId(_this) {
     var removeList = $(_this).parents('tr');
@@ -593,10 +598,11 @@ function getlistNationRegion() {
 
 
 //时间戳转日期
-function getLocalTime(nS) {
+function _getLocalTime(nS) {
+    //console.log("::::::::::::" + nS + ";");
     return new Date(parseInt(nS)).toLocaleString().substr(0, 10)
 }
-
+//alert(getLocalTime(18100000001));
 // 提交成功
 function submitRecord(turnURL, url, data) {
     $(".pop").loadTemp("popSubmitSuccess", "nochangeurl", function () {
