@@ -1,5 +1,3 @@
-
-
 $(function(){
 	datas={
 		  "productName": "",
@@ -60,8 +58,8 @@ function getGoodsData() {
 				contentType: "application/json; charset=utf-8",
 				success: function(data) {
 					 unloading();
-            $("[list-node]").remove();
-            $(".table-block").setPageData(data);
+                    $("[list-node]").remove();
+                    $(".table-block").setPageData(data);
             	filter();
 				},
 				});
@@ -131,7 +129,6 @@ function soldOutGoods() {
                 }
             });
 	}
-})
 
 //删除商品数据
 function delectGoodsData() {
@@ -172,3 +169,7 @@ function delectGoodsData() {
         });
     });
 }
+
+
+})
+
