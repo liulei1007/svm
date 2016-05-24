@@ -394,7 +394,6 @@
         <disableProductShopGoods>/api/productShopGoods/disableProductShopGoods/
         </disableProductShopGoods>
         <getProductShopGoods>/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
-        <getProductInfo>/api/productInfo/getProductInfo/</getProductInfo>
         <listProductGoods>/api/productShopGoods/listProductGoods</listProductGoods>
         <listProductInfoUpt>/api/productInfo/listProductInfoUpt</listProductInfoUpt>
         <addProductShopGoods>/api/productShopGoods/addProductShopGoods
@@ -453,5 +452,6 @@
         <enableSaleStatus>/api/productInfo/enableSaleStatus/</enableSaleStatus>
         <listToBePerfectProductInfo>/api/productInfo/listToBePerfectProductInfo</listToBePerfectProductInfo>
         <listErrorFeedbackProductInfo>/api/productInfo/listErrorFeedbackProductInfo</listErrorFeedbackProductInfo>
+        <addProductInfoFeedback>/api/productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
     </api>
 </config>

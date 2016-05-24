@@ -49,19 +49,41 @@ $(function () {
         getDataInit();
     }
 
+    function myGoodsFeedInit(){
+        //隐藏错误提示
+        $(".alert-danger").hide();
+        $(".changeType").hide();
+        $(".mg-title").text("商品错误信息反馈");
+        //返回按钮
+        $(".cmg-cancel").bind("click", function () {
+            derict(this, "goodsDataManage", "nochangeurl");
+        });
+        getDataInit();
+    }
+
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
         myGoodsEditInit();
     } else if (session.goods_showMyGoods_type == "copy") {
         myGoodsCopyInit();
+    }else if (session.goods_showMyGoods_type == "copy") {
+        myGoodsCopyInit();
+    }else if (session.goods_showMyGoods_type == "feed") {
+        myGoodsFeedInit();
     }
     //获取初始化数据
     function getDataInit() {
         loading();
+        var suburl=""
+        if (session.goods_showMyGoods_type == "feed"){
+            suburl=plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_profuctId;
+        }else{
+            suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
+        }
         $.ajax({
             type: "GET",
-            url: plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId,
+            url: suburl,
             data: "",
             contentType: "application/json",
             dataType: "json",
@@ -361,10 +383,12 @@ $(function () {
 
     //表单验证
     function validata() {
+        $(".cmg-error").removeClass("cmg-error");
+        $(this).parent().parent().find(".alert-danger").text("").hide();
         var flag = true;
         $(".notNull").each(function () {
             if ($(this).val() == "") {
-                $(this).addClass("cmg-error")
+                $(this).addClass("cmg-error");
                 $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
                 flag = false;
             } else {
@@ -425,7 +449,7 @@ $(function () {
                 if (data.ok) {
                     $("#filepath").val(data.data);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[ parseInt(Math.random()*(JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
@@ -457,13 +481,14 @@ $(function () {
     });
     //提交
     $(".cmg-ok").bind("click", function () {
+        console.log(validata())
         if (!validata()) {
             return false;
         }
         var pram_str = '{';
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             pram_str += '';
-        } else if (session.goods_showMyGoods_type == "edit") {
+        } else if (session.goods_showMyGoods_type == "edit"||session.goods_showMyGoods_type == "feed") {
             pram_str += '"productId": "' + $("#productId").val() + '",';
         }
         pram_str += '"productName": "' + $("#productName").val() + '",';
@@ -550,6 +575,8 @@ $(function () {
             sub_url = plumeApi["addProductInfo"];
         } else if (session.goods_showMyGoods_type == "edit") {
             sub_url = plumeApi["editProductInfo"] + "/" + session.goods_showMyGoods_uptId;
+        }else if (session.goods_showMyGoods_type == "feed") {
+            sub_url = plumeApi["addProductInfoFeedback"];
         }
         $.ajax({
             type: "POST",

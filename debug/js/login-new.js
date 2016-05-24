@@ -99,7 +99,7 @@ $(function () {
                 if (data.ok) {
 //                    alert("登录成功");
                     $(".login-alert").hide();
-                    $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
+                   // $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
                     window.location.href = "index";
 
                 } else {
