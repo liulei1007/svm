@@ -211,7 +211,7 @@ $(function () {
             }
         });
         $(".gdm-btn-edit").unbind().bind("click", function () {
-            session.goods_showMyGoods_uptId = $(this).attr("uptid");
+            session.goods_showMyGoods_productId = $(this).attr("productId");
             session.goods_showMyGoods_type = "edit";
             derict(this, "myGoods", "nochangeurl");
         });
