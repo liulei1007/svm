@@ -368,7 +368,7 @@
 
     <!--<api-host>https://longguo.mmall.com</api-host>-->
      <api-host>http://longguo.hxmklmall.cn</api-host>
-    
+
     <api>
         <listBrandSeriesList>/api/brandSeries/listBrandSeriesList</listBrandSeriesList>
         <listAgentsBrandInfoList-brand>/api/brandSeries/listOmsBrand

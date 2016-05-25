@@ -1,8 +1,8 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     //创建初始化
-    session.goods_showMyGoods_type = "feed";
-    session.goods_showMyGoods_productId = "53";
+    //session.goods_showMyGoods_type = "feed";
+    //session.goods_showMyGoods_productId = "53";
     function myGoodsCreateInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
