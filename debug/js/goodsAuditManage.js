@@ -119,6 +119,7 @@ function searchBtn(){
             datas.productName=$("#agencyName").val();
             datas.reviewStatus=$("#reviewStatus").val();
             listProductInfoUpt();
+            $(".nav-pagination").off();
         });
     }
 

@@ -14,6 +14,7 @@ $(function() {
 		datas.pdtName = $("#pdtName").val();
 		datas.brandName = $("#brandName").val();
 		getData();
+		$(".nav-pagination").off();
 	});
 
 	// 绑定“单笔新增自采商品”按钮
@@ -79,5 +80,5 @@ $(function() {
 
 		//显示列表条数
 	if($(".infoNum")){$(".infoNum").html(0)}
-	
+
 });

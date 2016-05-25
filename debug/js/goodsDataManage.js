@@ -33,6 +33,7 @@ $(function () {
        // datas.reviewStatus = reviewStatus;
         //datas.seriesName = saleStatus;
         getTableData();
+         $(".nav-pagination").off()
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
@@ -80,10 +81,11 @@ $(function () {
                             $("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
                             binFun()
+                              getFirstCategory(0, 0);
                         }
                     });
                 });
-                $(".gdm-table-data").find("[list-node]").remove();
+                 $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
             }
@@ -133,7 +135,7 @@ $(function () {
 //批量导入按钮
     $(".btn-import-data").bind("click", function () {
         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
-            $('#myform').ajaxForm(function (data) {
+            $('#myForm').ajaxForm(function (data) {
                 unloading();
                 if (data.ok) {
                     alert("上传成功");
@@ -150,13 +152,21 @@ $(function () {
 
             $(".ex-ok").bind("click", function () {
                 if (($("#file").val())) {
-                    $("#myform").attr("action").value=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
-                    $('#myform').submit();
+                    document.myForm.action=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
+                    $('#myForm').submit();
+                    session.goods_baseCategoryId="";
+                    session.goods_subCategoryId="";
+                    session.goods_categoryId="";
                 }
             });
 
-            $(".text-bottom .btn-loadModule").bind("click", function () {
-                window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
+            $(".btn-loadModule").bind("click", function () {
+                if(session.goods_baseCategoryId){
+                    var count=$(".btn-count input").val();
+                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/"+count
+                }else{
+                    alert(请选择类目)
+                }
             });
         });
     })

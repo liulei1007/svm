@@ -56,6 +56,7 @@ $(function() {
                             unloading();
                             $(".table-block").find("[list-node]").remove();
                             $(".table-block").setPageData(data);
+                            getFirstCategory(0, 0);
                             addTableFuncs();
 
                         }
@@ -78,7 +79,9 @@ $(function() {
  		datas.subCategoryId = $("#subCategoryId").val();
  		datas.categoryId = $("#categoryId").val();	
  		listErrorFeedbackProductInfo();
-	});
+         $(".nav-pagination").off();
+	})	
+	
     function addTableFuncs(){
         $(".ai-btn-show").unbind().bind("click",function(){
             var uptId = $(this).attr("uptId");
