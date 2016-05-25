@@ -1,6 +1,8 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     //创建初始化
+    //session.goods_showMyGoods_type = "feed";
+    //session.goods_showMyGoods_productId = "53";
     function myGoodsCreateInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
@@ -49,7 +51,7 @@ $(function () {
         getDataInit();
     }
 
-    function myGoodsFeedInit(){
+    function myGoodsFeedInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
         $(".changeType").hide();
@@ -67,15 +69,15 @@ $(function () {
         myGoodsEditInit();
     } else if (session.goods_showMyGoods_type == "copy") {
         myGoodsCopyInit();
-    }else if (session.goods_showMyGoods_type == "feed") {
+    } else if (session.goods_showMyGoods_type == "feed") {
         myGoodsFeedInit();
     }
     //获取初始化数据
     function getDataInit() {
         loading();
-        var suburl=""
+        var suburl = ""
         //if (session.goods_showMyGoods_type == "feed"||session.goods_showMyGoods_type == ""){
-            suburl=plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
+        suburl = plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
         //}else{
         //    suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
         //}
@@ -86,6 +88,13 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                if (!data.data) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("未查询到数据!");
+                    });
+                }
                 unloading();
                 var d = data.data
                 $(".emg-initdata").setPageData(d);
@@ -486,7 +495,7 @@ $(function () {
         var pram_str = '{';
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             pram_str += '';
-        } else if (session.goods_showMyGoods_type == "edit"||session.goods_showMyGoods_type == "feed") {
+        } else if (session.goods_showMyGoods_type == "edit" || session.goods_showMyGoods_type == "feed") {
             pram_str += '"productId": "' + $("#productId").val() + '",';
         }
         pram_str += '"productName": "' + $("#productName").val() + '",';
@@ -573,7 +582,7 @@ $(function () {
             sub_url = plumeApi["addProductInfo"];
         } else if (session.goods_showMyGoods_type == "edit") {
             sub_url = plumeApi["editProductInfo"];
-        }else if (session.goods_showMyGoods_type == "feed") {
+        } else if (session.goods_showMyGoods_type == "feed") {
             sub_url = plumeApi["addProductInfoFeedback"];
         }
         $.ajax({
@@ -589,7 +598,11 @@ $(function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
                         $(".pop").find(".popup-info").html("数据提交成功");
-                        derict(null, "goodsDataManage", "nochangeurl");
+                        if (session.goods_showMyGoods_type == "feed") {
+                            derict(null, "takingGoods", "nochangeurl");
+                        } else {
+                            derict(null, "goodsDataManage", "nochangeurl");
+                        }
                     });
                 } else {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
@@ -598,7 +611,6 @@ $(function () {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
-                console.log(data);
             }
         });
     });

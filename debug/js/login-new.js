@@ -97,7 +97,7 @@ $(function () {
                 if (data.ok) {
 //                    alert("登录成功");
                     $(".login-alert").hide();
-                   // $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
+                    // $.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
                     window.location.href = "index";
 
                 } else {
@@ -151,7 +151,7 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    window.location.href="secondreg?fullscreen";
+                    window.location.href = "secondreg?fullscreen";
                 } else {
                     $("#reg-errormsg").text("注册失败:" + data.resDescription);
                     $(".register-form .login-alert").fadeIn();
@@ -162,7 +162,6 @@ $(function () {
 
     //发送验证码
 
-
     $(".btn-getCode").bind("click", function () {
         if ($(this).attr("status") == 0) {
             return;
@@ -170,6 +169,7 @@ $(function () {
         var tel = $("#tel").val();
         if (isMobile(tel)) {
             loading();
+            send_code = 60;
             send_code_time();
             $.get(plumeApi["sendMsg"] + "/" + tel + "/10002", {}, function (data) {
                 unloading();
@@ -244,6 +244,6 @@ function send_code_time() {
         $(".btn-getCode").text("获取验证码").attr("status", "1");
     } else {
         $(".btn-getCode").text("获取验证码" + "(" + send_code + ")").attr("status", "0");
-        setTimeout("send_code_time()", 1000);
+        login_send_time = setTimeout("send_code_time()", 1000);
     }
 }
