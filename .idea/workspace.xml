@@ -31,11 +31,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feedMyGoods.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="feedMyGoods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18657938">
-              <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="474" column="27" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -45,8 +55,69 @@
         <entry file="file://$PROJECT_DIR$/debug/js/amendmentInfo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+              <caret line="76" column="52" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="noCompleteData.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/noCompleteData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="secondreg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/secondreg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shopList.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/shopList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.071429">
+              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brandList.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/debug/pages/brandList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22813036">
+              <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="555" column="32" selection-start-line="555" selection-start-column="32" selection-end-line="555" selection-end-column="32" />
+              <folding>
+                <element signature="e#207#801#0" expanded="false" />
+                <element signature="e#9177#10265#0" expanded="false" />
+                <element signature="e#10315#11605#0" expanded="false" />
+                <element signature="e#11644#13407#0" expanded="false" />
+                <element signature="e#13446#16889#0" expanded="false" />
+                <element signature="e#16939#17613#0" expanded="false" />
+                <element signature="e#17650#18629#0" expanded="false" />
+                <element signature="e#18667#19909#0" expanded="false" />
+                <element signature="e#19952#20105#0" expanded="false" />
+                <element signature="e#20165#21771#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,23 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showMyGoods.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-34.57143">
-              <caret line="151" column="66" selection-start-line="151" selection-start-column="66" selection-end-line="151" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/debug/login.html" />
-        <option value="$PROJECT_DIR$/debug/login-new.html" />
         <option value="$PROJECT_DIR$/debug/pages/groundGoods.html" />
         <option value="$PROJECT_DIR$/debug/css/login.css" />
         <option value="$PROJECT_DIR$/debug/js/swiper.min.js" />
@@ -110,7 +169,6 @@
         <option value="$PROJECT_DIR$/debug/pages/goodsAuditManage.html" />
         <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
         <option value="$PROJECT_DIR$/debug/index.html" />
-        <option value="$PROJECT_DIR$/debug/js/noCompleteData.js" />
         <option value="$PROJECT_DIR$/debug/js/takingGoods.js" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
         <option value="$PROJECT_DIR$/debug/js/plumeimplement.js" />
@@ -118,8 +176,6 @@
         <option value="$PROJECT_DIR$/debug/js/amendmentInfo.js" />
         <option value="$PROJECT_DIR$/debug/js/secondreg.js" />
         <option value="$PROJECT_DIR$/debug/js/index.js" />
-        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
-        <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/pages/factoryCreate.html" />
         <option value="$PROJECT_DIR$/debug/pages/agencyCreate.html" />
         <option value="$PROJECT_DIR$/debug/js/agencyCreate.js" />
@@ -127,6 +183,11 @@
         <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/pages/amendmentInfo.html" />
         <option value="$PROJECT_DIR$/debug/js/feedMyGoods.js" />
+        <option value="$PROJECT_DIR$/debug/js/noCompleteData.js" />
+        <option value="$PROJECT_DIR$/debug/config/svm.xml" />
+        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
+        <option value="$PROJECT_DIR$/debug/js/shopList.js" />
+        <option value="$PROJECT_DIR$/debug/pages/brandList.html" />
       </list>
     </option>
   </component>
@@ -388,20 +449,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/debug/pages/takingGoodsData.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.964285">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/datas/shopDetail.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/datas/shopList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5908347">
@@ -607,14 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/noCompleteData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3420622">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/takingGoods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54373926">
@@ -700,35 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55973816">
-          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
-          <folding>
-            <element signature="e#207#801#0" expanded="false" />
-            <element signature="e#1183#1477#0" expanded="false" />
-            <element signature="e#2192#8307#0" expanded="false" />
-            <element signature="e#8348#9436#0" expanded="false" />
-            <element signature="e#9486#10776#0" expanded="false" />
-            <element signature="e#10815#12578#0" expanded="false" />
-            <element signature="e#12617#16060#0" expanded="false" />
-            <element signature="e#16110#16784#0" expanded="false" />
-            <element signature="e#16821#17800#0" expanded="false" />
-            <element signature="e#17838#19080#0" expanded="false" />
-            <element signature="e#19123#19276#0" expanded="false" />
-            <element signature="e#19336#20942#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/secondreg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7152209">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2006861">
@@ -763,14 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="464" column="23" selection-start-line="464" selection-start-column="9" selection-end-line="464" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.62193125">
@@ -795,14 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/amendmentInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/amendmentInfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.214286">
@@ -813,8 +807,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18657938">
-          <caret line="90" column="35" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/amendmentInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="52" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="474" column="27" selection-start-line="474" selection-start-column="9" selection-end-line="474" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="555" column="32" selection-start-line="555" selection-start-column="32" selection-end-line="555" selection-end-column="32" />
+          <folding>
+            <element signature="e#207#801#0" expanded="false" />
+            <element signature="e#9177#10265#0" expanded="false" />
+            <element signature="e#10315#11605#0" expanded="false" />
+            <element signature="e#11644#13407#0" expanded="false" />
+            <element signature="e#13446#16889#0" expanded="false" />
+            <element signature="e#16939#17613#0" expanded="false" />
+            <element signature="e#17650#18629#0" expanded="false" />
+            <element signature="e#18667#19909#0" expanded="false" />
+            <element signature="e#19952#20105#0" expanded="false" />
+            <element signature="e#20165#21771#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/noCompleteData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="47" selection-start-line="89" selection-start-column="47" selection-end-line="89" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/secondreg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/shopList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.071429">
+          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/brandList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22813036">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
           <folding />
         </state>
       </provider>
