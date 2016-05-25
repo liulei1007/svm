@@ -392,6 +392,9 @@ function getGoodsInfo() {
                     formsList += '<div class="form-group"><label class="col-sm-3 control-label">' + good.productAttribute.attrNameBack + '：</label><p class="col-sm-6 form-control-static">' + good.attrValue + '</p></div>'
                 });
                 $(".forms-block").append(formsList);
+                 $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
+                 $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
+
             }
         })
     } catch (e) {
@@ -410,6 +413,8 @@ function getProductInfo() {
             success: function (data) {
                 unloading();
                 $('.form-horizontal').setPageData(data.data);
+                $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
+                $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
                 var trList;
                 var color = {};
                 var colorList = "";
