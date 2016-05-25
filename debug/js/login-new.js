@@ -110,8 +110,6 @@ $(function () {
 
     //注册
     $(".register-form .btn-register").bind("click", function () {
-        window.location.href="secondreg?fullscreen";
-        return;
         $(".register-form .login-alert").hide();
         var tel = $("#tel").val();
         var pwd = $("#pwd").val();
@@ -239,7 +237,7 @@ function unloading() {
     $(".lockbg").remove();
     $(".loading").remove();
 }
-var send_code = 1;
+var send_code = 60;
 function send_code_time() {
     send_code--;
     if (send_code < 1) {

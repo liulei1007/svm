@@ -67,8 +67,6 @@ $(function () {
         myGoodsEditInit();
     } else if (session.goods_showMyGoods_type == "copy") {
         myGoodsCopyInit();
-    }else if (session.goods_showMyGoods_type == "copy") {
-        myGoodsCopyInit();
     }else if (session.goods_showMyGoods_type == "feed") {
         myGoodsFeedInit();
     }
@@ -76,11 +74,11 @@ $(function () {
     function getDataInit() {
         loading();
         var suburl=""
-        if (session.goods_showMyGoods_type == "feed"){
-            suburl=plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_profuctId;
-        }else{
-            suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
-        }
+        //if (session.goods_showMyGoods_type == "feed"||session.goods_showMyGoods_type == ""){
+            suburl=plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
+        //}else{
+        //    suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
+        //}
         $.ajax({
             type: "GET",
             url: suburl,
@@ -130,8 +128,8 @@ $(function () {
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
                 getProductAttribute();
-                for (var j = 0; j < d.productGoodsUpts.length; j++) {
-                    var p = d.productGoodsUpts[j];
+                for (var j = 0; j < d.productGoods.length; j++) {
+                    var p = d.productGoods[j];
                     var temp = '<tr class="cmg-goodstr">';
                     temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
@@ -163,8 +161,8 @@ $(function () {
                     $(this).parent().parent().remove();
                 });
                 setStandard();
-                for (var k = 0; k < d.productInfoPhotoUpts.length; k++) {
-                    var p = d.productInfoPhotoUpts[k];
+                for (var k = 0; k < d.productInfoPhotos.length; k++) {
+                    var p = d.productInfoPhotos[k];
                     var temp = '<li class="goodsPic">';
                     temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
@@ -235,7 +233,7 @@ $(function () {
                     temp += '<select type="text" class="form-control cmg-attrs" attr_type="2" attributeId="' + d.attributeId + '">';
                     for (var j = 0; j < d.productAttributeValues.length; j++) {
                         var x = d.productAttributeValues[j];
-                        temp += '<option value="' + x.attributeId + '">' + x.valueName + '</option>';
+                        temp += '<option value="' + x.valueId + '">' + x.valueName + '</option>';
                     }
                     temp += '</select>';
                 }
@@ -574,7 +572,7 @@ $(function () {
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             sub_url = plumeApi["addProductInfo"];
         } else if (session.goods_showMyGoods_type == "edit") {
-            sub_url = plumeApi["editProductInfo"] + "/" + session.goods_showMyGoods_uptId;
+            sub_url = plumeApi["editProductInfo"];
         }else if (session.goods_showMyGoods_type == "feed") {
             sub_url = plumeApi["addProductInfoFeedback"];
         }
@@ -590,7 +588,7 @@ $(function () {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("增加成功");
+                        $(".pop").find(".popup-info").html("数据提交成功");
                         derict(null, "goodsDataManage", "nochangeurl");
                     });
                 } else {

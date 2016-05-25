@@ -6,9 +6,9 @@ $(function () {
         "categoryId": "",
         "subCategoryId": "",
         "baseCategoryId": "",
-        "saleStatus": "",
-        "reviewStatus": 0,
-        "seriesName": ""
+        "saleStatus": ""
+        //"reviewStatus": 0,
+        //"seriesName": ""
     }
     getTableData();
     tablecheckbox();
@@ -30,8 +30,8 @@ $(function () {
         datas.subCategoryId = subCategoryId;
         datas.baseCategoryId = baseCategoryId;
         datas.saleStatus = saleStatus;
-        datas.reviewStatus = reviewStatus;
-        datas.seriesName = saleStatus;
+       // datas.reviewStatus = reviewStatus;
+        //datas.seriesName = saleStatus;
         getTableData();
     });
 //分类
@@ -175,7 +175,7 @@ $(function () {
             }
         });
         $(".gdm-btn-edit").unbind().bind("click", function () {
-            session.goods_showMyGoods_uptId = $(this).attr("uptid");
+            session.goods_showMyGoods_productId = $(this).attr("productId");
             session.goods_showMyGoods_type = "edit";
             derict(this, "myGoods", "nochangeurl");
         });
