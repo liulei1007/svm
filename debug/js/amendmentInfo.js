@@ -5,12 +5,11 @@ $(function() {
 	  "categoryId": "",
 	  "subCategoryId": "",
 	  "baseCategoryId": "",
-	  "saleStatus": "",
-	  "reviewStatus": "",
+	  //"saleStatus": "",
+	  //"reviewStatus": "",
 	  "seriesName": ""
 	}
 
-	//分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
     function getFirstCategory(categoryId, tag) {
@@ -32,7 +31,6 @@ $(function() {
 	getFirstCategory(0, 0);
 
 
-	//待完善数据列表
 	listErrorFeedbackProductInfo();
 	function listErrorFeedbackProductInfo() {
 		var newData = JSON.stringify(datas)
@@ -58,27 +56,36 @@ $(function() {
                             unloading();
                             $(".table-block").find("[list-node]").remove();
                             $(".table-block").setPageData(data);
+                            addTableFuncs();
+
                         }
                     });
                 });
                 $(".table-block").find("[list-node]").remove();
                 $(".table-block").setPageData(data);
+                addTableFuncs();
             }
         });
 	} 
 
 
 
-	//显示列表条数
 	if($(".infoNum")){$(".infoNum").html(0)}
 
-	//点击查询按钮
 	$(".btn-search").bind("click",function() {
 		datas.productName = $("#productName").val();
 		datas.baseCategoryId = $("#baseCategoryId").val();
  		datas.subCategoryId = $("#subCategoryId").val();
  		datas.categoryId = $("#categoryId").val();	
  		listErrorFeedbackProductInfo();
-	})	
-	
+	});
+    function addTableFuncs(){
+        $(".ai-btn-show").unbind().bind("click",function(){
+            var uptId = $(this).attr("uptId");
+            var productId = $(this).attr("productId");
+            session.goods_showMyGoods_uptId = uptId;
+            session.goods_showMyGoods_productId = productId;
+            derict(this, "showMyGoods", "nochangeurl");
+        });
+    }
 })
