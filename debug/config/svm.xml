@@ -364,6 +364,11 @@
         <page-url>/pages/myGoods.html</page-url>
         <init>myGoods_init</init>
     </page>
+    <page>
+        <page-name>feedMyGoods</page-name>
+        <page-url>/pages/feedMyGoods.html</page-url>
+        <init>feedMyGoods_init</init>
+    </page>
     <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
 
     <!--<api-host>https://longguo.mmall.com</api-host>-->
