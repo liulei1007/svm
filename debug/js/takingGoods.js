@@ -65,6 +65,10 @@ $(function(){
 	$('.btn-errors').bind('click',function() {
 		session.goods_showMyGoods_type = "feed";
 		 derict(this, "myGoods", "nochangeurl");
-	})
+	});
+
+	$(".btn-cancel").bind("click",function() {
+		derict(this, "takingGoodsData", "nochangeurl");
+	});
 
 })

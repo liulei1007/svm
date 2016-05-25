@@ -555,12 +555,12 @@ function addProductShopGoods(body) {
         success: function (data) {
             if (data.ok) {
                 unloading();
-                popTips("商品编辑成功", "success");
-                derict(this, "groundGoods", "nochangeurl");
+                popTips("商品调取成功", "success");
+                derict(this, "takingGoodsData", "nochangeurl");
             } else {
                 unloading();
-                popTips("商品编辑失败", "warning");
-                derict(this, "groundGoods", "nochangeurl");
+                popTips("商品调取失败", "warning");
+                derict(this, "takingGoodsData", "nochangeurl");
             }
         }
     });
