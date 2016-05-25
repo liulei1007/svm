@@ -76,6 +76,6 @@ $(function() {
 
     // 点击“返回”
     $(".btn-back").bind("click", function() {
-        window.location.href="/";
+        window.location.href="/secondreg?fullscreen";
     });
 })
