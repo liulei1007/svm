@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js"></script>
+    <!--声明-->
+    <script>
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "feedMyGoods"
+        }
+    </script>
+</head>
+
+<body>
+<div class="body-typein showGoods" style="width: 50%;float:left">
+    <div class="title-block">反馈商品数据</div>
+    <form class="form-horizontal">
+        <div class="form-group required smg-base-attr1">
+            <label class="col-sm-2 control-label">当前类目</label>
+
+            <div class="col-sm-6 cmg-brand">
+                <p class="col-sm-6 form-control-static" data-name="$p.categoryName"></p>
+            </div>
+        </div>
+    </form>
+    <div class="form-block-contractive smg-basicInfo1">
+        <div  class="row block-title">
+            <div class="col-sm-4">基础信息</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="basicInfo-content row">
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">品牌名称</label>
+
+                    <div class="col-sm-8 cmg-brand">
+                        <p class="col-sm-8 form-control-static"  data-name="$p.brandName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">系列名称</label>
+
+                    <div class="col-sm-8 cmg-series">
+
+                        <p class="col-sm-8 form-control-static" data-name="$p.seriesName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">商品标语</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.productSecondName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">商品名称</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.productName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">产地</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.cityName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">型号</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.modelNumber"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">材质</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.materialQuality"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">重量</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.weight+' KG'"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">价格类型</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" id="priceType1" data-name="$p.priceType"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">等级</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" id="lvInfo1" data-name="$p.lvInfo"></p>
+                    </div>
+
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">市场参考价</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.marketPrice+' 元'"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="form-block-contractive">
+        <div  class="row block-title">
+            <div class="col-sm-4">商品属性</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="goodsAttr-content1 row">
+                <div class="form-group required smg-base-attr1">
+                    <label class="col-sm-2 control-label">饰面</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material3"></p>
+                    </div>
+                    <label class="col-sm-2 control-label">基材</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material1"></p>
+                    </div>
+                </div>
+                <div class="form-group required smg-base-attr1">
+
+                    <label class="col-sm-2 control-label">辅材</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material2"></p>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="form-block-contractive">
+        <div class="row block-title">
+            <div class="col-sm-4 ">规格属性</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="sizeAttr-content row">
+
+                <div class="addGoods-table col-sm-offset-2">
+                    <!-- <div class="row"> -->
+                    <div class="col-sm-10">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="active">
+                                <th>颜色分类</th>
+                                <th>规格</th>
+                                <th>市场参考价</th>
+                            </tr>
+                            </thead>
+                            <tbody class="standardtbody1">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="form-block-contractive">
+        <div class="row block-title">
+            <div class="col-sm-4 ">商品图片</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="goodsPic-content">
+
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-9">
+                        <ul class="goodsPic-upload goodsPic-upload1 clearFix">
+
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group required" style="display: none">
+                <label class="col-sm-2 control-label">状态</label>
+
+                <div class="col-sm-6">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="status" checked=""/>启用
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="status"/>禁用
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="body-typein showGoods" style="width: 50%;float:left">
+    <div class="title-block">历史商品数据</div>
+    <form class="form-horizontal">
+        <div class="form-group required smg-base-attr2">
+            <label class="col-sm-2 control-label">当前类目</label>
+
+            <div class="col-sm-6 cmg-brand">
+                <p class="col-sm-6 form-control-static" data-name="$p.categoryName"></p>
+            </div>
+        </div>
+    </form>
+    <div class="form-block-contractive smg-basicInfo2">
+        <div  class="row block-title">
+            <div class="col-sm-4">基础信息</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="basicInfo-content row">
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">品牌名称</label>
+
+                    <div class="col-sm-8 cmg-brand">
+                        <p class="col-sm-8 form-control-static"  data-name="$p.brandName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">系列名称</label>
+
+                    <div class="col-sm-8 cmg-series">
+
+                        <p class="col-sm-8 form-control-static" data-name="$p.seriesName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">商品标语</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.productSecondName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">商品名称</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.productName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">产地</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.cityName"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">型号</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.modelNumber"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">材质</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.materialQuality"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">重量</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.weight+' KG'"></p>
+                    </div>
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">价格类型</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" id="priceType2" data-name="$p.priceType"></p>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">等级</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" id="lvInfo2" data-name="$p.lvInfo"></p>
+                    </div>
+
+
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label">市场参考价</label>
+
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.marketPrice+' 元'"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="form-block-contractive">
+        <div  class="row block-title">
+            <div class="col-sm-4">商品属性</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="goodsAttr-content2 row">
+                <div class="form-group required smg-base-attr2">
+                    <label class="col-sm-2 control-label">饰面</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material3"></p>
+                    </div>
+                    <label class="col-sm-2 control-label">基材</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material1"></p>
+                    </div>
+                </div>
+                <div class="form-group required smg-base-attr2">
+
+                    <label class="col-sm-2 control-label">辅材</label>
+
+                    <div class="col-sm-4">
+                        <p class="col-sm-10 form-control-static" data-name="$p.material2"></p>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="form-block-contractive">
+        <div class="row block-title">
+            <div class="col-sm-4 ">规格属性</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="sizeAttr-content row">
+
+                <div class="addGoods-table col-sm-offset-2">
+                    <!-- <div class="row"> -->
+                    <div class="col-sm-10">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="active">
+                                <th>颜色分类</th>
+                                <th>规格</th>
+                                <th>市场参考价</th>
+                            </tr>
+                            </thead>
+                            <tbody class="standardtbody2">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="form-block-contractive">
+        <div class="row block-title">
+            <div class="col-sm-4 ">商品图片</div>
+        </div>
+        <form class="form-horizontal">
+            <div class="goodsPic-content">
+
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-9">
+                        <ul class="goodsPic-upload goodsPic-upload2 clearFix">
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group required" style="display: none">
+                <label class="col-sm-2 control-label">状态</label>
+
+                <div class="col-sm-6">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="status" checked=""/>启用
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="status"/>禁用
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="body-typein showGoods" style="width:100%;float:left">
+    <div class="col-sm-10 col-sm-offset-4 btn-block">
+        <button type="button" class="btn btn-lg btn-success btn-next fmg-ok">处理</button>
+        <button type="button" class="btn btn-lg btn-default btn-back fmg-back">返回</button>
+    </div>
+</div>
+</body>
+</html>
