@@ -61,14 +61,13 @@ $(function(){
 		});
 	});
 
-	$(".btn-errors").bind('click',function() {
-		derict(this, "editMyGoods", "nochangeurl");
-	});
-
 
 	$('.btn-errors').bind('click',function() {
 		session.goods_showMyGoods_type = "feed";
+<<<<<<< HEAD
 		session.goods_showMyGoods_type = "feed";
+=======
+>>>>>>> 66dbaf8206fc43df8bb780b95daa95702ed72f38
 		 derict(this, "myGoods", "nochangeurl");
 	})
 
