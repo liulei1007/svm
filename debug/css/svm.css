@@ -472,14 +472,17 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .table-block td div{height:22px;line-height:22px;padding:0 10px}
 .cpdstep2{display:none}
 .sd-btn-back{position:absolute;top:-110px;left:-110px}
-.sd-choose-step1,.sd-choose-step2{width:720px;height:220px;margin:130px auto;position:relative;display: none}
+.sd-choose-step1,.sd-choose-step2{width:720px;height:220px;margin:130px auto;position:relative;}
+.sd-choose-step2{display: none}
 .sd-btn-radius{width:320px;color:#fff;margin:0 20px;float:left;text-align:center;position: relative;background:#fff;padding:0;border:0;border-top:6px solid #0094da}
 .sd-btn-radius:hover{box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);border-top:6px solid #0094da}
-.sd-btn-radius .div1{height:100px;width:100%;background:#00aaf2;line-height:100px;float: left}
-.sd-btn-radius .div1:hover{background:#0094da}
+.sd-btn-radius .div1 strong{margin-left: 10px; font-size: 20px;}
+.sd-btn-radius .div1{height:100px;width:100%;background:#00aaf2;line-height:100px;float: left; background: url(../images/icons_register.png) no-repeat #00aaf2;}
+.sd-btn-radius .div1.div1-agency{background-position: 0 -100px;}
+.sd-btn-radius .div1:hover{background-color: #0094da;}
 .sd-btn-radius .div2{font-size:12px;display:none;width:100%;background:#fff;float: left;color:#333;padding:10px 10px 20px 10px;white-space: normal;text-align: left;display:none}
 .sd-btn-radius .div2 .p-title{color:#0094da;margin:10px 0 0 0}
-.sd-btn-radius .div2 .p-cont{color:#aaa;margin: 5px 0 0 0}
+.sd-btn-radius .div2 .p-cont{font-size: 12px; color:#aaa;margin: 5px 0 0 0}
 
 .index-head-logo{height:45px;/*width:240px;*/line-height:45px;/*text-align:center;*/font-size:24px;float: left;color:#fff;cursor:pointer}
 .index-head-user{height:45px;width:200px;line-height:45px;text-align:center;position:relative;float: right;color:#fff;font-size:14px;cursor:pointer}

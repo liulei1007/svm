@@ -2,10 +2,10 @@ $(function () {
     plumeLog("进入secondreg模板自定义js-" + plumeTime());
     var t1 = "";
     var t2 = "";
-    $(".sd-next").bind("click", function () {
-        $(".reg-msg-block").hide();
-        $(".sd-choose-step1").fadeIn();
-    });
+    // $(".sd-next").bind("click", function () {
+    //     $(".reg-msg-block").hide();
+    //     $(".sd-choose-step1").fadeIn();
+    // });
     $(".sd-btn-back0").bind("click", function () {
         $(".sd-choose-step1").hide();
         $(".reg-msg-block").fadeIn();
