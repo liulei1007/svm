@@ -6,5 +6,9 @@ $(function () {
     	$(".popSort").loadTemp("popUserType", "nochangeurl", function () {
             
         });
+    });
+    $(".btn-cancel").bind("click",function() {
+    	$(".pop").hide();
     })
+
 })
