@@ -85,7 +85,7 @@ $(function() {
             var productId = $(this).attr("productId");
             session.goods_showMyGoods_uptId = uptId;
             session.goods_showMyGoods_productId = productId;
-            derict(this, "showMyGoods", "nochangeurl");
+            derict(this, "feedMyGoods", "nochangeurl");
         });
     }
 })
