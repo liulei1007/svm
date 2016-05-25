@@ -394,7 +394,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .select-single li.sel{color: #fff; background-color: #26aff5;}
 .select-single li.sel:after{border-color: #fff;}
 .select-single .type-third li:after{content: none;}
-
+.page-search{display: none;}
 
 
 /*.type-first,

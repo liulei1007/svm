@@ -20,6 +20,7 @@ $(function () {
         datas.keyword = $('#keyword').val();
         getProductGoodsData()
         $(".nav-pagination").off();
+        $(".page-search").show();
     });
 
     $('.btn-selfGoods').bind('click', function () {
