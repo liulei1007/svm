@@ -19,11 +19,7 @@
 
 <body>
 <div class="doc-basicDataManagement">
-<<<<<<< HEAD
      <div class="title-block">商品反馈信息处理</div>
-=======
-     <div class="title-block">修正信息处理</div>
->>>>>>> b8a1e18e02931c924a8f21c4058634ec4f0c87ad
     <div class="search-block">
       <form class="form-inline">
         <div class="form-group">
@@ -51,8 +47,8 @@
         <div class="btn btn-default btn-sm btn-search">查询</div>
       </form>
     </div>
-    
-    <div class="basicDataManagement-table table-block">   
+
+    <div class="basicDataManagement-table table-block">
         <!-- <div class="table-title">
             您当前共有<span>12</span>条修正信息待处理
         </div> -->
@@ -60,29 +56,25 @@
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>商品ID号</th>
-                <th>商品名称</th>
-                <th>系列名</th>
-                <th>品牌</th>
-                <th>颜色</th>
-                <th>规格</th>
-                <th>提交账号</th>
-                <th>提交时间</th>
-                <th>操作</th>
+                  <th><input type="checkbox"/></th>
+                  <th>商品名称</th>
+                  <th>系列名</th>
+                  <th>品牌</th>
+                  <th>产地</th>
+                  <th>修改时间</th>
+                  <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>20160402001</td>
-                <td>我是商品名称，我是商品名称</td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>红色，白色</td>
-                <td>200*180</td>
-                <td>admin</td>
-                <td>2016.05.12</td>
-                <td>
-                  <button type="button" class="btn btn-link">处理</button>
+            <tbody data-list="$p.data">
+              <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
+                  <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
+                  <td node-name="$n.productName"></td>
+                  <td node-name="$n.seriesName "></td>
+                  <td node-name="$n.brandName"></td>
+                  <td node-name="$n.cityName"></td>
+                  <td node-name="_getLocalTime($n.updateDate)"></td>
+                  <td>
+                  <button type="button" class="btn btn-link ai-btn-show" node-name="attr-productId:$n.productId,attr-uptId:$n.uptId">处理</button>
                 </td>
               </tr>
             </tbody>
