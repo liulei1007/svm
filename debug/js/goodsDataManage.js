@@ -85,7 +85,7 @@ $(function () {
                         }
                     });
                 });
-                $("[list-node]").remove();
+                 $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
             }
@@ -135,7 +135,7 @@ $(function () {
 //批量导入按钮
     $(".btn-import-data").bind("click", function () {
         $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
-            $('#myform').ajaxForm(function (data) {
+            $('#myForm').ajaxForm(function (data) {
                 unloading();
                 if (data.ok) {
                     alert("上传成功");
@@ -152,8 +152,8 @@ $(function () {
 
             $(".ex-ok").bind("click", function () {
                 if (($("#file").val())) {
-                    $("#myform").attr("action").value=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
-                    $('#myform').submit();
+                    document.myForm.action=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
+                    $('#myForm').submit();
                     session.goods_baseCategoryId="";
                     session.goods_subCategoryId="";
                     session.goods_categoryId="";
