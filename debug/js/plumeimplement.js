@@ -86,6 +86,11 @@ function amendmentInfo_init() {
     plumeUtil.js(plumePath + "/js/amendmentInfo.js");
     plumeLog("完成amendmentInfo模板加载-" + plumeTime());
 }
+function popBatch_init() {
+    plumeLog("初始化popBatch模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/popBatch.js");
+    plumeLog("完成popBatch模板加载-" + plumeTime());
+}
 //--takingGoodsData模板初始化函数--
 function takingGoodsData_init() {
     plumeLog("初始化takingGoodsData模板-" + plumeTime());

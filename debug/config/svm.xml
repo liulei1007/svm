@@ -27,6 +27,11 @@
         <init>test1_init</init>
     </page>
     <page>
+        <page-name>popBatch</page-name>
+        <page-url>/pages/popBatch.html</page-url>
+        <init>popBatch_init</init>
+    </page>
+    <page>
         <page-name>transmit</page-name>
         <page-url>/pages/transmit.html</page-url>
         <init>transmit_init</init>
@@ -462,5 +467,7 @@
         <addProductInfoFeedback>/api/productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
         <uploadEx>/api/excel/importProductGoods/</uploadEx>
         <downloadEx>/api/excel/exportProductGoodsTemplate/</downloadEx>
+        <upBatch>/api/excel/importProductStash</upBatch>
+        <downBatch>/api/excel/exportProductStashTemplate</downBatch>    
     </api>
 </config>
