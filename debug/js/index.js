@@ -1,5 +1,8 @@
 $(function () {
 //显示登录名称
+    if (sessionStorage.login_mobilePhone) {
+        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
+    }
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
     $(".welcome").bind("click", function () {
@@ -186,7 +189,6 @@ function pathInit() {
     if (path.indexOf(".html") != -1) {
         return;
     }
-    getLoginInfoToSession();
     var prams = path.substring(path.indexOf("?") + 1);
     var temp = path.substring(path.lastIndexOf("/") + 1);
     if (prams.indexOf("fullscreen") != -1) {
@@ -195,6 +197,7 @@ function pathInit() {
         $(".page-content").css({"left": 0});
         $(".container-fixed").fadeIn();
     } else {
+        getLoginInfoToSession();
         //获取登录信息放入session中
         loading();
        // getLoginInfoToSession();
@@ -261,7 +264,21 @@ function getLoginInfoToSession() {
         async: false,
         success: function (data) {
             if (data.ok) {
-                //待确认，不知道这种方式是否可以
+                if(data.data.userType==0){
+                    //window.location.href="secondreg?fullscreen";
+                    derict(this, "secondreg?fullscreen", "nochangeurl");
+                    $(".slidebar").hide();
+                    $(".page-content").show();
+                    $(".page-content").css({"left": 0});
+                    $(".container-fixed").fadeIn();
+                }else if(data.data.userType==3){
+                    //window.location.href="waitCheck?fullscreen";
+                    derict(this, "waitCheck?fullscreen", "nochangeurl");
+                    $(".slidebar").hide();
+                    $(".page-content").show();
+                    $(".page-content").css({"left": 0});
+                    $(".container-fixed").fadeIn();
+                }
                 sessionStorage.login_mobilePhone = data.data.mobilePhone;
                 sessionStorage.login_userType = data.data.userType;
                 sessionStorage.login_id = data.data.id;
@@ -272,7 +289,6 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {
-                   // alert("获取登录信息失败!");
                     window.location.href = "/";
                 }
             } else {
