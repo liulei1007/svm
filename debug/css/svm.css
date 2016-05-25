@@ -553,7 +553,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
 #cmg-upload{cursor: pointer}
-.popup-upload{width: 300px; height: 200px; }
+.popup-upload{position: relative; width: 300px; height: 200px; }
 .loadings {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }
 @-webkit-keyframes bounce {
     0% {
