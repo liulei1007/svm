@@ -58,7 +58,7 @@ $(function () {
         $(".mg-title").text("商品错误信息反馈");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "takingGoods", "nochangeurl");
         });
         getDataInit();
     }

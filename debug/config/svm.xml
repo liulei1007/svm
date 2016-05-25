@@ -467,7 +467,10 @@
         <addProductInfoFeedback>/api/productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
         <uploadEx>/api/excel/importProductGoods/</uploadEx>
         <downloadEx>/api/excel/exportProductGoodsTemplate/</downloadEx>
+
         <upBatch>/api/excel/importProductStash</upBatch>
         <downBatch>/api/excel/exportProductStashTemplate</downBatch>    
+
+        <listMarketInfo>/api/common/listMarketInfo</listMarketInfo>
     </api>
 </config>
