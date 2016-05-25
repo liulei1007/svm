@@ -88,7 +88,7 @@ $(function () {
     getProductInfoUpt();
     getProductInfo();
     $(".fmg-back").bind("click",function(){
-        derict(this, "goodsAuditManage", "nochangeurl");
+        derict(this, "amendmentInfo", "nochangeurl");
     });
     $(".fmg-ok").bind("click",function(){
         auditFun();
