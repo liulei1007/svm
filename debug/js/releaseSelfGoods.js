@@ -76,4 +76,8 @@ $(function() {
 			error:function(error) {console.log(error);}
 		});
 	}
+
+		//显示列表条数
+	if($(".infoNum")){$(".infoNum").html(0)}
+	
 });

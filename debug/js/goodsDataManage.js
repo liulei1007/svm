@@ -150,13 +150,13 @@ $(function () {
 
             $(".ex-ok").bind("click", function () {
                 if (($("#file").val())) {
-                    $("#myform").attr("action").value="http://longguo.hxmklmall.cn/api/excel/importProductGoods/"+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
+                    $("#myform").attr("action").value=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
                     $('#myform').submit();
                 }
             });
 
             $(".text-bottom .btn-loadModule").bind("click", function () {
-                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/"+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
+                window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
             });
         });
     })
