@@ -60,29 +60,36 @@
                 <th>商品名称</th>
                 <th>系列名</th>
                 <th>品牌</th>
-                <th>颜色</th>
-                <th>规格</th>
                 <th>提交账号</th>
                 <th>提交时间</th>
                 <th>操作</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>20160402001</td>
-                <td>我是商品名称，我是商品名称</td>
-                <td>韩式</td>
-                <td>TOTO</td>
-                <td>红色，白色</td>
-                <td>200*180</td>
-                <td>admin</td>
-                <td>2016.05.12</td>
+            <tbody data-list="$p.data">
+              <tr list-temp="ture">
+                <td node-name="$n.productId"></td>
+                <td node-name="$n.productName"></td>
+                <td node-name="$n.seriesName"></td>
+                <td node-name="$n.brandName"></td>
+                <td node-name="$n.categoryId"></td>
+                <td node-name="$n.createDate" class="time-info"></td>
                 <td>
                   <button type="button" class="btn btn-link">处理</button>
                 </td>
               </tr>
             </tbody>
         </table>
+    </div>
+     <div class="nav-pagination clearFix">
+        <ul class="pagination">
+            <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
+            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
+            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
+            <li class="page-number"><a href="javascript:void(0)">2</a></li>
+            <li class="page-number"><a href="javascript:void(0)">3</a></li>
+            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
+            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li>
+        </ul>
     </div>
 </div>
 
