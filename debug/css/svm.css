@@ -226,7 +226,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .mark-danger{background-color: #f56c50;}
 
 /** --------弹出-------- **/
-.pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;}
+.pop{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;background-color: rgba(0,0,0,.3);}
 .popSort{display: none; position: fixed; z-index: 29999; top: 0; right: 0; bottom: 0; left: 0;}
 .pot{display: none; position: fixed; z-index: 99999; top: 0; right: 0; bottom: 0; left: 0;}
 /** 弹出提示框 **/
@@ -394,7 +394,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .select-single li.sel{color: #fff; background-color: #26aff5;}
 .select-single li.sel:after{border-color: #fff;}
 .select-single .type-third li:after{content: none;}
-
+.page-search{display: none;}
 
 
 /*.type-first,
