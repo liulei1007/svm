@@ -28,7 +28,8 @@ $(function(){
 		 datas.brandName =$("#brandName").val();
 		 datas.contract =$("#contract").val();
 	     datas.contractTel =$("#telNumber").val();
-		getTableData()
+		getTableData();
+		  $(".nav-pagination").off();
 	})
 
 	//商品管理列表

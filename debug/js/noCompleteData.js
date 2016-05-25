@@ -6,8 +6,6 @@ $(function() {
 	  "categoryId": "",
 	  "subCategoryId": "",
 	  "baseCategoryId": "",
-	  "saleStatus": "",
-	  "reviewStatus": "",
 	  "seriesName": ""
 	}
 
@@ -61,6 +59,7 @@ $(function() {
                             unloading();
                             $(".table-block").find("[list-node]").remove();
                             $(".table-block").setPageData(data);
+                            getFirstCategory(0, 0);
                         }
                     });
                 });
@@ -81,6 +80,7 @@ $(function() {
  		datas.subCategoryId = $("#subCategoryId").val();
  		datas.categoryId = $("#categoryId").val();	
  		listToBePerfectProductInfo();
+        $(".nav-pagination").off();
 	})
 
 

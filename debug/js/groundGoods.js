@@ -29,6 +29,7 @@ $(function(){
 		datas.modelNumber=$('#modelNumber').val();
 		datas.saleStatus=$('#saleStatus').val();
 		getGoodsData();
+        $(".nav-pagination").off();
 	})
 
 	//上下架商品列表

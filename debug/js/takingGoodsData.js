@@ -19,6 +19,7 @@ $(function () {
     $(".btn-search").bind('click', function () {
         datas.keyword = $('#keyword').val();
         getProductGoodsData()
+        $(".nav-pagination").off();
     });
 
     $('.btn-selfGoods').bind('click', function () {

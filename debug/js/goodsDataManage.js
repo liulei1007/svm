@@ -33,6 +33,7 @@ $(function () {
        // datas.reviewStatus = reviewStatus;
         //datas.seriesName = saleStatus;
         getTableData();
+         $(".nav-pagination").off()
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
@@ -80,10 +81,11 @@ $(function () {
                             $("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
                             binFun()
+                              getFirstCategory(0, 0);
                         }
                     });
                 });
-                $(".gdm-table-data").find("[list-node]").remove();
+                $("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 binFun()
             }
@@ -152,11 +154,18 @@ $(function () {
                 if (($("#file").val())) {
                     $("#myform").attr("action").value=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
                     $('#myform').submit();
+                    session.goods_baseCategoryId="";
+                    session.goods_subCategoryId="";
+                    session.goods_categoryId="";
                 }
             });
 
-            $(".text-bottom .btn-loadModule").bind("click", function () {
-                window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
+            $(".btn-loadModule").bind("click", function () {
+                if(session.goods_baseCategoryId){
+                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
+                }else{
+                    alert(请选择类目)
+                }
             });
         });
     })

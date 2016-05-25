@@ -33,6 +33,7 @@ $(function() {
 		data.isDel=$("#isDel").find('option:selected').val();
 		console.log(data);
 		getData();
+		  $(".nav-pagination").off();
 	});
 
 	// 从服务器获取数据
