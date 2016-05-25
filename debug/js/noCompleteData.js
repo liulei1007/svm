@@ -1,5 +1,5 @@
 $(function() {
-	//初始化数据
+	//初始化数�?
 	var datas = {
 	  "productName": "",
 	  "modelNumber": "",
@@ -35,7 +35,7 @@ $(function() {
 
 
 
-//待完善数据列表
+//待完善数据列�?
 	listToBePerfectProductInfo();
 	function listToBePerfectProductInfo() {
 		var newData = JSON.stringify(datas)
