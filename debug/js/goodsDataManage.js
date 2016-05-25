@@ -162,7 +162,8 @@ $(function () {
 
             $(".btn-loadModule").bind("click", function () {
                 if(session.goods_baseCategoryId){
-                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
+                    var count=$(".btn-count input").val();
+                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/"+count
                 }else{
                     alert(请选择类目)
                 }

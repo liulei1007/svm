@@ -366,8 +366,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-select .cmg-colorName{text-align: center;}
 .color-select .color-desc{float: left; width: 100px;}
 .color-select .form-control{margin: 0; margin-left: 10px; padding: 5px 10px; width: 100%; height: 32px;}
-
-
+.btn-count{float: left;margin-left: 50px;}
+.btn-count input{width: 40px;}
 /*.color-select>div>div>input{float:left;margin: 10px 12px 0 0;}
 .color-select>div>div>div{float:left;width:68px;}
 .color-select>div>div>div>p{height:22px;width:68px;border:1px solid #dadce5;text-align: center;}
