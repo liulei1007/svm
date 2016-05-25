@@ -244,17 +244,20 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-btn-block .btn{width: 100%;}
 
 /** 弹出提示框 **/
-.popup-load{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; padding: 10px; width: 400px; height: 240px; box-sizing: border-box; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
+.popup-load{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; padding: 0 20px; width: 400px; height: 240px; box-sizing: border-box; text-align: center; background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
 .popup-load .load-alert{position: absolute; z-index: 10; top: 10px; right: 10px; left: 10px; padding-top: 5px; padding-bottom: 5px; max-height: 215px; overflow-y: auto; text-align: center;}
 .popup-load .load-alert .close{top: -10px; right: -20px;}
 .popup-load .load-alert p{margin-top: 0; margin-bottom: 0;}
 .popup-load .load-alert strong{font-size: 14px;}
-.popup-load .btn-loadFile{position: relative; margin: 30px auto 20px; width: 120px;}
-.popup-load .btn-choose{margin: 30px 0 30px;}
-.popup-load .btn-choose .btn{float: left;}
+.popup-load .btn-loadFile{/*position: relative; margin: 30px auto 20px; width: 120px;*/ margin-bottom: 50px; margin-left: 25px;}
+.popup-load .btn-choose{margin-top: 15px;}
+.popup-load .btn-choose .btn-chooseSort{float: left;}
+.popup-load .btn-choose .btn-loadModule{float: right;}
+.popup-load .fixed_buttom{position: absolute; right: 20px; bottom: 20px; left: 20px;}
+.popup-load .select-result{margin: 20px 0;}
 
 /*.popup-load .loadFile{position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; font-size: 200;}*/
-.popup-load .load-btn-block{margin-right: 0; margin-left: 0; margin-bottom: 10px;}
+.popup-load .load-btn-block{margin-right: 0; margin-left: 0;}
 .popup-load .load-btn-block .btn{width: 100%;}
 .popup-load .text-bottom{text-align: center;}
 .popup-load .btn-loadModule{display: inline-block; margin: 0 10px;cursor: pointer;}
