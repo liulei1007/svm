@@ -150,55 +150,19 @@ $(function () {
 
             $(".ex-ok").bind("click", function () {
                 if (($("#file").val())) {
+                    $("#myform").attr("action").value="http://longguo.hxmklmall.cn/api/excel/importProductGoods/"+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
                     $('#myform').submit();
                 }
             });
 
-            $(".btn-selectType").bind('click', function () {
-                $(".pop").hide();
-                derict(this, "userType2", "nochangeurl");
-            });
-
-
             $(".text-bottom .btn-loadModule").bind("click", function () {
-                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/1/5/61/5"
+                window.location = "http://longguo.hxmklmall.cn/api/excel/exportProductGoodsTemplate/"+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/5"
             });
         });
     })
 
 //按钮绑定方法
     function binFun() {
-        //$(".gdm-btn-del").unbind().bind("click", function () {
-        //    if (confirm("是否确认删除?")) {
-        //        loading();
-        //        var uptid = $(this).attr("uptid");
-        //        $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
-        //            unloading();
-        //            if (data.ok) {
-        //                $("[list-node]").remove();
-        //                getTableData();
-        //                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-        //                    $(".pop").find(".popup-title").html("信息提示");
-        //                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
-        //                    $(".pop").find(".popup-info").html("删除成功");
-        //                    setTimeout(function () {
-        //                        window.location.reload();
-        //                    }, 1000);
-        //                });
-        //            } else {
-        //                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-        //                    $(".pop").find(".popup-title").html("信息提示");
-        //                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-        //                    $(".pop").find(".popup-info").html("删除失败");
-        //                    setTimeout(function () {
-        //                        window.location.reload();
-        //                    }, 1000);
-        //                });
-        //            }
-        //        });
-        //    }
-        //});
-
         $(".gdm-btn-edit").unbind().bind("click", function () {
             session.goods_showMyGoods_uptId = $(this).attr("uptid");
             derict(this, "editMyGoods", "nochangeurl");
@@ -221,47 +185,6 @@ $(function () {
             derict(this, "myGoods", "nochangeurl");
         })
     }
-
-
-//删除产品方法
-//    function disableSaleStatus() {
-//        $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
-//            // 改变弹出框中文字和图标显示
-//            $(".pop").find(".popup-title").html("删除确认？");
-//            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-//            $(".pop").find(".popup-info").html("是否确认删除记录？");
-//            $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
-//            // 绑定按钮事件
-//            $('.pop').on('click', '.btn-sure', function () {
-//                loading();
-//                $.ajax({
-//                    url: plumeApi["delProductShopGoods"] + "/" + session.goods_psgId,
-//                    type: "GET",
-//                    contentType: "application/json;charset=UTF-8",
-//                    success: function (data) {
-//                        if (data.ok) {
-//                            unloading();
-//                            popTips("删除成功", "success");
-//                            getGoodsData();
-//                        } else {
-//                            unloading();
-//                            popTips("删除失败", "warning");
-//                            getGoodsData();
-//                        }
-//                    }
-//                });
-//                $('.pop').hide();
-//                $('.pop').off('click', '.btn-sure');
-//                $('.pop').off('click', '.btn-cancel');
-//            });
-//            $('.pop').on('click', '.btn-cancel', function () {
-//                $('.pop').hide();
-//                $('.pop').off('click', '.btn-sure');
-//                $('.pop').off('click', '.btn-cancel');
-//            });
-//        });
-//    }
-
 
 //删除按钮
     $(".table-block").on("click", ".gdm-btn-del", function () {
