@@ -633,7 +633,7 @@ $(function () {
                         if (session.goods_showMyGoods_type == "feed") {
                             derict(null, "takingGoods", "nochangeurl");
                         } else {
-                            derict(null, "goodsDataManage", "nochangeurl");
+                            derict(null, "goodsAuditManage", "nochangeurl");
                         }
                     });
                 } else {
