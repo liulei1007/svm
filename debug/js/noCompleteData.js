@@ -1,5 +1,5 @@
 $(function() {
-	//初始化数�?
+	//初始化数�?
 	var datas = {
 	  "productName": "",
 	  "modelNumber": "",
@@ -33,7 +33,7 @@ $(function() {
 
 
 
-//待完善数据列�?
+//待完善数据列�?
 	listToBePerfectProductInfo();
 	function listToBePerfectProductInfo() {
 		var newData = JSON.stringify(datas)
@@ -85,10 +85,38 @@ $(function() {
 
 
 	//点击编辑按钮
-	$('.table-block').on('click','.btn-releaseGoods',function() {
-		session.goods_showMyGoods_uptId = $(this).attr("uptid");
-		session.goods_showMyGoods_type = "amend";
+    $('.table-block').on('click','.btn-link-edit',function() {
+        session.goods_showMyGoods_uptId = $(this).attr("uptid");
+        session.goods_showMyGoods_type = "amend";
         derict(this, "myGoods", "nochangeurl");
-	})
+    })
+    $('.table-block').on('click','.btn-link-delete',function() {
+        if (confirm("是否确认删除?")) {
+            loading();
+            var uptId = $(this).attr("uptId");
+            $.get(plumeApi["delProductInfoUpt"] + "/" + uptId, {}, function (data) {
+                unloading();
+                if (data.ok) {
+
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                        $(".pop").find(".popup-info").html("删除成功!");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                        //derict(null,"noCompleteData","nochangeurl");
+                    });
+                } else {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("删除失败!");
+
+                    });
+                }
+            });
+        }
+    })
 
 });
