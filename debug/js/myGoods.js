@@ -540,8 +540,8 @@ $(function () {
         }
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
-        pram_str += '"brandId": ' + $("#brandId").val() + ',';
-        pram_str += ' "seriesId": ' + $("#seriesId").val() + ',';
+        pram_str += '"brandId": "' + $("#brandId").val() + '",';
+        pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
         pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
         pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
         pram_str += ' "countryId": "CN",';
@@ -552,20 +552,20 @@ $(function () {
         pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
-        pram_str += '"weight": ' + $("#weight").val() + ',';
+        pram_str += '"weight": "' + $("#weight").val() + '",';
         pram_str += '"chargeUnit": "元",';
         pram_str += '"material": "' + $("#material").val() + '",';
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
-        pram_str += '"marketPrice": ' + $("#marketPrice").val() + ',';
+        pram_str += '"marketPrice": "' + $("#marketPrice").val() + '",';
         pram_str += ' "priceType": "' + $("#priceType").val() + '",';
         pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
-        pram_str += '"categoryId": ' + session.goods_categoryId + ',';
+        pram_str += '"categoryId": "' + session.goods_categoryId + '",';
         pram_str += '"categoryName": "' + session.goods_categoryName + '",';
         pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
         pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
-        pram_str += ' "baseCategoryId": ' + session.goods_baseCategoryId + ',';
+        pram_str += ' "baseCategoryId": "' + session.goods_baseCategoryId + '",';
         pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
