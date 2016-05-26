@@ -50,7 +50,7 @@ $(function () {
         });
         getDataInit();
     }
-
+    //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
@@ -62,6 +62,7 @@ $(function () {
         });
         getDataInit();
     }
+    //待完善初始化
     function myGoodsAmendInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
@@ -73,7 +74,11 @@ $(function () {
         });
         getDataInit();
     }
-
+    if(session.goods_baseCategoryId==1){
+        $(".material").show();
+    }else{
+        $(".material").hide();
+    }
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
@@ -253,6 +258,11 @@ $(function () {
     function getProductAttribute() {
         var categoryId = session.goods_categoryId;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
+            if(data.data.length==0){
+                $(".mg-attr-block").hide();
+            }else{
+                $(".mg-attr-block").show();
+            }
             for (var i = 0; i < data.data.length; i++) {
                 var d = data.data[i];
                 var temp = '<div class="form-group required">';
