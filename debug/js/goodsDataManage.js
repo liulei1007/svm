@@ -203,8 +203,8 @@ $(function () {
     $(".table-block").on("click", ".gdm-btn-del", function () {
         if (confirm("是否确认删除?")) {
             loading();
-            var uptid = $(this).attr("uptid");
-            $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
+            var productId = $(this).attr("productId");
+            $.get(plumeApi["delProductInfo"] + "/" + productId, {}, function (data) {
                 unloading();
                 if (data.ok) {
                     $("[list-node]").remove();
