@@ -31,7 +31,7 @@ $(function() {
 		data.shopName = $("#shopName").val();
 		data.personDealerName = $("#personDealerName").val();
 		data.isDel=$("#isDel").find('option:selected').val();
-		console.log(data);
+		data.brandName=$("#brandName").val();
 		getData();
 		  $(".nav-pagination").off();
 	});

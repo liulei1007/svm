@@ -472,5 +472,6 @@
         <downBatch>/api/excel/exportProductStashTemplate</downBatch>    
 
         <listMarketInfo>/api/common/listMarketInfo</listMarketInfo>
+        <editProductInfoUpt>/api/productInfo/editProductInfoUpt</editProductInfoUpt>
     </api>
 </config>
