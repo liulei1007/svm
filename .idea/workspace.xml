@@ -43,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.502455">
+            <state vertical-scroll-proportion="0.0">
               <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
               <folding />
             </state>
@@ -78,8 +78,8 @@
       <file leaf-file-name="myGoods.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="114" column="22" selection-start-line="108" selection-start-column="16" selection-end-line="114" selection-end-column="22" />
+            <state vertical-scroll-proportion="-6.785714">
+              <caret line="148" column="84" selection-start-line="148" selection-start-column="81" selection-end-line="148" selection-end-column="84" />
               <folding>
                 <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -97,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="35" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.68903434">
+              <caret line="450" column="13" selection-start-line="450" selection-start-column="13" selection-end-line="450" selection-end-column="13" />
               <folding>
                 <element signature="e#207#801#0" expanded="false" />
                 <element signature="e#846#1138#0" expanded="false" />
@@ -112,10 +112,8 @@
                 <element signature="e#12067#13830#0" expanded="false" />
                 <element signature="e#13869#17312#0" expanded="false" />
                 <element signature="e#17362#18036#0" expanded="false" />
-                <element signature="e#18073#19052#0" expanded="false" />
-                <element signature="e#19090#20332#0" expanded="false" />
-                <element signature="e#20375#20528#0" expanded="false" />
-                <element signature="e#20588#22194#0" expanded="false" />
+                <element signature="e#19168#20410#0" expanded="false" />
+                <element signature="e#20453#20606#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -184,7 +182,6 @@
         <option value="$PROJECT_DIR$/debug/pages/brandList.html" />
         <option value="$PROJECT_DIR$/debug/js/shopList.js" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
-        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/plume.js" />
         <option value="$PROJECT_DIR$/debug/js/welcome.js" />
         <option value="$PROJECT_DIR$/debug/pages/welcome.html" />
@@ -193,10 +190,11 @@
         <option value="$PROJECT_DIR$/debug/js/popUpload.js" />
         <option value="$PROJECT_DIR$/debug/pages/popUpload.html" />
         <option value="$PROJECT_DIR$/debug/css/svm.css" />
-        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/showMyGoods.js" />
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
+        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
+        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
       </list>
     </option>
   </component>
@@ -418,7 +416,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -787,38 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="35" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="35" />
-          <folding>
-            <element signature="e#207#801#0" expanded="false" />
-            <element signature="e#846#1138#0" expanded="false" />
-            <element signature="e#1183#1477#0" expanded="false" />
-            <element signature="e#1523#1815#0" expanded="false" />
-            <element signature="e#1861#2156#0" expanded="false" />
-            <element signature="e#9442#10530#0" expanded="false" />
-            <element signature="e#12067#13830#0" expanded="false" />
-            <element signature="e#13869#17312#0" expanded="false" />
-            <element signature="e#17362#18036#0" expanded="false" />
-            <element signature="e#18073#19052#0" expanded="false" />
-            <element signature="e#19090#20332#0" expanded="false" />
-            <element signature="e#20375#20528#0" expanded="false" />
-            <element signature="e#20588#22194#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="22" selection-start-line="108" selection-start-column="16" selection-end-line="114" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.107143">
@@ -839,9 +805,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.502455">
+        <state vertical-scroll-proportion="0.0">
           <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.785714">
+          <caret line="148" column="84" selection-start-line="148" selection-start-column="81" selection-end-line="148" selection-end-column="84" />
+          <folding>
+            <element signature="n#style#0;n#div#6;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68903434">
+          <caret line="450" column="13" selection-start-line="450" selection-start-column="13" selection-end-line="450" selection-end-column="13" />
+          <folding>
+            <element signature="e#207#801#0" expanded="false" />
+            <element signature="e#846#1138#0" expanded="false" />
+            <element signature="e#1183#1477#0" expanded="false" />
+            <element signature="e#1523#1815#0" expanded="false" />
+            <element signature="e#1861#2156#0" expanded="false" />
+            <element signature="e#9442#10530#0" expanded="false" />
+            <element signature="e#12067#13830#0" expanded="false" />
+            <element signature="e#13869#17312#0" expanded="false" />
+            <element signature="e#17362#18036#0" expanded="false" />
+            <element signature="e#19168#20410#0" expanded="false" />
+            <element signature="e#20453#20606#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -440,13 +440,16 @@ $(function () {
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
-            if (re.test($(this).val())) {
-                $(this).parent().parent().find(".alert-danger").hide();
-            } else {
-                $(this).addClass("cmg-error")
-                $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
-                flag = false;
+            if($(this).val()!=""){
+                if (re.test($(this).val())) {
+                    $(this).parent().parent().find(".alert-danger").hide();
+                } else {
+                    $(this).addClass("cmg-error")
+                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
+                    flag = false;
+                }
             }
+
         });
         $($(".cmg-error")[0]).focus();
         return flag;
