@@ -17,13 +17,15 @@ $(function(){
         var removeList = $(this).parents('tr');
         var managid = removeList.attr("managid");
 
-        $(".cic-pop").pop("popAuth",function(){
+        $('.pop').loadTemp("popAuth", "nochangeurl", function () {
+        // $(".cic-pop").pop("popAuth",function(){
             getAccRole(managid);
 
             rolesShow();
 
             $(".pa-cancel").bind("click",function(){
-                $(".cic-pop").pophide();
+                $(".pop").pophide();
+                // $(".cic-pop").pophide();
             });
 
             //权限配置弹出框 -- 确认
