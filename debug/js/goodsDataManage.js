@@ -30,10 +30,10 @@ $(function () {
         datas.subCategoryId = subCategoryId;
         datas.baseCategoryId = baseCategoryId;
         datas.saleStatus = saleStatus;
-       // datas.reviewStatus = reviewStatus;
+        // datas.reviewStatus = reviewStatus;
         //datas.seriesName = saleStatus;
         getTableData();
-         $(".nav-pagination").off()
+        $(".nav-pagination").off()
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
@@ -66,7 +66,7 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                unloading();
+
                 totalPage = Math.ceil(data.countRecord / 10);
                 newPage(totalPage, function (i) {
                     loading();
@@ -77,17 +77,20 @@ $(function () {
                         contentType: "application/json",
                         dataType: "json",
                         success: function (data) {
-                            unloading();
                             $("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
+                            $(".data-body").fadeIn();
+                            unloading();
                             binFun()
-                              getFirstCategory(0, 0);
+                            getFirstCategory(0, 0);
                         }
                     });
                 });
-                 $(".gdm-table-data").find("[list-node]").remove();
+                $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
+                $(".data-body").fadeIn();
                 binFun()
+                unloading();
             }
         });
     }
@@ -152,19 +155,19 @@ $(function () {
 
             $(".ex-ok").bind("click", function () {
                 if (($("#file").val())) {
-                    document.myForm.action=plumeApi["uploadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId
+                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
                     $('#myForm').submit();
-                    session.goods_baseCategoryId="";
-                    session.goods_subCategoryId="";
-                    session.goods_categoryId="";
+                    session.goods_baseCategoryId = "";
+                    session.goods_subCategoryId = "";
+                    session.goods_categoryId = "";
                 }
             });
 
             $(".btn-loadModule").bind("click", function () {
-                if(session.goods_baseCategoryId){
-                    var count=$(".btn-count input").val();
-                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"?count="+count
-                }else{
+                if (session.goods_baseCategoryId) {
+                    var count = $(".btn-count input").val();
+                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=" + count
+                } else {
                     alert(请选择类目)
                 }
             });
