@@ -535,7 +535,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .nav-pagination .turn > .form-control{float: left; width: 50px; text-align: center;}
 .nav-pagination .turn > .btn{float: left; margin-left: 5px; color: #333;}
 
-.table-ctrl{font-weight: bold;float:left;cursor: pointer;coloe:#333}
+.table-ctrl{font-weight: bold;float:left;cursor: pointer;}
 .table-ctrl:hover{color:#0c5689}
 .cic-btn-del{background: url("../images/icons_all.png") no-repeat -718px -202px;height:30px;width: 30px;cursor:pointer}
 .cic-btn-del:hover{background-color: #f1f1f1}
