@@ -161,7 +161,7 @@ $(function () {
             });
 
             $(".btn-loadModule").bind("click", function () {
-                if(session.goods_baseCategoryId){
+                if(session.goods_baseCategoryId&&$(".btn-count input").val()){
                     var count=$(".btn-count input").val();
                  window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/"+count
                 }else{
