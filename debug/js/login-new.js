@@ -63,7 +63,7 @@ $(function () {
     $(".login-form .btn-login").bind("click", function () {
         // $(".alert-dismissible .login-alert").hide();
 
-        var logintel = $("#logintel").val();
+        var logintel = $("#logintel").val().trim();
         var loginpwd = $("#loginpwd").val();
         var pram_str = '{';
         pram_str += '"mobilePhone": "' + logintel + '",';

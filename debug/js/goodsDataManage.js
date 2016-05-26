@@ -161,9 +161,9 @@ $(function () {
             });
 
             $(".btn-loadModule").bind("click", function () {
-                if(session.goods_baseCategoryId&&$(".btn-count input").val()){
+                if(session.goods_baseCategoryId){
                     var count=$(".btn-count input").val();
-                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"/"+count
+                 window.location = plumeApi["downloadEx"]+session.goods_baseCategoryId+"/"+session.goods_subCategoryId+"/"+session.goods_categoryId+"?count="+count
                 }else{
                     alert(请选择类目)
                 }
