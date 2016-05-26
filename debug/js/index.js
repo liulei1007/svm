@@ -416,6 +416,11 @@ function getGoodsInfo() {
                  }else{
                     $(".taking-size input").eq(1).attr('checked','checked');
                  }
+                 if(data.data.priceType==1){
+                    $("#priceType option").eq(0).attr('selected','selected');
+                 }else{
+                    $("#priceType option").eq(1).attr('selected','selected');
+                 }
             }
         })
     } catch (e) {
