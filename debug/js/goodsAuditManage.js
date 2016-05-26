@@ -43,7 +43,7 @@ function listProductInfoUpt() {
                 unloading();
                 $("[list-node]").remove();
                 $(".form-body").setPageData(data);
-                $(".gam-btn-show").bind("click", function () {
+                $(".table-block").on("click",".gam-btn-show",function () {
                     var uptId = $(this).attr("uptId");
                     session.goods_showMyGoods_uptId = uptId;
                     derict(this, "showMyGoods", "nochangeurl");
