@@ -76,8 +76,10 @@ $(function () {
     }
     if(session.goods_baseCategoryId==1){
         $(".material").show();
+        $(".material_temp").hide();
     }else{
         $(".material").hide();
+        $(".material_temp").show();
     }
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
@@ -548,7 +550,7 @@ $(function () {
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": ' + $("#weight").val() + ',';
         pram_str += '"chargeUnit": "元",';
-        pram_str += '"material": "",';
+        pram_str += '"material": "' + $("#material").val() + '",';
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
