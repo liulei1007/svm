@@ -148,6 +148,7 @@ $(function () {
                 $("#weight").val(d.weight);
                 $("#priceType").val(d.priceType);
                 $("#lvInfo").val(d.lvInfo);
+                $("#material").val(d.material);
                 $("#material1").val(d.material1);
                 $("#material2").val(d.material2);
                 $("#material3").val(d.material3);
