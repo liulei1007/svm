@@ -12,7 +12,6 @@ $(function () {
             success: function (data) {
                 unloading();
                 var d = data.data;
-                alert(d.baseCategoryId)
                 if(d.baseCategoryId==1){
                     $(".material").show();
                     $(".material_temp").hide();
