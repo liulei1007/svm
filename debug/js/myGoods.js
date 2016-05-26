@@ -602,7 +602,7 @@ $(function () {
             goods_pram_str += '"colorRgb": "' + $(this).children().first().attr("colorvalue") + '",';
             goods_pram_str += '"color": "' + $(this).children().first().attr("colorname") + '",';
             goods_pram_str += '"standard": "' + $(this).find(".stand").val() + '",';
-            goods_pram_str += ' "salePrice": ' + $(this).find(".marketPrice").val() + '';
+            goods_pram_str += ' "salePrice": "' + $(this).find(".marketPrice").val() + '"';
             goods_pram_str += '},';
         });
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);

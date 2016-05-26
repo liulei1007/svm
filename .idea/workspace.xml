@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.502455">
-              <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="376" column="19" selection-start-line="376" selection-start-column="19" selection-end-line="377" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -98,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="567" column="78" selection-start-line="567" selection-start-column="78" selection-end-line="567" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.4091653">
+              <caret line="604" column="89" selection-start-line="604" selection-start-column="89" selection-end-line="604" selection-end-column="89" />
               <folding>
                 <element signature="e#207#801#0" expanded="false" />
                 <element signature="e#846#1138#0" expanded="false" />
@@ -193,9 +193,9 @@
         <option value="$PROJECT_DIR$/debug/css/svm.css" />
         <option value="$PROJECT_DIR$/debug/js/showMyGoods.js" />
         <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
-        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
+        <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
       </list>
     </option>
   </component>
@@ -788,34 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="567" column="78" selection-start-line="567" selection-start-column="78" selection-end-line="567" selection-end-column="78" />
-          <folding>
-            <element signature="e#207#801#0" expanded="false" />
-            <element signature="e#846#1138#0" expanded="false" />
-            <element signature="e#1183#1477#0" expanded="false" />
-            <element signature="e#1523#1815#0" expanded="false" />
-            <element signature="e#1861#2156#0" expanded="false" />
-            <element signature="e#9442#10530#0" expanded="false" />
-            <element signature="e#12067#13830#0" expanded="false" />
-            <element signature="e#13869#17312#0" expanded="false" />
-            <element signature="e#17362#18036#0" expanded="false" />
-            <element signature="e#19168#20410#0" expanded="false" />
-            <element signature="e#20453#20606#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/showMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -837,9 +809,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.502455">
-          <caret line="380" column="0" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="376" column="19" selection-start-line="376" selection-start-column="19" selection-end-line="377" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4091653">
+          <caret line="604" column="89" selection-start-line="604" selection-start-column="89" selection-end-line="604" selection-end-column="89" />
+          <folding>
+            <element signature="e#207#801#0" expanded="false" />
+            <element signature="e#846#1138#0" expanded="false" />
+            <element signature="e#1183#1477#0" expanded="false" />
+            <element signature="e#1523#1815#0" expanded="false" />
+            <element signature="e#1861#2156#0" expanded="false" />
+            <element signature="e#9442#10530#0" expanded="false" />
+            <element signature="e#12067#13830#0" expanded="false" />
+            <element signature="e#13869#17312#0" expanded="false" />
+            <element signature="e#17362#18036#0" expanded="false" />
+            <element signature="e#19168#20410#0" expanded="false" />
+            <element signature="e#20453#20606#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
