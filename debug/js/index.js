@@ -411,7 +411,16 @@ function getGoodsInfo() {
                 $(".weight-info").html($(".weight-info").html()+"KG")
                  $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
                  $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
-
+                 if(data.data.saleStatus==1){
+                     $(".taking-size input").eq(0).attr('checked','checked');
+                 }else{
+                    $(".taking-size input").eq(1).attr('checked','checked');
+                 }
+                 if(data.data.priceType==1){
+                    $("#priceType option").eq(0).attr('selected','selected');
+                 }else{
+                    $("#priceType option").eq(1).attr('selected','selected');
+                 }
             }
         })
     } catch (e) {
