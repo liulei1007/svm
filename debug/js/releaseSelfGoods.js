@@ -81,4 +81,9 @@ $(function() {
 		//显示列表条数
 	if($(".infoNum")){$(".infoNum").html(0)}
 
+	//批量导入	
+	$(".btn-batch").bind("click",function() {
+		 $('.pop').loadTemp("popBatch", "nochangeurl");
+	})
+
 });

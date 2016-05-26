@@ -19,8 +19,8 @@ $(function () {
                     var p = d.productInfoAttrUptORMs[i];
                     var temp = '<div class="form-group required smg-base-attr">';
                     temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
-                    temp += '<div class="col-sm-2">';
-                    temp += '<p class="col-sm-4 form-control-static">' + p.attrValueId + '</p>';
+                    temp += '<div class="col-sm-4">';
+                    temp += '<p class="col-sm-6 form-control-static" attrValueId="'+ p.attrValueId+'">' + p.productAttributeValue.valueName + '</p>';
                     temp += '</div>';
                     temp += '</div>';
                     $(".goodsAttr-content").append(temp);

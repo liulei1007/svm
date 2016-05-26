@@ -408,9 +408,19 @@ function getGoodsInfo() {
                     formsList += '<div class="form-group"><label class="col-sm-3 control-label">' + good.productAttribute.attrNameBack + '：</label><p class="col-sm-6 form-control-static">' + good.attrValue + '</p></div>'
                 });
                 $(".forms-block").append(formsList);
+                $(".weight-info").html($(".weight-info").html()+"KG")
                  $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
                  $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
-
+                 if(data.data.saleStatus==1){
+                     $(".taking-size input").eq(0).attr('checked','checked');
+                 }else{
+                    $(".taking-size input").eq(1).attr('checked','checked');
+                 }
+                 if(data.data.priceType==1){
+                    $("#priceType option").eq(0).attr('selected','selected');
+                 }else{
+                    $("#priceType option").eq(1).attr('selected','selected');
+                 }
             }
         })
     } catch (e) {
@@ -429,6 +439,7 @@ function getProductInfo() {
             success: function (data) {
                 unloading();
                 $('.form-horizontal').setPageData(data.data);
+                $(".weight-info").html($(".weight-info").html()+"KG")
                 $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
                 $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
                 var trList;
@@ -553,12 +564,12 @@ function addProductShopGoods(body) {
         success: function (data) {
             if (data.ok) {
                 unloading();
-                popTips("商品编辑成功", "success");
-                derict(this, "groundGoods", "nochangeurl");
+                popTips("商品调取成功", "success");
+                derict(this, "takingGoodsData", "nochangeurl");
             } else {
                 unloading();
-                popTips("商品编辑失败", "warning");
-                derict(this, "groundGoods", "nochangeurl");
+                popTips("商品调取失败", "warning");
+                derict(this, "takingGoodsData", "nochangeurl");
             }
         }
     });

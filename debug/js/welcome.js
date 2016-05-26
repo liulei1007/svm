@@ -11,4 +11,5 @@ $(function(){
 			$(this).siblings(".bw-item-table, .bw-item-btns").slideDown();
 		}
 	});
+	$(".welcome-user").text(sessionStorage.login_mobilePhone.substring(0, 7) + "****")
 })

@@ -50,7 +50,7 @@ $(function () {
         });
         getDataInit();
     }
-
+    //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
@@ -58,11 +58,29 @@ $(function () {
         $(".mg-title").text("商品错误信息反馈");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "takingGoods", "nochangeurl");
         });
         getDataInit();
     }
-
+    //待完善初始化
+    function myGoodsAmendInit() {
+        //隐藏错误提示
+        $(".alert-danger").hide();
+        $(".changeType").hide();
+        $(".mg-title").text("商品待完善数据编辑");
+        //返回按钮
+        $(".cmg-cancel").bind("click", function () {
+            derict(this, "amendmentInfo", "nochangeurl");
+        });
+        getDataInit();
+    }
+    if(session.goods_baseCategoryId==1){
+        $(".material").show();
+        $(".material_temp").hide();
+    }else{
+        $(".material").hide();
+        $(".material_temp").show();
+    }
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
@@ -71,16 +89,19 @@ $(function () {
         myGoodsCopyInit();
     } else if (session.goods_showMyGoods_type == "feed") {
         myGoodsFeedInit();
+    }else if(session.goods_showMyGoods_type == "amend"){
+        myGoodsAmendInit();
     }
     //获取初始化数据
     function getDataInit() {
         loading();
         var suburl = ""
-        //if (session.goods_showMyGoods_type == "feed"||session.goods_showMyGoods_type == ""){
-        suburl = plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
-        //}else{
-        //    suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
-        //}
+        if (session.goods_showMyGoods_type == "amend"){
+            suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
+        }else{
+            suburl = plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
+
+        }
         $.ajax({
             type: "GET",
             url: suburl,
@@ -103,10 +124,8 @@ $(function () {
                 });
                 getlistNationRegion();
                 getbrandList();
-
                 setColors();
                 dataInit();
-
                 $("#brandId").val(d.brandId);
                 $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
                     $(".cmg-series").find("[list-node]").remove();
@@ -117,10 +136,12 @@ $(function () {
                 $("#productName").val(d.productName);
                 $("#provinceId").val(d.provinceId);
                 var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
-                $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
-                    $(".cmg-region2").setPageData(data);
-                });
-                $("#cityId").val(d.cityId);
+                if(adresscode&&adresscode!=""){
+                    $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
+                        $(".cmg-region2").setPageData(data);
+                    });
+                    $("#cityId").val(d.cityId);
+                }
                 $("#modelNumber").val(d.modelNumber);
                 $("#materialQuality").val(d.materialQuality);
                 $("#marketPrice").val(d.marketPrice);
@@ -137,8 +158,16 @@ $(function () {
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
                 getProductAttribute();
-                for (var j = 0; j < d.productGoods.length; j++) {
-                    var p = d.productGoods[j];
+                var productGoods,productInfoPhotos;
+                if (session.goods_showMyGoods_type == "amend"){
+                    productGoods= d.productGoodsUpts;
+                    productInfoPhotos= d.productInfoPhotoUpts;
+                }else{
+                    productGoods= d.productGoods;
+                    productInfoPhotos= d.productInfoPhotos;
+                }
+                for (var j = 0; j < productGoods.length; j++) {
+                    var p = productGoods[j];
                     var temp = '<tr class="cmg-goodstr">';
                     temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
@@ -170,8 +199,8 @@ $(function () {
                     $(this).parent().parent().remove();
                 });
                 setStandard();
-                for (var k = 0; k < d.productInfoPhotos.length; k++) {
-                    var p = d.productInfoPhotos[k];
+                for (var k = 0; k < productInfoPhotos.length; k++) {
+                    var p = productInfoPhotos[k];
                     var temp = '<li class="goodsPic">';
                     temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
                     temp += '<div class="upload-btn upload-btn-left">';
@@ -231,6 +260,11 @@ $(function () {
     function getProductAttribute() {
         var categoryId = session.goods_categoryId;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
+            if(data.data.length==0){
+                $(".mg-attr-block").hide();
+            }else{
+                $(".mg-attr-block").show();
+            }
             for (var i = 0; i < data.data.length; i++) {
                 var d = data.data[i];
                 var temp = '<div class="form-group required">';
@@ -497,6 +531,8 @@ $(function () {
             pram_str += '';
         } else if (session.goods_showMyGoods_type == "edit" || session.goods_showMyGoods_type == "feed") {
             pram_str += '"productId": "' + $("#productId").val() + '",';
+        }else if(session.goods_showMyGoods_type == "amend" ){
+            pram_str += '"uptId": "' + session.goods_showMyGoods_uptId + '",';
         }
         pram_str += '"productName": "' + $("#productName").val() + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
@@ -514,7 +550,7 @@ $(function () {
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": ' + $("#weight").val() + ',';
         pram_str += '"chargeUnit": "元",';
-        pram_str += '"material": "",';
+        pram_str += '"material": "' + $("#material").val() + '",';
         pram_str += ' "material1": "' + $("#material1").val() + '",';
         pram_str += ' "material2": "' + $("#material2").val() + '",';
         pram_str += '"material3": "' + $("#material3").val() + '",';
@@ -529,7 +565,6 @@ $(function () {
         pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
-        //<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attrCode + ' /> </div>
         var attrs_pram_str = "";
         $(".cmg-attrs").each(function () {
             attrs_pram_str += ' {';
@@ -545,12 +580,6 @@ $(function () {
         });
         pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
         pram_str += '],';
-
-        //待审核产品属性新增Vo {
-        //    attrValueId (integer, optional): 属性值ID(非文本输入型),
-        //        attrValue (string, optional): 属性值(文本输入型),
-        //        attributeId (integer, optional): 属性ID
-        //}
         pram_str += '  "photos": [';
         var imgs_pram_str = "";
         $(".cmg-goodsimgs").each(function () {
@@ -584,6 +613,8 @@ $(function () {
             sub_url = plumeApi["editProductInfo"];
         } else if (session.goods_showMyGoods_type == "feed") {
             sub_url = plumeApi["addProductInfoFeedback"];
+        }else if (session.goods_showMyGoods_type == "amend") {
+            sub_url = plumeApi["editProductInfoUpt"];
         }
         $.ajax({
             type: "POST",

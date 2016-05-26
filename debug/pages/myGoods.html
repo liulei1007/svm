@@ -19,7 +19,7 @@
 
 <body>
 <div class="body-typein createNewGoods">
-    <div class="title-block mg-title"></div>
+    <div class="title-block">新增商品数据</div>
     <form class="form-horizontal">
         <div class="form-group required">
             <label class="col-sm-2 control-label">当前类目</label>
@@ -60,9 +60,9 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label"><i>*</i>商品标语</label>
+                    <label class="col-sm-2 control-label">商品标语</label>
 
-                    <div class="col-sm-6"><input type="text" class="form-control notNull" id="productSecondName">
+                    <div class="col-sm-6"><input type="text" class="form-control" id="productSecondName">
                     </div>
                     <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
                     <div class="col-sm-offset-2 col-sm-8 tips-block">
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-sm-2 cmg-region2 ">
                         <select class="form-control notNull" id="cityId" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.adress,attr-value:$n.id"></option>
+                            <option list-temp="true" node-name="$n.adress,attr-value:$n.adressCode"></option>
                         </select>
                     </div>
                 </div>
@@ -99,27 +99,34 @@
                     <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
-                <div class="form-group required">
+                <div class="form-group required" style="display: none">
                     <label class="col-sm-2 control-label"><i>*</i>材质</label>
 
-                    <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control notNull">
+                    <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control">
+                    </div>
+                    <div class="col-sm-2 alert alert-danger"></div>
+                </div>
+                <div class="form-group required material_temp">
+                    <label class="col-sm-2 control-label"><i>*</i>主要用料</label>
+
+                    <div class="col-sm-6"><input type="text" id="material" class="form-control">
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label"><i>*</i>重量</label>
+                    <label class="col-sm-2 control-label">重量</label>
 
-                    <div class="col-sm-4"><input type="text" id="weight" class="form-control notNull num">
+                    <div class="col-sm-4"><input type="text" id="weight" class="form-control num">
                     </div>
                     <div class="col-sm-1 form-explain">KG</div>
 
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required cmg-initdata1">
-                    <label class="col-sm-2 control-label"><i>*</i>价格类型</label>
+                    <label class="col-sm-2 control-label">价格类型</label>
 
                     <div class="col-sm-4">
-                        <select class="form-control notNull" id="priceType" data-list="$p.data">
+                        <select class="form-control" id="priceType" data-list="$p.data">
                             <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                         </select>
                     </div>
@@ -136,42 +143,64 @@
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label"><i>*</i>市场参考价</label>
+                    <label class="col-sm-2 control-label">市场参考价</label>
 
                     <div class="col-sm-4">
-                        <input type="text" id="marketPrice" class="form-control notNull num">
+                        <input type="text" id="marketPrice" class="form-control  num">
                     </div>
                     <div class="col-sm-1 form-explain">元</div>
 
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
+
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i>基材</label>
+
+                    <div class="col-sm-4"><input type="text" id="material1" class="form-control"></div>
+                    <div class="col-sm-2 alert alert-danger">请输入基材！</div>
+
+                </div>
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i>辅材</label>
+
+                    <div class="col-sm-4"><input type="text" id="material2" class="form-control"></div>
+                    <div class="col-sm-2 alert alert-danger">请输入辅材！</div>
+
+                </div>
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i>饰面</label>
+
+                    <div class="col-sm-4"><input type="text" id="material3" class="form-control"></div>
+                    <div class="col-sm-2 alert alert-danger">请输入饰面！</div>
+
+                </div>
             </div>
         </form>
 
     </div>
-    <div class="form-block-contractive">
+    <div class="form-block-contractive mg-attr-block">
         <div id="goodAttr" class="row block-title">
             <div class="col-sm-2">商品属性</div>
         </div>
         <form class="form-horizontal">
             <div class="goodsAttr-content row">
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label"><i>*</i>饰面</label>
+                <!--<div class="form-group required">-->
+                    <!--<label class="col-sm-2 control-label"><i>*</i>饰面</label>-->
 
-                    <div class="col-sm-2"><input type="text" id="material3" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入饰面！</div>
-                    <label class="col-sm-2 control-label"><i>*</i>基材</label>
+                    <!--<div class="col-sm-2"><input type="text" id="material3" class="form-control"></div>-->
+                    <!--<div class="col-sm-2 alert alert-danger">请输入饰面！</div>-->
+                    <!--<label class="col-sm-2 control-label"><i>*</i>基材</label>-->
 
-                    <div class="col-sm-2"><input type="text" id="material1" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入基材！</div>
-                </div>
-                <div class="form-group required">
+                    <!--<div class="col-sm-2"><input type="text" id="material1" class="form-control"></div>-->
+                    <!--<div class="col-sm-2 alert alert-danger">请输入基材！</div>-->
+                <!--</div>-->
+                <!--<div class="form-group required">-->
 
-                    <label class="col-sm-2 control-label"><i>*</i>辅材</label>
+                    <!--<label class="col-sm-2 control-label"><i>*</i>辅材</label>-->
 
-                    <div class="col-sm-2"><input type="text" id="material2" class="form-control"></div>
-                    <div class="col-sm-2 alert alert-danger">请输入辅材！</div>
-                </div>
+                    <!--<div class="col-sm-2"><input type="text" id="material2" class="form-control"></div>-->
+                    <!--<div class="col-sm-2 alert alert-danger">请输入辅材！</div>-->
+                <!--</div>-->
 
             </div>
         </form>

@@ -30,7 +30,11 @@ $(function () {
                 loading();
                 $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                     unloading();
+                    $(".ac-cityId1").find("[list-node]").remove();
                     $(".ac-cityId1").setPageData(data);
+                    $(".ac-cityId1").bind("change",function(){
+                        listMarketInfo();
+                    });
                 });
             });
             $("#provinceId2").bind("change", function () {
@@ -43,9 +47,10 @@ $(function () {
             });
         });
     }
+
     getlistNationRegion();
     $(".btn-success").bind("click", function () {
-        if($(".li-hasAgency").has("active")){
+        if ($(".li-hasAgency").has("active")) {
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName1").val() + '",';
             pram_str += '"contacts": "' + $("#contacts1").val() + '",';
@@ -53,7 +58,7 @@ $(function () {
             pram_str += '"provinceId": "' + $("#provinceId1").val() + '",';
             pram_str += '"provinceName": "' + $("#provinceId1").find("option:selected").text() + '",';
             pram_str += '"cityId": "' + $("#cityId1").val() + '",';
-            pram_str += '"cityName": "' + $("#cityId1").find("option:selected").text()+ '",';
+            pram_str += '"cityName": "' + $("#cityId1").find("option:selected").text() + '",';
             pram_str += '"marketId": "' + $("#marketId1").val() + '"';
             pram_str += '}';
             loading();
@@ -71,27 +76,18 @@ $(function () {
                             $(".pop").find(".popup-icon").html('<i class="success"></i>');
                             $(".pop").find(".popup-info").html("提交成功");
                         });
-                        window.location.href="waitCheck?fullscreen";
+                        window.location.href = "waitCheck?fullscreen";
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
                             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html("提交失败:"+data.data);
+                            $(".pop").find(".popup-info").html("提交失败:" + data.data);
                         });
                     }
                 }
             });
-        }else{
-            //{
-            //    "brandName": "",
-            //    "categoryName": "",
-            //    "contacts": "",
-            //    "mobliephone": "",
-            //    "provinceId": "",
-            //    "provinceName": "",
-            //    "cityId": "",
-            //    "cityName": ""
-            //}
+        } else {
+
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName2").val() + '",';
             pram_str += '"categoryName": "' + $("#categoryName2").val() + '",';
@@ -100,7 +96,7 @@ $(function () {
             pram_str += '"provinceId": "' + $("#provinceId2").val() + '",';
             pram_str += '"provinceName": "' + $("#provinceId2").find("option:selected").text() + '",';
             pram_str += '"cityId": "' + $("#cityId2").val() + '",';
-            pram_str += '"cityName": "' + $("#cityId2").find("option:selected").text()+ '"';
+            pram_str += '"cityName": "' + $("#cityId2").find("option:selected").text() + '"';
             pram_str += '}';
             loading();
             $.ajax({
@@ -121,16 +117,38 @@ $(function () {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
                             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html("提交失败:"+data.data);
+                            $(".pop").find(".popup-info").html("提交失败:" + data.data);
                         });
                     }
                 }
             });
         }
     });
+    function listMarketInfo() {
+        var pram_str='{';
+        pram_str+='"provinceId": '+$("#provinceId1").val()+',';
+        pram_str+='"cityId": '+$("#cityId1").val()+',';
+        pram_str+='"districtId": 0';
+        pram_str+='}';
+        loading();
+        $.ajax({
+            type: "POST",
+            url: plumeApi["listMarketInfo"],
+            data: pram_str,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {
+                unloading();
+                if (data.ok) {
+                    $(".marketId1").find("[list-node]").remove();
+                    $(".marketId1").setPageData(data);
+                }
+            }
+        });
+    }
 
     // 点击“返回”
-    $(".btn-back").bind("click", function() {
-        window.location.href="/secondreg?fullscreen";
+    $(".btn-back").bind("click", function () {
+        window.location.href = "/secondreg?fullscreen";
     });
 });

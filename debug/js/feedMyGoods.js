@@ -17,8 +17,8 @@ $(function () {
                     var p = d.productInfoAttrUptORMs[i];
                     var temp = '<div class="form-group required smg-base-attr">';
                     temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
-                    temp += '<div class="col-sm-2">';
-                    temp += '<p class="col-sm-4 form-control-static">' + p.attrValueId + '</p>';
+                    temp += '<div class="col-sm-4">';
+                    temp += '<p class="col-sm-10 form-control-static" attrValueId="'+ p.attrValueId+'">' + p.productAttributeValue.valueName + '</p>';
                     temp += '</div>';
                     temp += '</div>';
                     $(".goodsAttr-content1").append(temp);
@@ -59,8 +59,8 @@ $(function () {
                     var p = d.productInfoAttrORMs[i];
                     var temp = '<div class="form-group required smg-base-attr">';
                     temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
-                    temp += '<div class="col-sm-2">';
-                    temp += '<p class="col-sm-4 form-control-static">' + p.attrValueId + '</p>';
+                    temp += '<div class="col-sm-4">';
+                    temp += '<p class="col-sm-10 form-control-static" attrValueId="'+ p.attrValueId+'">' + p.productAttributeValue.valueName + '</p>';
                     temp += '</div>';
                     temp += '</div>';
                     $(".goodsAttr-content2").append(temp);
@@ -88,7 +88,7 @@ $(function () {
     getProductInfoUpt();
     getProductInfo();
     $(".fmg-back").bind("click",function(){
-        derict(this, "goodsAuditManage", "nochangeurl");
+        derict(this, "amendmentInfo", "nochangeurl");
     });
     $(".fmg-ok").bind("click",function(){
         auditFun();

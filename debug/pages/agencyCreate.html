@@ -41,7 +41,7 @@
             <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
             <div class="col-sm-3 ac-provinceId">
                 <select class="form-control" id="provinceId1" data-list="$p.data">
-                    <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
+                    <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.adressCode"></option>
                 </select>
             </div>
             <div class="col-sm-3 ac-cityId1">
@@ -52,11 +52,10 @@
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">入驻卖场</label>
-            <div class="col-sm-3">
-            	<select class="form-control" id="marketId1">
-            		<option value="0">不入驻</option>
-            		<option value="1">红星美凯龙真北店</option>
-            	</select>
+            <div class="col-sm-3 marketId1">
+                <select type="text" id="marketId1" class="form-control" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.marketName,attr-value:$n.id"></option>
+                </select>
             </div>
             <div class="col-sm-offset-2 col-sm-8 tips-block">
             	<p>如果需要入驻红星线下卖场，请选择需要入驻的卖场地址</p>
