@@ -13,7 +13,24 @@ var pathName = window.document.location.pathname;
 //var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
 var _plumePath=window.document.location+"";
 var plumePath=_plumePath.substring(0,_plumePath.lastIndexOf('/') + 1);
-var plumeApi_Host="";
+var _test_path = window.location.href + "";
+var plumeApi_Host = ""
+if (_test_path.indexOf("localhost") != -1) {
+    $.ajaxSetup({
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true
+    });
+}
+if (_test_path.indexOf("longguo.mmall.com") != -1) {
+    plumeApi_Host = "https://longguo.mmall.com";
+} else if (_test_path.indexOf("longguo.hxmklmall.cn") != -1) {
+    plumeApi_Host = "http://longguo.hxmklmall.cn";
+} else {
+    plumeApi_Host = "http://longguo.hxmklmall.cn";
+}
+
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
     var configurl = _PLUME.config ? _PLUME.config : "";
@@ -30,7 +47,7 @@ $(function () {
             temp["init"] = init;
             configJson[pageName] = temp;
         });
-        plumeApi_Host=$(data).find("api-host").text();
+        //plumeApi_Host=$(data).find("api-host").text();
         $(data).find("api").children().each(function () {
             var tagname = $(this)[0].tagName;
             plumeApi[tagname] =plumeApi_Host+ $(this).text();

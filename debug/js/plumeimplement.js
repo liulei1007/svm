@@ -354,12 +354,3 @@ function feedMyGoods_init() {
     plumeUtil.js(plumePath + "/js/feedMyGoods.js");
     plumeLog("完成feedMyGoods模板加载-" + plumeTime());
 }
-var _test_path=window.location.href+"";
-if(_test_path.indexOf("localhost")!=""){
-    $.ajaxSetup({
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true
-    });
-}

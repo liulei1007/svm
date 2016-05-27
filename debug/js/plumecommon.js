@@ -1,11 +1,11 @@
-
 //document.domain = "hxmklmall.cn";
-console.log("domain:"+document.domain);
+console.log("domain:" + document.domain);
 //»º´æ½Ó¿Ú
 var session = function () {
     return sessionStorage;
 }();
 var PLUME_PROJECT = "../";
+
 var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/css/bootstrap.min.css",
     "/" + PLUME_PROJECT + "/css/jquery.cxcalendar.css",
@@ -26,3 +26,4 @@ for (var i = 0; i < PLUME_FILE.length; i++) {
         document.write("<link rel='stylesheet' type='text/css' href='" + PLUME_FILE[i] + "'>");
     }
 }
+
