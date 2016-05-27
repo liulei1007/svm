@@ -170,7 +170,7 @@ function derict(o, temp, cache, fun) {
     $(".work-space").removeClass("work-space-active").fadeOut(function () {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
-        $(".work-space-active").loadTemp("transmit", "nochangeurl");
+       // $(".work-space-active").loadTemp("transmit", "nochangeurl");
         $(".work-space-active").hide(function () {
             $(this).html("").show();
             $(".work-space-active").loadTemp(temp, cache, fun);
@@ -756,7 +756,7 @@ function loading() {
 
     if (!($(".loading").length > 0)) {
         var temp = '';
-        for (var i = 1; i < 36; i++) {
+        for (var i = 1; i < 36; i=i+2) {
             temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
         }
         $(".work-space-active").append(temp);

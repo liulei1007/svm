@@ -79,9 +79,11 @@ $(function () {
                         success: function (data) {
                             $("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
-                            $(".data-body").fadeIn();
-                            unloading();
-                            binFun()
+                            $(".data-body").fadeIn(function(){
+                                unloading();
+                            });
+
+                            binFun();
                             getFirstCategory(0, 0);
                         }
                     });
