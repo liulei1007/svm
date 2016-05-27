@@ -171,8 +171,8 @@ function derict(o, temp, cache, fun) {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
         $(".work-space-active").loadTemp("transmit", "nochangeurl");
-        $(".work-space-active").fadeOut(function () {
-            $(this).html("").fadeIn();
+        $(".work-space-active").hide(function () {
+            $(this).html("").show();
             $(".work-space-active").loadTemp(temp, cache, fun);
             try {
                 window.history.pushState({}, 0, temp)
@@ -289,12 +289,12 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {
-                    window.location.href = "/";
+                    //window.location.href = "/";
                 }
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
                 //alert("获取登录信息失败!");
-                window.location.href = "/";
+                //window.location.href = "/";
             }
         }
     });
