@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="factoryCreate.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="factoryCreate.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/pages/factoryCreate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78216124">
-              <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+            <state vertical-scroll-proportion="-18.321428">
+              <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -91,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myGoods.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myGoods.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.142858">
-              <caret line="84" column="66" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.7169811">
+              <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -115,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="139" column="58" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
+              <caret line="558" column="22" selection-start-line="558" selection-start-column="22" selection-end-line="558" selection-end-column="22" />
               <folding>
                 <element signature="e#207#801#0" expanded="false" />
                 <element signature="e#1184#1476#0" expanded="false" />
@@ -182,12 +182,12 @@
         <option value="$PROJECT_DIR$/debug/js/plumecommon.js" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
         <option value="$PROJECT_DIR$/debug/js/plume.js" />
-        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/pages/showMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/showMyGoods.js" />
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/pages/factoryCreate.html" />
+        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
       </list>
     </option>
   </component>
@@ -780,41 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="48" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="58" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="58" />
-          <folding>
-            <element signature="e#207#801#0" expanded="false" />
-            <element signature="e#1184#1476#0" expanded="false" />
-            <element signature="e#1523#1819#0" expanded="false" />
-            <element signature="e#9416#10504#0" expanded="false" />
-            <element signature="e#10554#12008#0" expanded="false" />
-            <element signature="e#12047#13810#0" expanded="false" />
-            <element signature="e#13849#17292#0" expanded="false" />
-            <element signature="e#18551#19612#0" expanded="false" />
-            <element signature="e#19650#20892#0" expanded="false" />
-            <element signature="e#20935#21088#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.142858">
-          <caret line="84" column="66" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.535714">
@@ -839,10 +804,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/login-new.js">
+    <entry file="file://$PROJECT_DIR$/debug/pages/factoryCreate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="13" selection-start-line="158" selection-start-column="13" selection-end-line="158" selection-end-column="13" />
+        <state vertical-scroll-proportion="-18.321428">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -855,10 +820,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/factoryCreate.html">
+    <entry file="file://$PROJECT_DIR$/debug/js/login-new.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78216124">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="158" column="13" selection-start-line="158" selection-start-column="13" selection-end-line="158" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="558" column="22" selection-start-line="558" selection-start-column="22" selection-end-line="558" selection-end-column="22" />
+          <folding>
+            <element signature="e#207#801#0" expanded="false" />
+            <element signature="e#1184#1476#0" expanded="false" />
+            <element signature="e#1523#1819#0" expanded="false" />
+            <element signature="e#9416#10504#0" expanded="false" />
+            <element signature="e#10554#12008#0" expanded="false" />
+            <element signature="e#12047#13810#0" expanded="false" />
+            <element signature="e#13849#17292#0" expanded="false" />
+            <element signature="e#18551#19612#0" expanded="false" />
+            <element signature="e#19650#20892#0" expanded="false" />
+            <element signature="e#20935#21088#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7169811">
+          <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
           <folding />
         </state>
       </provider>
