@@ -289,12 +289,12 @@ function getLoginInfoToSession() {
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {
-                    //window.location.href = "/";
+                    window.location.href = "/";
                 }
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
                 //alert("获取登录信息失败!");
-                //window.location.href = "/";
+                window.location.href = "/";
             }
         }
     });
