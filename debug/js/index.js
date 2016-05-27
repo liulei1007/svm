@@ -402,6 +402,13 @@ function getGoodsInfo() {
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
                 unloading();
+                 if(data.data.productGoodsORM.productInfoORM.baseCategoryId==1){
+                    $(".material").show();
+                    $(".material_temp").hide();
+                }else{
+                    $(".material").hide();
+                    $(".material_temp").show();
+                }
                 $('.body-typein').setPageData(data.data);
                 var formsList = "";
                 $(data.data.productGoodsORM.productInfoORM.productInfoAttrORMs).each(function (i, good) {
@@ -438,6 +445,13 @@ function getProductInfo() {
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
                 unloading();
+                 if(data.data.baseCategoryId==1){
+                    $(".material").show();
+                    $(".material_temp").hide();
+                }else{
+                    $(".material").hide();
+                    $(".material_temp").show();
+                }
                 $('.form-horizontal').setPageData(data.data);
                 $(".weight-info").html($(".weight-info").html()+"KG")
                 $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));

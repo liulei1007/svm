@@ -1,5 +1,6 @@
 $(function(){
 	plumeLog("进入takingGoods模板自定义js-"+plumeTime());
+	$(".alert-danger").hide();
 	getProductInfo();
 
 	$('tbody').on('click','.btn-delect',function() {
