@@ -151,7 +151,7 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    window.location.href="secondreg?fullscreen";
+                    window.location.href="index";
                 } else {
                     $("#reg-errormsg").text("注册失败:" + data.resDescription);
                     $(".register-form .login-alert").fadeIn();
