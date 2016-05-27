@@ -980,10 +980,10 @@ function newPage(totalPage, fun) {
 
         var paginationHtml = '';
         // 回到最前页按钮
-        if (nowPage == 1) {
+        if (nowPage == 1&&totalPage>0) {
             paginationHtml += '<li class="first disabled"><span>&laquo;</span></li>';
         }
-        else paginationHtml += '<li class="first"><span>&laquo;</span></li>';
+        else if(totalPage>0){ paginationHtml += '<li class="first"><span>&laquo;</span></li>';}
 
         // 如果总页数小于或者等于10
         if (totalPage <= 10) {
@@ -1052,7 +1052,7 @@ function newPage(totalPage, fun) {
         if (nowPage == totalPage) {
             paginationHtml += '<li class="last disabled"><span>&raquo;</span></li>';
         }
-        else paginationHtml += '<li class="last"><span>&raquo;</span></li>';
+        else if(totalPage>0){paginationHtml += '<li class="last"><span>&raquo;</span></li>';}
         $(".pagination").html(paginationHtml);
         if (fun) {
             if (Tf) {fun(nowPage);}
