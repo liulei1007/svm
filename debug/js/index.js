@@ -582,7 +582,12 @@ function addProductShopGoods(body) {
                 derict(this, "takingGoodsData", "nochangeurl");
             } else {
                 unloading();
-                popTips("商品调取失败", "warning");
+                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("商品调取失败");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html(data.resDescription);
+                    });
+                //popTips("商品调取失败", "warning");
                 derict(this, "takingGoodsData", "nochangeurl");
             }
         }
