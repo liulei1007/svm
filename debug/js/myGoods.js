@@ -38,6 +38,18 @@ $(function () {
         getDataInit();
     }
 
+    //复制初始化
+    function myGoodsCopyInit() {
+        //隐藏错误提示
+        $(".alert-danger").hide();
+        $(".changeType").hide();
+        $(".mg-title").text("复制新增商品");
+        //返回按钮
+        $(".cmg-cancel").bind("click", function () {
+            derict(this, "noCompleteData", "nochangeurl");
+        });
+        getDataInit();
+    }
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
@@ -137,7 +149,7 @@ $(function () {
                         $("#cityId").val(d.cityId);
                     }
                 }else{
-                    $(".cmg-region1,.cmg-region2").hide();
+
                 }
 
                 $("#modelNumber").val(d.modelNumber);
@@ -476,7 +488,7 @@ $(function () {
                 var temp = '<tr class="cmg-goodstr">';
                 temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
-                temp += '<td><input type="text" class="form-control marketPrice num" value="' + marketPrice + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
                 temp += '<td>';
                 temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                 temp += '</td>';

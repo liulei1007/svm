@@ -26,20 +26,20 @@
                 <label for="productName">商品名称</label>
                 <input type="text" class="form-control input-sm" id="productName" placeholder="">
             </div>
-            <div class="form-group">
+            <div class="form-group category-block">
                 <label>分类</label>
                 <span class="gdm-type-first">
-                    <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0">
+                    <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
                 <span class="gdm-type-second">
-                    <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1">
+                    <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
                 <span class="gdm-type-third">
-                    <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2">
+                    <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
@@ -94,7 +94,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.cityName"></td>
+                <td node-name="$n.countryName+$n.provinceName+$n.cityName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>
