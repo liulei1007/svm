@@ -469,9 +469,10 @@
         <downloadEx>/api/excel/exportProductGoodsTemplate/</downloadEx>
 
         <upBatch>/api/excel/importProductStash</upBatch>
-        <downBatch>/api/excel/exportProductStashTemplate</downBatch>    
+        <downBatch>/api/excel/exportProductStashTemplate</downBatch>
 
         <listMarketInfo>/api/common/listMarketInfo</listMarketInfo>
         <editProductInfoUpt>/api/productInfo/editProductInfoUpt</editProductInfoUpt>
+        <delProductInfoUpt>/api/productInfo/delProductInfoUpt</delProductInfoUpt>
     </api>
 </config>

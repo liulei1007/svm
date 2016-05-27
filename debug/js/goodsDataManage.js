@@ -176,10 +176,10 @@ $(function () {
 
 //按钮绑定方法
     function binFun() {
-        $(".gdm-btn-edit").unbind().bind("click", function () {
-            session.goods_showMyGoods_uptId = $(this).attr("uptid");
-            derict(this, "editMyGoods", "nochangeurl");
-        });
+        //$(".gdm-btn-edit").unbind().bind("click", function () {
+        //    session.goods_showMyGoods_uptId = $(this).attr("uptid");
+        //    derict(this, "editMyGoods", "nochangeurl");
+        //});
         $('.gdm-btn-open').each(function () {
             if ($(this).attr("saleStatus") == 1) {
                 $(this).html('禁用');
@@ -193,7 +193,7 @@ $(function () {
             derict(this, "myGoods", "nochangeurl");
         });
         $('.gdm-btn-copy').unbind().bind("click", function () {
-            session.goods_showMyGoods_uptId = $(this).attr("uptid");
+            session.goods_showMyGoods_productId = $(this).attr("productId");
             session.goods_showMyGoods_type = "copy";
             derict(this, "myGoods", "nochangeurl");
         })
@@ -203,8 +203,8 @@ $(function () {
     $(".table-block").on("click", ".gdm-btn-del", function () {
         if (confirm("是否确认删除?")) {
             loading();
-            var uptid = $(this).attr("uptid");
-            $.get(plumeApi["delProductInfo"] + "/" + uptid, {}, function (data) {
+            var productId = $(this).attr("productId");
+            $.get(plumeApi["delProductInfo"] + "/" + productId, {}, function (data) {
                 unloading();
                 if (data.ok) {
                     $("[list-node]").remove();
