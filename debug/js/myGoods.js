@@ -476,7 +476,7 @@ $(function () {
                 var temp = '<tr class="cmg-goodstr">';
                 temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
-                temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
+                temp += '<td><input type="text" class="form-control marketPrice num" value="' + marketPrice + '"></td>';
                 temp += '<td>';
                 temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                 temp += '</td>';
