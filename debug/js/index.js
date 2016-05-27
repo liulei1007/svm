@@ -264,6 +264,13 @@ function getLoginInfoToSession() {
         async: false,
         success: function (data) {
             if (data.ok) {
+                sessionStorage.login_mobilePhone = data.data.mobilePhone;
+                sessionStorage.login_userType = data.data.userType;
+                sessionStorage.login_id = data.data.id;
+                sessionStorage.login_openId = data.data.openId;
+                sessionStorage.login_parentId = data.data.parentId;
+                sessionStorage.login_agentsBusinessId = data.data.agentsBusinessId;
+                sessionStorage.login_manuId = data.data.manuId;
                 if(data.data.userType==0){
                     //window.location.href="secondreg?fullscreen";
                     derict(this, "secondreg?fullscreen", "nochangeurl");
@@ -279,13 +286,6 @@ function getLoginInfoToSession() {
                     $(".page-content").css({"left": 0});
                     $(".container-fixed").fadeIn();
                 }
-                sessionStorage.login_mobilePhone = data.data.mobilePhone;
-                sessionStorage.login_userType = data.data.userType;
-                sessionStorage.login_id = data.data.id;
-                sessionStorage.login_openId = data.data.openId;
-                sessionStorage.login_parentId = data.data.parentId;
-                sessionStorage.login_agentsBusinessId = data.data.agentsBusinessId;
-                sessionStorage.login_manuId = data.data.manuId;
                 if (sessionStorage.login_mobilePhone) {
                     $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
                 } else {

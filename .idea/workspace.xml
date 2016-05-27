@@ -61,16 +61,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="showMyGoods.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/debug/js/showMyGoods.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4359431">
+            <state vertical-scroll-proportion="27.938776">
               <caret line="471" column="44" selection-start-line="471" selection-start-column="44" selection-end-line="471" selection-end-column="44" />
               <folding>
                 <element signature="e#207#801#0" expanded="false" />
@@ -111,6 +101,16 @@
                 <element signature="e#20939#21092#0" expanded="false" />
                 <element signature="e#21152#22758#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.497545">
+              <caret line="291" column="20" selection-start-line="291" selection-start-column="20" selection-end-line="291" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +163,6 @@
         <option value="$PROJECT_DIR$/debug/pages/feedMyGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/amendmentInfo.js" />
         <option value="$PROJECT_DIR$/debug/js/secondreg.js" />
-        <option value="$PROJECT_DIR$/debug/js/index.js" />
         <option value="$PROJECT_DIR$/debug/js/agencyCreate.js" />
         <option value="$PROJECT_DIR$/debug/pages/amendmentInfo.html" />
         <option value="$PROJECT_DIR$/debug/js/feedMyGoods.js" />
@@ -191,6 +190,7 @@
         <option value="$PROJECT_DIR$/debug/pages/factoryCreate.html" />
         <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
+        <option value="$PROJECT_DIR$/debug/js/index.js" />
       </list>
     </option>
   </component>
@@ -412,7 +412,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -502,6 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.87366545">
           <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -743,14 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="282" column="37" selection-start-line="282" selection-start-column="37" selection-end-line="282" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/plumeimplement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -849,7 +842,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4359431">
+        <state vertical-scroll-proportion="27.938776">
           <caret line="471" column="44" selection-start-line="471" selection-start-column="44" selection-end-line="471" selection-end-column="44" />
           <folding>
             <element signature="e#207#801#0" expanded="false" />
@@ -866,6 +859,14 @@
             <element signature="e#20939#21092#0" expanded="false" />
             <element signature="e#21152#22758#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.497545">
+          <caret line="291" column="20" selection-start-line="291" selection-start-column="20" selection-end-line="291" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
