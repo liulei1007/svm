@@ -474,5 +474,6 @@
         <listMarketInfo>/api/common/listMarketInfo</listMarketInfo>
         <editProductInfoUpt>/api/productInfo/editProductInfoUpt</editProductInfoUpt>
         <delProductInfoUpt>/api/productInfo/delProductInfoUpt</delProductInfoUpt>
+        <getProductStashById>api/productStash/getProductStashById/</getProductStashById>
     </api>
 </config>
