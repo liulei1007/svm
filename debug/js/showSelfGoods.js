@@ -14,7 +14,7 @@ $(function() {
 		loading();
 		$.ajax({
 			// url: "datas/shopDetail.txt",
-			url: "http://longguo.hxmklmall.cn:80/api/productStash/getProductStashById/" + stashId,
+			url: plumeApi["getProductStashById"] + stashId,
 			type: "GET",
 			dataType: "json",
 			contentType: "application/json; charset=utf-8",
