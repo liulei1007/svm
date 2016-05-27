@@ -33,23 +33,11 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "noCompleteData", "nochangeurl");
         });
         getDataInit();
     }
 
-    //复制初始化
-    function myGoodsCopyInit() {
-        //隐藏错误提示
-        $(".alert-danger").hide();
-        $(".changeType").hide();
-        $(".mg-title").text("复制新增商品");
-        //返回按钮
-        $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
-        });
-        getDataInit();
-    }
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
@@ -70,7 +58,7 @@ $(function () {
         $(".mg-title").text("商品待完善数据编辑");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "amendmentInfo", "nochangeurl");
+            derict(this, "noCompleteData", "nochangeurl");
         });
         getDataInit();
     }
