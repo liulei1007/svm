@@ -71,17 +71,17 @@ $(function () {
         pram_str += '}';
         if (logintel == "") {
             $("#login-errormsg").text("请输入手机号码");
-            $(".login-alert").show();
+            $(".login-form .login-alert").show();
             return;
         }
         if (!isMobile(logintel)) {
             $("#login-errormsg").text("手机格式不正确");
-            $(".login-alert").fadeIn();
+            $(".login-form .login-alert").fadeIn();
             return;
         }
         if (loginpwd == "") {
             $("#login-errormsg").text("请输入密码");
-            $(".login-alert").fadeIn();
+            $(".login-form .login-alert").fadeIn();
             return;
         }
         loading();
@@ -96,13 +96,13 @@ $(function () {
                 unloading();
                 if (data.ok) {
 //                    alert("登录成功");
-                    $(".login-alert").hide();
+                    $(".login-form .login-alert").hide();
                     //$.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
                     window.location.href = "index";
 
                 } else {
                     $("#login-errormsg").text("登录失败:" + data.resDescription);
-                    $(".login-alert").fadeIn();
+                    $(".login-form .login-alert").fadeIn();
                 }
             }
         });
