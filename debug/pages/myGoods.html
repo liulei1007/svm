@@ -81,7 +81,11 @@
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i>产地</label>
-
+                    <div class="col-sm-2 cmg-region0">
+                        <select class="form-control" id="countryId" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.nationName,attr-value:$n.nationCode"></option>
+                        </select>
+                    </div>
                     <div class="col-sm-2 cmg-region1">
                         <select class="form-control" id="provinceId" data-list="$p.data">
                             <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.adressCode"></option>

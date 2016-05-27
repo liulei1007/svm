@@ -19,6 +19,11 @@ $(function () {
                     $(".material").hide();
                     $(".material_temp").show();
                 }
+                if(d.countryId=="CN"){
+                    $("#provinceName,#cityName").show();
+                }else{
+                    $("#provinceName,#cityName").hide();
+                }
                 $(".smg-basicInfo,.smg-base-attr").setPageData(d);
                 $("#priceType").text(setListSystemCode(JSON.parse(session.price_tpye),$("#priceType").text()));
                 $("#lvInfo").text(setListSystemCode(JSON.parse(session.product_lv),$("#lvInfo").text()));

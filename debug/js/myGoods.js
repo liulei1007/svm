@@ -50,6 +50,7 @@ $(function () {
         });
         getDataInit();
     }
+
     //待完善初始化
     function myGoodsAmendInit() {
         //隐藏错误提示
@@ -62,10 +63,11 @@ $(function () {
         });
         getDataInit();
     }
-    if(session.goods_baseCategoryId==1){
+
+    if (session.goods_baseCategoryId == 1) {
         $(".material").show();
         $(".material_temp").hide();
-    }else{
+    } else {
         $(".material").hide();
         $(".material_temp").show();
     }
@@ -77,16 +79,16 @@ $(function () {
         myGoodsCopyInit();
     } else if (session.goods_showMyGoods_type == "feed") {
         myGoodsFeedInit();
-    }else if(session.goods_showMyGoods_type == "amend"){
+    } else if (session.goods_showMyGoods_type == "amend") {
         myGoodsAmendInit();
     }
     //获取初始化数据
     function getDataInit() {
         loading();
         var suburl = ""
-        if (session.goods_showMyGoods_type == "amend"){
-            suburl=plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
-        }else{
+        if (session.goods_showMyGoods_type == "amend") {
+            suburl = plumeApi["getProductInfoUpt"] + "/" + session.goods_showMyGoods_uptId
+        } else {
             suburl = plumeApi["getProductInfo"] + "/" + session.goods_showMyGoods_productId;
 
         }
@@ -122,14 +124,22 @@ $(function () {
                 $("#seriesId").val(d.seriesId);
                 $("#productSecondName").val(d.productSecondName);
                 $("#productName").val(d.productName);
-                $("#provinceId").val(d.provinceId);
-                var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
-                if(adresscode&&adresscode!=""){
-                    $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
-                        $(".cmg-region2").setPageData(data);
-                    });
-                    $("#cityId").val(d.cityId);
+
+                $("#countryId").val(d.countryId);
+                if(d.countryId=="CN"){
+                    $(".cmg-region1,.cmg-region2").show();
+                    $("#provinceId").val(d.provinceId);
+                    var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
+                    if (adresscode && adresscode != "") {
+                        $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
+                            $(".cmg-region2").setPageData(data);
+                        });
+                        $("#cityId").val(d.cityId);
+                    }
+                }else{
+                    $(".cmg-region1,.cmg-region2").hide();
                 }
+
                 $("#modelNumber").val(d.modelNumber);
                 $("#materialQuality").val(d.materialQuality);
                 $("#marketPrice").val(d.marketPrice);
@@ -147,13 +157,13 @@ $(function () {
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
                 getProductAttribute();
-                var productGoods,productInfoPhotos;
-                if (session.goods_showMyGoods_type == "amend"){
-                    productGoods= d.productGoodsUpts;
-                    productInfoPhotos= d.productInfoPhotoUpts;
-                }else{
-                    productGoods= d.productGoods;
-                    productInfoPhotos= d.productInfoPhotos;
+                var productGoods, productInfoPhotos;
+                if (session.goods_showMyGoods_type == "amend") {
+                    productGoods = d.productGoodsUpts;
+                    productInfoPhotos = d.productInfoPhotoUpts;
+                } else {
+                    productGoods = d.productGoods;
+                    productInfoPhotos = d.productInfoPhotos;
                 }
                 for (var j = 0; j < productGoods.length; j++) {
                     var p = productGoods[j];
@@ -249,9 +259,9 @@ $(function () {
     function getProductAttribute() {
         var categoryId = session.goods_categoryId;
         $.get(plumeApi["listProductAttribute"] + "/" + categoryId, {}, function (data) {
-            if(data.data.length==0){
+            if (data.data.length == 0) {
                 $(".mg-attr-block").hide();
-            }else{
+            } else {
                 $(".mg-attr-block").show();
             }
             for (var i = 0; i < data.data.length; i++) {
@@ -396,6 +406,17 @@ $(function () {
 
     //地区下拉列表
     function getlistNationRegion() {
+        $.get(plumeApi["listNationCode"], {}, function (data) {
+            $(".cmg-region0").find("[list-node]").remove();
+            $(".cmg-region0").setPageData(data);
+            $(".cmg-region0").find(".form-control").val("CN").bind("change", function () {
+                if ($(this).val() == "CN") {
+                    $(".cmg-region1,.cmg-region2").show();
+                } else {
+                    $(".cmg-region1,.cmg-region2").hide();
+                }
+            });
+        });
         $.get(plumeApi["listNationRegion"], {}, function (data) {
             $(".cmg-region1").find("[list-node]").remove();
             $(".cmg-region1").setPageData(data);
@@ -428,7 +449,7 @@ $(function () {
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
-            if($(this).val()!=""){
+            if ($(this).val() != "") {
                 if (re.test($(this).val())) {
                     $(this).parent().parent().find(".alert-danger").hide();
                 } else {
@@ -523,7 +544,7 @@ $(function () {
             pram_str += '';
         } else if (session.goods_showMyGoods_type == "edit" || session.goods_showMyGoods_type == "feed") {
             pram_str += '"productId": "' + $("#productId").val() + '",';
-        }else if(session.goods_showMyGoods_type == "amend" ){
+        } else if (session.goods_showMyGoods_type == "amend") {
             pram_str += '"uptId": "' + session.goods_showMyGoods_uptId + '",';
         }
         pram_str += '"productName": "' + $("#productName").val() + '",';
@@ -532,12 +553,22 @@ $(function () {
         pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
         pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
         pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
-        pram_str += ' "countryId": "CN",';
-        pram_str += '"countryName": "中国",';
-        pram_str += '"provinceId": "' + $("#provinceId").val() + '",';
-        pram_str += '"provinceName": "' + $("#provinceName").find("option:selected").text() + '",';
-        pram_str += '"cityId": "' + $("#cityId").val() + '",';
-        pram_str += '"cityName": "' + $("#cityId").find("option:selected").text() + '",';
+        pram_str += ' "countryId": "' + $("#countryId").val() + '",';
+        pram_str += '"countryName": "' + $("#countryId").find("option:selected").text() + '",';
+        var pid = "0";
+        var cid = "0";
+        var pname = "";
+        var cname = "";
+        if ($("#countryId").val() == "CN") {
+            pid = $("#provinceId").val();
+            pname = $("#provinceId").find("option:selected").text();
+            cid = $("#cityId").val();
+            cname = $("#cityId").find("option:selected").text();
+        }
+        pram_str += '"provinceId": "' + pid + '",';
+        pram_str += '"provinceName": "' + pname + '",';
+        pram_str += '"cityId": "' + cid + '",';
+        pram_str += '"cityName": "' + cname + '",';
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": "' + $("#weight").val() + '",';
@@ -605,7 +636,7 @@ $(function () {
             sub_url = plumeApi["editProductInfo"];
         } else if (session.goods_showMyGoods_type == "feed") {
             sub_url = plumeApi["addProductInfoFeedback"];
-        }else if (session.goods_showMyGoods_type == "amend") {
+        } else if (session.goods_showMyGoods_type == "amend") {
             sub_url = plumeApi["editProductInfoUpt"];
         }
         $.ajax({
