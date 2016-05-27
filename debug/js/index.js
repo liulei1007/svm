@@ -197,13 +197,11 @@ function pathInit() {
         $(".page-content").css({"left": 0});
         $(".container-fixed").fadeIn();
     } else {
-        getLoginInfoToSession();
-        //获取登录信息放入session中
         loading();
-       // getLoginInfoToSession();
+        getLoginInfoToSession();
         getAuth();
         getListSystemCode();
-        unloading();
+
         //$(".slidebar-title,.auth-menu-ul li").show();
         //var auth = sessionStorage.auth;
         //if (auth) {
@@ -236,7 +234,7 @@ function getAuth() {
         url: plumeApi["getSystemResourceTree"],
         contentType: "application/json",
         dataType: "json",
-        async: false,
+       // async: false,
         success: function (data) {
             if (data.ok) {
                 for (var i = 0; i < data.data.length; i++) {
@@ -261,7 +259,7 @@ function getLoginInfoToSession() {
         url: plumeApi["getLoginUser"],
         contentType: "application/json",
         dataType: "json",
-        async: false,
+        //async: false,
         success: function (data) {
             if (data.ok) {
                 sessionStorage.login_mobilePhone = data.data.mobilePhone;
@@ -296,6 +294,7 @@ function getLoginInfoToSession() {
                 //alert("获取登录信息失败!");
                 window.location.href = "/";
             }
+            unloading();
         }
     });
 }
@@ -306,7 +305,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/price_tpye",
         contentType: "application/json",
         dataType: "json",
-        async: false,
+       // async: false,
         success: function (data) {
             if (data.ok) {
                 session.price_tpye = JSON.stringify(data);
@@ -320,7 +319,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/product_lv",
         contentType: "application/json",
         dataType: "json",
-        async: false,
+       // async: false,
         success: function (data) {
             if (data.ok) {
                 session.product_lv = JSON.stringify(data);
@@ -334,7 +333,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/img_url",
         contentType: "application/json",
         dataType: "json",
-        async: false,
+       // async: false,
         success: function (data) {
             if (data.ok) {
                 session.img_url = JSON.stringify(data);
@@ -750,7 +749,7 @@ function transmit_showLoad() {
 }
 function loading() {
     if (!($(".lockbg").length > 0)) {
-        $(".work-space-active").append("<div class='lockbg'></div>");
+        $(document.body).append("<div class='lockbg'></div>");
         $(".lockbg").show();
     }
 
@@ -759,7 +758,7 @@ function loading() {
         for (var i = 1; i < 36; i=i+1) {
             temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
         }
-        $(".work-space-active").append(temp);
+        $(document.body).append(temp);
         clearTimeout(transmit_loop)
         transmit_showLoad();
     }
