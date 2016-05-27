@@ -756,7 +756,7 @@ function loading() {
 
     if (!($(".loading").length > 0)) {
         var temp = '';
-        for (var i = 1; i < 36; i=i+2) {
+        for (var i = 1; i < 36; i=i+1) {
             temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
         }
         $(".work-space-active").append(temp);
