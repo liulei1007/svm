@@ -168,6 +168,13 @@ $(function () {
                 session.goods_subCategoryName = d.subCategoryName;
                 session.goods_baseCategoryId = d.baseCategoryId;
                 session.goods_baseCategoryName = d.baseCategoryName;
+                if (session.goods_baseCategoryId == 1) {
+                    $(".material").show();
+                    $(".material_temp").hide();
+                } else {
+                    $(".material").hide();
+                    $(".material_temp").show();
+                }
                 getProductAttribute();
                 var productGoods, productInfoPhotos;
                 if (session.goods_showMyGoods_type == "amend") {
