@@ -59,6 +59,7 @@ $(function() {
 				$(".doc-commodityManagement").setPageData(data);
 				totalPage=Math.ceil(data.countRecord/10);
             	newPage(totalPage,function(i){
+            		loading();
 					datas.page = (i-1)*10;
 					$.ajax({
 						url: plumeApi["listProductStash"],

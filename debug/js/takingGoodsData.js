@@ -52,6 +52,7 @@ $(function () {
                 newPage(totalPage, function (i) {
                     datas.currentPage = i;
                     var newData = JSON.stringify(datas);
+                    loading();
                     $.ajax({
                         url: plumeApi["listProductGoods"] + "?currentPage=" + i + "&onePageCount=10",
                         type: "GET",

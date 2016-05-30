@@ -51,7 +51,8 @@ $(function () {
                 showData(result);
                 totalPage = Math.ceil(result.countRecord / 10);
                 newPage(totalPage, function (i) {
-                    $(".nav-pagination").show()
+                    loading();
+                    $(".nav-pagination").show();
                     data.start = (i - 1) * 10;
                     var newData = JSON.stringify(data);
                     $.ajax({

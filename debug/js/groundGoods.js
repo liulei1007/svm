@@ -51,6 +51,7 @@ function getGoodsData() {
             totalPage=Math.ceil(data.countRecord/10);
 			newPage(totalPage,function(i){
 			var newData = JSON.stringify(datas);
+            loading();
 			$.ajax({
 				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=10",
 				type: "POST",
