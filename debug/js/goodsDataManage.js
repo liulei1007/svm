@@ -202,34 +202,48 @@ $(function () {
 
 //删除按钮
     $(".table-block").on("click", ".gdm-btn-del", function () {
-        if (confirm("是否确认删除?")) {
+        var productId = $(this).attr("productId");
+        $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
+        // 改变弹出框中文字和图标显示
+        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        $(".pop").find(".popup-info").html("是否确认删除记录？");
+        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+        // 绑定按钮事件
+        $('.pop').on('click', '.btn-sure', function () {
             loading();
-            var productId = $(this).attr("productId");
-            $.get(plumeApi["delProductInfo"] + "/" + productId, {}, function (data) {
-                unloading();
-                if (data.ok) {
-                    $("[list-node]").remove();
-                    getTableData();
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("删除成功");
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 1000);
-                    });
-                } else {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+            $.ajax({
+                url: plumeApi["delProductInfo"] + "/" + productId,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                success: function (data) {
+                    if (data.ok) {
+                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                            $(".pop").find(".popup-title").html("信息提示");
+                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                            $(".pop").find(".popup-info").html("删除成功");
+                        });
+                         $("[list-node]").remove();
+                         getTableData();
+                    } else {
+                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                         $(".pop").find(".popup-info").html("删除失败");
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 1000);
-                    });
+                        });
+                    }
                 }
             });
-        }
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+        $('.pop').on('click', '.btn-cancel', function () {
+            $('.pop').hide();
+            $('.pop').off('click', '.btn-sure');
+            $('.pop').off('click', '.btn-cancel');
+        });
+    });        
     });
 
 
