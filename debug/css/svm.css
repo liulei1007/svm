@@ -355,7 +355,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-font{text-align: center;line-height: 33px;width:73px; border-bottom: solid transparent 1px;}
 .color-type .sel{position: absolute; top:17px;border-bottom: 1px solid #fff;z-index: 9;}
 .color-select{border:1px solid #dadce5;/*height:151px;*/margin-left: 15px;padding: 10px 0; /*padding-top: 35px;*/width:824px}
-.color-select .color-single{float: left; margin-top: 10px; margin-bottom: 10px; margin-left: 30px; min-width: 200px;}
+.color-select .color-single{float: left; margin-top: 10px; margin-bottom: 10px; margin-left: 30px; min-width: 235px;}
 .color-select .color-single input[type="checkbox"]{float: left; margin-top: 8px; margin-right: 10px;}
 
 /* 分类色值 */
@@ -364,8 +364,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .color-select .color-show span{display: block; width: 100%;}
 .color-select .color-select-title{height: 10px; border-bottom: solid #ced1dc 1px;}
 .color-select .cmg-colorName{text-align: center;}
-.color-select .color-desc{float: left; width: 100px;}
-.color-select .form-control{margin: 0; margin-left: 10px; padding: 5px 10px; width: 100%; height: 32px;}
+.color-select .color-desc{float: left; margin-left: 10px; width: 100px;}
+.color-select .form-control{margin: 0; padding: 5px 10px; width: 100%; height: 32px;}
 .btn-count{float: left;margin-left: 50px;}
 .btn-count input{width: 40px;display: inline-block;}
 /*.color-select>div>div>input{float:left;margin: 10px 12px 0 0;}
