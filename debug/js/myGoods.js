@@ -33,7 +33,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "noCompleteData", "nochangeurl");
+            derict(this, "goodsDataManage", "nochangeurl");
         });
         getDataInit();
     }
