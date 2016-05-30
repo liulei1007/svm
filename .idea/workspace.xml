@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-new.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login-new.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/login-new.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2536825">
-              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -58,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/debug/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="729" column="51" selection-start-line="729" selection-start-column="45" selection-end-line="729" selection-end-column="51" />
+              <caret line="734" column="51" selection-start-line="734" selection-start-column="51" selection-end-line="734" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="svm.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="550" column="51" selection-start-line="550" selection-start-column="51" selection-end-line="550" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.38625205">
+              <caret line="554" column="163" selection-start-line="554" selection-start-column="163" selection-end-line="554" selection-end-column="163" />
               <folding />
             </state>
           </provider>
@@ -148,8 +148,8 @@
         <option value="$PROJECT_DIR$/debug/js/goodsAuditManage.js" />
         <option value="$PROJECT_DIR$/debug/pages/noCompleteData.html" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
-        <option value="$PROJECT_DIR$/debug/css/svm.css" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
+        <option value="$PROJECT_DIR$/debug/css/svm.css" />
       </list>
     </option>
   </component>
@@ -371,7 +371,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -817,26 +817,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="550" column="51" selection-start-line="550" selection-start-column="51" selection-end-line="550" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="729" column="51" selection-start-line="729" selection-start-column="45" selection-end-line="729" selection-end-column="51" />
+          <caret line="734" column="51" selection-start-line="734" selection-start-column="51" selection-end-line="734" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/login-new.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2536825">
-          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/css/svm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38625205">
+          <caret line="554" column="163" selection-start-line="554" selection-start-column="163" selection-end-line="554" selection-end-column="163" />
           <folding />
         </state>
       </provider>
