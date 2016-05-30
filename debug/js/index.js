@@ -1,4 +1,5 @@
 $(function () {
+
 //显示登录名称
     if (sessionStorage.login_mobilePhone) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
@@ -593,7 +594,11 @@ function editProductShopGoods() {
                 derict(this, "groundGoods", "nochangeurl");
             } else {
                 unloading();
-                popTips("商品编辑失败", "warning");
+                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("商品编辑失败");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                  });
                 derict(this, "groundGoods", "nochangeurl");
             }
         }
@@ -1037,4 +1042,8 @@ function newPage(totalPage, fun) {
         }
     }
 }
+
+
+
+
 
