@@ -76,13 +76,6 @@ $(function () {
         getDataInit();
     }
 
-    if (session.goods_baseCategoryId == 1) {
-        $(".material").show();
-        $(".material_temp").hide();
-    } else {
-        $(".material").hide();
-        $(".material_temp").show();
-    }
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
@@ -93,6 +86,13 @@ $(function () {
         myGoodsFeedInit();
     } else if (session.goods_showMyGoods_type == "amend") {
         myGoodsAmendInit();
+    }
+    if (session.goods_baseCategoryId == 1) {
+        $(".material").show();
+        $(".material_temp").hide();
+    } else {
+        $(".material").hide();
+        $(".material_temp").show();
     }
     //获取初始化数据
     function getDataInit() {
@@ -119,7 +119,7 @@ $(function () {
                     });
                 }
                 unloading();
-                var d = data.data
+                var d = data.data;
                 $(".emg-initdata").setPageData(d);
                 $.ajaxSetup({
                     async: false
@@ -149,7 +149,7 @@ $(function () {
                         $("#cityId").val(d.cityId);
                     }
                 }else{
-
+                    $(".cmg-region1,.cmg-region2").hide();
                 }
 
                 $("#modelNumber").val(d.modelNumber);
