@@ -32,6 +32,7 @@ $('.btn-allAudit').click(function () {
 
 //待审核产品列表
 function listProductInfoUpt() {
+    loading();
     var newData = JSON.stringify(datas)
     $.ajax({
         url: plumeApi["listProductInfoUpt"]+"?currentPage=1&onePageCount=10",
@@ -53,6 +54,7 @@ function listProductInfoUpt() {
                 totalPage=Math.ceil(data.countRecord/10);
                 newPage(totalPage,function(i){
                 var newData = JSON.stringify(datas);
+                    loading();
                      $.ajax({
                          url: plumeApi["listProductInfoUpt"]+"?currentPage="+i+"&onePageCount=10",
                          type: "POST",

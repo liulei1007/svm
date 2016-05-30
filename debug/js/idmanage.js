@@ -49,9 +49,6 @@ $(function(){
         
         var removeList = $(this).parents('tr');
     	var managid = removeList.attr("managid");
-
-        console.log("remove managid="+managid);
-    	
     	delSubUserData(managid);
 
     });

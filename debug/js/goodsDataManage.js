@@ -39,9 +39,8 @@ $(function () {
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
     function getFirstCategory(categoryId, tag) {
-        loading();
+
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
-            unloading();
             $("." + cls[tag]).find("[list-node]").remove();
             $("." + cls[tag]).setPageData(data);
             $("." + cls[tag]).find("select").unbind().bind("change", function () {
