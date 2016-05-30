@@ -172,6 +172,5 @@ function delectGoodsData() {
     });
 }
 
-
-})
+});
 
