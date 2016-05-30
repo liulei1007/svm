@@ -581,7 +581,7 @@ function editProductShopGoods() {
         data: JSON.stringify(
             {
                 "psgId": session.goods_psgId,
-                "salePrice": price,
+                "salePrice": price,     
                 "priceType": priceType,
                 "inventory": inventory,
                 "saleStatus": saleStatus
@@ -599,7 +599,7 @@ function editProductShopGoods() {
                     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                     $(".pop").find(".popup-info").html(data.resDescription);
                   });
-                derict(this, "groundGoods", "nochangeurl");
+                derict(this, "groundGoods", "nochangeurl"); 
             }
         }
     });
