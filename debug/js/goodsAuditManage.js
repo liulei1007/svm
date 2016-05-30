@@ -32,7 +32,7 @@ $('.btn-allAudit').click(function () {
 
 //待审核产品列表
 function listProductInfoUpt() {
-    var newData = JSON.stringify(datas)
+    var newData = JSON.stringify(datas);
     $.ajax({
         url: plumeApi["listProductInfoUpt"]+"?currentPage=1&onePageCount=10",
         type: "POST",
