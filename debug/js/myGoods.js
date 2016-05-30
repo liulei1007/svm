@@ -1,8 +1,6 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     //创建初始化
-    //session.goods_showMyGoods_type = "feed";
-    //session.goods_showMyGoods_productId = "53";
     function myGoodsCreateInit() {
         //隐藏错误提示
         $(".alert-danger").hide();
@@ -176,13 +174,15 @@ $(function () {
                     $(".material_temp").show();
                 }
                 getProductAttribute();
-                var productGoods, productInfoPhotos;
+                var productGoods, productInfoPhotos,productInfoAttrORMs;
                 if (session.goods_showMyGoods_type == "amend") {
                     productGoods = d.productGoodsUpts;
                     productInfoPhotos = d.productInfoPhotoUpts;
+                    productInfoAttrORMs= d.productInfoAttrUptORMs;
                 } else {
                     productGoods = d.productGoods;
                     productInfoPhotos = d.productInfoPhotos;
+                    productInfoAttrORMs= d.productInfoAttrORMs;
                 }
                 for (var j = 0; j < productGoods.length; j++) {
                     var p = productGoods[j];
@@ -232,6 +232,10 @@ $(function () {
                     temp += '</div>';
                     temp += '</li>';
                     $(".goodsPic-upload").append(temp);
+                }
+                for (var l = 0; l < productInfoAttrORMs.length; l++) {
+                    var p = productInfoAttrORMs[l];
+                    $("[attributeid="+ p.attributeId+"]").val(p.attrValueId);
                 }
                 picMove();
                 $.ajaxSetup({
