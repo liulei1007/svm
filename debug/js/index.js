@@ -561,7 +561,6 @@ function addProductShopGoods(body) {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 //popTips("商品调取失败", "warning");
-                derict(this, "takingGoodsData", "nochangeurl");
             }
         }
     });
@@ -599,7 +598,6 @@ function editProductShopGoods() {
                     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                     $(".pop").find(".popup-info").html(data.resDescription);
                   });
-                derict(this, "groundGoods", "nochangeurl"); 
             }
         }
     });
