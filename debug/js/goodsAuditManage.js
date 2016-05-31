@@ -26,7 +26,12 @@ $('.btn-allAudit').click(function () {
             uptIds.push($(this).parents('tr').find('.uptId').html());
         }
     });
-    auditFun(uptIds);
+    if(uptIds.length){
+        auditFun(uptIds); 
+    }else{
+        popTips("您未选择审核商品", "warning");
+    }
+   
 });
 
 

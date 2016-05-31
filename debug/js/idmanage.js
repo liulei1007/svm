@@ -75,10 +75,20 @@ function editUserRoles(managid) {
         success: function (data) {
             unloading();
             if(data.ok) {
-                alert("权限调整成功!");
-                $(".cic-pop").pophide();
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('配置成功');
+                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    $(".pop").find(".popup-info").html("权限调整成功");
+                });
+                // alert("权限调整成功!");
+                // $(".cic-pop").pophide();
             } else {
-                alert("权限调整失败!"+data.resDescription);
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('配置失败');
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                });
+                // alert("权限调整失败!"+data.resDescription);
             }
         }
     });
