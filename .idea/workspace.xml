@@ -44,8 +44,8 @@
       <file leaf-file-name="changepwd.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/changepwd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.497545">
-              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.38625205">
+              <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -863,8 +863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/changepwd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.497545">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.38625205">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding />
         </state>
       </provider>

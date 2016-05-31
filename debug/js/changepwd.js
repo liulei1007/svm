@@ -51,7 +51,7 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     alert("短信验证码发送成功");
-                    settime(10);
+                    settime(60);
                 } else {
                     alert("短信验证码发送异常");
                 }
