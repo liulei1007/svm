@@ -1,5 +1,7 @@
 $(function () {
     loading();
+    //获取反馈信息
+    var json1_1,json1_2,json1_3,json2_1,json2_2,json2_3;
     function getProductInfoUpt() {
         $.ajax({
             type: "GET",
@@ -8,11 +10,13 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                unloading();
                 var d = data.data
                 $(".smg-basicInfo1,.smg-base-attr1").setPageData(d);
                 $("#priceType1").text(setListSystemCode(JSON.parse(session.price_tpye),$("#priceType1").text()));
                 $("#lvInfo1").text(setListSystemCode(JSON.parse(session.product_lv),$("#lvInfo1").text()));
+                json1_1=d.productInfoAttrUptORMs;
+                json1_2=d.productGoodsUpts;
+                json1_3=d.productInfoPhotoUpts;
                 for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
                     var p = d.productInfoAttrUptORMs[i];
                     var temp = '<div class="form-group required smg-base-attr">';
@@ -39,9 +43,11 @@ $(function () {
                     temp += '</li>';
                     $(".goodsPic-upload1").append(temp);
                 }
+                getProductInfo();
             }
         });
     }
+    //获取产品信息
     function getProductInfo() {
         $.ajax({
             type: "GET",
@@ -50,11 +56,13 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                unloading();
                 var d = data.data
                 $(".smg-basicInfo2,.smg-base-attr2").setPageData(d);
                 $("#priceType2").text(setListSystemCode(JSON.parse(session.price_tpye),$("#priceType2").text()));
                 $("#lvInfo2").text(setListSystemCode(JSON.parse(session.product_lv),$("#lvInfo2").text()));
+                json2_1=d.productInfoAttrORMs;
+                json2_2=d.productGoods;
+                json2_3=d.productInfoPhotos;
                 for (var i = 0; i < d.productInfoAttrORMs.length; i++) {
                     var p = d.productInfoAttrORMs[i];
                     var temp = '<div class="form-group required smg-base-attr">';
@@ -81,12 +89,66 @@ $(function () {
                     temp += '</li>';
                     $(".goodsPic-upload2").append(temp);
                 }
+                setDifferent();
             }
         });
     }
+    //设置差异
+    function setDifferent(){
+        $(".smg-basicInfo1").find(".form-horizontal").find("p").each(function(i){
+            var t1=$(this).text();
+            var t2=$($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text();
+            if(t1!=t2){
+                $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).css({
+                    "background":"#f0d6d0"
+                });
+                $(".json_title0").css({
+                    "color":"#C13535"
+                })
+            }
+        });
+        return;
+        var rst_1=true;
+        for(key in json1_1){
+            if(json1_1[key]!=json2_1[key]){
+                rst_1=false;
+                break;
+            }
+        }
+        if(!rst_1){
+            $(".json_title1").css({
+                "color":"#C13535"
+            })
+        }
+        var rst_2=true;
+        for(key in json1_2){
+            if(json1_2[key]!=json2_2[key]){
+                rst_2=false;
+                break;
+            }
+        }
+        if(!rst_2){
+            $(".json_title2").css({
+                "color":"#C13535"
+            })
+        }
+        var rst_3=true;
+        for(key in json1_3){
+            if(json1_3[key]!=json2_3[key]){
+                rst_3=false;
+                break;
+            }
+        }
+        if(!rst_3){
+            $(".json_title3").css({
+                "color":"#C13535"
+            })
+        }
+        unloading();
+    }
 
     getProductInfoUpt();
-    getProductInfo();
+
     $(".fmg-back").bind("click",function(){
         derict(this, "amendmentInfo", "nochangeurl");
     });
