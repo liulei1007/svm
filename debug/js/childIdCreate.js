@@ -233,7 +233,12 @@ function subAccUpView(accountId) {
 
             }
             else {
-                popTips("添加失败","warning");
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("添加失败");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                });
+                // popTips("添加失败","warning");
                 // alert("添加失败:"+data.resDescription);
             }
         }
@@ -308,11 +313,21 @@ function subAccModify() {
         success: function (data) {
             unloading();
             if (data.ok) {
-                popTips("修改成功","success");
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('修改成功');
+                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    $(".pop").find(".popup-info").html("子账号修改成功");
+                });
+                // popTips("修改成功","success");
                 // alert("修改成功");
                 derict(this, "idmanage", "nochangeurl");
             } else {
-                popTips("修改失败","warning");
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html('修改失败');
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                });
+                // popTips("修改失败","warning");
                 // alert("修改失败:"+data.resDescription);
             }
         }
@@ -407,12 +422,19 @@ function subAccAdd() {
             console.log(paramData);
             unloading();
             if (data.ok) {
-                popTips("添加成功","success");
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("添加成功");
+                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    $(".pop").find(".popup-info").html("子账号添加成功");
+                });
                 // alert("添加成功");
                 derict(this, "idmanage", "nochangeurl");
             } else {
-                popTips("修改失败","warning");
-                // alert("添加失败:"+data.resDescription);
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("添加失败");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                });
             }
         }
     });
