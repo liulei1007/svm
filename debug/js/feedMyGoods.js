@@ -10,7 +10,10 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                var d = data.data
+                if(!data.data){
+                    alert("未查询到数据!");
+                }
+                var d = data.data;
                 $(".smg-basicInfo1,.smg-base-attr1").setPageData(d);
                 $("#priceType1").text(setListSystemCode(JSON.parse(session.price_tpye),$("#priceType1").text()));
                 $("#lvInfo1").text(setListSystemCode(JSON.parse(session.product_lv),$("#lvInfo1").text()));
@@ -56,6 +59,11 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                unloading();
+                if(!data.data){
+                    alert("该商品已经删除!");
+                    derict(this, "amendmentInfo", "nochangeurl");
+                }
                 var d = data.data
                 $(".smg-basicInfo2,.smg-base-attr2").setPageData(d);
                 $("#priceType2").text(setListSystemCode(JSON.parse(session.price_tpye),$("#priceType2").text()));
@@ -108,7 +116,6 @@ $(function () {
                 })
             }
         });
-        unloading();
         return;
         var rst_1=true;
         for(key in json1_1){

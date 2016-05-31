@@ -103,11 +103,9 @@
       <file leaf-file-name="feedMyGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6579378">
-              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-              <folding>
-                <element signature="e#6294#6355#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.3380783">
+              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -414,7 +412,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -874,11 +872,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6579378">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <element signature="e#6294#6355#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.3380783">
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
