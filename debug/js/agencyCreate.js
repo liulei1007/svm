@@ -42,7 +42,11 @@ $(function () {
                 loading();
                 $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                     unloading();
+                    $(".ac-cityId2").find("[list-node]").remove();
                     $(".ac-cityId2").setPageData(data);
+                    $(".ac-cityId2").bind("change",function(){
+                        listMarketInfo();
+                    });
                 });
             });
         });
@@ -50,7 +54,8 @@ $(function () {
 
     getlistNationRegion();
     $(".btn-success").bind("click", function () {
-        if ($(".li-hasAgency").has("active")) {
+        if ($("#li-hasAgency").hasClass("active")) {
+            console.log("yi");
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName1").val() + '",';
             pram_str += '"contacts": "' + $("#contacts1").val() + '",';
@@ -86,8 +91,9 @@ $(function () {
                     }
                 }
             });
-        } else {
-
+        }
+        else {
+            console.log("dier");
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName2").val() + '",';
             pram_str += '"categoryName": "' + $("#categoryName2").val() + '",';
