@@ -1043,5 +1043,3 @@ function newPage(totalPage, fun) {
 
 
 
-
-
