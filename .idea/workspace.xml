@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/debug/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="955" column="7" selection-start-line="955" selection-start-column="7" selection-end-line="955" selection-end-column="7" />
+              <caret line="953" column="7" selection-start-line="953" selection-start-column="7" selection-end-line="953" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -103,10 +103,10 @@
       <file leaf-file-name="feedMyGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8445172">
-              <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.6579378">
+              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
               <folding>
-                <element signature="e#6292#6353#0" expanded="false" />
+                <element signature="e#6294#6355#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -806,7 +806,7 @@
     <entry file="file://$PROJECT_DIR$/debug/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="955" column="7" selection-start-line="955" selection-start-column="7" selection-end-line="955" selection-end-column="7" />
+          <caret line="953" column="7" selection-start-line="953" selection-start-column="7" selection-end-line="953" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -874,10 +874,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/feedMyGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8445172">
-          <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.6579378">
+          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
           <folding>
-            <element signature="e#6292#6353#0" expanded="false" />
+            <element signature="e#6294#6355#0" expanded="false" />
           </folding>
         </state>
       </provider>

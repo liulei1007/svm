@@ -95,6 +95,7 @@ $(function () {
     }
     //设置差异
     function setDifferent(){
+
         $(".smg-basicInfo1").find(".form-horizontal").find("p").each(function(i){
             var t1=$(this).text();
             var t2=$($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text();
@@ -107,6 +108,7 @@ $(function () {
                 })
             }
         });
+        unloading();
         return;
         var rst_1=true;
         for(key in json1_1){
@@ -144,7 +146,7 @@ $(function () {
                 "color":"#C13535"
             })
         }
-        unloading();
+
     }
 
     getProductInfoUpt();
