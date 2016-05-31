@@ -73,7 +73,6 @@ $(function () {
         });
         getDataInit();
     }
-
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
@@ -187,7 +186,7 @@ $(function () {
                 for (var j = 0; j < productGoods.length; j++) {
                     var p = productGoods[j];
                     var temp = '<tr class="cmg-goodstr">';
-                    temp += '<td colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                    temp += '<td productGoodsId="'+ p.productGoodsId+'" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                     temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                     temp += '<td>';
