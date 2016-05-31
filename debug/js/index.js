@@ -151,7 +151,7 @@ $(function () {
             success: function (data) {
                 if (data.ok) {
                     window.location.href = "../";
-                    sessionStorage.clear();
+                    sessionStorage.login_mobilePhone="";
                 }
             }
         });

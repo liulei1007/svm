@@ -9,6 +9,7 @@ $(function() {
                 loading();
                 $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
                     unloading();
+                    $(".ac-cityId1").find("[list-node]").remove();
                     $(".ac-cityId1").setPageData(data);
                 });
             });

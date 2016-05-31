@@ -37,6 +37,9 @@ $(function(){
 	});
 
 	$("#cpdsendcode").bind("click", function() {
+		if(!sendMsgCount){
+			return;
+		}
 		var mobile = $(".mobile").val();
 		$(".reg-msg1").hide();
         if (isMobile(mobile)) {
@@ -45,7 +48,7 @@ $(function(){
                 unloading();
                 if (data.ok) {
                     alert("短信验证码发送成功");
-                    settime(60);
+                    settime(10);
                 } else {
                 	alert("短信验证码发送异常");
                 }
@@ -59,21 +62,21 @@ $(function(){
 function isMobile(n) {
     return /^1\d{10}$/.test(n) && n != 11111111111;
 }
- 
+ var sendMsgCount=true;
 function settime(countdown) { 
 	if (countdown == 0) { 
-		$("#cpdsendcode").removeAttr("disabled");
-		$(".timeshow").html("获取验证码"); 
-		sendMsgCount = 0;
+		$(".timeshow").html("获取验证码");
+		sendMsgCount = true;
 		return;
 	} else { 
-		$("#cpdsendcode").attr("disabled", "disabled"); 
-		$(".timeshow").html(countdown+"s后重新发送"); 
-		countdown--; 
+		$(".timeshow").html(countdown+"s后重新发送");
+		sendMsgCount = false;
+		countdown--;
+		setTimeout(function() {
+			settime(countdown)
+		},1000);
 	} 
-	setTimeout(function() { 
-		settime(countdown) 
-	},1000);
+
 }
 
 function resetPassword() {
