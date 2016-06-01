@@ -1,6 +1,6 @@
 $(function () {
     plumeLog("进入changepwd模板自定义js-" + plumeTime());
-    if (sessionStorage.login_mobilePhone&&sessionStorage.login_mobilePhone!="") {
+    if ((sessionStorage.login_mobilePhone!=undefined)&&sessionStorage.login_mobilePhone!="") {
         $(".mobile").val(sessionStorage.login_mobilePhone.substring(0, 7) + "****").attr("readOnly",true);
     }else{
         $(".mobile").val("").attr("readOnly",false);
@@ -10,7 +10,7 @@ $(function () {
         $(".reg-msg1").hide();
         var verifycode = $('.verifycode').val();
         if (verifycode == '') {
-            alert("短信验证码发送成功");
+            alert("请输入短信验证码!");
             return;
         }
         $(".cpdstep1").hide();

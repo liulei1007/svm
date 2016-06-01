@@ -130,7 +130,7 @@
     </page>
     <page>
         <page-name>changepwd</page-name>
-        <page-url>/pages/changepwd.html</page-url>
+        <page-url>pages/changepwd.html</page-url>
         <init>changepwd_init</init>
     </page>
     <page>

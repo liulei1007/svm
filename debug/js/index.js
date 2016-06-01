@@ -1,7 +1,6 @@
 $(function () {
-
 //显示登录名称
-    if (sessionStorage.login_mobilePhone&&sessionStorage.login_mobilePhone!="") {
+    if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
     }
     pathInit();
