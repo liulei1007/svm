@@ -13,24 +13,7 @@ var pathName = window.document.location.pathname;
 //var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
 var _plumePath=window.document.location+"";
 var plumePath=_plumePath.substring(0,_plumePath.lastIndexOf('/') + 1);
-var _test_path = window.location.href + "";
-var plumeApi_Host = ""
-if (_test_path.indexOf("localhost") != -1) {
-    $.ajaxSetup({
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true
-    });
-}
-if (_test_path.indexOf("longguo.mmall.com") != -1) {
-    plumeApi_Host = "https://longguo.mmall.com";
-} else if (_test_path.indexOf("longguo.hxmklmall.cn") != -1) {
-    plumeApi_Host = "http://longguo.hxmklmall.cn";
-} else {
-    plumeApi_Host = "http://longguo.hxmklmall.cn";
-}
-
+var plumeApi_Host="";
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
     var configurl = _PLUME.config ? _PLUME.config : "";
@@ -43,7 +26,8 @@ $(function () {
             var pageUrl = $(this).find("page-url").text();
             var init = $(this).find("init").text();
             var temp = {};
-            temp["pageUrl"] = plumePath + pageUrl;
+           // temp["pageUrl"] = plumePath + pageUrl;
+            temp["pageUrl"] = pageUrl;
             temp["init"] = init;
             configJson[pageName] = temp;
         });
