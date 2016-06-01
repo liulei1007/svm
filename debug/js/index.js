@@ -625,7 +625,7 @@ function getlistNationRegion() {
 //时间戳转日期
 function _getLocalTime(nS) {
     //console.log("::::::::::::" + nS + ";");
-    return new Date(parseInt(nS)).toLocaleString().substr(0, 10)
+    return new Date(parseInt(nS)).toLocaleString().substr(0, 9)
 }
 //alert(getLocalTime(18100000001));
 // 提交成功
