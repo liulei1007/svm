@@ -33,7 +33,7 @@ $(function () {
         // datas.reviewStatus = reviewStatus;
         //datas.seriesName = saleStatus;
         getTableData();
-        $(".nav-pagination").off()
+        $(".nav-pagination").off();
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
@@ -47,7 +47,7 @@ $(function () {
                 var nowtag = parseInt($(this).attr("tag")) + 1;
                 var cid = $(this).val();
                 if (nowtag < 3) {
-                    getFirstCategory(cid, nowtag)
+                    getFirstCategory(cid, nowtag);
                 }
             });
         })
@@ -90,7 +90,7 @@ $(function () {
                 $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
                 $(".data-body").fadeIn();
-                binFun()
+                binFun();
                 unloading();
             }
         });
@@ -122,7 +122,7 @@ $(function () {
                 contentType: "application/json;charset=UTF-8",
                 success: function (data) {
                     unloading();
-                    $(_this).removeClass("gdm-off")
+                    $(_this).removeClass("gdm-off");
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("已启用");
                         $(".pop").find(".popup-icon").html('<i class="success"></i>');
@@ -151,7 +151,7 @@ $(function () {
             });
             $('.btn-cancel').bind('click', function () {
                 $(".pop").hide();
-            })
+            });
 
 
             $(".ex-ok").bind("click", function () {
@@ -169,7 +169,7 @@ $(function () {
                     var count = $(".btn-count input").val();
                     window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=" + count
                 } else {
-                    alert(请选择类目)
+                    alert(请选择类目);
                 }
             });
         });

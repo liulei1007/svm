@@ -6,16 +6,18 @@ $(function () {
         $(".mobile").val("").attr("readOnly",false);
     }
 
-    $("#cpdnext").bind("click", function () {
-        $(".reg-msg1").hide();
-        var verifycode = $('.verifycode').val();
-        if (verifycode == '') {
-            alert("请输入短信验证码!");
-            return;
-        }
-        $(".cpdstep1").hide();
-        $(".cpdstep2").fadeIn();
-    });
+    // $("#cpdnext").bind("click", function () {
+    //     $(".reg-msg1").hide();
+    //     var verifycode = $('.verifycode').val();
+    //     if (verifycode == '') {
+    //         alert("短信验证码发送成功");
+    //         return;
+    //     }
+    //     // $(".cpdstep1").hide();
+    //     // $(".cpdstep2").fadeIn();
+    // });
+    // 
+    // 提交按钮
     $("#cpdsub").bind("click", function () {
         $(".reg-msg2").hide();
         var password = $('.password').val();
@@ -43,6 +45,7 @@ $(function () {
         //	$(".cpdstep1").fadeIn();
     });
 
+    // 获取验证码按钮
     $("#cpdsendcode").bind("click", function () {
         if (!sendMsgCount) {
             return;
@@ -92,7 +95,7 @@ function resetPassword() {
     var password = $('.password').val();
     var repassword = $('.repassword').val();
 
-    $(".reg-msg2").hide();
+    // $(".reg-msg2").hide();
 
     loading();
     $.ajax({
@@ -112,7 +115,7 @@ function resetPassword() {
                 alert("密码重置成功");
                 window.location.href = "login";
             } else {
-                alert("密码重置失败");
+                alert("密码重置失败，" + data.resDescription);
             }
         },
         error: function (error) {
