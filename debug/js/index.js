@@ -1,7 +1,7 @@
 $(function () {
 //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
-        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
+        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
     }
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
@@ -286,7 +286,9 @@ function getLoginInfoToSession() {
                     $(".container-fixed").fadeIn();
                 }
                 if (sessionStorage.login_mobilePhone) {
-                    $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 7) + "****");
+                    if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
+                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
+                    }
                 } else {
                     window.location.href = "/";
                 }
