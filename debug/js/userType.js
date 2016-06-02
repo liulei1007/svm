@@ -12,7 +12,8 @@ $(function () {
             $(".pop").find(".popup-info").html("请选择类目");
             return;
         }
-        session.goods_userType = $(".type-first-span").text() + ">" + $(".type-second-span").text() + ">" + $(".type-third-span").text();
+        session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
+        //alert($(".type-first-span").length);
         session.goods_categoryId = $(".type-third-span").attr("categoryId");
         session.goods_categoryName = $(".type-third-span").text();
         session.goods_subCategoryId = $(".type-second-span").attr("categoryId");
