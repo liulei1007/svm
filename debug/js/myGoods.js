@@ -520,35 +520,47 @@ $(function () {
     //图片上传
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
-            $('#myform').ajaxForm(function (data) {
-                unloading();
-                if (data.ok) {
-                    $("#filepath").val(data.data);
-                    var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
-                    temp += '<div class="upload-btn upload-btn-left">';
-                    temp += '<div class="arrow-left"></div>';
-                    temp += '</div>';
-                    temp += '<div class="upload-btn upload-btn-right">';
-                    temp += '<div class="arrow-right"></div>';
-                    temp += '</div>';
-                    temp += '<div class="upload-btn upload-btn-delect">';
-                    temp += '<div class="arrow-close"></div>';
-                    temp += '</div>';
-                    temp += '</li>';
-                    $(".goodsPic-upload").append(temp);
-                    closeUploadPop();
-                    picMove()
-
-
-                } else {
-                    alert(data.resDescription);
+            $('#myform').ajaxForm({
+                //iframe: true,
+                success: function (data) {
+                    unloading();
+                    if (data.ok) {
+                        $("#filepath").val(data.data);
+                        var temp = '<li class="goodsPic">';
+                        temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
+                        temp += '<div class="upload-btn upload-btn-left">';
+                        temp += '<div class="arrow-left"></div>';
+                        temp += '</div>';
+                        temp += '<div class="upload-btn upload-btn-right">';
+                        temp += '<div class="arrow-right"></div>';
+                        temp += '</div>';
+                        temp += '<div class="upload-btn upload-btn-delect">';
+                        temp += '<div class="arrow-close"></div>';
+                        temp += '</div>';
+                        temp += '</li>';
+                        $(".goodsPic-upload").append(temp);
+                        closeUploadPop();
+                        picMove()
+                    } else {
+                        alert(data.resDescription);
+                    }
                 }
+
             });
             $(".pu-ok").bind("click", function () {
                 //http://10.11.25.215/group01/M00/00/82/CgsZ2Fc-uPGADkdMAABXomkTTPc662.jpg
-                loading();
-                $('#myform').submit();
+
+                if($("[name=file]").val()==""){
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("请选择图片!");
+                    });
+                }else{
+                    loading();
+                    $('#myform').submit();
+                }
+
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
