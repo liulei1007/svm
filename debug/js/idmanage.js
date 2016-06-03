@@ -1,6 +1,7 @@
 $(function(){
 	plumeLog("进入idmanage模板自定义js-"+plumeTime());
 	tablecheckbox();
+    sessionStorage.removeItem("modifyAcId");
 
     //添加
 	$(".im-btn-add").bind("click",function(){

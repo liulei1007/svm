@@ -153,7 +153,7 @@ $(function () {
 	});
     
     //把session中的修改子账号id删除
-    sessionStorage.removeItem("modifyAcId");
+    // sessionStorage.removeItem("modifyAcId");
 
     if (modifyAcId && modifyAcId != '') {
         isAdd = 0;      //修改时
@@ -203,8 +203,17 @@ function rolesShow() {
     } 
 }
 
-//子账号修改渲染。 如果是修改，把元素赋值；如果
+//子账号修改渲染。 如果是修改，把元素赋值
 function subAccUpView(accountId) {
+	// 编辑状态时，员工姓名、手机号码不能修改，密码、确认密码隐藏
+	if(isAdd == 0) {
+		$("#pwd").parents(".form-group").remove()
+		$("#repwd").parents(".form-group").remove();
+
+		$("#remark").attr("disabled","disabled");
+		$("#tel").attr("disabled","disabled");
+	}
+
     var apiName = "";
     //判断是哪种角色
     var userType = sessionStorage.login_userType;
@@ -225,16 +234,10 @@ function subAccUpView(accountId) {
                 var mobilePhone = data.data.mobilePhone;
                 var remark = data.data.remark;
 
-                // 编辑状态时，员工姓名、手机号码不能修改，密码、确认密码隐藏
+                // 编辑状态时，员工姓名、手机号码赋值
                 if(isAdd == 0) {
                     $("#remark").val(remark);
                     $("#tel").val(mobilePhone);
-
-                    $("#remark").attr("disabled","disabled");
-                    $("#tel").attr("disabled","disabled");
-
-                    $("#pwd").parents(".form-group").remove();
-                    $("#repwd").parents(".form-group").remove();
                 }
 
                 //供销商
