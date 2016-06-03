@@ -76,8 +76,7 @@ $(function () {
     	}
     	if ($regionForm.find("option:selected").text() == "") {
     		ifRegionChoosed = false;
-    		var tipsText = $formBlock.find(".control-label span").html();
-    		$formBlock.addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入' + tipsText + '</div>');
+    		$formBlock.addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请选择所在城市</div>');
     	}
     	else {
     		ifRegionChoosed = true;

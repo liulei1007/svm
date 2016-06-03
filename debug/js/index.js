@@ -1085,6 +1085,8 @@ var ifPhoneSuccess = false;
 
 // 检验手机号码
 function checkPhone(checkObj) {
+	// 清除可能存在的提示信息
+	$(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
 	ifPhoneSuccess = false;
 	// 首先判断是否为空
 	if (checkFormNull($(checkObj))) {

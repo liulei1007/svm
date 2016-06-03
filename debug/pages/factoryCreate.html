@@ -22,19 +22,19 @@
     <div class="title-block">申请成为品牌工厂</div>
     <form class="form-horizontal">
         <div class="form-group required">
-            <label class="col-sm-2 control-label"><i>*</i>品牌名称</label>
+            <label class="col-sm-2 control-label"><i>*</i><span>品牌名称</span></label>
             <div class="col-sm-6"><input type="text" id="brandName" class="form-control" placeholder="请输入品牌名称"></div>
         </div>
         <div class="form-group required">
-            <label class="col-sm-2 control-label"><i>*</i>联系人</label>
-            <div class="col-sm-6"><input type="text" id="contacts" class="form-control" placeholder="请输入联系人名字"></div>
+            <label class="col-sm-2 control-label"><i>*</i><span>联系人</span></label>
+            <div class="col-sm-6"><input type="text" id="contacts" class="form-control" placeholder="请输入联系人姓名"></div>
         </div>
         <div class="form-group required">
-            <label class="col-sm-2 control-label"><i>*</i>手机号码</label>
+            <label class="col-sm-2 control-label"><i>*</i><span>手机号码</span></label>
             <div class="col-sm-6"><input type="text" id="mobliephone" class="form-control" placeholder="请输入手机号码"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>所在城市</span></label>
             <div class="col-sm-3 ac-provinceId">
                 <select class="form-control" id="provinceId1" data-list="$p.data">
                     <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode"></option>
