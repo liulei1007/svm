@@ -943,6 +943,7 @@ function newPage(totalPage, fun) {
         // 防止当前已是最前页
         if ($(this).hasClass("disabled")) {
             return;
+            
         }
 
         nowPage = parseInt($(".nav-pagination").find(".num").eq(0).attr("data-page"));
