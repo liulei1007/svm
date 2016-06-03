@@ -8,7 +8,7 @@ $(function () {
 
 	// 验证手机号
 	$("#mobliephone1, #mobliephone2").blur(function() {
-		checkPhone($(this));
+		checkPhone($(this), "create");
 	})
 
 	// 绑定Tab切换事件

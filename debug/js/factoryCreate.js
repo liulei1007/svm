@@ -8,7 +8,7 @@ $(function() {
 
     // 验证手机号码
     $("#mobliephone").blur(function() {
-        checkPhone($(this));
+        checkPhone($(this), "create");
     })
 
     // 显示地区下拉列表
@@ -29,20 +29,6 @@ $(function() {
             
         });
     }
-
-    // function checkNull() {
-    // 	var flag = true;
-    // 	$(".form-group.required").each(function() {
-    // 		var $this = $(this);
-    // 		$this.removeClass("has-warning").find(".alert").remove();
-    // 		if ($this.find("input").val().trim() == "") {
-    // 			console.log("null");
-    // 			$this.addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入</div>');
-    // 			flag = false;
-    // 		}
-    // 	});
-    // 	return flag;
-    // }
 
     // 点击“提交”
     $(".btn-submit").bind("click", function() {
