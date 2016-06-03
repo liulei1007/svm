@@ -1,7 +1,7 @@
 $(function () {
     plumeLog("进入changepwd模板自定义js-" + plumeTime());
-    if (sessionStorage.login_mobilePhone&&sessionStorage.login_mobilePhone!="") {
-        $(".mobile").val(sessionStorage.login_mobilePhone.substring(0, 7) + "****").attr("readOnly",true);
+    if ((sessionStorage.login_mobilePhone!=undefined)&&sessionStorage.login_mobilePhone!="") {
+        $(".mobile").val(sessionStorage.login_mobilePhone).attr("readOnly",true);
     }else{
         $(".mobile").val("").attr("readOnly",false);
     }

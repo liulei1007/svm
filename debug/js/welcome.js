@@ -11,5 +11,7 @@ $(function(){
 			$(this).siblings(".bw-item-table, .bw-item-btns").slideDown();
 		}
 	});
-	$(".welcome-user").text(sessionStorage.login_mobilePhone.substring(0, 7) + "****")
-})
+	if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
+		$(".welcome-user").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
+	};
+});

@@ -1,4 +1,16 @@
 $(function () {
+    $.ajax({
+        type: "post",
+        url: plumeApi["logout"],
+        contentType: "application/json",
+        dataType: "json",
+        async: false,
+        success: function (data) {
+            if (data.ok) {
+                sessionStorage.login_mobilePhone="";
+            }
+        }
+    });
     var timeOut;
     $(".swiper-slide").show();
     var swiper = new Swiper('.swiper-container', {
@@ -182,6 +194,7 @@ $(function () {
             $(".register-form .login-alert").fadeIn();
         }
     });
+
 
 });
 

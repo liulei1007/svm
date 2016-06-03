@@ -11,18 +11,25 @@ var configJson = {};//配置文件数据集合
 var plumeApi = {};//配置文件中接口集合--v1.3功能较单一需扩展
 var pathName = window.document.location.pathname;
 //var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
-var _plumePath=window.document.location+"";
-var plumePath=_plumePath.substring(0,_plumePath.lastIndexOf('/') + 1);
+var _plumePath = window.document.location + "";
+var plumePath = _plumePath.substring(0, _plumePath.lastIndexOf('/') + 1);
 var _test_path = window.location.href + "";
 var plumeApi_Host = ""
-if (_test_path.indexOf("localhost") != -1) {
-    $.ajaxSetup({
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true
-    });
+
+if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
+    plumeLog("火狐浏览器不支持本地cookie跨域.")
+}else{
+    if (_test_path.indexOf("localhost") != -1) {
+        $.ajaxSetup({
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        });
+    }
 }
+
+
 if (_test_path.indexOf("longguo.mmall.com") != -1) {
     plumeApi_Host = "https://longguo.mmall.com";
 } else if (_test_path.indexOf("longguo.hxmklmall.cn") != -1) {
@@ -43,14 +50,15 @@ $(function () {
             var pageUrl = $(this).find("page-url").text();
             var init = $(this).find("init").text();
             var temp = {};
-            temp["pageUrl"] = plumePath + pageUrl;
+            temp["pageUrl"] = pageUrl;
+            //temp["pageUrl"] = plumePath + pageUrl;
             temp["init"] = init;
             configJson[pageName] = temp;
         });
         //plumeApi_Host=$(data).find("api-host").text();
         $(data).find("api").children().each(function () {
             var tagname = $(this)[0].tagName;
-            plumeApi[tagname] =plumeApi_Host+ $(this).text();
+            plumeApi[tagname] = plumeApi_Host + $(this).text();
         });
         var page_init = $(data).find("index-init").text();
         try {
@@ -318,7 +326,7 @@ $.fn.extend({
             if ($(this).attr(nodename) != "") {
                 var tags = ($(this).attr(nodename)).split(",");
             }
-        }else{
+        } else {
             return;
         }
         var tagName = $(this)[0].tagName;
