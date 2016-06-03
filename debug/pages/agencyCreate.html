@@ -25,20 +25,20 @@
 	</ul>
     <div class="title-block">申请成为经销商</div>
     <form id="form-hasAgency" class="form-horizontal">
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>品牌名称</label>
-            <div class="col-sm-6"><input type="text" class="form-control" id="brandName1" placeholder="请输入已有的代理品牌"></div>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>品牌名称</span></label>
+            <div class="col-sm-6"><input type="text" class="form-control" id="brandName1" placeholder="请输入代理的品牌名称"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>联系人</label>
-            <div class="col-sm-6"><input type="text" class="form-control" id="contacts1" placeholder="请输入联系人"></div>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>联系人</span></label>
+            <div class="col-sm-6"><input type="text" class="form-control" id="contacts1" placeholder="请输入联系人姓名"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>手机号码</label>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>手机号码</span></label>
             <div class="col-sm-6"><input type="text" class="form-control" id="mobliephone1" placeholder="请输入手机号码"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>所在城市</span></label>
             <div class="col-sm-3 ac-provinceId">
                 <select class="form-control" id="provinceId1" data-list="$p.data">
                     <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.id"></option>
@@ -63,16 +63,16 @@
         </div>
     </form>
     <form id="form-findAgency" class="form-horizontal" style="display: none;">
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>联系人</label>
-            <div class="col-sm-6"><input type="text" class="form-control" id="contacts2" placeholder="请输入联系人"></div>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>联系人</span></label>
+            <div class="col-sm-6"><input type="text" class="form-control" id="contacts2" placeholder="请输入联系人姓名"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>手机号码</label>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>手机号码</span></label>
             <div class="col-sm-6"><input type="text" class="form-control" id="mobliephone2" placeholder="请输入手机号码"></div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label"><i>*</i>所在城市</label>
+        <div class="form-group required">
+            <label class="col-sm-2 control-label"><i>*</i><span>所在城市</span></label>
             <div class="col-sm-3 ac-provinceId">
                 <select class="form-control" id="provinceId2" data-list="$p.data">
                     <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.id"></option>
@@ -86,11 +86,11 @@
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">品牌名称</label>
-            <div class="col-sm-6"><input type="text" class="form-control" id="brandName2" placeholder="你可以输入想要代理的品牌名字"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="brandName2" placeholder="请输入您需要代理的品牌名称"></div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">代理类目</label>
-            <div class="col-sm-6"><input type="text" class="form-control" id="categoryName2" placeholder="你可以输入想要代理的类目：橱柜，瓷砖，卫浴，床"></div>
+            <div class="col-sm-6"><input type="text" class="form-control" id="categoryName2" placeholder="请输入您需要代理的类目信息，如：橱柜，瓷砖，卫浴，床"></div>
         </div>
     </form>
     <div class="row">

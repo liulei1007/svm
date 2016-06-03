@@ -1056,7 +1056,7 @@ function newPage(totalPage, fun) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("click", ".form-group.required input, .form-group.required textarea", function() {
+    $(".body-typein").on("click", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
@@ -1067,17 +1067,72 @@ function formControl() {
 function checkFormNull(checkObj) {
     // 如果当前输入框为不可修改状态，退出验证
     if ($(checkObj).prop("disabled")) { return true; }
+
     var $formBlock = $(checkObj).parents(".form-group");
     // 如果当前输入框已有其他提示信息，退出
     if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
         return false;
     }
-    // // 清除可能存在的提示信息
-    // $(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     if ($(checkObj).val().trim() == "") {
         var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
         $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入' + tipsText + '</div>');
         return false;
     }
     else return true;
+}
+
+var ifPhoneSuccess = false;
+
+// 检验手机号码
+function checkPhone(checkObj) {
+	ifPhoneSuccess = false;
+	// 首先判断是否为空
+	if (checkFormNull($(checkObj))) {
+		// 其次判断是否符合手机号规则
+		if (!isMobile($(checkObj).val().trim())) {
+			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入正确的手机号码</div>');
+			return;
+		}
+		// 最后判断手机号是否已经存在
+		checkPhoneExist($(checkObj));
+	}
+}
+
+//判断手机号是否已存在
+function checkPhoneExist(checkObj){
+	var phone = $(checkObj).val().trim();
+	$.ajax({
+		type: "get",
+		url: plumeApi["getUserInfoByMobile"] + phone,
+		contentType: "application/json",
+		dataType: "json",
+		success: function (data) {
+			if (data.ok) {
+				ifPhoneSuccess = true;
+			}
+			else if (data.data == null) {
+				ifPhoneSuccess = false;
+				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码是否存在检查异常</div>');
+			}
+			else if(data.data > 0) {
+				ifPhoneSuccess = false;
+				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
+				console.log("ajax ifPhoneSuccess: " + ifPhoneSuccess);
+			}
+			else {
+				ifPhoneSuccess = false;
+				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码检查接口返回值不能识别</div>');
+			}
+		}
+	});
+}
+
+//密码验证: 6-15位字符，建议数字和字母组合
+function pwdCheck(pwd) {
+    return /^[0-9A-Za-z]{6,15}$/.test(pwd);
+}
+
+//手机号验证
+function isMobile(n) {
+    return /^1\d{10}$/.test(n) && n != 11111111111;
 }
