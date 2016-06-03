@@ -9,8 +9,8 @@ var mobileExist = 1;
 //权限
 var roleCodes = "";
 
-// ifPhoneSuccess: 判断手机号码是否合格, ifPasswordSuccess: 判断密码是否合格
-var ifPhoneSuccess = false, ifPasswordSuccess = false;
+// ifPhoneSuccess: 判断手机号码是否合格, ifPasswordSuccess: 判断密码是否合格, ifNull: 判断是否有必填项为空
+var ifPhoneSuccess = false, ifPasswordSuccess = false, ifNull = false;
 
 $(function () {
     plumeLog("进入childIdCreate模板自定义js-" + plumeTime());
@@ -208,9 +208,7 @@ function subAccUpView(accountId) {
     var apiName = "";
     //判断是哪种角色
     var userType = sessionStorage.login_userType;
-    if(userType == null || userType == 0) {
-        return;
-    } else if(userType == 1) {
+    if(userType == 1) {
         apiName = plumeApi["getManuSubUserUpView"];
     } else if (userType == 2) {
         apiName = plumeApi["getAgentsSubUserUpView"];
@@ -224,20 +222,19 @@ function subAccUpView(accountId) {
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             if (data.ok) {
-                console.log("subAccUpView accountId="+accountId);
-                console.log("subAccUpView data="+JSON.stringify(data.data));
-
                 var mobilePhone = data.data.mobilePhone;
                 var remark = data.data.remark;
 
-                //编辑状态时，手机号、密码不能修改。
+                // 编辑状态时，员工姓名、手机号码不能修改，密码、确认密码隐藏
                 if(isAdd == 0) {
-                    $("#tel").val(mobilePhone);
                     $("#remark").val(remark);
+                    $("#tel").val(mobilePhone);
 
+                    $("#remark").attr("disabled","disabled");
                     $("#tel").attr("disabled","disabled");
-                    $("#pwd").attr("disabled","disabled");
-                    $("#repwd").attr("disabled","disabled");
+
+                    $("#pwd").parents(".form-group").remove();
+                    $("#repwd").parents(".form-group").remove();
                 }
 
                 //供销商
@@ -388,13 +385,15 @@ function subAccModify() {
 
 //子账号添加
 function subAccAdd() {
+	ifNull = false;
 	// 首先确保数据都输入了
 	$(".form-group.required input, .form-group.required textarea").each(function() {
-		checkFormNull($(this));
+		if (!checkFormNull($(this))) ifNull = true;
 	});
+	console.log(ifNull);
 	// 确保输入的数据都有效
-	if (!ifPhoneSuccess || !ifPasswordSuccess) { return; }
-	
+	if (!ifPhoneSuccess || !ifPasswordSuccess || ifNull) { return; }
+
     var tel = $("#tel").val();
     var pwd = $("#pwd").val();
     var repwd = $("#repwd").val();
