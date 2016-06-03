@@ -1056,7 +1056,7 @@ function newPage(totalPage, fun) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("click", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
+    $(".body-typein").on("focus", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {

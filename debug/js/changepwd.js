@@ -154,5 +154,4 @@ function settime(countdown) {
             settime(countdown)
         }, 1000);
     }
-
 }
