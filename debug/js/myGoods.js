@@ -521,7 +521,8 @@ $(function () {
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $('#myform').ajaxForm({
-                //iframe: true,
+                iframe: true,
+                dataType: 'json',
                 success: function (data) {
                     unloading();
                     if (data.ok) {
@@ -548,8 +549,6 @@ $(function () {
 
             });
             $(".pu-ok").bind("click", function () {
-                //http://10.11.25.215/group01/M00/00/82/CgsZ2Fc-uPGADkdMAABXomkTTPc662.jpg
-
                 if($("[name=file]").val()==""){
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
