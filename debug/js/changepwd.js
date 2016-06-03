@@ -113,7 +113,7 @@ function resetPassword() {
             unloading();
             if (data.ok) {
                 alert("密码重置成功");
-                window.location.href = "login";
+                window.location.href = "/";
             } else {
                 alert("密码重置失败，" + data.resDescription);
             }
