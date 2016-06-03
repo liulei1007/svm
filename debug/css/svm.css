@@ -295,7 +295,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .btn-affirm{width: 142px; height:45px;border:none;background-color: #02be49;color:#fff;font-size: 18px;margin-right: 20px;}
 .block-padding{padding:30px;background-color: #f8f9fa;}
 .goodsPic-content p{color:#5ea6c2;background-color:#d2eded;padding: 10px 12px;margin:20px 0;}
-.createNewGoods .alert{margin-top: 10px; margin-bottom: 10px;}
+.createNewGoods .alert{margin-top: 0px; margin-bottom: 10px;}
 .sizeAttr-content{/*margin-left: 0; margin-right: 0;*/}
 .sizeAttr-content .add p {display: inline-block;color:#26aff5;height: 24px;float:left;}
 .sizeAttr-content .add .icon-add{margin-right:5px;width: 24px;height: 24px;line-height: 15px; text-align: center;border-radius: 24px;border: 2px solid #26aff5;font-size: 24px;}
