@@ -624,10 +624,8 @@ function getlistNationRegion() {
 
 //时间戳转日期
 function _getLocalTime(nS) {
-    //console.log("::::::::::::" + nS + ";");
     return new Date(parseInt(nS)).toLocaleString().substr(0, 9)
 }
-//alert(getLocalTime(18100000001));
 // 提交成功
 function submitRecord(turnURL, url, data) {
     $(".pop").loadTemp("popSubmitSuccess", "nochangeurl", function () {
@@ -1044,3 +1042,31 @@ function newPage(totalPage, fun) {
 
 
 
+// 检验表单中的必填项是否填写
+function formControl() {
+    // 必填项输入框或文本框失去焦点时，检查输入是否为空
+    $(".body-typein").on("click", ".form-group.required input, .form-group.required textarea", function() {
+        // 清除可能存在的提示信息
+        $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
+    }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
+        checkFormNull($(this));
+    });
+}
+// 检验单个必填项是否填写
+function checkFormNull(checkObj) {
+    // 如果当前输入框为不可修改状态，退出验证
+    if ($(checkObj).prop("disabled")) { return true; }
+    var $formBlock = $(checkObj).parents(".form-group");
+    // 如果当前输入框已有其他提示信息，退出
+    if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
+        return false;
+    }
+    // // 清除可能存在的提示信息
+    // $(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
+    if ($(checkObj).val().trim() == "") {
+        var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
+        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入' + tipsText + '</div>');
+        return false;
+    }
+    else return true;
+}
