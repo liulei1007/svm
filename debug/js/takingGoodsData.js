@@ -28,6 +28,11 @@ $(function () {
     });
 
 
+    //清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload()
+    });
+
 //工厂商品列表
     $('.alert-info strong').html(0);
     function getProductGoodsData() {

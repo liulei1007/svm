@@ -85,6 +85,11 @@ $(function() {
 	//批量导入	
 	$(".btn-batch").bind("click",function() {
 		 $('.pop').loadTemp("popBatch", "nochangeurl");
-	})
+	});
+
+	//清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload();
+    });
 
 });
