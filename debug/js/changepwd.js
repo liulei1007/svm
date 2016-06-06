@@ -29,7 +29,7 @@ $(function () {
     	if ($(".mobile").prop("readOnly")) { ifPhoneSuccess = true; }
 
         // 首先检验手机号是否已经注册
-        else checkFormNull($(".mobile"), "edit");
+        else checkFormNull($(".mobile"));
 
         if (!ifPhoneSuccess) { return; }
 
