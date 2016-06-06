@@ -53,6 +53,7 @@ $(function () {
                 newPage(totalPage, function (i) {
                     loading();
                     $(".nav-pagination").show();
+                    
                     data.start = (i - 1) * 10;
                     var newData = JSON.stringify(data);
                     $.ajax({
@@ -126,4 +127,11 @@ $(function () {
     }
 
     getData();
+
+    
+//清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload();
+    });
+
 });

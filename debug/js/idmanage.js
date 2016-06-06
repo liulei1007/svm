@@ -236,3 +236,8 @@ function rolesShow() {
         $(".digmanubox").fadeIn();     
     } 
 }
+
+//清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload();
+    });
