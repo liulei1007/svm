@@ -12,7 +12,7 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"basicDataManagement7"
+            "initPage":"amendmentInfo"
         }
     </script>
 </head>
@@ -24,27 +24,28 @@
       <form class="form-inline">
         <div class="form-group">
             <label for="productName">商品名称</label>
-            <input type="text" class="form-control input-sm" id="productName" placeholder="">
+            <input type="text" class="form-control input-sm" id="productName" placeholder="" style="width:120px">
         </div>
         <div class="form-group">
           <label>分类</label>
           <span class="gdm-type-first">
-              <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0">
+              <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0" style="width:100px">
                   <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
               </select>
           </span>
           <span class="gdm-type-second">
-              <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1">
+              <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1" style="width:100px">
                   <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
               </select>
           </span>
           <span class="gdm-type-third">
-              <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2">
+              <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2" style="width:100px">
                   <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
               </select>
           </span>
         </div>
-        <div class="btn btn-default btn-sm btn-search">查询</div>
+          <div class="btn btn-default btn-sm adi-btn-search">查询</div>
+          <div class="btn btn-default btn-sm adi-btn-reload">清空条件</div>
       </form>
     </div>
 

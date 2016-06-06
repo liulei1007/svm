@@ -12,7 +12,7 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"commodityManagement2"
+            "initPage":"brandList"
         }
     </script>
 </head>
@@ -34,7 +34,8 @@
           <label for="telNumber">手机号</label>
           <input type="text" class="form-control input-sm" id="telNumber" placeholder="">
         </div> 
-        <div class="btn btn-default btn-sm btn-search">查询</div>
+        <div class="btn btn-default btn-sm bl-btn-search">查询</div>
+         <div class="btn btn-default btn-sm bl-btn-reload">清空条件</div>
       </form>
     </div>
     <div class="table-block">   
@@ -63,7 +64,7 @@
                 <td node-name="$n.contractTel"></td>
                 <td node-name="$n.seriesCnt"></td>
                 <td>
-                  <div class="btn btn-link btn-look">查看</div>
+                    <div class="btn btn-link bl-btn-look">查看</div>
                 </td>
               </tr>
             </tbody>

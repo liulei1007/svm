@@ -33,7 +33,7 @@ $(function() {
 
 
 
-//待完善数据列�?
+//待完善数据列表
 	listToBePerfectProductInfo();
 	function listToBePerfectProductInfo() {
 		var newData = JSON.stringify(datas)
@@ -74,14 +74,17 @@ $(function() {
 	if($(".infoNum")){$(".infoNum").html(0)}
 
 	//点击查询按钮
-	$(".btn-search").bind("click",function() {
-		datas.productName = $("#productName").val();
-		datas.baseCategoryId = $("#baseCategoryId").val();
- 		datas.subCategoryId = $("#subCategoryId").val();
- 		datas.categoryId = $("#categoryId").val();	
- 		listToBePerfectProductInfo();
+    $(".ncd-btn-search").bind("click",function() {
+        datas.productName = $("#productName").val();
+        datas.baseCategoryId = $("#baseCategoryId").val();
+        datas.subCategoryId = $("#subCategoryId").val();
+        datas.categoryId = $("#categoryId").val();
+        listToBePerfectProductInfo();
         $(".nav-pagination").off();
-	})
+    })
+    $(".ncd-btn-reload").bind("click",function() {
+        window.location.reload();
+    })
 
 
 	//点击编辑按钮

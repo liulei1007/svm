@@ -35,6 +35,9 @@ $(function () {
         getTableData();
         $(".nav-pagination").off();
     });
+    $(".gdm-btn-reload").click(function(){
+        window.location.reload();
+    });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 

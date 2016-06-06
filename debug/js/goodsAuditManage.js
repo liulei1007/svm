@@ -1,7 +1,7 @@
 $(function () {
 
     //初始化数据
-   var datas = {
+    var datas = {
         "productName": "",
         "modelNumber": "",
         "categoryId": "",
@@ -9,126 +9,128 @@ $(function () {
         "baseCategoryId": "",
         //"saleStatus": "",
         "reviewStatus": "0",
-        "seriesName": ""}
+        "seriesName": ""
+    }
 
     listProductInfoUpt();
     tablecheckbox();
-$('.table-block').on('click', '.btn-audit', function () {
-    var uptIds = [];
-    uptIds.push($(this).parents("tr").find(".uptId").html());
-    auditFun(uptIds);
-});
-
-$('.btn-allAudit').click(function () {
-    var uptIds = [];
-    $('tbody input:checkbox').each(function (i, checkbox) {
-        if ($(this).prop('checked') == true) {
-            uptIds.push($(this).parents('tr').find('.uptId').html());
-        }
+    $('.table-block').on('click', '.btn-audit', function () {
+        var uptIds = [];
+        uptIds.push($(this).parents("tr").find(".uptId").html());
+        auditFun(uptIds);
     });
-    if(uptIds.length){
-        auditFun(uptIds); 
-    }else{
-        popTips("您未选择审核商品", "warning");
-    }
-   
-});
 
+    $('.btn-allAudit').click(function () {
+        var uptIds = [];
+        $('tbody input:checkbox').each(function (i, checkbox) {
+            if ($(this).prop('checked') == true) {
+                uptIds.push($(this).parents('tr').find('.uptId').html());
+            }
+        });
+        if (uptIds.length) {
+            auditFun(uptIds);
+        } else {
+            popTips("您未选择审核商品", "warning");
+        }
+
+    });
 
 //待审核产品列表
-function listProductInfoUpt() {
-    loading();
-    var newData = JSON.stringify(datas)
-    $.ajax({
-        url: plumeApi["listProductInfoUpt"]+"?currentPage=1&onePageCount=10",
-        type: "POST",
-        contentType: "application/json;charset=UTF-8",
-        data: newData,
-        success: function (data) {
-            if (data.ok) {
-                unloading();
-                $("[list-node]").remove();
-                $(".form-body").setPageData(data);
-                $(".table-block").on("click",".gam-btn-show",function () {
-                    var uptId = $(this).attr("uptId");
-                    session.goods_showMyGoods_uptId = uptId;
-                    derict(this, "showMyGoods", "nochangeurl");
-                });
+    function listProductInfoUpt() {
+        loading();
+        var newData = JSON.stringify(datas)
+        $.ajax({
+            url: plumeApi["listProductInfoUpt"] + "?currentPage=1&onePageCount=10",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            data: newData,
+            success: function (data) {
+                if (data.ok) {
+                    unloading();
+                    $("[list-node]").remove();
+                    $(".form-body").setPageData(data);
+                    $(".table-block").on("click", ".gam-btn-show", function () {
+                        var uptId = $(this).attr("uptId");
+                        session.goods_showMyGoods_uptId = uptId;
+                        derict(this, "showMyGoods", "nochangeurl");
+                    });
 
 
-                totalPage=Math.ceil(data.countRecord/10);
-                newPage(totalPage,function(i){
-                var newData = JSON.stringify(datas);
-                    loading();
-                     $.ajax({
-                         url: plumeApi["listProductInfoUpt"]+"?currentPage="+i+"&onePageCount=10",
-                         type: "POST",
-                         contentType: "application/json;charset=UTF-8",
-                         data: newData,
-                        success: function (data) {
+                    totalPage = Math.ceil(data.countRecord / 10);
+                    newPage(totalPage, function (i) {
+                        var newData = JSON.stringify(datas);
+                        loading();
+                        $.ajax({
+                            url: plumeApi["listProductInfoUpt"] + "?currentPage=" + i + "&onePageCount=10",
+                            type: "POST",
+                            contentType: "application/json;charset=UTF-8",
+                            data: newData,
+                            success: function (data) {
                                 unloading();
                                 $("[list-node]").remove();
                                 $(".form-body").setPageData(data);
-                        }
-                     });
-                });
-            } else {
-                console.log('error');
+                            }
+                        });
+                    });
+                } else {
+                    console.log('error');
+                }
             }
-        }
-    })
-}
-
-
+        })
+    }
 
 //商品审核
-function auditFun(uptIds) {
-    $('.pop').loadTemp("popAudit", "nochangeurl", function () {
-        $('.pop').on('click', '.btn-sure', function () {
-            var audit = {
-                "uptIds": uptIds,
-                "reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
-                "remark": $('.remark').val()
-            };
-            console.log(audit)
-            loading();
-            $.ajax({
-                url: plumeApi["reviewProductInfo"],
-                type: "POST",
-                contentType: "application/json;charset=UTF-8",
-                data: JSON.stringify(audit),
-                success: function (data) {
-                    if (data.ok) {
-                        unloading();
-                        popTips("审核成功", "success");
-                        listProductInfoUpt();
-                    } else {
-                        unloading();
-                        popTips("审核失败", "warning");
-                        listProductInfoUpt();
+    function auditFun(uptIds) {
+        $('.pop').loadTemp("popAudit", "nochangeurl", function () {
+            $('.pop').on('click', '.btn-sure', function () {
+                var audit = {
+                    "uptIds": uptIds,
+                    "reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
+                    "remark": $('.remark').val()
+                };
+                console.log(audit)
+                loading();
+                $.ajax({
+                    url: plumeApi["reviewProductInfo"],
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    data: JSON.stringify(audit),
+                    success: function (data) {
+                        if (data.ok) {
+                            unloading();
+                            popTips("审核成功", "success");
+                            listProductInfoUpt();
+                        } else {
+                            unloading();
+                            popTips("审核失败", "warning");
+                            listProductInfoUpt();
+                        }
                     }
-                }
+                });
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
             });
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-        $('.pop').on('click', '.btn-cancel', function () {
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-    });
-}
-
-function searchBtn(){
-        $(".gam-btn-search").bind("click",function(){
-            datas.productName=$("#agencyName").val();
-            datas.reviewStatus=$("#reviewStatus").val();
-            listProductInfoUpt();
-            $(".nav-pagination").off();
+            $('.pop').on('click', '.btn-cancel', function () {
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
+            });
         });
     }
 
-    searchBtn();
-})
+    function btnFunc() {
+        $(".gam-btn-search").bind("click", function () {
+            datas.productName = $("#agencyName").val();
+            datas.reviewStatus = $("#reviewStatus").val();
+            listProductInfoUpt();
+            $(".nav-pagination").off();
+        });
+        $(".gam-btn-reload").click(function () {
+            window.location.reload();
+        });
+    }
+
+
+    btnFunc();
+});
