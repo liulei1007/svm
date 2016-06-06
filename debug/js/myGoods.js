@@ -715,9 +715,3 @@ $(function () {
         });
     });
 });
-
-
-    // 关闭大图显示
-	function closeBigImage() {
-		$(".form-loading .media-show").remove();
-	}

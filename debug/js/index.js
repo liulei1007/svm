@@ -1146,3 +1146,8 @@ function pwdCheck(pwd) {
 function isMobile(n) {
     return /^1\d{10}$/.test(n) && n != 11111111111;
 }
+
+// 关闭大图显示
+function closeBigImage() {
+	$(".form-loading .media-show").remove();
+}

@@ -1,6 +1,8 @@
 $(function () {
     $(".alert-danger").hide();
     formCtrl();
+
+
     //类目参数
     function userTypeInit() {
         $(".userType").text(session.goods_userType).attr("categoryId", session.goods_categoryId);

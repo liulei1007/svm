@@ -2,6 +2,20 @@ $(function () {
     $(".alert-danger").hide();
     formCtrl();
     loading();
+
+    // 绑定点击图片展示大图
+    $(".showGoods").on("click", ".goodsPic img", function() {
+        console.log("shiw")
+        var imgSrc = $(this).attr("src");
+        // 首先判断是否已经有大图显示
+        if ($(".form-loading .media-show").html()) {
+            $(".form-loading .media-show img").attr("src", imgSrc);
+        }
+        else {
+            $(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
+        }
+    });
+    
     function getProductInfoUpt() {
         $.ajax({
             type: "GET",
