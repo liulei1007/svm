@@ -943,6 +943,7 @@ function newPage(totalPage, fun) {
         // 防止当前已是最前页
         if ($(this).hasClass("disabled")) {
             return;
+            
         }
 
         nowPage = parseInt($(".nav-pagination").find(".num").eq(0).attr("data-page"));
@@ -1056,7 +1057,7 @@ function newPage(totalPage, fun) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("click", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
+    $(".body-typein").on("focus", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
@@ -1084,7 +1085,7 @@ function checkFormNull(checkObj) {
 var ifPhoneSuccess = false;
 
 // 检验手机号码
-function checkPhone(checkObj) {
+function checkPhone(checkObj, checkType) {
 	// 清除可能存在的提示信息
 	$(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
 	ifPhoneSuccess = false;
@@ -1096,12 +1097,12 @@ function checkPhone(checkObj) {
 			return;
 		}
 		// 最后判断手机号是否已经存在
-		checkPhoneExist($(checkObj));
+		checkPhoneExist($(checkObj), checkType);
 	}
 }
 
 //判断手机号是否已存在
-function checkPhoneExist(checkObj){
+function checkPhoneExist(checkObj, checkType){
 	var phone = $(checkObj).val().trim();
 	$.ajax({
 		type: "get",
@@ -1110,16 +1111,22 @@ function checkPhoneExist(checkObj){
 		dataType: "json",
 		success: function (data) {
 			if (data.ok) {
-				ifPhoneSuccess = true;
+				if (checkType == "create") { ifPhoneSuccess = true; }
+				else if (checkType == "edit") {
+					ifPhoneSuccess = false;
+					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">该手机号码未注册</div>');
+				}
 			}
 			else if (data.data == null) {
 				ifPhoneSuccess = false;
 				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码是否存在检查异常</div>');
 			}
 			else if(data.data > 0) {
-				ifPhoneSuccess = false;
-				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
-				console.log("ajax ifPhoneSuccess: " + ifPhoneSuccess);
+				if (checkType == "create") {
+					ifPhoneSuccess = false;
+					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
+				}
+				else if (checkType == "edit") { ifPhoneSuccess = true; }
 			}
 			else {
 				ifPhoneSuccess = false;
