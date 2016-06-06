@@ -127,7 +127,8 @@ $(function () {
             $(".nav-pagination").off();
         });
         $(".gam-btn-reload").click(function () {
-            window.location.reload();
+            //window.location.reload();
+            derict(null,"goodsAuditManage","nochangeurl");
         });
     }
 

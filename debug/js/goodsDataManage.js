@@ -36,7 +36,8 @@ $(function () {
         $(".nav-pagination").off();
     });
     $(".gdm-btn-reload").click(function(){
-        window.location.reload();
+        //window.location.reload();
+        derict(null,"goodsDataManage","nochangeurl");
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
