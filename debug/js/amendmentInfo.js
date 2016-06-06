@@ -1,14 +1,14 @@
-$(function() {
-	var datas = {
-	  "productName": "",
-	  "modelNumber": "",
-	  "categoryId": "",
-	  "subCategoryId": "",
-	  "baseCategoryId": "",
-	  //"saleStatus": "",
-	  //"reviewStatus": "",
-	  "seriesName": ""
-	}
+$(function () {
+    var datas = {
+        "productName": "",
+        "modelNumber": "",
+        "categoryId": "",
+        "subCategoryId": "",
+        "baseCategoryId": "",
+        //"saleStatus": "",
+        //"reviewStatus": "",
+        "seriesName": ""
+    }
 
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
@@ -28,12 +28,12 @@ $(function() {
         })
     }
 
-	getFirstCategory(0, 0);
+    getFirstCategory(0, 0);
 
 
-	listErrorFeedbackProductInfo();
-	function listErrorFeedbackProductInfo() {
-		var newData = JSON.stringify(datas)
+    listErrorFeedbackProductInfo();
+    function listErrorFeedbackProductInfo() {
+        var newData = JSON.stringify(datas)
         loading();
         $.ajax({
             type: "POST",
@@ -67,23 +67,27 @@ $(function() {
                 addTableFuncs();
             }
         });
-	} 
+    }
 
 
+    if ($(".infoNum")) {
+        $(".infoNum").html(0)
+    }
 
-	if($(".infoNum")){$(".infoNum").html(0)}
+    $(".adi-btn-search").bind("click", function () {
+        datas.productName = $("#productName").val();
+        datas.baseCategoryId = $("#baseCategoryId").val();
+        datas.subCategoryId = $("#subCategoryId").val();
+        datas.categoryId = $("#categoryId").val();
+        listErrorFeedbackProductInfo();
+        $(".nav-pagination").off();
+    })
+    $(".adi-btn-reload").bind("click", function () {
+        window.location.reload();
+    })
 
-	$(".btn-search").bind("click",function() {
-		datas.productName = $("#productName").val();
-		datas.baseCategoryId = $("#baseCategoryId").val();
- 		datas.subCategoryId = $("#subCategoryId").val();
- 		datas.categoryId = $("#categoryId").val();	
- 		listErrorFeedbackProductInfo();
-         $(".nav-pagination").off();
-	})	
-	
-    function addTableFuncs(){
-        $(".ai-btn-show").unbind().bind("click",function(){
+    function addTableFuncs() {
+        $(".ai-btn-show").unbind().bind("click", function () {
             var uptId = $(this).attr("uptId");
             var productId = $(this).attr("productId");
             session.goods_showMyGoods_uptId = uptId;
