@@ -534,7 +534,7 @@ $(function () {
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $('#myform').ajaxForm({
-                iframe: true,
+              //  iframe: true,
                 dataType: 'json',
                 success: function (data) {
                     unloading();
