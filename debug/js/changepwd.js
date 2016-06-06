@@ -25,8 +25,12 @@ $(function () {
 
     // 获取验证码按钮
     $("#cpdsendcode").bind("click", function () {
+    	console.log("click");
+    	if ($(".mobile").prop("readOnly")) { ifPhoneSuccess = true; }
+
         // 首先检验手机号是否已经注册
-        checkFormNull($(".mobile"), "edit");
+        else checkFormNull($(".mobile"), "edit");
+
         if (!ifPhoneSuccess) { return; }
 
         // 确保没有倒计时

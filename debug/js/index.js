@@ -1061,6 +1061,7 @@ function formControl() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
+        console.log("loseBlur");
         checkFormNull($(this));
     });
 }

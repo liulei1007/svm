@@ -1,5 +1,18 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
+
+    // 绑定点击图片展示大图
+    $(".createNewGoods").on("click", ".cmg-goodsimgs", function() {
+    	var imgSrc = $(this).attr("src");
+    	// 首先判断是否已经有大图显示
+    	if ($(".form-loading .media-show").html()) {
+    		$(".form-loading .media-show img").attr("src", imgSrc);
+    	}
+    	else {
+    		$(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
+    	}
+    });
+    
     //创建初始化
     function myGoodsCreateInit() {
         //隐藏错误提示
@@ -702,3 +715,9 @@ $(function () {
         });
     });
 });
+
+
+    // 关闭大图显示
+	function closeBigImage() {
+		$(".form-loading .media-show").remove();
+	}
