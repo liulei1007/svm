@@ -80,7 +80,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.countryName+$n.provinceName+$n.cityName"></td>
+                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>
