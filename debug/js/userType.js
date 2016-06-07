@@ -19,7 +19,7 @@ $(function () {
         session.goods_subCategoryId = $(".type-second-span").attr("categoryId");
         session.goods_subCategoryName = $(".type-second-span").text();
         session.goods_baseCategoryId = $(".type-first-span").attr("categoryId");
-        session.goods_baseCategoryName = $(".type-first-span").attr("categoryId");
+        session.goods_baseCategoryName = $(".type-first-span").text();
         session.goods_showMyGoods_type = "create";
         derict(this, "myGoods", "nochangeurl");
     });
