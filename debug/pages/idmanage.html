@@ -40,6 +40,7 @@
             <thead>
             <tr>
                 <th><input type="checkbox" /></th>
+                <th>员工姓名</th>
                 <th>手机号</th>
                 <th>添加时间</th>
                 <th>权限</th>
@@ -49,6 +50,7 @@
             <tbody data-list="$p.data">
               <tr list-temp="true"  node-name="attr-managid:$n.id">
                 <td><input type="checkbox" name="multbox" /></td>
+                <td node-name="$n.remark"></td>
                 <td node-name="$n.mobilePhone"></td>
                 <td class="createDate" node-name="_getLocalTime($n.createDate)"></td>
                 <td>
