@@ -172,5 +172,13 @@ function delectGoodsData() {
     });
 }
 
+
+
+//清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload();
+    });
+
+
 });
 

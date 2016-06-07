@@ -19,17 +19,20 @@ $(function () {
         });
     });
 
-    $("tbody").on("click", '.btn-look', function () {
+    $("tbody").on("click", '.bl-btn-look', function () {
         getBrandId(this)
         derict(this, "brandListShow", "nochangeurl");
     })
 
-    $(".btn-search").bind('click', function () {
+    $(".bl-btn-search").bind('click', function () {
         datas.brandName = $("#brandName").val();
         datas.contract = $("#contract").val();
         datas.contractTel = $("#telNumber").val();
         getTableData();
         $(".nav-pagination").off();
+    })
+    $(".bl-btn-reload").bind("click", function () {
+        window.location.reload();
     })
 
     //商品管理列表
@@ -68,4 +71,10 @@ $(function () {
     }
 
     getTableData()
+    
+//清空搜索
+    $('.btn-empty').bind('click', function() {
+        window.location.reload();
+    });
+
 });
