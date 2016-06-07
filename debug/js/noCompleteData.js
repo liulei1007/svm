@@ -83,7 +83,9 @@ $(function() {
         $(".nav-pagination").off();
     })
     $(".ncd-btn-reload").bind("click",function() {
-        window.location.reload();
+        //window.location.reload();
+        //noCompleteData
+        derict(this, "noCompleteData", "nochangeurl");
     })
 
 

@@ -83,7 +83,7 @@ $(function () {
         $(".nav-pagination").off();
     })
     $(".adi-btn-reload").bind("click", function () {
-        window.location.reload();
+        derict(this, "amendmentInfo", "nochangeurl");
     })
 
     function addTableFuncs() {
