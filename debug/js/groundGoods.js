@@ -130,6 +130,7 @@ function soldOutGoods() {
                     btnGround.html('下架');
                 }
             });
+         
 	}
 
 //删除商品数据
