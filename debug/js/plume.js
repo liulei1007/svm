@@ -354,7 +354,7 @@ $.fn.extend({
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
-                        $(this).text(eval(tag));
+                        $(this).text(eval(tag)).attr("title",eval(tag));
                     }
                 }
             }
