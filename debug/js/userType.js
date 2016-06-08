@@ -30,6 +30,10 @@ $(function () {
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             unloading();
             $("." + cls[tag]).find("[list-node]").remove();
+            console.log(tag)
+            if(tag==1){
+                $("." + cls[tag+1]).find("[list-node]").remove();
+            }
             $("." + cls[tag]).setPageData(data);
             for(var i=0;i<cls.length;i++){
                 var o=$("."+cls[i]).find(".sel");
