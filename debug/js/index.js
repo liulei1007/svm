@@ -912,6 +912,13 @@ function popTips(popupTitle, popupIcon) {
     });
 }
 
+function showPopTips(popupTitle, popupIcon, popupTips) {
+    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+        $(".pop").find(".popup-title").html(popupTitle);
+        $(".pop").find(".popup-icon").html('<i class=' + popupIcon + '></i>');
+        $(".pop").find(".popup-info").html(popupTips);
+    });
+}
 
 //分页
 function newPage(totalPage, fun) {
@@ -1061,7 +1068,8 @@ function formControl() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
-        console.log("loseBlur");
+        checkFormNull($(this));
+    }).on("blur", ".form-group.required select", function() {
         checkFormNull($(this));
     });
 }
@@ -1075,7 +1083,11 @@ function checkFormNull(checkObj) {
     if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
         return false;
     }
-    if ($(checkObj).val().trim() == "") {
+    // // 如果是下拉框
+    // if ($(checkObj).is("select")) {
+    //     if ($(checkObj).) {}
+    // }
+    if (!$(checkObj).val() || $(checkObj).val().trim() == "") {
         var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
         $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入' + tipsText + '</div>');
         return false;

@@ -259,7 +259,7 @@ function createMyGoods_init() {
 //--childIdCreate模板初始化函数--
 function childIdCreate_init() {
     plumeLog("初始化childIdCreate模板-" + plumeTime());
-    plumeUtil.js(plumePath + "/js/childIdCreateNew.js");
+    plumeUtil.js(plumePath + "/js/childIdCreateNewest.js");
     plumeLog("完成childIdCreate模板加载-" + plumeTime());
 
 }

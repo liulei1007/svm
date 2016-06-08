@@ -436,6 +436,7 @@
         <listSubUserInfo>/api/subUserInfo/listSubUserInfo/</listSubUserInfo>
         <listManuSubUserInfo>/api/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
         <delSubUserInfo>/api/subUserInfo/delSubUserInfo/</delSubUserInfo>
+        <listManuBrand>/api/subUserInfo/listManuBrand/</listManuBrand>
 
         <getManuSubUserUpView>/api/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
         <getAgentsSubUserUpView>/api/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
@@ -447,6 +448,7 @@
         <listUserRole>/api/subUserInfo/listUserRole/</listUserRole>
         <editUserRoles>/api/subUserInfo/editUserRoles/</editUserRoles>
         <listProductAttribute>/api/productAttribute/listProductAttribute</listProductAttribute>
+        <listShopLinkage>/api/subUserInfo/listShopLinkage</listShopLinkage>
 
         <addCompanyInfoCompany>/api/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
         <editProductStash>/api/productStash/editProductStash</editProductStash>
