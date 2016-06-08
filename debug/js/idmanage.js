@@ -11,7 +11,7 @@ $(function(){
 	});
 
 	//搜索
-	$(".btn-sm").bind("click",function(){
+	$(".im-btn-sm").bind("click",function(){
 		listSubUserDate(1, 10);
 	});
 
@@ -269,6 +269,6 @@ function rolesShow() {
 }
 
 //清空搜索
-    $('.btn-empty').bind('click', function() {
-        window.location.reload();
+    $('.im-btn-empty').bind('click', function() {
+        derict(this, "idmanage", "nochangeurl");
     });

@@ -30,21 +30,21 @@
         <table class="table table-striped table1">
             <thead>
             <tr>
-                <th><input type="checkbox" /></th>
-                <th>品牌名称</th>
-                <th>问题类型</th>
-                <th>反馈信息</th>
-                <th>反馈人</th>
-                <th>反馈日期</th>
-                <th>状态</th>
-                <th>结果</th>
-                <th>操作</th>
+                <th style="width:5%"><input type="checkbox" /></th>
+                <!--<th>品牌名称</th>-->
+                <th style="width:8%">问题类型</th>
+                <th style="width:50%">反馈信息</th>
+                <th style="width:8%">反馈人</th>
+                <th style="width:8%">反馈日期</th>
+                <th style="width:5%">状态</th>
+                <th style="width:5%">结果</th>
+                <th style="width:auto">操作</th>
             </tr>
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true" node-name="attr-msgid:$n.id">
                 <td><input type="checkbox" /></td>
-                <td node-name="$n.brandName"></td>
+                <!--<td node-name="$n.brandName"></td>-->
                 <td class="feedbackType" node-name="$n.feedbackType"></td>
                 <td node-name="$n.feedbackContent"></td>
                 <td node-name="$n.feedbackUser"></td>

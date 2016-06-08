@@ -63,14 +63,14 @@
         <table class="table table1 table-striped">
             <thead>
             <tr>
-                <th><input type="checkbox"/></th>
-                <th>商品编号</th>
-                <th>商品名称</th>
-                <th>系列名</th>
-                <th>品牌</th>
-                <th>产地</th>
-                <th>修改时间</th>
-                <th>操作</th>
+                <th style="width:5%"><input type="checkbox"/></th>
+                <th style="width:8%">商品编号</th>
+                <th style="width:25%">商品名称</th>
+                <th style="width:8%">系列名</th>
+                <th style="width:8%">品牌</th>
+                <th style="width:12%">产地</th>
+                <th style="width:8%">修改时间</th>
+                <th style="width:auto">操作</th>
             </tr>
             </thead>
             <tbody data-list="$p.data">
@@ -80,7 +80,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.countryName+$n.provinceName+$n.cityName"></td>
+                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>

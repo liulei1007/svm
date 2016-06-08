@@ -70,8 +70,7 @@ textarea{resize: none;}
 .title-block{margin-top: 20px; margin-bottom: 10px; margin-left: 20px; font-size: 16px; font-weight: bold;}
 .table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
 /*.table-block table td{border-top:none}*/
-
-.table1{/*border:10px solid #f8f9fa*/}
+.table{/*border:10px solid #f8f9fa*/table-layout: fixed;}
 /*.row1{background:#f8f9fa;}*/
 
 /*.table-block .table1{border:0px solid #f8f9fa}
@@ -138,6 +137,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** --------表格-------- **/
 .table > thead > tr > th, .table > tbody > tr > td{font-weight: normal; vertical-align: middle; border-top: none; border-bottom: none;}
 /*.table-striped > thead > tr > th, .table-striped > thead > tr > td{background-color: #fafafa;}*/
+.table > tbody > tr > td{word-break:break-all;white-space:nowrap;text-overflow:ellipsis;overflow: hidden;}
 .table-striped > thead > tr{background-color: #fafafa; border: solid #e1e1e1 1px;}
 .table-striped > tbody > tr:nth-of-type(even){background-color: #f8f9fa;}
 .table-striped > tbody > tr:nth-of-type(odd){background-color: #fff;}
@@ -382,7 +382,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .userType-select{width: 200px;}
 .type-block{margin-top: 20px; padding: 10px; width: 100%; max-width: 1130px; background-color: #f8f9fa;}
 
-.select-block{width: 100%; height: 300px;}
+.select-block{width: 100%; height: 400px;}
 .select-single{float: left; width: 33.3%; height: 100%; padding-right: 20px; box-sizing: border-box;}
 .select-single:last-child{padding-right: 0;}
 

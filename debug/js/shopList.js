@@ -131,7 +131,7 @@ $(function () {
     
 //清空搜索
     $('.btn-empty').bind('click', function() {
-        window.location.reload();
+        derict(this, "shopList", "nochangeurl");
     });
 
 });

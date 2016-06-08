@@ -1,16 +1,21 @@
 /**
  --基于jquery框架plume
- --刘磊
+ --规则性IDE集成开发框架.
+ --提供可扩展的基础功能接口,数据单向绑定,前端log日志,全局xhr监控.
+ --强制性格式化项目,模板化
+ --前端独立分发路由.
+ --开发人员:刘磊
  --2015/11/04 v1.0
  --2016/01/12 v1.1
  --2016/02/26 v1.2
  --2016/04/07 v1.3
  --2016/04/20 v1.4
+ --2016/05/26 v1.5
+ --2016/06/06 v1.6
  **/
-var configJson = {};//配置文件数据集合
-var plumeApi = {};//配置文件中接口集合--v1.3功能较单一需扩展
+var configJson = {};
+var plumeApi = {};
 var pathName = window.document.location.pathname;
-//var plumePath = "http://" + window.document.location.host + pathName.substring(0, pathName.substr(1).lastIndexOf('/') + 1);
 var _plumePath = window.document.location + "";
 var plumePath = _plumePath.substring(0, _plumePath.lastIndexOf('/') + 1);
 var _test_path = window.location.href + "";
@@ -29,7 +34,6 @@ if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
     }
 }
 
-
 if (_test_path.indexOf("longguo.mmall.com") != -1) {
     plumeApi_Host = "https://longguo.mmall.com";
 } else if (_test_path.indexOf("longguo.hxmklmall.cn") != -1) {
@@ -37,7 +41,6 @@ if (_test_path.indexOf("longguo.mmall.com") != -1) {
 } else {
     plumeApi_Host = "http://longguo.hxmklmall.cn";
 }
-
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
     var configurl = _PLUME.config ? _PLUME.config : "";
@@ -354,7 +357,7 @@ $.fn.extend({
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
-                        $(this).text(eval(tag));
+                        $(this).text(eval(tag)).attr("title",eval(tag));
                     }
                 }
             }

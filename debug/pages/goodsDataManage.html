@@ -80,28 +80,30 @@
         <table class="table table1 table-striped gdm-table-data data-body" style="display: none" >
             <thead>
             <tr>
-                <th><input type="checkbox"/></th>
-                <th>商品名称</th>
-                <th>系列名</th>
-                <th>品牌</th>
-                <th>产地</th>
-                <th>修改时间</th>
-                <th>操作</th>
+                <th style="width:5%"><input type="checkbox"/></th>
+                <th style="width:8%">商品编号</th>
+                <th style="width:25%">商品名称</th>
+                <th style="width:8%">系列名</th>
+                <th style="width:8%">品牌</th>
+                <th style="width:12%">产地</th>
+                <th style="width:8%">修改时间</th>
+                <th style="width:auto">操作</th>
             </tr>
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
+                <td node-name="$n.productId"></td>
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.brandName"></td>
-                <td node-name="$n.countryName+$n.provinceName+$n.cityName"></td>
+                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>
                     <button type="button" class="btn btn-link gdm-btn-copy" node-name="attr-productId:$n.productId">复制</button>
                     <button type="button" class="btn btn-link gdm-btn-open" node-name="$n.saleStatus,attr-productId:$n.productId,attr-saleStatus:$n.saleStatus"></button>
-                    <button type="button" class="btn btn-link btn-link-delete gdm-btn-del" node-name="attr-productId:$n.productId">删除</button>
+                    <!--<button type="button" class="btn btn-link btn-link-delete gdm-btn-del" node-name="attr-productId:$n.productId">删除</button>-->
                 </td>
             </tr>
             </tbody>

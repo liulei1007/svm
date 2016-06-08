@@ -1,6 +1,5 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
-
     // 绑定点击图片展示大图
     $(".createNewGoods").on("click", ".cmg-goodsimgs", function() {
     	var imgSrc = $(this).attr("src");
@@ -71,6 +70,7 @@ $(function () {
         $(".cmg-cancel").bind("click", function () {
             derict(this, "takingGoods", "nochangeurl");
         });
+        $("#brandId,#seriesId,#productName,#modelNumber").attr("disabled",true);
         getDataInit();
     }
 
