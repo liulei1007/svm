@@ -68,7 +68,7 @@ textarea{resize: none;}
 .bottom-block .d1 .right-a{border-right:none}
 .bottom-block .d2{height:34px;text-align: center;line-height:34px;float:left;width:100%}
 .title-block{margin-top: 20px; margin-bottom: 10px; margin-left: 20px; font-size: 16px; font-weight: bold;}
-.table-block{width:100%;/*float:left;*/margin:20px 0 0 0}
+.table-block{width:100%;/*float:left;*/margin:20px 0 0 0;height:500px}
 /*.table-block table td{border-top:none}*/
 .table{/*border:10px solid #f8f9fa*/table-layout: fixed;}
 /*.row1{background:#f8f9fa;}*/
@@ -153,7 +153,24 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 /** --------表单-------- **/
 .form-control{border-radius: 0;}
 
-.search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px;}
+.search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px;
+   -webkit-animation: mysearch 2s forwards;  animation: mysearch 2s forwards;  }
+@-webkit-keyframes mysearch {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes toright {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
 .search-block label{font-weight: normal;}
 .search-block .btn{margin-right: 10px; min-width:80px; font-size: 14px;}
 .search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}

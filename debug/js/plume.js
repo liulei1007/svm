@@ -376,18 +376,32 @@ $.fn.extend({
             //   $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
-                $(temp).appendTo(listObj).show().attr("plumeindex", i);
+                $(temp).appendTo(listObj).attr("plumeindex", i);
                 var dataListNode = $(this).find("[list-node]:last");
                 $n = listData[i];
                 $(dataListNode).setNodeData("$n", $n, "node-name");
                 $(dataListNode).find("[node-name]").each(function (x, e) {
                     $(this).setNodeData("$n", $n, "node-name");
                 });
-
             }
+            listObj.find("[list-node]").plumeFadeIn();
         });
+    },
+    plumeFadeIn:function(){
+        var plume_fadeIn_obj=$($(this)[0]);
+        listNodeShow(plume_fadeIn_obj);
     }
 });
+function listNodeShow(o){
+    o.fadeIn(500);
+    if($(o).next().length != 0){
+        var ox=$(o).next();
+        setTimeout(function(){
+            listNodeShow(ox);
+        },100);
+    }
+}
+
 //内部方法,重写浏览器回退,前进,刷新事件,使用setTimeout为了避免部分浏览器bug,保证兼容
 setTimeout(function () {
     $(window).on('popstate', function () {

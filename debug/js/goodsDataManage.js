@@ -35,9 +35,9 @@ $(function () {
         getTableData();
         $(".nav-pagination").off();
     });
-    $(".gdm-btn-reload").click(function(){
+    $(".gdm-btn-reload").click(function () {
         //window.location.reload();
-        derict(null,"goodsDataManage","nochangeurl");
+        derict(null, "goodsDataManage", "nochangeurl");
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
@@ -69,7 +69,6 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-
                 totalPage = Math.ceil(data.countRecord / 10);
                 newPage(totalPage, function (i) {
                     loading();
@@ -80,12 +79,9 @@ $(function () {
                         contentType: "application/json",
                         dataType: "json",
                         success: function (data) {
-                            $("[list-node]").remove();
+                            $(".gdm-table-data").find("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
-                            $(".data-body").fadeIn(function(){
-                                unloading();
-                            });
-
+                            unloading();
                             binFun();
                             getFirstCategory(0, 0);
                         }
@@ -93,7 +89,7 @@ $(function () {
                 });
                 $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
-                $(".data-body").fadeIn();
+                //$(".data-body").fadeIn();
                 binFun();
                 unloading();
             }
@@ -208,46 +204,46 @@ $(function () {
     $(".table-block").on("click", ".gdm-btn-del", function () {
         var productId = $(this).attr("productId");
         $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
-        // 改变弹出框中文字和图标显示
-        $(".pop").find(".popup-title").html("删除确认？");
-        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-        $(".pop").find(".popup-info").html("是否确认删除记录？");
-        $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
-        // 绑定按钮事件
-        $('.pop').on('click', '.btn-sure', function () {
-            loading();
-            $.ajax({
-                url: plumeApi["delProductInfo"] + "/" + productId,
-                type: "GET",
-                contentType: "application/json;charset=UTF-8",
-                success: function (data) {
-                    if (data.ok) {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                            $(".pop").find(".popup-info").html("删除成功");
-                        });
-                         $("[list-node]").remove();
-                         getTableData();
-                    } else {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("删除失败");
-                        });
+            // 改变弹出框中文字和图标显示
+            $(".pop").find(".popup-title").html("删除确认？");
+            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+            $(".pop").find(".popup-info").html("是否确认删除记录？");
+            $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
+            // 绑定按钮事件
+            $('.pop').on('click', '.btn-sure', function () {
+                loading();
+                $.ajax({
+                    url: plumeApi["delProductInfo"] + "/" + productId,
+                    type: "GET",
+                    contentType: "application/json;charset=UTF-8",
+                    success: function (data) {
+                        if (data.ok) {
+                            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                $(".pop").find(".popup-title").html("信息提示");
+                                $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                                $(".pop").find(".popup-info").html("删除成功");
+                            });
+                            $("[list-node]").remove();
+                            getTableData();
+                        } else {
+                            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                $(".pop").find(".popup-title").html("信息提示");
+                                $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                                $(".pop").find(".popup-info").html("删除失败");
+                            });
+                        }
                     }
-                }
+                });
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
             });
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
+            $('.pop').on('click', '.btn-cancel', function () {
+                $('.pop').hide();
+                $('.pop').off('click', '.btn-sure');
+                $('.pop').off('click', '.btn-cancel');
+            });
         });
-        $('.pop').on('click', '.btn-cancel', function () {
-            $('.pop').hide();
-            $('.pop').off('click', '.btn-sure');
-            $('.pop').off('click', '.btn-cancel');
-        });
-    });        
     });
 
 
