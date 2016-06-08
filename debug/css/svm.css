@@ -550,7 +550,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-default textarea{resize: none;}
 .popup-default .control-label{font-weight: normal;}
 .popup-default .btn{width: 100%;}
-.popup-auth{position: absolute; width: 320px; height: 220px; margin-top: -110px; top: 50%; left: 50%; margin-left: -160px;}
+.popup-auth{position: absolute; width: 400px; height: 220px; margin-top: -110px; top: 50%; left: 50%; margin-left: -160px;}
 .popup-auth .btn-block{position: absolute; bottom: 20px; margin-right: 0; margin-left: 0;}
 .lockbg{position: absolute;width:100%;height:100%;background: #fff;z-index:2;left: 0;top: 0; filter: Alpha(opacity=60); -moz-opacity:0.6; opacity:0.6;display: none;z-index:98}
 .cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
@@ -660,7 +660,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .login-footer-foot .footer-link:last-child{border-right: none;}
 
 /** ----新登录——表单---- **/
-.login-form, .register-form{position: absolute; z-index: 97; top: 50%; right: 200px; overflow: hidden; margin-top: -220px; width: 310px; height: 340px; background-color: rgba(255,255,255,.8); border-radius: 5px; box-shadow: 6px 5px 16px 0 rgba(74,49,19,.8);}
+.login-form, .register-form{position: absolute; z-index: 97; top: 50%; right: 200px; overflow: hidden; margin-top: -220px; width: 310px; height: 340px; background-color: rgba(255,255,255,.9); border-radius: 5px; box-shadow: 6px 5px 16px 0 rgba(0,0,0,.5);}
 .register-form{display: none;}
 .login-form-container{padding: 0 20px;}
 .login-container .login-alert{position: absolute; top: 21px; left: 0; padding-top: 4px; padding-right: 35px; padding-bottom: 4px; padding-left: 42px; width: 100%; box-sizing: border-box; background: url(../images/login/icons-warning.png) 20px 0 #f0d6d0 no-repeat;}
@@ -797,3 +797,6 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 /** --------加速审核-------- **/
 .popup-waitCheck{border: none; box-shadow: none;}
+
+
+.agencyShops, .brandShops{display: none;}

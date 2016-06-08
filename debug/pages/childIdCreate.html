@@ -28,11 +28,11 @@
         <form class="form-horizontal">
             <div class="form-group required">
                 <label class="col-sm-3 control-label"><i>*</i><span>员工姓名</span></label>
-                <div class="col-sm-6"><input type="text" id="remark" class="form-control" placeholder="请输入员工姓名"></div>
+                <div class="col-sm-6" id="remark"><input type="text" class="form-control" placeholder="请输入员工姓名"></div>
             </div>
             <div class="form-group required">
                 <label class="col-sm-3 control-label"><i>*</i><span>手机号码</span></label>
-                <div class="col-sm-6"><input type="text" id="tel" class="form-control" placeholder="请填写手机号码"></div>
+                <div class="col-sm-6" id="tel"><input type="text" class="form-control" placeholder="请填写手机号码"></div>
             </div>
             <div class="form-group required">
                 <label class="col-sm-3 control-label"><i>*</i><span>密码</span></label>
@@ -48,35 +48,37 @@
                     <button type="button" class="btn btn-default btn-myset">配置</button>
                 </div>
             </div>
-            <div class="form-group shops" style="display: none;">
+            <!-- <div class="form-group shops" style="display: none;">
                 <label class="col-sm-3 control-label">所属店铺</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="agentShop">
                     </select>
                 </div>
-            </div>
-            <div class="form-group brands"  style="display: none;">
-                <label class="col-sm-3 control-label">关联品牌</label>
-                <div class="col-sm-5 manuBrand">
+            </div> -->
 
+            <div class="form-group required agencyShops">
+                <label class="col-sm-3 control-label"><i>*</i><span>所属卖场</span></label>
+                <div id="agencyMarket" class="col-sm-6">
+                    <select class="form-control"><option disabled='disabled' selected='selected'>请选择所属卖场</option></select>
                 </div>
             </div>
-            <!--
-            <div class="form-group"  style="display: none;">
-                <label class="col-sm-3 control-label">关联品牌</label>
-                <div class="col-sm-5"><input type="text" class="form-control"></div>
-                <div class="col-sm-1">
-                    <button type="button" class="btn btn-default cic-btn-add">添加</button>
+            <div class="form-group required agencyShops">
+                <label class="col-sm-3 control-label"><i>*</i><span>所属品牌</span></label>
+                <div id="agencyBrand" class="col-sm-6">
+                    <select class="form-control"><option disabled='disabled' selected='selected'>请选择所属品牌</option></select>
                 </div>
             </div>
-            <div class="form-group cic-brand"  style="display: none;">
-                <label class="col-sm-3 control-label"></label>
-                <div class="col-sm-5"><input type="text" class="form-control"></div>
-                <div class="col-sm-1">
-                    <div type="button" class="cic-btn-del"></div>
+            <div class="form-group required agencyShops">
+                <label class="col-sm-3 control-label"><i>*</i><span>所属系列</span></label>
+                <div id="agencySeries" class="col-sm-6">
+                    <select class="form-control"><option disabled='disabled' selected='selected'>请选择所属系列</option></select>
                 </div>
             </div>
-            -->
+
+            <div class="form-group brandShops">
+                <label class="col-sm-3 control-label"><i>*</i><span>关联品牌</span></label>
+                <div class="col-sm-5 manuBrand"></div>
+            </div>
         </form>
     </div>
 

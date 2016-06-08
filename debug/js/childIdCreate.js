@@ -93,17 +93,21 @@ $(function () {
     });
     //密码check-----------------------------------------------
     
-    //把session中的修改子账号id删除
-    sessionStorage.removeItem("modifyAcId");
+    // //把session中的修改子账号id删除
+    // sessionStorage.removeItem("modifyAcId");
+
+console.log("modifyAcId: " + modifyAcId);
 
     if (modifyAcId && modifyAcId != '') {
+        console.log("has" + modifyAcId);
         isAdd = 0;      //修改时
         $(".title-block").html("修改子账号");
     } else {
         modifyAcId = sessionStorage.login_id;   //添加
     }
 
-    subAccUpView(modifyAcId);
+    console.log("subAccUpView" + modifyAcId);
+    // subAccUpView(modifyAcId);
 });
 
 //获取此账号已经有的配置权限

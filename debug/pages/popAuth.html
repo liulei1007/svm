@@ -17,34 +17,25 @@
     </script>
 </head>
 <body>
-<div class="popup-default popup-auth">
-    <p class="popup-title">权限配置</p>
-
-    <form class="form-horizontal roleboxes">
-        <div class="checkbox digagentbox" style="display: none;">
-            <!--<label>-->
-                <!--<input type="checkbox" name="rolebox" value="digital_dealer_admin" />店铺管理员-->
-            <!--</label>-->
-            <label>
-                <input type="checkbox" name="rolebox" value="digital_dealer_emp" />店铺操作员
-            </label>
-        </div>
-        <div class="checkbox digmanubox" style="display: none;">
-            <!--<label>-->
-                <!--<input type="checkbox" name="rolebox" value="digital_manu_admin" />品牌工厂管理员-->
-            <!--</label>-->
-            <label>
-                <input type="checkbox" name="rolebox" value="digital_manu_emp" />品牌工厂操作员
-            </label>
-        </div>
-    </form>
-    <div class="row btn-block">
-        <div class="col-sm-4 col-sm-offset-2">
-            <button type="button" class="btn btn-success">确定</button>
-        </div>
-        <div class="col-sm-4">
-            <button type="button" class="btn btn-default pa-cancel">取消</button>
-        </div>
-    </div>
-</div>
+	<div class="popup-fill" style="margin-left: -200px; width: 400px;">
+		<p class="popup-title">权限配置</p>
+		<form class="form-horizontal">
+			<div class="form-group" style="margin-left: 0; margin-right: 0;">
+				<div class="col-sm-6 col-sm-offset-3 digmanubox" style="display: none;">
+					<label class="checkbox-inline"><input type="checkbox" name="rolebox" value="digital_manu_emp" />店铺操作员</label>
+				</div>
+				<div class="col-sm-6 col-sm-offset-3 digagentbox" style="display: none;">
+				<label class="checkbox-inline"><input type="checkbox" name="rolebox" value="digital_dealer_emp" />品牌工厂操作员</label>
+				</div>
+			</div>
+		</form>
+		<div class="row btn-block">
+			<div class="col-sm-4 col-sm-offset-2">
+				<button type="button" class="btn btn-success pa-sure">确定</button>
+			</div>
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-default pa-cancel">取消</button>
+			</div>
+		</div>
+	</div>
 </body>

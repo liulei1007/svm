@@ -1,10 +1,12 @@
 $(function(){
+    var nowRole = "";
 	plumeLog("进入idmanage模板自定义js-"+plumeTime());
 	tablecheckbox();
-    sessionStorage.removeItem("modifyAcId");
+    // sessionStorage.removeItem("modifyAcId");
 
     //添加
 	$(".im-btn-add").bind("click",function(){
+        sessionStorage.removeItem("modifyAcId");
 		derict(this, "childIdCreate", "nochangeurl");
 	});
 
@@ -18,11 +20,14 @@ $(function(){
         var removeList = $(this).parents('tr');
         var managid = removeList.attr("managid");
 
-        $('.pop').loadTemp("popAuth", "nochangeurl", function () {
+        $('.pop').loadTemp("popAuth", "nochangeurl", function() {
         // $(".cic-pop").pop("popAuth",function(){
             getAccRole(managid);
+            // 工厂角色
+            
 
-            rolesShow();
+            // rolesShow();
+            
 
             $(".pa-cancel").bind("click",function(){
                 $(".pop").pophide();
@@ -198,29 +203,55 @@ function getAccRole(accountId) {
         type: "GET",
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
-            if (data.ok) {
-                var roles = JSON.stringify(data.data);
-                console.log("roles = " + roles);
+        	unloading();
+        	if (data.ok) {
+        		var nowRole = "";
+        		for (var i = 0; i < data.data.length; i++) {
+        			nowRole = nowRole.concat(data.data[i]).concat(",");
+        		}
+        		if (sessionStorage.login_userType == 1) {
+        			$(".digmanubox").show();
+        			if(nowRole.indexOf("digital_manu_emp") > -1) {
+        				$(".digmanubox [type='checkbox']").attr("checked", "checked");
+        			}
+        		}
+	            // 经代商角色
+	            else {
+	            	$(".digagentbox").show();
+	            	if(nowRole.indexOf("digital_dealer_emp") > -1) {
+	            		$(".digagentbox [type='checkbox']").attr("checked", "checked");
+	            	}
+	            }
+	            // 调整显示高度
+	            var popHeight = $(".pop .form-horizontal").height() + 145;
+	            $(".popup-fill").css({"margin-top": -popHeight / 2, "height": popHeight});
+	        	}
+        	else {
+        		showPopTips("权限获取失败", "warning", data.resDescription);
+        	}
+            // if (data.ok) {
+            //     var roles = JSON.stringify(data.data);
+            //     console.log("roles = " + roles);
    
-                //拼接经销商权限 
-                if(sessionStorage.login_userType == 2) {
-                    $(".digmanubox").hide();
+            //     //拼接经销商权限 
+            //     if(sessionStorage.login_userType == 2) {
+            //         $(".digmanubox").hide();
 
-                    if(roles.indexOf("digital_dealer_emp") > -1) {
-                        $(".digagentbox [type='checkbox']").attr("checked", "checked");
-                    } 
+            //         if(roles.indexOf("digital_dealer_emp") > -1) {
+            //             $(".digagentbox [type='checkbox']").attr("checked", "checked");
+            //         } 
 
-                 //拼接工厂权限    
-                } else if(sessionStorage.login_userType == 1) {
-                    $(".digagentbox").hide();
+            //      //拼接工厂权限    
+            //     } else if(sessionStorage.login_userType == 1) {
+            //         $(".digagentbox").hide();
 
-                    if(roles.indexOf("digital_manu_emp") > -1) {
-                        $(".digmanubox [type='checkbox']").attr("checked", "checked");
-                    }
-                }           
-            } else {
-                alert("获取配置权限失败:"+data.resDescription);
-            }
+            //         if(roles.indexOf("digital_manu_emp") > -1) {
+            //             $(".digmanubox [type='checkbox']").attr("checked", "checked");
+            //         }
+            //     }           
+            // } else {
+            //     alert("获取配置权限失败:"+data.resDescription);
+            // }
         }
     })
 }
