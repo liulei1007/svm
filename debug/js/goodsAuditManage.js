@@ -56,7 +56,7 @@ $(function () {
                     });
 
 
-                    totalPage = Math.ceil(data.countRecord / 10);
+                    totalPage = Math.ceil(data.countRecord / onePageCount());
                     newPage(totalPage, function (i) {
                         var newData = JSON.stringify(datas);
                         loading();
