@@ -533,7 +533,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 
 /** --------分页-------- **/
-.nav-pagination{margin-bottom: 30px; text-align: right;}
+.nav-pagination{margin-bottom: 0px; text-align: right;}
 .pagination{float: right; margin-top: 0; margin-bottom: 0;}
 /** 普通页码的样式 **/
 .pagination > li > a, .pagination > li > span{width: 44px; color: #989da8; text-align: center; border-color: #ced1dc;}

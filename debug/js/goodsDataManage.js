@@ -64,7 +64,7 @@ $(function () {
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["listProductInfo"] + "?currentPage=1&onePageCount=10",
+            url: plumeApi["listProductInfo"] + "?currentPage=1&onePageCount="+onePageCount(),
             data: newData,
             contentType: "application/json",
             dataType: "json",
@@ -74,7 +74,7 @@ $(function () {
                     loading();
                     $.ajax({
                         type: "POST",
-                        url: plumeApi["listProductInfo"] + "?currentPage=" + i + "&onePageCount=10",
+                        url: plumeApi["listProductInfo"] + "?currentPage=" + i + "&onePageCount="+onePageCount(),
                         data: newData,
                         contentType: "application/json",
                         dataType: "json",

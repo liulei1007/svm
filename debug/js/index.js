@@ -164,6 +164,17 @@ $(function () {
         window.location.href = "index";
     });
 });
+function onePageCount(){
+    var h=$(window).height();
+    var h1=$(".title-block").height()+30;
+    var h2=$(".search-block").height()+20;
+    var h3=$(".alert-info").height()+20;
+    var h4=$(".btn-block").height()+40;
+    var n=parseInt((h-h1-h2-h3-h4-105)/40);
+    $(".table-block").css({"height":40*n})
+    return n-1;
+}
+//检测session失效
 function chkUserStatus(){
     $.ajax({
         type: "get",
@@ -184,6 +195,7 @@ function chkUserStatus(){
         }
     });
 }
+//页面定向
 var derict_lock = false;
 function derict(o, temp, cache, fun) {
     if (derict_lock) {
@@ -206,6 +218,7 @@ function derict(o, temp, cache, fun) {
         });
     })
 }
+//路由初始化
 function pathInit() {
     plumeLog("进入pathInit-" + plumeTime());
     var path = window.location.href + "";
@@ -224,19 +237,6 @@ function pathInit() {
         getLoginInfoToSession();
         getAuth();
         getListSystemCode();
-
-        //$(".slidebar-title,.auth-menu-ul li").show();
-        //var auth = sessionStorage.auth;
-        //if (auth) {
-        //    $(".slidebar-title").each(function () {
-        //        var slidebarAuth = $(this).attr("auth");
-        //        if (auth.indexOf(slidebarAuth) != -1) {
-        //            $(this).show();
-        //        } else {
-        //            $(this).hide();
-        //        }
-        //    });
-        //}
         $(".container-fixed").fadeIn();
     }
     try {
@@ -250,7 +250,7 @@ function pathInit() {
     }
 
 }
-
+//获取权限
 function getAuth() {
     $.ajax({
         type: "get",

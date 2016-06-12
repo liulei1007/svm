@@ -40,7 +40,7 @@ $(function () {
         loading();
         var newData = JSON.stringify(datas)
         $.ajax({
-            url: plumeApi["listProductInfoUpt"] + "?currentPage=1&onePageCount=10",
+            url: plumeApi["listProductInfoUpt"] + "?currentPage=1&onePageCount="+onePageCount(),
             type: "POST",
             contentType: "application/json;charset=UTF-8",
             data: newData,
@@ -61,7 +61,7 @@ $(function () {
                         var newData = JSON.stringify(datas);
                         loading();
                         $.ajax({
-                            url: plumeApi["listProductInfoUpt"] + "?currentPage=" + i + "&onePageCount=10",
+                            url: plumeApi["listProductInfoUpt"] + "?currentPage=" + i + "&onePageCount="+onePageCount(),
                             type: "POST",
                             contentType: "application/json;charset=UTF-8",
                             data: newData,
