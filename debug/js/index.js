@@ -171,7 +171,7 @@ function onePageCount(){
     var h3=$(".alert-info").height()+20;
     var h4=$(".btn-block").height()+40;
     var n=parseInt((h-h1-h2-h3-h4-105)/40);
-    $(".table-block").css({"height":40*n})
+    $(".table-block").css({"height":40*n});
     return n-1;
 }
 //检测session失效
