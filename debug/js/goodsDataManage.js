@@ -12,9 +12,9 @@ $(function () {
     }
     getTableData();
     tablecheckbox();
-    $(".gdm-add-goods").bind("click", function () {
-        derict(this, "userType", "nochangeurl");
-    });
+    //$(".gdm-add-goods").bind("click", function () {
+    //    derict(this, "userType", "nochangeurl");
+    //});
     $(".gdm-btn-search").bind("click", function () {
         var productName = $("#productName").val();
         var modelNumber = $("#modelNumber").val();
@@ -36,7 +36,6 @@ $(function () {
         $(".nav-pagination").off();
     });
     $(".gdm-btn-reload").click(function () {
-        //window.location.reload();
         derict(null, "goodsDataManage", "nochangeurl");
     });
 //分类
@@ -46,6 +45,9 @@ $(function () {
 
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             $("." + cls[tag]).find("[list-node]").remove();
+            if(tag==1){
+                $("." + cls[tag+1]).find("[list-node]").remove();
+            }
             $("." + cls[tag]).setPageData(data);
             $("." + cls[tag]).find("select").unbind().bind("change", function () {
                 var nowtag = parseInt($(this).attr("tag")) + 1;
@@ -137,43 +139,43 @@ $(function () {
 
 
 //批量导入按钮
-    $(".btn-import-data").bind("click", function () {
-        $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
-            $('#myForm').ajaxForm(function (data) {
-                unloading();
-                if (data.ok) {
-                    alert("上传成功");
-                    $('.pop').hide();
-                } else {
-                    alert(data.resDescription || data.data);
-                    $('.pop').hide();
-                }
-            });
-            $('.btn-cancel').bind('click', function () {
-                $(".pop").hide();
-            });
-
-
-            $(".ex-ok").bind("click", function () {
-                if (($("#file").val())) {
-                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
-                    $('#myForm').submit();
-                    session.goods_baseCategoryId = "";
-                    session.goods_subCategoryId = "";
-                    session.goods_categoryId = "";
-                }
-            });
-
-            $(".btn-loadModule").bind("click", function () {
-                if (session.goods_baseCategoryId) {
-                    var count = $(".btn-count input").val();
-                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=1000"
-                } else {
-                    alert(请选择类目);
-                }
-            });
-        });
-    })
+//    $(".btn-import-data").bind("click", function () {
+//        $('.pop').loadTemp("popUpLoadBatch", "nochangeurl", function () {
+//            $('#myForm').ajaxForm(function (data) {
+//                unloading();
+//                if (data.ok) {
+//                    alert("上传成功");
+//                    $('.pop').hide();
+//                } else {
+//                    alert(data.resDescription || data.data);
+//                    $('.pop').hide();
+//                }
+//            });
+//            $('.btn-cancel').bind('click', function () {
+//                $(".pop").hide();
+//            });
+//
+//
+//            $(".ex-ok").bind("click", function () {
+//                if (($("#file").val())) {
+//                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
+//                    $('#myForm').submit();
+//                    session.goods_baseCategoryId = "";
+//                    session.goods_subCategoryId = "";
+//                    session.goods_categoryId = "";
+//                }
+//            });
+//
+//            $(".btn-loadModule").bind("click", function () {
+//                if (session.goods_baseCategoryId) {
+//                    var count = $(".btn-count input").val();
+//                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=1000"
+//                } else {
+//                    alert(请选择类目);
+//                }
+//            });
+//        });
+//    })
 
 //按钮绑定方法
     function binFun() {

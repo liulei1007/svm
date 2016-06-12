@@ -30,7 +30,6 @@ $(function () {
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             unloading();
             $("." + cls[tag]).find("[list-node]").remove();
-            console.log(tag)
             if(tag==1){
                 $("." + cls[tag+1]).find("[list-node]").remove();
             }

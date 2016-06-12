@@ -398,7 +398,7 @@ function listNodeShow(o){
         var ox=$(o).next();
         setTimeout(function(){
             listNodeShow(ox);
-        },100);
+        },50);
     }
 }
 
