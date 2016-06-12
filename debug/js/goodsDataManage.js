@@ -69,7 +69,7 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                totalPage = Math.ceil(data.countRecord / 10);
+                totalPage = Math.ceil(data.countRecord / onePageCount());
                 newPage(totalPage, function (i) {
                     loading();
                     $.ajax({
