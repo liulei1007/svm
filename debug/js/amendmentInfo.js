@@ -58,7 +58,6 @@ $(function () {
                             $(".table-block").setPageData(data);
                             getFirstCategory(0, 0);
                             addTableFuncs();
-
                         }
                     });
                 });
