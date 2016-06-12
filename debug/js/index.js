@@ -119,6 +119,9 @@ $(function () {
     $(".reviewPersonal").bind("click", function () {
         derict(this, "reviewPersonal", "nochangeurl");
     });
+    $(".importGoods").bind("click", function () {
+        derict(this, "importGoods", "nochangeurl");
+    });
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
@@ -252,6 +255,9 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
+      $(".slidebar-list li,.slidebar-title").show();
+    return;
+
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
