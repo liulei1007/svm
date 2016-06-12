@@ -37,18 +37,18 @@ $(function () {
         loading();
         $.ajax({
             type: "POST",
-            url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=1&onePageCount=10",
+            url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=1&onePageCount="+onePageCount(),
             data: newData,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
                 unloading();
-                totalPage = Math.ceil(data.countRecord / 10);
+                totalPage = Math.ceil(data.countRecord / onePageCount());
                 newPage(totalPage, function (i) {
                     loading();
                     $.ajax({
                         type: "POST",
-                        url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=" + i + "&onePageCount=10",
+                        url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=" + i + "&onePageCount="+onePageCount(),
                         data: newData,
                         contentType: "application/json",
                         dataType: "json",
