@@ -3,9 +3,21 @@ $(function () {
     $("#ma-reset").bind("click", function () {
         derict(this, "msgmanage", "nochangeurl");
     });
+
+    var reg = /(.*([\u4e00-\u9fff]))\s+([\da-zA-Z].*)/;
     $(".ma-btn-sub").bind("click", function () {
         var feedbackType = $('.feedbackType').val();
         var feedbackContent = $('.feedbackContent').val();
+        var match = rquickExpr.exec(str);
+        // var pram_str = {
+        //     "barndId":0,
+        //     "brandName":"",
+        //     "feedbackType":feedbackType,
+        //     "feedbackCategory":"",
+        //     "feedbackContent":feedbackContent
+        // }
+
+
         var pram_str = '{';
         pram_str += '"brandId": 0,';
         pram_str += '"brandName": "",';
@@ -14,10 +26,14 @@ $(function () {
         pram_str += '"feedbackContent": "'+feedbackContent+'"';
         pram_str += '}';
         loading();
-        $.ajax({
+
+
+
+
+
             type: "POST",
             url: plumeApi["addFeedbackInfo"],
-            data: pram_str,
+            data:JSON.stringify(pram_str),
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
