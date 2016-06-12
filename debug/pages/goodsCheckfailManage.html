@@ -19,37 +19,37 @@
 
 <body>
 <div class="doc-basicDataManagement form-body">
-    <div class="title-block">待审核商品管理</div>
+    <div class="title-block">审核失败商品管理</div>
     <div class="search-block">
         <form class="form-inline">
             <div class="form-group">
                 <label for="agencyName">商品名称</label>
                 <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
             </div>
-            <div class="form-group category-block">
-                <label>分类</label>
-                <span class="gam-type-first">
-                    <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0" style="width:100px">
-                        <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
-                    </select>
-                </span>
-                <span class="gam-type-second">
-                    <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1" style="width:100px">
-                        <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
-                    </select>
-                </span>
-                <span class="gam-type-third">
-                    <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2" style="width:100px">
-                        <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
-                    </select>
-                </span>
-            </div>
-            <div class="form-group">
-                <label for="modelNumber">型号</label>
-                <input type="text" class="form-control input-sm" id="modelNumber" placeholder=""  style="width:120px">
-            </div>
-            <div class="btn btn-default gam-btn-search">查询</div>
-            <div class="btn btn-default gam-btn-reload">清空条件</div>
+            <!--<div class="form-group">-->
+            <!--<label>审核状态</label>-->
+            <!--<select class="form-control input-sm" id="reviewStatus">-->
+            <!--<option value="0">待审核</option>-->
+            <!--&lt;!&ndash;<option value="1">审核通过</option>&ndash;&gt;-->
+            <!--<option value="2">审核失败</option>-->
+            <!--&lt;!&ndash;<option value="3">错误反馈</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="4">待完善</option>&ndash;&gt;-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<label>系列名</label>-->
+            <!--<select class="form-control input-sm">-->
+            <!--<option>所有</option>-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<label>状态</label>-->
+            <!--<select class="form-control input-sm">-->
+            <!--<option>所有</option>-->
+            <!--</select>-->
+            <!--</div>-->
+            <div class="btn btn-default gcm-btn-search">查询</div>
+            <div class="btn btn-default gcm-btn-reload">清空条件</div>
         </form>
     </div>
 
@@ -57,7 +57,8 @@
     <div class="btn-block clearFix">
         <button class="btn btn-batch btn-allAudit">批量审核</button>
     </div>
-    <div class="table-block gam-table">
+    <div class="table-block">
+
         <table class="table table1 table-striped">
             <thead>
             <tr>
@@ -81,8 +82,8 @@
                 <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
-                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>
-                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods btn-audit ">审核</div>
+                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods gcm-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>
+                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods gcm-btn-edit"  node-name="attr-uptId:$n.uptId">编辑</div>
                 </td>
             </tr>
             </tbody>

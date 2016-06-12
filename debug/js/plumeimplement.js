@@ -354,3 +354,8 @@ function feedMyGoods_init() {
     plumeUtil.js(plumePath + "/js/feedMyGoods.js");
     plumeLog("完成feedMyGoods模板加载-" + plumeTime());
 }
+function goodsCheckfailManage_init() {
+    plumeLog("初始化goodsCheckfailManage模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/goodsCheckfailManage.js");
+    plumeLog("完成goodsCheckfailManage模板加载-" + plumeTime());
+}
