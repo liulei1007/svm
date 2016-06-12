@@ -477,5 +477,6 @@
         <editProductInfoUpt>/api/productInfo/editProductInfoUpt</editProductInfoUpt>
         <delProductInfoUpt>/api/productInfo/delProductInfoUpt</delProductInfoUpt>
         <listNationCode>/api/common/listNationCode</listNationCode>
+        <chkUserStatus>/api/userInfo/chkUserStatus</chkUserStatus>
     </api>
 </config>

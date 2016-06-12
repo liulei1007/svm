@@ -1,5 +1,7 @@
 $(function () {
-//显示登录名称
+    //判断用户是否登录
+    setInterval(chkUserStatus,30000);
+    //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
     }
@@ -161,7 +163,27 @@ $(function () {
     $(".index-head-logo").bind("click", function () {
         window.location.href = "index";
     });
-})
+});
+function chkUserStatus(){
+    $.ajax({
+        type: "get",
+        url: plumeApi["chkUserStatus"],
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data) {
+            try{
+                if (data.ok) {
+                    plumeLog("用户正常登录中,session未失效.")
+                } else {
+                    window.location.href="/";
+                }
+            }catch(e){
+                window.location.href = "/";
+            }
+
+        }
+    });
+}
 var derict_lock = false;
 function derict(o, temp, cache, fun) {
     if (derict_lock) {
