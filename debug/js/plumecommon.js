@@ -16,7 +16,8 @@ var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/js/jquery.cookie.js",
     "/" + PLUME_PROJECT + "/js/plume.js",
     "/" + PLUME_PROJECT + "/js/plumeimplement.js",
-    "/" + PLUME_PROJECT + "/js/swiper.min.js"
+    "/" + PLUME_PROJECT + "/js/swiper.min.js",
+    "/" + PLUME_PROJECT + "/js/pagination.js"
 ];
 
 for (var i = 0; i < PLUME_FILE.length; i++) {
