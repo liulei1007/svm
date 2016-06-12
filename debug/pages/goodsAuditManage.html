@@ -75,8 +75,7 @@
             <tbody data-list="$p.data">
             <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
-                <!--<td node-name="$n.productId"></td>-->
-                <td node-name="$n.productName"></td>
+                <td node-name="$n.productName,attr-uptId:$n.uptId" class="linkcell gam-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
@@ -84,7 +83,7 @@
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
-                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>
+                    <!--<div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>-->
                     <div type="button" class="btn btn-link btn-sm btn-releaseGoods btn-audit ">审核</div>
                 </td>
             </tr>

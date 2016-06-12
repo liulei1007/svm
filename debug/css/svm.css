@@ -817,3 +817,4 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 
 .agencyShops, .brandShops{display: none;}
+.linkcell{cursor: pointer;text-decoration: underline;color:#0094da}
