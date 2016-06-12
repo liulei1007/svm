@@ -303,6 +303,7 @@ function editMyGoods_init() {
     plumeUtil.js(plumePath + "/js/editMyGoods.js");
     plumeLog("完成editMyGoods模板加载-" + plumeTime());
 }
+
 //editMyGoods_init
 function copyMyGoods_init() {
     plumeLog("初始化copyMyGoods模板-" + plumeTime());
@@ -353,4 +354,9 @@ function feedMyGoods_init() {
     plumeLog("初始化feedMyGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/feedMyGoods.js");
     plumeLog("完成feedMyGoods模板加载-" + plumeTime());
+}
+function importGoods_init() {
+    plumeLog("初始化importGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/importGoods.js");
+    plumeLog("完成importGoods模板加载-" + plumeTime());
 }
