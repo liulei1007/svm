@@ -43,7 +43,7 @@ textarea{resize: none;}
 .doc-test{height:100%;width:100%;background:#fff;}
 .doc-transmit{height:100%;width:100%;background:#fff;padding-top:20%}
 .doc-test1{height:100%;width:100%;background:#fff;color:#333;text-align:Center;font-size:16px;padding-top:10%}
-.work-space-active{z-index:0}
+.work-space-active{z-index:0; top: 50px;}
 .doc-login{background:url("../images/bg.jpg")#0b1e24 no-repeat 50% 50%;height:500px;width:100%;float:left}
 .form-block{height:320px;width:350px;border-top:5px solid #0094da;position:absolute;top:116px;right:15%;background:#fff;}
 .form-block .tag1{height:90px;width:35px;position:absolute;top:0px;right:-35px;background: #fff;padding:10px;line-height:14px;cursor:pointer}
@@ -820,6 +820,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .linkcell{cursor: pointer;text-decoration: underline;color:#0094da}
 
 /** --------二级菜单-------- **/
-.slidebar-menu{margin: 0; padding: 0; width: 100%; background-color: #ebeff2;display: none}
+.slidebar-menu{position: fixed; z-index: 100;/* top: 0;*/ margin: 0; padding: 0; width: 100%; background-color: #ebeff2;display: none}
 .slidebar-menu li{float: left; padding: 15px 0; width: 150px; text-align: center; list-style: none; cursor: pointer; background-color: #ebeff2;}
-.slidebar-menu li:hover, .slidebar-menu li.active{color: #1397da; background-color: #fff;}
+.slidebar-menu li.active{color: #1397da; background-color: #fff;}
+.slidebar-menu li:hover{background-color: #f4f8fa;}
