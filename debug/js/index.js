@@ -257,13 +257,11 @@ function pathInit() {
 function getAuth() {
       $(".slidebar-list li,.slidebar-title").show();
     return;
-
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
         contentType: "application/json",
         dataType: "json",
-       // async: false,
         success: function (data) {
             if (data.ok) {
                 for (var i = 0; i < data.data.length; i++) {
@@ -697,8 +695,15 @@ function loading() {
     }
 }
 function unloading() {
-    $(".lockbg").remove();
-    $(".loading").remove();
+    $(".lockbg").fadeOut(function(){
+        $(this).remove();
+
+    });
+    $(".loading").fadeOut(function(){
+        $(this).remove();
+
+    });
+
 }
 
 // 检验表单中的必填项是否填写

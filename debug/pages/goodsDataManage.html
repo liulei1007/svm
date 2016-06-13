@@ -71,33 +71,37 @@
         </form>
     </div>
 
-    <div class="btn-block clearFix">
-        <button class="btn btn-primary btn-icons btn-addGoods gdm-add-goods">新增商品数据</button>
-        <button class="btn btn-primary btn-icons btn-publishBatch btn-import-data">批量导入</button>
-    </div>
+    <!--<div class="btn-block clearFix">-->
+        <!--<button class="btn btn-primary btn-icons btn-addGoods gdm-add-goods">新增商品数据</button>-->
+        <!--<button class="btn btn-primary btn-icons btn-publishBatch btn-import-data">批量导入</button>-->
+    <!--</div>-->
     <div class="table-block">
 
         <table class="table table1 table-striped gdm-table-data data-body" >
             <thead>
             <tr>
                 <th style="width:5%"><input type="checkbox"/></th>
-                <th style="width:8%">商品编号</th>
-                <th style="width:25%">商品名称</th>
-                <th style="width:8%">系列名</th>
+                <!--<th style="width:8%">商品编号</th>-->
+                <th style="width:20%">商品名称</th>
+                <th style="width:10%">型号</th>
+                <th style="width:8%">产地</th>
                 <th style="width:8%">品牌</th>
-                <th style="width:12%">产地</th>
-                <th style="width:8%">修改时间</th>
+                <th style="width:8%">系列名</th>
+                <th style="width:15%">分类</th>
+                <th style="width:8%">审核时间</th>
                 <th style="width:auto">操作</th>
             </tr>
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productId"></td>
+                <!--<td node-name="$n.productId"></td>-->
                 <td node-name="$n.productName"></td>
-                <td node-name="$n.seriesName "></td>
-                <td node-name="$n.brandName"></td>
+                <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
+                <td node-name="$n.brandName"></td>
+                <td node-name="$n.seriesName "></td>
+                <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>

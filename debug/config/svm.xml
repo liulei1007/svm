@@ -52,6 +52,11 @@
         <init>seriesManage_init</init>
     </page>
     <page>
+        <page-name>importGoods</page-name>
+        <page-url>/pages/importGoods.html</page-url>
+        <init>importGoods_init</init>
+    </page>
+    <page>
         <page-name>goodsDataManage</page-name>
         <page-url>/pages/goodsDataManage.html</page-url>
         <init>goodsDataManage_init</init>
