@@ -154,7 +154,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .form-control{border-radius: 0;}
 
 .search-block{margin-top: 10px; margin-bottom: 10px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px;
-   -webkit-animation: mysearch 2s forwards;  animation: mysearch 2s forwards;  }
+   -webkit-animation: mysearch 1s forwards;  animation: mysearch 1s forwards;  }
 @-webkit-keyframes mysearch {
     0% {
         opacity:0;
@@ -569,7 +569,7 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .popup-default .btn{width: 100%;}
 .popup-auth{position: absolute; width: 400px; height: 220px; margin-top: -110px; top: 50%; left: 50%; margin-left: -160px;}
 .popup-auth .btn-block{position: absolute; bottom: 20px; margin-right: 0; margin-left: 0;}
-.lockbg{position: absolute;width:100%;height:100%;background: #fff;z-index:2;left: 0;top: 0; filter: Alpha(opacity=60); -moz-opacity:0.6; opacity:0.6;display: none;z-index:98}
+.lockbg{position: absolute;width:100%;height:100%;background: #fff;z-index:2;left: 0;top: 0; filter: Alpha(opacity=0); -moz-opacity:0.0; opacity:0.0;display: none;z-index:98}
 .cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
 #cmg-upload{cursor: pointer}
@@ -820,6 +820,6 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 .linkcell{cursor: pointer;text-decoration: underline;color:#0094da}
 
 /** --------二级菜单-------- **/
-.slidebar-menu{margin: 0; padding: 0; width: 100%; background-color: #ebeff2;}
+.slidebar-menu{margin: 0; padding: 0; width: 100%; background-color: #ebeff2;display: none}
 .slidebar-menu li{float: left; padding: 15px 0; width: 150px; text-align: center; list-style: none; cursor: pointer; background-color: #ebeff2;}
 .slidebar-menu li:hover, .slidebar-menu li.active{color: #1397da; background-color: #fff;}
