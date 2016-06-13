@@ -1,5 +1,5 @@
 $(function () {
-
+    plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
     //初始化数据
     var datas = {
         "productName": "",
@@ -7,13 +7,30 @@ $(function () {
         "categoryId": "",
         "subCategoryId": "",
         "baseCategoryId": "",
-        //"saleStatus": "",
         "reviewStatus": "0",
         "seriesName": ""
     }
-
     listProductInfoUpt();
     tablecheckbox();
+    //分类
+    var cls = ["gam-type-first", "gam-type-second", "gam-type-third"];
+    function getFirstCategory(categoryId, tag) {
+        $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
+            $("." + cls[tag]).find("[list-node]").remove();
+            if(tag==1){
+                $("." + cls[tag+1]).find("[list-node]").remove();
+            }
+            $("." + cls[tag]).setPageData(data);
+            $("." + cls[tag]).find("select").unbind().bind("change", function () {
+                var nowtag = parseInt($(this).attr("tag")) + 1;
+                var cid = $(this).val();
+                if (nowtag < 3) {
+                    getFirstCategory(cid, nowtag);
+                }
+            });
+        })
+    }
+    getFirstCategory(0, 0);
     $('.table-block').on('click', '.btn-audit', function () {
         var uptIds = [];
         uptIds.push($(this).parents("tr").find(".uptId").html());
@@ -32,7 +49,6 @@ $(function () {
         } else {
             popTips("您未选择审核商品", "warning");
         }
-
     });
 
 //待审核产品列表
@@ -47,8 +63,8 @@ $(function () {
             success: function (data) {
                 if (data.ok) {
                     unloading();
-                    $("[list-node]").remove();
-                    $(".form-body").setPageData(data);
+                    $(".gam-table").find("[list-node]").remove();
+                    $(".gam-table").setPageData(data);
                     $(".table-block").on("click", ".gam-btn-show", function () {
                         var uptId = $(this).attr("uptId");
                         session.goods_showMyGoods_uptId = uptId;
@@ -67,8 +83,8 @@ $(function () {
                             data: newData,
                             success: function (data) {
                                 unloading();
-                                $("[list-node]").remove();
-                                $(".form-body").setPageData(data);
+                                $(".gam-table").find("[list-node]").remove();
+                                $(".gam-table").setPageData(data);
                             }
                         });
                     });
@@ -123,15 +139,13 @@ $(function () {
         $(".gam-btn-search").bind("click", function () {
             datas.productName = $("#agencyName").val();
             datas.reviewStatus = $("#reviewStatus").val();
+            datas.modelNumber=$("#modelNumber").val();
             listProductInfoUpt();
             $(".nav-pagination").off();
         });
         $(".gam-btn-reload").click(function () {
-            //window.location.reload();
             derict(null,"goodsAuditManage","nochangeurl");
         });
     }
-
-
     btnFunc();
 });

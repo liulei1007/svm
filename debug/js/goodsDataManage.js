@@ -7,14 +7,9 @@ $(function () {
         "subCategoryId": "",
         "baseCategoryId": "",
         "saleStatus": ""
-        //"reviewStatus": 0,
-        //"seriesName": ""
     }
     getTableData();
     tablecheckbox();
-    //$(".gdm-add-goods").bind("click", function () {
-    //    derict(this, "userType", "nochangeurl");
-    //});
     $(".gdm-btn-search").bind("click", function () {
         var productName = $("#productName").val();
         var modelNumber = $("#modelNumber").val();
@@ -40,9 +35,7 @@ $(function () {
     });
 //分类
     var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
-
     function getFirstCategory(categoryId, tag) {
-
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             $("." + cls[tag]).find("[list-node]").remove();
             if(tag==1){
@@ -58,7 +51,6 @@ $(function () {
             });
         })
     }
-
     getFirstCategory(0, 0);
 //获取表格数据
     function getTableData() {
@@ -91,7 +83,6 @@ $(function () {
                 });
                 $(".gdm-table-data").find("[list-node]").remove();
                 $(".gdm-table-data").setPageData(data);
-                //$(".data-body").fadeIn();
                 binFun();
                 unloading();
             }
