@@ -294,6 +294,7 @@ $.fn.extend({
             fun = args[2];
         }
         var dom = this;
+        console.log(this)
         var prams = "";
         if (name.indexOf("?") != -1) {
             prams = name.substring(name.indexOf("?"));

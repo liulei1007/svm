@@ -326,7 +326,7 @@ function getLoginInfoToSession() {
                 }
                 if (sessionStorage.login_mobilePhone) {
                     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
-                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
+                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****" +sessionStorage.login_mobilePhone.substring(7));
                     }
                 } else {
                     window.location.href = "/";
