@@ -379,10 +379,13 @@
         <page-url>/pages/goodsCheckfailManage.html</page-url>
         <init>goodsCheckfailManage_init</init>
     </page>
-    <!--配置接口地址,标签名即是别名,仅仅起到一个集中管理的用途,暂无其他用途,这里是预留的部分,便于以后扩展-->
+    <page>
+        <page-name>goodsDraft</page-name>
+        <page-url>/pages/goodsDraft.html</page-url>
+        <init>goodsDraft_init</init>
+    </page>
 
-    <!-- <api-host>https://longguo.mmall.com</api-host> -->
-     <api-host>http://longguo.hxmklmall.cn</api-host>
+    <api-host>http://longguo.hxmklmall.cn</api-host>
 
     <api>
         <listBrandSeriesList>/api/brandSeries/listBrandSeriesList</listBrandSeriesList>
@@ -483,5 +486,7 @@
         <delProductInfoUpt>/api/productInfo/delProductInfoUpt</delProductInfoUpt>
         <listNationCode>/api/common/listNationCode</listNationCode>
         <chkUserStatus>/api/userInfo/chkUserStatus</chkUserStatus>
+        <listDraft>/api/productDraft/listDraft</listDraft>
+        <addDraft>/api/productDraft/addDraft</addDraft>
     </api>
 </config>

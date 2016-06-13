@@ -128,6 +128,9 @@ $(function () {
     $('.goodsCheckfailManage').bind("click", function () {
         derict(this, "goodsCheckfailManage", "nochangeurl");
     });
+    $('.goodsDraft').bind("click", function () {
+        derict(this, "goodsDraft", "nochangeurl");
+    });
 
     // 左侧导航栏鼠标滑过显示二级分类
     $(".slidebar-title").bind("mouseenter", function () {

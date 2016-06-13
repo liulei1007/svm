@@ -12,33 +12,33 @@
     <script>
         var _PLUME = {
             "config": "../config/svm.xml",
-            "initPage": "goodsAuditManage"
+            "initPage": "goodsDraft"
         }
     </script>
 </head>
 
 <body>
-<div class="doc-basicDataManagement form-body">
-    <div class="title-block">待审核商品管理</div>
+<div class="doc-basicDataManagement">
+    <div class="title-block">草稿箱</div>
     <div class="search-block">
         <form class="form-inline">
             <div class="form-group">
-                <label for="agencyName">商品名称</label>
-                <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
+                <label for="productName">商品名称</label>
+                <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:120px">
             </div>
             <div class="form-group category-block">
                 <label>分类</label>
-                <span class="gam-type-first">
+                <span class="gdm-type-first">
                     <select class="form-control input-sm" id="baseCategoryId" data-list="$p.data" tag="0" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
-                <span class="gam-type-second">
+                <span class="gdm-type-second">
                     <select class="form-control input-sm " id="subCategoryId" data-list="$p.data" tag="1" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
                 </span>
-                <span class="gam-type-third">
+                <span class="gdm-type-third">
                     <select class="form-control input-sm " id="categoryId" data-list="$p.data"  tag="2" style="width:100px">
                         <option list-temp="true" node-name="$n.categoryName,attr-value:$n.categoryId"></option>
                     </select>
@@ -48,17 +48,20 @@
                 <label for="modelNumber">型号</label>
                 <input type="text" class="form-control input-sm" id="modelNumber" placeholder=""  style="width:120px">
             </div>
-            <div class="btn btn-default gam-btn-search">查询</div>
-            <div class="btn btn-default gam-btn-reload">清空条件</div>
+            <div class="form-group">
+                <label>启用状态</label>
+                <select class="form-control input-sm" id="saleStatus">
+                    <option value="">全部</option>
+                    <option value="0">禁用</option>
+                    <option value="1">启用</option>
+                </select>
+            </div>
+            <div class="btn btn-default btn-sm gdm-btn-search">查询</div>
+            <div class="btn btn-default btn-sm gdm-btn-reload">清空条件</div>
         </form>
     </div>
-
-    <div class="alert alert-info">您当前还有<strong data-name="$p.countRecord" class="infoNum"></strong>条商品信息需要处理!</div>
-    <div class="btn-block clearFix">
-        <button class="btn btn-batch btn-allAudit">批量审核</button>
-    </div>
-    <div class="table-block gam-table">
-        <table class="table table1 table-striped">
+    <div class="table-block">
+        <table class="table table1 table-striped gdm-table-data data-body" >
             <thead>
             <tr>
                 <th style="width:3%"><input type="checkbox"/></th>
@@ -73,9 +76,9 @@
             </tr>
             </thead>
             <tbody data-list="$p.data">
-            <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
+            <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productName,attr-uptId:$n.uptId" class="linkcell gam-btn-show"></td>
+                <td node-name="$n.productName"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
@@ -83,8 +86,9 @@
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
-                    <!--<div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>-->
-                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods btn-audit "  node-name="attr-uptId:$n.uptId">审核</div>
+                    <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>
+                    <button type="button" class="btn btn-link gdm-btn-copy" node-name="attr-productId:$n.productId">复制</button>
+                    <button type="button" class="btn btn-link gdm-btn-open" node-name="$n.saleStatus,attr-productId:$n.productId,attr-saleStatus:$n.saleStatus"></button>
                 </td>
             </tr>
             </tbody>
@@ -93,13 +97,6 @@
 
     <div class="nav-pagination clearFix">
         <ul class="pagination">
-          <!--   <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
-            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
-            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
-            <li class="page-number"><a href="javascript:void(0)">2</a></li>
-            <li class="page-number"><a href="javascript:void(0)">3</a></li>
-            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
-            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li> -->
         </ul>
     </div>
 </div>
