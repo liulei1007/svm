@@ -6,10 +6,10 @@ $(function() {
     // 显示地区下拉列表
     getlistNationRegion();
 
-    // 验证手机号码
-    $("#mobliephone").blur(function() {
-        checkPhone($(this), "create");
-    })
+    // // 验证手机号码
+    // $("#mobliephone").blur(function() {
+    //     checkPhone($(this), "create");
+    // });
 
     // 显示地区下拉列表
 	function getlistNationRegion() {
@@ -52,7 +52,8 @@ $(function() {
             ifRegionChoosed = true;
         }
         // 确保输入的数据都有效
-        if (!ifPhoneSuccess || !ifRegionChoosed || ifNull) { return; }
+        // if (!ifPhoneSuccess || !ifRegionChoosed || ifNull) { return; }
+        if (!ifRegionChoosed || ifNull) { return; }
     	
         var pram_str = '{';
         pram_str += '"brandName": "' + $("#brandName").val() + '",';

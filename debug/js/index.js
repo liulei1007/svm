@@ -14,145 +14,138 @@ $(function () {
         derict(this, "agencyList", "nochangeurl");
     });
 
-
-
-    $(".agencyCreateCompany").bind("click", function () {
+    $("[pageName=agencyCreateCompany]").bind("click", function () {
         derict(this, "agencyCreateCompany", "nochangeurl");
     });
-    $(".agencyCreatePersonal").bind("click", function () {
+    $("[pageName=agencyCreatePersonal]").bind("click", function () {
         derict(this, "agencyCreatePersonal", "nochangeurl");
     });
-    $(".agencyShowCompany").bind("click", function () {
+    $("[pageName=agencyShowCompany]").bind("click", function () {
         derict(this, "agencyShowCompany", "nochangeurl");
     });
-    $(".agencyShowPersonal").bind("click", function () {
+    $("[pageName=agencyShowPersonal]").bind("click", function () {
         derict(this, "agencyShowPersonal", "nochangeurl");
     });
-    $(".agencyAddAccount").bind("click", function () {
+    $("[pageName=agencyAddAccount]").bind("click", function () {
         derict(this, "agencyAddAccount", "nochangeurl");
     });
 
-    $(".shopListAgency").bind("click", function () {
+    $("[pageName=shopListAgency]").bind("click", function () {
         derict(this, "shopListAgency", "nochangeurl");
     });
-    $(".shopCreateAgency").bind("click", function () {
+    $("[pageName=shopCreateAgency]").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
     });
-    $(".shopShowAgency").bind("click", function () {
+    $("[pageName=shopShowAgency]").bind("click", function () {
         derict(this, "shopShowAgency", "nochangeurl");
     });
 
-    $(".shopList").bind("click", function () {
+    $("[pageName=shopList]").bind("click", function () {
         derict(this, "shopList", "nochangeurl");
     });
 
-    $('.releaseSelfGoods').bind("click", function () {
+    $("[pageName=releaseSelfGoods]").bind("click", function () {
         derict(this, "releaseSelfGoods", "nochangeurl")
     });
 
-    $(".seriesManage").bind("click", function () {
+    $("[pageName=seriesManage]").bind("click", function () {
         derict(this, "seriesManage", "nochangeurl");
     });
-    $(".goodsDataManage").bind("click", function () {
+    $("[pageName=goodsDataManage]").bind("click", function () {
         derict(this, "goodsDataManage", "nochangeurl");
     });
-    $(".goodsAuditManage").bind("click", function () {
+    $("[pageName=goodsAuditManage]").bind("click", function () {
         derict(this, "goodsAuditManage", "nochangeurl");
     });
-    $(".addGoodsData").bind("click", function () {
+    $("[pageName=addGoodsData]").bind("click", function () {
         derict(this, "addGoodsData", "nochangeurl");
     });
-    $(".batchlead").bind("click", function () {
+    $("[pageName=batchlead]").bind("click", function () {
         derict(this, "batchlead", "nochangeurl");
     });
-    $(".noCompleteData").bind("click", function () {
+    $("[pageName=noCompleteData]").bind("click", function () {
         derict(this, "noCompleteData", "nochangeurl");
     });
-    $(".amendmentInfo").bind("click", function () {
+    $("[pageName=amendmentInfo]").bind("click", function () {
         derict(this, "amendmentInfo", "nochangeurl");
     });
-    $(".takingGoodsData").bind("click", function () {
+    $("[pageName=takingGoodsData]").bind("click", function () {
         derict(this, "takingGoodsData", "nochangeurl");
     });
-    $(".groundGoods").bind("click", function () {
+    $("[pageName=groundGoods]").bind("click", function () {
         derict(this, "groundGoods", "nochangeurl");
     });
-    $(".applySeries").bind("click", function () {
+    $("[pageName=applySeries]").bind("click", function () {
         derict(this, "applySeries", "nochangeurl");
     });
-    $(".createMyGoods").bind("click", function () {
+    $("[pageName=createMyGoods]").bind("click", function () {
         derict(this, "createMyGoods", "nochangeurl");
     });
-    $(".applyPriceTagManage").bind("click", function () {
+    $("[pageName=applyPriceTagManage]").bind("click", function () {
         derict(this, "applyPriceTagManage", "nochangeurl")
     });
-    $(".idmanage").bind("click", function () {
+    $("[pageName=idmanage]").bind("click", function () {
         derict(this, "idmanage", "nochangeurl");
     });
-    $(".msgmanage").bind("click", function () {
+    $("[pageName=msgmanage]").bind("click", function () {
         derict(this, "msgmanage", "nochangeurl");
     });
-    $(".changepwd").bind("click", function () {
+    $("[pageName=changepwd]").bind("click", function () {
         derict(this, "changepwd", "nochangeurl");
     });
-    $(".brandList").bind("click", function () {
+    $("[pageName=brandList]").bind("click", function () {
         derict(this, "brandList", "nochangeurl");
     });
-    $(".brandAdd").bind("click", function () {
+    $("[pageName=brandAdd]").bind("click", function () {
         derict(this, "brandAdd", "nochangeurl");
     });
-    $(".reviewList").bind("click", function () {
+    $("[pageName=reviewList]").bind("click", function () {
         derict(this, "reviewList", "nochangeurl");
     });
-    $(".reviewShowCompany").bind("click", function () {
+    $("[pageName=reviewShowCompany]").bind("click", function () {
         derict(this, "reviewShowCompany", "nochangeurl");
     });
-    $(".reviewShowPersonal").bind("click", function () {
+    $("[pageName=reviewShowPersonal]").bind("click", function () {
         derict(this, "reviewShowPersonal", "nochangeurl");
     });
-    $(".reviewCompany").bind("click", function () {
+    $("[pageName=reviewCompany]").bind("click", function () {
         derict(this, "reviewCompany", "nochangeurl");
     });
-    $(".reviewPersonal").bind("click", function () {
+    $("[pageName=reviewPersonal]").bind("click", function () {
         derict(this, "reviewPersonal", "nochangeurl");
     });
-    $(".importGoods").bind("click", function () {
+    $("[pageName=importGoods]").bind("click", function () {
         derict(this, "importGoods", "nochangeurl");
     });
-    $(".mytable").bind("click", function () {
+    $("[pageName=mytable]").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
-    $('.goodsCreate').bind("click", function () {
+    $("[pageName=goodsCreate]").bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
-    $('.goodsCheckfailManage').bind("click", function () {
+    $("[pageName=goodsCheckfailManage]").bind("click", function () {
         derict(this, "goodsCheckfailManage", "nochangeurl");
+    });
+    $("[pageName=goodsDraft]").bind("click", function () {
+        derict(this, "goodsDraft", "nochangeurl");
     });
 
     // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
     $(".slidebar-title").bind("click", function () {
         var $thisMenu = $(this);
         $thisMenu.addClass("active").siblings().removeClass("active");
-        var menuList = $thisMenu.find("ul").html();
-        $(".slidebar-menu").html(menuList);
-        var $firstChild = $(".slidebar-menu").find("li").eq(0);
-        var pageName = $(".slidebar-menu").find("li").eq(0).attr("class");
-        $firstChild.addClass("active");
+        var authNum=$(this).attr("auth");
+        $(".slidebar-menu").hide();
+        $(".page-content").find("[auth="+authNum+"]").slideDown();
+        var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
+        var pageName = $firstChild.attr("pageName");
+        $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
     });
-
-    // 左侧导航栏鼠标滑过显示二级分类
-    // $(".slidebar-title").bind("mouseenter", function () {
-    //     $(this).find(".slidebar-list").show();
-    // }).bind("mouseleave", function () {
-    //     $(this).find(".slidebar-list").hide();
-    // });
-    // 左侧导航栏二级分类点击隐藏
-    // $(".slidebar-list li").bind("click", function () {
-    //     $(this).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active").siblings().removeClass("active");
-    // });
-
-
+    $(".childmenu").find("li").bind("click",function(){
+        var pageName = $(this).attr("pageName");
+        $(this).addClass("active").siblings().removeClass("active");
+    });
     $(".index-head-user").bind("mouseenter", function () {
         $(".index-head-user .ihu-title-block").show();
     }).bind("mouseleave", function () {
@@ -218,7 +211,20 @@ function derict(o, temp, cache, fun) {
         return;
     }
     derict_lock = true;
-    $(".work-space").removeClass("work-space-active").fadeOut(function () {
+    $(".work-space").removeClass("work-space-active").hide().remove();
+    $(".page-content").append('<div class="work-space work-space-active"></div>');
+    $(".work-space-active").hide();
+    $(this).html("").show();
+    $(".work-space-active").loadTemp(temp, cache, fun);
+    try {
+        window.history.pushState({}, 0, temp)
+    } catch (e) {
+        plumeLog("提示:无法动态改变地址:" + e.message);
+    }
+    derict_lock = false;
+    return;
+
+    $(".work-space").removeClass("work-space-active").fadeIn(function () {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
        // $(".work-space-active").loadTemp("transmit", "nochangeurl");
@@ -258,6 +264,9 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
+            $("[pageName="+temp+"]").addClass("active").parent().slideDown();
+            var authNum=$("[pageName="+temp+"]").parent().attr("auth");
+            $(".slidebar").find("[auth="+authNum+"]").addClass("active");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");
         }
@@ -268,7 +277,7 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-      $(".slidebar-list li,.slidebar-title").show();
+    $(".slidebar-list li,.slidebar-title").show();
     return;
     $.ajax({
         type: "get",

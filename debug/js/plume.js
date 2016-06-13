@@ -394,7 +394,7 @@ $.fn.extend({
     }
 });
 function listNodeShow(o){
-    o.fadeIn(500);
+    o.fadeIn(200);
     if($(o).next().length != 0){
         var ox=$(o).next();
         setTimeout(function(){

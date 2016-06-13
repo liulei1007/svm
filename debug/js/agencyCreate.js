@@ -6,10 +6,10 @@ $(function () {
 	// 显示地区下拉列表
 	getlistNationRegion();
 
-	// 验证手机号
-	$("#mobliephone1, #mobliephone2").blur(function() {
-		checkPhone($(this), "create");
-	})
+	// // 验证手机号
+	// $("#mobliephone1, #mobliephone2").blur(function() {
+	// 	checkPhone($(this), "create");
+	// });
 
 	// 绑定Tab切换事件
     $(".body-typein").on("click", "#li-hasAgency", function () {
@@ -96,7 +96,8 @@ $(function () {
 			// 检验是否选择了所在城市
 			checkRegion($("#form-hasAgency"));
 			// 确保输入的数据都有效
-			if (!ifPhoneSuccess || !ifRegionChoosed || ifNull) { return; }
+			// if (!ifPhoneSuccess || !ifRegionChoosed || ifNull) { return; }
+            if (!ifRegionChoosed || ifNull) { return; }
 
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName1").val() + '",';
@@ -143,7 +144,8 @@ $(function () {
 			// 检验是否选择了所在城市
 			checkRegion($("#form-findAgency"));
 			// 确保输入的数据都有效
-			if (!ifPhoneSuccess || ifNull) { return; }
+            if (ifNull) { return; }
+			// if (!ifPhoneSuccess || ifNull) { return; }
 
             var pram_str = '{';
             pram_str += '"brandName": "' + $("#brandName2").val() + '",';

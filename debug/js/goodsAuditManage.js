@@ -33,7 +33,7 @@ $(function () {
     getFirstCategory(0, 0);
     $('.table-block').on('click', '.btn-audit', function () {
         var uptIds = [];
-        uptIds.push($(this).parents("tr").find(".uptId").html());
+        uptIds.push($(this).attr("uptId"));
         auditFun(uptIds);
     });
 
