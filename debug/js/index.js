@@ -122,7 +122,7 @@ $(function () {
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
-    $('.userType').bind("click", function () {
+    $('.goodsCreate').bind("click", function () {
         derict(this, "userType", "nochangeurl");
     });
     $('.goodsCheckfailManage').bind("click", function () {
