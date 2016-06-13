@@ -139,13 +139,11 @@ $(function () {
         $(".page-content").find("[auth="+authNum+"]").slideDown();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
         var pageName = $firstChild.attr("pageName");
-        session.nowPageName=pageName;
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
     });
     $(".childmenu").find("li").bind("click",function(){
         var pageName = $(this).attr("pageName");
-        session.nowPageName=pageName;
         $(this).addClass("active").siblings().removeClass("active");
     });
     $(".index-head-user").bind("mouseenter", function () {
@@ -211,6 +209,10 @@ var derict_lock = false;
 function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
+    }
+    if($("[pageName="+temp+"]").length==1){
+        session.nowPageName=temp;
+        $("[pageName="+temp+"]").addClass("active").siblings().removeClass("active");
     }
     derict_lock = true;
     $(".work-space").removeClass("work-space-active").hide().remove();
