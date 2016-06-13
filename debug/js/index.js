@@ -960,6 +960,16 @@ function checkPhoneExist(checkObj, checkType){
 	});
 }
 
+//页面回车事件
+function keyDown(ele){
+    $("body").keydown(function() {
+             if (event.keyCode == "13") {
+                 $(ele).click();
+             }
+    });
+}
+
+
 //密码验证: 6-15位字符，建议数字和字母组合
 function pwdCheck(pwd) {
     return /^[0-9A-Za-z]{6,15}$/.test(pwd);

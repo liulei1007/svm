@@ -73,4 +73,8 @@ $(function () {
         });
     }
     btnFunc();
+
+
+      //回车搜索
+    keyDown('.gcm-btn-search');    
 });

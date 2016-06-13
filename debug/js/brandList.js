@@ -77,4 +77,7 @@ $(function () {
         derict(this, "brandList", "nochangeurl");
     });
 
+//回车搜索
+    keyDown('.bl-btn-search');
+
 });

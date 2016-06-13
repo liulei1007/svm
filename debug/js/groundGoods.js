@@ -180,6 +180,9 @@ function delectGoodsData() {
         window.location.reload();
     });
 
+//回车搜索
+    keyDown('.btn-search');
+
 
 });
 
