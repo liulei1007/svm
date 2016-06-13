@@ -272,3 +272,7 @@ function rolesShow() {
     $('.im-btn-empty').bind('click', function() {
         derict(this, "idmanage", "nochangeurl");
     });
+
+
+//回车搜索
+    keyDown('.im-btn-sm');

@@ -239,5 +239,6 @@ $(function () {
         });
     });
 
-
+    //回车搜索
+    keyDown('.gdm-btn-search');
 });

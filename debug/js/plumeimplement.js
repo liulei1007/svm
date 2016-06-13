@@ -349,6 +349,11 @@ function myGoods_init() {
     plumeUtil.js(plumePath + "/js/myGoods.js");
     plumeLog("完成waitCheck模板加载-" + plumeTime());
 }
+function importGoods_init() {
+    plumeLog("初始化importGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/importGoods.js");
+    plumeLog("完成importGoods模板加载-" + plumeTime());
+}
 function feedMyGoods_init() {
     plumeLog("初始化feedMyGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/feedMyGoods.js");

@@ -134,4 +134,7 @@ $(function () {
         derict(this, "shopList", "nochangeurl");
     });
 
+
+//回车搜索
+    keyDown('.btn-search');
 });

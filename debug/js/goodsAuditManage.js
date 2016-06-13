@@ -148,4 +148,7 @@ $(function () {
         });
     }
     btnFunc();
+
+  //回车搜索
+    keyDown('.gam-btn-search');
 });

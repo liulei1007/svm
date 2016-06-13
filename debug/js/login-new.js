@@ -1,4 +1,11 @@
 $(function () {
+//回车登录
+    $("body").keydown(function() {
+             if (event.keyCode == "13") {
+                 $('.btn-login').click();
+             }
+    });
+
     $.ajax({
         type: "post",
         url: plumeApi["logout"],

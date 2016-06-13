@@ -7,18 +7,15 @@ $(function () {
     }
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
-    $(".welcome").bind("click", function () {
+
+    $(".page-content").on("click", ".welcome", function() {
         derict(this, "welcome", "nochangeurl");
-    });
-    $(".test").bind("click", function () {
-        derict(this, "test", "nochangeurl");
-    });
-    $(".test1").bind("click", function () {
-        derict(this, "test1", "nochangeurl");
-    });
-    $(".agencyList").bind("click", function () {
+    }).on("click", ".agencyList", function() {
         derict(this, "agencyList", "nochangeurl");
     });
+
+
+
     $(".agencyCreateCompany").bind("click", function () {
         derict(this, "agencyCreateCompany", "nochangeurl");
     });
@@ -36,7 +33,7 @@ $(function () {
     });
 
     $(".shopListAgency").bind("click", function () {
-        derict(this, "agencyCreatePersonal", "nochangeurl");
+        derict(this, "shopListAgency", "nochangeurl");
     });
     $(".shopCreateAgency").bind("click", function () {
         derict(this, "shopCreateAgency", "nochangeurl");
@@ -119,6 +116,9 @@ $(function () {
     $(".reviewPersonal").bind("click", function () {
         derict(this, "reviewPersonal", "nochangeurl");
     });
+    $(".importGoods").bind("click", function () {
+        derict(this, "importGoods", "nochangeurl");
+    });
     $(".mytable").bind("click", function () {
         derict(this, "mytable", "nochangeurl");
     });
@@ -132,16 +132,28 @@ $(function () {
         derict(this, "goodsDraft", "nochangeurl");
     });
 
+    // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
+    $(".slidebar-title").bind("click", function () {
+        var $thisMenu = $(this);
+        $thisMenu.addClass("active").siblings().removeClass("active");
+        var menuList = $thisMenu.find("ul").html();
+        $(".slidebar-menu").html(menuList);
+        var $firstChild = $(".slidebar-menu").find("li").eq(0);
+        var pageName = $(".slidebar-menu").find("li").eq(0).attr("class");
+        $firstChild.addClass("active");
+        derict(this, pageName, "nochangeurl");
+    });
+
     // 左侧导航栏鼠标滑过显示二级分类
-    $(".slidebar-title").bind("mouseenter", function () {
-        $(this).find(".slidebar-list").show();
-    }).bind("mouseleave", function () {
-        $(this).find(".slidebar-list").hide();
-    });
+    // $(".slidebar-title").bind("mouseenter", function () {
+    //     $(this).find(".slidebar-list").show();
+    // }).bind("mouseleave", function () {
+    //     $(this).find(".slidebar-list").hide();
+    // });
     // 左侧导航栏二级分类点击隐藏
-    $(".slidebar-list li").bind("click", function () {
-        $(this).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active").siblings().removeClass("active");
-    });
+    // $(".slidebar-list li").bind("click", function () {
+    //     $(this).parents(".slidebar-list").hide().parents(".slidebar-title").addClass("active").siblings().removeClass("active");
+    // });
 
 
     $(".index-head-user").bind("mouseenter", function () {
@@ -259,7 +271,7 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $(".slidebar-list li,.slidebar-title").show();
+      $(".slidebar-list li,.slidebar-title").show();
     return;
     $.ajax({
         type: "get",
@@ -959,6 +971,16 @@ function checkPhoneExist(checkObj, checkType){
 		}
 	});
 }
+
+//页面回车事件
+function keyDown(ele){
+    $("body").keydown(function() {
+             if (event.keyCode == "13") {
+                 $(ele).click();
+             }
+    });
+}
+
 
 //密码验证: 6-15位字符，建议数字和字母组合
 function pwdCheck(pwd) {

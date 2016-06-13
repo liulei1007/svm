@@ -25,7 +25,7 @@ textarea{resize: none;}
 
 
 
-.work-space{position: relative; width: 100%; min-height: 100%;}
+.work-space{position: relative; width: 100%; /*min-height: 100%;*/}
 /*.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}*/
 
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;}
@@ -818,3 +818,8 @@ body{/*position: absolute; top: 0; right: 0; bottom: 0; left: 0;*/ color: #333;}
 
 .agencyShops, .brandShops{display: none;}
 .linkcell{cursor: pointer;text-decoration: underline;color:#0094da}
+
+/** --------二级菜单-------- **/
+.slidebar-menu{margin: 0; padding: 0; width: 100%; background-color: #ebeff2;}
+.slidebar-menu li{float: left; padding: 15px 0; width: 150px; text-align: center; list-style: none; cursor: pointer; background-color: #ebeff2;}
+.slidebar-menu li:hover, .slidebar-menu li.active{color: #1397da; background-color: #fff;}
