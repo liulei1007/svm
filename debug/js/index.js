@@ -139,11 +139,13 @@ $(function () {
         $(".page-content").find("[auth="+authNum+"]").slideDown();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
         var pageName = $firstChild.attr("pageName");
+        session.nowPageName=pageName;
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
     });
     $(".childmenu").find("li").bind("click",function(){
         var pageName = $(this).attr("pageName");
+        session.nowPageName=pageName;
         $(this).addClass("active").siblings().removeClass("active");
     });
     $(".index-head-user").bind("mouseenter", function () {
@@ -161,7 +163,7 @@ $(function () {
             success: function (data) {
                 if (data.ok) {
                     window.location.href = "../";
-                    sessionStorage.login_mobilePhone="";
+                    sessionStorage.clear();
                 }
             }
         });
@@ -223,7 +225,6 @@ function derict(o, temp, cache, fun) {
     }
     derict_lock = false;
     return;
-
     $(".work-space").removeClass("work-space-active").fadeIn(function () {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
@@ -264,8 +265,8 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName="+temp+"]").addClass("active").parent().slideDown();
-            var authNum=$("[pageName="+temp+"]").parent().attr("auth");
+            $("[pageName="+session.nowPageName+"]").addClass("active").parent().slideDown();
+            var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
             $(".slidebar").find("[auth="+authNum+"]").addClass("active");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");

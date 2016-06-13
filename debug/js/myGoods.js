@@ -810,7 +810,7 @@ $(function () {
         var draft_str='{';
         draft_str+='"pdtName": "'+$("#productName").val()+'",';
         draft_str+='"categoryId": 0,';
-        draft_str+='"jsonString": '+pram_str+'';
+        draft_str+='"jsonString": "'+encodeURI(pram_str)+'"';
         draft_str+='}';
         $.ajax({
             type: "POST",

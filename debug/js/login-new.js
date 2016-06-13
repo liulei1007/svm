@@ -14,7 +14,7 @@ $(function () {
         async: false,
         success: function (data) {
             if (data.ok) {
-                sessionStorage.login_mobilePhone="";
+                sessionStorage.clear();
             }
         }
     });
