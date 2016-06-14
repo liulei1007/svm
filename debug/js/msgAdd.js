@@ -4,11 +4,10 @@ $(function () {
         derict(this, "msgmanage", "nochangeurl");
     });
 
-    var reg = /(.*([\u4e00-\u9fff]))\s+([\da-zA-Z].*)/;
     $(".ma-btn-sub").bind("click", function () {
         var feedbackType = $('.feedbackType').val();
-        var feedbackContent = $('.feedbackContent').val();
-        var match = rquickExpr.exec(str);
+        var feedbackContent = $('.feedbackContent').val().replace(/[\r\n]/g,"");
+        // var match = rquickExpr.exec(str);
         // var pram_str = {
         //     "barndId":0,
         //     "brandName":"",
@@ -30,10 +29,10 @@ $(function () {
 
 
 
-
+        $.ajax({
             type: "POST",
             url: plumeApi["addFeedbackInfo"],
-            data:JSON.stringify(pram_str),
+            data:pram_str,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
