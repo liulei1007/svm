@@ -210,9 +210,11 @@ function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
     }
-    if($("[pageName="+temp+"]").length==1){
-        session.nowPageName=temp;
-        $("[pageName="+temp+"]").addClass("active").siblings().removeClass("active");
+    if(temp.indexOf("fullscreen")==-1){
+        if($("[pageName="+temp+"]").length==1){
+            session.nowPageName=temp;
+            $("[pageName="+temp+"]").addClass("active").siblings().removeClass("active");
+        }
     }
     derict_lock = true;
     $(".work-space").removeClass("work-space-active").hide().remove();
