@@ -41,7 +41,7 @@ $(function () {
         var uptIds = [];
         $('tbody input:checkbox').each(function (i, checkbox) {
             if ($(this).prop('checked') == true) {
-                uptIds.push($(this).parents('tr').find('.uptId').html());
+                uptIds.push($(this).parents('tr').attr('uptId'));
             }
         });
         if (uptIds.length) {
