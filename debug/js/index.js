@@ -161,7 +161,7 @@ $(function () {
             success: function (data) {
                 if (data.ok) {
                     window.location.href = "../";
-                    sessionStorage.login_mobilePhone="";
+                    sessionStorage.clear();
                 }
             }
         });
@@ -210,6 +210,10 @@ function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
     }
+    if($("[pageName="+temp+"]").length==1){
+        session.nowPageName=temp;
+        $("[pageName="+temp+"]").addClass("active").siblings().removeClass("active");
+    }
     derict_lock = true;
     $(".work-space").removeClass("work-space-active").hide().remove();
     $(".page-content").append('<div class="work-space work-space-active"></div>');
@@ -223,7 +227,6 @@ function derict(o, temp, cache, fun) {
     }
     derict_lock = false;
     return;
-
     $(".work-space").removeClass("work-space-active").fadeIn(function () {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
@@ -264,8 +267,8 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName="+temp+"]").addClass("active").parent().slideDown();
-            var authNum=$("[pageName="+temp+"]").parent().attr("auth");
+            $("[pageName="+session.nowPageName+"]").addClass("active").parent().slideDown();
+            var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
             $(".slidebar").find("[auth="+authNum+"]").addClass("active");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");

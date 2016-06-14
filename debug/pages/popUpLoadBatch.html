@@ -1,0 +1,43 @@
+<body>
+	<div class="popup-load">
+		<div class="alert alert-danger alert-dismissible load-alert" style="display: none;">
+			<div class="close"><span aria-hidden="true">&times;</span></div>
+			<p><strong>错误提示：请重新上传</strong></p>
+			<p>第一行：格式错误</p>
+		</div>
+
+		<form class="form-horizontal" id="myForm" name="myForm" enctype="multipart/form-data" method="post" action="">
+			<div class="btn-choose clearFix">
+				<div class="btn btn-sm btn-primary btn-chooseSort">选择分类</div>
+      
+				<div class="btn-loadModule"><i></i>下载模板</div>
+			</div>
+
+			<div class="fixed_buttom">
+				<div class="btn-loadFile">
+					<input type="file" class="loadFile" name="file" id="file">
+				</div>
+				<div class="row load-btn-block">
+					<div class="col-sm-6">
+						<div type="button" class="btn btn-success btn-sure ex-ok">上传</div>
+					</div>
+					<div class="col-sm-6">
+						<div type="button" class="btn btn-default btn-cancel">取消</div>
+					</div>
+				</div>
+			</div>
+			<div class="select-result">
+				您选择的类目：<span class="type-first-span"></span>&gt;<span class="type-second-span"></span>&gt;<span class="type-third-span"></span>
+			</div>
+
+
+   <!-- <div class="text-bottom"><div class="btn-loadModule"><i></i>下载模板</div></div> -->
+ 
+
+    
+	
+    <!-- <div class="btn-loadFile"><input type="file" class="loadFile"></div> -->
+    <!-- <div class="btn btn-primary btn-upfile">上传</div> -->
+ </form>
+  </div>	
+</body>

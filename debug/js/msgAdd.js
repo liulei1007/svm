@@ -8,7 +8,7 @@ $(function () {
     $(".ma-btn-sub").bind("click", function () {
         var feedbackType = $('.feedbackType').val();
         var feedbackContent = $('.feedbackContent').val();
-        var match = rquickExpr.exec(str);
+        // var match = rquickExpr.exec(str);
         // var pram_str = {
         //     "barndId":0,
         //     "brandName":"",
@@ -30,10 +30,10 @@ $(function () {
 
 
 
-
+        $.ajax({
             type: "POST",
             url: plumeApi["addFeedbackInfo"],
-            data:JSON.stringify(pram_str),
+            data:pram_str,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
