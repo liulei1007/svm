@@ -118,8 +118,12 @@ $(function () {
                             listProductInfoUpt();
                         } else {
                             unloading();
-                            popTips("审核失败", "warning");
-                            listProductInfoUpt();
+                            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                $(".pop").find(".popup-title").html("审核失败");
+                                $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                                $(".pop").find(".popup-info").html(data.resDescription);
+                            });
+                            listProductInfoUpt(); 
                         }
                     }
                 });
