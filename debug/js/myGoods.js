@@ -121,14 +121,15 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                unloading();
                 if (!data.data) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                         $(".pop").find(".popup-info").html("未查询到数据!");
                     });
+                    return;
                 }
-                unloading();
                 var d = data.data;
                 $(".emg-initdata").setPageData(d);
                 $.ajaxSetup({
@@ -275,8 +276,16 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
-                $(".cmg-brand").setPageData(data);
                 unloading();
+                if (!data.data) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("未查询到数据!");
+                    });
+                    return;
+                }
+                $(".cmg-brand").setPageData(data);
                 $("#brandId").bind("change", function () {
                     loading();
                     var brandId = $(this).val();
@@ -538,6 +547,14 @@ $(function () {
                 dataType: 'json',
                 success: function (data) {
                     unloading();
+                    if (!data.data) {
+                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                            $(".pop").find(".popup-title").html("信息提示");
+                            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                            $(".pop").find(".popup-info").html("未查询到数据!");
+                        });
+                        return;
+                    }
                     if (data.ok) {
                         $("#filepath").val(data.data);
                         var temp = '<li class="goodsPic">';
@@ -692,6 +709,14 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
+                if (!data.data) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("未查询到数据!");
+                    });
+                    return;
+                }
                 if (data.ok) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
@@ -820,6 +845,14 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
+                if (!data.data) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("未查询到数据!");
+                    });
+                    return;
+                }
                 if (data.ok) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");

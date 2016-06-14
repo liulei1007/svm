@@ -174,6 +174,9 @@ $(function () {
     });
 });
 function onePageCount(){
+    return COUNT_NUM;
+}
+function getOnePageCount(){
     var h=$(window).height();
     var h1=$(".title-block").height()+30;
     var h2=$(".search-block").height()+20;
@@ -181,8 +184,10 @@ function onePageCount(){
     var h4=$(".btn-block").height()+40;
     var n=parseInt((h-h1-h2-h3-h4-105)/40);
     $(".table-block").css({"height":40*n});
-    return n-1;
+    COUNT_NUM= n-1;
 }
+var COUNT_NUM;
+getOnePageCount();
 //检测session失效
 function chkUserStatus(){
     $.ajax({

@@ -63,6 +63,15 @@ $(function () {
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
+                unloading();
+                if (!data.data) {
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("信息提示");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html("未查询到数据!");
+                    });
+                    return;
+                }
                 totalPage = Math.ceil(data.countRecord / onePageCount());
                 newPage(totalPage, function (i) {
                     loading();
@@ -73,9 +82,18 @@ $(function () {
                         contentType: "application/json",
                         dataType: "json",
                         success: function (data) {
+                            unloading();
+                            if (!data.data) {
+                                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                    $(".pop").find(".popup-title").html("信息提示");
+                                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                                    $(".pop").find(".popup-info").html("未查询到数据!");
+                                });
+                                return;
+                            }
                             $(".gdm-table-data").find("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
-                            unloading();
+
                             binFun();
                             getFirstCategory(0, 0);
                         }

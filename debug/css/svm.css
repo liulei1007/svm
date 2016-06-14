@@ -25,7 +25,7 @@ textarea{resize: none;}
 
 
 
-.work-space{position: relative; width: 100%; /*min-height: 100%;*/}
+.work-space{position: relative; width: 100%; min-height: 100%;}
 /*.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}*/
 
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;}
@@ -43,7 +43,7 @@ textarea{resize: none;}
 .doc-test{height:100%;width:100%;background:#fff;}
 .doc-transmit{height:100%;width:100%;background:#fff;padding-top:20%}
 .doc-test1{height:100%;width:100%;background:#fff;color:#333;text-align:Center;font-size:16px;padding-top:10%}
-.work-space-active{z-index:0; top: 50px;}
+.work-space-active{z-index:0; padding-top: 50px;}
 .doc-login{background:url("../images/bg.jpg")#0b1e24 no-repeat 50% 50%;height:500px;width:100%;float:left}
 .form-block{height:320px;width:350px;border-top:5px solid #0094da;position:absolute;top:116px;right:15%;background:#fff;}
 .form-block .tag1{height:90px;width:35px;position:absolute;top:0px;right:-35px;background: #fff;padding:10px;line-height:14px;cursor:pointer}
