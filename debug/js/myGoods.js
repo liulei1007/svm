@@ -1,17 +1,16 @@
 $(function () {
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     // 绑定点击图片展示大图
-    $(".createNewGoods").on("click", ".cmg-goodsimgs", function() {
-    	var imgSrc = $(this).attr("src");
-    	// 首先判断是否已经有大图显示
-    	if ($(".form-loading .media-show").html()) {
-    		$(".form-loading .media-show img").attr("src", imgSrc);
-    	}
-    	else {
-    		$(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
-    	}
+    $(".createNewGoods").on("click", ".cmg-goodsimgs", function () {
+        var imgSrc = $(this).attr("src");
+        // 首先判断是否已经有大图显示
+        if ($(".form-loading .media-show").html()) {
+            $(".form-loading .media-show img").attr("src", imgSrc);
+        }
+        else {
+            $(".form-loading").prepend('<div class="media-show"><span class="btn btn-close" onclick="closeBigImage()"></span><img src="' + imgSrc + '"></div>');
+        }
     });
-    
     //创建初始化
     function myGoodsCreateInit() {
         //隐藏错误提示
@@ -60,6 +59,7 @@ $(function () {
         });
         getDataInit();
     }
+
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
@@ -70,7 +70,7 @@ $(function () {
         $(".cmg-cancel").bind("click", function () {
             derict(this, "takingGoods", "nochangeurl");
         });
-        $("#brandId,#seriesId,#productName,#modelNumber").attr("disabled",true);
+        $("#brandId,#seriesId,#productName,#modelNumber").attr("disabled", true);
         getDataInit();
     }
 
@@ -86,6 +86,20 @@ $(function () {
         });
         getDataInit();
     }
+
+    //草稿初始化
+    function myGoodsDraftInit() {
+        //隐藏错误提示
+        $(".alert-danger").hide();
+        $(".changeType").hide();
+        $(".mg-title").text("编辑商品");
+        //返回按钮
+        $(".cmg-cancel").bind("click", function () {
+            derict(this, "goodsDataManage", "nochangeurl");
+        });
+        getDraftDataInit();
+    }
+
     if (session.goods_showMyGoods_type == "create") {
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
@@ -96,6 +110,8 @@ $(function () {
         myGoodsFeedInit();
     } else if (session.goods_showMyGoods_type == "amend") {
         myGoodsAmendInit();
+    }else if (session.goods_showMyGoods_type == "draft") {
+        myGoodsDraftInit();
     }
     if (session.goods_baseCategoryId == 1) {
         $(".material").show();
@@ -103,6 +119,134 @@ $(function () {
     } else {
         $(".material").hide();
         $(".material_temp").show();
+    }
+    //草稿初始化
+    function getDraftDataInit(){
+        var code=JSON.parse(session.goods_code);
+        var d = code;
+        $(".emg-initdata").setPageData(d);
+        $.ajaxSetup({
+            async: false
+        });
+        getlistNationRegion();
+        getbrandList();
+        setColors();
+        dataInit();
+        $("#brandId").val(d.brandId);
+        $.get(plumeApi["listOmsBrandSeries"] + "/" + d.brandId, {}, function (data) {
+            $(".cmg-series").find("[list-node]").remove();
+            $(".cmg-series").setPageData(data);
+        });
+        $("#seriesId").val(d.seriesId);
+        $("#productSecondName").val(d.productSecondName);
+        $("#productName").val(d.productName);
+
+        $("#countryId").val(d.countryId);
+        if (d.countryId == "CN") {
+            $(".cmg-region1,.cmg-region2").show();
+            $("#provinceId").val(d.provinceId);
+            var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
+            if (adresscode && adresscode != "") {
+                $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
+                    $(".cmg-region2").setPageData(data);
+                });
+                $("#cityId").val(d.cityId);
+            }
+        } else {
+            $(".cmg-region1,.cmg-region2").hide();
+        }
+
+        $("#modelNumber").val(d.modelNumber);
+        $("#materialQuality").val(d.materialQuality);
+        $("#marketPrice").val(d.marketPrice);
+        $("#weight").val(d.weight);
+        $("#priceType").val(d.priceType);
+        $("#lvInfo").val(d.lvInfo);
+        $("#material").val(d.material);
+        $("#material1").val(d.material1);
+        $("#material2").val(d.material2);
+        $("#material3").val(d.material3);
+        session.goods_categoryId = d.categoryId;
+        session.goods_categoryName = d.categoryName;
+        session.goods_subCategoryId = d.subCategoryId;
+        session.goods_subCategoryName = d.subCategoryName;
+        session.goods_baseCategoryId = d.baseCategoryId;
+        session.goods_baseCategoryName = d.baseCategoryName;
+        if (session.goods_baseCategoryId == 1) {
+            $(".material").show();
+            $(".material_temp").hide();
+        } else {
+            $(".material").hide();
+            $(".material_temp").show();
+        }
+        getProductAttribute();
+        var productGoods, productInfoPhotos, productInfoAttrORMs;
+        if (session.goods_showMyGoods_type == "amend") {
+            productGoods = d.productGoodsUpts;
+            productInfoPhotos = d.productInfoPhotoUpts;
+            productInfoAttrORMs = d.productInfoAttrUptORMs;
+        } else {
+            productGoods = d.productGoods;
+            productInfoPhotos = d.productInfoPhotos;
+            productInfoAttrORMs = d.productInfoAttrORMs;
+        }
+        for (var j = 0; j < productGoods.length; j++) {
+            var p = productGoods[j];
+            var temp = '<tr class="cmg-goodstr">';
+            temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+            temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+            temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+            temp += '<td>';
+            temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+            temp += '</td>';
+            temp += '</tr>';
+            $(".standardtbody").append(temp);
+            if ($(".tr" + p.colorId).length == 0) {
+                var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
+                $(".cmg-table-color").append(temp1);
+            }
+        }
+        $(".colortr").each(function () {
+            var colorid = $(this).attr("colorid");
+            var colorName = $(this).find(".colorName").attr("colorName");
+            var colorDesc = $(this).find(".colorName").attr("colordesc");
+            $(".color-box").each(function () {
+                var colorid_temp = $(this).attr("colorid");
+                if (colorid_temp == colorid) {
+                    $(this).prop("checked", true);
+                    $(this).parent().find(".cmg-colorDesc").val(colorDesc).show();
+                    $(this).parent().find(".color-desc").show();
+                }
+            });
+        })
+        $(".cm-btn-del").unbind().bind("click", function () {
+            $(this).parent().parent().remove();
+        });
+        setStandard();
+        for (var k = 0; k < productInfoPhotos.length; k++) {
+            var p = productInfoPhotos[k];
+            var temp = '<li class="goodsPic">';
+            temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+            temp += '<div class="upload-btn upload-btn-left">';
+            temp += '<div class="arrow-left"></div>';
+            temp += '</div>';
+            temp += '<div class="upload-btn upload-btn-right">';
+            temp += '<div class="arrow-right"></div>';
+            temp += '</div>';
+            temp += '<div class="upload-btn upload-btn-delect">';
+            temp += '<div class="arrow-close"></div>';
+            temp += '</div>';
+            temp += '</li>';
+            $(".goodsPic-upload").append(temp);
+        }
+        for (var l = 0; l < productInfoAttrORMs.length; l++) {
+            var p = productInfoAttrORMs[l];
+            $("[attributeid=" + p.attributeId + "]").val(p.attrValueId);
+        }
+        picMove();
+        $.ajaxSetup({
+            async: true
+        });
     }
     //获取初始化数据
     function getDataInit() {
@@ -149,7 +293,7 @@ $(function () {
                 $("#productName").val(d.productName);
 
                 $("#countryId").val(d.countryId);
-                if(d.countryId=="CN"){
+                if (d.countryId == "CN") {
                     $(".cmg-region1,.cmg-region2").show();
                     $("#provinceId").val(d.provinceId);
                     var adresscode = $("#provinceId").find("option:selected").attr("adresscode");
@@ -159,7 +303,7 @@ $(function () {
                         });
                         $("#cityId").val(d.cityId);
                     }
-                }else{
+                } else {
                     $(".cmg-region1,.cmg-region2").hide();
                 }
 
@@ -187,20 +331,20 @@ $(function () {
                     $(".material_temp").show();
                 }
                 getProductAttribute();
-                var productGoods, productInfoPhotos,productInfoAttrORMs;
+                var productGoods, productInfoPhotos, productInfoAttrORMs;
                 if (session.goods_showMyGoods_type == "amend") {
                     productGoods = d.productGoodsUpts;
                     productInfoPhotos = d.productInfoPhotoUpts;
-                    productInfoAttrORMs= d.productInfoAttrUptORMs;
+                    productInfoAttrORMs = d.productInfoAttrUptORMs;
                 } else {
                     productGoods = d.productGoods;
                     productInfoPhotos = d.productInfoPhotos;
-                    productInfoAttrORMs= d.productInfoAttrORMs;
+                    productInfoAttrORMs = d.productInfoAttrORMs;
                 }
                 for (var j = 0; j < productGoods.length; j++) {
                     var p = productGoods[j];
                     var temp = '<tr class="cmg-goodstr">';
-                    temp += '<td productGoodsId="'+ p.productGoodsId+'" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                    temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                     temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                     temp += '<td>';
@@ -248,7 +392,7 @@ $(function () {
                 }
                 for (var l = 0; l < productInfoAttrORMs.length; l++) {
                     var p = productInfoAttrORMs[l];
-                    $("[attributeid="+ p.attributeId+"]").val(p.attrValueId);
+                    $("[attributeid=" + p.attributeId + "]").val(p.attrValueId);
                 }
                 picMove();
                 $.ajaxSetup({
@@ -543,7 +687,7 @@ $(function () {
     $("#cmg-upload").bind("click", function () {
         uploadPop(function () {
             $('#myform').ajaxForm({
-              //  iframe: true,
+                //  iframe: true,
                 dataType: 'json',
                 success: function (data) {
                     unloading();
@@ -579,13 +723,13 @@ $(function () {
 
             });
             $(".pu-ok").bind("click", function () {
-                if($("[name=file]").val()==""){
+                if ($("[name=file]").val() == "") {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
                         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                         $(".pop").find(".popup-info").html("请选择图片!");
                     });
-                }else{
+                } else {
                     loading();
                     $('#myform').submit();
                 }
@@ -832,11 +976,11 @@ $(function () {
 
         loading();
         var sub_url = plumeApi["addDraft"];
-        var draft_str='{';
-        draft_str+='"pdtName": "'+$("#productName").val()+'",';
-        draft_str+='"categoryId": 0,';
-        draft_str+='"jsonString": "'+encodeURI(pram_str)+'"';
-        draft_str+='}';
+        var draft_str = '{';
+        draft_str += '"pdtName": "' + $("#productName").val() + '",';
+        draft_str += '"categoryId": 0,';
+        draft_str += '"jsonString": "' + encodeURI(pram_str) + '"';
+        draft_str += '}';
         $.ajax({
             type: "POST",
             url: sub_url,
