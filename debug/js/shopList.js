@@ -49,7 +49,7 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             success: function (result) {
                 showData(result);
-                totalPage = Math.ceil(result.countRecord / 10);
+                totalPage = Math.ceil(result.countRecord / onePageCount());
                 newPage(totalPage, function (i) {
                     loading();
                     $(".nav-pagination").show();

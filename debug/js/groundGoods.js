@@ -38,7 +38,7 @@ function getGoodsData() {
     loading();
     var newData = JSON.stringify(datas)
     $.ajax({
-        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount=10",
+        url: plumeApi["listProductShopGoods"]+"?currentPage=1&onePageCount="+onePageCount(),
         type: "POST",
         contentType: "application/json;charset=UTF-8",
         data: newData,
@@ -48,12 +48,12 @@ function getGoodsData() {
             $(".table-block").setPageData(data);
             filter();
 
-            totalPage=Math.ceil(data.countRecord/10);
+            totalPage=Math.ceil(data.countRecord/onePageCount());
 			newPage(totalPage,function(i){
 			var newData = JSON.stringify(datas);
             loading();
 			$.ajax({
-				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount=10",
+				url: plumeApi["listProductShopGoods"]+"?currentPage="+i+"&onePageCount="+onePageCount(),
 				type: "POST",
 				data: newData,
 				dataType: "json",

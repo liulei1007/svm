@@ -44,7 +44,7 @@ $(function () {
             dataType: 'json',
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
-                totalPage = Math.ceil(data.countRecord / 10);
+                totalPage = Math.ceil(data.countRecord / onePageCount());
                 unloading();
                 if (data.countRecord) {
                     $('.alert-info strong').html(data.countRecord);
@@ -59,7 +59,7 @@ $(function () {
                     var newData = JSON.stringify(datas);
                     loading();
                     $.ajax({
-                        url: plumeApi["listProductGoods"] + "?currentPage=" + i + "&onePageCount=10",
+                        url: plumeApi["listProductGoods"] + "?currentPage=" + i + "&onePageCount="+onePageCount(),
                         type: "GET",
                         data: datas,
                         dataType: "json",
