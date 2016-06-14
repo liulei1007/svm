@@ -5,6 +5,7 @@ function newPage(totalPage, fun) {
 
     // 如果总页数大于5, 还需显示跳转表单
     if (totalPage > 10) {
+        $(".turn").remove();
         var turnHtml = '';
         turnHtml += '<div class="turn">';
         turnHtml += '<span>跳转到</span>';
