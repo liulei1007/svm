@@ -4,10 +4,9 @@ $(function () {
         derict(this, "msgmanage", "nochangeurl");
     });
 
-    var reg = /(.*([\u4e00-\u9fff]))\s+([\da-zA-Z].*)/;
     $(".ma-btn-sub").bind("click", function () {
         var feedbackType = $('.feedbackType').val();
-        var feedbackContent = $('.feedbackContent').val();
+        var feedbackContent = $('.feedbackContent').val().replace(/[\r\n]/g,"");
         // var match = rquickExpr.exec(str);
         // var pram_str = {
         //     "barndId":0,
