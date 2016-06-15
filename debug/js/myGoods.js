@@ -853,14 +853,14 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
-                if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
-                    return;
-                }
+                // if (!data.data) {
+                //     $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //         $(".pop").find(".popup-title").html("信息提示");
+                //         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //         $(".pop").find(".popup-info").html("未查询到数据!");
+                //     });
+                //     return;
+                // }
                 if (data.ok) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
