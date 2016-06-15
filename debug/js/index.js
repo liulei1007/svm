@@ -283,8 +283,8 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $(".slidebar-list li,.slidebar-title").show();
-    return;
+    // $(".slidebar-list li,.slidebar-title").show();
+    // return;
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
