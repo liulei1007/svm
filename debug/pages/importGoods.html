@@ -1,43 +1,57 @@
 <body>
-    <div class="popup-load">
-        <div class="alert alert-danger alert-dismissible load-alert" style="display: none;">
-            <div class="close"><span aria-hidden="true">&times;</span></div>
-            <p><strong>错误提示：请重新上传</strong></p>
-            <p>第一行：格式错误</p>
-        </div>
+	<div class="loadBatch-container">
+		<div class="loadBatch-block">
+			<div class="row loadBatch-step">
+				<div class="col-sm-1 step">1</div>
+				<div class="col-sm-2">选择商品所属分类</div>
+			</div>
+			<div class="row loadBatch-btn">
+				<div class="col-sm-2 col-sm-offset-1">
+					<div class="btn btn-default btn-lg btn-chooseSort">选择分类</div>
+				</div>
+				<div class="col-sm-9"><div class="tips-block">若您先选择商品所属分类，再下载该分类导入模板。若您已经下载过模板，直接在步骤3上传文件即可</div></div>
+			</div>
+			<div class="row loadBatch-select">
+				<div class="col-sm-2 col-sm-offset-1">
+					<span class="type-first-span"></span>&gt;<span class="type-second-span"></span>&gt;<span class="type-third-span"></span>
+				</div>
+			</div>
+		</div>
 
-        <form class="form-horizontal" id="myForm" name="myForm" enctype="multipart/form-data" method="post" action="">
-            <div class="btn-choose clearFix">
-                <div class="btn btn-sm btn-primary btn-chooseSort">选择分类</div>
-      
-                <div class="btn-loadModule"><i></i>下载模板</div>
-            </div>
+		<div class="loadBatch-block">
+			<div class="row loadBatch-step">
+				<div class="col-sm-1 step">2</div>
+				<div class="col-sm-2">下载并填写模板</div>
+			</div>
+			<div class="row loadBatch-btn">
+				<div class="col-sm-2 col-sm-offset-1">
+					<div class="btn btn-primary btn-lg btn-loadModule">下载模板<i></i></div>
+				</div>
+				<div class="col-sm-9"><div class="tips-block">点击下载模板，填写范例在模板中第一行显示</div></div>
+			</div>
+			<div class="row loadBatch-select">
+				<div class="col-sm-2 col-sm-offset-1">
+					<span></span>
+				</div>
+			</div>
+		</div>
 
-            <div class="fixed_buttom">
-                <div class="btn-loadFile">
-                    <input type="file" class="loadFile" name="file" id="file">
-                </div>
-                <div class="row load-btn-block">
-                    <div class="col-sm-6">
-                        <div type="button" class="btn btn-success btn-sure ex-ok">上传</div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div type="button" class="btn btn-default btn-cancel">取消</div>
-                    </div>
-                </div>
-            </div>
-            <div class="select-result">
-                您选择的类目：<span class="type-first-span"></span>&gt;<span class="type-second-span"></span>&gt;<span class="type-third-span"></span>
-            </div>
-
-
-   <!-- <div class="text-bottom"><div class="btn-loadModule"><i></i>下载模板</div></div> -->
- 
-
-    
-    
-    <!-- <div class="btn-loadFile"><input type="file" class="loadFile"></div> -->
-    <!-- <div class="btn btn-primary btn-upfile">上传</div> -->
- </form>
-  </div>    
+		<div class="loadBatch-block">
+			<div class="row loadBatch-step">
+				<div class="col-sm-1 step">3</div>
+				<div class="col-sm-2">上传已填写文件</div>
+			</div>
+			<div class="row loadBatch-btn loadBatch-btn-chooseFile">
+				<div class="col-sm-2 col-sm-offset-1">
+					<div class="btn btn-default btn-lg">选择文件</div>
+					<input type="file" class="loadFile">
+				</div>
+			</div>
+			<div class="row loadBatch-btn loadBatch-btn-upload">
+				<div class="col-sm-2 col-sm-offset-1">
+					<div class="btn btn-primary btn-lg ex-ok">上传</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
