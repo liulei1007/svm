@@ -8,7 +8,7 @@ textarea{resize: none;}
 .clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
 
 /** 网页主体 **/
-.work-space{position: relative; width: 100%; min-height: 100%;}
+.work-space{position: relative; width: 100%; /*min-height: 100%;*/}
 .work-space-active{z-index: 0; padding-top: 50px;}
 
 
@@ -41,9 +41,9 @@ textarea{resize: none;}
 .slidebar-title:hover > li, .slidebar-title.active > li{color: #f3f7f6; background-color: #425167;}
 .slidebar-title.active > li:after{content: ''; position: absolute; top: 0; right: -1px; width: 1px; height: 100%; background-color: #fff;}
 .slidebar-list{display: none;/* position: absolute; top: -1px; left: 100%; width: 160px; background-color: #364152;*/}
-/*.slidebar-list > li{padding: 5px 20px; color: #6e82a2; border-bottom: solid #4f5b70 1px; box-sizing: border-box; cursor: pointer;}
+.slidebar-list > li{padding: 5px 20px; color: #6e82a2; border-bottom: solid #4f5b70 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
-.slidebar-list > li:hover{color: #f3f7f6; background-color: #425167;}*/
+.slidebar-list > li:hover{color: #f3f7f6; background-color: #425167;}
 /** 图标 **/
 .slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
 .slidebar-title i.agency{background-position: 0 0;}
@@ -125,9 +125,10 @@ textarea{resize: none;}
 
 
 /** --------警告-------- **/
-.alert{padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; }
+/*.alert{padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px; }*/
+.alert{margin-bottom: 0; padding-right: 20px; padding-left: 20px;}
 .alert-default{background-color: #fafafa; border-color: #ddd;}
-.btn-block .alert{float: right; margin-bottom: 0; padding-top: 6px; padding-bottom: 6px;}
+/*.btn-block .alert{float: right; margin-bottom: 0; padding-top: 6px; padding-bottom: 6px;}*/
 
 /** --------校验状态的表单-------- **/
 .has-warning .control-label, .has-warning .help-block, .has-error .control-label, .has-error .help-block{color: #666;}
@@ -330,7 +331,7 @@ textarea{resize: none;}
 /** ----表单---- **/
 .body-typein .form-horizontal .form-group{margin-right: 0; margin-left: 0;}
 .body-typein .form-horizontal label{font-weight: normal;}
-.body-typein .form-horizontal .alert{margin-bottom: 0; padding: 7px 15px;}
+/*.body-typein .form-horizontal .alert{margin-bottom: 0;}*/
 .body-typein .form-horizontal i{margin-right: 5px; font-size: 16px; font-style: normal; color: #f00;}
 .body-typein .form-horizontal .divid{float: left; padding-top: 7px;}
 .body-typein .btn{width: 100%;}
@@ -684,8 +685,10 @@ textarea{resize: none;}
 
 
 /** --------加速审核-------- **/
-.popup-waitCheck{border: none; box-shadow: none;}
-
+/*.popup-waitCheck{border: none; box-shadow: none;}*/
+.check-block{margin: 50px auto; width: 300px; text-align: center;}
+.check-title{margin-bottom: 20px; font-size: 24px; font-weight: bold;}
+.check-btn-block{margin-top: 30px; margin-right: 0; margin-left: 0; width: 100%;}
 
 .agencyShops, .brandShops{display: none;}
 
