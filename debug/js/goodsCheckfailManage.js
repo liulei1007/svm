@@ -69,12 +69,12 @@ $(function () {
             $(".nav-pagination").off();
         });
         $(".gcm-btn-reload").click(function () {
-            derict(null,"goodsAuditManage","nochangeurl");
+            derict(null,"goodsCheckfailManage","nochangeurl");
         });
     }
     btnFunc();
 
 
       //回车搜索
-    keyDown('.gcm-btn-search');    
+    keyDown('.gcm-btn-search');
 });

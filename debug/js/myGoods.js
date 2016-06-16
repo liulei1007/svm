@@ -753,7 +753,7 @@ $(function () {
         } else if (session.goods_showMyGoods_type == "amend") {
             pram_str += '"uptId": "' + session.goods_showMyGoods_uptId + '",';
         }
-        pram_str += '"productName": "' + $("#productName").val() + '",';
+        pram_str += '"productName": "' + $("#productName").val().replace(/[\"\"]/g,"\'") + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": "' + $("#brandId").val() + '",';
         pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
