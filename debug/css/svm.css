@@ -22,7 +22,6 @@ textarea{resize: none;}
 
 
 .work-space{position: relative; width: 100%; min-height: 100%;}
-/*.work-space{height:100%;width:100%;position:absolute;left:0;top:0;z-index:1}*/
 
 .doc-body-all{width:100%;height:100%;position:absolute;top:0px;left:0;background:#fff;z-index:999;}
 
@@ -463,7 +462,6 @@ textarea{resize: none;}
 .reg-msg-block .rmb3{color:#989da8;height:50px;width:70%;margin:15px auto 0;line-height:20px;text-align:center;}
 .reg-msg-block .rmb4{height:30px;width:100%;text-align:center;line-height:30px}
 .reg-msg-block .rmb4 a{text-decoration: underline;color:#989da8;cursor:pointer}
-.table-block td div{height:22px;line-height:22px;padding:0 10px}
 .cpdstep2{display:none}
 .sd-btn-back{position:absolute;top:-110px;left:-110px}
 .sd-choose-step1,.sd-choose-step2{width:720px;height:220px;margin:130px auto;position:relative;}
@@ -523,10 +521,6 @@ textarea{resize: none;}
 .nav-pagination .turn > .btn{float: left; margin-left: 5px; color: #666;}
 
 
-
-.table-ctrl{font-weight: bold;float:left;cursor: pointer;color:#666}
-
-.table-ctrl:hover{color:#0c5689}
 .cic-btn-del{background: url("../images/icons_all.png") no-repeat -718px -202px;height:30px;width: 30px;cursor:pointer}
 .cic-btn-del:hover{background-color: #f1f1f1}
 
