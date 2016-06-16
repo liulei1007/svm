@@ -779,3 +779,4 @@ textarea{resize: none;}
 .loadBatch-btn-chooseFile > div{position: relative; overflow: hidden;}
 .loadBatch-btn-chooseFile input[type="file"]{position: absolute; top: 0; left: 15px; width: 160px; overflow: hidden; font-size: 30px; cursor: pointer; opacity: 0;}
 .loadBatch-select{margin-top: 10px; margin-bottom: 10px;}
+.resurl{display: block;}
