@@ -1,4 +1,5 @@
 $(function() {
+    formCtrl();
 	$('.btn-back').bind('click',function() {
 		derict(this,"brandList","nochangeurl");
 	});
