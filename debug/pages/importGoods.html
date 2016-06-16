@@ -35,23 +35,25 @@
 				</div>
 			</div>
 		</div>
-
+    
 		<div class="loadBatch-block">
-			<div class="row loadBatch-step">
-				<div class="col-sm-1 step">3</div>
-				<div class="col-sm-2">上传已填写文件</div>
-			</div>
-			<div class="row loadBatch-btn loadBatch-btn-chooseFile">
-				<div class="col-sm-2 col-sm-offset-1">
-					<div class="btn btn-default btn-lg">选择文件</div>
-					<input type="file" class="loadFile">
-				</div>
-			</div>
-			<div class="row loadBatch-btn loadBatch-btn-upload">
-				<div class="col-sm-2 col-sm-offset-1">
-					<div class="btn btn-primary btn-lg ex-ok">上传</div>
-				</div>
-			</div>
+            <form class="form-horizontal" id="myForm" name="myForm" enctype="multipart/form-data" method="post" action="">
+    			<div class="row loadBatch-step">
+    				<div class="col-sm-1 step">3</div>
+    				<div class="col-sm-2">上传已填写文件</div>
+    			</div>
+    			<div class="row loadBatch-btn loadBatch-btn-chooseFile">
+    				<div class="col-sm-2 col-sm-offset-1">
+    					<div class="btn btn-default btn-lg btn-selectFile">选择文件</div>
+    					<input type="file" class="loadFile" name="">
+    				</div>
+    			</div>
+    			<div class="row loadBatch-btn loadBatch-btn-upload">
+    				<div class="col-sm-2 col-sm-offset-1">
+    					<div class="btn btn-primary btn-lg ex-ok">上传</div>
+    				</div>
+    			</div>
+            </form>
 		</div>
 	</div>
 </body>
