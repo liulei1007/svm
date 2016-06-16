@@ -39,11 +39,11 @@ function delFeedBackData(fid) {
                 success: function (data) {
                     if(data.ok){
                         unloading();
-                        popTips("删除成功","success");
+                        showPopTips("删除成功", "success", "反馈信息删除成功");
                         listFeedBackData();
                     }else{
                         unloading();
-                        popTips("删除失败","warning");
+                        showPopTips("删除失败", "danger", data.resDescription);
                         listFeedBackData();
                 }
             }

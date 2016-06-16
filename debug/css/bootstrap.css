@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://v3.bootcss.com/customize/?id=ceaa35160b781bddc34f13fc3bc905be)
- * Config saved to config.json and https://gist.github.com/ceaa35160b781bddc34f13fc3bc905be
+ * Generated using the Bootstrap Customizer (http://v3.bootcss.com/customize/?id=f0c28b5ac5cfdf126e777e4af2bce92c)
+ * Config saved to config.json and https://gist.github.com/f0c28b5ac5cfdf126e777e4af2bce92c
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -2325,7 +2325,7 @@ th {
   border-bottom-width: 2px;
 }
 .table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: #f8f9fa;
+  background-color: #fafafa;
 }
 .table-hover > tbody > tr:hover {
   background-color: inherit;
