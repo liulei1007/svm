@@ -343,6 +343,7 @@ function getBrandLink() {
 		type: "GET",
 		contentType: "application/json;charset=UTF-8",
 		success: function (data) {
+			unloading();
 			for (var i = 0; i < data.data.length; i++) {
 				addHtml += '<label class="checkbox-inline"><input type="checkbox" name="brands" value="' + data.data[i].id + '">' + data.data[i].brandName + '</label>';
 			}
