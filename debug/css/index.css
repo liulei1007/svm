@@ -109,19 +109,21 @@ textarea{resize: none;}
 
 
 .btn-icons{position: relative; padding-left: 40px;}
-.btn-icons:before{content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 34px; overflow: hidden; background: url(../images/icons_buttons.png) no-repeat;}
+.btn-icons:before{content: ''; position: absolute; top: 50%; left: 7px; margin-top: -10px; width: 40px; height: 20px; overflow: hidden; background: url(../images/icons_new.png) no-repeat;}
 /** 申请打印 **/
-.btn-applyPrint:before{background-position: 0 0;}
+.btn-applyPrint:before{background-position: 0 -250px;}
 /** 新增商品数据 **/
-.btn-addGoods:before{background-position: -40px 0;}
+.btn-addGoods:before{background-position: -65px -250px;}
 /** 单笔自采 **/
-.btn-publishSingle:before{background-position: -80px 0;}
+.btn-publishSingle:before{background-position: -130px -250px;}
 /** 批量自采 **/
-.btn-publishBatch:before{background-position: -120px 0;}
+.btn-publishBatch:before{background-position: -195px -250px;}
 /** 添加子账号 **/
-.btn-addAccount:before{background-position: -160px 0;}
+.btn-addAccount:before{background-position: -260px -250px;}
 /** 新增单个 **/
-.btn-addSingle:before{background-position: -200px 0;}
+.btn-addSingle:before{background-position: -325px -250px;}
+/** 下载模板 **/
+.btn-download:before{left: 20px; background-position: -390px -250px;}
 
 
 /** --------警告-------- **/
@@ -685,7 +687,6 @@ textarea{resize: none;}
 
 
 /** --------加速审核-------- **/
-/*.popup-waitCheck{border: none; box-shadow: none;}*/
 .check-block{margin: 50px auto; width: 300px; text-align: center;}
 .check-title{margin-bottom: 20px; font-size: 24px; font-weight: bold;}
 .check-btn-block{margin-top: 30px; margin-right: 0; margin-left: 0; width: 100%;}
@@ -704,10 +705,10 @@ textarea{resize: none;}
 .loadBatch-step{margin-bottom: 10px; line-height: 40px; font-size: 16px; color: #1397da;}
 .loadBatch-step .step{text-align: right; font-size: 26px;}
 .loadBatch-btn .btn{width: 160px; overflow: hidden;}
-.loadBatch-btn .btn-loadModule{position: relative; padding-right: 36px;}
-.loadBatch-btn .btn-loadModule i{position: absolute; top: 13px; right: 20px; width: 20px; height: 20px; background-color: red;}
-.loadBatch-btn .tips-block{position: relative; padding-top: 13px; padding-left: 30px;}
-.loadBatch-btn .tips-block:before{content: ''; position: absolute; top: 14px; left: 0; width: 16px; height: 16px; background-color: red;}
+/*.loadBatch-btn .btn-loadModule{position: relative; padding-right: 36px;}
+.loadBatch-btn .btn-loadModule i{position: absolute; top: 13px; right: 20px; width: 20px; height: 20px; background: url(../images/icons_new.png) no-repeat -455px -160px;}*/
+.loadBatch-btn .tips-block{position: relative; padding-top: 13px; padding-left: 20px;}
+.loadBatch-btn .tips-block:before{content: ''; position: absolute; top: 14px; left: 0; width: 16px; height: 16px; background: url(../images/icons_new.png) no-repeat -130px -200px;}
 .loadBatch-btn-upload{margin-top: 30px;}
 .loadBatch-btn-chooseFile > div{position: relative; overflow: hidden;}
 .loadBatch-btn-chooseFile input[type="file"]{position: absolute; top: 0; left: 15px; width: 160px; overflow: hidden; font-size: 30px; cursor: pointer; opacity: 0;}
