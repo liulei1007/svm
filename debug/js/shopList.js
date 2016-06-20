@@ -1,4 +1,5 @@
 $(function () {
+    setPageCount();
     //页数
     var totalPage;
     // 初始化传输数据

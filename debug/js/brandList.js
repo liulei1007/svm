@@ -1,4 +1,5 @@
 $(function () {
+    setPageCount();
     var datas = {
         "start": 0,
         "limit": 0,
