@@ -1,11 +1,6 @@
 $(function () {
     formCtrl();
-    formControl()
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
-    $(".num").bind("blur", function() {
-    	// console.log($(this).val());
-    	checkFloat($(this));
-    });
     // 绑定点击图片展示大图
     $(".createNewGoods").on("click", ".cmg-goodsimgs", function () {
         var imgSrc = $(this).attr("src");
@@ -27,11 +22,11 @@ $(function () {
         });
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "userType", "nochangeurl");
+            derict(this, "goodsDataManage", "nochangeurl");
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
-        // formCtrl();
+        formCtrl();
         getbrandList();
         getProductAttribute();
         setColors();
@@ -48,8 +43,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            session.goods_showMyGoods_page ? derict(this, session.goods_showMyGoods_page, "nochangeurl") :
-                derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDataManage", "nochangeurl");
         });
         getDataInit();
     }
@@ -102,7 +96,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDraft", "nochangeurl");
+            derict(this, "goodsDataManage", "nochangeurl");
         });
         getDraftDataInit();
     }
@@ -461,7 +455,7 @@ $(function () {
             }
             for (var i = 0; i < data.data.length; i++) {
                 var d = data.data[i];
-                var temp = '<div class="form-group">';
+                var temp = '<div class="form-group required">';
                 temp += '<label class="col-sm-2 control-label">' + d.attrNameFront + '</label>';
                 temp += '<div class="col-sm-2">';
                 if (d.attr_input == "text") {
@@ -629,28 +623,55 @@ $(function () {
 
     //表单验证
     function validata() {
+        var flag = true;
 
-        var ifNull = false, ifFloat = true;
-        // 首先确保数据都输入了
-        $(".form-group.required input:visible, .form-group.required select:visible").each(function() {
-            if (!checkFormNull($(this))) ifNull = true;
-        });
-        // 其次判断数字是否输入正确
-        $(".num").each(function() {
-        	if (!checkFloat($(this))) ifFloat = false;
+        $(".cmg-error").removeClass("cmg-error");
+        $(".alert-danger").text("").hide();
 
+        $(".notNull").each(function () {
+            if ($(this).val() == "") {
+                $(this).addClass("cmg-error");
+                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag = false;
+            } else {
+                $(this).parent().parent().find(".alert-danger").hide();
+            }
         });
-        // 最后判断产地——若产地为中国，必须选择至省
-        if ($("#countryId").val() == "CN") {
-        	if ($("#cityId").val() == "") {
-        		$(this).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请选择产地</div>');
-        		ifNull = true;
-        	}
+
+        var $_countryId = $("#countryId"),
+            $_provinceId = $('#provinceId'),
+            $_cityId = $('#cityId');
+
+        if ($_countryId.val() === "CN") {
+            var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
+
+            var validAddress = function ($it, result) {
+                var $obj = $it.parent().parent().find(".alert-danger");
+                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
+            };
+            if (!pid || !cid) {
+                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                flag = false;
+            } else {
+                validAddress($_cityId, false) && validAddress($_provinceId, false);
+            }
         }
-        $($(".has-warning")[0]).find(".form-control").focus();
-        console.log($("#countryId").val());
-        console.log(!ifNull && ifFloat);
-        return (!ifNull && ifFloat);
+
+        var re = /^[0-9]+.?[0-9]*$/;
+        $(".num").each(function () {
+            if ($(this).val() != "") {
+                if (re.test($(this).val())) {
+                    $(this).parent().parent().find(".alert-danger").hide();
+                } else {
+                    $(this).addClass("cmg-error")
+                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
+                    flag = false;
+                }
+            }
+
+        });
+        $($(".cmg-error")[0]).focus();
+        return flag;
     }
 
     //规格
@@ -752,27 +773,19 @@ $(function () {
             $_cityId = $('#cityId'),
             sessionType = session.goods_showMyGoods_type;
 
-        dataJson.productId = {
-            'edit': $("#productId").val(),
-            'feed': $("#productId").val(),
-            'amend': session.goods_showMyGoods_uptId
-        }[sessionType];
-        
-        if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
-            pram_str += '';
-        } else if (session.goods_showMyGoods_type == "edit" || session.goods_showMyGoods_type == "feed") {
-            dataJson.productId = $("#productId").val();
-        } else if (session.goods_showMyGoods_type == "amend") {
-            dataJson.uptId = session.goods_showMyGoods_uptId;
-        }
+        sessionType == 'edit' && (dataJson.productId = $("#productId").val());
+        sessionType == 'feed' && (dataJson.productId = $("#productId").val());
+        sessionType == 'amend' && (dataJson.uptId = session.goods_showMyGoods_uptId);
+
         dataJson.productName = $("#productName").val().replace(/[\"\"]/g,"\'");
         dataJson.productSecondName = $("#productSecondName").val();
         dataJson.brandId = $("#brandId").val();
         dataJson.seriesId = $("#seriesId").val();
-        dataJson.seriesName = $("#seriesId").find("option:selected").text();
+        dataJson.seriesName =  $("#seriesId").find("option:selected").text();
         dataJson.brandName = $("#brandId").find("option:selected").text();
         dataJson.countryId = $_countryId.val();
         dataJson.countryName = $_countryId.find("option:selected").text();
+
         dataJson.provinceId = $.trim($_provinceId.val());
         dataJson.provinceName = $_provinceId.find("option:selected").text();
         dataJson.cityId = $.trim($_cityId.val());
@@ -810,84 +823,40 @@ $(function () {
         });
         dataJson.attributes = attrArray;
 
-        pram_str += '"provinceId": "' + $.trim($_provinceId.val()) + '",';
-        pram_str += '"provinceName": "' + $_provinceId.find("option:selected").text() + '",';
-        pram_str += '"cityId": "' + $.trim($_cityId.val()) + '",';
-        pram_str += '"cityName": "' + $_cityId.find("option:selected").text() + '",';
-        pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
-        pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
-        pram_str += '"weight": "' + $("#weight").val() + '",';
-        pram_str += '"chargeUnit": "元",';
-        pram_str += '"material": "' + $("#material").val() + '",';
-        pram_str += ' "material1": "' + $("#material1").val() + '",';
-        pram_str += ' "material2": "' + $("#material2").val() + '",';
-        pram_str += '"material3": "' + $("#material3").val() + '",';
-        pram_str += '"marketPrice": "' + $("#marketPrice").val() + '",';
-        pram_str += ' "priceType": "' + $("#priceType").val() + '",';
-        pram_str += '"lvInfo": "' + $("#lvInfo").val() + '",';
-        pram_str += '"categoryId": "' + session.goods_categoryId + '",';
-        pram_str += '"categoryName": "' + session.goods_categoryName + '",';
-        pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
-        pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
-        pram_str += ' "baseCategoryId": "' + session.goods_baseCategoryId + '",';
-        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",'; 
-        pram_str += ' "saleStatus": "",';
-        pram_str += '"attributes": [';
-        var attrs_pram_str = "";
-        $(".cmg-attrs").each(function () {
-            attrs_pram_str += ' {';
-            if ($(this).attr("attr_type") == 1) {
-                attrs_pram_str += '"attrValueId": 0,';
-                attrs_pram_str += ' "attrValue": "' + $(this).val() + '",';
-            } else {
-                attrs_pram_str += '"attrValueId": ' + $(this).val() + ',';
-                attrs_pram_str += ' "attrValue": "",';
-            }
-            attrs_pram_str += ' "attributeId": ' + $(this).attr("attributeId");
-            attrs_pram_str += '},';
-        });
-        pram_str += attrs_pram_str.substring(0, attrs_pram_str.length - 1);
-        pram_str += '],';
-        pram_str += '  "photos": [';
-        var imgs_pram_str = "";
+        var photosArray = [], photosJson = {};
         $(".cmg-goodsimgs").each(function () {
-            imgs_pram_str += '{';
-            imgs_pram_str += '  "colorId": 0,';
-            imgs_pram_str += ' "picUrl": "' + $(this).attr("src") + '"';
-            imgs_pram_str += ' },';
+            photosJson.colorId = '0';
+            photosJson.picUrl = $(this).attr("src");
+            photosArray.push(photosJson);
         });
-        pram_str += imgs_pram_str.substring(0, imgs_pram_str.length - 1);
-        pram_str += ' ],';
-        pram_str += ' "goods": [';
-        var goods_pram_str = "";
+        dataJson.photos = photosArray;
+
+        var goodsArray = [], goodsJson = {};
         $(".cmg-goodstr").each(function () {
-            goods_pram_str += '{';
-            goods_pram_str += ' "colorId": ' + $(this).children().first().attr("colorid") + ',';
-            goods_pram_str += '"colorRgb": "' + $(this).children().first().attr("colorvalue") + '",';
-            goods_pram_str += '"color": "' + $(this).children().first().attr("colorname") + '",';
-            goods_pram_str += '"standard": "' + $(this).find(".stand").val() + '",';
-            goods_pram_str += ' "salePrice": "' + $(this).find(".marketPrice").val() + '"';
-            goods_pram_str += '},';
+            goodsJson.colorId = $(this).children().first().attr("colorid");
+            goodsJson.colorRgb = $(this).children().first().attr("colorvalue");
+            goodsJson.color = $(this).children().first().attr("colorname");
+            goodsJson.standard = $(this).find(".stand").val();
+            goodsJson.salePrice = $(this).find(".marketPrice").val();
+            goodsArray.push(photosJson);
         });
-        pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
-        pram_str += ']';
-        pram_str += '}';
+        dataJson.goods = goodsArray;
+
+        var url = '';
+        sessionType && (url = {
+            'create': plumeApi["addProductInfo"],
+            'copy': plumeApi["addProductInfo"],
+            'edit': plumeApi["editProductInfo"],
+            'feed': plumeApi["addProductInfoFeedback"],
+            'amend': plumeApi["editProductInfoUpt"]
+        }[sessionType]);
 
         loading();
-        var sub_url = "";
-        if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
-            sub_url = plumeApi["addProductInfo"];
-        } else if (session.goods_showMyGoods_type == "edit") {
-            sub_url = plumeApi["editProductInfo"];
-        } else if (session.goods_showMyGoods_type == "feed") {
-            sub_url = plumeApi["addProductInfoFeedback"];
-        } else if (session.goods_showMyGoods_type == "amend") {
-            sub_url = plumeApi["editProductInfoUpt"];
-        }
+
         $.ajax({
             type: "POST",
-            url: sub_url,
-            data: pram_str,
+            url: url,
+            data: $.parseJSON(dataJson),
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
