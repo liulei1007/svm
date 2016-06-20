@@ -913,7 +913,7 @@ function showPopTips(popupTitle, popupIcon, popupTips) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("focus", ".form-group.required input, .form-group.required textarea, .form-group.required select", function() {
+    $(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function() {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
@@ -998,9 +998,13 @@ function checkPhoneExist(checkObj, checkType){
 
 
 function checkFloat(checkObj) {
+    var $formBlock = $(checkObj).parents(".form-group");
+    // 如果当前输入框已有其他提示信息，退出
+    if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
+        return false;
+    }
 	// 首先判断是否为空
 	if ($(checkObj).val() && $(checkObj).val().trim() != "") {
-		console.log(isFloat($(checkObj).val()));
 		// 其次判断是否符合数字规则
 		if (!isFloat($(checkObj).val())) {
 			var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
