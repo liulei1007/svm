@@ -9,12 +9,12 @@ textarea{resize: none;}
 
 /** 网页主体 **/
 .work-space{position: relative; width: 100%; /*min-height: 100%;*/}
-.work-space-active{z-index: 0; padding-top: 50px;}
+.work-space-active{z-index: 0; padding-top: 50px; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;}
 
 
 
 .title-block{margin-top: 20px; margin-bottom: 10px; margin-left: 20px; font-size: 16px; font-weight: bold;}
-.doc-temp-body{padding-left: 10px; padding-right: 10px;}
+/*.doc-temp-body{padding-left: 10px; padding-right: 10px;}*/
 
 
 
@@ -197,7 +197,7 @@ textarea{resize: none;}
 .popup-sort{position: absolute; z-index: 1999; top: 50%; left: 50%; margin-top: -280px; margin-left: -400px; padding: 0 20px; width: 800px; height: 560px; box-sizing: border-box; /*text-align: center;*/ background-color: #fff; border-top: solid #0094da 6px; box-shadow:0px 0px 20px 0px rgba(184,191,197,0.50);}
 
 /** --------商品管理-------- **/
-.doc-commodityManagement1{position: relative;padding-bottom: 40px;}
+/*.doc-commodityManagement1{position: relative;padding-bottom: 40px;}*/
 .commodity-btn-apply{margin-left:20px;}
 .commodity-classify{margin-bottom:50px;font-size: 16px;}
 .commodity-classify span{font-size: 18px;}
@@ -250,7 +250,7 @@ textarea{resize: none;}
 .commodity-inquire>div>div{margin-bottom: 20px;}
 .commodity-inquire select{width: 205px;}
 .commodity-inquire input{width: 210px;}
-.doc-commodityManagement{padding:10px;}
+/*.doc-commodityManagement{padding:10px;}*/
 .doc-commodityManagement table{margin-top: 10px;}
 .table-info span{color:red;}
 .addGoods-table{margin-top: 10px; margin-bottom: 10px;}
@@ -258,7 +258,7 @@ textarea{resize: none;}
 /** --------基础数据管理-------- **/
 .form-explain{margin-left: 0; padding: 6px 0;}
 .table-title{padding:20px 0;}
-.doc-basicDataManagement{padding: 0 10px;}
+/*.doc-basicDataManagement{padding: 0 10px;}*/
 .doc-basicDataManagement table{margin-top: 10px;}
 .basicDataManagement-inquire .basicDataManagement-model span,
 .basicDataManagement-inquire .basicDataManagement-name span,
@@ -321,7 +321,7 @@ textarea{resize: none;}
 
 /** --------录入-------- **/
 
-.body-typein{position: relative; margin: 0 auto; padding: 0 20px;/* width: 1040px;*/ overflow-x: hidden;}
+.body-typein{position: relative; margin: 0 auto; padding: 0 10px;/* width: 1040px;*/ overflow-x: hidden;}
 
 .body-typein .title-block{margin-bottom: 20px; font-size: 24px; text-align: center;}
 .body-typein .module-title{margin-top: 20px; margin-bottom: 20px; height: 35px; line-height: 35px; color: #fff; text-align: center; background-color: #1397da;}
