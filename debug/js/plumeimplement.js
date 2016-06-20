@@ -265,7 +265,9 @@ function childIdCreate_init() {
 }
 
 function releaseSelfGoods_init() {
+    plumeLog("初始化releaseSelfGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/releaseSelfGoods.js");
+    plumeLog("完成releaseSelfGoods模板加载-" + plumeTime());
 }
 
 function showSelfGoods_init() {

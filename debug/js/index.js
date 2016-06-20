@@ -376,12 +376,26 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/product_lv",
         contentType: "application/json",
         dataType: "json",
-       // async: false,
+        // async: false,
         success: function (data) {
             if (data.ok) {
                 session.product_lv = JSON.stringify(data);
             } else {
                 plumeLog("获取price_tpye信息失败:" + data.resDescription);
+            }
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/standard_unit",
+        contentType: "application/json",
+        dataType: "json",
+        // async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.standard_unit = JSON.stringify(data);
+            } else {
+                plumeLog("获取standard_unit信息失败:" + data.resDescription);
             }
         }
     });

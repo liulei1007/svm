@@ -101,7 +101,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDraft", "nochangeurl");
         });
         getDraftDataInit();
     }
@@ -628,6 +628,7 @@ $(function () {
 
     //表单验证
     function validata() {
+<<<<<<< HEAD
         var ifNull = false, ifFloat = true;
         // 首先确保数据都输入了
         $(".form-group.required input:visible, .form-group.required select:visible").each(function() {
@@ -636,6 +637,54 @@ $(function () {
         // 其次判断数字是否输入正确
         $(".num").each(function() {
         	if (!checkFloat($(this))) ifFloat = false;
+=======
+        var flag = true;
+
+        $(".cmg-error").removeClass("cmg-error");
+        $(".alert-danger").text("").hide();
+
+        $(".notNull").each(function () {
+            if ($(this).val() == "") {
+                $(this).addClass("cmg-error");
+                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag = false;
+            } else {
+                $(this).parent().parent().find(".alert-danger").hide();
+            }
+        });
+
+        var $_countryId = $("#countryId"),
+            $_provinceId = $('#provinceId'),
+            $_cityId = $('#cityId');
+
+        if ($_countryId.val() === "CN") {
+            var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
+
+            var validAddress = function ($it, result) {
+                var $obj = $it.parent().parent().find(".alert-danger");
+                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
+            };
+            if (!pid || !cid) {
+                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                flag = false;
+            } else {
+                validAddress($_cityId, false) && validAddress($_provinceId, false);
+            }
+        }
+
+        var re = /^[0-9]+.?[0-9]*$/;
+        $(".num").each(function () {
+            if ($(this).val() != "") {
+                if (re.test($(this).val())) {
+                    $(this).parent().parent().find(".alert-danger").hide();
+                } else {
+                    $(this).addClass("cmg-error")
+                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
+                    flag = false;
+                }
+            }
+
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
         });
         // 最后判断产地——若产地为中国，必须选择至省
         if ($("#countryId").val() == "CN") {
@@ -743,6 +792,8 @@ $(function () {
         if (!validata()) {
             return false;
         }
+        var $_countryId = $("#countryId"), $_provinceId = $('#provinceId'), $_cityId = $('#cityId');
+
         var pram_str = '{';
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             pram_str += '';
@@ -757,22 +808,13 @@ $(function () {
         pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
         pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
         pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
-        pram_str += ' "countryId": "' + $("#countryId").val() + '",';
-        pram_str += '"countryName": "' + $("#countryId").find("option:selected").text() + '",';
-        var pid = "0";
-        var cid = "0";
-        var pname = "";
-        var cname = "";
-        if ($("#countryId").val() == "CN") {
-            pid = $("#provinceId").val();
-            pname = $("#provinceId").find("option:selected").text();
-            cid = $("#cityId").val();
-            cname = $("#cityId").find("option:selected").text();
-        }
-        pram_str += '"provinceId": "' + pid + '",';
-        pram_str += '"provinceName": "' + pname + '",';
-        pram_str += '"cityId": "' + cid + '",';
-        pram_str += '"cityName": "' + cname + '",';
+        pram_str += ' "countryId": "' + $_countryId.val() + '",';
+        pram_str += '"countryName": "' + $_countryId.find("option:selected").text() + '",';
+
+        pram_str += '"provinceId": "' + $.trim($_provinceId.val()) + '",';
+        pram_str += '"provinceName": "' + $_provinceId.find("option:selected").text() + '",';
+        pram_str += '"cityId": "' + $.trim($_cityId.val()) + '",';
+        pram_str += '"cityName": "' + $_cityId.find("option:selected").text() + '",';
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": "' + $("#weight").val() + '",';
@@ -789,7 +831,7 @@ $(function () {
         pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
         pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
         pram_str += ' "baseCategoryId": "' + session.goods_baseCategoryId + '",';
-        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",'; 
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         var attrs_pram_str = "";

@@ -4,6 +4,7 @@ $(function () {
     $(".type-second-span").text($(".type-second").find(".sel").text()).attr("categoryId",$(".type-second").find(".sel").attr("categoryId"));
     $(".type-third-span").text($(".type-third").find(".sel").text()).attr("categoryId",$(".type-third").find(".sel").attr("categoryId"));
     $(".ut-btn-next").bind("click",function(){
+              session.goods_userType = "";
         session.goods_userType=$(".type-first-span").eq(0).text()+">"+$(".type-second-span").eq(0).text()+">"+$(".type-third-span").eq(0).text();
         session.goods_categoryId=$(".type-third-span").attr("categoryId");
         session.goods_categoryName=$(".type-third-span").text();
