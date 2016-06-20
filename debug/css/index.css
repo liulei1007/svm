@@ -88,7 +88,7 @@ textarea{resize: none;}
 .table-block .a-link:hover{color: #0986c5; text-decoration: underline;}
 
 /** --------搜索框-------- **/
-.search-block{margin-top: 20px; margin-bottom: 20px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px; -webkit-animation: mysearch 1s forwards; animation: mysearch 1s forwards;}
+.search-block{margin-top: 20px; margin-bottom: 20px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px; border-radius: 2px; -webkit-animation: mysearch 1s forwards; animation: mysearch 1s forwards;}
 .search-block label{font-weight: normal;}
 .search-block .btn{margin-right: 10px; min-width:80px; font-size: 14px;}
 .search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
@@ -484,12 +484,6 @@ textarea{resize: none;}
 .bw-cont1 div{float: left; margin-top: 5px; margin-right: 30px; margin-bottom: 5px;}
 .bw-cont1 .mark{display: inline-block; margin-left: 10px;}
 
-/*.bw-block1-left,.bw-block1-right{width:50%;height:100%;float:left;padding:10px; box-sizing: border-box;}*/
-/*.bw-block1-title{height:30px;line-height: 30px;text-align: left;width:100%;font-size:16px}*/
-/*.bw-block1-cont{height:30px;line-height: 30px;text-align: left;width:100%}*/
-/*.bwb-cont1 div,.bwb-cont2 div{padding:0 25px 0 0;float:left;cursor:pointer}
-.bwb-cont1 div span,.bwb-cont2 div span{display:inline;height:20px;width:20px;line-height: 20px;text-align: center;background: #0fdbd3;color: #fff;padding:0 5px;margin:0 0 0 5px;cursor:pointer}
-.bwb-cont1 div span:hover,.bwb-cont2 div span:hover{background: #289c98}*/
 
 .bw-block2{margin-top: 20px; margin-bottom: 20px; width: 100%;}
 .bw-block2-left{/*margin:0 10px 0 0*/}
@@ -705,8 +699,6 @@ textarea{resize: none;}
 .loadBatch-step{margin-bottom: 10px; line-height: 40px; font-size: 16px; color: #1397da;}
 .loadBatch-step .step{text-align: right; font-size: 26px;}
 .loadBatch-btn .btn{width: 160px; overflow: hidden;}
-/*.loadBatch-btn .btn-loadModule{position: relative; padding-right: 36px;}
-.loadBatch-btn .btn-loadModule i{position: absolute; top: 13px; right: 20px; width: 20px; height: 20px; background: url(../images/icons_new.png) no-repeat -455px -160px;}*/
 .loadBatch-btn .tips-block{position: relative; padding-top: 13px; padding-left: 20px;}
 .loadBatch-btn .tips-block:before{content: ''; position: absolute; top: 14px; left: 0; width: 16px; height: 16px; background: url(../images/icons_new.png) no-repeat -130px -200px;}
 .loadBatch-btn-upload{margin-top: 30px;}
