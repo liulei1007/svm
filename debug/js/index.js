@@ -194,7 +194,7 @@ function chkUserStatus(){
         success: function (data) {
             try{
                 if (data.ok) {
-                    plumeLog("用户正常登录中,session未失效.")
+                    plumeLog("用户正常登录中,session正常.-"+plumeTime())
                 } else {
                     window.location.href="/";
                 }
