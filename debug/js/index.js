@@ -784,7 +784,8 @@ function checkSelfGoods(operateName, selfGoods, url) {
 
         selfGoods.pgtType = $("#pgtType").val().trim();
         selfGoods.standard = $("#standard").val().trim();
-        selfGoods.material = $("#material").val().trim();
+        selfGoods.standardUnit = $("#orgSize select").prop('value');
+        selfGoods.material = $("#material").val();
         selfGoods.orgName = $("#orgName").val().trim();
         selfGoods.priceType = $("#priceType").val().trim();
         selfGoods.salePrice = $("#salePrice").val().trim();

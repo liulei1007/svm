@@ -61,9 +61,14 @@
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>单位名称</label>
             <div class="col-sm-6">
-                <select id="orgName" class="form-control">
-                    <option value="只" selected="">只</option>
-                    <option value="把">把</option>
+                <input type="text" id="orgName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>单位规格</label>
+            <div class="col-sm-6" id="orgSize">
+                <select class="form-control"  data-list="$p.data">
+                    <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                 </select>
             </div>
         </div>
