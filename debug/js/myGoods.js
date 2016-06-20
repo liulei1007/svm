@@ -96,7 +96,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDraft", "nochangeurl");
         });
         getDraftDataInit();
     }
@@ -792,7 +792,7 @@ $(function () {
         pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
         pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
         pram_str += ' "baseCategoryId": "' + session.goods_baseCategoryId + '",';
-        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",'; 
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         var attrs_pram_str = "";
