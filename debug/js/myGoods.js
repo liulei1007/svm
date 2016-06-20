@@ -628,7 +628,7 @@ $(function () {
 
     //表单验证
     function validata() {
-<<<<<<< HEAD
+
         var ifNull = false, ifFloat = true;
         // 首先确保数据都输入了
         $(".form-group.required input:visible, .form-group.required select:visible").each(function() {
@@ -637,54 +637,7 @@ $(function () {
         // 其次判断数字是否输入正确
         $(".num").each(function() {
         	if (!checkFloat($(this))) ifFloat = false;
-=======
-        var flag = true;
 
-        $(".cmg-error").removeClass("cmg-error");
-        $(".alert-danger").text("").hide();
-
-        $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                $(this).addClass("cmg-error");
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                flag = false;
-            } else {
-                $(this).parent().parent().find(".alert-danger").hide();
-            }
-        });
-
-        var $_countryId = $("#countryId"),
-            $_provinceId = $('#provinceId'),
-            $_cityId = $('#cityId');
-
-        if ($_countryId.val() === "CN") {
-            var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
-
-            var validAddress = function ($it, result) {
-                var $obj = $it.parent().parent().find(".alert-danger");
-                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
-            };
-            if (!pid || !cid) {
-                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
-                flag = false;
-            } else {
-                validAddress($_cityId, false) && validAddress($_provinceId, false);
-            }
-        }
-
-        var re = /^[0-9]+.?[0-9]*$/;
-        $(".num").each(function () {
-            if ($(this).val() != "") {
-                if (re.test($(this).val())) {
-                    $(this).parent().parent().find(".alert-danger").hide();
-                } else {
-                    $(this).addClass("cmg-error")
-                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
-                    flag = false;
-                }
-            }
-
->>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
         });
         // 最后判断产地——若产地为中国，必须选择至省
         if ($("#countryId").val() == "CN") {
