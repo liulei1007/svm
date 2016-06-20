@@ -1,5 +1,5 @@
 $(function () {
-    plumeLog("进入amendmentInfo模板自定义js-" + plumeTime());
+    plumeLog("杩涘叆amendmentInfo妯℃澘鑷畾涔塲s-" + plumeTime());
     setPageCount();
     var datas = {
         "productName": "",
