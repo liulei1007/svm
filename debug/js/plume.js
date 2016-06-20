@@ -295,7 +295,6 @@ $.fn.extend({
             fun = args[2];
         }
         var dom = this;
-        console.log(this)
         var prams = "";
         if (name.indexOf("?") != -1) {
             prams = name.substring(name.indexOf("?"));
@@ -538,5 +537,15 @@ function plumeTime() {
 }
 //内部测试方法,打印日志
 function plumeLog(o) {
-    console.log(o);
+    try{
+        console.log(o);
+    }catch(e){}
+}
+window.onerror = function(msg, url, line) {
+    plumeLog("----程序出现异常----");
+    plumeLog(msg);
+    plumeLog(url);
+    plumeLog(line);
+    plumeLog("--------------------");
+    return true;
 }
