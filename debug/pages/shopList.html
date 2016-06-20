@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--公用基础文件-->
-    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <script language="javascript" src="../js/plumecommon.js"></script>
     <!--声明-->
     <script>
-        var _PLUME={
-            "config":"../config/svm.xml",
-            "initPage":"shopList"
+        var _PLUME = {
+            "config": "../config/svm.xml",
+            "initPage": "shopList"
         }
     </script>
 </head>
 
 <body>
-  <div class="doc-temp-body">
+<div class="doc-temp-body">
     <div class="search-block">
-      <form class="form-inline">
-        <div class="form-group">
-          <label>商场名</label>
-          <input type="text" id="marketName" class="form-control input-sm" />
-        </div>
-        <div class="form-group">
-          <label>品牌名称</label>
-          <input type="text" id="brandName" class="form-control input-sm">
-        </div>
-        <div class="form-group">
-          <label>店铺状态</label>
-          <select id="isDel" class="form-control input-sm">
-            <option value="0" selected>开启</option>
-            <option value="1">关闭</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>系列名称</label>
-          <input type="text" id="seriesName" class="form-control input-sm">
-        </div>
-        <div class="btn btn-default btn-sm btn-search">查询</div>
-         <div class="btn btn-default btn-sm btn-empty">清空条件</div>
-      </form>
+        <form class="form-inline">
+            <div class="form-group">
+                <label>商场名</label>
+                <input type="text" id="marketName" class="form-control input-sm"/>
+            </div>
+            <div class="form-group">
+                <label>品牌名称</label>
+                <input type="text" id="brandName" class="form-control input-sm">
+            </div>
+            <div class="form-group">
+                <label>店铺状态</label>
+                <select id="isDel" class="form-control input-sm">
+                    <option value="0" selected>开启</option>
+                    <option value="1">关闭</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>系列名称</label>
+                <input type="text" id="seriesName" class="form-control input-sm">
+            </div>
+            <div class="btn btn-default btn-sm btn-search">查询</div>
+            <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+        </form>
     </div>
-    
+
     <div class="table-block">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <td style="width: 2%"><input type="checkbox" /></td>
-            <td style="width: 6%">店铺ID</td>
-            <td style="width: 12%">展位号</td>
-            <td style="width: 15%">公司名称</td>
-            <td style="width: 8%">品牌名</td>
-            <td style="width: 8%">系列</td>
-            <td style="width: 20%">所属商场名称</td>
-            <td style="width: 8%">店铺联系人</td>
-            <td style="width: 12%">联系人手机号</td>
-            <td style="width: auto">店铺状态</td>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td style="width: 2%"><input type="checkbox"/></td>
+                <td style="width: 6%">店铺ID</td>
+                <td style="width: 12%">展位号</td>
+                <td style="width: 15%">公司名称</td>
+                <td style="width: 8%">品牌名</td>
+                <td style="width: 8%">系列</td>
+                <td style="width: 20%">所属商场名称</td>
+                <td style="width: 8%">店铺联系人</td>
+                <td style="width: 12%">联系人手机号</td>
+                <td style="width: auto">店铺状态</td>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
-     <div class="nav-pagination clearFix">
+    <div class="nav-pagination clearFix">
         <ul class="pagination">
         </ul>
     </div>
-  </div>
+</div>
 </body>
 </html>
