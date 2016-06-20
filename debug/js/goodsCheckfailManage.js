@@ -1,5 +1,6 @@
 $(function () {
     plumeLog("进入goodsCheckfailManage模板自定义js-" + plumeTime());
+    setPageCount();
     //初始化数据
     var datas = {
         "productName": "",

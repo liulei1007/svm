@@ -1,4 +1,6 @@
 $(function () {
+    plumeLog("进入amendmentInfo模板自定义js-" + plumeTime());
+    setPageCount();
     var datas = {
         "productName": "",
         "modelNumber": "",

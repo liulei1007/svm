@@ -1,6 +1,4 @@
-//document.domain = "hxmklmall.cn";
-console.log("domain:" + document.domain);
-//»º´æ½Ó¿Ú
+//ç¼“å­˜
 var session = function () {
     return sessionStorage;
 }();

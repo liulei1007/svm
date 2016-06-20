@@ -1,5 +1,6 @@
 $(function () {
     plumeLog("进入goodsDraft模板自定义js-" + plumeTime());
+    setPageCount();
     var datas = {
         "page": 0,
         "limit": 0

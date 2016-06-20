@@ -5,6 +5,7 @@ $(function () {
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
     }
+   
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
 
@@ -136,7 +137,7 @@ $(function () {
         $thisMenu.addClass("active").siblings().removeClass("active");
         var authNum=$(this).attr("auth");
         $(".slidebar-menu").hide();
-        $(".page-content").find("[auth="+authNum+"]").slideDown();
+        $(".page-content").find("[auth="+authNum+"]").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
@@ -173,16 +174,23 @@ $(function () {
         window.location.href = "index";
     });
 });
+var PAGE_COUNT=11;
 function onePageCount(){
+    return PAGE_COUNT;
+}
+function setPageCount(){
     var h=$(window).height();
     var h1=$(".title-block").height()+30;
     var h2=$(".search-block").height()+20;
     var h3=$(".alert-info").height()+20;
     var h4=$(".btn-block").height()+40;
-   // var n=parseInt((h-h1-h2-h3-h4-105)/40);
-    n=11;
-    // $(".table-block").css({"height":40*n});
-    return n-1;
+    var n=parseInt((h-h1-h2-h3-h4-105)/40);
+    //n=11;
+    if(n<2){
+        n=2;
+    }
+    $(".table-block").css({"height":40*n});
+    PAGE_COUNT= n-1;
 }
 //检测session失效
 function chkUserStatus(){
@@ -270,7 +278,7 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName="+session.nowPageName+"]").addClass("active").parent().slideDown();
+            $("[pageName="+session.nowPageName+"]").addClass("active").parent().show();
             var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
             $(".slidebar").find("[auth="+authNum+"]").addClass("active");
         } else {

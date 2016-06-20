@@ -266,7 +266,8 @@ $.extend({
 //dom级功能组件
 /*开放API:
  1.loadTemp v1.3之后加入,推荐使用
- 2.setPageData v1.0之后加入,不推荐使用,功能未定型
+ 2.setPageData v1.0之后加入
+ 3.setPageData v1.6之后可使用,DOM级数据绑定方法
  */
 $.fn.extend({
     //开放方法,dom级别加载,不涉及路由变化.动态参数,name:模板名称,flag:cache,nochangeurl标识,fun 回调函数
@@ -294,7 +295,6 @@ $.fn.extend({
             fun = args[2];
         }
         var dom = this;
-        console.log(this)
         var prams = "";
         if (name.indexOf("?") != -1) {
             prams = name.substring(name.indexOf("?"));
@@ -394,12 +394,12 @@ $.fn.extend({
     }
 });
 function listNodeShow(o){
-    o.fadeIn(200);
+    o.fadeIn(300);
     if($(o).next().length != 0){
         var ox=$(o).next();
         setTimeout(function(){
             listNodeShow(ox);
-        },50);
+        },20);
     }
 }
 
@@ -537,5 +537,15 @@ function plumeTime() {
 }
 //内部测试方法,打印日志
 function plumeLog(o) {
-    console.log(o);
+    try{
+        console.log(o);
+    }catch(e){}
+}
+window.onerror = function(msg, url, line) {
+    plumeLog("----程序出现异常----");
+    plumeLog(msg);
+    plumeLog(url);
+    plumeLog(line);
+    plumeLog("--------------------");
+    return true;
 }
