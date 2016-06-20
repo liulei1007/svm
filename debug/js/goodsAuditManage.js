@@ -72,6 +72,7 @@ $(function () {
                         derict(this, "showMyGoods", "nochangeurl");
                     });
 
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').text(0);
 
                     totalPage = Math.ceil(data.countRecord / onePageCount());
                     newPage(totalPage, function (i) {
