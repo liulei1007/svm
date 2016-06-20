@@ -24,7 +24,7 @@
         <form class="form-inline">
             <div class="form-group">
                 <label for="productName">商品名称</label>
-                <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:120px">
+                <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:240px">
             </div>
             <div class="form-group category-block">
                 <label>分类</label>
@@ -55,6 +55,12 @@
                     <option value="0">禁用</option>
                     <option value="1">启用</option>
                 </select>
+            </div>
+            <div class="form-group form-time">
+                <label for="startDate">创建时间</label>
+                <input type="text" class="form-control input-sm" readonly id="startDate" placeholder=""  style="width:120px">
+                <label for="endDate" style="margin: 0 -5px 0 5px;">--</label>
+                <input type="text" class="form-control input-sm" readonly id="endDate" placeholder=""  style="width:120px">
             </div>
             <div class="btn btn-default btn-sm gdm-btn-search">查询</div>
             <div class="btn btn-default btn-sm gdm-btn-reload">清空条件</div>
