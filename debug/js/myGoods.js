@@ -838,7 +838,7 @@ $(function () {
             goodsJson.color = $(this).children().first().attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
             goodsJson.salePrice = $(this).find(".marketPrice").val();
-            goodsArray.push(photosJson);
+            goodsArray.push(goodsJson);
         });
         dataJson.goods = goodsArray;
 
