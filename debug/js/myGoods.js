@@ -856,7 +856,7 @@ $(function () {
         $.ajax({
             type: "POST",
             url: url,
-            data: $.parseJSON(dataJson),
+            data: JSON.stringify(dataJson),
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
