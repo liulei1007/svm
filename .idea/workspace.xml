@@ -29,17 +29,39 @@
               <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
 =======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="336">
+              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+              <folding>
+                <element signature="e#3846#9549#0" expanded="false" />
+                <element signature="e#9591#17206#0" expanded="false" />
+                <element signature="e#17247#18745#0" expanded="false" />
+                <element signature="e#18795#20249#0" expanded="false" />
+                <element signature="e#20288#22051#0" expanded="false" />
+                <element signature="e#22090#25533#0" expanded="false" />
+                <element signature="e#25583#26755#0" expanded="false" />
+                <element signature="e#26792#28575#0" expanded="false" />
+                <element signature="e#28613#29855#0" expanded="false" />
+                <element signature="e#29898#30051#0" expanded="false" />
+                <element signature="e#30111#32697#0" expanded="false" />
+                <element signature="e#39946#46650#0" expanded="false" />
+              </folding>
+=======
             <state relative-caret-position="300">
               <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
               <folding />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="myGoods.html" pinned="false" current-in-tab="false">
+=======
 <<<<<<< HEAD
       <file leaf-file-name="groundGoods.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/groundGoods.js">
@@ -47,26 +69,39 @@
             <state vertical-scroll-proportion="0.0">
 =======
       <file leaf-file-name="myGoods.html" pinned="false" current-in-tab="true">
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
         <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="299">
+              <caret line="382" column="73" selection-start-line="382" selection-start-column="73" selection-end-line="382" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/debug/login-new.html">
+      <file leaf-file-name="goodsDataManage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="261">
+              <caret line="203" column="58" selection-start-line="203" selection-start-column="58" selection-end-line="203" selection-end-column="58" />
+=======
             <state relative-caret-position="-675">
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="goodsCheckfailManage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/pages/goodsCheckfailManage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="88" />
+=======
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -77,11 +112,16 @@
             <state relative-caret-position="0">
               <caret line="75" column="58" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="goodsCheckfailManage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/goodsCheckfailManage.js">
+=======
 <<<<<<< HEAD
       <file leaf-file-name="noCompleteData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/noCompleteData.js">
@@ -91,9 +131,10 @@
 =======
       <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="370" column="11" selection-start-line="366" selection-start-column="4" selection-end-line="370" selection-end-column="11" />
+            <state relative-caret-position="261">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -102,6 +143,10 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="196">
+              <caret line="416" column="9" selection-start-line="416" selection-start-column="9" selection-end-line="416" selection-end-column="9" />
+=======
             <state relative-caret-position="25">
               <caret line="181" column="35" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
               <folding />
@@ -125,11 +170,19 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="goodsDraft.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/pages/goodsDraft.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="74" />
+=======
 <<<<<<< HEAD
       <file leaf-file-name="amendmentInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/js/amendmentInfo.js">
@@ -143,11 +196,19 @@
             <state relative-caret-position="3750">
               <caret line="288" column="13" selection-start-line="288" selection-start-column="13" selection-end-line="288" selection-end-column="13" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="goodsDraft.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/debug/js/goodsDraft.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+=======
 <<<<<<< HEAD
       <file leaf-file-name="svm.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
@@ -161,6 +222,7 @@
             <state relative-caret-position="75">
               <caret line="3" column="11" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="11" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
               <folding />
             </state>
           </provider>
@@ -174,6 +236,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -207,10 +272,8 @@
         <option value="$PROJECT_DIR$/debug/pages/amendmentInfo.html" />
         <option value="$PROJECT_DIR$/debug/js/amendmentInfo.js" />
         <option value="$PROJECT_DIR$/debug/js/userType.js" />
-        <option value="$PROJECT_DIR$/debug/js/goodsCheckfailManage.js" />
         <option value="$PROJECT_DIR$/debug/pages/userType.html" />
         <option value="$PROJECT_DIR$/debug/js/plumeimplement.js" />
-        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
         <option value="$PROJECT_DIR$/debug/config/svm.xml" />
         <option value="$PROJECT_DIR$/debug/js/goodsAuditManage.js" />
         <option value="$PROJECT_DIR$/debug/pages/goodsDataManage.html" />
@@ -221,11 +284,18 @@
         <option value="$PROJECT_DIR$/debug/js/plume.js" />
         <option value="$PROJECT_DIR$/debug/js/login-new.js" />
         <option value="$PROJECT_DIR$/debug/css/svm.css" />
-        <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
         <option value="$PROJECT_DIR$/debug/js/index.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/debug/index.html" />
+=======
         <option value="$PROJECT_DIR$/debug/js/goodsDraft.js" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
         <option value="$PROJECT_DIR$/debug/pages/goodsDraft.html" />
         <option value="$PROJECT_DIR$/debug/js/plumecommon.js" />
+        <option value="$PROJECT_DIR$/debug/pages/myGoods.html" />
+        <option value="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
+        <option value="$PROJECT_DIR$/debug/js/goodsCheckfailManage.js" />
+        <option value="$PROJECT_DIR$/debug/js/goodsDraft.js" />
         <option value="$PROJECT_DIR$/debug/js/myGoods.js" />
         <option value="$PROJECT_DIR$/debug/js/noCompleteData.js" />
         <option value="$PROJECT_DIR$/debug/index.html" />
@@ -271,9 +341,12 @@
     <panes>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
       <pane id="Scratches" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
       <pane id="Scope" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -282,72 +355,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debug" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debug" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="svm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="debug" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
 <<<<<<< HEAD
       <pane id="Scratches" />
+      <pane id="Scope" />
+=======
+<<<<<<< HEAD
+      <pane id="Scratches" />
 =======
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,8 +374,12 @@
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
 =======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
     <property name="last_opened_file_path" value="D:/work" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
     <property name="FullScreen" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -445,11 +467,12 @@
       <option name="presentableId" value="Default" />
       <updated>1460424749645</updated>
       <workItem from="1466390601335" duration="2772000" />
+      <workItem from="1466402227374" duration="1493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2772000" />
+    <option name="totallyTimeSpent" value="4265000" />
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
@@ -475,11 +498,12 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 =======
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25296736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38249594" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -492,7 +516,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
     </layout>
@@ -515,6 +538,8 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/debug/js/changepwd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -557,6 +582,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
     <entry file="file://$PROJECT_DIR$/debug/pages/showMyGoods.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -692,6 +718,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/debug/js/goodsCheckfailManage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -699,6 +727,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
     <entry file="file://$PROJECT_DIR$/debug/js/goodsAuditManage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -713,6 +742,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/debug/pages/goodsCheckfailManage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -720,6 +751,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
     <entry file="file://$PROJECT_DIR$/debug/pages/shopList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -738,13 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/goodsDataManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="86" column="44" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -806,58 +831,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/pages/goodsDraft.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1325">
-          <caret line="53" column="122" selection-start-line="53" selection-start-column="122" selection-end-line="53" selection-end-column="122" />
-          <folding />
->>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/goodsDraft.js">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
-        <state relative-caret-position="1850">
-          <caret line="74" column="51" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="51" />
-          <folding />
->>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../nginx/conf/nginx.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="48" column="28" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/login-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/index.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="367" column="4" selection-start-line="367" selection-start-column="4" selection-end-line="367" selection-end-column="4" />
-=======
-        <state relative-caret-position="0">
+        <state relative-caret-position="1875">
           <caret line="75" column="58" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
           <folding />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
@@ -867,18 +858,78 @@
     <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-=======
-        <state relative-caret-position="150">
+        <state relative-caret-position="9250">
           <caret line="370" column="11" selection-start-line="366" selection-start-column="4" selection-end-line="370" selection-end-column="11" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="1850">
+          <caret line="74" column="51" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="51" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+    <entry file="file://$PROJECT_DIR$/debug/js/plumeimplement.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9250">
+          <caret line="370" column="1" selection-start-line="370" selection-start-column="1" selection-end-line="370" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/editMyGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/plume.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="7200">
+          <caret line="288" column="13" selection-start-line="288" selection-start-column="13" selection-end-line="288" selection-end-column="13" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="367" column="4" selection-start-line="367" selection-start-column="4" selection-end-line="367" selection-end-column="4" />
+=======
+        <state relative-caret-position="0">
+          <caret line="75" column="58" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
+          <folding />
+>>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/plumecommon.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="75">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="11" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+=======
+        <state relative-caret-position="150">
+          <caret line="370" column="11" selection-start-line="366" selection-start-column="4" selection-end-line="370" selection-end-column="11" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
+          <folding />
+>>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/takingGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="175">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+=======
         <state relative-caret-position="25">
           <caret line="181" column="35" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
         </state>
@@ -888,10 +939,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34819898">
           <caret line="53" column="122" selection-start-line="53" selection-start-column="122" selection-end-line="53" selection-end-column="122" />
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/debug/js/takingGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="46" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/debug/js/goodsDraft.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -903,10 +961,17 @@
         <state relative-caret-position="1700">
           <caret line="370" column="1" selection-start-line="370" selection-start-column="1" selection-end-line="370" selection-end-column="1" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/debug/pages/goodsDataManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="90" column="62" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="74" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -918,10 +983,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/debug/js/goodsDataManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="203" column="58" selection-start-line="203" selection-start-column="58" selection-end-line="203" selection-end-column="58" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -941,10 +1013,17 @@
         <state relative-caret-position="3750">
           <caret line="288" column="13" selection-start-line="288" selection-start-column="13" selection-end-line="288" selection-end-column="13" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/debug/pages/goodsCheckfailManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="87" column="76" selection-start-line="87" selection-start-column="76" selection-end-line="87" selection-end-column="88" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/debug/js/groundGoods.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -956,10 +1035,73 @@
         <state relative-caret-position="75">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="11" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/debug/pages/goodsDraft.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/goodsCheckfailManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/takingGoodsData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/takingGoodsData.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/groundGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="416" column="9" selection-start-line="416" selection-start-column="9" selection-end-line="416" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/pages/groundGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/goodsDraft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+=======
     <entry file="file://$PROJECT_DIR$/debug/config/svm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -977,6 +1119,7 @@
         <state relative-caret-position="300">
           <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
         </state>
       </provider>
@@ -997,10 +1140,36 @@
 =======
     <entry file="file://$PROJECT_DIR$/debug/pages/myGoods.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="299">
+          <caret line="382" column="73" selection-start-line="382" selection-start-column="73" selection-end-line="382" selection-end-column="83" />
+=======
         <state relative-caret-position="238">
           <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
 >>>>>>> 1cc83a01b17881b879413e9aff8960253d9b9f3f
+>>>>>>> ac36de09612c7effba5d78bfe10d8f797c482fc4
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+          <folding>
+            <element signature="e#3846#9549#0" expanded="false" />
+            <element signature="e#9591#17206#0" expanded="false" />
+            <element signature="e#17247#18745#0" expanded="false" />
+            <element signature="e#18795#20249#0" expanded="false" />
+            <element signature="e#20288#22051#0" expanded="false" />
+            <element signature="e#22090#25533#0" expanded="false" />
+            <element signature="e#25583#26755#0" expanded="false" />
+            <element signature="e#26792#28575#0" expanded="false" />
+            <element signature="e#28613#29855#0" expanded="false" />
+            <element signature="e#29898#30051#0" expanded="false" />
+            <element signature="e#30111#32697#0" expanded="false" />
+            <element signature="e#39946#46650#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

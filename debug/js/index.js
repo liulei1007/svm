@@ -932,13 +932,10 @@ function checkFormNull(checkObj) {
     if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
         return false;
     }
-    // // 如果是下拉框
-    // if ($(checkObj).is("select")) {
-    //     if ($(checkObj).) {}
-    // }
     if (!$(checkObj).val() || $(checkObj).val().trim() == "") {
         var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
         $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
+        // $(checkObj).parent().after('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>').parents(".form-group").addClass("has-warning");
         return false;
     }
     else return true;
@@ -955,7 +952,8 @@ function checkPhone(checkObj, checkType) {
 	if (checkFormNull($(checkObj))) {
 		// 其次判断是否符合手机号规则
 		if (!isMobile($(checkObj).val().trim())) {
-			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
+			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
+			// $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
 			return;
 		}
 		// 最后判断手机号是否已经存在
@@ -998,6 +996,21 @@ function checkPhoneExist(checkObj, checkType){
 	});
 }
 
+
+function checkFloat(checkObj) {
+	// 首先判断是否为空
+	if ($(checkObj).val() && $(checkObj).val().trim() != "") {
+		console.log(isFloat($(checkObj).val()));
+		// 其次判断是否符合数字规则
+		if (!isFloat($(checkObj).val())) {
+			var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
+			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
+			return false;
+		}
+	}
+	return true;
+}
+
 //页面回车事件
 function keyDown(ele){
     $("body").keydown(function() {
@@ -1007,6 +1020,9 @@ function keyDown(ele){
     });
 }
 
+function isFloat(num) {
+	return /^[0-9]+.?[0-9]*$/.test(num);
+}
 
 //密码验证: 6-15位字符，建议数字和字母组合
 function pwdCheck(pwd) {

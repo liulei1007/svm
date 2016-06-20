@@ -1,6 +1,11 @@
 $(function () {
     formCtrl();
+    formControl()
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
+    $(".num").bind("blur", function() {
+    	// console.log($(this).val());
+    	checkFloat($(this));
+    });
     // 绑定点击图片展示大图
     $(".createNewGoods").on("click", ".cmg-goodsimgs", function () {
         var imgSrc = $(this).attr("src");
@@ -22,11 +27,11 @@ $(function () {
         });
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "userType", "nochangeurl");
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
-        formCtrl();
+        // formCtrl();
         getbrandList();
         getProductAttribute();
         setColors();
@@ -43,7 +48,8 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            session.goods_showMyGoods_page ? derict(this, session.goods_showMyGoods_page, "nochangeurl") :
+                derict(this, "goodsDataManage", "nochangeurl");
         });
         getDataInit();
     }
@@ -455,7 +461,7 @@ $(function () {
             }
             for (var i = 0; i < data.data.length; i++) {
                 var d = data.data[i];
-                var temp = '<div class="form-group required">';
+                var temp = '<div class="form-group">';
                 temp += '<label class="col-sm-2 control-label">' + d.attrNameFront + '</label>';
                 temp += '<div class="col-sm-2">';
                 if (d.attr_input == "text") {
@@ -623,55 +629,28 @@ $(function () {
 
     //表单验证
     function validata() {
-        var flag = true;
 
-        $(".cmg-error").removeClass("cmg-error");
-        $(".alert-danger").text("").hide();
-
-        $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                $(this).addClass("cmg-error");
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                flag = false;
-            } else {
-                $(this).parent().parent().find(".alert-danger").hide();
-            }
+        var ifNull = false, ifFloat = true;
+        // 首先确保数据都输入了
+        $(".form-group.required input:visible, .form-group.required select:visible").each(function() {
+            if (!checkFormNull($(this))) ifNull = true;
         });
+        // 其次判断数字是否输入正确
+        $(".num").each(function() {
+        	if (!checkFloat($(this))) ifFloat = false;
 
-        var $_countryId = $("#countryId"),
-            $_provinceId = $('#provinceId'),
-            $_cityId = $('#cityId');
-
-        if ($_countryId.val() === "CN") {
-            var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
-
-            var validAddress = function ($it, result) {
-                var $obj = $it.parent().parent().find(".alert-danger");
-                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
-            };
-            if (!pid || !cid) {
-                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
-                flag = false;
-            } else {
-                validAddress($_cityId, false) && validAddress($_provinceId, false);
-            }
+        });
+        // 最后判断产地——若产地为中国，必须选择至省
+        if ($("#countryId").val() == "CN") {
+        	if ($("#cityId").val() == "") {
+        		$(this).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请选择产地</div>');
+        		ifNull = true;
+        	}
         }
-
-        var re = /^[0-9]+.?[0-9]*$/;
-        $(".num").each(function () {
-            if ($(this).val() != "") {
-                if (re.test($(this).val())) {
-                    $(this).parent().parent().find(".alert-danger").hide();
-                } else {
-                    $(this).addClass("cmg-error")
-                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
-                    flag = false;
-                }
-            }
-
-        });
-        $($(".cmg-error")[0]).focus();
-        return flag;
+        $($(".has-warning")[0]).find(".form-control").focus();
+        console.log($("#countryId").val());
+        console.log(!ifNull && ifFloat);
+        return (!ifNull && ifFloat);
     }
 
     //规格

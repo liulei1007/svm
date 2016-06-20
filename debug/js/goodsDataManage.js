@@ -201,6 +201,7 @@ $(function () {
         $(".gdm-btn-edit").unbind().bind("click", function () {
             session.goods_showMyGoods_productId = $(this).attr("productId");
             session.goods_showMyGoods_type = "edit";
+            session.goods_showMyGoods_page = "goodsDataManage";
             derict(this, "myGoods", "nochangeurl");
         });
         $('.gdm-btn-copy').unbind().bind("click", function () {
