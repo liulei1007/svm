@@ -623,9 +623,11 @@ $(function () {
 
     //表单验证
     function validata() {
-        $(".cmg-error").removeClass("cmg-error");
-        $(this).parent().parent().find(".alert-danger").text("").hide();
         var flag = true;
+
+        $(".cmg-error").removeClass("cmg-error");
+        $(".alert-danger").text("").hide();
+
         $(".notNull").each(function () {
             if ($(this).val() == "") {
                 $(this).addClass("cmg-error");
@@ -635,6 +637,25 @@ $(function () {
                 $(this).parent().parent().find(".alert-danger").hide();
             }
         });
+
+        var $_countryId = $("#countryId"),
+            $_provinceId = $('#provinceId'),
+            $_cityId = $('#cityId');
+
+        if ($_countryId.val() === "CN") {
+            var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
+
+            var validAddress = function ($it, result) {
+                var $obj = $it.parent().parent().find(".alert-danger");
+                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
+            };
+            if (!pid || !cid) {
+                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                flag = false;
+            } else {
+                validAddress($_cityId, false) && validAddress($_provinceId, false);
+            }
+        }
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
@@ -746,6 +767,8 @@ $(function () {
         if (!validata()) {
             return false;
         }
+        var $_countryId = $("#countryId"), $_provinceId = $('#provinceId'), $_cityId = $('#cityId');
+
         var pram_str = '{';
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             pram_str += '';
@@ -760,22 +783,13 @@ $(function () {
         pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
         pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
         pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
-        pram_str += ' "countryId": "' + $("#countryId").val() + '",';
-        pram_str += '"countryName": "' + $("#countryId").find("option:selected").text() + '",';
-        var pid = "0";
-        var cid = "0";
-        var pname = "";
-        var cname = "";
-        if ($("#countryId").val() == "CN") {
-            pid = $("#provinceId").val();
-            pname = $("#provinceId").find("option:selected").text();
-            cid = $("#cityId").val();
-            cname = $("#cityId").find("option:selected").text();
-        }
-        pram_str += '"provinceId": "' + pid + '",';
-        pram_str += '"provinceName": "' + pname + '",';
-        pram_str += '"cityId": "' + cid + '",';
-        pram_str += '"cityName": "' + cname + '",';
+        pram_str += ' "countryId": "' + $_countryId.val() + '",';
+        pram_str += '"countryName": "' + $_countryId.find("option:selected").text() + '",';
+
+        pram_str += '"provinceId": "' + $.trim($_provinceId.val()) + '",';
+        pram_str += '"provinceName": "' + $_provinceId.find("option:selected").text() + '",';
+        pram_str += '"cityId": "' + $.trim($_cityId.val()) + '",';
+        pram_str += '"cityName": "' + $_cityId.find("option:selected").text() + '",';
         pram_str += '"modelNumber": "' + $("#modelNumber ").val() + '",';
         pram_str += ' "materialQuality": "' + $("#materialQuality").val() + '",';
         pram_str += '"weight": "' + $("#weight").val() + '",';
