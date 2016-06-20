@@ -850,13 +850,14 @@ $(function () {
             'feed': plumeApi["addProductInfoFeedback"],
             'amend': plumeApi["editProductInfoUpt"]
         }[sessionType]);
+        var data = JSON.stringify(dataJson);
 
         loading();
 
         $.ajax({
             type: "POST",
             url: url,
-            data: JSON.stringify(dataJson),
+            data: data,
             contentType: "application/json",
             dataType: "json",
             success: function (data) {
