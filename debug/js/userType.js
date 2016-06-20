@@ -6,13 +6,14 @@ $(function () {
     $(".type-third-span").text($(".type-third").find(".sel").text()).attr("categoryId", $(".type-third").find(".sel").attr("categoryId"));
     //下一步按钮操作
     $(".ut-btn-next").bind("click", function () {
+        session.goods_userType = "";
         if((!$(".type-third-span").attr("categoryId"))||($(".type-third-span").attr("categoryId")=="")){
             $(".pop").find(".popup-title").html("信息提示");
             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
             $(".pop").find(".popup-info").html("请选择类目");
             return;
         }
-        session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
+        session.goods_userType = $(".type-first-span").text() + ">" + $(".type-second-span").text() + ">" + $(".type-third-span").text();
         //alert($(".type-first-span").length);
         session.goods_categoryId = $(".type-third-span").attr("categoryId");
         session.goods_categoryName = $(".type-third-span").text();

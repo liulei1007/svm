@@ -1,4 +1,5 @@
 $(function () {
+    formCtrl();
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     // 绑定点击图片展示大图
     $(".createNewGoods").on("click", ".cmg-goodsimgs", function () {
@@ -753,7 +754,7 @@ $(function () {
         } else if (session.goods_showMyGoods_type == "amend") {
             pram_str += '"uptId": "' + session.goods_showMyGoods_uptId + '",';
         }
-        pram_str += '"productName": "' + $("#productName").val() + '",';
+        pram_str += '"productName": "' + $("#productName").val().replace(/[\"\"]/g,"\'") + '",';
         pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
         pram_str += '"brandId": "' + $("#brandId").val() + '",';
         pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
@@ -853,14 +854,14 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
-                if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
-                    return;
-                }
+                // if (!data.data) {
+                //     $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //         $(".pop").find(".popup-title").html("信息提示");
+                //         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //         $(".pop").find(".popup-info").html("未查询到数据!");
+                //     });
+                //     return;
+                // }
                 if (data.ok) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");

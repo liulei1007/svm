@@ -28,7 +28,6 @@ $(function () {
         // 公司名称！！！！少！！！！！！！
         data.seriesName = $("#seriesName").val();
         data.marketName = $("#marketName").val();
-        data.shopName = $("#shopName").val();
         data.personDealerName = $("#personDealerName").val();
         data.isDel = $("#isDel").find('option:selected').val();
         data.brandName = $("#brandName").val();
@@ -79,17 +78,14 @@ $(function () {
     function showData(result) {
         unloading();
         if (result.ok) {
-            // 总记录数
-            console.log(result.countRecord);
 
             // 下方分页
             var pageList = "";
             // 总页数
             var totalPages = Math.ceil(result.countRecord / 10);
 
-            var tableList = "";
+            var tableList = "<tr style='display: none'></tr>";
             result.data.map(function (list) {
-                console.log(list);
                 tableList += '<tr>';
                 tableList += '<td><input type="checkbox" /></td>';
                 // 序号

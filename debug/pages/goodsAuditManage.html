@@ -53,29 +53,30 @@
         </form>
     </div>
 
-    <div class="alert alert-info">您当前还有<strong data-name="$p.countRecord" class="infoNum"></strong>条商品信息需要处理!</div>
+    
     <div class="btn-block clearFix">
         <button class="btn btn-batch btn-allAudit">批量审核</button>
+        <div class="pull-right alert alert-info">您当前还有<strong data-name="$p.countRecord" class="infoNum"></strong>条商品信息需要处理!</div>
     </div>
     <div class="table-block gam-table">
         <table class="table table1 table-striped">
             <thead>
             <tr>
-                <th style="width:3%"><input type="checkbox"/></th>
-                <th style="width:20%">商品名称</th>
-                <th style="width:10%">型号</th>
-                <th style="width:8%">产地</th>
-                <th style="width:8%">品牌</th>
-                <th style="width:8%">系列名</th>
-                <th style="width:15%">分类</th>
-                <th style="width:8%">审核时间</th>
-                <th style="width:auto">操作</th>
+                <td style="width:2%"><input type="checkbox"/></td>
+                <td style="width:25%">商品名称</td>
+                <td style="width:10%">型号</td>
+                <td style="width:15%">产地</td>
+                <td style="width:10%">品牌</td>
+                <td style="width:8%">系列名</td>
+                <td style="width:15%">分类</td>
+                <td style="width:8%">审核时间</td>
+                <td style="width:auto">操作</td>
             </tr>
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
                 <td node-name="attr-uptId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productName,attr-uptId:$n.uptId" class="linkcell gam-btn-show"></td>
+                <td node-name="$n.productName,attr-uptId:$n.uptId" class="a-link gam-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
@@ -84,7 +85,7 @@
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <!--<div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>-->
-                    <div type="button" class="btn btn-link btn-sm btn-releaseGoods btn-audit "  node-name="attr-uptId:$n.uptId">审核</div>
+                    <div type="button" class="btn btn-link btn-releaseGoods btn-audit "  node-name="attr-uptId:$n.uptId">审核</div>
                 </td>
             </tr>
             </tbody>

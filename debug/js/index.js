@@ -181,7 +181,7 @@ function onePageCount(){
     var h4=$(".btn-block").height()+40;
    // var n=parseInt((h-h1-h2-h3-h4-105)/40);
     n=11;
-    $(".table-block").css({"height":40*n});
+    // $(".table-block").css({"height":40*n});
     return n-1;
 }
 //检测session失效
@@ -746,7 +746,7 @@ function checkNull(checkObj) {
     // 清除可能存在的提示信息
     $(checkObj).parents(".form-group").removeClass("has-warning").find(".alert").remove();
     if ($(checkObj).val().trim() == "") {
-        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入</div>');
+        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入</div>');
         return false;
     }
     else return true;
@@ -924,7 +924,7 @@ function checkFormNull(checkObj) {
     // }
     if (!$(checkObj).val() || $(checkObj).val().trim() == "") {
         var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
-        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入' + tipsText + '</div>');
+        $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
         return false;
     }
     else return true;
@@ -941,7 +941,7 @@ function checkPhone(checkObj, checkType) {
 	if (checkFormNull($(checkObj))) {
 		// 其次判断是否符合手机号规则
 		if (!isMobile($(checkObj).val().trim())) {
-			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-info">请输入正确的手机号码</div>');
+			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
 			return;
 		}
 		// 最后判断手机号是否已经存在

@@ -93,7 +93,6 @@ $(function () {
                             }
                             $(".gdm-table-data").find("[list-node]").remove();
                             $(".gdm-table-data").setPageData(data);
-
                             binFun();
                             getFirstCategory(0, 0);
                         }

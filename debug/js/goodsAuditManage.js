@@ -144,6 +144,9 @@ $(function () {
             datas.productName = $("#agencyName").val();
             datas.reviewStatus = $("#reviewStatus").val();
             datas.modelNumber=$("#modelNumber").val();
+            datas.baseCategoryId = $("#baseCategoryId").val();
+            datas.subCategoryId = $("#subCategoryId").val();
+            datas.categoryId = $("#categoryId").val();
             listProductInfoUpt();
             $(".nav-pagination").off();
         });

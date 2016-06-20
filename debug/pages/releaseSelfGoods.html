@@ -19,7 +19,6 @@
 
 <body>
 <div class="doc-commodityManagement">
-   <div class="title-block">发布自采商品</div>
     <div class="search-block">
       <form class="form-inline">
         <div class="form-group">
@@ -35,14 +34,14 @@
       </form>
     </div>
 
-    <div class="alert alert-info">
-      <p>当前商品总数：<strong data-name="$p.countRecord" class="infoNum"></strong>条&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;自采商品录入信息简单，不要求选择类目，支持批量导入</p>
-    </div>
+    
 
     <div class="btn-block clearFix">
      <!--  <button class="btn btn-primary btn-icons btn-publishBatch btn-batch">批量导入自采商品</button> -->
       <button class="btn btn-primary btn-icons btn-publishSingle btn-createNew">单笔新增自采商品</button>
-
+      <div class="pull-right alert alert-info">
+      <p>当前商品总数：<strong data-name="$p.countRecord" class="infoNum"></strong>条&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;自采商品录入信息简单，不要求选择类目，支持批量导入</p>
+    </div>
     </div>
     <div class="table-block">   
         <!-- <div class="table-info">
@@ -51,16 +50,16 @@
         <table class="table table1 table-striped">
             <thead>
               <tr>
-                <th style="width:10%">商品数据ID号</th>
-                <th style="width:15%">商品名称</th>
-                <th style="width:5%">品牌</th>
-                <th style="width:10%">型号</th>
-                <th style="width:10%">规格</th>
-                <th style="width:5%">主要用料</th>
-                <th style="width:5%">单位名称</th>
-                <th style="width:10%">零售价</th>
-                <th style="width:10%">商品描述</th>
-                <th style="width:auto">操作</th>
+                <td style="width:10%">商品数据ID号</td>
+                <td style="width:15%">商品名称</td>
+                <td style="width:5%">品牌</td>
+                <td style="width:10%">型号</td>
+                <td style="width:10%">规格</td>
+                <td style="width:5%">主要用料</td>
+                <td style="width:5%">单位名称</td>
+                <td style="width:10%">零售价</td>
+                <td style="width:10%">商品描述</td>
+                <td style="width:auto">操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">

@@ -81,20 +81,9 @@ function editUserRoles(managid) {
         success: function (data) {
             unloading();
             if(data.ok) {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html('配置成功');
-                    $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                    $(".pop").find(".popup-info").html("权限调整成功");
-                });
-                // alert("权限调整成功!");
-                // $(".cic-pop").pophide();
+                showPopTips("配置成功", "success", "权限调整成功");
             } else {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html('配置失败');
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html(data.resDescription);
-                });
-                // alert("权限调整失败!"+data.resDescription);
+                showPopTips("配置失败", "danger", data.resDescription);
             }
         }
     });
@@ -158,10 +147,9 @@ function getLocalTime(nS) {
 
 //删除子账号
 function delSubUserData(managid) {
-
     $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
         // 改变弹出框中文字和图标显示
-        $(".pop").find(".popup-title").html("删除确认？");
+        $(".pop").find(".popup-title").html("确认删除？");
         $(".pop").find(".popup-icon").html('<i class="warning"></i>');
         $(".pop").find(".popup-info").html("是否确认删除记录？");
         $(".pop").find(".btn-sure").addClass("btn-danger").removeClass("btn-success");
@@ -175,11 +163,11 @@ function delSubUserData(managid) {
                 success: function (data) {
                     if(data.ok){
                         unloading();
-                        popTips("删除成功","success");
+                        showPopTips("删除成功","success", "子账号删除成功");
                         listSubUserDate();
                     }else{
                         unloading();
-                        popTips("删除失败","warning");
+                        showPopTips("删除失败", "danger", data.resDescription);
                         listSubUserDate();
                 }
             }
@@ -227,7 +215,7 @@ function getAccRole(accountId) {
 	            $(".popup-fill").css({"margin-top": -popHeight / 2, "height": popHeight});
 	        	}
         	else {
-        		showPopTips("权限获取失败", "warning", data.resDescription);
+        		showPopTips("权限获取失败", "danger", data.resDescription);
         	}
             // if (data.ok) {
             //     var roles = JSON.stringify(data.data);
