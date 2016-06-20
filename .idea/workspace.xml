@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9aff4dae-b92a-466f-9e95-f61f4ddb339a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug/js/goodsCheckfailManage.js" afterPath="$PROJECT_DIR$/debug/js/goodsCheckfailManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug/js/goodsDataManage.js" afterPath="$PROJECT_DIR$/debug/js/goodsDataManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug/js/goodsDraft.js" afterPath="$PROJECT_DIR$/debug/js/goodsDraft.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug/js/myGoods.js" afterPath="$PROJECT_DIR$/debug/js/myGoods.js" />
-    </list>
+    <list default="true" id="9aff4dae-b92a-466f-9e95-f61f4ddb339a" name="Default" comment="" />
     <ignored path="svm.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +24,8 @@
       <file leaf-file-name="myGoods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+            <state relative-caret-position="336">
+              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
               <folding>
                 <element signature="e#3846#9549#0" expanded="false" />
                 <element signature="e#9591#17206#0" expanded="false" />
@@ -332,18 +325,18 @@
       <option name="presentableId" value="Default" />
       <updated>1460424749645</updated>
       <workItem from="1466390601335" duration="2772000" />
-      <workItem from="1466402227374" duration="1449000" />
+      <workItem from="1466402227374" duration="1493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4221000" />
+    <option name="totallyTimeSpent" value="4265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1364" height="726" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25296736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25296736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38249594" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -758,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/debug/js/myGoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+        <state relative-caret-position="336">
+          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
           <folding>
             <element signature="e#3846#9549#0" expanded="false" />
             <element signature="e#9591#17206#0" expanded="false" />
