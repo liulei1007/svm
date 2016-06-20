@@ -807,7 +807,7 @@ $(function () {
         pram_str += ' "subCategoryId":' + session.goods_subCategoryId + ',';
         pram_str += '"subCategoryName": "' + session.goods_subCategoryName + '",';
         pram_str += ' "baseCategoryId": "' + session.goods_baseCategoryId + '",';
-        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",';
+        pram_str += '"baseCategoryName": "' + session.goods_baseCategoryName + '",'; 
         pram_str += ' "saleStatus": "",';
         pram_str += '"attributes": [';
         var attrs_pram_str = "";

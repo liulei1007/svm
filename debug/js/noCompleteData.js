@@ -1,5 +1,5 @@
 $(function() {
-	//初始化数�?
+	//初始化数据
 	var datas = {
 	  "productName": "",
 	  "modelNumber": "",

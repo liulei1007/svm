@@ -1,4 +1,5 @@
 $(function() {
+
 	// 初始化传输数据
 	var datas = {
 		"pdtName": "",
@@ -89,7 +90,7 @@ $(function() {
 
 	//清空搜索
     $('.btn-empty').bind('click', function() {
-        window.location.reload();`
+        window.location.reload();
     });
 
     //回车搜索
