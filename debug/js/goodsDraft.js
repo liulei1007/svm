@@ -73,6 +73,7 @@ $(function () {
         $(".gda-btn-edit").unbind().bind("click", function () {
             session.goods_code=$(this).attr("code");
             session.goods_showMyGoods_type = "draft";
+            session.goods_showMyGoods_page = "goodsDraft";
             derict(this, "myGoods", "nochangeurl");
         });
     }

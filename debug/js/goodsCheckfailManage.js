@@ -16,6 +16,7 @@ $(function () {
     $('.table-block').on('click', '.gcm-btn-edit', function () {
         session.goods_showMyGoods_uptId = $(this).attr("uptid");
         session.goods_showMyGoods_type = "amend";
+        session.goods_showMyGoods_page = "goodsCheckfailManage";
         derict(this, "myGoods", "nochangeurl");
     });
 

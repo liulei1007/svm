@@ -22,7 +22,7 @@ $(function () {
         });
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "userType", "nochangeurl");
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
@@ -43,7 +43,8 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            session.goods_showMyGoods_page ? derict(this, session.goods_showMyGoods_page, "nochangeurl") :
+                derict(this, "goodsDataManage", "nochangeurl");
         });
         getDataInit();
     }
@@ -96,7 +97,7 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDraft", "nochangeurl");
         });
         getDraftDataInit();
     }
