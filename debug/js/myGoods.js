@@ -746,24 +746,69 @@ $(function () {
         if (!validata()) {
             return false;
         }
-        var $_countryId = $("#countryId"), $_provinceId = $('#provinceId'), $_cityId = $('#cityId');
+        var dataJson = {},
+            $_countryId = $("#countryId"),
+            $_provinceId = $('#provinceId'),
+            $_cityId = $('#cityId'),
+            sessionType = session.goods_showMyGoods_type;
 
-        var pram_str = '{';
+        dataJson.productId = {
+            'edit': $("#productId").val(),
+            'feed': $("#productId").val(),
+            'amend': session.goods_showMyGoods_uptId
+        }[sessionType];
+        
         if (session.goods_showMyGoods_type == "create" || session.goods_showMyGoods_type == "copy") {
             pram_str += '';
         } else if (session.goods_showMyGoods_type == "edit" || session.goods_showMyGoods_type == "feed") {
-            pram_str += '"productId": "' + $("#productId").val() + '",';
+            dataJson.productId = $("#productId").val();
         } else if (session.goods_showMyGoods_type == "amend") {
-            pram_str += '"uptId": "' + session.goods_showMyGoods_uptId + '",';
+            dataJson.uptId = session.goods_showMyGoods_uptId;
         }
-        pram_str += '"productName": "' + $("#productName").val().replace(/[\"\"]/g,"\'") + '",';
-        pram_str += '"productSecondName": "' + $("#productSecondName").val() + '",';
-        pram_str += '"brandId": "' + $("#brandId").val() + '",';
-        pram_str += ' "seriesId": "' + $("#seriesId").val() + '",';
-        pram_str += '"seriesName": "' + $("#seriesId").find("option:selected").text() + '",';
-        pram_str += ' "brandName": "' + $("#brandId").find("option:selected").text() + '",';
-        pram_str += ' "countryId": "' + $_countryId.val() + '",';
-        pram_str += '"countryName": "' + $_countryId.find("option:selected").text() + '",';
+        dataJson.productName = $("#productName").val().replace(/[\"\"]/g,"\'");
+        dataJson.productSecondName = $("#productSecondName").val();
+        dataJson.brandId = $("#brandId").val();
+        dataJson.seriesId = $("#seriesId").val();
+        dataJson.seriesName = $("#seriesId").find("option:selected").text();
+        dataJson.brandName = $("#brandId").find("option:selected").text();
+        dataJson.countryId = $_countryId.val();
+        dataJson.countryName = $_countryId.find("option:selected").text();
+        dataJson.provinceId = $.trim($_provinceId.val());
+        dataJson.provinceName = $_provinceId.find("option:selected").text();
+        dataJson.cityId = $.trim($_cityId.val());
+        dataJson.cityName = $_cityId.find("option:selected").text();
+        dataJson.modelNumber = $("#modelNumber ").val();
+        dataJson.materialQuality = $("#materialQuality").val();
+        dataJson.weight = $("#weight").val();
+        dataJson.chargeUnit = '元';
+        dataJson.material = $("#material").val();
+        dataJson.material1 = $("#material1").val();
+        dataJson.material2 = $("#material2").val();
+        dataJson.material3 = $("#material3").val();
+        dataJson.marketPrice = $("#marketPrice").val();
+        dataJson.priceType = $("#priceType").val();
+        dataJson.lvInfo = $("#lvInfo").val();
+        dataJson.categoryId = session.goods_categoryId;
+        dataJson.categoryName = session.goods_categoryName;
+        dataJson.subCategoryId = session.goods_subCategoryId;
+        dataJson.subCategoryName = session.goods_subCategoryName;
+        dataJson.baseCategoryId = session.goods_baseCategoryId;
+        dataJson.baseCategoryName = session.goods_baseCategoryName;
+        dataJson.saleStatus = '';
+
+        var attrArray = [], attrJson = {};
+        $(".cmg-attrs").each(function () {
+            if ($(this).attr("attr_type") == 1) {
+                attrJson.attrValueId = '0';
+                attrJson.attrValue = $(this).val();
+            } else {
+                attrJson.attrValueId = $(this).val();
+                attrJson.attrValue = '';
+            }
+            attrJson.attributeId = $(this).attr("attributeId");
+            attrArray.push(attrJson);
+        });
+        dataJson.attributes = attrArray;
 
         pram_str += '"provinceId": "' + $.trim($_provinceId.val()) + '",';
         pram_str += '"provinceName": "' + $_provinceId.find("option:selected").text() + '",';
