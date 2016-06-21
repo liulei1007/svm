@@ -64,6 +64,7 @@ $(function () {
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
+        $(".cmg-draft").hide();
         $(".alert-danger").hide();
         $(".changeType").hide();
         $(".mg-title").text("商品错误信息反馈");
@@ -809,8 +810,9 @@ $(function () {
         dataJson.baseCategoryName = session.goods_baseCategoryName;
         dataJson.saleStatus = '';
 
-        var attrArray = [], attrJson = {};
+        var attrArray = [], attrJson;
         $(".cmg-attrs").each(function () {
+            attrJson = {};
             if ($(this).attr("attr_type") == 1) {
                 attrJson.attrValueId = '0';
                 attrJson.attrValue = $(this).val();
@@ -823,19 +825,21 @@ $(function () {
         });
         dataJson.attributes = attrArray;
 
-        var photosArray = [], photosJson = {};
+        var photosArray = [], photosJson;
         $(".cmg-goodsimgs").each(function () {
+            photosJson = {};
             photosJson.colorId = '0';
             photosJson.picUrl = $(this).attr("src");
             photosArray.push(photosJson);
         });
         dataJson.photos = photosArray;
 
-        var goodsArray = [], goodsJson = {};
+        var goodsArray = [], goodsJson;
         $(".cmg-goodstr").each(function () {
-            goodsJson.colorId = $(this).children().first().attr("colorid");
-            goodsJson.colorRgb = $(this).children().first().attr("colorvalue");
-            goodsJson.color = $(this).children().first().attr("colorname");
+            goodsJson = {};
+            goodsJson.colorId = $(this).find('td').attr("colorid");
+            goodsJson.colorRgb = $(this).find('td').attr("colorvalue");
+            goodsJson.color = $(this).find('td').attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
             goodsJson.salePrice = $(this).find(".marketPrice").val();
             goodsArray.push(goodsJson);

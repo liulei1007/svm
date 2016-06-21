@@ -1030,7 +1030,10 @@ function checkFloat(checkObj) {
 
 //只输入数字
 function onlyNum() {
-    //alert(event.keyCode)
+   //alert(event.keyCode)
+    if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
+        event.returnValue=false;
+    }
     if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
     if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==190)))
     event.returnValue=false;

@@ -5,6 +5,7 @@ function pageInit() {
 function index_init() {
     plumeLog("初始化index-" + plumeTime());
     plumeUtil.js(plumePath + "/js/index.js");
+    plumeUtil.js(plumePath + "/js/base.js");
     plumeLog("完成index模板加载-" + plumeTime());
 }
 //--index模板初始化函数
