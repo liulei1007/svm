@@ -73,7 +73,7 @@ $(function () {
          */
         getFirstCategory: function () {
             var $own = this,
-                cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
+                cls = ["gam-type-first", "gam-type-second", "gam-type-third"];
 
             return {
                 /**
@@ -109,6 +109,22 @@ $(function () {
                     });
                 }
             };
+        },
+
+        bingListEvent: function () {
+            var $own = this;
+
+            $(".table-block").off().on("click", '.gam-btn-show', function () {
+                var uptId = $(this).attr("uptId");
+                session.goods_showMyGoods_uptId = uptId;
+                derict(this, "showMyGoods", "nochangeurl");
+            }).on('click', '.btn-audit', function () {
+                var uptIds = [];
+                uptIds.push($(this).attr("uptId"));
+                $own.auditFun(uptIds);
+            });
+
+            return this;
         },
 
         /**
@@ -172,8 +188,8 @@ $(function () {
                 list: true,
                 data: $own.data,
                 success: function (data) {
-                    $(".gdm-table-data").find("[list-node]").remove();
-                    $(".gdm-table-data").setPageData(data);
+                    $(".gam-table").find("[list-node]").remove();
+                    $(".gam-table").setPageData(data);
                     $own.bingListEvent();
                     $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },

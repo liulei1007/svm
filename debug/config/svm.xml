@@ -493,5 +493,6 @@
         <chkUserStatus>/api/userInfo/chkUserStatus</chkUserStatus>
         <listDraft>/api/productDraft/listDraft</listDraft>
         <addDraft>/api/productDraft/addDraft</addDraft>
+        <standardUnit>/api/common/listSystemCode/standard_unit</standardUnit>
     </api>
 </config>

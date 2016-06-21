@@ -122,6 +122,25 @@ $(function () {
         $(".material").hide();
         $(".material_temp").show();
     }
+
+    var standardUnitHtml = '';
+    function getStandardUnit () {
+        return $.commonAjax({
+            url: 'standardUnit',
+            type: 'get',
+            success: function (data) {
+                if (data.ok && data.data && data.data.length > 0) {
+                    var data = data.data,
+                        dataLen = data.length;
+
+                    for (var i = 0; i < dataLen; i++) {
+                        standardUnitHtml += '<option value="' + data[i].codeValueCode + '">' + data[i].codeValueName + '</option>';
+                    }
+                }
+            }
+        })
+    }
+
     //草稿初始化
     function getDraftDataInit(){
         var code=JSON.parse(session.goods_code);
@@ -188,26 +207,37 @@ $(function () {
             productInfoPhotos = d.productInfoPhotoUpts;
             productInfoAttrORMs = d.productInfoAttrUptORMs;
         } else {
-            productGoods = d.productGoods;
-            productInfoPhotos = d.productInfoPhotos;
-            productInfoAttrORMs = d.productInfoAttrORMs;
+            productGoods = d.goods;
+            productInfoPhotos = d.photos;
+            productInfoAttrORMs = d.attributes;
         }
-        for (var j = 0; j < productGoods.length; j++) {
-            var p = productGoods[j];
-            var temp = '<tr class="cmg-goodstr">';
-            temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
-            temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
-            temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
-            temp += '<td>';
-            temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
-            temp += '</td>';
-            temp += '</tr>';
-            $(".standardtbody").append(temp);
-            if ($(".tr" + p.colorId).length == 0) {
-                var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
-                $(".cmg-table-color").append(temp1);
+
+        var showStandard = function () {
+            for (var j = 0; j < productGoods.length; j++) {
+                var p = productGoods[j];
+                var temp = '<tr class="cmg-goodstr">';
+                temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+                temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
+                temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                temp += '<td>';
+                temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                temp += '</td>';
+                temp += '</tr>';
+                $(".standardtbody").append(temp);
+
+                $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+                if ($(".tr" + p.colorId).length == 0) {
+                    var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
+                    $(".cmg-table-color").append(temp1);
+                }
             }
-        }
+        };
+
+        standardUnitHtml ? showStandard() : getStandardUnit().done(function () {
+            showStandard();
+        });
+
         $(".colortr").each(function () {
             var colorid = $(this).attr("colorid");
             var colorName = $(this).find(".colorName").attr("colorName");
@@ -343,22 +373,34 @@ $(function () {
                     productInfoPhotos = d.productInfoPhotos;
                     productInfoAttrORMs = d.productInfoAttrORMs;
                 }
-                for (var j = 0; j < productGoods.length; j++) {
-                    var p = productGoods[j];
-                    var temp = '<tr class="cmg-goodstr">';
-                    temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
-                    temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
-                    temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
-                    temp += '<td>';
-                    temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
-                    temp += '</td>';
-                    temp += '</tr>';
-                    $(".standardtbody").append(temp);
-                    if ($(".tr" + p.colorId).length == 0) {
-                        var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
-                        $(".cmg-table-color").append(temp1);
+
+                var showStandard = function () {
+                    for (var j = 0; j < productGoods.length; j++) {
+                        var p = productGoods[j];
+                        var temp = '<tr class="cmg-goodstr">';
+                        temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
+                        temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
+                        temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
+                        temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                        temp += '<td>';
+                        temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                        temp += '</td>';
+                        temp += '</tr>';
+                        $(".standardtbody").append(temp);
+
+                        $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+
+                        if ($(".tr" + p.colorId).length == 0) {
+                            var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
+                            $(".cmg-table-color").append(temp1);
+                        }
                     }
-                }
+                };
+
+                standardUnitHtml ? showStandard() : getStandardUnit().done(function () {
+                    showStandard();
+                });
+
                 $(".colortr").each(function () {
                     var colorid = $(this).attr("colorid");
                     var colorName = $(this).find(".colorName").attr("colorName");
@@ -678,24 +720,32 @@ $(function () {
     //规格
     function setStandard() {
         $(".cmg-btn-addStandard").bind("click", function () {
-            var stand = $("#standard").val();
-            var marketPrice = $("#marketPrice").val();
-            $(".colortr").each(function () {
-                var colorid = $(this).attr("colorid");
-                var colorvalue = $(this).attr("colorvalue");
-                var colorname = $(this).find(".colorName").text();
-                var temp = '<tr class="cmg-goodstr">';
-                temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
-                temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
-                temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
-                temp += '<td>';
-                temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
-                temp += '</td>';
-                temp += '</tr>';
-                $(".standardtbody").append(temp);
-                $(".cm-btn-del").unbind().bind("click", function () {
-                    $(this).parent().parent().remove();
+            var stand = $("#standard").val(),
+                marketPrice = $("#marketPrice").val();
+
+            var showStandard = function () {
+                $(".colortr").each(function () {
+                    var colorid = $(this).attr("colorid");
+                    var colorvalue = $(this).attr("colorvalue");
+                    var colorname = $(this).find(".colorName").text();stand
+                    var temp = '<tr class="cmg-goodstr">';
+                    temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
+                    temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
+                    temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
+                    temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
+                    temp += '<td>';
+                    temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
+                    temp += '</td>';
+                    temp += '</tr>';
+                    $(".standardtbody").append(temp);
+                    $(".cm-btn-del").unbind().bind("click", function () {
+                        $(this).parent().parent().remove();
+                    });
                 });
+            };
+
+            standardUnitHtml ? showStandard() : getStandardUnit().done(function () {
+                showStandard();
             });
         });
     }
@@ -842,6 +892,7 @@ $(function () {
             goodsJson.color = $(this).find('td').attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
             goodsJson.salePrice = $(this).find(".marketPrice").val();
+            goodsJson.standardUnit = $(this).find(".standardUnit option:selected").val();
             goodsArray.push(goodsJson);
         });
         dataJson.goods = goodsArray;
@@ -980,7 +1031,8 @@ $(function () {
             goods_pram_str += '"colorRgb": "' + $(this).children().first().attr("colorvalue") + '",';
             goods_pram_str += '"color": "' + $(this).children().first().attr("colorname") + '",';
             goods_pram_str += '"standard": "' + $(this).find(".stand").val() + '",';
-            goods_pram_str += ' "salePrice": "' + $(this).find(".marketPrice").val() + '"';
+            goods_pram_str += ' "salePrice": "' + $(this).find(".marketPrice").val() + '",';
+            goods_pram_str += ' "standardUnit": "' + $(this).find(".standardUnit option:selected").val() + '"';
             goods_pram_str += '},';
         });
         pram_str += goods_pram_str.substring(0, goods_pram_str.length - 1);
