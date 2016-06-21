@@ -121,7 +121,7 @@ $(function () {
                 saleStatus: $("#saleStatus").val(),
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
-            }
+            };
 
             return this;
         },
