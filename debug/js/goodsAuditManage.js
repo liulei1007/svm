@@ -11,24 +11,17 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('body').on("click", '.btn-audit', function () {
-                var uptIds = [];
-                uptIds.push($(this).attr("uptId"));
-                $own.auditFun(uptIds);
-            });
-
-            $('body').on('click', '.btn-allAudit', function () {
+            $('body').on('click', '.gam-btn-search', function () {
+                $own.initRequestData().initTableData();
+                $(".nav-pagination").off();
+            }).on('click', ".gam-btn-reload", function () {
+                derict(null,"goodsAuditManage","nochangeurl");
+            }).on('click', '.btn-allAudit', function () {
                 var uptIds = [];
                 $('tbody input:checkbox').each(function (i, checkbox) {
-                    if ($(this).prop('checked') == true) {
-                        uptIds.push($(this).parents('tr').attr('uptId'));
-                    }
+                    $(this).prop('checked') == true && uptIds.push($(this).parents('tr').attr('uptId'));
                 });
-                if (uptIds.length) {
-                    $own.auditFun(uptIds);
-                } else {
-                    popTips("您未选择审核商品", "warning");
-                }
+                uptIds.length ? $own.auditFun(uptIds) : popTips("您未选择审核商品", "warning");
             });
 
             return $own;
@@ -48,17 +41,16 @@ $(function () {
                             "remark": $('.remark').val()
                         },
                         success: function (data) {
-                            if (data.ok) {
-                                popTips("审核成功", "success");
-                                $own.initTableData();
-                            } else {
+                            data.ok ? (
+                                popTips("审核成功", "success"), $own.initTableData()
+                            ) : (
                                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
                                     $(".pop").find(".popup-title").html("审核失败");
                                     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
                                     $(".pop").find(".popup-info").html(data.resDescription);
-                                });
-                                $own.initTableData();
-                            }
+                                }),
+                                $own.initTableData()
+                            );
                         }
                     });
                     $('.pop').hide();
@@ -94,37 +86,6 @@ $(function () {
                     nowTag < 3 && $own.getFirstCategory(cid, nowTag);
                 });
             });
-        },
-
-        /**
-         * 操作ajax请求
-         * @param url
-         * @param id
-         * @param fun
-         */
-        operationAjax : function (url, id, fun) {
-            var $own = this;
-            $.commonAjax({
-                url: url,
-                type: "GET",
-                operationId: id,
-                success: function (data) {
-                    typeof(fun) == "function" && fun(data);
-                    $own.initTableData();
-                }
-            });
-        },
-
-        bingListEvent: function () {
-            var $own = this;
-
-            $(".table-block").off().on("click", '.gam-btn-show', function () {
-                var uptId = $(this).attr("uptId");
-                session.goods_showMyGoods_uptId = uptId;
-                derict(this, "showMyGoods", "nochangeurl");
-            });
-
-            return this;
         },
 
         /**
