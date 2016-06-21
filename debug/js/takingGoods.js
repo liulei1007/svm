@@ -19,9 +19,9 @@ $(function(){
 		$('tbody tr').each(function(i){
 			productShopGoodsAddVos[i]={
 				"productGoodsId":$(this).find('.productGoodsId').html(),
-				"salePrice":parseInt($(this).find('.salePrice').val()),
+				"salePrice":parseFloat($(this).find('.salePrice').val()),
 				"priceType":$(this).find('.priceType').val(),
-				"inventory":parseInt($(this).find('.inventory').val()),
+				"inventory":parseFloat($(this).find('.inventory').val()),
 				"saleStatus": $(".allState").find("input[name='ground']:checked").val()
 			}
 		});
