@@ -64,6 +64,7 @@ $(function () {
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
+        $(".cmg-draft").hide();
         $(".alert-danger").hide();
         $(".changeType").hide();
         $(".mg-title").text("商品错误信息反馈");
