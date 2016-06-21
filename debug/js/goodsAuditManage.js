@@ -30,6 +30,18 @@ $(function () {
         auditFun: function (uptIds) {
             var $own = this;
 
+            var dataOperation = function (data) {
+                data.ok ? (
+                    popTips("审核成功", "success"), $own.initTableData()
+                ) : (
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("审核失败");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html(data.resDescription);
+                    }), $own.initTableData()
+                );
+            };
+
             $('.pop').loadTemp("popAudit", "nochangeurl", function () {
                 $('.pop').on('click', '.btn-sure', function () {
                     $.commonAjax({
@@ -41,23 +53,13 @@ $(function () {
                             "remark": $('.remark').val()
                         },
                         success: function (data) {
-                            data.ok ? (
-                                popTips("审核成功", "success"), $own.initTableData()
-                            ) : (
-                                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                                    $(".pop").find(".popup-title").html("审核失败");
-                                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                                    $(".pop").find(".popup-info").html(data.resDescription);
-                                }),
-                                $own.initTableData()
-                            );
+                            dataOperation(data);
                         }
                     });
                     $('.pop').hide();
                     $('.pop').off('click', '.btn-sure');
                     $('.pop').off('click', '.btn-cancel');
-                });
-                $('.pop').on('click', '.btn-cancel', function () {
+                }).on('click', '.btn-cancel', function () {
                     $('.pop').hide();
                     $('.pop').off('click', '.btn-sure');
                     $('.pop').off('click', '.btn-cancel');
