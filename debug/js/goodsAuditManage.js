@@ -144,7 +144,7 @@ $(function () {
     function btnFunc() {
         $(".gam-btn-search").bind("click", function () {
             datas.productName = $("#agencyName").val();
-            datas.reviewStatus = $("#reviewStatus").val();
+            datas.reviewStatus = "0";
             datas.modelNumber=$("#modelNumber").val();
             datas.baseCategoryId = $("#baseCategoryId").val();
             datas.subCategoryId = $("#subCategoryId").val();

@@ -279,7 +279,9 @@ function createSelfGoods_init() {
 }
 
 function editSelfGoods_init() {
+    plumeLog("初始化editSelfGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/editSelfGoods.js");
+    plumeLog("完成editSelfGoods模板加载-" + plumeTime());
 }
 
 //userType模板初始化函数
