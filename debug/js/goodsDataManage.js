@@ -172,7 +172,7 @@ $(function () {
                     $(".gdm-table-data").find("[list-node]").remove();
                     $(".gdm-table-data").setPageData(data);
                     $own.bingListEvent();
-                    $own.paginationData(requestData, Math.ceil(data.countRecord / onePageCount()));
+                    $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
                 error: function (res) {}
             });
