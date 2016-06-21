@@ -1,5 +1,6 @@
 $(function () {
-
+       setPageCount();
+ 
     var goodsDataManageInit = {
 
         data: {},
@@ -193,6 +194,7 @@ $(function () {
     };
 
     goodsDataManageInit.initData();
+
 
     keyDown('.gdm-btn-search');
 });
