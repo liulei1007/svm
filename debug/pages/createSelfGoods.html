@@ -53,6 +53,14 @@
             </div>
         </div>
         <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>单位规格</label>
+            <div class="col-sm-6" id="orgSize">
+                <select class="form-control"  data-list="$p.data">
+                    <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>主要用料</label>
             <div class="col-sm-6">
                 <input type="text" id="material" class="form-control" />
@@ -62,14 +70,6 @@
             <label class="col-sm-3 control-label"><i>*</i>单位名称</label>
             <div class="col-sm-6">
                 <input type="text" id="orgName" class="form-control" />
-            </div>
-        </div>
-        <div class="form-group required">
-            <label class="col-sm-3 control-label"><i>*</i>单位规格</label>
-            <div class="col-sm-6" id="orgSize">
-                <select class="form-control"  data-list="$p.data">
-                    <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
-                </select>
             </div>
         </div>
         <div class="form-group required">

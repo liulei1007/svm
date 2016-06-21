@@ -22,7 +22,7 @@ $(function () {
         });
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "userType", "nochangeurl");
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");

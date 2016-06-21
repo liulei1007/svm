@@ -14,7 +14,8 @@ $(function() {
 		"salePrice": 0,
 		"discount": 0,
 		"inventory": 0,
-		"saleStatus": ""
+		"saleStatus": "",
+		"standardUnit":""
 	}
 
 	// 获取当前商品的数据，并将信息写入表单
@@ -29,4 +30,11 @@ $(function() {
 	$(".body-typein .btn-cancel").bind("click", function() {
 		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
+
+	//单位规格
+	var standardUnit = JSON.parse(session.standard_unit);
+	
+	$("#orgSize").setPageData(standardUnit);
+
+	$("#orgSize").find("option").eq(1).prop('selected','selected');
 });
