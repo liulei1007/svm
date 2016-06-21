@@ -22,7 +22,7 @@ var _test_path = window.location.href + "";
 var plumeApi_Host = ""
 
 if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
-    plumeLog("火狐浏览器不支持本地cookie跨域.")
+    plumeLog("火狐浏览器不支持本地cookie跨域.本地调试请使用chrome!")
 }else{
     if (_test_path.indexOf("localhost") != -1) {
         $.ajaxSetup({

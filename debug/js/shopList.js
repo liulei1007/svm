@@ -5,7 +5,7 @@ $(function () {
     // 初始化传输数据
     var data = {
         "start": 0,
-        "limit": 10,
+        "limit": onePageCount(),
         "marketName": "",
         "boothCode": "",
         "personDealerName": "",

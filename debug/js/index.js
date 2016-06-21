@@ -1,6 +1,6 @@
 $(function () {
     //判断用户是否登录
-    setInterval(chkUserStatus,30000);
+    setInterval(chkUserStatus,60000);
     //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));

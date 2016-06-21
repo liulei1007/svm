@@ -1,5 +1,7 @@
 $(function () {
     plumeLog("进入goodsDataManage模板自定义js-" + plumeTime());
+    $('#startDate').cxCalendar();
+    $('#endDate').cxCalendar();
     setPageCount();
     var datas = {
         "productName": "",
@@ -26,6 +28,8 @@ $(function () {
         datas.subCategoryId = subCategoryId;
         datas.baseCategoryId = baseCategoryId;
         datas.saleStatus = saleStatus;
+        datas.startDate = $('#startDate').val();
+        datas.endDate = $('#endDate').val();
         // datas.reviewStatus = reviewStatus;
         //datas.seriesName = saleStatus;
         getTableData();
