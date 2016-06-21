@@ -88,7 +88,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
-                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
+                <td node-name="($n.countryId=='CN')?(($n.countryId=='CN')?$n.cityName:($n.cityName+$n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>

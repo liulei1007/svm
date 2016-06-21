@@ -133,20 +133,6 @@ var loadHtmlFuncs = {
     //容器载入模板code
     createHtml: function (obj, data, fun) {
         try {
-            /*$(obj).fadeOut(function(){
-             $(this).html("");
-             $(this).html(data);
-             $("[list-temp]").hide();
-             $(this).fadeIn(function(){
-             try{
-             if(fun){
-             fun();
-             }
-             }catch(e){
-             plumeLog("提示:"+e.message);
-             }
-             });
-             })*/
             $(obj).hide().html("");
             $(obj).html(data);
             $("[list-temp]").hide();
@@ -253,14 +239,6 @@ $.extend({
                 break;
             }
         }
-    },
-    //ajax重写post,v1.3未开发
-    loadPostData: function (url, pram, fun) {
-
-    },
-    //ajax重写get,v1.3未开发
-    loadGetData: function (url, pram, fun) {
-
     }
 });
 //dom级功能组件
@@ -301,11 +279,11 @@ $.fn.extend({
             name = name.substring(0, name.indexOf("?"));
 
         }
-        $(dom).find("*").unbind()
+        $(dom).find("*").unbind();
         if (!flag) {
             flag = ""
         }
-        var cache = (flag.indexOf("cache") == -1) ? false : true;
+        var cache = (flag.indexOf("cache") != -1);
         $.loadUrlData(name, cache, dom);
         var url = $.getUrlByName(name) + prams;
         if (flag.indexOf("nochangeurl") == -1) {
@@ -350,7 +328,6 @@ $.fn.extend({
                         $(this).attr("href", "tel:" + eval(tag.substring(4)));
                     }
                 } else {
-
                     if (tag.indexOf("bg-image:") != -1) {
                         $(this).css({"backgroundImage": "url(" + (eval(tag.substring(9)) + ")")});
                     } else if (tag.indexOf("bg-color:") != -1) {
@@ -374,7 +351,6 @@ $.fn.extend({
             var listObj = $(this);
             var temp = $(this).find("[list-temp]").prop("outerHTML");
             temp = temp.replace("list-temp", "list-node");
-            //   $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
                 $(temp).appendTo(listObj).attr("plumeindex", i);
@@ -531,9 +507,9 @@ var $$ = {
     }
 };
 
-//内部测试方法,获取时间戳
+//内部方法,获取时间戳
 function plumeTime() {
-    return new Date().getTime();
+    return new Date().toLocaleString();
 }
 //内部测试方法,打印日志
 function plumeLog(o) {
