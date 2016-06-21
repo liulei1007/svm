@@ -169,6 +169,7 @@ $(function () {
                     success: function (data) {
                         $(".gdm-table-data").find("[list-node]").remove();
                         $(".gdm-table-data").setPageData(data);
+                        $own.bingListEvent();
                     },
                     error: function (res) {}
                 });

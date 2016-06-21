@@ -14,7 +14,7 @@ $(function () {
             $('body').on("click", '.btn-audit', function () {
                 var uptIds = [];
                 uptIds.push($(this).attr("uptId"));
-                auditFun(uptIds);
+                $own.auditFun(uptIds);
             });
 
             $('body').on('click', '.btn-allAudit', function () {
@@ -25,13 +25,52 @@ $(function () {
                     }
                 });
                 if (uptIds.length) {
-                    auditFun(uptIds);
+                    $own.auditFun(uptIds);
                 } else {
                     popTips("您未选择审核商品", "warning");
                 }
             });
 
             return $own;
+        },
+
+        auditFun: function (uptIds) {
+            var $own = this;
+
+            $('.pop').loadTemp("popAudit", "nochangeurl", function () {
+                $('.pop').on('click', '.btn-sure', function () {
+                    $.commonAjax({
+                        url: 'reviewProductInfo',
+                        type: "POST",
+                        data: {
+                            "uptIds": uptIds,
+                            "reviewStatus": $('.reviewStatus').find("input[name='audit']:checked").val(),
+                            "remark": $('.remark').val()
+                        },
+                        success: function (data) {
+                            if (data.ok) {
+                                popTips("审核成功", "success");
+                                $own.initTableData();
+                            } else {
+                                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                                    $(".pop").find(".popup-title").html("审核失败");
+                                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                                    $(".pop").find(".popup-info").html(data.resDescription);
+                                });
+                                $own.initTableData();
+                            }
+                        }
+                    });
+                    $('.pop').hide();
+                    $('.pop').off('click', '.btn-sure');
+                    $('.pop').off('click', '.btn-cancel');
+                });
+                $('.pop').on('click', '.btn-cancel', function () {
+                    $('.pop').hide();
+                    $('.pop').off('click', '.btn-sure');
+                    $('.pop').off('click', '.btn-cancel');
+                });
+            });
         },
 
         /**
@@ -127,6 +166,7 @@ $(function () {
                     success: function (data) {
                         $(".gam-table").find("[list-node]").remove();
                         $(".gam-table").setPageData(data);
+                        $own.bingListEvent();
                     },
                     error: function (res) {}
                 });
@@ -163,7 +203,7 @@ $(function () {
         initData: function () {
             plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
 
-            this.getFirstCategory(0, 0);
+            this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
         }
     };
