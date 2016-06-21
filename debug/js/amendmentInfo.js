@@ -46,6 +46,9 @@ $(function () {
             success: function (data) {
                 unloading();
                 totalPage = Math.ceil(data.countRecord / onePageCount());
+
+                data.countRecord ? $('.infoNum').text(data.countRecord): $('.infoNum').text('0');
+
                 newPage(totalPage, function (i) {
                     loading();
                     $.ajax({
