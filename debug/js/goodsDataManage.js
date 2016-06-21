@@ -148,7 +148,6 @@ $(function () {
                     success: function (data) {
                         $(".gdm-table-data").find("[list-node]").remove();
                         $(".gdm-table-data").setPageData(data);
-                        $own.bingListEvent().getFirstCategory(0, 0);
                     },
                     error: function (res) {}
                 });

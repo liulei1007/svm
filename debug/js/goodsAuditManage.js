@@ -79,39 +79,10 @@ $(function () {
         bingListEvent: function () {
             var $own = this;
 
-            $('.gdm-btn-open').each(function () {
-                $(this).attr("saleStatus") == 1 ? $(this).html('禁用') : $(this).html('启用');
-            });
-
-            $(".table-block").off().on("click", '.gdm-btn-edit', function () {
-                session.goods_showMyGoods_productId = $(this).attr("productId");
-                session.goods_showMyGoods_type = "edit";
-                session.goods_showMyGoods_page = "goodsDataManage";
-                derict(this, "myGoods", "nochangeurl");
-            }).on("click", '.gdm-btn-copy', function () {
-                session.goods_showMyGoods_productId = $(this).attr("productId");
-                session.goods_showMyGoods_type = "copy";
-                derict(this, "myGoods", "nochangeurl");
-            }).on("click", ".gdm-btn-open", function () {
-                var own = this;
-                if ($(this).attr("saleStatus") == 1) {
-                    $own.operationAjax('disableSaleStatus', $(own).attr("productId"), function () {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("已禁用");
-                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                            $(".pop").find(".popup-info").html("禁用成功");
-                        });
-                    });
-                } else {
-                    $own.operationAjax('enableSaleStatus', $(own).attr("productId"), function () {
-                        $(own).removeClass("gdm-off");
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("已启用");
-                            $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                            $(".pop").find(".popup-info").html("启用成功");
-                        });
-                    });
-                }
+            $(".table-block").off().on("click", '.gam-btn-show', function () {
+                var uptId = $(this).attr("uptId");
+                session.goods_showMyGoods_uptId = uptId;
+                derict(this, "showMyGoods", "nochangeurl");
             });
 
             return this;
@@ -154,9 +125,8 @@ $(function () {
                     list: true,
                     data: $own.data,
                     success: function (data) {
-                        $(".gdm-table-data").find("[list-node]").remove();
-                        $(".gdm-table-data").setPageData(data);
-                        $own.bingListEvent().getFirstCategory(0, 0);
+                        $(".gam-table").find("[list-node]").remove();
+                        $(".gam-table").setPageData(data);
                     },
                     error: function (res) {}
                 });
