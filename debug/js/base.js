@@ -49,11 +49,12 @@
         var option = $.extend({}, $.defaultAjax, option),
             dataJson = option.data ? option.data : {};
 
+        // option.stringData：针对请求类型不同
         if (option.type.toUpperCase() != "GET") {
             dataJson = JSON.stringify(option.data);
         }
 
-        // 如果有传入urlParams这个对象，我们会将值拼成字符串跟在url后面
+        // 如果有传入urlParams这个对象，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test?test=1&test1=2
         var urlStringArr = [], urlString = '';
         if (option.urlParams) {
             $.jsonValid(option.urlParams) && $.each(option.urlParams,function(name, value) {
@@ -62,6 +63,7 @@
             urlString = urlStringArr.join('&');
         }
 
+        // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
         if (option.operationId) {
             option.url = option.operationId && plumeApi[option.url] + option.operationId;
         } else {
