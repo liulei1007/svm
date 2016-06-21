@@ -1,6 +1,6 @@
 $(function () {
     //判断用户是否登录
-    setInterval(chkUserStatus,60000);
+    setInterval(chkUserStatus,30000);
     //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
@@ -1022,14 +1022,6 @@ function checkFloat(checkObj) {
 		}
 	}
 	return true;
-}
-
-
-//只输入数字
-function onlyNum() {
-    if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39))
-    if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
-    event.returnValue=false;
 }
 
 //页面回车事件
