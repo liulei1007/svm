@@ -1,5 +1,5 @@
 $(function(){
-	
+
 	// plumeLog("进入welcome模板自定义js-"+plumeTime());
 	$(".bw-item-title").on("click", function() {
 		var $block = $(this).parents(".bw-block-item");
