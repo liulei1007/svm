@@ -737,9 +737,9 @@ function loading() {
     if (!($(".loading").length > 0)) {
         var temp = '';
         //for (var i = 1; i < 36; i++) {
-        //
+        //<img src="images/loading/35.png">
         temp+='';
-        temp += '<div class="popcenter1 loading-img"><img src="images/loading/35.png"></div>';
+        temp += '<div class="popcenter1 loading-img"></div>';
         temp += '<div class="popcenter1 loading"></div>';
         //}
         $(document.body).append(temp);

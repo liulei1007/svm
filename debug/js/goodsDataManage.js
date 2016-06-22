@@ -1,6 +1,5 @@
 $(function () {
-       setPageCount();
- 
+    setPageCount();
     var goodsDataManageInit = {
 
         data: {},
@@ -37,7 +36,7 @@ $(function () {
                  * 绑定分类事件
                  * @param $cls
                  */
-                categoryEvent : function ($cls) {
+                categoryEvent: function ($cls) {
                     $cls.find("select").unbind().bind("change", function () {
                         var cid = $(this).val(),
                             nowTag = parseInt($(this).attr("tag")) + 1;
@@ -74,7 +73,7 @@ $(function () {
          * @param id
          * @param fun
          */
-        operationAjax : function (url, id, fun) {
+        operationAjax: function (url, id, fun) {
             var $own = this;
             $.commonAjax({
                 url: url,
@@ -134,7 +133,7 @@ $(function () {
          *  subCategoryId: (*|jQuery), baseCategoryId: (*|jQuery), saleStatus: (*|jQuery), startDate: (*|jQuery), endDate: (*|jQuery)}}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#productName").val(),
                 modelNumber: $("#modelNumber").val(),
                 categoryId: $("#categoryId").val(),
@@ -171,7 +170,8 @@ $(function () {
                         $(".gdm-table-data").setPageData(data);
                         $own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
             });
         },
@@ -196,7 +196,8 @@ $(function () {
                     $own.bingListEvent();
                     $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         },
 
