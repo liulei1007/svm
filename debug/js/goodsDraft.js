@@ -2,14 +2,6 @@ $(function () {
 
     var goodsDraftInit = {
 
-        limit: onePageCount(),
-
-        startDate: '',
-
-        endDate: '',
-
-        productName: '',
-
         /**
          * 初始化总控制器
          */
@@ -22,7 +14,7 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.initBindEvent().initTableData();
+            this.initBindEvent().initRequestData().initTableData();
         },
 
         /**
@@ -33,17 +25,25 @@ $(function () {
             var own = this;
 
             $("body").on("click", '.gdm-btn-search', function () {
-                own.page = 1;
-                own.productName = $('#productName').val();
-                own.startDate = $('#startDate').val();
-                own.endDate = $('#endDate').val();
-                own.initTableData();
+                own.initRequestData().initTableData();
                 $(".nav-pagination").off();
             }).on('click', ".gdm-btn-reload", function () {
                 derict(null, "goodsDraft", "nochangeurl");
             });
 
             return own;
+        },
+
+        initRequestData: function () {
+            this.data = {
+                "page": 1,
+                "limit": onePageCount(),
+                'productName': $("#productName").val(),
+                'startDate': $("#startDate").val(),
+                'endDate': $("#endDate").val()
+            };
+
+            return this;
         },
 
         /**
@@ -70,18 +70,12 @@ $(function () {
             var own = this;
 
             newPage(totalPage, function (page) {
-                own.page = page;
+                own.data.page = page;
                 $.commonAjax({
                     type: "POST",
                     url: 'listDraft',
                     list: true,
-                    data: {
-                        "page": page,
-                        "limit": own.limit,
-                        'productName': own.productName,
-                        'startDate': own.startDate,
-                        'endDate': own.endDate
-                    },
+                    data: own.data,
                     success: function (data) {
                         $(".gdm-table-data").find("[list-node]").remove();
                         $(".gdm-table-data").setPageData(data);
@@ -102,13 +96,7 @@ $(function () {
                 type: "POST",
                 url: 'listDraft',
                 list: true,
-                data: {
-                    "page": 1,
-                    "limit": own.limit,
-                    'productName': own.productName,
-                    'startDate': own.startDate,
-                    'endDate': own.endDate
-                },
+                data: own.data,
                 success: function (data) {
                     $(".gdm-table-data").find("[list-node]").remove();
                     $(".gdm-table-data").setPageData(data);
