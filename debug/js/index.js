@@ -140,7 +140,7 @@ $(function () {
         $(".slidebar-menu,.slidebar-menu li").hide();
         $(".page-content").find("[auth="+authNum+"]").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
-        PlumelistNodeShow($firstChild);
+        PlumelistNodeShowOrder($firstChild);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");

@@ -1,6 +1,6 @@
 @charset "utf-8";
 *{font-family: "Microsoft Yahei"}
-html, body{margin: 0; padding: 0; background:#fff; color: #666;}
+html, body{margin: 0; padding: 0; background:#fff; color: #555;}
 textarea{resize: none;}
 /** 输入框等focus时无外边框 **/
 .form-control:focus{box-shadow: none;}
