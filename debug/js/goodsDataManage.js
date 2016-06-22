@@ -211,7 +211,8 @@ $(function () {
             $('#endDate').cxCalendar();
 
             setPageCount();
-
+            tablecheckbox();
+            
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
         }

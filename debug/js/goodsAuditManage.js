@@ -204,6 +204,7 @@ $(function () {
             plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
 
             setPageCount();
+            tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
