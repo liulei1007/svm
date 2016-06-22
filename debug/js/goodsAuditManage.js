@@ -210,6 +210,13 @@ $(function () {
 
     goodsAuditManageInit.initData();
 
-    // 回车搜索
-    keyDown('.gam-btn-search');
+//回车搜索
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.gam-btn-search');   
+});
+
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.gam-btn-search');   
+});
+
 });

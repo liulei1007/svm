@@ -76,7 +76,13 @@ $(function () {
     }
     btnFunc();
 
+//回车搜索
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.gcm-btn-search');   
+});
 
-      //回车搜索
-    keyDown('.gcm-btn-search');
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.gcm-btn-search');   
+});
+
 });

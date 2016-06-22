@@ -80,11 +80,11 @@ $(function () {
 
 //回车搜索
 $(".search-block input[type=text]").bind('focus',function() {
-   key.keydownEnter('.bl-btn-search') 
+   key.keydownEnter('.bl-btn-search'); 
 });
 
 $(".search-block input[type=text]").bind('blur',function() {
-   key.unkeydownEnter('.bl-btn-search')   
+   key.unkeydownEnter('.bl-btn-search');   
 });
 
 });

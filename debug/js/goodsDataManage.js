@@ -217,5 +217,13 @@ $(function () {
     goodsDataManageInit.initData();
 
 
-    keyDown('.gdm-btn-search');
+//回车搜索
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.gdm-btn-search');   
+});
+
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.gdm-btn-search');   
+});
+
 });

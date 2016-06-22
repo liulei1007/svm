@@ -134,11 +134,11 @@ $(function () {
 
 //回车搜索
 $(".search-block input[type=text]").bind('focus',function() {
-   key.keydownEnter('.btn-search')   
+   key.keydownEnter('.btn-search');   
 });
 
 $(".search-block input[type=text]").bind('blur',function() {
-   key.unkeydownEnter('.btn-search')   
+   key.unkeydownEnter('.btn-search');   
 });
 
 

@@ -99,4 +99,14 @@ $(function () {
             derict(this, "feedMyGoods", "nochangeurl");
         });
     }
+
+//回车搜索
+    $(".search-block input[type=text]").bind('focus',function() {
+       key.keydownEnter('.adi-btn-search');   
+    });
+
+    $(".search-block input[type=text]").bind('blur',function() {
+       key.unkeydownEnter('.adi-btn-search');   
+    });
+
 })

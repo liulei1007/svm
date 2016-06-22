@@ -1040,14 +1040,6 @@ function onlyNum() {
 }
 
 //页面回车事件
-function keyDown(ele){
-    $("body").keydown(function() {
-             if (event.keyCode == "13") {
-                 $(ele).click();
-             }
-    });
-}
-
 var key = {
     keydownEnter: function(ele) {
         $("body").bind('keydown',function() {
