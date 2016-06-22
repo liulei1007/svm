@@ -34,7 +34,7 @@ $(function () {
                     var p = d.productGoodsUpts[j];
                     var temp = '<tr class="cmg-goodstr">';
                     temp += '<td>' + p.color + '</td>';
-                    temp += '<td>' + p.standard + '</td>';
+                    temp += '<td title="' + p.standard + '">' + p.standard + '</td>';
                     temp += '<td>' + p.salePrice + '</td>';
                     temp += '</tr>';
                     $(".standardtbody1").append(temp);

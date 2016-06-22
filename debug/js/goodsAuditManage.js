@@ -138,7 +138,9 @@ $(function () {
                 modelNumber: $("#modelNumber").val(),
                 baseCategoryId: $("#baseCategoryId").val(),
                 subCategoryId: $("#subCategoryId").val(),
-                categoryId: $("#categoryId").val()
+                categoryId: $("#categoryId").val(),
+                startDate: $("#startDate").val(),
+                endDate: $("#endDate").val()
             };
 
             $(".nav-pagination").off();
@@ -202,6 +204,12 @@ $(function () {
          */
         initData: function () {
             plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
+
+            $('#startDate').cxCalendar();
+            $('#endDate').cxCalendar();
+
+            setPageCount();
+            tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
