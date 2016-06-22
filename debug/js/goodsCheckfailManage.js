@@ -1,6 +1,6 @@
 $(function () {
 
-    var goodsAuditManageInit = {
+    var goodsCheckfailManageInit = {
 
         data: {},
 
@@ -121,7 +121,7 @@ $(function () {
         }
     };
 
-    goodsAuditManageInit.initData();
+    goodsCheckfailManageInit.initData();
 
     // 回车搜索
     keyDown('.gam-btn-search');
