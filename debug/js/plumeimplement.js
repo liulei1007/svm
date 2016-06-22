@@ -5,6 +5,7 @@ function pageInit() {
 function index_init() {
     plumeLog("初始化index-" + plumeTime());
     plumeUtil.js(plumePath + "/js/index.js");
+    plumeUtil.js(plumePath + "/js/base.js");
     plumeLog("完成index模板加载-" + plumeTime());
 }
 //--index模板初始化函数
@@ -288,7 +289,9 @@ function createSelfGoods_init() {
 }
 
 function editSelfGoods_init() {
+    plumeLog("初始化editSelfGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/editSelfGoods.js");
+    plumeLog("完成editSelfGoods模板加载-" + plumeTime());
 }
 
 //userType模板初始化函数

@@ -1,6 +1,4 @@
-//document.domain = "hxmklmall.cn";
-console.log("domain:" + document.domain);
-//»º´æ½Ó¿Ú
+//ç¼“å­˜
 var session = function () {
     return sessionStorage;
 }();
@@ -12,6 +10,7 @@ var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/css/bootstrap-datetimepicker.min.css",
     "/" + PLUME_PROJECT + "/css/index.css",
     "/" + PLUME_PROJECT + "/js/jquery.js",
+    "/" + PLUME_PROJECT + "/js/json2.js",
     "/" + PLUME_PROJECT + "/js/jquery.cxcalendar.min.js",
     "/" + PLUME_PROJECT + "/js/jquery.form.js",
     "/" + PLUME_PROJECT + "/js/jquery.cookie.js",

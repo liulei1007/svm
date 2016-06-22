@@ -1,4 +1,5 @@
 $(function () {
+    setPageCount();
     var datas = {
         "start": 0,
         "limit": 0,
@@ -78,6 +79,12 @@ $(function () {
     });
 
 //回车搜索
-    keyDown('.bl-btn-search');
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.bl-btn-search') 
+});
+
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.bl-btn-search')   
+});
 
 });

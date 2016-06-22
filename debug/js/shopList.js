@@ -1,11 +1,12 @@
 $(function () {
+    setPageCount();
     //页数
     var totalPage;
     var startNum = 0, limitNum = 20;
     // 初始化传输数据
     var data = {
         "start": 0,
-        "limit": 10,
+        "limit": onePageCount(),
         "marketName": "",
         "boothCode": "",
         "personDealerName": "",
@@ -133,5 +134,13 @@ $(function () {
 
 
 //回车搜索
-    keyDown('.btn-search');
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.btn-search')   
+});
+
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.btn-search')   
+});
+
+
 });

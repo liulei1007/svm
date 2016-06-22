@@ -7,10 +7,12 @@ $(function () {
     //下一步按钮操作
     $(".ut-btn-next").bind("click", function () {
         session.goods_userType = "";
-        if((!$(".type-third-span").attr("categoryId"))||($(".type-third-span").attr("categoryId")=="")){
-            $(".pop").find(".popup-title").html("信息提示");
-            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-            $(".pop").find(".popup-info").html("请选择类目");
+        if ((!$(".type-third-span").attr("categoryId")) || ($(".type-third-span").attr("categoryId") == "")) {
+            $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                $(".pop").find(".popup-title").html("信息提示");
+                $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                $(".pop").find(".popup-info").html("请选择类目");
+            });
             return;
         }
         session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
@@ -31,12 +33,12 @@ $(function () {
         $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
             unloading();
             $("." + cls[tag]).find("[list-node]").remove();
-            if(tag==1){
-                $("." + cls[tag+1]).find("[list-node]").remove();
+            if (tag == 1) {
+                $("." + cls[tag + 1]).find("[list-node]").remove();
             }
             $("." + cls[tag]).setPageData(data);
-            for(var i=0;i<cls.length;i++){
-                var o=$("."+cls[i]).find(".sel");
+            for (var i = 0; i < cls.length; i++) {
+                var o = $("." + cls[i]).find(".sel");
                 $("." + cls[i] + "-span").text($(o).text()).attr("categoryId", $(o).attr("categoryId"));
             }
             $("." + cls[tag]).find("li").unbind().bind("click", function () {
@@ -44,8 +46,8 @@ $(function () {
                     $(this).parent().find("li").removeClass("sel");
                     $(this).addClass("sel");
                 }
-                for(var i=0;i<cls.length;i++){
-                    var o=$("."+cls[i]).find(".sel");
+                for (var i = 0; i < cls.length; i++) {
+                    var o = $("." + cls[i]).find(".sel");
                     $("." + cls[i] + "-span").text($(o).text()).attr("categoryId", $(o).attr("categoryId"));
                 }
                 var nowtag = parseInt($(this).parent().parent().attr("tag")) + 1;

@@ -1,10 +1,11 @@
 $(function () {
     //判断用户是否登录
-    setInterval(chkUserStatus,30000);
+    setInterval(chkUserStatus,60000);
     //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
     }
+   
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
 
@@ -133,11 +134,13 @@ $(function () {
     // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
     $(".slidebar-title").bind("click", function () {
         var $thisMenu = $(this);
-        $thisMenu.addClass("active").siblings().removeClass("active");
+        $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
+        $thisMenu.addClass("active").removeClass("animateSlidebar");
         var authNum=$(this).attr("auth");
-        $(".slidebar-menu").hide();
-        $(".page-content").find("[auth="+authNum+"]").slideDown();
+        $(".slidebar-menu,.slidebar-menu li").hide();
+        $(".page-content").find("[auth="+authNum+"]").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
+        PlumelistNodeShowOrder($firstChild);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
@@ -173,16 +176,23 @@ $(function () {
         window.location.href = "index";
     });
 });
+var PAGE_COUNT=11;
 function onePageCount(){
+    return PAGE_COUNT;
+}
+function setPageCount(){
     var h=$(window).height();
     var h1=$(".title-block").height()+30;
     var h2=$(".search-block").height()+20;
     var h3=$(".alert-info").height()+20;
     var h4=$(".btn-block").height()+40;
-   // var n=parseInt((h-h1-h2-h3-h4-105)/40);
-    n=11;
-    // $(".table-block").css({"height":40*n});
-    return n-1;
+    var n=parseInt((h-h1-h2-h3-h4-105)/40);
+    //n=11;
+    if(n<2){
+        n=2;
+    }
+    $(".table-block").css({"height":40*n});
+    PAGE_COUNT= n-1;
 }
 //检测session失效
 function chkUserStatus(){
@@ -270,7 +280,9 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName="+session.nowPageName+"]").addClass("active").parent().slideDown();
+            $("[pageName="+session.nowPageName+"]").show();
+            $("[pageName="+session.nowPageName+"]").siblings().show();
+            $("[pageName="+session.nowPageName+"]").addClass("active").parent().show();
             var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
             $(".slidebar").find("[auth="+authNum+"]").addClass("active");
         } else {
@@ -283,8 +295,8 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $(".slidebar-list li,.slidebar-title").show();
-    return;
+    //$(".slidebar-list li,.slidebar-title").show();
+    //return;
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
@@ -294,11 +306,14 @@ function getAuth() {
             if (data.ok) {
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
+                    var id= d.id;
+                    $(".slidebar").find("[auth="+id+"]").show();
                     for (var j = 0; j < d.children.length; j++) {
                         var c = d.children[j]
                         var resurl = c.resourceUrl;
-                        $("." + resurl).show();
-                        $("." + resurl).parent().parent().show();
+
+                       // $("." + resurl).show();
+                       // $("." + resurl).parent().parent().show();
                     }
                 }
             } else {
@@ -728,12 +743,15 @@ function loading() {
 
     if (!($(".loading").length > 0)) {
         var temp = '';
-        for (var i = 1; i < 36; i=i+1) {
-            temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
-        }
+        //for (var i = 1; i < 36; i++) {
+        //<img src="images/loading/35.png">
+        temp+='';
+        //temp += '<div class="popcenter1 loading-img"></div>';
+        temp += '<div class="popcenter loading"></div>';
+        //}
         $(document.body).append(temp);
-        clearTimeout(transmit_loop)
-        transmit_showLoad();
+        //clearTimeout(transmit_loop)
+        //transmit_showLoad();
     }
 }
 function unloading() {
@@ -741,7 +759,7 @@ function unloading() {
         $(this).remove();
 
     });
-    $(".loading").fadeOut(function(){
+    $(".loading,.loading-img").fadeOut(function(){
         $(this).remove();
 
     });
@@ -784,7 +802,8 @@ function checkSelfGoods(operateName, selfGoods, url) {
 
         selfGoods.pgtType = $("#pgtType").val().trim();
         selfGoods.standard = $("#standard").val().trim();
-        selfGoods.material = $("#material").val().trim();
+        selfGoods.standardUnit = $("#orgSize select").prop('value');
+        selfGoods.material = $("#material").val();
         selfGoods.orgName = $("#orgName").val().trim();
         selfGoods.priceType = $("#priceType").val().trim();
         selfGoods.salePrice = $("#salePrice").val().trim();
@@ -1034,6 +1053,17 @@ function checkTel(checkObj) {
     return true;
 }
 
+//只输入数字
+function onlyNum() {
+   //alert(event.keyCode)
+    if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
+        event.returnValue=false;
+    }
+    if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
+    if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==190)))
+    event.returnValue=false;
+}
+
 //页面回车事件
 function keyDown(ele){
     $("body").keydown(function() {
@@ -1042,6 +1072,21 @@ function keyDown(ele){
              }
     });
 }
+
+var key = {
+    keydownEnter: function(ele) {
+        $("body").bind('keydown',function() {
+            if (event.keyCode == "13") {
+                $(ele).click();
+            }
+        });
+    },
+    unkeydownEnter: function(ele){
+        $("body").unbind();
+    }
+}
+
+
 
 function isFloat(num) {
 	return /^[0-9]+.?[0-9]*$/.test(num);

@@ -24,7 +24,7 @@
         <form class="form-inline">
             <div class="form-group">
                 <label for="productName">商品名称</label>
-                <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:120px">
+                <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:240px">
             </div>
             <div class="form-group category-block">
                 <label>分类</label>
@@ -56,6 +56,12 @@
                     <option value="1">启用</option>
                 </select>
             </div>
+            <div class="form-group form-time">
+                <label for="startDate">审核时间</label>
+                <input type="text" class="form-control input-sm" readonly id="startDate" placeholder=""  style="width:120px;background: #fff">
+                <label for="endDate" style="margin: 0 -5px 0 5px;">--</label>
+                <input type="text" class="form-control input-sm" readonly id="endDate" placeholder=""  style="width:120px;background: #fff">
+            </div>
             <div class="btn btn-default btn-sm gdm-btn-search">查询</div>
             <div class="btn btn-default btn-sm gdm-btn-reload">清空条件</div>
         </form>
@@ -82,7 +88,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
-                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
+                <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>

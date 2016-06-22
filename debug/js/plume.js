@@ -22,7 +22,7 @@ var _test_path = window.location.href + "";
 var plumeApi_Host = ""
 
 if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
-    plumeLog("火狐浏览器不支持本地cookie跨域.")
+    plumeLog("火狐浏览器不支持本地cookie跨域.本地调试请使用chrome!")
 }else{
     if (_test_path.indexOf("localhost") != -1) {
         $.ajaxSetup({
@@ -133,20 +133,6 @@ var loadHtmlFuncs = {
     //容器载入模板code
     createHtml: function (obj, data, fun) {
         try {
-            /*$(obj).fadeOut(function(){
-             $(this).html("");
-             $(this).html(data);
-             $("[list-temp]").hide();
-             $(this).fadeIn(function(){
-             try{
-             if(fun){
-             fun();
-             }
-             }catch(e){
-             plumeLog("提示:"+e.message);
-             }
-             });
-             })*/
             $(obj).hide().html("");
             $(obj).html(data);
             $("[list-temp]").hide();
@@ -253,20 +239,13 @@ $.extend({
                 break;
             }
         }
-    },
-    //ajax重写post,v1.3未开发
-    loadPostData: function (url, pram, fun) {
-
-    },
-    //ajax重写get,v1.3未开发
-    loadGetData: function (url, pram, fun) {
-
     }
 });
 //dom级功能组件
 /*开放API:
  1.loadTemp v1.3之后加入,推荐使用
- 2.setPageData v1.0之后加入,不推荐使用,功能未定型
+ 2.setPageData v1.0之后加入
+ 3.setPageData v1.6之后可使用,DOM级数据绑定方法
  */
 $.fn.extend({
     //开放方法,dom级别加载,不涉及路由变化.动态参数,name:模板名称,flag:cache,nochangeurl标识,fun 回调函数
@@ -294,18 +273,17 @@ $.fn.extend({
             fun = args[2];
         }
         var dom = this;
-        console.log(this)
         var prams = "";
         if (name.indexOf("?") != -1) {
             prams = name.substring(name.indexOf("?"));
             name = name.substring(0, name.indexOf("?"));
 
         }
-        $(dom).find("*").unbind()
+        $(dom).find("*").unbind();
         if (!flag) {
             flag = ""
         }
-        var cache = (flag.indexOf("cache") == -1) ? false : true;
+        var cache = (flag.indexOf("cache") != -1);
         $.loadUrlData(name, cache, dom);
         var url = $.getUrlByName(name) + prams;
         if (flag.indexOf("nochangeurl") == -1) {
@@ -350,7 +328,6 @@ $.fn.extend({
                         $(this).attr("href", "tel:" + eval(tag.substring(4)));
                     }
                 } else {
-
                     if (tag.indexOf("bg-image:") != -1) {
                         $(this).css({"backgroundImage": "url(" + (eval(tag.substring(9)) + ")")});
                     } else if (tag.indexOf("bg-color:") != -1) {
@@ -374,7 +351,6 @@ $.fn.extend({
             var listObj = $(this);
             var temp = $(this).find("[list-temp]").prop("outerHTML");
             temp = temp.replace("list-temp", "list-node");
-            //   $(this).find("[list-temp]").remove();
             var listData = eval(listTag);
             for (var i = 0; i < listData.length; i++) {
                 $(temp).appendTo(listObj).attr("plumeindex", i);
@@ -390,17 +366,32 @@ $.fn.extend({
     },
     plumeFadeIn:function(){
         var plume_fadeIn_obj=$($(this)[0]);
-        listNodeShow(plume_fadeIn_obj);
+        PlumelistNodeShow(plume_fadeIn_obj);
     }
 });
-function listNodeShow(o){
-    o.fadeIn(200);
+function PlumelistNodeShow(o){
+    o.fadeIn(300);
     if($(o).next().length != 0){
         var ox=$(o).next();
         setTimeout(function(){
-            listNodeShow(ox);
-        },50);
+            PlumelistNodeShow(ox);
+        },30);
     }
+}
+function PlumelistNodeShowOrder(o){
+    o.show(100,function(){
+        if($(o).next().length != 0){
+            var ox=$(o).next();
+            PlumelistNodeShowOrder(ox);
+        }
+    });
+
+    //if($(o).next().length != 0){
+    //    var ox=$(o).next();
+    //    setTimeout(function(){
+    //        PlumelistNodeShow(ox);
+    //    },30);
+    //}
 }
 
 //内部方法,重写浏览器回退,前进,刷新事件,使用setTimeout为了避免部分浏览器bug,保证兼容
@@ -531,11 +522,21 @@ var $$ = {
     }
 };
 
-//内部测试方法,获取时间戳
+//内部方法,获取时间戳
 function plumeTime() {
-    return new Date().getTime();
+    return new Date().toLocaleString();
 }
 //内部测试方法,打印日志
 function plumeLog(o) {
-    console.log(o);
+    try{
+        console.log(o);
+    }catch(e){}
+}
+window.onerror = function(msg, url, line) {
+    plumeLog("----程序出现异常----");
+    plumeLog(msg);
+    plumeLog(url);
+    plumeLog(line);
+    plumeLog("--------------------");
+    return true;
 }

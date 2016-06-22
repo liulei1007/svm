@@ -1,4 +1,8 @@
 $(function () {
+    session.goods_baseCategoryId = "";
+    session.goods_subCategoryId = "";
+    session.goods_categoryId = "";
+
     $(".close").bind("click", function() {
         $(this).parents(".alert").hide();
     });
@@ -28,12 +32,15 @@ $(function () {
 
 
            $(".ex-ok").bind("click", function () {
-               if (($("#file").val())) {
+               var filePath  = ($('#fileSuffix').html());
+               var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
+               if(fileSuffix!="xlsx"){
+                  alert("上传格式不正确")
+               }
+               if (($("#file").val()&&fileSuffix=="xlsx")) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
                    $('#myForm').submit();
-                   session.goods_baseCategoryId = "";
-                   session.goods_subCategoryId = "";
-                   session.goods_categoryId = "";
+                   
                }
            });
 
