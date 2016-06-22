@@ -903,7 +903,8 @@ $(function () {
             'copy': plumeApi["addProductInfo"],
             'edit': plumeApi["editProductInfo"],
             'feed': plumeApi["addProductInfoFeedback"],
-            'amend': plumeApi["editProductInfoUpt"]
+            'amend': plumeApi["editProductInfoUpt"],
+            'draft': plumeApi["addProductInfo"]
         }[sessionType]);
         var data = JSON.stringify(dataJson);
 
