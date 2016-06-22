@@ -26,7 +26,7 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $('body').on('click', '.ncd-btn-search', function () {
+            $('.search-block').on('click', '.ncd-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
 

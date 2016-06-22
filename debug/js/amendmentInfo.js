@@ -27,7 +27,7 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $('body').on('click', '.adi-btn-search', function () {
+            $('.search-block').on('click', '.adi-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
 

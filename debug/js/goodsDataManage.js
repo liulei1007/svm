@@ -11,14 +11,12 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('body').on("click", '.gdm-btn-search', function () {
+            $('.search-block').on("click", '.gdm-btn-search', function () {
                 $own.initRequestData().initTableData();
                 $(".nav-pagination").off();
 
                 return false;
-            });
-
-            $('body').on('click', '.gdm-btn-reload', function () {
+            }).on('click', '.gdm-btn-reload', function () {
                 derict(null, "goodsDataManage", "nochangeurl");
 
                 return false;

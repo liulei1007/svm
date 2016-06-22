@@ -11,7 +11,7 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('body').on('click', '.gam-btn-search', function () {
+            $('.search-block').on('click', '.gam-btn-search', function () {
                 $own.initRequestData().initTableData();
                 $(".nav-pagination").off();
                 return false;
