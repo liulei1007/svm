@@ -157,9 +157,12 @@ function shopShowAgency_init() {
     plumeUtil.js(plumePath + "/js/shopShow-agency.js");
 }
 function shopCreateAgency_init() {
-    console.log("yes")
     plumeUtil.js(plumePath + "/js/shopCreate-agency.js");
 }
+function shopManageAgency_init() {
+    plumeUtil.js(plumePath + "/js/shopManage-agency.js");
+}
+
 
 // ----弹出框----
 function popTips_init() {
@@ -213,6 +216,12 @@ function brandAdd_init() {
     plumeLog("初始化brandAdd模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/brandAdd.js");
     plumeLog("完成brandAdd模板加载-" + plumeTime());
+}
+//--brandListManage模板初始化函数--
+function brandListManage_init() {
+    plumeLog("初始化brandListManage模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/brandListManage.js");
+    plumeLog("完成brandListManage模板加载-" + plumeTime());
 }
 //--msgAdd模板初始化函数--
 function msgAdd_init() {

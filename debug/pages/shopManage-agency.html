@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"shopManageAgency"
+        }
+    </script>
+</head>
+
+<body>
+	<div class="body-typein">
+		<div class="title-block">管理店铺信息</div>
+
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">店铺id</label>
+				<div class="col-sm-6">
+					<p id="shopId" class="form-control-static"></p>
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>店铺名称</span></label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" maxlength="20" placeholder="请输入店铺名称" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">所属卖场</label>
+				<div class="col-sm-6">
+					<p id="marketName" class="form-control-static"></p>
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>门店门牌号</span></label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" placeholder="请输入门牌号码" />
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>卖场楼层</span></label>
+				<div class="col-sm-6">
+					<select class="form-control">
+						<option disabled="disabled" selected="selected">请选择卖场楼层</option>
+						<option>1楼</option>
+						<option>2楼</option>
+						<option>3楼</option>
+						<option>4楼</option>
+						<option>5楼</option>
+						<option>6楼</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>门店电话</span></label>
+				<div class="col-sm-6">
+					<input type="text" id="tel" class="form-control" maxlength="15" placeholder="请输入门店电话" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"><i>*</i><span>营业时间</span></label>
+				<div class="col-sm-2">
+					<input type="text" id="startTime" class="form-control form-datetime" placeholder="请选择营业开始时间" data-date-format="yyyy-mm-dd hh:ii" />
+				</div>
+				<div class="divid">~</div>
+				<div class="col-sm-2">
+					<input type="text" id="endTime" class="form-control form-datetime" placeholder="请选择营业结束时间" data-date-format="yyyy-mm-dd hh:ii" />
+				</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>店铺简介</span></label>
+				<div class="col-sm-6">
+					<textarea class="form-control" rows="4" maxlength="500" placeholder="请输入店铺简介"></textarea>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3 btn-block">
+				<button type="button" class="btn btn-lg btn-success btn-submit">提交</button>
+				<button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
