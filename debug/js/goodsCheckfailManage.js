@@ -113,8 +113,7 @@ $(function () {
                     $("[list-node]").remove();
                     $(".form-body").setPageData(data);
                     own.bingListEvent();
-                    data.data && data.data.length > 0 &&
-                        own.paginationData(Math.ceil(data.countRecord / onePageCount()));
+                    own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
                 error: function (res) {}
             });

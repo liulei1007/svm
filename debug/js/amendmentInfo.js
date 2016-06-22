@@ -1,102 +1,172 @@
 $(function () {
-    plumeLog("进入amendmentInfo模板自定义js-" + plumeTime());
-    setPageCount();
-    var datas = {
-        "productName": "",
-        "modelNumber": "",
-        "categoryId": "",
-        "subCategoryId": "",
-        "baseCategoryId": "",
-        //"saleStatus": "",
-        //"reviewStatus": "",
-        "seriesName": ""
-    }
 
-    var cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
+    var amendmentInfoInit = {
 
-    function getFirstCategory(categoryId, tag) {
-        loading();
-        $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
-            unloading();
-            $("." + cls[tag]).find("[list-node]").remove();
-            $("." + cls[tag]).setPageData(data);
-            $("." + cls[tag]).find("select").unbind().bind("change", function () {
-                var nowtag = parseInt($(this).attr("tag")) + 1;
-                var cid = $(this).val();
-                if (nowtag < 3) {
-                    getFirstCategory(cid, nowtag);
-                }
+        data: {},
+
+        /**
+         * 初始化总控制器
+         */
+        initData: function () {
+            plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
+
+            setPageCount();
+            tablecheckbox();
+
+            this.getFirstCategory().getCategoryData(0, 0);
+            this.initBindEvent().initRequestData().initTableData();
+        },
+
+        /**
+         * 初始化页面事件
+         * @returns {goodsDataManageInit}
+         */
+        initBindEvent: function () {
+            var own = this;
+
+            $('body').on('click', '.adi-btn-search', function () {
+                own.initRequestData().initTableData();
+                $(".nav-pagination").off();
+            }).on('click', ".adi-btn-reload", function () {
+                derict(null,"amendmentInfo","nochangeurl");
             });
-        })
-    }
 
-    getFirstCategory(0, 0);
+            return own;
+        },
 
+        /**
+         * 分类信息
+         * @returns {{categoryEvent: categoryEvent, getCategoryData: getCategoryData}}
+         */
+        getFirstCategory: function () {
+            var own = this,
+                cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
-    listErrorFeedbackProductInfo();
-    function listErrorFeedbackProductInfo() {
-        var newData = JSON.stringify(datas)
-        loading();
-        $.ajax({
-            type: "POST",
-            url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=1&onePageCount="+onePageCount(),
-            data: newData,
-            contentType: "application/json",
-            dataType: "json",
-            success: function (data) {
-                unloading();
-                totalPage = Math.ceil(data.countRecord / onePageCount());
+            return {
+                /**
+                 * 绑定分类事件
+                 * @param $cls
+                 */
+                categoryEvent : function ($cls) {
+                    $cls.find("select").unbind().bind("change", function () {
+                        var cid = $(this).val(),
+                            nowTag = parseInt($(this).attr("tag")) + 1;
 
-                data.countRecord ? $('.infoNum').text(data.countRecord): $('.infoNum').text('0');
+                        nowTag < 3 && own.getFirstCategory().getCategoryData(cid, nowTag);
+                    });
+                },
 
-                newPage(totalPage, function (i) {
-                    loading();
-                    $.ajax({
-                        type: "POST",
-                        url: plumeApi["listErrorFeedbackProductInfo"] + "?currentPage=" + i + "&onePageCount="+onePageCount(),
-                        data: newData,
-                        contentType: "application/json",
-                        dataType: "json",
+                /**
+                 * 获取分类信息
+                 * @param categoryId
+                 * @param tag
+                 */
+                getCategoryData: function (categoryId, tag) {
+                    $.commonAjax({
+                        url: 'listProductCategory',
+                        type: 'get',
+                        operationId: categoryId,
                         success: function (data) {
-                            unloading();
-                            $(".table-block").find("[list-node]").remove();
-                            $(".table-block").setPageData(data);
-                            getFirstCategory(0, 0);
-                            addTableFuncs();
+                            var $cls = $("." + cls[tag]);
+                            $cls.find("[list-node]").remove();
+                            tag == 1 && $("." + cls[tag + 1]).find("[list-node]").remove();
+                            $cls.setPageData(data);
+                            own.getFirstCategory().categoryEvent($cls);
                         }
                     });
+                }
+            };
+        },
+
+        bingListEvent: function () {
+            $(".table-block").off().on("click", '.ai-btn-show', function () {
+                var uptId = $(this).attr("uptId"),
+                    productId = $(this).attr("productId");
+
+                session.goods_showMyGoods_uptId = uptId;
+                session.goods_showMyGoods_productId = productId;
+                derict(this, "feedMyGoods", "nochangeurl");
+            });
+
+            return this;
+        },
+
+        /**
+         * 获取请求参数
+         * @returns {goodsAuditManageInit}
+         */
+        initRequestData: function () {
+            this.data =  {
+                "productName": $("#productName").val(),
+                "modelNumber": '',
+                "categoryId": $("#categoryId").val(),
+                "subCategoryId": $("#subCategoryId").val(),
+                "baseCategoryId": $("#baseCategoryId").val(),
+                "seriesName": ""
+            };
+
+            $(".nav-pagination").off();
+            return this;
+        },
+
+        /**
+         * 翻页请求
+         * @param requestData
+         * @param totalPage
+         */
+        paginationData: function (totalPage) {
+            var own= this;
+
+            newPage(totalPage, function (page) {
+                $.commonAjax({
+                    type: "POST",
+                    url: 'listErrorFeedbackProductInfo',
+                    urlParams: {
+                        currentPage: page,
+                        onePageCount: onePageCount()
+                    },
+                    list: true,
+                    data: own.data,
+                    success: function (data) {
+                        $(".table-block").find("[list-node]").remove();
+                        $(".table-block").setPageData(data);
+                        own.bingListEvent();
+                    },
+                    error: function (res) {}
                 });
-                $(".table-block").find("[list-node]").remove();
-                $(".table-block").setPageData(data);
-                addTableFuncs();
-            }
-        });
-    }
+            });
+        },
 
+        /**
+         * 初始化列表数据
+         */
+        initTableData: function () {
+            var own = this;
+            $.commonAjax({
+                type: "POST",
+                url: 'listErrorFeedbackProductInfo',
+                urlParams: {
+                    currentPage: 1,
+                    onePageCount: onePageCount()
+                },
+                list: true,
+                data: own.data,
+                success: function (data) {
+                    $(".table-block").find("[list-node]").remove();
+                    $(".table-block").setPageData(data);
 
-    if ($(".infoNum")) {
-        $(".infoNum").html(0)
-    }
+                    data.countRecord ? $('.infoNum').text(data.countRecord): $('.infoNum').text('0');
 
-    $(".adi-btn-search").bind("click", function () {
-        datas.productName = $("#productName").val();
-        datas.baseCategoryId = $("#baseCategoryId").val();
-        datas.subCategoryId = $("#subCategoryId").val();
-        datas.categoryId = $("#categoryId").val();
-        listErrorFeedbackProductInfo();
-        $(".nav-pagination").off();
-    })
-    $(".adi-btn-reload").bind("click", function () {
-        derict(this, "amendmentInfo", "nochangeurl");
-    })
+                    own.bingListEvent();
+                    own.paginationData(Math.ceil(data.countRecord / onePageCount()));
+                },
+                error: function (res) {}
+            });
+        }
+    };
 
-    function addTableFuncs() {
-        $(".ai-btn-show").unbind().bind("click", function () {
-            var uptId = $(this).attr("uptId");
-            var productId = $(this).attr("productId");
-            session.goods_showMyGoods_uptId = uptId;
-            session.goods_showMyGoods_productId = productId;
-            derict(this, "feedMyGoods", "nochangeurl");
-        });
-    }
-})
+    amendmentInfoInit.initData();
+
+    // 回车搜索
+    keyDown('.gam-btn-search');
+});
