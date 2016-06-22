@@ -26,7 +26,7 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $(".form-body").on("click", '.gcm-btn-search', function () {
+            $(".search-block").on("click", '.gcm-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
                 return false;
