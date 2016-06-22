@@ -134,7 +134,9 @@ $(function () {
     // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
     $(".slidebar-title").bind("click", function () {
         var $thisMenu = $(this);
-        $thisMenu.addClass("active").siblings().removeClass("active");
+        $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
+        $thisMenu.addClass("active").removeClass("animateSlidebar");
+        //$thisMenu.siblings().addClass("animateSlidebar").removeClass("active");
         var authNum=$(this).attr("auth");
         $(".slidebar-menu").hide();
         $(".page-content").find("[auth="+authNum+"]").show();
@@ -291,8 +293,8 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $(".slidebar-list li,.slidebar-title").show();
-    return;
+    //$(".slidebar-list li,.slidebar-title").show();
+    //return;
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
@@ -302,11 +304,14 @@ function getAuth() {
             if (data.ok) {
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
+                    var id= d.id;
+                    $("[auth="+id+"]").show();
                     for (var j = 0; j < d.children.length; j++) {
                         var c = d.children[j]
                         var resurl = c.resourceUrl;
-                        $("." + resurl).show();
-                        $("." + resurl).parent().parent().show();
+
+                       // $("." + resurl).show();
+                       // $("." + resurl).parent().parent().show();
                     }
                 }
             } else {
@@ -739,8 +744,8 @@ function loading() {
         //for (var i = 1; i < 36; i++) {
         //<img src="images/loading/35.png">
         temp+='';
-        temp += '<div class="popcenter1 loading-img"></div>';
-        temp += '<div class="popcenter1 loading"></div>';
+        //temp += '<div class="popcenter1 loading-img"></div>';
+        temp += '<div class="popcenter loading"></div>';
         //}
         $(document.body).append(temp);
         //clearTimeout(transmit_loop)

@@ -1,5 +1,5 @@
 $(function () {
-
+    setPageCount();
     var goodsAuditManageInit = {
 
         data: {},

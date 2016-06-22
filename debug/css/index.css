@@ -44,6 +44,32 @@ textarea{resize: none;}
 .slidebar-list > li{padding: 5px 20px; color: #6e82a2; border-bottom: solid #4f5b70 1px; box-sizing: border-box; cursor: pointer;}
 .slidebar-list > li:last-child{border-bottom: none;}
 .slidebar-list > li:hover{color: #f3f7f6; background-color: #425167;}
+.animateSlidebar{-webkit-animation: slidebarChangecolor 1s ease forwards; -moz-animation: slidebarChangecolor 1s ease forwards; -o-animation: slidebarChangecolor 1s ease forwards; animation: slidebarChangecolor 1s ease forwards;}
+@keyframes slidebarChangecolor
+{
+    from {background: #425167;}
+    to {background: none;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    from {background: #425167;}
+    to {background: none;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+    from {background: #425167;}
+    to {background: none;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    from {background: #425167;}
+    to {background: none;}
+}
+
+
 /** 图标 **/
 .slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
 .slidebar-title i.agency{background-position: 0 0;}
@@ -446,10 +472,10 @@ textarea{resize: none;}
 .popup-default .btn{width: 100%;}
 .popup-auth{position: absolute; width: 400px; height: 220px; margin-top: -110px; top: 50%; left: 50%; margin-left: -160px;}
 .popup-auth .btn-block{position: absolute; bottom: 20px; margin-right: 0; margin-left: 0;}
-.lockbg{position: absolute;width:100%;height:100%;background: #333;z-index:2;left: 0;top: 0; filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;display: none;z-index:98}
+.lockbg{position: absolute;width:100%;height:100%;background: #fff;left: 0;top: 0; filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;display: none;z-index:98}
 .cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
-.popcenter1 { position: fixed;top: 30%;  left: 50%;z-index:99;  }
+.popcenter1 { position: fixed;top: 50%;  left: 50%;z-index:99;  }
 #cmg-upload{cursor: pointer}
 .popup-upload{position: relative; width: 300px; height: 200px; }
 .loadings {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }
@@ -463,17 +489,17 @@ textarea{resize: none;}
 }
 @keyframes bounce {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translate(-50%,-50%);
         -webkit-transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) translate(-50%,-50%);
         -webkit-transform: rotate(360deg);
     }
 }
 
-.loading{z-index:999;height:55px;width:55px;border-radius: 50px;border-right:5px solid #fff;border-bottom:5px solid #0094da;border-left:5px solid #fff;border-top:5px solid #0094da;-webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;}
-.loading-img{z-index:999;height:55px;width:55px;}
+.loading{z-index:999;height:50px;width:50px;background: url("../images/loading.png") no-repeat 0 0;-webkit-animation: bounce 1s infinite linear;  animation: bounce 1s infinite linear;}
+.loading-img{z-index:999;height:50px;width:50px;background: #000;filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;}
 .loading-img img{height:66%;width:66%;margin:16% ;}
 
 /*.body-welcome{position: absolute; width: 100%; height: 100%; background-color: #fff;padding: 10px}*/
