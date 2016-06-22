@@ -11,7 +11,7 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('.search-block').on('click', '.gam-btn-search', function () {
+            $('.form-body').on('click', '.gam-btn-search', function () {
                 $own.initRequestData().initTableData();
                 $(".nav-pagination").off();
                 return false;
@@ -21,7 +21,7 @@ $(function () {
             }).on('click', '.btn-allAudit', function () {
                 var uptIds = [];
                 $('tbody input:checkbox').each(function (i, checkbox) {
-                    $(this).prop('checked') == true && uptIds.push($(this).parents('tr').attr('uptId'));
+                    i != 0 && $(this).prop('checked') == true && uptIds.push($(this).parents('tr').attr('uptId'));
                 });
                 uptIds.length ? $own.auditFun(uptIds) : popTips("您未选择审核商品", "warning");
 
