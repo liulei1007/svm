@@ -104,7 +104,6 @@ $(function () {
             return;
         }
         loading();
-
         $.ajax({
             type: "POST",
             url: plumeApi["login"],
@@ -245,17 +244,20 @@ function loading() {
 
     if (!($(".loading").length > 0)) {
         var temp = '';
-        for (var i = 1; i < 36; i++) {
-            temp += '<div class="popcenter loading"><img src="images/loading/' + i + '.png"></div>';
-        }
+        //for (var i = 1; i < 36; i++) {
+        //
+        temp+='';
+        temp += '<div class="popcenter1 loading-img"><img src="images/loading/35.png"></div>';
+        temp += '<div class="popcenter1 loading"></div>';
+        //}
         $(document.body).append(temp);
-        clearTimeout(transmit_loop)
-        transmit_showLoad();
+        //clearTimeout(transmit_loop)
+        //transmit_showLoad();
     }
 }
 function unloading() {
     $(".lockbg").remove();
-    $(".loading").remove();
+    $(".loading,.loading-img").remove();
 }
 var send_code = 60;
 var login_send_time;

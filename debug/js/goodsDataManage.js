@@ -25,26 +25,47 @@ $(function () {
         },
 
         /**
-         * 获取分类信息
-         * @param categoryId
-         * @param tag
+         * 分类信息
+         * @returns {{categoryEvent: categoryEvent, getCategoryData: getCategoryData}}
          */
-        getFirstCategory: function (categoryId, tag) {
+        getFirstCategory: function () {
             var $own = this,
                 cls = ["gdm-type-first", "gdm-type-second", "gdm-type-third"];
 
-            $.get(plumeApi["listProductCategory"] + "/" + categoryId, {}, function (data) {
-                var $cls = $("." + cls[tag]);
-                $cls.find("[list-node]").remove();
-                tag == 1 && $("." + cls[tag + 1]).find("[list-node]").remove();
-                $cls.setPageData(data);
-                $cls.find("select").unbind().bind("change", function () {
-                    var cid = $(this).val(),
-                        nowTag = parseInt($(this).attr("tag")) + 1;
+            return {
+                /**
+                 * 绑定分类事件
+                 * @param $cls
+                 */
+                categoryEvent : function ($cls) {
+                    $cls.find("select").unbind().bind("change", function () {
+                        var cid = $(this).val(),
+                            nowTag = parseInt($(this).attr("tag")) + 1;
 
-                    nowTag < 3 && $own.getFirstCategory(cid, nowTag);
-                });
-            });
+                        nowTag < 3 && $own.getFirstCategory().getCategoryData(cid, nowTag);
+                    });
+                },
+
+                /**
+                 * 获取分类信息
+                 * @param categoryId
+                 * @param tag
+                 */
+                getCategoryData: function (categoryId, tag) {
+                    $.commonAjax({
+                        url: 'listProductCategory',
+                        type: 'get',
+                        operationId: categoryId,
+                        success: function (data) {
+                            var $cls = $("." + cls[tag]);
+                            $cls.find("[list-node]").remove();
+                            tag == 1 && $("." + cls[tag + 1]).find("[list-node]").remove();
+                            $cls.setPageData(data);
+                            $own.getFirstCategory().categoryEvent($cls);
+                        }
+                    });
+                }
+            };
         },
 
         /**
@@ -148,7 +169,7 @@ $(function () {
                     success: function (data) {
                         $(".gdm-table-data").find("[list-node]").remove();
                         $(".gdm-table-data").setPageData(data);
-                        $own.bingListEvent().getFirstCategory(0, 0);
+                        $own.bingListEvent();
                     },
                     error: function (res) {}
                 });
@@ -188,7 +209,7 @@ $(function () {
             $('#startDate').cxCalendar();
             $('#endDate').cxCalendar();
 
-            this.getFirstCategory(0, 0);
+            this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
         }
     };

@@ -88,7 +88,7 @@
                 <td node-name="$n.productName"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
-                <td node-name="($n.countryId=='CN')?(($n.countryId=='CN')?$n.cityName:($n.cityName+$n.cityName)):$n.countryName"></td>
+                <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>
