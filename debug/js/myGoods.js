@@ -64,7 +64,6 @@ $(function () {
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
-        $(".cmg-draft").hide();
         $(".alert-danger").hide();
         $(".changeType").hide();
         $(".mg-title").text("商品错误信息反馈");
@@ -97,12 +96,13 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDraft", "nochangeurl");
         });
         getDraftDataInit();
     }
 
     if (session.goods_showMyGoods_type == "create") {
+        $('.cmg-draft').show();
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
         myGoodsEditInit();
