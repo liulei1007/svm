@@ -101,7 +101,7 @@ $(function () {
                 goodsAttrHtml += '<div class="form-group required smg-base-attr">' +
                     '<label class="col-sm-2 control-label">' + goodsAttr[i].productAttribute.attrNameFront + '</label>' +
                     '<div class="col-sm-4">' +
-                    '<p class="col-sm-6 form-control-static" attrValueId="' + p.attrValueId + '">' + goodsAttr[i].productAttributeValue.valueName + '</p>' +
+                    '<p class="col-sm-6 form-control-static" attrValueId="' + goodsAttr[i].attrValueId + '">' + goodsAttr[i].productAttributeValue.valueName + '</p>' +
                     '</div>' +
                     '</div>';
             }
