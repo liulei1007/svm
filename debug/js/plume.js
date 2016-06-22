@@ -366,16 +366,16 @@ $.fn.extend({
     },
     plumeFadeIn:function(){
         var plume_fadeIn_obj=$($(this)[0]);
-        listNodeShow(plume_fadeIn_obj);
+        PlumelistNodeShow(plume_fadeIn_obj);
     }
 });
-function listNodeShow(o){
+function PlumelistNodeShow(o){
     o.fadeIn(300);
     if($(o).next().length != 0){
         var ox=$(o).next();
         setTimeout(function(){
-            listNodeShow(ox);
-        },20);
+            PlumelistNodeShow(ox);
+        },30);
     }
 }
 

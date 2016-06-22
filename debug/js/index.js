@@ -136,11 +136,11 @@ $(function () {
         var $thisMenu = $(this);
         $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
         $thisMenu.addClass("active").removeClass("animateSlidebar");
-        //$thisMenu.siblings().addClass("animateSlidebar").removeClass("active");
         var authNum=$(this).attr("auth");
-        $(".slidebar-menu").hide();
+        $(".slidebar-menu,.slidebar-menu li").hide();
         $(".page-content").find("[auth="+authNum+"]").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
+        PlumelistNodeShow($firstChild);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
@@ -280,6 +280,8 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
+            $("[pageName="+session.nowPageName+"]").show();
+            $("[pageName="+session.nowPageName+"]").siblings().show();
             $("[pageName="+session.nowPageName+"]").addClass("active").parent().show();
             var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
             $(".slidebar").find("[auth="+authNum+"]").addClass("active");
@@ -305,7 +307,7 @@ function getAuth() {
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
                     var id= d.id;
-                    $("[auth="+id+"]").show();
+                    $(".slidebar").find("[auth="+id+"]").show();
                     for (var j = 0; j < d.children.length; j++) {
                         var c = d.children[j]
                         var resurl = c.resourceUrl;
