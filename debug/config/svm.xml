@@ -204,6 +204,11 @@
         <init>shopCreateAgency_init</init>
     </page>
     <page>
+        <page-name>shopManageAgency</page-name>
+        <page-url>/pages/shopManage-agency.html</page-url>
+        <init>shopManageAgency_init</init>
+    </page>
+    <page>
         <page-name>userType</page-name>
         <page-url>/pages/userType.html</page-url>
         <init>userType_init</init>
@@ -227,6 +232,11 @@
         <page-name>brandAdd</page-name>
         <page-url>/pages/brandAdd.html</page-url>
         <init>brandAdd_init</init>
+    </page>
+    <page>
+        <page-name>brandListManage</page-name>
+        <page-url>/pages/brandListManage.html</page-url>
+        <init>brandListManage_init</init>
     </page>
     <page>
         <page-name>msgAdd</page-name>
@@ -494,5 +504,6 @@
         <listDraft>/api/productDraft/listDraft</listDraft>
         <addDraft>/api/productDraft/addDraft</addDraft>
         <standardUnit>/api/common/listSystemCode/standard_unit</standardUnit>
+        <addDrafts>/api/productDraft/applyProductDraft</addDrafts>
     </api>
 </config>

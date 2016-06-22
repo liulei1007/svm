@@ -1,5 +1,5 @@
 $(function () {
-
+    setPageCount();
     var goodsAuditManageInit = {
 
         data: {},
@@ -11,17 +11,21 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('body').on('click', '.gam-btn-search', function () {
+            $('.search-block').on('click', '.gam-btn-search', function () {
                 $own.initRequestData().initTableData();
                 $(".nav-pagination").off();
+                return false;
             }).on('click', ".gam-btn-reload", function () {
                 derict(null,"goodsAuditManage","nochangeurl");
+                return false;
             }).on('click', '.btn-allAudit', function () {
                 var uptIds = [];
                 $('tbody input:checkbox').each(function (i, checkbox) {
                     $(this).prop('checked') == true && uptIds.push($(this).parents('tr').attr('uptId'));
                 });
                 uptIds.length ? $own.auditFun(uptIds) : popTips("您未选择审核商品", "warning");
+
+                return false;
             });
 
             return $own;
@@ -59,10 +63,14 @@ $(function () {
                     $('.pop').hide();
                     $('.pop').off('click', '.btn-sure');
                     $('.pop').off('click', '.btn-cancel');
+
+                    return false;
                 }).on('click', '.btn-cancel', function () {
                     $('.pop').hide();
                     $('.pop').off('click', '.btn-sure');
                     $('.pop').off('click', '.btn-cancel');
+
+                    return false;
                 });
             });
         },
@@ -86,6 +94,8 @@ $(function () {
                             nowTag = parseInt($(this).attr("tag")) + 1;
 
                         nowTag < 3 && $own.getFirstCategory().getCategoryData(cid, nowTag);
+
+                        return false;
                     });
                 },
 
@@ -118,10 +128,12 @@ $(function () {
                 var uptId = $(this).attr("uptId");
                 session.goods_showMyGoods_uptId = uptId;
                 derict(this, "showMyGoods", "nochangeurl");
+                return false;
             }).on('click', '.btn-audit', function () {
                 var uptIds = [];
                 uptIds.push($(this).attr("uptId"));
                 $own.auditFun(uptIds);
+                return false;
             });
 
             return this;
@@ -138,7 +150,9 @@ $(function () {
                 modelNumber: $("#modelNumber").val(),
                 baseCategoryId: $("#baseCategoryId").val(),
                 subCategoryId: $("#subCategoryId").val(),
-                categoryId: $("#categoryId").val()
+                categoryId: $("#categoryId").val(),
+                startDate: $("#startDate").val(),
+                endDate: $("#endDate").val()
             };
 
             $(".nav-pagination").off();
@@ -202,6 +216,12 @@ $(function () {
          */
         initData: function () {
             plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
+
+            $('#startDate').cxCalendar();
+            $('#endDate').cxCalendar();
+
+            setPageCount();
+            tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();

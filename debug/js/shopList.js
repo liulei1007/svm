@@ -2,6 +2,7 @@ $(function () {
     setPageCount();
     //页数
     var totalPage;
+    var startNum = 0, limitNum = 20;
     // 初始化传输数据
     var data = {
         "start": 0,
@@ -50,6 +51,7 @@ $(function () {
             success: function (result) {
                 showData(result);
                 totalPage = Math.ceil(result.countRecord / onePageCount());
+                alert(totalPage)
                 newPage(totalPage, function (i) {
                     loading();
                     $(".nav-pagination").show();
@@ -74,17 +76,16 @@ $(function () {
             }
         });
     }
-
+        console.log(onePageCount())
     // 将获得的数据显示出来
     function showData(result) {
         unloading();
         if (result.ok) {
-
             // 下方分页
             var pageList = "";
             // 总页数
             var totalPages = Math.ceil(result.countRecord / 10);
-
+            console.log(totalPage);
             var tableList = "<tr style='display: none'></tr>";
             result.data.map(function (list) {
                 tableList += '<tr>';

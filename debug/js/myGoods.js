@@ -64,7 +64,6 @@ $(function () {
     //错误反馈初始化
     function myGoodsFeedInit() {
         //隐藏错误提示
-        $(".cmg-draft").hide();
         $(".alert-danger").hide();
         $(".changeType").hide();
         $(".mg-title").text("商品错误信息反馈");
@@ -97,12 +96,13 @@ $(function () {
         $(".mg-title").text("编辑商品");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "goodsDataManage", "nochangeurl");
+            derict(this, "goodsDraft", "nochangeurl");
         });
         getDraftDataInit();
     }
 
     if (session.goods_showMyGoods_type == "create") {
+        $('.cmg-draft').show();
         myGoodsCreateInit();
     } else if (session.goods_showMyGoods_type == "edit") {
         myGoodsEditInit();
@@ -226,7 +226,7 @@ $(function () {
                 temp += '</tr>';
                 $(".standardtbody").append(temp);
 
-                $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+                $($('.standardtbody tr').get(j)).find('.standardUnit').val(p.standardUnit);
                 if ($(".tr" + p.colorId).length == 0) {
                     var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
                     $(".cmg-table-color").append(temp1);
@@ -388,7 +388,7 @@ $(function () {
                         temp += '</tr>';
                         $(".standardtbody").append(temp);
 
-                        $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+                        $($('.standardtbody tr').get(j)).find('.standardUnit').val(p.standardUnit);
 
                         if ($(".tr" + p.colorId).length == 0) {
                             var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
@@ -903,7 +903,8 @@ $(function () {
             'copy': plumeApi["addProductInfo"],
             'edit': plumeApi["editProductInfo"],
             'feed': plumeApi["addProductInfoFeedback"],
-            'amend': plumeApi["editProductInfoUpt"]
+            'amend': plumeApi["editProductInfoUpt"],
+            'draft': plumeApi["addDrafts"] + '/' + session.goods_showMyGoods_productId
         }[sessionType]);
         var data = JSON.stringify(dataJson);
 

@@ -1,6 +1,5 @@
 $(function () {
-       setPageCount();
- 
+
     var goodsDataManageInit = {
 
         data: {},
@@ -12,13 +11,15 @@ $(function () {
         initBindEvent: function () {
             var $own = this;
 
-            $('body').on("click", '.gdm-btn-search', function () {
+            $('.search-block').on("click", '.gdm-btn-search', function () {
                 $own.initRequestData().initTableData();
                 $(".nav-pagination").off();
-            });
 
-            $('body').on('click', '.gdm-btn-reload', function () {
+                return false;
+            }).on('click', '.gdm-btn-reload', function () {
                 derict(null, "goodsDataManage", "nochangeurl");
+
+                return false;
             });
 
             return $own;
@@ -37,12 +38,14 @@ $(function () {
                  * 绑定分类事件
                  * @param $cls
                  */
-                categoryEvent : function ($cls) {
+                categoryEvent: function ($cls) {
                     $cls.find("select").unbind().bind("change", function () {
                         var cid = $(this).val(),
                             nowTag = parseInt($(this).attr("tag")) + 1;
 
                         nowTag < 3 && $own.getFirstCategory().getCategoryData(cid, nowTag);
+
+                        return false;
                     });
                 },
 
@@ -74,7 +77,7 @@ $(function () {
          * @param id
          * @param fun
          */
-        operationAjax : function (url, id, fun) {
+        operationAjax: function (url, id, fun) {
             var $own = this;
             $.commonAjax({
                 url: url,
@@ -99,10 +102,12 @@ $(function () {
                 session.goods_showMyGoods_type = "edit";
                 session.goods_showMyGoods_page = "goodsDataManage";
                 derict(this, "myGoods", "nochangeurl");
+                return false;
             }).on("click", '.gdm-btn-copy', function () {
                 session.goods_showMyGoods_productId = $(this).attr("productId");
                 session.goods_showMyGoods_type = "copy";
                 derict(this, "myGoods", "nochangeurl");
+                return false;
             }).on("click", ".gdm-btn-open", function () {
                 var own = this;
                 if ($(this).attr("saleStatus") == 1) {
@@ -123,6 +128,7 @@ $(function () {
                         });
                     });
                 }
+                return false;
             });
 
             return this;
@@ -134,7 +140,7 @@ $(function () {
          *  subCategoryId: (*|jQuery), baseCategoryId: (*|jQuery), saleStatus: (*|jQuery), startDate: (*|jQuery), endDate: (*|jQuery)}}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#productName").val(),
                 modelNumber: $("#modelNumber").val(),
                 categoryId: $("#categoryId").val(),
@@ -171,7 +177,8 @@ $(function () {
                         $(".gdm-table-data").setPageData(data);
                         $own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
             });
         },
@@ -196,7 +203,8 @@ $(function () {
                     $own.bingListEvent();
                     $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         },
 
@@ -209,6 +217,9 @@ $(function () {
             $('#startDate').cxCalendar();
             $('#endDate').cxCalendar();
 
+            setPageCount();
+            tablecheckbox();
+            
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
         }

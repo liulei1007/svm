@@ -12,49 +12,61 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"agencyShowPersonal"
+            "initPage":"brandListShow"
         }
     </script>
 </head>
 
 <body>
-  <div class="body-typein">
-    <div class="title-block">品牌信息</div>
-    <div class="form-block-contractive">
-    <div id="base" class="row block-title">
-      <div class="col-sm-2 col-sm-offset-1">品牌信息</div>
-    </div>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-3 control-label">品牌系列</label>
-        <p class="col-sm-6 form-control-static" data-name="$p.seriesName"></p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">品牌名称</label>
-        <p class="col-sm-6 form-control-static" data-name="$p.brandName"></p>
-      </div>
-    </form>
-  </div>
-   <div class="form-block-contractive">
-    <div id="base" class="row block-title">
-      <div class="col-sm-2 col-sm-offset-1">基础信息</div>
-    </div>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-3 control-label">联系人</label>
-        <p class="col-sm-6 form-control-static" data-name="$p.contract"></p>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label">联系电话</label>
-        <p class="col-sm-6 form-control-static" data-name="$p.contractTel"></p>
-      </div>
-    </form>
-  </div>
-  <div class="row">
-        <div class="col-sm-8 col-sm-offset-3 btn-block">
-            <button type="button" class="btn btn-lg btn-default btn-back">返回</button>
-        </div>
-    </div>
-  </div>
+	<div class="body-typein">
+		<div class="title-block">品牌信息</div>
+		<div class="form-block-contractive">
+			<div id="base" class="row block-title">
+				<div class="col-sm-2 col-sm-offset-1">品牌信息</div>
+			</div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">品牌logo</label>
+					<div class="col-sm-6">
+						<div class="form-control-media">
+							<img src="images/temp/default.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">品牌名称</label>
+					<p class="col-sm-6 form-control-static" data-name="$p.brandName"></p>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">系列名称</label>
+					<p class="col-sm-6 form-control-static" data-name="$p.seriesName"></p>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">品牌介绍</label>
+					<p class="col-sm-6 form-control-static" data-name="$p.seriesName"></p>
+				</div>
+			</form>
+		</div>
+		<div class="form-block-contractive">
+			<div id="base" class="row block-title">
+				<div class="col-sm-2 col-sm-offset-1">基础信息</div>
+			</div>
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">联系人</label>
+					<p class="col-sm-6 form-control-static" data-name="$p.contract"></p>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">联系电话</label>
+					<p class="col-sm-6 form-control-static" data-name="$p.contractTel"></p>
+				</div>
+			</form>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3 btn-block">
+				<button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
