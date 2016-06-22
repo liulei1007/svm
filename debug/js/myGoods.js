@@ -226,7 +226,7 @@ $(function () {
                 temp += '</tr>';
                 $(".standardtbody").append(temp);
 
-                $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+                $($('.standardtbody tr').get(j)).find('.standardUnit').val(p.standardUnit);
                 if ($(".tr" + p.colorId).length == 0) {
                     var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
                     $(".cmg-table-color").append(temp1);
@@ -388,7 +388,7 @@ $(function () {
                         temp += '</tr>';
                         $(".standardtbody").append(temp);
 
-                        $($('.standardtbody td').get(2)).find('.standardUnit').val(p.standardUnit);
+                        $($('.standardtbody tr').get(j)).find('.standardUnit').val(p.standardUnit);
 
                         if ($(".tr" + p.colorId).length == 0) {
                             var temp1 = "<tr class='colortr tr" + p.colorId + "'  colorValue='" + p.colorRgb + "' colorid='" + p.colorId + "'><td class='colorName' colorDesc='' colorName='" + p.color + "' >" + p.color + "</td></tr>"
