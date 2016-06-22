@@ -49,6 +49,10 @@ $(function () {
                 session.goods_showMyGoods_page = "goodsCheckfailManage";
                 derict(this, "myGoods", "nochangeurl");
                 return false;
+            }).on("click", ".gcm-btn-show", function () {
+                var uptId = $(this).attr("uptId");
+                session.goods_showMyGoods_uptId = uptId;
+                derict(this, "showMyGoods", "nochangeurl");
             });
 
             return this;
