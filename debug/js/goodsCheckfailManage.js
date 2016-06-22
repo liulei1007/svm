@@ -29,8 +29,10 @@ $(function () {
             $("body").on("click", '.gcm-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
+                return false;
             }).on('click', ".gcm-btn-reload", function () {
                 derict(null,"goodsCheckfailManage","nochangeurl");
+                return false;
             });
 
             return own;
@@ -46,6 +48,7 @@ $(function () {
                 session.goods_showMyGoods_type = "amend";
                 session.goods_showMyGoods_page = "goodsCheckfailManage";
                 derict(this, "myGoods", "nochangeurl");
+                return false;
             });
 
             return this;
