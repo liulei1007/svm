@@ -10,6 +10,9 @@ $(function () {
         initData: function () {
             plumeLog("进入amendmentInfo模板自定义js-" + plumeTime());
 
+            $('#startDate').cxCalendar();
+            $('#endDate').cxCalendar();
+
             setPageCount();
             tablecheckbox();
 
@@ -97,12 +100,14 @@ $(function () {
          */
         initRequestData: function () {
             this.data =  {
-                "productName": $("#productName").val(),
-                "modelNumber": '',
-                "categoryId": $("#categoryId").val(),
-                "subCategoryId": $("#subCategoryId").val(),
-                "baseCategoryId": $("#baseCategoryId").val(),
-                "seriesName": ""
+                productName: $("#productName").val(),
+                modelNumber: '',
+                categoryId: $("#categoryId").val(),
+                subCategoryId: $("#subCategoryId").val(),
+                baseCategoryId: $("#baseCategoryId").val(),
+                seriesName: "",
+                startDate: $("#startDate").val(),
+                endDate: $("#endDate").val()
             };
 
             $(".nav-pagination").off();
