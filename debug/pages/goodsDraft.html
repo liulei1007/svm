@@ -26,6 +26,12 @@
                 <label for="productName">商品名称</label>
                 <input type="text" class="form-control input-sm" id="productName" placeholder=""  style="width:120px">
             </div>
+            <div class="form-group form-time">
+                <label for="startDate">创建时间</label>
+                <input type="text" class="form-control input-sm" readonly id="startDate" placeholder=""  style="width:120px;background: #fff">
+                <label for="endDate" style="margin: 0 -5px 0 5px;">--</label>
+                <input type="text" class="form-control input-sm" readonly id="endDate" placeholder=""  style="width:120px;background: #fff">
+            </div>
 
             <div class="btn btn-default btn-sm gdm-btn-search">查询</div>
             <div class="btn btn-default btn-sm gdm-btn-reload">清空条件</div>
@@ -36,10 +42,16 @@
             <thead>
             <tr>
                 <td style="width:3%"><input type="checkbox"/></td>
+                <!--<td style="width:20%">商品名称</td>-->
+                <!--<td style="width:10%">操作员</td>-->
+                <!--<td style="width:12%">保存时间</td>-->
+                <!--<td style="width:auto">数据</td>-->
+                <!--<td style="width:10%">操作</td>-->
+
                 <td style="width:20%">商品名称</td>
-                <td style="width:10%">操作员</td>
-                <td style="width:12%">保存时间</td>
-                <td style="width:auto">数据</td>
+                <td style="width:12%">型号</td>
+                <td style="width:10%">创建人</td>
+                <td style="width:auto">创建时间</td>
                 <td style="width:10%">操作</td>
             </tr>
             </thead>
@@ -47,9 +59,10 @@
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
                 <td node-name="$n.pdtName"></td>
+                <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.createOperator"></td>
                 <td node-name="_getLocalTime($n.createDate)"></td>
-                <td node-name="decodeURI($n.jsonString)"></td>
+                <!--<td node-name="decodeURI($n.jsonString)"></td>-->
                 <td>
                     <button type="button" class="btn btn-link gda-btn-edit"  node-name="attr-code:decodeURI($n.jsonString)">编辑</button>
                 </td>

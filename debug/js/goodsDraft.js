@@ -4,11 +4,20 @@ $(function () {
 
         limit: onePageCount(),
 
+        startDate: '',
+
+        endDate: '',
+
+        productName: '',
+
         /**
          * 初始化总控制器
          */
         initData: function () {
             plumeLog("进入goodsDraft模板自定义js-" + plumeTime());
+
+            $('#startDate').cxCalendar();
+            $('#endDate').cxCalendar();
 
             setPageCount();
             tablecheckbox();
@@ -25,6 +34,9 @@ $(function () {
 
             $("body").on("click", '.gdm-btn-search', function () {
                 own.page = 1;
+                own.productName = $('#productName').val();
+                own.startDate = $('#startDate').val();
+                own.endDate = $('#endDate').val();
                 own.initTableData();
                 $(".nav-pagination").off();
             }).on('click', ".gdm-btn-reload", function () {
@@ -65,7 +77,10 @@ $(function () {
                     list: true,
                     data: {
                         "page": page,
-                        "limit": own.limit
+                        "limit": own.limit,
+                        'productName': own.productName,
+                        'startDate': own.startDate,
+                        'endDate': own.endDate
                     },
                     success: function (data) {
                         $(".gdm-table-data").find("[list-node]").remove();
@@ -89,7 +104,10 @@ $(function () {
                 list: true,
                 data: {
                     "page": 1,
-                    "limit": own.limit
+                    "limit": own.limit,
+                    'productName': own.productName,
+                    'startDate': own.startDate,
+                    'endDate': own.endDate
                 },
                 success: function (data) {
                     $(".gdm-table-data").find("[list-node]").remove();
