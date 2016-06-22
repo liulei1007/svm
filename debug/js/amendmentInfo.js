@@ -8,7 +8,7 @@ $(function () {
          * 初始化总控制器
          */
         initData: function () {
-            plumeLog("进入goodsAuditManage模板自定义js-" + plumeTime());
+            plumeLog("进入amendmentInfo模板自定义js-" + plumeTime());
 
             setPageCount();
             tablecheckbox();
