@@ -24,11 +24,13 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $("body").on("click", '.gdm-btn-search', function () {
+            $(".search-block").on("click", '.gdm-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
+                return false;
             }).on('click', ".gdm-btn-reload", function () {
                 derict(null, "goodsDraft", "nochangeurl");
+                return false;
             });
 
             return own;
@@ -57,6 +59,7 @@ $(function () {
                 session.goods_showMyGoods_type = "draft";
                 session.goods_showMyGoods_page = "goodsDraft";
                 derict(this, "myGoods", "nochangeurl");
+                return false;
             });
 
             return this;

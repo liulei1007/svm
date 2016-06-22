@@ -27,11 +27,15 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $('body').on('click', '.adi-btn-search', function () {
+            $('.search-block').on('click', '.adi-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
+
+                return false;
             }).on('click', ".adi-btn-reload", function () {
                 derict(null,"amendmentInfo","nochangeurl");
+
+                return false;
             });
 
             return own;
@@ -56,6 +60,8 @@ $(function () {
                             nowTag = parseInt($(this).attr("tag")) + 1;
 
                         nowTag < 3 && own.getFirstCategory().getCategoryData(cid, nowTag);
+
+                        return false;
                     });
                 },
 
@@ -89,6 +95,8 @@ $(function () {
                 session.goods_showMyGoods_uptId = uptId;
                 session.goods_showMyGoods_productId = productId;
                 derict(this, "feedMyGoods", "nochangeurl");
+
+                return false;
             });
 
             return this;

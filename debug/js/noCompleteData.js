@@ -26,11 +26,15 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $('body').on('click', '.ncd-btn-search', function () {
+            $('.search-block').on('click', '.ncd-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
+
+                return false;
             }).on('click', ".ncd-btn-reload", function () {
                 derict(null, "noCompleteData", "nochangeurl");
+
+                return false;
             });
 
             return own;
@@ -55,6 +59,8 @@ $(function () {
                             nowTag = parseInt($(this).attr("tag")) + 1;
 
                         nowTag < 3 && own.getFirstCategory().getCategoryData(cid, nowTag);
+
+                        return false;
                     });
                 },
 
@@ -112,6 +118,8 @@ $(function () {
                 session.goods_showMyGoods_uptId = $(this).attr("uptid");
                 session.goods_showMyGoods_type = "amend";
                 derict(this, "myGoods", "nochangeurl");
+
+                return false;
             }).on('click', '.btn-link-delete', function () {
                 var uptId = $(this).attr("uptId");
                 $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
@@ -127,10 +135,14 @@ $(function () {
                         $pop.hide();
                         $pop.off('click', '.btn-sure');
                         $pop.off('click', '.btn-cancel');
+
+                        return false;
                     }).on('click', '.btn-cancel', function () {
                         $pop.hide();
                         $pop.off('click', '.btn-sure');
                         $pop.off('click', '.btn-cancel');
+
+                        return false;
                     });
                 });
             });
