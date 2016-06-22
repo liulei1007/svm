@@ -53,6 +53,7 @@ $(function () {
         bingListEvent: function () {
             $(".table-block").on("click", ".gda-btn-edit", function () {
                 session.goods_code = $(this).attr("code");
+                session.goods_showMyGoods_productId = $(this).attr("productId");
                 session.goods_showMyGoods_type = "draft";
                 session.goods_showMyGoods_page = "goodsDraft";
                 derict(this, "myGoods", "nochangeurl");
