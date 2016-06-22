@@ -1045,6 +1045,21 @@ function keyDown(ele){
     });
 }
 
+var key = {
+    keydownEnter: function(ele) {
+        $("body").bind('keydown',function() {
+            if (event.keyCode == "13") {
+                $(ele).click();
+            }
+        });
+    },
+    unkeydownEnter: function(ele){
+        $("body").unbind();
+    }
+}
+
+
+
 function isFloat(num) {
 	return /^[0-9]+.?[0-9]*$/.test(num);
 }

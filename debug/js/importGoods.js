@@ -36,9 +36,9 @@ $(function () {
                if (($("#file").val()&&fileSuffix=="xlsx")) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
                    $('#myForm').submit();
-                   session.goods_baseCategoryId = "";
-                   session.goods_subCategoryId = "";
-                   session.goods_categoryId = "";
+                   // session.goods_baseCategoryId = "";
+                   // session.goods_subCategoryId = "";
+                   // session.goods_categoryId = "";
                }
            });
 
