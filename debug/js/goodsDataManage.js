@@ -1,5 +1,5 @@
 $(function () {
-    setPageCount();
+
     var goodsDataManageInit = {
 
         data: {},
@@ -209,6 +209,8 @@ $(function () {
 
             $('#startDate').cxCalendar();
             $('#endDate').cxCalendar();
+
+            setPageCount();
 
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();

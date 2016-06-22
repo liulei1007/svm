@@ -10,8 +10,9 @@ $(function () {
         initData: function () {
             plumeLog("进入goodsCheckfailManage模板自定义js-" + plumeTime());
 
+            setPageCount();
             tablecheckbox();
-            
+
             this.initBindEvent().initRequestData().initTableData();
         },
 
