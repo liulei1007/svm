@@ -378,6 +378,21 @@ function PlumelistNodeShow(o){
         },30);
     }
 }
+function PlumelistNodeShowOrder(o){
+    o.show(100,function(){
+        if($(o).next().length != 0){
+            var ox=$(o).next();
+            PlumelistNodeShowOrder(ox);
+        }
+    });
+
+    //if($(o).next().length != 0){
+    //    var ox=$(o).next();
+    //    setTimeout(function(){
+    //        PlumelistNodeShow(ox);
+    //    },30);
+    //}
+}
 
 //内部方法,重写浏览器回退,前进,刷新事件,使用setTimeout为了避免部分浏览器bug,保证兼容
 setTimeout(function () {
