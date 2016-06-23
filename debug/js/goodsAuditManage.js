@@ -133,7 +133,8 @@ $(function () {
 
             $(".table-block").off().on("click", '.gam-btn-show', function () {
                 var uptId = $(this).attr("uptId");
-                session.goods_showMyGoods_uptId = uptId;
+                session.goods_detail_uptId = uptId;
+                session.goods_detail_type = 'wait';
                 derict(this, "showMyGoods", "nochangeurl");
                 return false;
             }).on('click', '.btn-audit', function () {

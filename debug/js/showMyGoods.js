@@ -23,7 +23,11 @@ $(function () {
          */
         bindEvent: function () {
             $(".smg-back").bind("click", function () {
-                derict(this, "goodsAuditManage", "nochangeurl");
+                var backUrl = {
+                    'wait': 'goodsAuditManage',
+                    'fail': 'goodsCheckfailManage'
+                }[session.goods_detail_type];
+                derict(this, backUrl, "nochangeurl");
             });
 
             return this;
@@ -149,7 +153,7 @@ $(function () {
             $.commonAjax({
                 type: "GET",
                 url: 'getProductInfoUpt',
-                operationId: session.goods_showMyGoods_uptId,
+                operationId: session.goods_detail_uptId,
                 success: function (data) {
                     own.showData(data.data);
                 }
