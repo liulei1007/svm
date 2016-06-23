@@ -961,6 +961,7 @@ function checkPhone(checkObj, checkType) {
 	if (checkFormNull($(checkObj))) {
 		// 其次判断是否符合手机号规则
 		if (!isMobile($(checkObj).val().trim())) {
+            var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
 			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
 			// $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
 			return;

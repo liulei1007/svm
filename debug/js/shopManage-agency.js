@@ -23,6 +23,11 @@ $(function() {
 		checkTel($(this));
 	});
 
+	// 点击“返回”按钮
+	$(".btn-back").click(function() {
+		derict(this, "shopListAgency", "nochangeurl");
+	});
+
 	// 点击“提交”按钮
 	$(".btn-submit").click(function() {
 		ifNull = false;
@@ -32,10 +37,42 @@ $(function() {
 		});
 		// 确保输入的数据都有效
 		if (!checkTime($("#startTime")) || ifNull) { return; }
-		alert("ok");
+		var shopName = $("#shopName").val().trim();
+		var marketBoothNumber = $("#marketBoothNumber").val().trim();
+		var marketFloor = $("#marketFloor").val().trim();
+		var salesStartTime = $("#startTime").val().trim();
+		var salesEndTime = $("#endTime").val().trim();
+		var shopTel = $("#tel").val().trim();
+		var shopIntroduction = $("#shopIntroduction").val().trim();
+		var data = {
+			"shopNumber": session.shopAgency_shopId,
+			"shopName": shopName,
+			"marketBoothNumber": marketBoothNumber,
+			"marketFloor": marketFloor,
+			"salesStartTime": salesStartTime,
+			"salesEndTime": salesEndTime,
+			"shopTel": shopTel,
+			"shopIntroduction": shopIntroduction
+		};
+		console.log(data);
+		loading();
+		$.ajax({
+            // url: "datas/shopList.txt",
+            url: plumeApi["editShopInfo"],
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+            	unloading();
+                console.log(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+		// alert("ok");
 	});
-
-	$(".btn-back").click(function() {});
 
 	// 检验门店营业时间是否正确
 	function checkTime(checkObj) {

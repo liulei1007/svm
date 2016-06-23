@@ -104,8 +104,10 @@ $(function () {
                     },
                     list: true,
                     data: own.data,
-                    success: function (data) {
+                    beforeSend: function () {
                         $("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".form-body").setPageData(data);
                         own.bingListEvent();
                     },
@@ -129,8 +131,13 @@ $(function () {
                 },
                 list: true,
                 data: own.data,
-                success: function (data) {
+                beforeSend: function () {
                     $("[list-node]").remove();
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
                     $(".form-body").setPageData(data);
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));

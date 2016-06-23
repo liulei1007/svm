@@ -21,9 +21,12 @@ $(function () {
     });
 
     $("tbody").on("click", '.bl-btn-look', function () {
-        getBrandId(this)
+        getBrandId(this);
         derict(this, "brandListShow", "nochangeurl");
-    })
+    }).on("click", ".btn-manage", function() {
+        getBrandId(this);
+        derict(this, "brandListManage", "nochangeurl");
+    });
 
     $(".bl-btn-search").bind('click', function () {
         datas.brandName = $("#brandName").val();
@@ -34,7 +37,9 @@ $(function () {
     })
     $(".bl-btn-reload").bind("click", function () {
         window.location.reload();
-    })
+    });
+
+    
 
     //商品管理列表
     function getTableData() {

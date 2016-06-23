@@ -23,7 +23,7 @@
       <form class="form-inline">
         <div class="form-group">
           <label >搜索品牌工厂库商品：</label>
-          <input type="text" class="form-control input-sm" id="keyword" placeholder="">
+          <input type="text" class="form-control input-sm" id="keyword" placeholder="请输入型号/商品名称/品牌/系列进行商品搜索" style="width:300px;">
         </div>
         <div class="btn btn-default btn-sm btn-search">查询</div>
         <div class="btn btn-default btn-sm btn-empty">清空条件</div>
@@ -40,7 +40,6 @@
         <table class="table table1 table-striped">
             <thead>
               <tr>
-                <td>商品数据ID号</td>
                 <td>商品名称</td>
                 <td>系列名</td>
                 <td>品牌</td>
@@ -50,7 +49,6 @@
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true">
-                <td class="productId" node-name="$n.product_id"></td>
                 <td node-name="$n.product_name"></td>
                 <td node-name="$n.series_name"></td>
                 <td node-name="$n.brand_name"></td>

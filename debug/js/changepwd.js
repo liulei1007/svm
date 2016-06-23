@@ -41,19 +41,11 @@ $(function () {
         $.get(plumeApi["sendMsg"] + "/" + mobile + "/10003", {}, function (data) {
         	unloading();
         	if (data.ok) {
-        		$('.pop').loadTemp("popTips", "nochangeurl", function () {
-        			$(".pop").find(".popup-title").html("发送成功");
-        			$(".pop").find(".popup-icon").html('<i class="success"></i>');
-        			$(".pop").find(".popup-info").html("短信验证码已成功发送到手机");
-        		});
+        		showPopTips("发送成功", "success", "短信验证码已成功发送到手机");
         		settime(60);
         	}
             else {
-            	$('.pop').loadTemp("popTips", "nochangeurl", function () {
-        			$(".pop").find(".popup-title").html("发送失败");
-        			$(".pop").find(".popup-icon").html('<i class="warning"></i>');
-        			$(".pop").find(".popup-info").html(data.resDescription);
-        		});
+            	showPopTips("发送失败", "warning", data.resDescription);
             }
         });
     })
