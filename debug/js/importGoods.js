@@ -34,8 +34,10 @@ $(function () {
            $(".ex-ok").bind("click", function () {
                var filePath  = ($('#fileSuffix').html());
                var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
-               if(fileSuffix!="xlsx"){
-                  alert("上传格式不正确")
+               if(fileSuffix!="xlsx"&&fileSuffix!=""){
+                  alert("上传格式不正确");
+               }else if(!session.goods_baseCategoryId){
+                alert("请选择分类");
                }
                if (($("#file").val()&&fileSuffix=="xlsx"&&session.goods_baseCategoryId)) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
