@@ -35,11 +35,12 @@ if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
 }
 
 if (_test_path.indexOf("longguo.mmall.com") != -1) {
-    plumeApi_Host = "https://longguo.mmall.com";
+    plumeApi_Host = "https://longguo.mmall.com/api/";
 } else if (_test_path.indexOf("longguo.hxmklmall.cn") != -1) {
-    plumeApi_Host = "http://longguo.hxmklmall.cn";
+    plumeApi_Host = "http://longguo.hxmklmall.cn/api/";
 } else {
-    plumeApi_Host = "http://longguo.hxmklmall.cn";
+    plumeApi_Host = "http://longguo.hxmklmall.cn/api/";
+    //plumeApi_Host = "http://10.11.25.116:8080/";
 }
 $(function () {
     plumeLog("进入plume全局设置-" + plumeTime());
@@ -538,5 +539,5 @@ window.onerror = function(msg, url, line) {
     plumeLog("url:"+url);
     plumeLog("line:"+line);
     plumeLog("--------------------");
-    return false;
+    return true;
 }

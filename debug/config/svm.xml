@@ -403,107 +403,107 @@
     <api-host>http://longguo.hxmklmall.cn</api-host>
 
     <api>
-        <listBrandSeriesList>/api/brandSeries/listBrandSeriesList</listBrandSeriesList>
-        <listAgentsBrandInfoList-brand>/api/brandSeries/listOmsBrand
+        <listBrandSeriesList>brandSeries/listBrandSeriesList</listBrandSeriesList>
+        <listAgentsBrandInfoList-brand>brandSeries/listOmsBrand
         </listAgentsBrandInfoList-brand>
-        <listAgentsBrandInfoList>/api/agentsBusinessInfo/listAgentsBrandInfoList
+        <listAgentsBrandInfoList>agentsBusinessInfo/listAgentsBrandInfoList
         </listAgentsBrandInfoList>
-        <listShopInfo>/api/shopInfo/listShopInfo</listShopInfo>
-        <addProductInfo>/api/productInfo/addProductInfo</addProductInfo>
-        <listProductInfo>/api/productInfo/listProductInfo</listProductInfo>
-        <delProductInfo>/api/productInfo/delProductInfo</delProductInfo>
-        <sendMsg>/api/userInfo/sendMsg</sendMsg>
-        <registerUserInfo>/api/userInfo/registerUserInfo</registerUserInfo>
-        <login>/api/userInfo/login</login>
-        <listProductCategory>/api/productCategory/listProductCategory</listProductCategory>
-        <getColorSeries>/api/colorSeries/getColorSeries</getColorSeries>
-        <listNationRegion>/api/common/listNationRegion/CN</listNationRegion>
-        <editProductInfo>/api/productInfo/editProductInfo</editProductInfo>
-        <getProductInfo>/api/productInfo/getProductInfo</getProductInfo>
-        <listProductShopGoods>/api/productShopGoods/listProductShopGoods
+        <listShopInfo>shopInfo/listShopInfo</listShopInfo>
+        <addProductInfo>productInfo/addProductInfo</addProductInfo>
+        <listProductInfo>productInfo/listProductInfo</listProductInfo>
+        <delProductInfo>productInfo/delProductInfo</delProductInfo>
+        <sendMsg>userInfo/sendMsg</sendMsg>
+        <registerUserInfo>userInfo/registerUserInfo</registerUserInfo>
+        <login>userInfo/login</login>
+        <listProductCategory>productCategory/listProductCategory</listProductCategory>
+        <getColorSeries>colorSeries/getColorSeries</getColorSeries>
+        <listNationRegion>common/listNationRegion/CN</listNationRegion>
+        <editProductInfo>productInfo/editProductInfo</editProductInfo>
+        <getProductInfo>productInfo/getProductInfo</getProductInfo>
+        <listProductShopGoods>productShopGoods/listProductShopGoods
         </listProductShopGoods>
-        <delProductShopGoods>/api/productShopGoods/delProductShopGoods
+        <delProductShopGoods>productShopGoods/delProductShopGoods
         </delProductShopGoods>
-        <enableProductShopGoods>/api/productShopGoods/enableProductShopGoods/
+        <enableProductShopGoods>productShopGoods/enableProductShopGoods/
         </enableProductShopGoods>
-        <disableProductShopGoods>/api/productShopGoods/disableProductShopGoods/
+        <disableProductShopGoods>productShopGoods/disableProductShopGoods/
         </disableProductShopGoods>
-        <getProductShopGoods>/api/productShopGoods/getProductShopGoods/</getProductShopGoods>
-        <listProductGoods>/api/productShopGoods/listProductGoods</listProductGoods>
-        <listProductInfoUpt>/api/productInfo/listProductInfoUpt</listProductInfoUpt>
-        <addProductShopGoods>/api/productShopGoods/addProductShopGoods
+        <getProductShopGoods>productShopGoods/getProductShopGoods/</getProductShopGoods>
+        <listProductGoods>productShopGoods/listProductGoods</listProductGoods>
+        <listProductInfoUpt>productInfo/listProductInfoUpt</listProductInfoUpt>
+        <addProductShopGoods>productShopGoods/addProductShopGoods
         </addProductShopGoods>
-        <editProductShopGoods>/api/productShopGoods/editProductShopGoods
+        <editProductShopGoods>productShopGoods/editProductShopGoods
         </editProductShopGoods>
-        <getProductStashById>/api/productStash/getProductStashById/</getProductStashById>
+        <getProductStashById>productStash/getProductStashById/</getProductStashById>
 
-        <reviewProductInfo>/api/productInfo/reviewProductInfo</reviewProductInfo>
-        <brandSeries>/api/brandSeries/listBrandSeries</brandSeries>
-        <listBrandBusinessInfo>/api/brandBusinessInfo/listBrandBusinessInfo
+        <reviewProductInfo>productInfo/reviewProductInfo</reviewProductInfo>
+        <brandSeries>brandSeries/listBrandSeries</brandSeries>
+        <listBrandBusinessInfo>brandBusinessInfo/listBrandBusinessInfo
         </listBrandBusinessInfo>
 
-        <listProductStash>/api/productStash/listProductStash</listProductStash>
+        <listProductStash>productStash/listProductStash</listProductStash>
 
-        <listOmsBrand>/api/brandSeries/listOmsBrand</listOmsBrand>
-        <listOmsBrandSeries>/api/brandSeries/listOmsBrandSeries</listOmsBrandSeries>
+        <listOmsBrand>brandSeries/listOmsBrand</listOmsBrand>
+        <listOmsBrandSeries>brandSeries/listOmsBrandSeries</listOmsBrandSeries>
 
-        <listFeedBack>/api/feedback/listFeedBack/</listFeedBack>
-        <addFeedbackInfo>/api/feedback/addFeedbackInfo/</addFeedbackInfo>
-        <delFeedback>/api/feedback/delFeedback/</delFeedback>
-        <resetPassword>/api/userInfo/resetPassword/</resetPassword>
+        <listFeedBack>feedback/listFeedBack/</listFeedBack>
+        <addFeedbackInfo>feedback/addFeedbackInfo/</addFeedbackInfo>
+        <delFeedback>feedback/delFeedback/</delFeedback>
+        <resetPassword>userInfo/resetPassword/</resetPassword>
 
-        <getOmsBrandDetail>/api/brandSeries/getOmsBrandDetail/</getOmsBrandDetail>
-        <getShopDetail>/api/shopInfo/getShopDetail/</getShopDetail>
+        <getOmsBrandDetail>brandSeries/getOmsBrandDetail/</getOmsBrandDetail>
+        <getShopDetail>shopInfo/getShopDetail/</getShopDetail>
 
-        <getLoginUser>/api/userInfo/getLoginUser/</getLoginUser>
-        <listSubUserInfo>/api/subUserInfo/listSubUserInfo/</listSubUserInfo>
-        <listManuSubUserInfo>/api/subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
-        <delSubUserInfo>/api/subUserInfo/delSubUserInfo/</delSubUserInfo>
-        <listManuBrand>/api/subUserInfo/listManuBrand/</listManuBrand>
+        <getLoginUser>userInfo/getLoginUser/</getLoginUser>
+        <listSubUserInfo>subUserInfo/listSubUserInfo/</listSubUserInfo>
+        <listManuSubUserInfo>subUserInfo/listManuSubUserInfo/</listManuSubUserInfo>
+        <delSubUserInfo>subUserInfo/delSubUserInfo/</delSubUserInfo>
+        <listManuBrand>subUserInfo/listManuBrand/</listManuBrand>
 
-        <getManuSubUserUpView>/api/subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
-        <getAgentsSubUserUpView>/api/subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
-        <getUserInfoByMobile>/api/userInfo/getUserInfoByMobile/</getUserInfoByMobile>
-        <addAgentsSubUserInfo>/api/subUserInfo/addAgentsSubUserInfo/</addAgentsSubUserInfo>
-        <addManuSubUserInfo>/api/subUserInfo/addManuSubUserInfo/</addManuSubUserInfo>
-        <editManuSubUserInfo>/api/subUserInfo/editManuSubUserInfo/</editManuSubUserInfo>
-        <editAgentsSubUserInfo>/api/subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
-        <listUserRole>/api/subUserInfo/listUserRole/</listUserRole>
-        <editUserRoles>/api/subUserInfo/editUserRoles/</editUserRoles>
-        <listProductAttribute>/api/productAttribute/listProductAttribute</listProductAttribute>
-        <listShopLinkage>/api/subUserInfo/listShopLinkage</listShopLinkage>
+        <getManuSubUserUpView>subUserInfo/getManuSubUserUpView/</getManuSubUserUpView>
+        <getAgentsSubUserUpView>subUserInfo/getAgentsSubUserUpView/</getAgentsSubUserUpView>
+        <getUserInfoByMobile>userInfo/getUserInfoByMobile/</getUserInfoByMobile>
+        <addAgentsSubUserInfo>subUserInfo/addAgentsSubUserInfo/</addAgentsSubUserInfo>
+        <addManuSubUserInfo>subUserInfo/addManuSubUserInfo/</addManuSubUserInfo>
+        <editManuSubUserInfo>subUserInfo/editManuSubUserInfo/</editManuSubUserInfo>
+        <editAgentsSubUserInfo>subUserInfo/editAgentsSubUserInfo/</editAgentsSubUserInfo>
+        <listUserRole>subUserInfo/listUserRole/</listUserRole>
+        <editUserRoles>subUserInfo/editUserRoles/</editUserRoles>
+        <listProductAttribute>productAttribute/listProductAttribute</listProductAttribute>
+        <listShopLinkage>subUserInfo/listShopLinkage</listShopLinkage>
 
-        <addCompanyInfoCompany>/api/companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
-        <editProductStash>/api/productStash/editProductStash</editProductStash>
-        <addProductStash>/api/productStash/addProductStash</addProductStash>
-        <addCompanyInfoFactory>/api/companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
-        <logout>/api/userInfo/logout</logout>
-        <getProductInfoUpt>/api/productInfo/getProductInfoUpt</getProductInfoUpt>
-        <addCompanyInfoPersonal>/api/companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
-        <editProductInfo>/api/productInfo/editProductInfo</editProductInfo>
-        <getSystemResourceTree>/api/common/getSystemResourceTree</getSystemResourceTree>
-        <exportProductGoodsTemplate>/api/excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
-        <editSaleStatus>/api/productInfo/editSaleStatus</editSaleStatus>
-        <listSystemCode>/api/common/listSystemCode</listSystemCode>
-        <disableSaleStatus>/api/productInfo/disableSaleStatus/</disableSaleStatus>
-        <enableSaleStatus>/api/productInfo/enableSaleStatus/</enableSaleStatus>
-        <listToBePerfectProductInfo>/api/productInfo/listToBePerfectProductInfo</listToBePerfectProductInfo>
-        <listErrorFeedbackProductInfo>/api/productInfo/listErrorFeedbackProductInfo</listErrorFeedbackProductInfo>
-        <addProductInfoFeedback>/api/productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
-        <uploadEx>/api/excel/importProductGoods/</uploadEx>
-        <downloadEx>/api/excel/exportProductGoodsTemplate/</downloadEx>
+        <addCompanyInfoCompany>companyInfo/addCompanyInfoCompany</addCompanyInfoCompany>
+        <editProductStash>productStash/editProductStash</editProductStash>
+        <addProductStash>productStash/addProductStash</addProductStash>
+        <addCompanyInfoFactory>companyInfo/addCompanyInfoFactory</addCompanyInfoFactory>
+        <logout>userInfo/logout</logout>
+        <getProductInfoUpt>productInfo/getProductInfoUpt</getProductInfoUpt>
+        <addCompanyInfoPersonal>companyInfo/addCompanyInfoPersonal</addCompanyInfoPersonal>
+        <editProductInfo>productInfo/editProductInfo</editProductInfo>
+        <getSystemResourceTree>common/getSystemResourceTree</getSystemResourceTree>
+        <exportProductGoodsTemplate>excel/exportProductGoodsTemplate/1/5/61/1</exportProductGoodsTemplate>
+        <editSaleStatus>productInfo/editSaleStatus</editSaleStatus>
+        <listSystemCode>common/listSystemCode</listSystemCode>
+        <disableSaleStatus>productInfo/disableSaleStatus/</disableSaleStatus>
+        <enableSaleStatus>productInfo/enableSaleStatus/</enableSaleStatus>
+        <listToBePerfectProductInfo>productInfo/listToBePerfectProductInfo</listToBePerfectProductInfo>
+        <listErrorFeedbackProductInfo>productInfo/listErrorFeedbackProductInfo</listErrorFeedbackProductInfo>
+        <addProductInfoFeedback>productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
+        <uploadEx>excel/importProductGoods/</uploadEx>
+        <downloadEx>excel/exportProductGoodsTemplate/</downloadEx>
 
-        <upBatch>/api/excel/importProductStash</upBatch>
-        <downBatch>/api/excel/exportProductStashTemplate</downBatch>
+        <upBatch>excel/importProductStash</upBatch>
+        <downBatch>excel/exportProductStashTemplate</downBatch>
 
-        <listMarketInfo>/api/common/listMarketInfo</listMarketInfo>
-        <editProductInfoUpt>/api/productInfo/editProductInfoUpt</editProductInfoUpt>
-        <delProductInfoUpt>/api/productInfo/delProductInfoUpt</delProductInfoUpt>
-        <listNationCode>/api/common/listNationCode</listNationCode>
-        <chkUserStatus>/api/userInfo/chkUserStatus</chkUserStatus>
-        <listDraft>/api/productDraft/listDraft</listDraft>
-        <addDraft>/api/productDraft/addDraft</addDraft>
-        <standardUnit>/api/common/listSystemCode/standard_unit</standardUnit>
-        <addDrafts>/api/productDraft/applyProductDraft</addDrafts>
+        <listMarketInfo>common/listMarketInfo</listMarketInfo>
+        <editProductInfoUpt>productInfo/editProductInfoUpt</editProductInfoUpt>
+        <delProductInfoUpt>productInfo/delProductInfoUpt</delProductInfoUpt>
+        <listNationCode>common/listNationCode</listNationCode>
+        <chkUserStatus>userInfo/chkUserStatus</chkUserStatus>
+        <listDraft>productDraft/listDraft</listDraft>
+        <addDraft>productDraft/addDraft</addDraft>
+        <standardUnit>common/listSystemCode/standard_unit</standardUnit>
+        <addDrafts>productDraft/applyProductDraft</addDrafts>
     </api>
 </config>
