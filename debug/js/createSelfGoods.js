@@ -11,8 +11,6 @@ $(function() {
 		"orgName": "",
 		"priceType": "",
 		"salePrice": 0,
-		"discount": 0,
-		"inventory": 0,
 		"saleStatus": "",
 		"standardUnit":""
 	}

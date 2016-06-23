@@ -37,6 +37,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.ncd-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.ncd-btn-search');
+            });
+
             return own;
         },
 
@@ -188,8 +195,10 @@ $(function () {
                     },
                     list: true,
                     data: own.data,
-                    success: function (data) {
+                    beforeSend: function () {
                         $(".table-block").find("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".table-block").setPageData(data);
                         own.bingListEvent();
                     },
@@ -213,11 +222,14 @@ $(function () {
                 },
                 list: true,
                 data: own.data,
-                success: function (data) {
+                beforeSend: function () {
                     $(".table-block").find("[list-node]").remove();
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
                     $(".table-block").setPageData(data);
-
-                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').text('0');
 
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
@@ -229,7 +241,4 @@ $(function () {
     };
 
     noCompleteDataInit.initData();
-
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });

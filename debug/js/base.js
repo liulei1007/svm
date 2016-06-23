@@ -34,7 +34,7 @@
             data: {},
             contentType: 'application/json',
             dataType: 'json',
-            beforeSend: function(){
+            beforeSend: function () {
 
             }
         };
@@ -57,7 +57,7 @@
         // 如果有传入urlParams这个对象，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test?test=1&test1=2
         var urlStringArr = [], urlString = '';
         if (option.urlParams) {
-            $.jsonValid(option.urlParams) && $.each(option.urlParams,function(name, value) {
+            $.jsonValid(option.urlParams) && $.each(option.urlParams, function (name, value) {
                 urlStringArr.push(name + '=' + value);
             });
             urlString = urlStringArr.join('&');
@@ -67,7 +67,7 @@
         if (option.operationId && typeof(option.operationId) !== "undefined") {
             option.url = plumeApi[option.url] + '/' + option.operationId;
         } else {
-            option.url = plumeApi[option.url] + (urlString ? ('?' +  urlString) : '');
+            option.url = plumeApi[option.url] + (urlString ? ('?' + urlString) : '');
         }
 
         return $.ajax({
@@ -76,17 +76,27 @@
             data: dataJson,
             dataType: 'json',
             contentType: 'application/json',
-            success: function(data){
+            success: function (data) {
                 unloading();
-                option.list && !data.data && !data.data.length === 0 && $.emptyData();
+
+                if (option.list) {
+                    var $infoNum = $('.infoNum');
+
+                    data.data && data.data.length !== 0 ? (
+                        $infoNum.text(data.countRecord),
+                            $infoNum.parent('div').show(),
+                            $('.pagination').parent().show()
+                    ) : ($.emptyData(), $('.pagination').parent().hide(), $infoNum.parent('div').hide())
+                }
+
                 typeof(option.success) === 'function' && option.success(data);
             },
-            error: function(data) {
+            error: function (data) {
                 unloading();
                 $.emptyData();
                 typeof(option.error) === 'function' && option.error(data);
             },
-            beforeSend: function(){
+            beforeSend: function () {
                 loading();
                 typeof(option.beforeSend) == "function" && option.beforeSend();
             }

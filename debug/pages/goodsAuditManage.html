@@ -84,7 +84,7 @@
                 <td node-name="attr-uptId:$n.uptId"><input type="checkbox"/></td>
                 <td node-name="$n.productName,attr-uptId:$n.uptId" class="a-link gam-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
-                <td node-name="($n.countryId=='CN')?$n.cityName:$n.countryName"></td>
+                <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.seriesName "></td>
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>

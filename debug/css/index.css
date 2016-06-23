@@ -475,7 +475,7 @@ textarea{resize: none;}
 .lockbg{position: absolute;width:100%;height:100%;background: #fff;left: 0;top: 0; filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;display: none;z-index:98}
 .cic-pop{width: 320px;  height: 220px; margin-top: -110px; position: absolute;background: #fff;display: none}
 .popcenter { position: fixed;top: 50%;  left: 50%;z-index:99;  -ms-transform: translate(-50%,-50%);  -moz-transform: translate(-50%,-50%);  -o-transform: translate(-50%,-50%);  transform: translate(-50%,-50%);  }
-.popcenter1 { position: fixed;top: 50%;  left: 50%;z-index:99;  }
+.popcenter1 { position: fixed;top: 35%;  left: 50%;z-index:99;  }
 #cmg-upload{cursor: pointer}
 .popup-upload{position: relative; width: 300px; height: 200px; }
 .loadings {  height: 50px;  width: 50px;  background: url("../images/loading.png") no-repeat 0 0;  -webkit-animation: bounce 1.0s infinite linear;  animation: bounce 1.0s infinite linear;  }

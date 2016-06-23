@@ -93,7 +93,13 @@ $(function() {
         window.location.reload();
     });
 
-    //回车搜索
-    keyDown('.btn-search');
+//回车搜索
+    $(".search-block input[type=text]").bind('focus',function() {
+       key.keydownEnter('.btn-search');   
+    });
 
+    $(".search-block input[type=text]").bind('blur',function() {
+       key.unkeydownEnter('.btn-search');   
+    }); 
+    
 });

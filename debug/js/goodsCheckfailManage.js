@@ -26,13 +26,20 @@ $(function () {
         initBindEvent: function () {
             var own = this;
 
-            $(".form-body").on("click", '.gcm-btn-search', function () {
+            $(".search-block").on("click", '.gcm-btn-search', function () {
                 own.initRequestData().initTableData();
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gcm-btn-reload", function () {
-                derict(null,"goodsCheckfailManage","nochangeurl");
+                derict(null, "goodsCheckfailManage", "nochangeurl");
                 return false;
+            });
+
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.gcm-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.gcm-btn-search');
             });
 
             return own;
@@ -49,6 +56,10 @@ $(function () {
                 session.goods_showMyGoods_page = "goodsCheckfailManage";
                 derict(this, "myGoods", "nochangeurl");
                 return false;
+            }).on("click", ".gcm-btn-show", function () {
+                var uptId = $(this).attr("uptId");
+                session.goods_showMyGoods_uptId = uptId;
+                derict(this, "showMyGoods", "nochangeurl");
             });
 
             return this;
@@ -59,7 +70,7 @@ $(function () {
          * @returns {goodsAuditManageInit}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#agencyName").val(),
                 modelNumber: "",
                 categoryId: "",
@@ -93,12 +104,15 @@ $(function () {
                     },
                     list: true,
                     data: own.data,
-                    success: function (data) {
+                    beforeSend: function () {
                         $("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".form-body").setPageData(data);
                         own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
             });
         },
@@ -117,19 +131,22 @@ $(function () {
                 },
                 list: true,
                 data: own.data,
-                success: function (data) {
+                beforeSend: function () {
                     $("[list-node]").remove();
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
                     $(".form-body").setPageData(data);
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         }
     };
 
     goodsCheckfailManageInit.initData();
-
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });
