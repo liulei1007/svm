@@ -37,6 +37,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.ncd-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.ncd-btn-search');
+            });
+
             return own;
         },
 
@@ -217,7 +224,7 @@ $(function () {
                     $(".table-block").find("[list-node]").remove();
                     $(".table-block").setPageData(data);
 
-                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').text('0');
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').parent('div').remove();
 
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
@@ -229,7 +236,4 @@ $(function () {
     };
 
     noCompleteDataInit.initData();
-
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });

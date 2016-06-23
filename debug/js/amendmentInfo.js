@@ -33,9 +33,16 @@ $(function () {
 
                 return false;
             }).on('click', ".adi-btn-reload", function () {
-                derict(null,"amendmentInfo","nochangeurl");
+                derict(null, "amendmentInfo", "nochangeurl");
 
                 return false;
+            });
+
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.adi-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.adi-btn-search');
             });
 
             return own;
@@ -54,7 +61,7 @@ $(function () {
                  * 绑定分类事件
                  * @param $cls
                  */
-                categoryEvent : function ($cls) {
+                categoryEvent: function ($cls) {
                     $cls.find("select").unbind().bind("change", function () {
                         var cid = $(this).val(),
                             nowTag = parseInt($(this).attr("tag")) + 1;
@@ -107,7 +114,7 @@ $(function () {
          * @returns {goodsAuditManageInit}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#productName").val(),
                 modelNumber: '',
                 categoryId: $("#categoryId").val(),
@@ -128,7 +135,7 @@ $(function () {
          * @param totalPage
          */
         paginationData: function (totalPage) {
-            var own= this;
+            var own = this;
 
             newPage(totalPage, function (page) {
                 $.commonAjax({
@@ -145,7 +152,8 @@ $(function () {
                         $(".table-block").setPageData(data);
                         own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
             });
         },
@@ -168,18 +176,17 @@ $(function () {
                     $(".table-block").find("[list-node]").remove();
                     $(".table-block").setPageData(data);
 
-                    data.countRecord ? $('.infoNum').text(data.countRecord): $('.infoNum').text('0');
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').parent('div').remove();
 
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         }
     };
 
     amendmentInfoInit.initData();
-
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });
+

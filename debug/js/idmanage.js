@@ -262,5 +262,12 @@ function rolesShow() {
     });
 
 
-//回车搜索
-    keyDown('.im-btn-sm');
+
+    //回车搜索
+$(".search-block input[type=text]").bind('focus',function() {
+   key.keydownEnter('.im-btn-sm');   
+});
+
+$(".search-block input[type=text]").bind('blur',function() {
+   key.unkeydownEnter('.im-btn-sm');   
+});

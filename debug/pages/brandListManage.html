@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"brandListManage"
+        }
+    </script>
+</head>
+
+<body>
+	<div class="body-typein">
+		<div class="title-block">管理品牌信息</div>
+
+		<form class="form-horizontal">
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i>品牌logo</label>
+				<div class="col-sm-6">
+					<div id="upload-logo" class="form-control-media form-control-media-load"></div>
+				</div>
+			</div>
+			<div class="row help-block">
+				<div class="col-sm-offset-3 col-sm-8">（上传文件格式：jpg，jpeg，png。文件大小3MB以内，建议尺寸500*500px）</div>
+			</div>
+			<div class="form-group required">
+				<label class="col-sm-3 control-label"><i>*</i><span>品牌介绍</span></label>
+				<div class="col-sm-6">
+					<textarea id="introduce" class="form-control" rows="4" maxlength="500" placeholder="请输入品牌介绍"></textarea>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3 btn-block">
+				<button type="button" class="btn btn-lg btn-success btn-submit">提交</button>
+				<button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

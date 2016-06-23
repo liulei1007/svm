@@ -78,7 +78,7 @@
             contentType: 'application/json',
             success: function(data){
                 unloading();
-                option.list && !data.data && !data.data.length === 0 && $.emptyData();
+                option.list && (!data.data || !data.data.length === 0 && $.emptyData());
                 typeof(option.success) === 'function' && option.success(data);
             },
             error: function(data) {

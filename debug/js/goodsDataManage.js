@@ -22,6 +22,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.gdm-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.gdm-btn-search');
+            });
+
             return $own;
         },
 
@@ -219,14 +226,11 @@ $(function () {
 
             setPageCount();
             tablecheckbox();
-            
+
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
         }
     };
 
     goodsDataManageInit.initData();
-
-
-    keyDown('.gdm-btn-search');
 });

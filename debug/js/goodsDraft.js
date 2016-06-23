@@ -33,6 +33,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.gdm-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.gdm-btn-search');
+            });
+
             return own;
         },
 
@@ -115,6 +122,4 @@ $(function () {
 
     goodsDraftInit.initData();
 
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });

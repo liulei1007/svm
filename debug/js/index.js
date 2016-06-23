@@ -972,7 +972,7 @@ function checkPhone(checkObj, checkType) {
 	}
 }
 
-//判断手机号是否已存在
+// 判断手机号是否已存在
 function checkPhoneExist(checkObj, checkType){
 	var phone = $(checkObj).val().trim();
 	$.ajax({
@@ -1007,7 +1007,7 @@ function checkPhoneExist(checkObj, checkType){
 	});
 }
 
-
+// 检验是否为浮点小数
 function checkFloat(checkObj) {
     var $formBlock = $(checkObj).parents(".form-group");
     // 如果当前输入框已有其他提示信息，退出
@@ -1026,6 +1026,24 @@ function checkFloat(checkObj) {
 	return true;
 }
 
+// 检验是否为电话
+function checkTel(checkObj) {
+    var $formBlock = $(checkObj).parents(".form-group");
+    // 如果当前输入框已有其他提示信息，退出
+    if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
+        return false;
+    }
+    // 首先判断是否为空
+    if ($(checkObj).val() && $(checkObj).val().trim() != "") {
+        // 其次判断是否符合电话
+        if (!isTel($(checkObj).val().trim())) {
+            var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
+            $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
+            return false;
+        }
+    }
+    return true;
+}
 
 //只输入数字
 function onlyNum() {
@@ -1039,14 +1057,6 @@ function onlyNum() {
 }
 
 //页面回车事件
-function keyDown(ele){
-    $("body").keydown(function() {
-             if (event.keyCode == "13") {
-                 $(ele).click();
-             }
-    });
-}
-
 var key = {
     keydownEnter: function(ele) {
         $("body").bind('keydown',function() {
@@ -1075,6 +1085,13 @@ function pwdCheck(pwd) {
 function isMobile(n) {
     return /^1\d{10}$/.test(n) && n != 11111111111;
 }
+
+// 电话号码
+function isTel(tel) {
+    var rule = /^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$)/;
+    return rule.test(tel);
+}
+
 
 // 关闭大图显示
 function closeBigImage() {
