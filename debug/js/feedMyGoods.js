@@ -22,7 +22,7 @@ $(function () {
                 json1_3=d.productInfoPhotoUpts;
                 for (var i = 0; i < d.productInfoAttrUptORMs.length; i++) {
                     var p = d.productInfoAttrUptORMs[i];
-                    var temp = '<div class="form-group required smg-base-attr">';
+                    var temp = '<div class="form-group required smg-base-attr" style="display: none;">';
                     temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
                     temp += '<div class="col-sm-4">';
                     temp += '<p class="col-sm-10 form-control-static" attrValueId="'+ p.attrValueId+'">' + p.productAttributeValue.valueName + '</p>';
@@ -73,7 +73,7 @@ $(function () {
                 json2_3=d.productInfoPhotos;
                 for (var i = 0; i < d.productInfoAttrORMs.length; i++) {
                     var p = d.productInfoAttrORMs[i];
-                    var temp = '<div class="form-group required smg-base-attr">';
+                    var temp = '<div class="form-group required smg-base-attr" style="display: none;">';
                     temp += '<label class="col-sm-2 control-label">' + p.productAttribute.attrNameFront + '</label>';
                     temp += '<div class="col-sm-4">';
                     temp += '<p class="col-sm-10 form-control-static" attrValueId="'+ p.attrValueId+'">' + p.productAttributeValue.valueName + '</p>';
