@@ -828,7 +828,7 @@ $(function () {
         sessionType == 'feed' && (dataJson.productId = $("#productId").val());
         sessionType == 'amend' && (dataJson.uptId = session.goods_showMyGoods_uptId);
 
-        dataJson.productName = $("#productName").val().replace(/[\"\"]/g,"\'");
+        dataJson.productName = $("#productName").val();
         dataJson.productSecondName = $("#productSecondName").val();
         dataJson.brandId = $("#brandId").val();
         dataJson.seriesId = $("#seriesId").val();
