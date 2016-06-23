@@ -27,6 +27,7 @@ $(function () {
         derict(this, "myGoods", "nochangeurl");
     });
     var cls = ["type-first", "type-second", "type-third"];
+    
     //迭代获取类目
     function getFirstCategory(categoryId, tag) {
         loading();
