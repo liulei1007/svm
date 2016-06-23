@@ -38,7 +38,7 @@
 
     <div class="btn-block clearFix">
      <!--  <button class="btn btn-primary btn-icons btn-publishBatch btn-batch">批量导入自采商品</button> -->
-      <button class="btn btn-primary btn-icons btn-publishSingle btn-createNew">单笔新增自采商品</button>
+      <button class="btn btn-primary btn-icons btn-publishSingle btn-createNew">新增自采商品</button>
       <div class="pull-right alert alert-info">
       <p>当前商品总数：<strong data-name="$p.countRecord" class="infoNum"></strong>条&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;自采商品录入信息简单，不要求选择类目，支持批量导入</p>
     </div>
@@ -50,33 +50,29 @@
         <table class="table table1 table-striped">
             <thead>
               <tr>
-                <td style="width:10%">商品数据ID号</td>
                 <td style="width:15%">商品名称</td>
                 <td style="width:5%">品牌</td>
                 <td style="width:10%">型号</td>
                 <td style="width:10%">规格</td>
                 <td style="width:5%">主要用料</td>
-                <td style="width:5%">单位名称</td>
                 <td style="width:10%">零售价</td>
-                <td style="width:10%">商品描述</td>
+                <td style="width:10%">创建时间</td>
                 <td style="width:auto">操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true">
-                <td class="stashId" node-name="$n.stashId"></td>
+                <td class="stashId" node-name="$n.stashId" style="display:none"></td>
                 <td node-name="$n.pdtName"></td>
                 <td><div class="link-show" node-name="$n.brandName"></div></td>
                 <td node-name="$n.pgtType"></td>
                 <td node-name="$n.standard"></td>
                 <td node-name="$n.material"></td>
-                <td node-name="$n.orgName"></td>
                 <td node-name="$n.salePrice"></td>
-                <td node-name="$n.remark"></td>
+                <td node-name="_getLocalTime($n.createDate)"></td>
                 <td>
                   <!-- <div class="btn btn-link link-show">查看</div> -->
                   <div class="btn btn-link btn-edit">编辑</div>
-                  <div class="btn btn-link btn-copy">复制</div>
                 </td>
             </tbody>
         </table>

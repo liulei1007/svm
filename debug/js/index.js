@@ -799,8 +799,6 @@ function checkSelfGoods(operateName, selfGoods, url) {
         selfGoods.orgName = $("#orgName").val().trim();
         selfGoods.priceType = $("#priceType").val().trim();
         selfGoods.salePrice = $("#salePrice").val().trim();
-        selfGoods.discount = $("#discount").val().trim();
-        selfGoods.inventory = $("#inventory").val().trim();
         selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
         // 操作数据库
         controlSelfGoods(operateName, selfGoods, url);
