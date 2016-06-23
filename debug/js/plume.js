@@ -534,9 +534,9 @@ function plumeLog(o) {
 }
 window.onerror = function(msg, url, line) {
     plumeLog("----程序出现异常----");
-    plumeLog(msg);
-    plumeLog(url);
-    plumeLog(line);
+    plumeLog("msg:"+msg);
+    plumeLog("url:"+url);
+    plumeLog("line:"+line);
     plumeLog("--------------------");
     return true;
 }
