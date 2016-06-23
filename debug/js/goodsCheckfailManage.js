@@ -31,8 +31,15 @@ $(function () {
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gcm-btn-reload", function () {
-                derict(null,"goodsCheckfailManage","nochangeurl");
+                derict(null, "goodsCheckfailManage", "nochangeurl");
                 return false;
+            });
+
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.gcm-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.gcm-btn-search');
             });
 
             return own;
@@ -63,7 +70,7 @@ $(function () {
          * @returns {goodsAuditManageInit}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#agencyName").val(),
                 modelNumber: "",
                 categoryId: "",
@@ -102,7 +109,8 @@ $(function () {
                         $(".form-body").setPageData(data);
                         own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
             });
         },
@@ -127,23 +135,11 @@ $(function () {
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         }
     };
 
-
-//回车搜索
-$(".search-block input[type=text]").bind('focus',function() {
-   key.keydownEnter('.gcm-btn-search');   
-});
-
-$(".search-block input[type=text]").bind('blur',function() {
-   key.unkeydownEnter('.gcm-btn-search');   
-});
-
     goodsCheckfailManageInit.initData();
-
-    // 回车搜索
-
 });

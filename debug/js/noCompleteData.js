@@ -37,6 +37,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.ncd-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.ncd-btn-search');
+            });
+
             return own;
         },
 
@@ -229,7 +236,4 @@ $(function () {
     };
 
     noCompleteDataInit.initData();
-
-    // 回车搜索
-    keyDown('.gam-btn-search');
 });

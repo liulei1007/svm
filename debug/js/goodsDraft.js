@@ -33,6 +33,13 @@ $(function () {
                 return false;
             });
 
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.gdm-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.gdm-btn-search');
+            });
+
             return own;
         },
 
@@ -88,33 +95,6 @@ $(function () {
                     error: function (res) {
                     }
                 });
-                $(".gdm-table-data").find("[list-node]").remove();
-                $(".gdm-table-data").setPageData(data);
-                binFun();
-                unloading();
-            }
-        });
-    }
-
-//按钮绑定方法
-    function binFun() {
-        $(".gda-btn-edit").unbind().bind("click", function () {
-            session.goods_code=$(this).attr("code");
-            session.goods_showMyGoods_type = "draft";
-            session.goods_showMyGoods_page = "goodsDraft";
-            derict(this, "myGoods", "nochangeurl");
-        });
-    }
-
-//回车搜索
-    $(".search-block input[type=text]").bind('focus',function() {
-       key.keydownEnter('.gdm-btn-search');   
-    });
-
-    $(".search-block input[type=text]").bind('blur',function() {
-       key.unkeydownEnter('.gdm-btn-search');   
-    });    
-
             });
         },
 

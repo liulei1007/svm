@@ -33,9 +33,16 @@ $(function () {
 
                 return false;
             }).on('click', ".adi-btn-reload", function () {
-                derict(null,"amendmentInfo","nochangeurl");
+                derict(null, "amendmentInfo", "nochangeurl");
 
                 return false;
+            });
+
+            // 回车搜索
+            $(".search-block input[type=text]").on('focus', function () {
+                key.keydownEnter('.adi-btn-search');
+            }).on('blur', function () {
+                key.unkeydownEnter('.adi-btn-search');
             });
 
             return own;
@@ -54,7 +61,7 @@ $(function () {
                  * 绑定分类事件
                  * @param $cls
                  */
-                categoryEvent : function ($cls) {
+                categoryEvent: function ($cls) {
                     $cls.find("select").unbind().bind("change", function () {
                         var cid = $(this).val(),
                             nowTag = parseInt($(this).attr("tag")) + 1;
@@ -107,7 +114,7 @@ $(function () {
          * @returns {goodsAuditManageInit}
          */
         initRequestData: function () {
-            this.data =  {
+            this.data = {
                 productName: $("#productName").val(),
                 modelNumber: '',
                 categoryId: $("#categoryId").val(),
@@ -128,7 +135,7 @@ $(function () {
          * @param totalPage
          */
         paginationData: function (totalPage) {
-            var own= this;
+            var own = this;
 
             newPage(totalPage, function (page) {
                 $.commonAjax({
@@ -145,52 +152,9 @@ $(function () {
                         $(".table-block").setPageData(data);
                         own.bingListEvent();
                     },
-                    error: function (res) {}
+                    error: function (res) {
+                    }
                 });
-                $(".table-block").find("[list-node]").remove();
-                $(".table-block").setPageData(data);
-                addTableFuncs();
-            }
-        });
-    }
-
-
-    if ($(".infoNum")) {
-        $(".infoNum").html(0)
-    }
-
-    $(".adi-btn-search").bind("click", function () {
-        datas.productName = $("#productName").val();
-        datas.baseCategoryId = $("#baseCategoryId").val();
-        datas.subCategoryId = $("#subCategoryId").val();
-        datas.categoryId = $("#categoryId").val();
-        listErrorFeedbackProductInfo();
-        $(".nav-pagination").off();
-    })
-    $(".adi-btn-reload").bind("click", function () {
-        derict(this, "amendmentInfo", "nochangeurl");
-    })
-
-    function addTableFuncs() {
-        $(".ai-btn-show").unbind().bind("click", function () {
-            var uptId = $(this).attr("uptId");
-            var productId = $(this).attr("productId");
-            session.goods_showMyGoods_uptId = uptId;
-            session.goods_showMyGoods_productId = productId;
-            derict(this, "feedMyGoods", "nochangeurl");
-        });
-    }
-
-//回车搜索
-    $(".search-block input[type=text]").bind('focus',function() {
-       key.keydownEnter('.adi-btn-search');   
-    });
-
-    $(".search-block input[type=text]").bind('blur',function() {
-       key.unkeydownEnter('.adi-btn-search');   
-    });
-
-})
             });
         },
 
@@ -212,17 +176,17 @@ $(function () {
                     $(".table-block").find("[list-node]").remove();
                     $(".table-block").setPageData(data);
 
-                    data.countRecord ? $('.infoNum').text(data.countRecord): $('.infoNum').text('0');
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').text('0');
 
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
-                error: function (res) {}
+                error: function (res) {
+                }
             });
         }
     };
 
     amendmentInfoInit.initData();
-
 });
 
