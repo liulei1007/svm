@@ -34,7 +34,7 @@ $(function () {
            $(".ex-ok").bind("click", function () {
                var filePath  = ($('#fileSuffix').html());
                var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
-               if(fileSuffix!="xlsx"&&fileSuffix!=""){
+               if(fileSuffix!="xlsx"&&fileSuffix!=""&&fileSuffix!="xls"){
                   alert("上传格式不正确");
                }else if(!session.goods_baseCategoryId){
                 alert("请选择分类");
