@@ -1,6 +1,12 @@
 $(function() {
+	// 保存图片地址
+	var imgSrc = "";
 	var ifNull = false;
 	formControl();
+
+	var brandId = session.brand_brandId;
+	console.log(brandId);
+	getBrand(brandId);
 
 	// 点击上传品牌logo
 	$("#upload-logo").bind("click", function() {
@@ -15,12 +21,13 @@ $(function() {
 						return;
 					}
 					if (data.ok) {
-						var imgSrc = data.data;
-						var addHtml = '<img src="' + (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + imgSrc + '" />'
+						// imgSrc = data.data;
+						imgSrc = (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + data.data;
+						var addHtml = '<img src="' + imgSrc + '" />'
 						$("#upload-logo").html(addHtml);
 						closeUploadPop();
 					} else {
-						alert(data.resDescription);
+						showPopTips("上传失败", "warning", data.resDescription);
 					}
 				}
 
@@ -38,6 +45,11 @@ $(function() {
 			});
 		});
 	});
+
+	// 点击“返回”按钮
+	$(".btn-back").bind("click", function() {
+		derict(this,"brandList","nochangeurl");
+	})
 	
 	// 点击“提交”按钮
 	$(".btn-submit").click(function() {
@@ -50,12 +62,59 @@ $(function() {
 		// 如果当前输入框已有其他提示信息，退出
 		if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {ifNull = true;}
 		else {
-			if ($formBlock.find("img").html() == null) {
+			if (imgSrc == "") {
 				ifNull = true;
 				$formBlock.addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请上传品牌logo</div>');
 			}
 		}
 		
 		if (ifNull) {return;}
-	})
+
+		var data = {
+			"id": brandId,
+			"brandDescription": $("#introduce").val(),
+			"brandLogoUrl": imgSrc
+		};
+		console.log(data);
+
+		loading();
+		$.ajax({
+			url: plumeApi["addBrandLogoAndDescInfo"],
+			type: "POST",
+			data: JSON.stringify(data),
+			contentType: "application/json;charset=UTF-8",
+			success: function (data) {
+				unloading();
+				console.log(data);
+				if (data.ok) {
+					showPopTips("提交成功", "success", "品牌信息已提交成功");
+					derict(this,"brandList","nochangeurl");
+				}
+				else {
+					showPopTips("提交失败", "warning", data.resDescription);
+				}
+			}
+		});
+	});
+
+	function getBrand(brandId) {
+		loading();
+		$.ajax({
+			url: plumeApi["getOmsBrandInfo"] + brandId,
+			type: "GET",
+			contentType: "application/json;charset=UTF-8",
+			success: function (data) {
+				unloading();
+				console.log(data);
+				// 如果原先已有品牌logo，显示
+				if (data.data.brandLogo) {
+					$("#upload-logo").html('<img src="' + data.data.brandLogo + '" />');
+				}
+				// 如果原先已有品牌介绍，显示
+				if (data.data.brandDescription) {
+					$("#introduce").val(data.data.brandDescription);
+				}
+			}
+		});
+	}
 });

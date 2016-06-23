@@ -51,7 +51,6 @@ $(function () {
             success: function (result) {
                 showData(result);
                 totalPage = Math.ceil(result.countRecord / onePageCount());
-                alert(totalPage)
                 newPage(totalPage, function (i) {
                     loading();
                     $(".nav-pagination").show();
