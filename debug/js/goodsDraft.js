@@ -87,8 +87,10 @@ $(function () {
                     url: 'listDraft',
                     list: true,
                     data: own.data,
-                    success: function (data) {
+                    beforeSend: function () {
                         $(".gdm-table-data").find("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".gdm-table-data").setPageData(data);
                         own.bingListEvent();
                     },
@@ -108,8 +110,13 @@ $(function () {
                 url: 'listDraft',
                 list: true,
                 data: own.data,
-                success: function (data) {
+                beforeSend: function () {
                     $(".gdm-table-data").find("[list-node]").remove();
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
                     $(".gdm-table-data").setPageData(data);
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
