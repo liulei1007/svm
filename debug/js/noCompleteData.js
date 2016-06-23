@@ -224,7 +224,7 @@ $(function () {
                     $(".table-block").find("[list-node]").remove();
                     $(".table-block").setPageData(data);
 
-                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').text('0');
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').parent('div').remove();
 
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));

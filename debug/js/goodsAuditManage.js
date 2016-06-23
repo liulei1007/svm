@@ -212,6 +212,9 @@ $(function () {
                 success: function (data) {
                     $(".gam-table").find("[list-node]").remove();
                     $(".gam-table").setPageData(data);
+
+                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').parent('div').remove();
+
                     $own.bingListEvent();
                     $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
