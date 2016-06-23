@@ -538,5 +538,5 @@ window.onerror = function(msg, url, line) {
     plumeLog("url:"+url);
     plumeLog("line:"+line);
     plumeLog("--------------------");
-    return true;
+    return false;
 }
