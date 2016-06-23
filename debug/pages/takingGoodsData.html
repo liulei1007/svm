@@ -41,18 +41,18 @@
             <thead>
               <tr>
                 <td>商品名称</td>
+                <td>型号</td>
                 <td>系列名</td>
                 <td>品牌</td>
-                <td>型号</td>
                 <td>操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="true">
                 <td node-name="$n.product_name"></td>
+                <td node-name="$n.model_number"></td>
                 <td node-name="$n.series_name"></td>
                 <td node-name="$n.brand_name"></td>
-                <td node-name="$n.model_number"></td>
                 <td>
                   <button type="button" class="btn btn-link btn-sm btn-taking">调取</button>
                 </td>

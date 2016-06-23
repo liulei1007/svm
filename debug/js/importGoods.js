@@ -37,7 +37,7 @@ $(function () {
                if(fileSuffix!="xlsx"){
                   alert("上传格式不正确")
                }
-               if (($("#file").val()&&fileSuffix=="xlsx")) {
+               if (($("#file").val()&&fileSuffix=="xlsx"&&session.goods_baseCategoryId)) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
                    $('#myForm').submit();
                    
@@ -52,6 +52,7 @@ $(function () {
                    alert(请选择类目);
                }
            });
-   // })
 
+   // })
+  
 })
