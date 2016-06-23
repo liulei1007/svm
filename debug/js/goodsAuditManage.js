@@ -184,8 +184,10 @@ $(function () {
                     },
                     list: true,
                     data: $own.data,
-                    success: function (data) {
+                    beforeSend: function () {
                         $(".gam-table").find("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".gam-table").setPageData(data);
                         $own.bingListEvent();
                     },
@@ -209,11 +211,15 @@ $(function () {
                 },
                 list: true,
                 data: $own.data,
-                success: function (data) {
+                beforeSend: function () {
                     $(".gam-table").find("[list-node]").remove();
-                    $(".gam-table").setPageData(data);
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
 
-                    data.countRecord ? $('.infoNum').text(data.countRecord) : $('.infoNum').parent('div').remove();
+                    $(".gam-table").setPageData(data);
 
                     $own.bingListEvent();
                     $own.paginationData(Math.ceil(data.countRecord / onePageCount()));

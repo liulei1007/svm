@@ -505,5 +505,8 @@
         <addDraft>/api/productDraft/addDraft</addDraft>
         <standardUnit>/api/common/listSystemCode/standard_unit</standardUnit>
         <addDrafts>/api/productDraft/applyProductDraft</addDrafts>
+        <editShopInfo>/api/shopInfo/editShopInfo</editShopInfo>
+        <getOmsBrandInfo>/api/omsBrandInfo/getOmsBrandInfo/</getOmsBrandInfo>
+        <addBrandLogoAndDescInfo>/api/omsBrandInfo/addBrandLogoAndDescInfo</addBrandLogoAndDescInfo>
     </api>
 </config>

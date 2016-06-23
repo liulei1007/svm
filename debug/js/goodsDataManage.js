@@ -9,10 +9,10 @@ $(function () {
          * @returns {goodsDataManageInit}
          */
         initBindEvent: function () {
-            var $own = this;
+            var own = this;
 
             $('.search-block').on("click", '.gdm-btn-search', function () {
-                $own.initRequestData().initTableData();
+                own.initRequestData().initTableData();
                 $(".nav-pagination").off();
 
                 return false;
@@ -25,11 +25,15 @@ $(function () {
             // 回车搜索
             $(".search-block input[type=text]").on('focus', function () {
                 key.keydownEnter('.gdm-btn-search');
+
+                return false;
             }).on('blur', function () {
                 key.unkeydownEnter('.gdm-btn-search');
+
+                return false;
             });
 
-            return $own;
+            return own;
         },
 
         /**
@@ -158,6 +162,8 @@ $(function () {
                 endDate: $("#endDate").val()
             };
 
+            $(".nav-pagination").off();
+
             return this;
         },
 
@@ -167,7 +173,7 @@ $(function () {
          * @param totalPage
          */
         paginationData: function (totalPage) {
-            var $own = this;
+            var own = this;
 
             newPage(totalPage, function (page) {
                 $.commonAjax({
@@ -178,11 +184,13 @@ $(function () {
                         onePageCount: onePageCount()
                     },
                     list: true,
-                    data: $own.data,
-                    success: function (data) {
+                    data: own.data,
+                    beforeSend: function () {
                         $(".gdm-table-data").find("[list-node]").remove();
+                    },
+                    success: function (data) {
                         $(".gdm-table-data").setPageData(data);
-                        $own.bingListEvent();
+                        own.bingListEvent();
                     },
                     error: function (res) {
                     }
@@ -194,7 +202,7 @@ $(function () {
          * 初始化列表数据
          */
         initTableData: function () {
-            var $own = this;
+            var own = this;
             $.commonAjax({
                 type: "POST",
                 url: 'listProductInfo',
@@ -203,12 +211,17 @@ $(function () {
                     onePageCount: onePageCount()
                 },
                 list: true,
-                data: $own.data,
-                success: function (data) {
+                data: own.data,
+                beforeSend: function () {
                     $(".gdm-table-data").find("[list-node]").remove();
+                },
+                success: function (data) {
+                    if (!data.data || data.data.length === 0) {
+                        return;
+                    }
                     $(".gdm-table-data").setPageData(data);
-                    $own.bingListEvent();
-                    $own.paginationData(Math.ceil(data.countRecord / onePageCount()));
+                    own.bingListEvent();
+                    own.paginationData(Math.ceil(data.countRecord / onePageCount()));
                 },
                 error: function (res) {
                 }
