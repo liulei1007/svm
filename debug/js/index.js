@@ -1053,19 +1053,9 @@ function checkTel(checkObj) {
     return true;
 }
 
-//只输入数字
-function onlyNum() {
-   //alert(event.keyCode)
-    if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
-        event.returnValue=false;
-    }
-    if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
-    if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==190)))
-    event.returnValue=false;
-}
-
-//页面回车事件
+//键盘事件
 var key = {
+    //绑定回车搜索
     keydownEnter: function(ele) {
         $("body").bind('keydown',function() {
             if (event.keyCode == "13") {
@@ -1075,6 +1065,25 @@ var key = {
     },
     unkeydownEnter: function(ele){
         $("body").unbind();
+    },
+    //只能输入数字
+    onlyKeydownNum: function() {
+        //alert(event.keyCode)
+        if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
+        event.returnValue=false;
+        }
+        if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
+        if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==190)))
+        event.returnValue=false;
+    },
+    //只能输入数字和点号
+    onlyKeydownNumad: function() {
+        if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
+        event.returnValue=false;
+        }
+        if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
+        if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
+        event.returnValue=false;
     }
 }
 
