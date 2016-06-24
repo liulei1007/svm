@@ -40,7 +40,13 @@ $(function () {
             $("." + cls[tag]).setPageData(data);
             for (var i = 0; i < cls.length; i++) {
                 var o = $("." + cls[i]).find(".sel");
-                $("." + cls[i] + "-span").text($(o).text()).attr("categoryId", $(o).attr("categoryId"));
+                var categoryName=$(o).text();
+                var categoryId=$(o).attr("categoryId");
+                if(o.length==0){
+                    categoryName="";
+                    categoryId="";
+                }
+                $("." + cls[i] + "-span").text(categoryName).attr("categoryId", categoryId);
             }
             $("." + cls[tag]).find("li").unbind().bind("click", function () {
                 if (tag < 3) {
@@ -49,7 +55,13 @@ $(function () {
                 }
                 for (var i = 0; i < cls.length; i++) {
                     var o = $("." + cls[i]).find(".sel");
-                    $("." + cls[i] + "-span").text($(o).text()).attr("categoryId", $(o).attr("categoryId"));
+                    var categoryName=$(o).text();
+                    var categoryId=$(o).attr("categoryId");
+                    if(o.length==0){
+                         categoryName="";
+                         categoryId="";
+                    }
+                    $("." + cls[i] + "-span").text(categoryName).attr("categoryId", categoryId);
                 }
                 var nowtag = parseInt($(this).parent().parent().attr("tag")) + 1;
                 var cid = $(this).attr("categoryId");

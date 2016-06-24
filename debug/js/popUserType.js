@@ -4,6 +4,15 @@ $(function() {
     $(".type-first-span").text($(".type-first").find(".sel").text()).attr("categoryId", $(".type-first").find(".sel").attr("categoryId"));
     $(".type-second-span").text($(".type-second").find(".sel").text()).attr("categoryId", $(".type-second").find(".sel").attr("categoryId"));
     $(".type-third-span").text($(".type-third").find(".sel").text()).attr("categoryId", $(".type-third").find(".sel").attr("categoryId"));
+
+    //取消按钮
+    $(".ut-btn-cancel").on('click',function() {
+       $(".popSort").hide();
+        $(".type-first-span").text("");
+        $(".type-second-span").text("");
+         $(".type-third-span").text("");
+    });
+
     //下一步按钮操作
     $(".ut-btn-next").bind("click", function () {
             session.goods_userType = "";
@@ -53,4 +62,8 @@ $(function() {
     }
 
     getFirstCategory(0, 0);
+
+
+    
+
 });

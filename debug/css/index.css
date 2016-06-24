@@ -344,6 +344,7 @@ textarea{resize: none;}
 .type-btn .select-result{float: left; margin-right: 20px; padding: 6px 0;}
 .type-btn .select-result > span{margin: 0 10px;}
 .ut-btn-next{min-width: 80px;}
+.ut-btn-cancel{float:right;}
 
 /** --------录入-------- **/
 
