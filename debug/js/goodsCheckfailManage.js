@@ -58,8 +58,9 @@ $(function () {
                 return false;
             }).on("click", ".gcm-btn-show", function () {
                 var uptId = $(this).attr("uptId");
-                session.goods_detail_uptId = uptId;
+                session.goods_detail_productId = uptId;
                 session.goods_back_page = 'goodsCheckfailManage';
+                session.goods_detail_type = false;
                 derict(this, "showMyGoods", "nochangeurl");
             });
 

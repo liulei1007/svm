@@ -122,9 +122,10 @@ $(function () {
             });
 
             $(".table-block").off().on("click", '.gdm-btn-show', function () {
-                var productId = $(this).attr("productId");
+                var productId = $(this).attr("productid");
                 session.goods_detail_productId = productId;
                 session.goods_back_page = 'goodsDataManage';
+                session.goods_detail_type = true;
                 derict(this, "showMyGoods", "nochangeurl");
                 return false;
             }).on("click", '.gdm-btn-edit', function () {
