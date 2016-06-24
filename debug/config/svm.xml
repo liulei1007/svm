@@ -508,5 +508,6 @@
         <editShopInfo>shopInfo/editShopInfo</editShopInfo>
         <getOmsBrandInfo>omsBrandInfo/getOmsBrandInfo/</getOmsBrandInfo>
         <addBrandLogoAndDescInfo>omsBrandInfo/addBrandLogoAndDescInfo</addBrandLogoAndDescInfo>
+        <moreEditSaleStatus>productInfo/editSaleStatus</moreEditSaleStatus>
     </api>
 </config>

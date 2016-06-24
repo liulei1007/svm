@@ -64,7 +64,7 @@
         }
 
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
-        if (option.operationId && typeof(option.operationId) !== "undefined") {
+        if (typeof(option.operationId) !== "undefined") {
             option.url = plumeApi[option.url] + '/' + option.operationId;
         } else {
             option.url = plumeApi[option.url] + (urlString ? ('?' + urlString) : '');
@@ -75,6 +75,7 @@
             url: option.url,
             data: dataJson,
             dataType: 'json',
+            traditional: option.traditional,
             contentType: 'application/json',
             success: function (data) {
                 unloading();
