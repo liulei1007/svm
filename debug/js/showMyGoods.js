@@ -23,11 +23,9 @@ $(function () {
          */
         bindEvent: function () {
             $(".smg-back").bind("click", function () {
-                var backUrl = {
-                    'wait': 'goodsAuditManage',
-                    'fail': 'goodsCheckfailManage'
-                }[session.goods_detail_type];
-                derict(this, backUrl, "nochangeurl");
+                derict(this, session.goods_back_page, "nochangeurl");
+
+                return false;
             });
 
             return this;
@@ -149,11 +147,15 @@ $(function () {
          * 获取详情接口数据
          */
         initDetail: function () {
-            var own = this;
+            var own = this,
+                uptId = session.goods_detail_uptId,
+                productId = session.goods_detail_productId,
+                url = uptId ? 'getProductInfoUpt' : 'getProductInfo';
+
             $.commonAjax({
                 type: "GET",
-                url: 'getProductInfoUpt',
-                operationId: session.goods_detail_uptId,
+                url: url,
+                operationId: uptId ? uptId : productId,
                 success: function (data) {
                     own.showData(data.data);
                 }

@@ -95,7 +95,13 @@ $(function () {
         },
 
         bingListEvent: function () {
-            $(".table-block").off().on("click", '.ai-btn-show', function () {
+            $(".table-block").off().on("click", '.adi-btn-show', function () {
+                var productId = $(this).attr("productId");
+                session.goods_detail_productId = productId;
+                session.goods_back_page = 'amendmentInfo';
+                derict(this, "showMyGoods", "nochangeurl");
+                return false;
+            }).on("click", '.ai-btn-show', function () {
                 var uptId = $(this).attr("uptId"),
                     productId = $(this).attr("productId");
 
