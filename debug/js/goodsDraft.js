@@ -33,6 +33,19 @@ $(function () {
                 return false;
             });
 
+            // 批量删除
+            $('#operationBtn').on('click', 'button', function () {
+                var checkId = [],
+                    $check = $("table tbody input:checkbox");
+
+                $.each($check, function (index, obj) {
+                    var id = $(obj).attr('productId');
+                    $(obj).prop('checked') && id && checkId.push(id);
+                });
+
+                checkId.length ? own.moreDelete(checkId) : popTips("您未选择商品", "warning");
+            });
+
             // 回车搜索
             $(".search-block input[type=text]").on('focus', function () {
                 key.keydownEnter('.gdm-btn-search');
@@ -53,6 +66,34 @@ $(function () {
             };
 
             return this;
+        },
+
+        moreDelete: function (productId) {
+            var own = this;
+
+            var dataOperation = function (data) {
+                data.ok ? (popTips('删除成功', "success"), own.initTableData()) : (
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("操作失败");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html(data.resDescription);
+                    }), own.initTableData()
+                );
+            };
+
+            $.commonAjax({
+                type: "get",
+                url: 'moreDelete',
+                data: {
+                    ids: productId
+                },
+                traditional: true,
+                success: function (data) {
+                    dataOperation(data);
+                },
+                error: function (res) {
+                }
+            });
         },
 
         /**

@@ -509,5 +509,6 @@
         <getOmsBrandInfo>omsBrandInfo/getOmsBrandInfo/</getOmsBrandInfo>
         <addBrandLogoAndDescInfo>omsBrandInfo/addBrandLogoAndDescInfo</addBrandLogoAndDescInfo>
         <moreEditSaleStatus>productInfo/editSaleStatus</moreEditSaleStatus>
+        <moreDelete>productDraft/deleteProductDraft</moreDelete>
     </api>
 </config>
