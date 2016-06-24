@@ -70,12 +70,17 @@
             </div>
         </div>
         <div class="form-group required">
-            <label class="col-sm-3 control-label"><i>*</i>单位名称</label>
-            <div class="col-sm-6">
-                <select id="orgName" class="form-control">
-                    <option value="只">只</option>
-                    <option value="把">把</option>
+            <label class="col-sm-3 control-label"><i>*</i>计价单位</label>
+            <div class="col-sm-6" id="priceUnit">
+                <select id="orgName" class="form-control"  data-list="$p.data">
+                    <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                 </select>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>零售价</label>
+            <div class="col-sm-6">
+                <input type="text" id="salePrice" class="form-control" />
             </div>
         </div>
         <div class="form-group required">
@@ -85,12 +90,6 @@
                     <option value="明码实价" selected="">明码实价</option>
                     <option value="明码议价">明码议价</option>
                 </select>
-            </div>
-        </div>
-        <div class="form-group required">
-            <label class="col-sm-3 control-label"><i>*</i>零售价</label>
-            <div class="col-sm-6">
-                <input type="text" id="salePrice" class="form-control" />
             </div>
         </div>
         <div class="form-group">
