@@ -497,7 +497,6 @@
         <addProductInfoFeedback>productShopGoods/addProductInfoFeedback</addProductInfoFeedback>
         <uploadEx>excel/importProductGoods/</uploadEx>
         <downloadEx>excel/exportProductGoodsTemplate/</downloadEx>
-
         <upBatch>excel/importProductStash</upBatch>
         <downBatch>excel/exportProductStashTemplate</downBatch>
 
