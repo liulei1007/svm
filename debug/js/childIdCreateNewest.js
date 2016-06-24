@@ -15,7 +15,7 @@ $(function() {
 	// initRole: 初始化状态下的用户权限配置, nowRole: 修改后的用户权限配置, chooseShopID: 经销商角色选择的店铺ID
 	var initRole = "", nowRole = "", chooseShopID = "", chooseBrandIds = "";
 
-	console.log("userType: " + userType, ", modifyAcId: " + modifyAcId);
+	//console.log("userType: " + userType, ", modifyAcId: " + modifyAcId);
 	
 	// 如果是编辑状态
 	if (modifyAcId && modifyAcId != "") {
@@ -49,7 +49,7 @@ $(function() {
 	        		$("#tel").html('<p class="form-control-static">' + data.data.mobilePhone + '</p>');
 	        		// 工厂模式展示关联品牌
 	        		if (userType == 1) {
-	        			console.log(data.data);
+	        			//console.log(data.data);
 	        			var addHtml = "";
 	        			var relationbrandList = "";
 
@@ -59,7 +59,7 @@ $(function() {
 	        					relationbrandList = relationbrandList.concat(data.data.relationbrandList[i]).concat(",");
 	        				}
 	        			}
-	        			console.log(relationbrandList);
+	        			//console.log(relationbrandList);
 	        			for (var i = 0; i < data.data.brandList.length; i++) {
 	        				if (relationbrandList.indexOf(data.data.brandList[i].id) > -1) {
 	        					addHtml += '<label class="checkbox-inline"><input type="checkbox" name="brands" value="' + data.data.brandList[i].id + '" checked="checked">' + data.data.brandList[i].brandName + '</label>';
