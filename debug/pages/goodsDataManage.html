@@ -70,7 +70,7 @@
         <table class="table table1 table-striped gdm-table-data data-body" >
             <thead>
             <tr>
-                <td style="width:3%"><input type="checkbox"/></td>
+                <!--<td style="width:3%"><input type="checkbox"/></td>-->
                 <td style="width:20%">商品名称</td>
                 <td style="width:8%">型号</td>
                 <td style="width:8%">规格</td>
@@ -84,7 +84,7 @@
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
-                <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
+                <!--<td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>-->
                 <td node-name="$n.productName,attr-productId:$n.productId" class="a-link gdm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
