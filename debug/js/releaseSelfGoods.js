@@ -24,6 +24,11 @@ $(function() {
 		derict(this, "createSelfGoods", "nochangeurl");
 	});
 
+	// 绑定“批量导入自采”按钮
+	$(".btn-importSelfGoods").bind("click", function() {
+		derict(this, "importSelfGoods", "nochangeurl");
+	});
+
 	
 	$(".table-block").on("click", ".link-show", function() {
 		// 查看自采商品

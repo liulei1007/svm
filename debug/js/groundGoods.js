@@ -22,6 +22,19 @@ $(function(){
 				soldOutGoods()
 			}
 	});
+
+    $(".btn-all-ground").on('click',function() {
+       groundGoods();
+    });
+
+     $(".btn-all-unGround").on('click',function() {
+       soldOutGoods();
+    });
+
+     $(".btn-all-delect").on('click',function() {
+        delectGoodsData()
+     })
+
 	var nowPage =1;
 	getGoodsData();
 	$('.btn-search').bind('click',function() {
@@ -62,7 +75,7 @@ function getGoodsData() {
 					 unloading();
                     $("[list-node]").remove();
                     $(".table-block").setPageData(data);
-            	filter();
+            	    filter();
 				},
 				});
 			});
@@ -72,13 +85,27 @@ function getGoodsData() {
     });
 }
 
+//选择过滤
+function selectFilter() {
+    var psgIdArr = [];
+    $(".table-block input:checked").parents("tr").each(function(i,sel) {
+         psgIdArr.push($(sel).attr("psgId"));
+    });
+   return psgIdArr;
+}
+
+
+
+
 //商品上架
 function groundGoods() {
+    var psgIds={"psgIds":selectFilter()}
     loading();
     $.ajax({
-        url: plumeApi["enableProductShopGoods"] + session.goods_psgId,
+        url: plumeApi["editSaleStatus"]+"/1",
         type: "GET",
-        contentType: "application/json;charset=UTF-8",
+        data:psgIds,
+        traditional:true,
         success: function (data) {
             if (data.ok) {
                 unloading();
@@ -95,16 +122,19 @@ function groundGoods() {
 
 //商品下架
 function soldOutGoods() {
+    var psgIds={"psgIds":selectFilter()}
     loading();
     $.ajax({
-        url: plumeApi["disableProductShopGoods"] + session.goods_psgId,
+        url: plumeApi["editSaleStatus"]+"/0",
         type: "GET",
-        contentType: "application/json;charset=UTF-8",
+        data:psgIds,
+        traditional:true,
         success: function (data) {
             if (data.ok) {
                 unloading();
                 popTips("下架成功", "success");
                 getGoodsData();
+              
             } else {
                 unloading();
                 popTips("下架失败", "warning");
@@ -117,25 +147,21 @@ function soldOutGoods() {
 
 //信息过滤
 	function filter() {
-		 $('.createDate').each(function () {
-                $(this).html(_getLocalTime($(this).html()));
-                var aTr = $(this).parents('tr');
-                var saleStatus = aTr.find('.saleStatus');
-                var btnGround = aTr.find('.btn-ground');
-                if (saleStatus.html() == 0) {
-                    saleStatus.html('下架中');
-                    btnGround.html('上架');
-                } else {
-                    saleStatus.html('上架中');
-                    btnGround.html('下架');
+        $(".saleStatus").each(function(i,status) {
+            if(i>0){
+                if($(status).html()==0){
+                    $(status).html("下架中");
+                }else{
+                    $(status).html("上架中");
                 }
-            });
+            }
+        }) 
          
 	}
 
 //删除商品数据
 function delectGoodsData() {
-
+     var psgIds={"psgIds":selectFilter()}
     $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
         // 改变弹出框中文字和图标显示
         $(".pop").find(".popup-title").html("删除确认？");
@@ -146,9 +172,10 @@ function delectGoodsData() {
         $('.pop').on('click', '.btn-sure', function () {
             loading();
             $.ajax({
-                url: plumeApi["delProductShopGoods"] +"/"+ session.goods_psgId,
+                url: plumeApi["delProductShopGoods"],
                 type: "GET",
-                contentType: "application/json;charset=UTF-8",
+                data:psgIds,
+                traditional:true,
                 success: function (data) {
                     if (data.ok) {
                         unloading();

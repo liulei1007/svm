@@ -57,6 +57,11 @@
         <init>importGoods_init</init>
     </page>
     <page>
+        <page-name>importSelfGoods</page-name>
+        <page-url>/pages/importSelfGoods.html</page-url>
+        <init>importSelfGoods_init</init>
+    </page>
+    <page>
         <page-name>goodsDataManage</page-name>
         <page-url>/pages/goodsDataManage.html</page-url>
         <init>goodsDataManage_init</init>
@@ -509,5 +514,9 @@
         <getOmsBrandInfo>omsBrandInfo/getOmsBrandInfo/</getOmsBrandInfo>
         <addBrandLogoAndDescInfo>omsBrandInfo/addBrandLogoAndDescInfo</addBrandLogoAndDescInfo>
         <moreEditSaleStatus>productInfo/editSaleStatus</moreEditSaleStatus>
+        <exportProductStashTemplate>excel/exportProductStashTemplate</exportProductStashTemplate>
+        <importProductStash>excel/importProductStash</importProductStash>
+        <editSaleStatus>productShopGoods/editSaleStatus</editSaleStatus>
+        <delProductShopGoods>productShopGoods/delProductShopGoods</delProductShopGoods>
     </api>
 </config>

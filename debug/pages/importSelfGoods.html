@@ -1,0 +1,43 @@
+<body>
+	<div class="loadBatch-container">
+
+		<div class="loadBatch-block">
+			<div class="row loadBatch-step">
+				<div class="col-sm-1 step">1</div>
+				<div class="col-sm-2">下载并填写模板</div>
+			</div>
+			<div class="row loadBatch-btn">
+				<div class="col-sm-2 col-sm-offset-1">
+					<div class="btn btn-primary btn-lg btn-icons btn-download btn-loadModule">下载模板<i></i></div>
+				</div>
+				<div class="col-sm-9"><div class="tips-block">点击下载模板，填写范例在模板中第一行显示</div></div>
+			</div>
+			<div class="row loadBatch-select">
+				<div class="col-sm-2 col-sm-offset-1">
+					<span></span>
+				</div>
+			</div>
+		</div>
+    
+		<div class="loadBatch-block">
+            <form class="form-horizontal" id="myForm" name="myForm" enctype="multipart/form-data" method="post" action="">
+    			<div class="row loadBatch-step">
+    				<div class="col-sm-1 step">2</div>
+    				<div class="col-sm-2">上传已填写文件</div>
+    			</div>
+    			<div class="row loadBatch-btn loadBatch-btn-chooseFile">
+    				<div class="col-sm-2 col-sm-offset-1">
+    					<div class="btn btn-default btn-lg btn-selectFile">选择文件</div>
+    					<input type="file" class="loadFile" name="file" id="file" onchange="document.getElementById('fileSuffix').innerHTML = this.value"/>
+    					</div>
+    						<div id="fileSuffix"></div>
+    			</div>
+    			<div class="row loadBatch-btn loadBatch-btn-upload">
+    				<div class="col-sm-2 col-sm-offset-1">
+    					<div class="btn btn-primary btn-lg ex-ok">上传</div>
+    				</div>
+    			</div>
+            </form>
+		</div>
+	</div>
+</body>
