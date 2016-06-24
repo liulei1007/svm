@@ -85,7 +85,7 @@
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productName"></td>
+                <td node-name="$n.productName,attr-productId:$n.productId" class="a-link gdm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
                 <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>

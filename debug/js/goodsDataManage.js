@@ -108,7 +108,13 @@ $(function () {
                 $(this).attr("saleStatus") == 1 ? $(this).html('禁用') : $(this).html('启用');
             });
 
-            $(".table-block").off().on("click", '.gdm-btn-edit', function () {
+            $(".table-block").off().on("click", '.gdm-btn-show', function () {
+                var productId = $(this).attr("productId");
+                session.goods_detail_productId = productId;
+                session.goods_back_page = 'goodsDataManage';
+                derict(this, "showMyGoods", "nochangeurl");
+                return false;
+            }).on("click", '.gdm-btn-edit', function () {
                 session.goods_showMyGoods_productId = $(this).attr("productId");
                 session.goods_showMyGoods_type = "edit";
                 session.goods_showMyGoods_page = "goodsDataManage";
