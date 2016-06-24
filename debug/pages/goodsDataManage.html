@@ -66,6 +66,10 @@
             <div class="btn btn-default btn-sm gdm-btn-reload">清空条件</div>
         </form>
     </div>
+    <div class="btn-block clearFix" id="operationBtn">
+        <button class="btn btn-batch btn-open" data-type="1">开启</button>
+        <button class="btn btn-batch btn-disabled" data-type="0">禁用</button>
+    </div>
     <div class="table-block">
         <table class="table table1 table-striped gdm-table-data data-body" >
             <thead>
@@ -77,15 +81,15 @@
                 <td style="width:15%">产地</td>
                 <td style="width:5%">品牌</td>
                 <td style="width:5%">系列名</td>
-                <td style="width:15%">分类</td>
+                <td style="width:12%">分类</td>
                 <td style="width:8%">审核时间</td>
                 <td style="width:auto">操作</td>
             </tr>
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
-                <td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productName"></td>
+                <td><input type="checkbox" node-name="attr-productId:$n.productId"/></td>
+                <td node-name="$n.productName,attr-productId:$n.productId" class="a-link gdm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
                 <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>

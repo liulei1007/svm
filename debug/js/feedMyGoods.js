@@ -2,9 +2,9 @@ $(function () {
 
     var feedMyGoodsInit = {
 
-        OLD_DATA: '',
+        OLD_DATA: [],
 
-        NEW_DATA: '',
+        NEW_DATA: [],
 
         /**
          * 初始化数据
@@ -53,34 +53,30 @@ $(function () {
                             $("#" + option.lvInfo).text())
                     );
 
-                    // 显示
-                    own.showHtml().showUptOrm(option.goodsAttrContent, data.productInfoAttrUptORMs || data.productInfoAttrORMs);
-
-                    own.showHtml().showGoodsUpt(option.standardBody, data.productGoodsUpts || data.productGoods);
-
-                    own.showHtml().showPhoto(option.goodsPicUpload, data.productInfoPhotoUpts || data.productInfoPhotos);
-                },
-
-                showUptOrm: function (obj, data) {
-                    var html = '', uptOrmLen = data.length;
-                    for (var i = 0; i < uptOrmLen; i++) {
-                        html += '<div class="form-group required smg-base-attr">' +
-                            '       <label class="col-sm-2 control-label">' + data[i].productAttribute.attrNameFront + '</label>' +
-                            '       <div class="col-sm-4">' +
-                            '           <p class="col-sm-10 form-control-static" attrValueId="' + data[i].attrValueId + '">' +
-                                            data[i].productAttributeValue.valueName +
-                            '           </p>' +
-                            '       </div></div>';
+                    if (data.material) {
+                        $('div.good1').hide();
+                        $('div.good2').hide();
+                        $('div.material').show();
+                    } else {
+                        $('div.good1').show();
+                        $('div.good2').show();
+                        $('div.material').hide();
                     }
-                    $("." + obj).append(html);
+
+                    var productGood = data.productGoodsUpts || data.productGoods,
+                        productPhoto = data.productInfoPhotoUpts || data.productInfoPhotos;
+
+                    own.showHtml().showGoodsUpt(option.standardBody, productGood);
+
+                    own.showHtml().showPhoto(option.goodsPicUpload, productPhoto);
                 },
 
                 showGoodsUpt: function (obj, data) {
                     var html = '', goodsUptLen = data.length;
                     for (var i = 0; i < goodsUptLen; i++) {
-                        html += '<tr class="cmg-goodstr"><td>' + data[i].color + '</td>' +
-                            '<td title="' + data[i].standard + '">' + data[i].standard + '</td>' +
-                            '<td>' + data[i].salePrice + '</td></tr>';
+                        html += '<tr class="cmg-goodstr"><td class="color">' + data[i].color + '</td>' +
+                            '<td title="' + data[i].standard + '" class="standard">' + data[i].standard + '</td>' +
+                            '<td class="salePrice">' + data[i].salePrice + '</td></tr>';
                     }
                     $("." + obj).append(html);
                 },
@@ -99,7 +95,7 @@ $(function () {
          * 获取原始数据
          * @returns {*}
          */
-        getOldData: function () {
+        getNewData: function () {
             var own = this;
 
             return $.commonAjax({
@@ -107,6 +103,7 @@ $(function () {
                 url: 'getProductInfoUpt',
                 operationId: session.goods_showMyGoods_uptId,
                 success: function (data) {
+                    own.NEW_DATA = data.data && data.data.productGoodsUpts;
                     own.showHtml().showController(data.data, {
                         setData: '.smg-basicInfo1, .smg-base-attr1',
                         priceType: 'priceType1',
@@ -123,7 +120,7 @@ $(function () {
          * 获取最新数据
          * @returns {*}
          */
-        getNewData: function () {
+        getOldData: function () {
             var own = this;
 
             return $.commonAjax({
@@ -136,6 +133,8 @@ $(function () {
                         alert("该商品已经删除!") && derict(this, "amendmentInfo", "nochangeurl");
                         return;
                     }
+
+                    own.OLD_DATA = data.data && data.data.productGoods;
 
                     own.showHtml().showController(data.data, {
                         setData: '.smg-basicInfo2,.smg-base-attr2',
@@ -153,18 +152,39 @@ $(function () {
          * 数据对比
          */
         compareData: function () {
-            $(".smg-basicInfo1").find(".form-horizontal").find("p").each(function (i) {
-                var t1 = $(this).text();
-                var t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text();
+            $(".smg-basicInfo1, .good1").find(".form-horizontal").find("p").each(function (i) {
+                var t1 = $(this).text(),
+                    t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text(),
+                    t3 = $($(".good2").find(".form-horizontal").find("p")[i]).text();
                 if (t1 != t2) {
-                    $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).css({
+                    $($(".smg-basicInfo1").find(".form-horizontal").find("p")[i]).css({
                         "background": "#f0d6d0"
                     });
-                    $(".json_title0").css({
-                        "color": "#C13535"
+                }
+                if (t1 != t3) {
+                    $($(".good1").find(".form-horizontal").find("p")[i]).css({
+                        "background": "#f0d6d0"
                     });
                 }
             });
+
+            var $standardt = $('tbody.standardtbody1 tr'), len = this.NEW_DATA.length;
+            for (var i = 0; i < len; i++) {
+                var color = {"background": "#f0d6d0"},
+                    newData = this.NEW_DATA[i],
+                    oldData = this.OLD_DATA[i],
+                    $tr = $($standardt.get(i));
+
+                if (oldData) {
+                    oldData.color != newData.color && $tr.find('.color').css(color);
+                    oldData.standard != newData.standard && $tr.find('.standard').css(color);
+                    oldData.salePrice != newData.salePrice && $tr.find('.salePrice').css(color);
+                } else {
+                    $tr.find('.color').css(color);
+                    $tr.find('.standard').css(color);
+                    $tr.find('.salePrice').css(color);
+                }
+            }
         },
 
         /**

@@ -1,6 +1,6 @@
 $(function () {
     //判断用户是否登录
-    setInterval(chkUserStatus,60000);
+    //setInterval(chkUserStatus,60000);
     //显示登录名称
     if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
@@ -139,8 +139,9 @@ $(function () {
         var authNum=$(this).attr("auth");
         $(".slidebar-menu,.slidebar-menu li").hide();
         $(".page-content").find("[auth="+authNum+"]").show();
+        $(".page-content").find("[auth="+authNum+"]").find("li").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
-        PlumelistNodeShowOrder($firstChild);
+        //PlumelistNodeShowOrder($firstChild);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
@@ -423,6 +424,20 @@ function getListSystemCode() {
         success: function (data) {
             if (data.ok) {
                 session.img_url = JSON.stringify(data);
+            } else {
+                plumeLog("获取price_tpye信息失败:" + data.resDescription);
+            }
+        }
+    });
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/unit",
+        contentType: "application/json",
+        dataType: "json",
+       // async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.unit = JSON.stringify(data);
             } else {
                 plumeLog("获取price_tpye信息失败:" + data.resDescription);
             }

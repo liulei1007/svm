@@ -22,6 +22,19 @@ $(function () {
                 return false;
             });
 
+            $('#operationBtn').on('click', 'button', function () {
+                var checkId = [],
+                    type = $(this).data('type'),
+                    $check = $("table tbody input:checkbox");
+
+                $.each($check, function (index, obj) {
+                    var id = $(obj).attr('productId');
+                    $(obj).prop('checked') && id && checkId.push(id);
+                });
+
+                checkId.length ? own.operationFun(checkId, type) : popTips("您未选择审核商品", "warning");
+            });
+
             // 回车搜索
             $(".search-block input[type=text]").on('focus', function () {
                 key.keydownEnter('.gdm-btn-search');
@@ -88,7 +101,7 @@ $(function () {
          * @param id
          * @param fun
          */
-        operationAjax: function (url, id, fun) {
+        listOperationAjax: function (url, id, fun) {
             var $own = this;
             $.commonAjax({
                 url: url,
@@ -108,7 +121,14 @@ $(function () {
                 $(this).attr("saleStatus") == 1 ? $(this).html('禁用') : $(this).html('启用');
             });
 
-            $(".table-block").off().on("click", '.gdm-btn-edit', function () {
+            $(".table-block").off().on("click", '.gdm-btn-show', function () {
+                var productId = $(this).attr("productid");
+                session.goods_detail_productId = productId;
+                session.goods_back_page = 'goodsDataManage';
+                session.goods_detail_type = true;
+                derict(this, "showMyGoods", "nochangeurl");
+                return false;
+            }).on("click", '.gdm-btn-edit', function () {
                 session.goods_showMyGoods_productId = $(this).attr("productId");
                 session.goods_showMyGoods_type = "edit";
                 session.goods_showMyGoods_page = "goodsDataManage";
@@ -122,7 +142,7 @@ $(function () {
             }).on("click", ".gdm-btn-open", function () {
                 var own = this;
                 if ($(this).attr("saleStatus") == 1) {
-                    $own.operationAjax('disableSaleStatus', $(own).attr("productId"), function () {
+                    $own.listOperationAjax('disableSaleStatus', $(own).attr("productId"), function () {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("已禁用");
                             $(".pop").find(".popup-icon").html('<i class="success"></i>');
@@ -130,7 +150,7 @@ $(function () {
                         });
                     });
                 } else {
-                    $own.operationAjax('enableSaleStatus', $(own).attr("productId"), function () {
+                    $own.listOperationAjax('enableSaleStatus', $(own).attr("productId"), function () {
                         $(own).removeClass("gdm-off");
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("已启用");
@@ -222,6 +242,36 @@ $(function () {
                     $(".gdm-table-data").setPageData(data);
                     own.bingListEvent();
                     own.paginationData(Math.ceil(data.countRecord / onePageCount()));
+                },
+                error: function (res) {
+                }
+            });
+        },
+
+        operationFun: function (productId, type) {
+            var own = this,
+                message = type ? '开启成功' : '禁用成功';
+
+            var dataOperation = function (data) {
+                data.ok ? (popTips(message, "success"), own.initTableData()) : (
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("操作失败");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html(data.resDescription);
+                    }), own.initTableData()
+                );
+            };
+
+            $.commonAjax({
+                type: "get",
+                url: 'moreEditSaleStatus',
+                data: {
+                    pids: productId
+                },
+                traditional: true,
+                operationId: type,
+                success: function (data) {
+                    dataOperation(data);
                 },
                 error: function (res) {
                 }

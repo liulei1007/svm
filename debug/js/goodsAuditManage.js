@@ -133,7 +133,9 @@ $(function () {
 
             $(".table-block").off().on("click", '.gam-btn-show', function () {
                 var uptId = $(this).attr("uptId");
-                session.goods_showMyGoods_uptId = uptId;
+                session.goods_detail_productId = uptId;
+                session.goods_back_page = 'goodsAuditManage';
+                session.goods_detail_type = false;
                 derict(this, "showMyGoods", "nochangeurl");
                 return false;
             }).on('click', '.btn-audit', function () {

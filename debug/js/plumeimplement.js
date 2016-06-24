@@ -368,6 +368,11 @@ function importGoods_init() {
     plumeUtil.js(plumePath + "/js/importGoods.js");
     plumeLog("完成importGoods模板加载-" + plumeTime());
 }
+function importSelfGoods_init() {
+    plumeLog("初始化mportSelfGoods模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/importSelfGoods.js");
+    plumeLog("完成mportSelfGoods模板加载-" + plumeTime());
+}
 function feedMyGoods_init() {
     plumeLog("初始化feedMyGoods模板-" + plumeTime());
     plumeUtil.js(plumePath + "/js/feedMyGoods.js");

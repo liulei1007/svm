@@ -41,39 +41,36 @@
         <div class="btn btn-default btn-sm btn-empty">清空条件</div>
       </form>
     </div>
+     <div class="btn-block clearFix">
+     <!--  <button class="btn btn-primary btn-icons btn-publishBatch btn-batch">批量导入自采商品</button> -->
+      <button class="btn btn-primary btn-all-ground">上架</button>
+      <button class="btn btn-primary btn-all-unGround">下架</button>
+      <button class="btn btn-primary btn-all-delect">删除</button>
+    </div>
     <div class="table-block">   
         <table class="table table1 table-striped">
             <thead>
               <tr>
                 <td style="width:2%"><input type="checkbox" /></td>
-                <td style="width:10%">商品数据ID号</td>
                 <td style="width:20%">商品名称</td>
-                <td style="width:10%">系列名</td>
-                <td style="width:10%">品牌</td>
-                <td style="width:5%">型号</td>
-                <td style="width:5%">添加人</td>
-                <td style="width:10%">添加时间</td>
-                <td style="width:5%">来源</td>
-                <td style="width:5%">状态</td>
+                <td style="width:10%">型号</td>
+                <td style="width:10%">颜色</td>
+                <td style="width:10%">规格</td>
+                <td style="width:10%">状态</td>
                 <td style="width:auto">操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">
-              <tr list-temp="true">
+              <tr list-temp="true" node-name="attr-psgId:$n.psgId">
                 <td><input type="checkbox" /></td>
-                <td class="psgId" node-name="$n.psgId"></td>
+                <td class="psgId" node-name="$n.psgId" style="display:none;"></td>
                 <td node-name="$n.productGoodsORM.productInfoORM.productName"></td>
-                <td node-name="$n.productGoodsORM.productInfoORM.seriesName"></td>
-                <td node-name="$n.productGoodsORM.productInfoORM.brandName"></td>
                 <td node-name="$n.productGoodsORM.productInfoORM.modelNumber"></td>
-                <td node-name="$n.createOperator"></td>
-                <td class="createDate" node-name="$n.productGoodsORM.productInfoORM.createDate"></td>
-                <td></td>
-                <td><span node-name="$n.saleStatus" class="saleStatus"></span></td>
+                <td node-name="$n.color"></td>
+                <td node-name="$n.standard"></td>
+                <td class="saleStatus" node-name="$n.saleStatus"></td>
                 <td>
                   <button type="button" class="btn btn-link btn-compile">编辑</button>
-                  <button type="button" class="btn btn-link btn-ground">上架</button>
-                  <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
                 </td>
               </tr>
             </tbody>
