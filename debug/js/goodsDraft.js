@@ -68,6 +68,10 @@ $(function () {
             return this;
         },
 
+        /**
+         * 批量删除
+         * @param productId
+         */
         moreDelete: function (productId) {
             var own = this;
 
