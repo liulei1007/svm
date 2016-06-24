@@ -514,9 +514,12 @@
         <getOmsBrandInfo>omsBrandInfo/getOmsBrandInfo/</getOmsBrandInfo>
         <addBrandLogoAndDescInfo>omsBrandInfo/addBrandLogoAndDescInfo</addBrandLogoAndDescInfo>
         <moreEditSaleStatus>productInfo/editSaleStatus</moreEditSaleStatus>
+
         <exportProductStashTemplate>excel/exportProductStashTemplate</exportProductStashTemplate>
         <importProductStash>excel/importProductStash</importProductStash>
         <editSaleStatus>productShopGoods/editSaleStatus</editSaleStatus>
         <delProductShopGoods>productShopGoods/delProductShopGoods</delProductShopGoods>
+
+        <moreDelete>productDraft/deleteProductDraft</moreDelete>
     </api>
 </config>

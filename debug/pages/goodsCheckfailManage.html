@@ -63,12 +63,15 @@
     <!--<div class="btn-block clearFix">-->
         <!--<button class="btn btn-batch btn-allAudit">批量审核</button>-->
     <!--</div>-->
+    <div class="btn-block clearFix" id="operationBtn">
+        <button class="btn btn-batch">删除</button>
+    </div>
     <div class="table-block">
 
         <table class="table table1 table-striped">
             <thead>
             <tr>
-                <!--<td style="width:3%"><input type="checkbox"/></td>-->
+                <td style="width:3%"><input type="checkbox"/></td>
                 <td style="width:20%">商品名称</td>
                 <td style="width:12%">型号</td>
                 <td style="width:14%">产地</td>
@@ -81,7 +84,7 @@
             </thead>
             <tbody data-list="$p.data">
             <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
-                <!--<td node-name="attr-productId:$n.uptId"  ><input type="checkbox"/></td>-->
+                <td><input type="checkbox" node-name="attr-productId:$n.uptId"/></td>
                 <td node-name="$n.productName,attr-uptId:$n.uptId" class="a-link gcm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
