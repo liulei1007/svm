@@ -21,9 +21,9 @@ var plumePath = _plumePath.substring(0, _plumePath.lastIndexOf('/') + 1);
 var _test_path = window.location.href + "";
 var plumeApi_Host = ""
 
-if(isFirefox=navigator.userAgent.indexOf("Firefox")>0){
+if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
     plumeLog("火狐浏览器不支持本地cookie跨域.本地调试请使用chrome!")
-}else{
+} else {
     if (_test_path.indexOf("localhost") != -1) {
         $.ajaxSetup({
             xhrFields: {
@@ -90,36 +90,25 @@ $.fn.extend({
                     loadHtmlFuncs.createHtml(_this, window.sessionStorage[url], fun);
                 } else {
                     try {
-                        $$.ajax({
+                        $.ajax({
                             url: url, async: false, success: function (data) {
                                 var data_str = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
                                 window.sessionStorage[url] = data_str;
                                 loadHtmlFuncs.createHtml(_this, data_str, fun);
                             }
                         });
-                        return;
-                        $$.get(url, {}, function (data) {
-                            var data_str = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
-                            window.sessionStorage[url] = data_str;
-                            loadHtmlFuncs.createHtml(_this, data_str, fun);
-                        })
                     } catch (e) {
                         plumeLog("提示:" + e.message);
                     }
                 }
             } else {
                 try {
-                    $$.ajax({
+                    $.ajax({
                         url: url, async: false, success: function (data) {
                             var data_str = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
                             loadHtmlFuncs.createHtml(_this, data_str, fun);
                         }
                     });
-                    return;
-                    $$.get(url, {}, function (data) {
-                        var data_str = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
-                        loadHtmlFuncs.createHtml(_this, data_str, fun);
-                    })
                 } catch (e) {
                     plumeLog("提示:" + e.message);
                 }
@@ -336,7 +325,7 @@ $.fn.extend({
                     } else if (tag.indexOf("html:") != -1) {
                         $(this).html(eval(tag));
                     } else {
-                        $(this).text(eval(tag)).attr("title",eval(tag));
+                        $(this).text(eval(tag)).attr("title", eval(tag));
                     }
                 }
             }
@@ -365,24 +354,24 @@ $.fn.extend({
             listObj.find("[list-node]").plumeFadeIn();
         });
     },
-    plumeFadeIn:function(){
-        var plume_fadeIn_obj=$($(this)[0]);
+    plumeFadeIn: function () {
+        var plume_fadeIn_obj = $($(this)[0]);
         PlumelistNodeShow(plume_fadeIn_obj);
     }
 });
-function PlumelistNodeShow(o){
+function PlumelistNodeShow(o) {
     o.fadeIn(300);
-    if($(o).next().length != 0){
-        var ox=$(o).next();
-        setTimeout(function(){
+    if ($(o).next().length != 0) {
+        var ox = $(o).next();
+        setTimeout(function () {
             PlumelistNodeShow(ox);
-        },30);
+        }, 30);
     }
 }
-function PlumelistNodeShowOrder(o){
-    o.show(100,function(){
-        if($(o).next().length != 0){
-            var ox=$(o).next();
+function PlumelistNodeShowOrder(o) {
+    o.show(100, function () {
+        if ($(o).next().length != 0) {
+            var ox = $(o).next();
             PlumelistNodeShowOrder(ox);
         }
     });
@@ -440,104 +429,34 @@ var plumeUtil = {
         }
     }
 }
-//重写扩展jquery中ajax,提供对象$$
-var $$ = {
-    $$_monitor_start: function () {
-        var t = plumeTime();
-        plumeLog("--开始执行监控xhr请求:" + t);
-        //plumeLog(arguments);
-        return t
+//监控ajax
+var PlumeAjaxTimes=0;
+$.ajaxSetup({
+    beforeSend: function () {
+        PlumeAjaxTimes=plumeTime();
     },
-    $$_monitor_end: function () {
-        var t = plumeTime();
-        plumeLog("--结束执行监控xhr请求:" + t);
-        //plumeLog(arguments);
-        return t
-    },
-    $$_monitor_time: function (url, t1, t2) {
-        var t = plumeTime();
-        //plumeLog(arguments);
-        plumeLog("--xhr请求=" + url + "=共耗时:" + (t2 - t1) + "毫秒");
-        return t
-    },
-    post: function () {
-        var $$_obj = this;
-        var args = arguments;
-        $$_obj.$$_monitor_start(args, "post");
-        //可监控ajax-参数需要统一:参数1:请求url,参数2:入参,参数3:回调函数
-        var callback = arguments[2];
-        $.post(arguments[0], arguments[1], function (data) {
-            $$_obj.$$_monitor_end(args, "post");
-            callback(data);
-        });
-        return;
-        //非可监控ajax-不可用,暂时屏蔽
-        if (arguments.length == 1) {
-            $.post(arguments[0]);
-        } else if (arguments.length == 2) {
-            $.post(arguments[0], arguments[1]);
-        } else if (arguments.length == 3) {
-            $.post(arguments[0], arguments[1], arguments[2]);
-        } else if (arguments.length == 4) {
-            $.post(arguments[0], arguments[1], arguments[2], arguments[3]);
-        } else {
-            plumeLog("ajax传参错误");
-        }
-    },
-    get: function () {
-        var $$_obj = this;
-        var args = arguments;
-        var t_start = $$_obj.$$_monitor_start(args, "get");
-        //可监控ajax-参数需要统一:参数1:请求url,参数2:入参,参数3:回调函数
-        var callback = arguments[2];
-        $.get(arguments[0], arguments[1], function (data) {
-            var t_end = $$_obj.$$_monitor_end(args, "get");
-            $$_obj.$$_monitor_time(args[0], t_start, t_end);
-            callback(data);
-        });
-        return;
-        //非可监控ajax-不可用,暂时屏蔽
-        if (arguments.length == 1) {
-            $.get(arguments[0]);
-        } else if (arguments.length == 2) {
-            $.get(arguments[0], arguments[1]);
-        } else if (arguments.length == 3) {
-            $.get(arguments[0], arguments[1], arguments[2]);
-        } else if (arguments.length == 4) {
-            $.get(arguments[0], arguments[1], arguments[2], arguments[3]);
-        } else {
-            plumeLog("ajax传参错误");
-        }
-    },
-    ajax: function () {
-        this.$$_monitor_start(arguments);
-        //非可监控ajax
-        if (arguments.length == 1) {
-            $.ajax(arguments[0]);
-        } else if (arguments.length == 2) {
-            $.ajax(arguments[0], arguments[1]);
-        } else {
-            plumeLog("ajax传参错误");
-        }
-        this.$$_monitor_end(arguments);
+    complete: function () {
+        var t=plumeTime()-PlumeAjaxTimes;
+        plumeLog("请求"+this.url+"耗时:"+t);
     }
-};
+});
 
 //内部方法,获取时间戳
 function plumeTime() {
-    return new Date().toLocaleString();
+    return new Date().getTime();
 }
 //内部测试方法,打印日志
 function plumeLog(o) {
-    try{
+    try {
         console.log(o);
-    }catch(e){}
+    } catch (e) {
+    }
 }
-window.onerror = function(msg, url, line) {
+window.onerror = function (msg, url, line) {
     plumeLog("----程序出现异常----");
-    plumeLog("msg:"+msg);
-    plumeLog("url:"+url);
-    plumeLog("line:"+line);
+    plumeLog("msg:" + msg);
+    plumeLog("url:" + url);
+    plumeLog("line:" + line);
     plumeLog("--------------------");
     return true;
 }
