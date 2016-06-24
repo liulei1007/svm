@@ -99,6 +99,7 @@ $(function () {
                 var productId = $(this).attr("productId");
                 session.goods_detail_productId = productId;
                 session.goods_back_page = 'amendmentInfo';
+                session.goods_detail_type = true;
                 derict(this, "showMyGoods", "nochangeurl");
                 return false;
             }).on("click", '.ai-btn-show', function () {

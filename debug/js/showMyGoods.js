@@ -89,14 +89,16 @@ $(function () {
                 $(".material_temp").show();
             }
 
+            var goodsAttr = data.productInfoAttrUptORMs || data.productInfoAttrORMs,
+                goodsUpts = data.productGoodsUpts || data.productGoods;
+
             data.countryId == "CN" ? $("#provinceName,#cityName").show() : $("#provinceName,#cityName").hide();
             $(".smg-basicInfo,.smg-base-attr").setPageData(data);
             $("#priceType").text(setListSystemCode(JSON.parse(session.price_tpye), $("#priceType").text()));
             $("#lvInfo").text(setListSystemCode(JSON.parse(session.product_lv), $("#lvInfo").text()));
-            data.productInfoAttrUptORMs.length == 0 ? $(".smg-attr-block").hide() : $(".smg-attr-block").show();
+            (!goodsAttr || goodsAttr.length == 0) ? $(".smg-attr-block").hide() : $(".smg-attr-block").show();
 
             var goodsAttrHtml = '',
-                goodsAttr = data.productInfoAttrUptORMs,
                 goodsAttrLen = goodsAttr && goodsAttr.length;
 
             for (var i = 0; i < goodsAttrLen; i++) {
@@ -110,7 +112,6 @@ $(function () {
             $(".goodsAttr-content").append(goodsAttrHtml);
 
             var goodsUptsHtml = '',
-                goodsUpts = data.productGoodsUpts,
                 goodsUptsLen = goodsUpts && goodsUpts.length;
 
             for (var j = 0; j < goodsUptsLen; j++) {
@@ -132,7 +133,7 @@ $(function () {
             $(".standardtbody").append(goodsUptsHtml);
 
             var goodsPhotoHtml = '',
-                goodsPhoto = data.productInfoPhotoUpts,
+                goodsPhoto = data.productInfoPhotoUpts || data.productInfoPhotos,
                 goodsPhotoLen = goodsPhoto && goodsPhoto.length;
 
             for (var k = 0; k < goodsPhotoLen; k++) {
@@ -148,9 +149,8 @@ $(function () {
          */
         initDetail: function () {
             var own = this,
-                uptId = session.goods_detail_uptId,
-                productId = session.goods_detail_productId,
-                url = uptId ? 'getProductInfoUpt' : 'getProductInfo';
+                uptId = session.goods_detail_productId,
+                url = session.goods_detail_type == 'true' ? 'getProductInfo' : 'getProductInfoUpt';
 
             $.commonAjax({
                 type: "GET",
