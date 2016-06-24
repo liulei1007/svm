@@ -139,8 +139,9 @@ $(function () {
         var authNum=$(this).attr("auth");
         $(".slidebar-menu,.slidebar-menu li").hide();
         $(".page-content").find("[auth="+authNum+"]").show();
+        $(".page-content").find("[auth="+authNum+"]").find("li").show();
         var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
-        PlumelistNodeShowOrder($firstChild);
+        //PlumelistNodeShowOrder($firstChild);
         var pageName = $firstChild.attr("pageName");
         $firstChild.addClass("active").siblings().removeClass("active");
         derict(this, pageName, "nochangeurl");
