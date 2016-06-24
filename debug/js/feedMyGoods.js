@@ -53,6 +53,16 @@ $(function () {
                             $("#" + option.lvInfo).text())
                     );
 
+                    if (data.material) {
+                        $('div.good1').hide();
+                        $('div.good2').hide();
+                        $('div.material').show();
+                    } else {
+                        $('div.good1').show();
+                        $('div.good2').show();
+                        $('div.material').hide();
+                    }
+
                     var productGood = data.productGoodsUpts || data.productGoods,
                         productPhoto = data.productInfoPhotoUpts || data.productInfoPhotos;
 
@@ -142,30 +152,33 @@ $(function () {
          * 数据对比
          */
         compareData: function () {
-            $(".smg-basicInfo1").find(".form-horizontal").find("p").each(function (i) {
-                var t1 = $(this).text();
-                var t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text();
+            $(".smg-basicInfo1, .good1").find(".form-horizontal").find("p").each(function (i) {
+                var t1 = $(this).text(),
+                    t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text(),
+                    t3 = $($(".good2").find(".form-horizontal").find("p")[i]).text();
                 if (t1 != t2) {
-                    $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).css({
+                    $($(".smg-basicInfo1").find(".form-horizontal").find("p")[i]).css({
                         "background": "#f0d6d0"
                     });
-                    $(".json_title0").css({
-                        "color": "#C13535"
+                }
+                if (t1 != t3) {
+                    $($(".good1").find(".form-horizontal").find("p")[i]).css({
+                        "background": "#f0d6d0"
                     });
                 }
             });
 
-            var $standardt = $('tbody.standardtbody2 tr'), len = this.OLD_DATA.length;
+            var $standardt = $('tbody.standardtbody1 tr'), len = this.NEW_DATA.length;
             for (var i = 0; i < len; i++) {
                 var color = {"background": "#f0d6d0"},
                     newData = this.NEW_DATA[i],
                     oldData = this.OLD_DATA[i],
                     $tr = $($standardt.get(i));
 
-                if (newData) {
-                    newData.color != oldData.color && $tr.find('.color').css(color);
-                    newData.standard != oldData.standard && $tr.find('.standard').css(color);
-                    newData.salePrice != oldData.salePrice && $tr.find('.salePrice').css(color);
+                if (oldData) {
+                    oldData.color != newData.color && $tr.find('.color').css(color);
+                    oldData.standard != newData.standard && $tr.find('.standard').css(color);
+                    oldData.salePrice != newData.salePrice && $tr.find('.salePrice').css(color);
                 } else {
                     $tr.find('.color').css(color);
                     $tr.find('.standard').css(color);

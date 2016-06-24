@@ -69,7 +69,12 @@
                     <div class="col-sm-8">
                         <p class="col-sm-8 form-control-static" data-name="$p.modelNumber"></p>
                     </div>
-
+                </div>
+                <div class="form-group required material" style="display: none;">
+                    <label class="col-sm-2 control-label">主要用料</label>
+                    <div class="col-sm-8">
+                        <p class="col-sm-8 form-control-static" data-name="$p.material"></p>
+                    </div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label">重量</label>
@@ -99,7 +104,7 @@
         </form>
 
     </div>
-    <div class="form-block-contractive">
+    <div class="form-block-contractive good1" style="display: none;">
         <div class="row block-title">
             <div class="col-sm-4">商品属性</div>
         </div>
@@ -198,7 +203,7 @@
     </form>
     <div class="form-block-contractive smg-basicInfo2">
         <div class="row block-title">
-            <div class="col-sm-4 json_title0">基础信息</div>
+            <div class="col-sm-4">基础信息</div>
         </div>
         <form class="form-horizontal">
             <div class="basicInfo-content row">
@@ -238,12 +243,18 @@
                         <p class="col-sm-8 form-control-static" data-name="$p.modelNumber"></p>
                     </div>
                 </div>
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label">重量</label>
+                <div class="form-group required material" style="display: none;">
+                    <label class="col-sm-2 control-label">主要用料</label>
                     <div class="col-sm-8">
-                        <p class="col-sm-8 form-control-static" data-name="$p.weight+' KG'"></p>
+                        <p class="col-sm-8 form-control-static" data-name="$p.material"></p>
                     </div>
                 </div>
+                <!--<div class="form-group required">-->
+                    <!--<label class="col-sm-2 control-label">重量</label>-->
+                    <!--<div class="col-sm-8">-->
+                        <!--<p class="col-sm-8 form-control-static" data-name="$p.weight+' KG'"></p>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="form-group required">
                     <label class="col-sm-2 control-label">价格类型</label>
                     <div class="col-sm-8">
@@ -266,7 +277,7 @@
         </form>
 
     </div>
-    <div class="form-block-contractive">
+    <div class="form-block-contractive good2" style="display: none;">
         <div class="row block-title">
             <div class="col-sm-4 json_title1">商品属性</div>
         </div>
