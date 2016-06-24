@@ -181,7 +181,7 @@ $(function () {
         $("#materialQuality").val(d.materialQuality);
         $("#marketPrice").val(d.marketPrice);
         $("#weight").val(d.weight);
-        $("#priceType").val(d.priceType);
+        // $("#priceType").val(d.priceType);
         $("#lvInfo").val(d.lvInfo);
         $("#material").val(d.material);
         $("#material1").val(d.material1);
@@ -343,7 +343,7 @@ $(function () {
                 $("#materialQuality").val(d.materialQuality);
                 $("#marketPrice").val(d.marketPrice);
                 $("#weight").val(d.weight);
-                $("#priceType").val(d.priceType);
+                // $("#priceType").val(d.priceType);
                 $("#lvInfo").val(d.lvInfo);
                 $("#material").val(d.material);
                 $("#material1").val(d.material1);
@@ -752,7 +752,7 @@ $(function () {
 
     //价格类型,等级初始化
     function dataInit() {
-        $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
+        // $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
         $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
     }
 
@@ -846,7 +846,7 @@ $(function () {
         dataJson.material2 = $("#material2").val();
         dataJson.material3 = $("#material3").val();
         dataJson.marketPrice = $("#marketPrice").val();
-        dataJson.priceType = $("#priceType").val();
+        dataJson.priceType = '';
         dataJson.lvInfo = $("#lvInfo").val();
         dataJson.categoryId = session.goods_categoryId;
         dataJson.categoryName = session.goods_categoryName;

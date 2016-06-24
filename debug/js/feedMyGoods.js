@@ -15,8 +15,31 @@ $(function () {
             own.initEvent();
 
             $.when(own.getOldData(), own.getNewData()).done(function () {
+                own.addEmptyDom();
                 own.compareData();
             });
+        },
+
+        addEmptyDom: function () {
+            var html = '',
+                oldLen = this.OLD_DATA.length,
+                newLen = this.NEW_DATA.length;
+
+            if (oldLen > newLen) {
+                for (var i = 0, len = (oldLen - newLen); i < len; i++) {
+                    html += '<tr style="height: 34px;" class="cmg-goodstr"><td class="color"></td>' +
+                        '<td class="standard"></td>' +
+                        '<td class="salePrice"></td></tr>';
+                }
+                $(".standardtbody1").append(html);
+            } if (!oldLen < newLen) {
+                for (var i = 0, len = (newLen - oldLen); i < len; i++) {
+                    html += '<tr style="height: 34px; class="cmg-goodstr"><td class="color"></td>' +
+                        '<td class="standard"></td>' +
+                        '<td class="salePrice"></td></tr>';
+                }
+                $(".standardtbody1").append(html);
+            }
         },
 
         /**
@@ -168,22 +191,19 @@ $(function () {
                 }
             });
 
-            var $standardt = $('tbody.standardtbody1 tr'), len = this.NEW_DATA.length;
+            var $standardt = $('tbody.standardtbody1 tr'),
+                newLen = this.NEW_DATA.length,
+                oldLen = this.OLD_DATA.length,
+                len = oldLen > newLen ? oldLen : newLen;
             for (var i = 0; i < len; i++) {
                 var color = {"background": "#f0d6d0"},
                     newData = this.NEW_DATA[i],
                     oldData = this.OLD_DATA[i],
                     $tr = $($standardt.get(i));
 
-                if (oldData) {
-                    oldData.color != newData.color && $tr.find('.color').css(color);
-                    oldData.standard != newData.standard && $tr.find('.standard').css(color);
-                    oldData.salePrice != newData.salePrice && $tr.find('.salePrice').css(color);
-                } else {
-                    $tr.find('.color').css(color);
-                    $tr.find('.standard').css(color);
-                    $tr.find('.salePrice').css(color);
-                }
+                (oldData && oldData.color) != (newData && newData.color) && $tr.find('.color').css(color);
+                (oldData && oldData.standard) != (newData && newData.standard) && $tr.find('.standard').css(color);
+                (oldData && oldData.salePrice) != (newData && newData.salePrice) && $tr.find('.salePrice').css(color);
             }
         },
 
