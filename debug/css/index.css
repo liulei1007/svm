@@ -448,7 +448,7 @@ textarea{resize: none;}
 
 
 /** --------分页-------- **/
-.nav-pagination{margin-bottom: 0px; text-align: right;}
+.nav-pagination{margin-top: 20px; margin-bottom: 20px; text-align: right;}
 .pagination{float: right; margin-top: 0; margin-bottom: 0;}
 /** 普通页码的样式 **/
 .pagination > li > a, .pagination > li > span{width: 44px; text-align: center; cursor: pointer;}

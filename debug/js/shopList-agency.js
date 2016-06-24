@@ -40,6 +40,8 @@ $(function() {
 		getShopId(this);
 		var shopId = $(this).parents("tr").find(".shopId").html();
 		var marketName = $(this).parents("tr").find(".marketName").html();
+		// console.log(shopId);
+		// console.log(marketName);
 		session.shopAgency_shopId = shopId;
 		session.shopAgency_marketName = marketName;
 		derict(this,"shopManageAgency","nochangeurl");
@@ -92,7 +94,7 @@ $(function() {
             var pageList = "";
             // 总页数
             var totalPages = Math.ceil(result.countRecord / 10);
-            console.log(totalPage);
+            // console.log(totalPage);
 
 			var tableList = "<tr style='display: none'></tr>";
 			result.data.map(function(list) {
