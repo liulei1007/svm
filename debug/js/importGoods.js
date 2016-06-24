@@ -39,7 +39,7 @@ $(function () {
                }else if(!session.goods_baseCategoryId){
                 alert("请选择分类");
                }
-               if (($("#file").val()&&fileSuffix=="xlsx"&&session.goods_baseCategoryId)) {
+               if (($("#file").val()&&(fileSuffix=="xlsx"||fileSuffix=="xls")&&session.goods_baseCategoryId)) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
                    $('#myForm').submit();
                    
