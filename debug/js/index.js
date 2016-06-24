@@ -429,6 +429,20 @@ function getListSystemCode() {
             }
         }
     });
+    $.ajax({
+        type: "get",
+        url: plumeApi["listSystemCode"] + "/unit",
+        contentType: "application/json",
+        dataType: "json",
+       // async: false,
+        success: function (data) {
+            if (data.ok) {
+                session.unit = JSON.stringify(data);
+            } else {
+                plumeLog("获取price_tpye信息失败:" + data.resDescription);
+            }
+        }
+    });
 }
 //设置基础数据
 function setListSystemCode(data, val) {
