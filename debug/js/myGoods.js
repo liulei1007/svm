@@ -520,13 +520,15 @@ $(function () {
         });
     }
 
+    var totalNum = 0;
+
     //初始化图片移动
     function picMove() {
         var len;
         var list;
-        $('.upload-btn-left').bind('click', leftEvent);
-        $('.upload-btn-right').bind('click', rightEvent);
-        $('.upload-btn-delect').bind('click', delectEvent);
+        $('.upload-btn-left').off().on('click', leftEvent);
+        $('.upload-btn-right').off().on('click', rightEvent);
+        $('.upload-btn-delect').off().on('click', delectEvent);
         initialize();
 
         function initialize() {
@@ -562,6 +564,7 @@ $(function () {
         }
 
         function delectEvent() {
+            totalNum > 0 && totalNum--;
             $(this).parents('li').remove();
             initialize();
         }
@@ -773,25 +776,31 @@ $(function () {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
                             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html("未查询到数据!");
+                            $(".pop").find(".popup-info").html(data.resDescription);
                         });
                         return;
                     }
                     if (data.ok) {
-                        $("#filepath").val(data.data);
-                        var temp = '<li class="goodsPic">';
-                        temp += '<img class="cmg-goodsimgs" src="' + (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + $("#filepath").val() + '">';
-                        temp += '<div class="upload-btn upload-btn-left">';
-                        temp += '<div class="arrow-left"></div>';
-                        temp += '</div>';
-                        temp += '<div class="upload-btn upload-btn-right">';
-                        temp += '<div class="arrow-right"></div>';
-                        temp += '</div>';
-                        temp += '<div class="upload-btn upload-btn-delect">';
-                        temp += '<div class="arrow-close"></div>';
-                        temp += '</div>';
-                        temp += '</li>';
-                        $(".goodsPic-upload").append(temp);
+                        var temp = [], baseUrl = JSON.parse(session.img_url).data,
+                            imgUrl = data.data || 0,
+                            imgUrlLen = imgUrl && imgUrl.length;
+
+                        for (var i = 0; i < imgUrlLen; i++) {
+                            temp.push('<li class="goodsPic">',
+                                '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[i].path  + '">',
+                                '<div class="upload-btn upload-btn-left">',
+                                '<div class="arrow-left"></div>',
+                                '</div>',
+                                '<div class="upload-btn upload-btn-right">',
+                                '<div class="arrow-right"></div>',
+                                '</div>',
+                                '<div class="upload-btn upload-btn-delect">',
+                                '<div class="arrow-close"></div>',
+                                '</div></li>'
+                            );
+                        }
+
+                        $(".goodsPic-upload").append(temp.join(''));
                         closeUploadPop();
                         picMove()
                     } else {
@@ -800,15 +809,26 @@ $(function () {
                 }
 
             });
+
+            var errorTip = function (message) {
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("信息提示");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(message);
+                });
+            };
+
             $(".pu-ok").bind("click", function () {
-                if ($("[name=file]").val() == "") {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("请选择图片!");
-                    });
+                var $file = $("[name=files]"),
+                    len = $file.prop('files').length;
+
+                if ($file.val() == "") {
+                    errorTip('请选择图片');
+                } else if (totalNum + len > 5) {
+                    errorTip('最多上传5张图片');
                 } else {
                     loading();
+                    totalNum += len;
                     $('#myform').submit();
                 }
 
@@ -822,8 +842,8 @@ $(function () {
     var getRequestData = function (sessionType) {
         var dataJson = {},
             $_countryId = $("#countryId"),
-            $_provinceId = $('#provinceId'),
             $_cityId = $('#cityId');
+            $_provinceId = $('#provinceId'),
 
         sessionType == 'edit' && (dataJson.productId = $("#productId").val());
         sessionType == 'feed' && (dataJson.productId = $("#productId").val());

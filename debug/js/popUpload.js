@@ -1,6 +1,6 @@
 $(function () {
     plumeLog("进入popUpload模板自定义js-"+plumeTime());
-    $("#myform").attr("action",plumeApi_Host+"common/uploadFile");
+    $("#myform").attr("action",plumeApi_Host+"common/uploadFiles");
     //$(".pu-ok").bind("click", function () {
     //    loading();
     //    $('#myform').submit();
