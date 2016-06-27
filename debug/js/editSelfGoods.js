@@ -21,6 +21,16 @@ $(function() {
 	// 获取当前商品的数据，并将信息写入表单
 	getSelfData($(".body-typein"), session.stashGoods_stashId);
 
+
+	//单位规格
+	var standardUnit = JSON.parse(session.standard_unit);
+
+	var unit = JSON.parse(session.unit)
+	
+	$("#orgSize").setPageData(standardUnit);
+
+	$("#priceUnit").setPageData(unit);
+
 	// 绑定“确定”按钮
 	$(".btn-sure").bind("click", function() {
 		checkSelfGoods("修改", datas, plumeApi["editProductStash"]);
@@ -30,17 +40,4 @@ $(function() {
 	$(".body-typein .btn-cancel").bind("click", function() {
 		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
-
-	//单位规格
-	var standardUnit = JSON.parse(session.standard_unit);
-
-	var unit = JSON.parse(session.unit)
-	
-	$("#orgSize").setPageData(standardUnit);
-
-	$("#orgSize").find("option").eq(1).prop('selected','selected');
-
-	$("#priceUnit").setPageData(unit);
-
-	$("#priceUnit").find("option").eq(1).prop('selected','selected');
 });

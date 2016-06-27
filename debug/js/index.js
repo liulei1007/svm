@@ -183,7 +183,7 @@ function onePageCount(){
     return (PAGE_SET_COUNT!=0)?PAGE_SET_COUNT:PAGE_COUNT;
 }
 function setPageCount(){
-    if(session[session.nowPageName+"_PAGE_SET_COUNT"]){
+    if(session[session.nowPageName+"_PAGE_SET_COUNT"]&&(session[session.nowPageName+"_PAGE_SET_COUNT"]!="NaN")){
         PAGE_SET_COUNT=parseInt(session[session.nowPageName+"_PAGE_SET_COUNT"]);
     }else{
         PAGE_SET_COUNT=0;
@@ -882,6 +882,7 @@ function getSelfData(showObj, stashId) {
             $(showObj).find("#material").val(data.material);
             // 单位名称
             $(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
+            $(showObj).find("#orgSize option[value='" +data.standardUnit + "']").prop("selected","selected");
             // 价格类型
             $(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
             $(showObj).find("#salePrice").val(data.salePrice);
@@ -889,6 +890,7 @@ function getSelfData(showObj, stashId) {
             $(showObj).find("#inventory").val(data.inventory);
             // 状态
             $(showObj).find("#saleStatus input[value='" + data.saleStatus + "']").prop("checked", "checked");
+            $()
         },
         error: function (er) {
         }
