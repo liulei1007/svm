@@ -351,7 +351,7 @@ $.fn.extend({
                     $(this).setNodeData("$n", $n, "node-name");
                 });
             }
-            listObj.find("[list-node]").plumeFadeIn();
+            listObj.find("[list-node]").fadeIn();
         });
     },
     plumeFadeIn: function () {
