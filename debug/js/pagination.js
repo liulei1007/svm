@@ -15,7 +15,7 @@ function newPage(totalPage, fun) {
         $(".nav-pagination").prepend(turnHtml);
     }
     try {
-        var changePageCountHtml = "<div class='changepagecount'><dl tag=20 >20</dl><dl tag=50 >50</dl><dl tag=100 >100</dl><dl tag=500 >500</dl></div>";
+        var changePageCountHtml = "<div class='changepagecount'><span>设置每页显示行数:</span></span><dl tag=20 >20</dl><dl tag=50 >50</dl><dl tag=100 >100</dl><dl tag=500 >500</dl></div>";
         $(".changepagecount").remove();
         $(".nav-pagination").prepend(changePageCountHtml);
         $(".changepagecount").find("[tag=" + session[session.nowPageName + "_PAGE_SET_COUNT"] + "]").addClass("active");
