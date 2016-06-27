@@ -189,7 +189,7 @@ function setPageCount(){
         PAGE_SET_COUNT=0;
     }
     var h=$(window).height();
-    var h1=200;
+    var h1=160;
     var h2=$(".search-block").height()+40;
     var h3=$(".alert-info").height()+20;
     var h4=$(".btn-block").height()+20;

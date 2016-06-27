@@ -351,17 +351,26 @@ $.fn.extend({
                     $(this).setNodeData("$n", $n, "node-name");
                 });
             }
-            listObj.find("[list-node]").fadeIn();
+            listObj.find("[list-node]").plumeFadeIn();
         });
     },
     plumeFadeIn: function () {
-        var plume_fadeIn_obj = $($(this)[0]);
+        var plume_fadeIn_obj = $(this).eq(0);
         PlumelistNodeShow(plume_fadeIn_obj);
     }
 });
 function PlumelistNodeShow(o) {
+    var os = o.nextAll().slice(0, 3);
+    os.fadeIn(300);
+    if (os.next().length != 0) {
+        var ox = $(o).next();
+        setTimeout(function () {
+            PlumelistNodeShow(ox);
+        }, 30);
+    }
+    return;
     o.fadeIn(300);
-    if ($(o).next().length != 0) {
+    if (o.next().length != 0) {
         var ox = $(o).next();
         setTimeout(function () {
             PlumelistNodeShow(ox);
@@ -430,14 +439,14 @@ var plumeUtil = {
     }
 }
 //监控ajax
-var PlumeAjaxTimes=0;
+var PlumeAjaxTimes = 0;
 $.ajaxSetup({
     beforeSend: function () {
-        PlumeAjaxTimes=plumeTime();
+        PlumeAjaxTimes = plumeTime();
     },
     complete: function () {
-        var t=plumeTime()-PlumeAjaxTimes;
-        plumeLog("页面加载性能:--请求"+this.url+"耗时:"+t+"毫秒");
+        var t = plumeTime() - PlumeAjaxTimes;
+        plumeLog("页面加载性能:--请求" + this.url + "耗时:" + t + "毫秒");
     }
 });
 

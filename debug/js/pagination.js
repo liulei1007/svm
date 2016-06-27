@@ -40,6 +40,7 @@ function newPage(totalPage, fun) {
             return;
         }
 
+        $(".nav-pagination").hide();
         nowPage = parseInt($(this).attr("data-page"));
         loadPagination(nowPage, totalPage);
     }).on("click", ".first", function () {
