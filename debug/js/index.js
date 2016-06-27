@@ -183,7 +183,7 @@ function onePageCount(){
     return (PAGE_SET_COUNT!=0)?PAGE_SET_COUNT:PAGE_COUNT;
 }
 function setPageCount(){
-    if(session[session.nowPageName+"_PAGE_SET_COUNT"]){
+    if(session[session.nowPageName+"_PAGE_SET_COUNT"]&&(session[session.nowPageName+"_PAGE_SET_COUNT"]!="NaN")){
         PAGE_SET_COUNT=parseInt(session[session.nowPageName+"_PAGE_SET_COUNT"]);
     }else{
         PAGE_SET_COUNT=0;
