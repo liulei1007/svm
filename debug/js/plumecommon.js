@@ -1,6 +1,11 @@
 //缓存
 var session = function () {
-    return sessionStorage;
+    if (typeof(Storage) !== "undefined") {
+        return sessionStorage;
+    }else {
+        alert("您好,您的浏览器不支持HTML5最新特性.请升级浏览器至IE8+或使用Firefox, Opera, Chrome,Safari");
+    }
+
 }();
 var PLUME_PROJECT = "../";
 
