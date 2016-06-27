@@ -127,8 +127,8 @@ $(function () {
                 goodsUptsHtml += '<tr class="cmg-goodstr">' +
                     '<td>' + p.color + '</td>' +
                     '<td>' + p.standard + '</td>' +
-                    '<td>' + standardName + '</td>' +
-                    '<td>' + p.salePrice + '</td></tr>';
+                    '<td>' + standardName + '</td></tr>';
+                    // '<td>' + p.salePrice + '</td>
             }
             $(".standardtbody").append(goodsUptsHtml);
 

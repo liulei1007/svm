@@ -220,7 +220,7 @@ $(function () {
                 temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                 temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                // temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                 temp += '<td>';
                 temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                 temp += '</td>';
@@ -382,7 +382,7 @@ $(function () {
                         temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                         temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                         temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                        temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                        // temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                         temp += '<td>';
                         temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                         temp += '</td>';
@@ -733,7 +733,7 @@ $(function () {
                     temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
                     temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                    temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
+                    // temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
                     temp += '<td>';
                     temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                     temp += '</td>';
@@ -907,6 +907,9 @@ $(function () {
             return false;
         }
 
+        var own = this;
+        $(own).attr('disabled', 'disabled');
+
         var url = '',
             sessionType = session.goods_showMyGoods_type,
             dataJson = getRequestData(sessionType);
@@ -948,12 +951,15 @@ $(function () {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
+
+                $(own).removeAttr('disabled');
             }
         });
     });
     //存草稿
     $(".cmg-draft").bind("click", function () {
-
+        var own = this;
+        $(own).attr('disabled', 'disabled');
         var requestData = {
             pdtName: $("#productName").val(),
             categoryId: 0,
@@ -984,6 +990,7 @@ $(function () {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
+                $(own).removeAttr('disabled');
             }
         });
     });
