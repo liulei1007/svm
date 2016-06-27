@@ -98,6 +98,7 @@
                 typeof(option.error) === 'function' && option.error(data);
             },
             beforeSend: function () {
+                try{PlumeAjaxTimes=plumeTime();}catch(e){};
                 loading();
                 typeof(option.beforeSend) == "function" && option.beforeSend();
             }
