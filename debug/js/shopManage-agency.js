@@ -53,7 +53,7 @@ $(function() {
 		var shopTel = $("#tel").val().trim();
 		var shopIntroduction = $("#shopIntroduction").val().trim();
 		var data = {
-			"shopNumber": session.shopAgency_shopId,
+			"id": session.shopAgency_shopId,
 			"shopName": shopName,
 			"marketBoothNumber": marketBoothNumber,
 			"marketFloor": marketFloor,
@@ -79,7 +79,7 @@ $(function() {
                 	derict(this, "shopListAgency", "nochangeurl");
                 }
                 else {
-                	showPopTips("提交失败", "warning", data.resDescription);
+                	showPopTips("提交失败", "warning", result.resDescription);
                 }
             },
             error: function (error) {
