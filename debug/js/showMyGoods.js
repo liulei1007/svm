@@ -5,6 +5,8 @@ $(function () {
         // 规格参数
         standardUnit: [],
 
+        chargeUnit: JSON.parse(session.unit),
+
         /**
          * 初始化控制器
          */
@@ -87,6 +89,14 @@ $(function () {
             } else {
                 $(".material").hide();
                 $(".material_temp").show();
+            }
+
+            var chargeUnit = this.chargeUnit.data,
+                chargeLen = chargeUnit && chargeUnit.length;
+            for (var i = 0; i < chargeLen; i++) {
+                if (chargeUnit[i].codeValueCode == data.chargeUnit) {
+                    data.chargeUnit = chargeUnit[i].codeValueName;
+                }
             }
 
             var goodsAttr = data.productInfoAttrUptORMs || data.productInfoAttrORMs,
