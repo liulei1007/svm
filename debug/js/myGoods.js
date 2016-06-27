@@ -182,7 +182,7 @@ $(function () {
         $("#materialQuality").val(d.materialQuality);
         $("#marketPrice").val(d.marketPrice);
         $("#weight").val(d.weight);
-        $("#chargeUnit").find("option[text='" + d.chargeUnit + "']").attr("selected",true);
+        $("#chargeUnit").val(d.chargeUnit);
         $("#lvInfo").val(d.lvInfo);
         $("#material").val(d.material);
         $("#material1").val(d.material1);
@@ -344,7 +344,7 @@ $(function () {
                 $("#materialQuality").val(d.materialQuality);
                 $("#marketPrice").val(d.marketPrice);
                 $("#weight").val(d.weight);
-                $("#chargeUnit").find("option[text='" + d.chargeUnit + "']").attr("selected",true);
+                $("#chargeUnit").val(d.chargeUnit);
                 $("#lvInfo").val(d.lvInfo);
                 $("#material").val(d.material);
                 $("#material1").val(d.material1);
@@ -845,7 +845,7 @@ $(function () {
         dataJson.modelNumber = $("#modelNumber ").val();
         dataJson.materialQuality = $("#materialQuality").val();
         dataJson.weight = $("#weight").val();
-        dataJson.chargeUnit = $("#chargeUnit").find("option:selected").text();
+        dataJson.chargeUnit = $("#chargeUnit").val();
         dataJson.material = $("#material").val();
         dataJson.material1 = $("#material1").val();
         dataJson.material2 = $("#material2").val();
