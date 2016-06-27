@@ -98,8 +98,8 @@ $(function () {
                     var html = '', goodsUptLen = data.length;
                     for (var i = 0; i < goodsUptLen; i++) {
                         html += '<tr class="cmg-goodstr"><td class="color">' + data[i].color + '</td>' +
-                            '<td title="' + data[i].standard + '" class="standard">' + data[i].standard + '</td>' +
-                            '<td class="salePrice">' + data[i].salePrice + '</td></tr>';
+                            '<td title="' + data[i].standard + '" class="standard">' + data[i].standard + '</td></tr>';
+                            // '<td class="salePrice">' + data[i].salePrice + '</td>
                     }
                     $("." + obj).append(html);
                 },

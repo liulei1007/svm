@@ -220,7 +220,7 @@ $(function () {
                 temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                 temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                 temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                // temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                 temp += '<td>';
                 temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                 temp += '</td>';
@@ -382,7 +382,7 @@ $(function () {
                         temp += '<td productGoodsId="' + p.productGoodsId + '" colorname="' + p.color + '" colorvalue="' + p.colorRgb + '" colorid="' + p.colorId + '">' + p.color + '</td>';
                         temp += '<td><input type="text" class="form-control stand" value="' + p.standard + '"></td>';
                         temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                        temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
+                        // temp += '<td><input type="text" class="form-control marketPrice" value="' + p.salePrice + '"></td>';
                         temp += '<td>';
                         temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                         temp += '</td>';
@@ -733,7 +733,7 @@ $(function () {
                     temp += '<td colorname="' + colorname + '" colorvalue="' + colorvalue + '" colorid="' + colorid + '">' + colorname + '</td>';
                     temp += '<td><input type="text" class="form-control stand" value="' + stand + '"></td>';
                     temp += '<td><select class="form-control standardUnit">' + standardUnitHtml + '</select></td>';
-                    temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
+                    // temp += '<td><input type="text" class="form-control marketPrice" value="' + marketPrice + '"></td>';
                     temp += '<td>';
                     temp += '<button type="button" class="btn btn-default btn-sm cm-btn-del">删除</button>';
                     temp += '</td>';
