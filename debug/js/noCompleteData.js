@@ -14,6 +14,7 @@ $(function () {
             $('#endDate').cxCalendar();
 
             setPageCount();
+            tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
             this.initBindEvent().initRequestData().initTableData();
@@ -35,6 +36,19 @@ $(function () {
                 derict(null, "noCompleteData", "nochangeurl");
 
                 return false;
+            });
+
+            // 批量删除
+            $('#operationBtn').on('click', 'button', function () {
+                var checkId = [],
+                    $check = $("table tbody input:checkbox");
+
+                $.each($check, function (index, obj) {
+                    var id = $(obj).attr('productId');
+                    $(obj).prop('checked') && id && checkId.push(id);
+                });
+
+                checkId.length ? own.moreDelete(checkId) : popTips("您未选择商品", "warning");
             });
 
             // 回车搜索
@@ -119,10 +133,49 @@ $(function () {
             });
         },
 
+        /**
+         * 批量删除
+         * @param productId
+         */
+        moreDelete: function (productId) {
+            var own = this;
+
+            var dataOperation = function (data) {
+                data.ok ? (popTips('删除成功', "success"), own.initTableData()) : (
+                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        $(".pop").find(".popup-title").html("操作失败");
+                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        $(".pop").find(".popup-info").html(data.resDescription);
+                    }), own.initTableData()
+                );
+            };
+
+            $.commonAjax({
+                type: "get",
+                url: 'delProductInfoUpt',
+                data: {
+                    uptIds: productId
+                },
+                traditional: true,
+                success: function (data) {
+                    dataOperation(data);
+                },
+                error: function (res) {
+                }
+            });
+        },
+
         bingListEvent: function () {
             var own = this;
 
-            $(".table-block").off().on('click', '.btn-link-edit', function () {
+            $(".table-block").off().on("click", '.ncd-btn-show', function () {
+                var productId = $(this).attr("productId");
+                session.goods_detail_productId = productId;
+                session.goods_back_page = 'noCompleteData';
+                session.goods_detail_type = false;
+                derict(this, "showMyGoods", "nochangeurl");
+                return false;
+            }).on('click', '.btn-link-edit', function () {
                 session.goods_showMyGoods_uptId = $(this).attr("uptid");
                 session.goods_showMyGoods_type = "amend";
                 derict(this, "myGoods", "nochangeurl");
