@@ -29,7 +29,8 @@ function newPage(totalPage, fun) {
             $(this).addClass("active");
             session[session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).attr("tag"));
             derict(null, session.nowPageName, "nochangeurl");
-        })
+        });
+
     } catch (e) {
     }
     // 绑定分页点击事件

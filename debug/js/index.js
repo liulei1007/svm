@@ -189,17 +189,18 @@ function setPageCount(){
         PAGE_SET_COUNT=0;
     }
     var h=$(window).height();
-    var h1=$(".title-block").height()+30;
-    var h2=$(".search-block").height()+20;
+    var h1=200;
+    var h2=$(".search-block").height()+40;
     var h3=$(".alert-info").height()+20;
-    var h4=$(".btn-block").height()+40;
-    var n=parseInt((h-h1-h2-h3-h4-105)/40);
+    var h4=$(".btn-block").height()+20;
+    var x=(h3==h4)?h3:((h3>h4)?h3:h4);
+    var n=parseInt((h-h1-h2-h3-x)/40);
     if(n<2){
         n=2;
     }
-    var x=(PAGE_SET_COUNT!=0)?(PAGE_SET_COUNT+1):n;
-   // $(".table-block").css({"height":40*x});
-    PAGE_COUNT= n-1;
+    //var x=(PAGE_SET_COUNT!=0)?(PAGE_SET_COUNT):n;
+    //$(".table-block").css({"height":40*x});
+    PAGE_COUNT= n;
 }
 //检测session失效
 function chkUserStatus(){

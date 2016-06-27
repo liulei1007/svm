@@ -16,11 +16,12 @@
      * 列表数据为空处理
      */
     $.emptyData = function () {
-        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-            $(".pop").find(".popup-title").html("信息提示");
-            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-            $(".pop").find(".popup-info").html("未查询到数据!");
-        });
+        //$('.pop').loadTemp("popTips", "nochangeurl", function () {
+        //    $(".pop").find(".popup-title").html("信息提示");
+        //    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+        //    $(".pop").find(".popup-info").html("未查询到数据!");
+        //});
+        $(".table-block").find("tbody").append("<tr class='noDataTr'><td colspan='100%' style='text-align:Center;height:200px;line-height:200px'>未查询到数据!</td></tr>");
     };
 
     /**
@@ -82,7 +83,7 @@
 
                 if (option.list) {
                     var $infoNum = $('.infoNum');
-
+                    $(".noDataTr").remove();
                     data.data && data.data.length !== 0 ? (
                         $infoNum.text(data.countRecord),
                             $infoNum.parent('div').show(),
