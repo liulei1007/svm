@@ -62,7 +62,6 @@ $(function() {
 			"shopTel": shopTel,
 			"shopIntroduction": shopIntroduction
 		};
-		console.log(data);
 		loading();
 		$.ajax({
             // url: "datas/shopList.txt",
@@ -73,7 +72,6 @@ $(function() {
             contentType: "application/json; charset=utf-8",
             success: function (result) {
             	unloading();
-                console.log(result);
                 if (result.ok) {
                 	showPopTips("提交成功", "success", "店铺信息提交成功");
                 	derict(this, "shopListAgency", "nochangeurl");
@@ -98,7 +96,6 @@ $(function() {
 			success: function (data) {
 				unloading();
 				if (data.ok) {
-					console.log(data);
 					if (data.data.shopName) {$("#shopName").val(data.data.shopName);}
 					if (data.data.marketBoothNumber) {$("#shopName").val(data.data.shopName);}
 					if (data.data.shopTel) {$("#tel").val(data.data.shopName);}
