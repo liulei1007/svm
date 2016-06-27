@@ -21,7 +21,8 @@
         //    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
         //    $(".pop").find(".popup-info").html("未查询到数据!");
         //});
-        $(".table-block").find("tbody").append("<tr class='noDataTr'><td colspan='100%' style='text-align:Center;height:200px;line-height:200px'>未查询到数据!</td></tr>");
+        //
+        $(".table-block").append("<div class='nodatanotice' style='width:100%;text-align:Center;height:120px;line-height:120px'>未查询到数据!</div>");
     };
 
     /**
@@ -83,7 +84,7 @@
 
                 if (option.list) {
                     var $infoNum = $('.infoNum');
-                    $(".noDataTr").remove();
+                    $(".nodatanotice").remove();
                     data.data && data.data.length !== 0 ? (
                         $infoNum.text(data.countRecord),
                             $infoNum.parent('div').show(),
