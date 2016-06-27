@@ -49,6 +49,7 @@ $(function() {
 		var marketBoothNumber = $("#marketBoothNumber").val().trim();
 		var marketFloor = $("#marketFloor").val().trim();
 		var salesStartTime = $("#startTime").val().trim();
+		console.log(typeof(salesStartTime));
 		var salesEndTime = $("#endTime").val().trim();
 		var shopTel = $("#tel").val().trim();
 		var shopIntroduction = $("#shopIntroduction").val().trim();
@@ -65,7 +66,6 @@ $(function() {
 		console.log(data)
 		loading();
 		$.ajax({
-            // url: "datas/shopList.txt",
             url: plumeApi["editShopInfo"],
             type: "POST",
             data: JSON.stringify(data),
@@ -100,7 +100,7 @@ $(function() {
 					console.log(data.data);
 					if (data.data.shopName) {$("#shopName").val(data.data.shopName);}
 					if (data.data.marketBoothNumber) {$("#marketBoothNumber").val(data.data.marketBoothNumber);}
-					if (data.data.shopTel) {$("#tel").val(data.data.shopName);}
+					if (data.data.shopTel) {$("#tel").val(data.data.shopTel);}
 					if (data.data.salesStartTime) {$("#startTime").val(data.data.salesStartTime);}
 					if (data.data.salesEndTime) {$("#endTime").val(data.data.salesEndTime);}
 					if (data.data.shopIntroduction) {$("#shopIntroduction").val(data.data.shopIntroduction);}
@@ -108,13 +108,6 @@ $(function() {
 					if (data.data.marketFloor) {
 						$("#marketFloor option[value='" + data.data.marketFloor + "']").attr("selected", "selected");
 					}
-					// var shopName = $("#shopName").val().trim();
-					// var marketBoothNumber = $("#marketBoothNumber").val().trim();
-					// var marketFloor = $("#marketFloor").val().trim();
-					// var salesStartTime = $("#startTime").val().trim();
-					// var salesEndTime = $("#endTime").val().trim();
-					// var shopTel = $("#tel").val().trim();
-					// var shopIntroduction = $("#shopIntroduction").val().trim();
 				}
 				else {
 					showPopTips("店铺信息获取失败", "warning", data.resDescription);

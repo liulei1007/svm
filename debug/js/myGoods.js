@@ -120,6 +120,7 @@ $(function () {
         $(".material_temp").hide();
     } else {
         $(".material").hide();
+        $(".checkShow").hide();
         $(".material_temp").show();
     }
 
@@ -181,7 +182,7 @@ $(function () {
         $("#materialQuality").val(d.materialQuality);
         $("#marketPrice").val(d.marketPrice);
         $("#weight").val(d.weight);
-        // $("#priceType").val(d.priceType);
+        $("#chargeUnit").find("option[text='" + d.chargeUnit + "']").attr("selected",true);
         $("#lvInfo").val(d.lvInfo);
         $("#material").val(d.material);
         $("#material1").val(d.material1);
@@ -343,7 +344,7 @@ $(function () {
                 $("#materialQuality").val(d.materialQuality);
                 $("#marketPrice").val(d.marketPrice);
                 $("#weight").val(d.weight);
-                // $("#priceType").val(d.priceType);
+                $("#chargeUnit").find("option[text='" + d.chargeUnit + "']").attr("selected",true);
                 $("#lvInfo").val(d.lvInfo);
                 $("#material").val(d.material);
                 $("#material1").val(d.material1);
@@ -500,7 +501,7 @@ $(function () {
                 var d = data.data[i];
                 var temp = '<div class="form-group required">';
                 temp += '<label class="col-sm-2 control-label">' + d.attrNameFront + '</label>';
-                temp += '<div class="col-sm-2">';
+                temp += '<div class="col-sm-4">';
                 if (d.attr_input == "text") {
                     temp += '<div class="col-sm-4"><input type="text" id="" attr_type="1" class="form-control cmg-attrs" attr_code="' + d.attr_code + ' /> </div>';
                 } else {
@@ -753,7 +754,11 @@ $(function () {
     //价格类型,等级初始化
     function dataInit() {
         // $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
+        // 计价单位
+        $("div.chargeUnit").setPageData(JSON.parse(session.unit));
+        // 等级
         $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
+        $('#lvInfo option:eq(1)').prop('selected', 'selected');
     }
 
     //图片上传
@@ -840,12 +845,12 @@ $(function () {
         dataJson.modelNumber = $("#modelNumber ").val();
         dataJson.materialQuality = $("#materialQuality").val();
         dataJson.weight = $("#weight").val();
-        dataJson.chargeUnit = '元';
+        dataJson.chargeUnit = $("#chargeUnit").find("option:selected").text();
         dataJson.material = $("#material").val();
         dataJson.material1 = $("#material1").val();
         dataJson.material2 = $("#material2").val();
         dataJson.material3 = $("#material3").val();
-        dataJson.marketPrice = $("#marketPrice").val();
+        dataJson.marketPrice = '' && $("#marketPrice").val();
         dataJson.priceType = '';
         dataJson.lvInfo = $("#lvInfo").val();
         dataJson.categoryId = session.goods_categoryId;
@@ -887,7 +892,7 @@ $(function () {
             goodsJson.colorRgb = $(this).find('td').attr("colorvalue");
             goodsJson.color = $(this).find('td').attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
-            goodsJson.salePrice = $(this).find(".marketPrice").val();
+            goodsJson.salePrice = '' && $(this).find(".marketPrice").val();
             goodsJson.standardUnit = $(this).find(".standardUnit option:selected").val();
             goodsArray.push(goodsJson);
         });

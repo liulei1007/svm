@@ -351,7 +351,7 @@ $.fn.extend({
                     $(this).setNodeData("$n", $n, "node-name");
                 });
             }
-            listObj.find("[list-node]").plumeFadeIn();
+            listObj.find("[list-node]").fadeIn();
         });
     },
     plumeFadeIn: function () {
@@ -437,7 +437,7 @@ $.ajaxSetup({
     },
     complete: function () {
         var t=plumeTime()-PlumeAjaxTimes;
-        plumeLog("请求"+this.url+"耗时:"+t);
+        plumeLog("页面加载性能:--请求"+this.url+"耗时:"+t+"毫秒");
     }
 });
 

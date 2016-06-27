@@ -28,9 +28,9 @@
                 <div class="row">
                     <div class="col-sm-12 form-control-static cmg-categoryId userType" data-name="$p.categoryName,attr-categoryId:$p.categoryId"></div>
                     <input type="hidden" id="productId" data-name="$p.productId" />
-                    <div class="col-sm-12 changeType">重新选择类目</div>
                 </div>
             </div>
+            <div class="col-sm-4 changeType">重新选择类目</div>
         </div>
     </form>
     <div class="form-block-contractive">
@@ -95,11 +95,17 @@
                     </div>
                     <div class="col-sm-2 alert alert-danger"></div>
                 </div>
+                <div class="row help-block">
+                    <div class="col-sm-offset-2 col-sm-8">默认选择中国，进口商品直接选择国家即可</div>
+                </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i><span>型号</span></label>
 
                     <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
                     <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                </div>
+                <div class="row help-block">
+                    <div class="col-sm-offset-2 col-sm-8">工厂对商品的特定编号，是商品的唯一识别编号</div>
                 </div>
                 <div class="form-group required" style="display: none">
                     <label class="col-sm-2 control-label"><i>*</i><span>材质</span></label>
@@ -134,6 +140,44 @@
                     <!--</div>-->
                     <!--&lt;!&ndash; <div class="col-sm-2 alert alert-danger"></div> &ndash;&gt;-->
                 <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-2 control-label"><span>市场参考价</span></label>-->
+
+                    <!--<div class="col-sm-4">-->
+                        <!--<input type="text" id="marketPrice" class="form-control  num">-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-1 form-explain">元</div>-->
+
+                    <!--&lt;!&ndash; <div class="col-sm-2 alert alert-danger"></div> &ndash;&gt;-->
+                <!--</div>-->
+
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i><span>基材</span></label>
+
+                    <div class="col-sm-4"><input type="text" id="material1" class="form-control"></div>
+                    <!-- <div class="col-sm-2 alert alert-danger">请输入基材！</div> -->
+                </div>
+                <div class="row help-block checkShow">
+                    <div class="col-sm-offset-2 col-sm-8">可接触面和框架材料，材料之间统一用顿号作为间隔符号</div>
+                </div>
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i><span>辅材</span></label>
+
+                    <div class="col-sm-4"><input type="text" id="material2" class="form-control"></div>
+                    <!-- <div class="col-sm-2 alert alert-danger">请输入辅材！</div> -->
+                </div>
+                <div class="row help-block checkShow">
+                    <div class="col-sm-offset-2 col-sm-8">非接触面、填充物、五金件材料，材料之间统一用顿号作为间隔符号</div>
+                </div>
+                <div class="form-group required material">
+                    <label class="col-sm-2 control-label"><i>*</i><span>饰面</span></label>
+
+                    <div class="col-sm-4"><input type="text" id="material3" class="form-control"></div>
+                    <!-- <div class="col-sm-2 alert alert-danger">请输入饰面！</div> -->
+                </div>
+                <div class="row help-block checkShow">
+                    <div class="col-sm-offset-2 col-sm-8">表面上的贴面，油漆涂饰，软、硬质覆面材料，材料之间统一用顿号作为间隔符号</div>
+                </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i><span>等级</span></label>
 
@@ -144,37 +188,21 @@
                     </div>
                     <!-- <div class="col-sm-2 alert alert-danger"></div> -->
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"><span>市场参考价</span></label>
+                <div class="row help-block">
+                    <div class="col-sm-offset-2 col-sm-8">等级可以选择合格品或者优等品</div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label"><i>*</i><span>计价单位</span></label>
 
-                    <div class="col-sm-4">
-                        <input type="text" id="marketPrice" class="form-control  num">
+                    <div class="col-sm-4 chargeUnit">
+                        <select class="form-control notNull" id="chargeUnit" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
+                        </select>
                     </div>
-                    <div class="col-sm-1 form-explain">元</div>
-
                     <!-- <div class="col-sm-2 alert alert-danger"></div> -->
                 </div>
-
-                <div class="form-group required material">
-                    <label class="col-sm-2 control-label"><i>*</i><span>基材</span></label>
-
-                    <div class="col-sm-4"><input type="text" id="material1" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入基材！</div> -->
-
-                </div>
-                <div class="form-group required material">
-                    <label class="col-sm-2 control-label"><i>*</i><span>辅材</span></label>
-
-                    <div class="col-sm-4"><input type="text" id="material2" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入辅材！</div> -->
-
-                </div>
-                <div class="form-group required material">
-                    <label class="col-sm-2 control-label"><i>*</i><span>饰面</span></label>
-
-                    <div class="col-sm-4"><input type="text" id="material3" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入饰面！</div> -->
-
+                <div class="row help-block">
+                    <div class="col-sm-offset-2 col-sm-8">计价单位指商品的结算计量单位品</div>
                 </div>
             </div>
         </form>

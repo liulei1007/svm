@@ -94,6 +94,7 @@ $(function () {
         },
 
         deleteData: function (uptId) {
+            var own = this;
             $.commonAjax({
                 url: 'delProductInfoUpt',
                 type: "GET",
@@ -106,7 +107,7 @@ $(function () {
                             $(".pop").find(".popup-info").html("删除成功");
                         });
                         $("[list-node]").remove();
-                        this.initRequestData().initTableData();
+                        own.initRequestData().initTableData();
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");

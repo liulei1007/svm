@@ -178,21 +178,27 @@ $(function () {
     });
 });
 var PAGE_COUNT=11;
+var PAGE_SET_COUNT=0;
 function onePageCount(){
-    return PAGE_COUNT;
+    return (PAGE_SET_COUNT!=0)?PAGE_SET_COUNT:PAGE_COUNT;
 }
 function setPageCount(){
+    if(session[session.nowPageName+"_PAGE_SET_COUNT"]&&(session[session.nowPageName+"_PAGE_SET_COUNT"]!="NaN")){
+        PAGE_SET_COUNT=parseInt(session[session.nowPageName+"_PAGE_SET_COUNT"]);
+    }else{
+        PAGE_SET_COUNT=0;
+    }
     var h=$(window).height();
     var h1=$(".title-block").height()+30;
     var h2=$(".search-block").height()+20;
     var h3=$(".alert-info").height()+20;
     var h4=$(".btn-block").height()+40;
     var n=parseInt((h-h1-h2-h3-h4-105)/40);
-    //n=11;
     if(n<2){
         n=2;
     }
-    $(".table-block").css({"height":40*n});
+    var x=(PAGE_SET_COUNT!=0)?(PAGE_SET_COUNT+1):n;
+   // $(".table-block").css({"height":40*x});
     PAGE_COUNT= n-1;
 }
 //检测session失效

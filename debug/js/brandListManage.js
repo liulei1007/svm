@@ -108,7 +108,8 @@ $(function() {
 				console.log(data);
 				// 如果原先已有品牌logo，显示
 				if (data.data.brandLogo) {
-					$("#upload-logo").html('<img src="' + data.data.brandLogo + '" />');
+					imgSrc = data.data.brandLogo;
+					$("#upload-logo").html('<img src="' + imgSrc + '" />');
 				}
 				// 如果原先已有品牌介绍，显示
 				if (data.data.brandDescription) {

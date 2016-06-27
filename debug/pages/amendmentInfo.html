@@ -60,11 +60,12 @@
             <thead>
               <tr>
                   <!--<td style="width: 5%"><input type="checkbox"/></td>-->
-                  <td style="width: 30%">商品名称</td>
-                  <td style="width: 15%">系列名</td>
-                  <td style="width: 15%">品牌</td>
+                  <td style="width: 25%">商品名称</td>
+                  <td style="width: 20%">型号</td>
+                  <td style="width: 10%">系列名</td>
+                  <td style="width: 10%">品牌</td>
                   <td style="width: 15%">产地</td>
-                  <td style="width: 15%">创建时间</td>
+                  <td style="width: 10%">创建时间</td>
                   <td style="width: auto">操作</td>
               </tr>
             </thead>
@@ -72,6 +73,7 @@
               <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                   <!--<td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>-->
                   <td node-name="$n.productName,attr-productId:$n.productId" class="a-link adi-btn-show"></td>
+                  <td node-name="$n.modelNumber "></td>
                   <td node-name="$n.seriesName "></td>
                   <td node-name="$n.brandName"></td>
                   <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
