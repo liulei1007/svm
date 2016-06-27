@@ -90,9 +90,8 @@
                             $infoNum.parent('div').show()
                     ) : ($.emptyData(), $('.pagination').parent().hide(), $infoNum.parent('div').hide())
                 }
-
                 typeof(option.success) === 'function' && option.success(data);
-                $('.pagination').parent().show();
+
             },
             error: function (data) {
                 unloading();

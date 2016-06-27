@@ -368,15 +368,10 @@ function PlumelistNodeShow(o) {
         setTimeout(function () {
             PlumelistNodeShow(ox);
         }, 30);
+    }else{
+        //SVM项目业务代码
+        $('.pagination').parent().fadeIn();
     }
-    return;
-    //o.fadeIn(300);
-    //if (o.next().length != 0) {
-    //    var ox = $(o).next();
-    //    setTimeout(function () {
-    //        PlumelistNodeShow(ox);
-    //    }, 30);
-    //}
 }
 function PlumelistNodeShowOrder(o) {
     o.show(100, function () {
