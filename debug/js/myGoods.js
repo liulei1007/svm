@@ -907,6 +907,9 @@ $(function () {
             return false;
         }
 
+        var own = this;
+        $(own).attr('disabled', 'disabled');
+
         var url = '',
             sessionType = session.goods_showMyGoods_type,
             dataJson = getRequestData(sessionType);
@@ -948,12 +951,15 @@ $(function () {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
+
+                $(own).removeAttr('disabled');
             }
         });
     });
     //存草稿
     $(".cmg-draft").bind("click", function () {
-
+        var own = this;
+        $(own).attr('disabled', 'disabled');
         var requestData = {
             pdtName: $("#productName").val(),
             categoryId: 0,
@@ -984,6 +990,7 @@ $(function () {
                         $(".pop").find(".popup-info").html(data.resDescription);
                     });
                 }
+                $(own).removeAttr('disabled');
             }
         });
     });
