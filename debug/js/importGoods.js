@@ -1,4 +1,5 @@
 $(function () {
+    var timer = null;
     session.goods_baseCategoryId = "";
     session.goods_subCategoryId = "";
     session.goods_categoryId = "";
@@ -30,8 +31,8 @@ $(function () {
                $(".pop").hide();
            });
 
-
            $(".ex-ok").bind("click", function () {
+              clearTimeout(timer);
                var filePath  = ($('#fileSuffix').html());
                var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
                if(fileSuffix!="xlsx"&&fileSuffix!=""&&fileSuffix!="xls"){
@@ -41,8 +42,10 @@ $(function () {
                }
                if (($("#file").val()&&(fileSuffix=="xlsx"||fileSuffix=="xls")&&session.goods_baseCategoryId)) {
                    document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
-                   $('#myForm').submit();
-                   
+
+                   timer = setTimeout(function(){
+                      $('#myForm').submit();
+                   } ,2000)           
                }
            });
 
@@ -51,7 +54,7 @@ $(function () {
                    var count = $(".btn-count input").val();
                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=1000"
                } else {
-                   alert(请选择类目);
+                   alert("请选择类目");
                }
            });
 
