@@ -62,25 +62,25 @@
         <table class="table table1 table-striped">
             <thead>
               <tr>
-                <!--<th>商品数据ID号</th>-->
-                <td style="width: 13%">一级分类</td>
-                <td style="width: 13%">二级分类</td>
-                <td style="width: 13%">三级分类</td>
-                <td style="width: 25%">商品名称</td>
-                <td style="width: 14%">产地</td>
-                <td style="width: 8%">型号</td>
-                <td style="width: auto">操作</td>
+                  <td style="width: 13%">创建时间</td>
+                  <td style="width: 13%">商品名称</td>
+                  <td style="width: 10%">型号</td>
+                  <td style="width: 10%">产地</td>
+                  <td style="width: 10%">品牌</td>
+                  <td style="width: 10%">系列</td>
+                  <td style="width: 20%">分类</td>
+                  <td style="width: auto">操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">
               <tr list-temp="ture">
-                <!--<td node-name="$n.brandId"></td>-->
-                <td node-name="$n.baseCategoryName"></td>
-                <td node-name="$n.subCategoryName"></td>
-                <td node-name="$n.categoryName"></td>
-                <td node-name="$n.productName"></td>
-                <td node-name="$n.cityName||$n.countryName"></td>
-                <td node-name="$n.modelNumber"></td>
+                <td node-name="_getLocalTime($n.updateDate)"></td>
+                  <td node-name="$n.productName"></td>
+                  <td node-name="$n.modelNumber"></td>
+                  <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
+                  <td node-name="$n.brandName"></td>
+                  <td node-name="$n.seriesName"></td>
+                  <td node-name="$n.baseCategoryName + ' ' + $n.subCategoryName + ' ' + $n.categoryName"></td>
                 <td>
                   <button type="button" class="btn btn-link btn-link-edit btn-releaseGoods" node-name="attr-uptId:$n.uptId">编辑</button>
                   <button type="button" class="btn btn-link btn-link-delete btn-releaseGoods" node-name="attr-uptId:$n.uptId">删除</button>

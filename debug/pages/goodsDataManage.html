@@ -76,13 +76,13 @@
             <tr>
                 <td style="width:3%"><input type="checkbox"/></td>
                 <td style="width:20%">商品名称</td>
-                <td style="width:8%">型号</td>
-                <td style="width:8%">规格</td>
-                <td style="width:15%">产地</td>
-                <td style="width:5%">品牌</td>
-                <td style="width:5%">系列名</td>
-                <td style="width:12%">分类</td>
-                <td style="width:8%">审核时间</td>
+                <td style="width:10%">型号</td>
+                <!--<td style="width:8%">规格</td>-->
+                <td style="width:10%">产地</td>
+                <td style="width:10%">品牌</td>
+                <td style="width:10%">系列名</td>
+                <td style="width:10%">分类</td>
+                <td style="width:10%">审核时间</td>
                 <td style="width:auto">操作</td>
             </tr>
             </thead>
@@ -91,7 +91,7 @@
                 <td><input type="checkbox" node-name="attr-productId:$n.productId"/></td>
                 <td node-name="$n.productName,attr-productId:$n.productId" class="a-link gdm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
-                <td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>
+                <!--<td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>-->
                 <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
                 <td node-name="$n.seriesName "></td>
