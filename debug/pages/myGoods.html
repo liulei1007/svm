@@ -134,26 +134,16 @@
                     <!--</div>-->
                     <!--&lt;!&ndash; <div class="col-sm-2 alert alert-danger"></div> &ndash;&gt;-->
                 <!--</div>-->
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label"><i>*</i><span>等级</span></label>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-2 control-label"><span>市场参考价</span></label>-->
 
-                    <div class="col-sm-4 cmg-initdata2">
-                        <select class="form-control notNull" id="lvInfo" data-list="$p.data">
-                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
-                        </select>
-                    </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"><span>市场参考价</span></label>
+                    <!--<div class="col-sm-4">-->
+                        <!--<input type="text" id="marketPrice" class="form-control  num">-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-1 form-explain">元</div>-->
 
-                    <div class="col-sm-4">
-                        <input type="text" id="marketPrice" class="form-control  num">
-                    </div>
-                    <div class="col-sm-1 form-explain">元</div>
-
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
-                </div>
+                    <!--&lt;!&ndash; <div class="col-sm-2 alert alert-danger"></div> &ndash;&gt;-->
+                <!--</div>-->
 
                 <div class="form-group required material">
                     <label class="col-sm-2 control-label"><i>*</i><span>基材</span></label>
@@ -175,6 +165,16 @@
                     <div class="col-sm-4"><input type="text" id="material3" class="form-control"></div>
                     <!-- <div class="col-sm-2 alert alert-danger">请输入饰面！</div> -->
 
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label"><i>*</i><span>等级</span></label>
+
+                    <div class="col-sm-4 cmg-initdata2">
+                        <select class="form-control notNull" id="lvInfo" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
+                        </select>
+                    </div>
+                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
                 </div>
             </div>
         </form>

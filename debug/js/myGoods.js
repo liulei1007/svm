@@ -845,7 +845,7 @@ $(function () {
         dataJson.material1 = $("#material1").val();
         dataJson.material2 = $("#material2").val();
         dataJson.material3 = $("#material3").val();
-        dataJson.marketPrice = $("#marketPrice").val();
+        dataJson.marketPrice = '' && $("#marketPrice").val();
         dataJson.priceType = '';
         dataJson.lvInfo = $("#lvInfo").val();
         dataJson.categoryId = session.goods_categoryId;
