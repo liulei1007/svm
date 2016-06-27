@@ -62,6 +62,7 @@ $(function() {
 			"shopTel": shopTel,
 			"shopIntroduction": shopIntroduction
 		};
+		console.log(data)
 		loading();
 		$.ajax({
             // url: "datas/shopList.txt",
@@ -105,7 +106,7 @@ $(function() {
 					if (data.data.shopIntroduction) {$("#shopIntroduction").val(data.data.shopIntroduction);}
 					// 门店楼层
 					if (data.data.marketFloor) {
-						$("#marketFloor option[value='" + data.data.marketFloor + "']").val(data.data.marketFloor);
+						$("#marketFloor option[value='" + data.data.marketFloor + "']").attr("selected", "selected");
 					}
 					// var shopName = $("#shopName").val().trim();
 					// var marketBoothNumber = $("#marketBoothNumber").val().trim();
