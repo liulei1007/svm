@@ -62,6 +62,7 @@ $(function() {
 			"shopTel": shopTel,
 			"shopIntroduction": shopIntroduction
 		};
+		console.log(data)
 		loading();
 		$.ajax({
             // url: "datas/shopList.txt",
@@ -96,15 +97,16 @@ $(function() {
 			success: function (data) {
 				unloading();
 				if (data.ok) {
+					console.log(data.data);
 					if (data.data.shopName) {$("#shopName").val(data.data.shopName);}
-					if (data.data.marketBoothNumber) {$("#shopName").val(data.data.shopName);}
+					if (data.data.marketBoothNumber) {$("#marketBoothNumber").val(data.data.marketBoothNumber);}
 					if (data.data.shopTel) {$("#tel").val(data.data.shopName);}
 					if (data.data.salesStartTime) {$("#startTime").val(data.data.salesStartTime);}
 					if (data.data.salesEndTime) {$("#endTime").val(data.data.salesEndTime);}
 					if (data.data.shopIntroduction) {$("#shopIntroduction").val(data.data.shopIntroduction);}
 					// 门店楼层
 					if (data.data.marketFloor) {
-						$("#marketFloor option[value='" + data.data.marketFloor + "']").val(data.data.marketFloor);
+						$("#marketFloor option[value='" + data.data.marketFloor + "']").attr("selected", "selected");
 					}
 					// var shopName = $("#shopName").val().trim();
 					// var marketBoothNumber = $("#marketBoothNumber").val().trim();
