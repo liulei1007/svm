@@ -360,6 +360,7 @@ $.fn.extend({
     }
 });
 function PlumelistNodeShow(o) {
+    o.fadeIn();
     var os = o.nextAll().slice(0, 3);
     os.fadeIn(300);
     if (os.next().length != 0) {
@@ -369,13 +370,13 @@ function PlumelistNodeShow(o) {
         }, 30);
     }
     return;
-    o.fadeIn(300);
-    if (o.next().length != 0) {
-        var ox = $(o).next();
-        setTimeout(function () {
-            PlumelistNodeShow(ox);
-        }, 30);
-    }
+    //o.fadeIn(300);
+    //if (o.next().length != 0) {
+    //    var ox = $(o).next();
+    //    setTimeout(function () {
+    //        PlumelistNodeShow(ox);
+    //    }, 30);
+    //}
 }
 function PlumelistNodeShowOrder(o) {
     o.show(100, function () {
