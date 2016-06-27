@@ -22,7 +22,7 @@ function newPage(totalPage, fun) {
             $(this).siblings().removeClass("active");
             $(this).addClass("active");
             session[session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).text());
-            derict(null, "goodsAuditManage", "nochangeurl");
+            derict(null, session.nowPageName, "nochangeurl");
         })
     } catch (e) {
     }
