@@ -120,6 +120,7 @@ $(function () {
         $(".material_temp").hide();
     } else {
         $(".material").hide();
+        $(".checkShow").hide();
         $(".material_temp").show();
     }
 

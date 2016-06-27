@@ -449,6 +449,13 @@ textarea{resize: none;}
 
 /** --------分页-------- **/
 .nav-pagination{margin-top: 20px; margin-bottom: 20px; text-align: right;}
+.changepagecount{float: left; margin-top: 0; margin-bottom: 0;}
+.changepagecount span{display: block;float:left;height:34px;line-height:34px;margin-right:5px}
+.changepagecount dl{height:34px;width:44px;float:left;color:#26aff5;text-align: center;line-height: 34px;margin:2px;cursor:pointer;border:1px solid #ddd}
+.changepagecount dl:hover{border-color:#26aff5;}
+.changepagecount .active{border-color:#26aff5;background: #26aff5;color:#fff}
+
+
 .pagination{float: right; margin-top: 0; margin-bottom: 0;}
 /** 普通页码的样式 **/
 .pagination > li > a, .pagination > li > span{width: 44px; text-align: center; cursor: pointer;}

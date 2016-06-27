@@ -14,7 +14,19 @@ function newPage(totalPage, fun) {
         turnHtml += '</div>';
         $(".nav-pagination").prepend(turnHtml);
     }
-
+    try {
+        var changePageCountHtml = "<div class='changepagecount'><span>设置每页显示行数:</span></span><dl tag=20 >20</dl><dl tag=50 >50</dl><dl tag=100 >100</dl><dl tag=500 >500</dl></div>";
+        $(".changepagecount").remove();
+        $(".nav-pagination").prepend(changePageCountHtml);
+        $(".changepagecount").find("[tag=" + session[session.nowPageName + "_PAGE_SET_COUNT"] + "]").addClass("active");
+        $(".changepagecount dl").bind("click", function () {
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+            session[session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).text());
+            derict(null, session.nowPageName, "nochangeurl");
+        })
+    } catch (e) {
+    }
     // 绑定分页点击事件
     $(".nav-pagination").on("click", ".num", function () {
         // 防止点击当前页
@@ -28,7 +40,7 @@ function newPage(totalPage, fun) {
         // 防止当前已是最前页
         if ($(this).hasClass("disabled")) {
             return;
-            
+
         }
 
         nowPage = parseInt($(".nav-pagination").find(".num").eq(0).attr("data-page"));
@@ -56,10 +68,12 @@ function newPage(totalPage, fun) {
 
         var paginationHtml = '';
         // 回到最前页按钮
-        if (nowPage == 1&&totalPage>0) {
+        if (nowPage == 1 && totalPage > 0) {
             paginationHtml += '<li class="first disabled"><span>&laquo;</span></li>';
         }
-        else if(totalPage>0){ paginationHtml += '<li class="first"><span>&laquo;</span></li>';}
+        else if (totalPage > 0) {
+            paginationHtml += '<li class="first"><span>&laquo;</span></li>';
+        }
 
         // 如果总页数小于或者等于10
         if (totalPage <= 10) {
@@ -128,10 +142,14 @@ function newPage(totalPage, fun) {
         if (nowPage == totalPage) {
             paginationHtml += '<li class="last disabled"><span>&raquo;</span></li>';
         }
-        else if(totalPage>0){paginationHtml += '<li class="last"><span>&raquo;</span></li>';}
+        else if (totalPage > 0) {
+            paginationHtml += '<li class="last"><span>&raquo;</span></li>';
+        }
         $(".pagination").html(paginationHtml);
         if (fun) {
-            if (Tf) {fun(nowPage);}
+            if (Tf) {
+                fun(nowPage);
+            }
             Tf = true;
         }
     }
