@@ -892,7 +892,7 @@ $(function () {
             goodsJson.colorRgb = $(this).find('td').attr("colorvalue");
             goodsJson.color = $(this).find('td').attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
-            goodsJson.salePrice = '' && $(this).find(".marketPrice").val();
+            goodsJson.salePrice = '';
             goodsJson.standardUnit = $(this).find(".standardUnit option:selected").val();
             goodsArray.push(goodsJson);
         });
