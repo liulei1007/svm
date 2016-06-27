@@ -96,8 +96,9 @@ $(function() {
 			success: function (data) {
 				unloading();
 				if (data.ok) {
+					console.log(data.data);
 					if (data.data.shopName) {$("#shopName").val(data.data.shopName);}
-					if (data.data.marketBoothNumber) {$("#shopName").val(data.data.shopName);}
+					if (data.data.marketBoothNumber) {$("#marketBoothNumber").val(data.data.marketBoothNumber);}
 					if (data.data.shopTel) {$("#tel").val(data.data.shopName);}
 					if (data.data.salesStartTime) {$("#startTime").val(data.data.salesStartTime);}
 					if (data.data.salesEndTime) {$("#endTime").val(data.data.salesEndTime);}
