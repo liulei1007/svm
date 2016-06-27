@@ -176,6 +176,16 @@
                     </div>
                     <!-- <div class="col-sm-2 alert alert-danger"></div> -->
                 </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label"><i>*</i><span>计价单位</span></label>
+
+                    <div class="col-sm-4 chargeUnit">
+                        <select class="form-control notNull" id="chargeUnit" data-list="$p.data">
+                            <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
+                        </select>
+                    </div>
+                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                </div>
             </div>
         </form>
 
