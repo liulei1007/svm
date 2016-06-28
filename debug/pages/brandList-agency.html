@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"brandList"
+        }
+    </script>
+</head>
+
+<body>
+<div class="doc-commodityManagement">
+    <div class="search-block">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="brandName">品牌名称</label>
+          <input type="text" class="form-control input-sm" id="brandName" placeholder="">
+        </div>
+        <div class="form-group">
+          <label for="contract">联系人</label>
+          <input type="text" class="form-control input-sm" id="contract" placeholder="">
+        </div> 
+        <div class="form-group">
+          <label for="telNumber">手机号</label>
+          <input type="text" class="form-control input-sm" id="telNumber" placeholder="">
+        </div> 
+        <div class="btn btn-default btn-sm bl-btn-search">查询</div>
+         <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+      </form>
+    </div>
+    <div class="table-block">   
+        <!--<div class="btn-block clearFix">-->
+            <!--<button class="btn btn-primary btn-icons btn-applyPrint">申请打印</button>-->
+            <!--<a href="http://localhost/debug/applyPriceTagManage">已申请价格管理</a>-->
+        <!--</div>-->
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <td style="width: 2%"><input type="checkbox" /></td>
+                <td style="width: 10%">序号</td>
+                <td style="width: 20%">品牌名称</td>
+                <td style="width: 20%">联系人</td>
+                <td style="width: 20%">手机号</td>
+                <td style="width: 10%">系列数量</td>
+              </tr>
+            </thead>
+            <tbody data-list="$p.data">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td class="brandId" node-name="$n.id"></td>
+                <td node-name="$n.brandName"></td>
+                <td node-name="$n.contract"></td>
+                <td node-name="$n.contractTel"></td>
+                <td node-name="$n.seriesCnt"></td>
+                <td>
+                    <div class="btn btn-link bl-btn-look">查看</div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="nav-pagination clearFix">
+        <ul class="pagination">
+           <!--  <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
+            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
+            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
+            <li class="page-number"><a href="javascript:void(0)">2</a></li>
+            <li class="page-number"><a href="javascript:void(0)">3</a></li>
+            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
+            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li> -->
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
