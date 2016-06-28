@@ -26,7 +26,6 @@ $(function () {
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
-        formCtrl();
         getbrandList();
         getProductAttribute();
         setColors();
