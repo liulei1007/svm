@@ -724,8 +724,21 @@ $(function () {
     //规格
     function setStandard() {
         $(".cmg-btn-addStandard").bind("click", function () {
-            var stand = $("#standard").val(),
+            var $color = $(".colortr"),
+                stand = $("#standard").val(),
                 marketPrice = $("#marketPrice").val();
+
+            if (!$color || $color.length === 0) {
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("信息提示");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html('请选择颜色分类');
+                });
+
+                $('tr.cmg-goodstr').remove();
+
+                return false;
+            }
 
             var showStandard = function () {
                 $(".colortr").each(function () {
@@ -759,6 +772,7 @@ $(function () {
         // $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
         // 计价单位
         $("div.chargeUnit").setPageData(JSON.parse(session.unit));
+        $('#chargeUnit option:eq(1)').prop('selected', 'selected');
         // 等级
         $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
         $('#lvInfo option:eq(1)').prop('selected', 'selected');
