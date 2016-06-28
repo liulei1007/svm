@@ -520,8 +520,6 @@ $(function () {
         });
     }
 
-    var totalNum = 0;
-
     //初始化图片移动
     function picMove() {
         var len;
@@ -564,7 +562,6 @@ $(function () {
         }
 
         function delectEvent() {
-            totalNum > 0 && totalNum--;
             $(this).parents('li').remove();
             initialize();
         }
@@ -834,18 +831,18 @@ $(function () {
 
             $(".pu-ok").bind("click", function () {
                 var $file = $("[name=files]"),
+                    $goodsPic = $('.goodsPic'),
+                    showLen = $goodsPic ? $goodsPic.length : 0,
                     len = $file.prop('files').length;
 
                 if ($file.val() == "") {
                     errorTip('请选择图片');
-                } else if (totalNum + len > 5) {
+                } else if (showLen + len > 5) {
                     errorTip('最多上传5张图片');
                 } else {
                     loading();
-                    totalNum += len;
                     $('#myform').submit();
                 }
-
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();
