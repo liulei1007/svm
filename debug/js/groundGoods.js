@@ -1,4 +1,7 @@
 $(function(){
+    var test = [{alex:'123'}]
+   console.log(test)
+
 	datas={
 		  "productName": "",
 		  "modelNumber": "",
@@ -30,6 +33,7 @@ $(function(){
      $(".btn-all-unGround").on('click',function() {
        soldOutGoods();
     });
+
 
      $(".btn-all-delect").on('click',function() {
         delectGoodsData()
