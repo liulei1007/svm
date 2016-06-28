@@ -17,12 +17,14 @@ $(function () {
 
        // $(".btn-import-data").bind("click", function () {
            $('#myForm').ajaxForm(function (data) {
-               unloading();
                if (data.ok) {
+                unloading()
                 $(".ex-ok").bind("click", importUpLoad);
                    alert("上传成功");
                    $('.pop').hide();
                } else {
+                  unloading();
+                 $(".ex-ok").bind("click", importUpLoad);
                    alert(data.resDescription || data.data);
                    $('.pop').hide();
                }
@@ -43,6 +45,7 @@ $(function () {
            });
 
           function importUpLoad() {
+              loading();
               $(".ex-ok").unbind();
                var filePath  = ($('#fileSuffix').html());
                var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
