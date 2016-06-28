@@ -482,6 +482,7 @@ $(function () {
                         unloading();
                         $(".cmg-series").find("[list-node]").remove();
                         $(".cmg-series").setPageData(data);
+                        $("#seriesId").find("[list-node]").eq(0).attr("selected","selected");
                     });
                 });
             }
