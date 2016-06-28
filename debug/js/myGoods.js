@@ -926,7 +926,7 @@ $(function () {
             goodsJson.colorRgb = $(this).find('td').attr("colorvalue");
             goodsJson.color = $(this).find('td').attr("colorname");
             goodsJson.standard = $(this).find(".stand").val();
-            goodsJson.salePrice = '';
+            goodsJson.salePrice = 0;
             goodsJson.standardUnit = $(this).find(".standardUnit option:selected").val();
             goodsArray.push(goodsJson);
         });
