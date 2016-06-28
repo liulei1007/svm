@@ -673,12 +673,12 @@ $(function () {
         $(".alert-danger").text("").hide();
 
         $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                $(this).addClass("cmg-error");
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                flag = false;
+            if ($(this).val()) {
+                // $(this).parent().parent().find(".alert-danger").hide();
             } else {
-                $(this).parent().parent().find(".alert-danger").hide();
+                // $(this).addClass("cmg-error");
+                // $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag = false;
             }
         });
 
@@ -689,16 +689,17 @@ $(function () {
         if ($_countryId.val() === "CN") {
             var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
 
-            var validAddress = function ($it, result) {
-                var $obj = $it.parent().parent().find(".alert-danger");
-                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
-            };
+            // var validAddress = function ($it, result) {
+            //     var $obj = $it.parent().parent().find(".alert-danger");
+            //     result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
+            // };
             if (!pid || !cid) {
-                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                // pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
                 flag = false;
-            } else {
-                validAddress($_cityId, false) && validAddress($_provinceId, false);
             }
+            // else {
+            //     validAddress($_cityId, false) && validAddress($_provinceId, false);
+            // }
         }
 
         var re = /^[0-9]+.?[0-9]*$/;
