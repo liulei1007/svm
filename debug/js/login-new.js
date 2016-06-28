@@ -119,7 +119,7 @@ $(function () {
                     window.location.href = "index";
 
                 } else {
-                    $("#login-errormsg").text("登录失败:" + data.resDescription);
+                    $("#login-errormsg").text(data.resDescription);
                     $(".login-form .login-alert").fadeIn();
                 }
             }
@@ -171,7 +171,7 @@ $(function () {
                 if (data.ok) {
                     window.location.href="index";
                 } else {
-                    $("#reg-errormsg").text("注册失败:" + data.resDescription);
+                    $("#reg-errormsg").text(data.resDescription);
                     $(".register-form .login-alert").fadeIn();
                 }
             }
