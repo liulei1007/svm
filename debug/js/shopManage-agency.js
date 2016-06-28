@@ -53,6 +53,7 @@ $(function() {
 		var salesEndTime = $("#endTime").val().trim();
 		var shopTel = $("#tel").val().trim();
 		var shopIntroduction = $("#shopIntroduction").val().trim();
+		var supplierInfo = $("#supplierInfo").val().trim();
 		var data = {
 			"id": session.shopAgency_shopId,
 			"shopName": shopName,
@@ -61,7 +62,8 @@ $(function() {
 			"salesStartTime": salesStartTime,
 			"salesEndTime": salesEndTime,
 			"shopTel": shopTel,
-			"shopIntroduction": shopIntroduction
+			"shopIntroduction": shopIntroduction,
+			"supplierInfo": supplierInfo
 		};
 		console.log(data)
 		loading();
@@ -104,6 +106,7 @@ $(function() {
 					if (data.data.salesStartTime) {$("#startTime").val(data.data.salesStartTime);}
 					if (data.data.salesEndTime) {$("#endTime").val(data.data.salesEndTime);}
 					if (data.data.shopIntroduction) {$("#shopIntroduction").val(data.data.shopIntroduction);}
+					if (data.data.supplierInfo) {$("#supplierInfo").val(data.data.supplierInfo);}
 					// 门店楼层
 					if (data.data.marketFloor) {
 						$("#marketFloor option[value='" + data.data.marketFloor + "']").attr("selected", "selected");
