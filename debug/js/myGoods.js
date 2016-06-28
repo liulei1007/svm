@@ -724,8 +724,21 @@ $(function () {
     //规格
     function setStandard() {
         $(".cmg-btn-addStandard").bind("click", function () {
-            var stand = $("#standard").val(),
+            var $color = $(".colortr"),
+                stand = $("#standard").val(),
                 marketPrice = $("#marketPrice").val();
+
+            if (!$color || $color.length === 0) {
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("信息提示");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html('请选择颜色分类');
+                });
+
+                $('tr.cmg-goodstr').remove();
+
+                return false;
+            }
 
             var showStandard = function () {
                 $(".colortr").each(function () {
