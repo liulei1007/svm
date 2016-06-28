@@ -759,6 +759,7 @@ $(function () {
         // $(".cmg-initdata1").setPageData(JSON.parse(session.price_tpye));
         // 计价单位
         $("div.chargeUnit").setPageData(JSON.parse(session.unit));
+        $('#chargeUnit option:eq(1)').prop('selected', 'selected');
         // 等级
         $(".cmg-initdata2").setPageData(JSON.parse(session.product_lv));
         $('#lvInfo option:eq(1)').prop('selected', 'selected');
