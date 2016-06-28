@@ -9,7 +9,7 @@ $(function(){
 
 
 	$('.btn-next').bind('click',function() {
-		if($(".taking-color input:checked").length==0){
+		if($(".taking-color input:checked").length==0||$(".taking-size input:checked").length==0){
 			alert("至少添加一组店铺商品信息")
 		}else{
 			var productShopGoodsAddVos=[];
