@@ -1,21 +1,13 @@
 $(function () {
+    plumeLog("进入index模板自定义js-" + plumeTime());
     //判断用户是否登录
     //setInterval(chkUserStatus,60000);
     //显示登录名称
     if ((sessionStorage.login_mobilePhone != undefined) && (sessionStorage.login_mobilePhone != "")) {
         $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****" + sessionStorage.login_mobilePhone.substring(7));
     }
-
+    //页面初始化
     pathInit();
-    plumeLog("进入index模板自定义js-" + plumeTime());
-
-    $(".page-content").on("click", ".welcome", function () {
-        derict(this, "welcome", "nochangeurl");
-    }).on("click", ".agencyList", function () {
-        derict(this, "agencyList", "nochangeurl");
-    });
-
-
 
     $(".index-head-user").bind("mouseenter", function () {
         $(".index-head-user .ihu-title-block").show();
@@ -44,7 +36,7 @@ $(function () {
         window.location.href = "index";
     });
 });
-
+//绑定菜单方法
 function bindMenuFuncs(){
     $("[pageName=agencyCreateCompany]").bind("click", function () {
         derict(this, "agencyCreateCompany", "nochangeurl");
@@ -161,7 +153,13 @@ function bindMenuFuncs(){
     $("[pageName=goodsDraft]").bind("click", function () {
         derict(this, "goodsDraft", "nochangeurl");
     });
+    $(".page-content").on("click", ".welcome", function () {
+        derict(this, "welcome", "nochangeurl");
+    }).on("click", ".agencyList", function () {
+        derict(this, "agencyList", "nochangeurl");
+    });
 }
+//分页全局设置
 var PAGE_COUNT = 11;
 var PAGE_SET_COUNT = 0;
 function onePageCount() {
@@ -232,22 +230,6 @@ function derict(o, temp, cache, fun) {
         plumeLog("提示:无法动态改变地址:" + e.message);
     }
     derict_lock = false;
-    return;
-    $(".work-space").removeClass("work-space-active").fadeIn(function () {
-        $(this).remove();
-        $(".page-content").append('<div class="work-space work-space-active"></div>');
-        // $(".work-space-active").loadTemp("transmit", "nochangeurl");
-        $(".work-space-active").hide(function () {
-            $(this).html("").show();
-            $(".work-space-active").loadTemp(temp, cache, fun);
-            try {
-                window.history.pushState({}, 0, temp)
-            } catch (e) {
-                plumeLog("提示:无法动态改变地址:" + e.message);
-            }
-            derict_lock = false;
-        });
-    })
 }
 //路由初始化
 function pathInit() {
@@ -270,26 +252,9 @@ function pathInit() {
         getListSystemCode();
         $(".container-fixed").fadeIn();
     }
-    try {
-        if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
-            $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName=" + session.nowPageName + "]").show();
-            $("[pageName=" + session.nowPageName + "]").siblings().show();
-            $("[pageName=" + session.nowPageName + "]").addClass("active").parent().show();
-            var authNum = $("[pageName=" + session.nowPageName + "]").parent().attr("auth");
-            $(".slidebar").find("[auth=" + authNum + "]").addClass("active");
-        } else {
-            $(".work-space").loadTemp("welcome", "nochangeurl");
-        }
-    } catch (e) {
-        $(".work-space").loadTemp("welcome", "nochangeurl");
-    }
-
 }
 //获取权限
 function getAuth() {
-    //$(".slidebar-list li,.slidebar-title").show();
-    //return;
     $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
@@ -302,14 +267,14 @@ function getAuth() {
                     var firstMenu = '<ul class="nav slidebar-title" auth="' + d.id + '">';
                     firstMenu += '<li><i class="shop"></i>' + d.resourceName + '</li>';
                     firstMenu += '</ul>';
-                    $(".slidebar").append(firstMenu);
+                    $(".slidebar").prepend(firstMenu);
                     var secondMenu = '<ul class="slidebar-menu clearFix childmenu" auth="' + d.id + '">';
                     for (var j = 0; j < d.children.length; j++) {
                         var c = d.children[j];
                         secondMenu += '<li pageName="' + c.resourceUrl + '">' + c.resourceName + '</li>';
                     }
                     secondMenu += '</ul>';
-                    $(".page-content").append(secondMenu);
+                    $(".page-content").prepend(secondMenu);
                 }
                 $(".slidebar-title").fadeIn();
                 // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
@@ -331,6 +296,31 @@ function getAuth() {
                     $(this).addClass("active").siblings().removeClass("active");
                 });
                 bindMenuFuncs();
+                var path = window.location.href + "";
+                if (path.indexOf(".html") != -1) {
+                    return;
+                }
+                var prams = path.substring(path.indexOf("?") + 1);
+                if(path.indexOf("?")==-1){
+                    var temp = path.substring(path.lastIndexOf("/") + 1);
+                }else{
+                    var temp = path.substring((path.lastIndexOf("/") + 1),path.indexOf("?"));
+                }
+
+                try {
+                    if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
+                        $(".work-space").loadTemp(temp, "nochangeurl");
+                        $("[pageName=" + temp + "]").show();
+                        $("[pageName=" + temp + "]").siblings().show();
+                        $("[pageName=" + temp + "]").addClass("active").parent().show();
+                        var authNum = $("[pageName=" + temp + "]").parent().attr("auth");
+                        $(".slidebar").find("[auth=" + authNum + "]").addClass("active");
+                    } else {
+                        $(".work-space").loadTemp("welcome", "nochangeurl");
+                    }
+                } catch (e) {
+                    $(".work-space").loadTemp("welcome", "nochangeurl");
+                }
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
             }
@@ -497,15 +487,12 @@ function getBrandId(_this) {
     session.brand_brandId = brandId;
 }
 
-
 //获取shopId
 function getShopId(_this) {
     var removeList = $(_this).parents('tr');
     var shopId = removeList.find('.shopId').html();
     session.shop_shopId = shopId;
 }
-
-
 //获取单个产品信息
 function getProductInfo() {
     loading();
