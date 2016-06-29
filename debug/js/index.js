@@ -308,6 +308,7 @@ function getAuth() {
                     secondMenu += '</ul>';
                     $(".page-content").append(secondMenu);
                 }
+                $(".slidebar-title").fadeIn();
                 // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
                 $(".slidebar-title").bind("click", function () {
                     var $thisMenu = $(this);
