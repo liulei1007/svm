@@ -395,3 +395,20 @@ function goodsDraft_init() {
     plumeUtil.js(plumePath + "/js/goodsDraft.js");
     plumeLog("完成goodsDraft模板加载-" + plumeTime());
 }
+//监控ajax
+var PlumeAjaxTimes = 0;
+$.ajaxSetup({
+    beforeSend: function () {
+        PlumeAjaxTimes = plumeTime();
+    },
+    complete: function (data) {
+        var t = plumeTime() - PlumeAjaxTimes;
+        plumeLog("页面加载性能:--请求" + this.url + "耗时:" + t + "毫秒");
+        if(data.responseJSON){
+            if((data.responseJSON.resDescription).indexOf("未登录")!=-1){
+                window.location.href="/";
+            }
+        }
+
+    }
+});

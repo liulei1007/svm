@@ -91,7 +91,7 @@
                     ) : ($.emptyData(), $('.pagination').parent().hide(), $infoNum.parent('div').hide())
                 }
                 typeof(option.success) === 'function' && option.success(data);
-
+                $('.pagination').parent().fadeIn();
             },
             error: function (data) {
                 unloading();

@@ -23,7 +23,7 @@ $(function () {
             async: false,
             success: function (data) {
                 if (data.ok) {
-                    window.location.href = "../";
+                   // window.location.href = "../";
                     sessionStorage.clear();
                 }
             }
