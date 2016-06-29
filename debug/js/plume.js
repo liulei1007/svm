@@ -440,9 +440,10 @@ $.ajaxSetup({
     beforeSend: function () {
         PlumeAjaxTimes = plumeTime();
     },
-    complete: function () {
+    complete: function (data) {
         var t = plumeTime() - PlumeAjaxTimes;
         plumeLog("页面加载性能:--请求" + this.url + "耗时:" + t + "毫秒");
+        console.log(data);
     }
 });
 
