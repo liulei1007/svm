@@ -21,8 +21,8 @@ $(function () {
                 unloading()
                 $(".loadFile").val("");
                 $('#fileSuffix').html("");
-                   alert("上传成功");
-                   $('.pop').hide();
+                showPopTips('上传成功',"warning","");
+                $('.pop').hide();
                } else {
                   unloading();
                    alert(data.resDescription || data.data);
@@ -41,25 +41,39 @@ $(function () {
                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=1000"
                } else {
                   unloading();
-                   alert("请选择类目");
+                    showPopTips('请选择分类',"warning","");
+                    
                }
            });
 
           function importUpLoad() {
 
                var filePath  = ($('#fileSuffix').html());
+
                var fileSuffix = filePath.substring(filePath.lastIndexOf(".")+1);
+
                if(fileSuffix!="xlsx"&&fileSuffix!=""&&fileSuffix!="xls"){
-                  alert("上传格式不正确");
+
+                showPopTips('上传格式不正确',"warning","");
+
                }else if(!session.goods_baseCategoryId){
-                alert("请选择分类");
+
+                showPopTips('请选择分类',"warning","");
+
                }else if(fileSuffix==""){
-                alert("请选择上传格式")
+
+                showPopTips('未选择上传文件',"warning","");
+              
                }
+
                if (($("#file").val()&&(fileSuffix=="xlsx"||fileSuffix=="xls")&&session.goods_baseCategoryId)) {
-                    loading();
-                   document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
-                      $('#myForm').submit();         
+
+                  loading();
+
+                  document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
+
+                  $('#myForm').submit();         
+
                }
           }
    // })

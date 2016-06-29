@@ -78,6 +78,7 @@ $(function () {
                     $(".table-block").setPageData(data);
                     filter();
                     totalPage = Math.ceil(data.countRecord / onePageCount());
+                    //alert(totalPage)
                     newPage(totalPage, function (i) {
                         loading();
                         datas.start = (i - 1) * onePageCount();
