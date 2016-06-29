@@ -26,10 +26,13 @@ $(function () {
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
+
+        var defaultAddress = session.save_address && session.save_address.split(',');
+
         getbrandList();
         getProductAttribute();
         setColors();
-        getlistNationRegion();
+        getlistNationRegion(defaultAddress);
         setStandard();
         dataInit();
     }
@@ -638,10 +641,14 @@ $(function () {
     }
 
     //地区下拉列表
-    function getlistNationRegion() {
+    function getlistNationRegion(defaultAddress) {
+        var productType = session.goods_showMyGoods_type == "create",
+            defaultType = productType && defaultAddress;
+
         $.get(plumeApi["listNationCode"], {}, function (data) {
             $(".cmg-region0").find("[list-node]").remove();
             $(".cmg-region0").setPageData(data);
+            defaultType && $("#countryId").val(defaultAddress[0]);
             $(".cmg-region0").find(".form-control").val("CN").bind("change", function () {
                 if ($(this).val() == "CN") {
                     $(".cmg-region1,.cmg-region2").show();
@@ -650,17 +657,25 @@ $(function () {
                 }
             });
         });
+
+        var getSubAddress = function (adresscode) {
+            $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
+                unloading();
+                $(".cmg-region2").find("[list-node]").remove();
+                $(".cmg-region2").setPageData(data);
+                defaultType && $("#cityId").val(defaultAddress[2]);
+            });
+        };
+
         $.get(plumeApi["listNationRegion"], {}, function (data) {
             $(".cmg-region1").find("[list-node]").remove();
             $(".cmg-region1").setPageData(data);
+            defaultType && $("#provinceId").val(defaultAddress[1]);
+            defaultType && getSubAddress(defaultAddress[1]);
             $(".cmg-region1").find(".form-control").bind("change", function () {
                 var adresscode = $(this).find("option:selected").attr("adresscode");
                 loading();
-                $.get(plumeApi["listNationRegion"] + "/" + adresscode, {}, function (data) {
-                    unloading();
-                    $(".cmg-region2").find("[list-node]").remove();
-                    $(".cmg-region2").setPageData(data);
-                });
+                getSubAddress(adresscode);
             });
         });
     }
@@ -965,6 +980,11 @@ $(function () {
             dataType: "json",
             success: function (data) {
                 unloading();
+
+                if (session.goods_showMyGoods_type == "create") {
+                    session.save_address = dataJson.countryId + ',' + dataJson.provinceId + ',' + dataJson.cityId;
+                }
+
                 if (data.ok) {
                     $('.pop').loadTemp("popTips", "nochangeurl", function () {
                         $(".pop").find(".popup-title").html("信息提示");
