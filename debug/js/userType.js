@@ -26,6 +26,10 @@ $(function () {
         session.goods_showMyGoods_type = "create";
         derict(this, "myGoods", "nochangeurl");
     });
+
+    $(".ut-btn-feedback").bind("click", function () {
+        derict(this, "msgmanage", "nochangeurl");
+    });
     var cls = ["type-first", "type-second", "type-third"];
     
     //迭代获取类目

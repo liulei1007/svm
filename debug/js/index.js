@@ -215,7 +215,14 @@ function derict(o, temp, cache, fun) {
     if (temp.indexOf("fullscreen") == -1) {
         if ($("[pageName=" + temp + "]").length == 1) {
             session.nowPageName = temp;
-            $("[pageName=" + temp + "]").addClass("active").siblings().removeClass("active");
+            var $active = $("[pageName=" + temp + "]"),
+                $activeUL = $active.parent(),
+                auth = $activeUL.attr('auth');
+
+            $('div.slidebar ul[auth="' + auth + '"]').addClass('active').siblings().removeClass('active');
+            $active.parent().parent().find('li').removeClass('active');
+            $active.addClass("active").siblings().removeClass("active");
+            $active.parent().show().siblings().hide();
         }
     }
     derict_lock = true;
