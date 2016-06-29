@@ -212,6 +212,13 @@ function brandList_init() {
     plumeUtil.js(plumePath + "/js/brandList.js");
     plumeLog("完成brandList模板加载-" + plumeTime());
 }
+//--brandListAgency模板初始化函数--
+function brandListAgency_init() {
+    plumeLog("初始化brandListAgency模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/paginationControl.js");
+    plumeUtil.js(plumePath + "/js/brandList-agency.js");
+    plumeLog("完成brandListAgency模板加载-" + plumeTime());
+}
 //--brandAdd模板初始化函数--
 function brandAdd_init() {
     plumeLog("初始化brandAdd模板-" + plumeTime());

@@ -26,7 +26,6 @@ $(function () {
         });
         $(".userType").text(session.goods_userType);
         $(".mg-title").text("新增商品");
-        formCtrl();
         getbrandList();
         getProductAttribute();
         setColors();
@@ -482,6 +481,7 @@ $(function () {
                         unloading();
                         $(".cmg-series").find("[list-node]").remove();
                         $(".cmg-series").setPageData(data);
+                        $("#seriesId").find("[list-node]").eq(0).attr("selected","selected");
                     });
                 });
             }
@@ -519,8 +519,6 @@ $(function () {
 
         });
     }
-
-    var totalNum = 0;
 
     //初始化图片移动
     function picMove() {
@@ -564,7 +562,6 @@ $(function () {
         }
 
         function delectEvent() {
-            totalNum > 0 && totalNum--;
             $(this).parents('li').remove();
             initialize();
         }
@@ -676,12 +673,12 @@ $(function () {
         $(".alert-danger").text("").hide();
 
         $(".notNull").each(function () {
-            if ($(this).val() == "") {
-                $(this).addClass("cmg-error");
-                $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
-                flag = false;
+            if ($(this).val()) {
+                // $(this).parent().parent().find(".alert-danger").hide();
             } else {
-                $(this).parent().parent().find(".alert-danger").hide();
+                // $(this).addClass("cmg-error");
+                // $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag = false;
             }
         });
 
@@ -692,16 +689,17 @@ $(function () {
         if ($_countryId.val() === "CN") {
             var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
 
-            var validAddress = function ($it, result) {
-                var $obj = $it.parent().parent().find(".alert-danger");
-                result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
-            };
+            // var validAddress = function ($it, result) {
+            //     var $obj = $it.parent().parent().find(".alert-danger");
+            //     result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
+            // };
             if (!pid || !cid) {
-                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                // pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
                 flag = false;
-            } else {
-                validAddress($_cityId, false) && validAddress($_provinceId, false);
             }
+            // else {
+            //     validAddress($_cityId, false) && validAddress($_provinceId, false);
+            // }
         }
 
         var re = /^[0-9]+.?[0-9]*$/;
@@ -834,18 +832,18 @@ $(function () {
 
             $(".pu-ok").bind("click", function () {
                 var $file = $("[name=files]"),
+                    $goodsPic = $('.goodsPic'),
+                    showLen = $goodsPic ? $goodsPic.length : 0,
                     len = $file.prop('files').length;
 
                 if ($file.val() == "") {
                     errorTip('请选择图片');
-                } else if (totalNum + len > 5) {
+                } else if (showLen + len > 5) {
                     errorTip('最多上传5张图片');
                 } else {
                     loading();
-                    totalNum += len;
                     $('#myform').submit();
                 }
-
             });
             $(".pu-cancel").bind("click", function () {
                 closeUploadPop();

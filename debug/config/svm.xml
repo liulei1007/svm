@@ -234,6 +234,11 @@
         <init>brandList_init</init>
     </page>
     <page>
+        <page-name>brandListAgency</page-name>
+        <page-url>/pages/brandList-agency.html</page-url>
+        <init>brandListAgency_init</init>
+    </page>
+    <page>
         <page-name>brandAdd</page-name>
         <page-url>/pages/brandAdd.html</page-url>
         <init>brandAdd_init</init>
