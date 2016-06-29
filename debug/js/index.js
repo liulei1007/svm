@@ -320,6 +320,7 @@ function getAuth() {
                     var authNum = $(this).attr("auth");
                     $(".slidebar-menu").hide();
                     $(".page-content").find("[auth=" + authNum + "]").show();
+                    $(".page-content").find("[auth=" + authNum + "]").find("li").show();
                     var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
