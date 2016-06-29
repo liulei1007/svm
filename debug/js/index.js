@@ -15,6 +15,37 @@ $(function () {
         derict(this, "agencyList", "nochangeurl");
     });
 
+
+
+    $(".index-head-user").bind("mouseenter", function () {
+        $(".index-head-user .ihu-title-block").show();
+    }).bind("mouseleave", function () {
+        $(".index-head-user .ihu-title-block").hide();
+    });
+    $(".ihu-exit").bind("click", function () {
+        $.ajax({
+            type: "post",
+            url: plumeApi["logout"],
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                if (data.ok) {
+                    window.location.href = "../";
+                    sessionStorage.clear();
+                }
+            }
+        });
+    });
+    $(".ihu-changepwd").bind("click", function () {
+        window.location.href = "changepwd";
+    });
+    $(".index-head-logo").bind("click", function () {
+        window.location.href = "index";
+    });
+});
+
+function bindMenuFuncs(){
     $("[pageName=agencyCreateCompany]").bind("click", function () {
         derict(this, "agencyCreateCompany", "nochangeurl");
     });
@@ -130,35 +161,7 @@ $(function () {
     $("[pageName=goodsDraft]").bind("click", function () {
         derict(this, "goodsDraft", "nochangeurl");
     });
-
-
-    $(".index-head-user").bind("mouseenter", function () {
-        $(".index-head-user .ihu-title-block").show();
-    }).bind("mouseleave", function () {
-        $(".index-head-user .ihu-title-block").hide();
-    });
-    $(".ihu-exit").bind("click", function () {
-        $.ajax({
-            type: "post",
-            url: plumeApi["logout"],
-            contentType: "application/json",
-            dataType: "json",
-            async: false,
-            success: function (data) {
-                if (data.ok) {
-                    window.location.href = "../";
-                    sessionStorage.clear();
-                }
-            }
-        });
-    });
-    $(".ihu-changepwd").bind("click", function () {
-        window.location.href = "changepwd";
-    });
-    $(".index-head-logo").bind("click", function () {
-        window.location.href = "index";
-    });
-});
+}
 var PAGE_COUNT = 11;
 var PAGE_SET_COUNT = 0;
 function onePageCount() {
@@ -303,7 +306,7 @@ function getAuth() {
                     var secondMenu = '<ul class="slidebar-menu clearFix childmenu" auth="' + d.id + '">';
                     for (var j = 0; j < d.children.length; j++) {
                         var c = d.children[j];
-                        secondMenu += '<li pageName="' + c.resourceUrl + '">' + d.resourceName + '</li>';
+                        secondMenu += '<li pageName="' + c.resourceUrl + '">' + c.resourceName + '</li>';
                     }
                     secondMenu += '</ul>';
                     $(".page-content").append(secondMenu);
@@ -315,11 +318,9 @@ function getAuth() {
                     $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
                     $thisMenu.addClass("active").removeClass("animateSlidebar");
                     var authNum = $(this).attr("auth");
-                    $(".slidebar-menu,.slidebar-menu li").hide();
+                    $(".slidebar-menu").hide();
                     $(".page-content").find("[auth=" + authNum + "]").show();
-                    $(".page-content").find("[auth=" + authNum + "]").find("li").show();
                     var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
-                    //PlumelistNodeShowOrder($firstChild);
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
                     derict(this, pageName, "nochangeurl");
@@ -328,6 +329,7 @@ function getAuth() {
                     var pageName = $(this).attr("pageName");
                     $(this).addClass("active").siblings().removeClass("active");
                 });
+                bindMenuFuncs();
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
             }
