@@ -80,7 +80,7 @@ $(function () {
                     totalPage = Math.ceil(data.countRecord / onePageCount());
                     newPage(totalPage, function (i) {
                         loading();
-                        datas.start = (i - 1) * 10;
+                        datas.start = (i - 1) * onePageCount();
                         var newData = JSON.stringify(datas)
                         $.ajax({
                             url: plumeApi["listFeedBack"],
