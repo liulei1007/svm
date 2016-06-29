@@ -2,16 +2,16 @@ $(function () {
     //判断用户是否登录
     //setInterval(chkUserStatus,60000);
     //显示登录名称
-    if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
-        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****"+sessionStorage.login_mobilePhone.substring(7));
+    if ((sessionStorage.login_mobilePhone != undefined) && (sessionStorage.login_mobilePhone != "")) {
+        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****" + sessionStorage.login_mobilePhone.substring(7));
     }
-   
+
     pathInit();
     plumeLog("进入index模板自定义js-" + plumeTime());
 
-    $(".page-content").on("click", ".welcome", function() {
+    $(".page-content").on("click", ".welcome", function () {
         derict(this, "welcome", "nochangeurl");
-    }).on("click", ".agencyList", function() {
+    }).on("click", ".agencyList", function () {
         derict(this, "agencyList", "nochangeurl");
     });
 
@@ -131,25 +131,7 @@ $(function () {
         derict(this, "goodsDraft", "nochangeurl");
     });
 
-    // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
-    $(".slidebar-title").bind("click", function () {
-        var $thisMenu = $(this);
-        $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
-        $thisMenu.addClass("active").removeClass("animateSlidebar");
-        var authNum=$(this).attr("auth");
-        $(".slidebar-menu,.slidebar-menu li").hide();
-        $(".page-content").find("[auth="+authNum+"]").show();
-        $(".page-content").find("[auth="+authNum+"]").find("li").show();
-        var $firstChild = $(".page-content").find("[auth="+authNum+"]").find("li").eq(0);
-        //PlumelistNodeShowOrder($firstChild);
-        var pageName = $firstChild.attr("pageName");
-        $firstChild.addClass("active").siblings().removeClass("active");
-        derict(this, pageName, "nochangeurl");
-    });
-    $(".childmenu").find("li").bind("click",function(){
-        var pageName = $(this).attr("pageName");
-        $(this).addClass("active").siblings().removeClass("active");
-    });
+
     $(".index-head-user").bind("mouseenter", function () {
         $(".index-head-user .ihu-title-block").show();
     }).bind("mouseleave", function () {
@@ -177,46 +159,46 @@ $(function () {
         window.location.href = "index";
     });
 });
-var PAGE_COUNT=11;
-var PAGE_SET_COUNT=0;
-function onePageCount(){
-    return (PAGE_SET_COUNT!=0)?PAGE_SET_COUNT:PAGE_COUNT;
+var PAGE_COUNT = 11;
+var PAGE_SET_COUNT = 0;
+function onePageCount() {
+    return (PAGE_SET_COUNT != 0) ? PAGE_SET_COUNT : PAGE_COUNT;
 }
-function setPageCount(){
-    if(session[session.nowPageName+"_PAGE_SET_COUNT"]&&(session[session.nowPageName+"_PAGE_SET_COUNT"]!="NaN")){
-        PAGE_SET_COUNT=parseInt(session[session.nowPageName+"_PAGE_SET_COUNT"]);
-    }else{
-        PAGE_SET_COUNT=0;
+function setPageCount() {
+    if (session[session.nowPageName + "_PAGE_SET_COUNT"] && (session[session.nowPageName + "_PAGE_SET_COUNT"] != "NaN")) {
+        PAGE_SET_COUNT = parseInt(session[session.nowPageName + "_PAGE_SET_COUNT"]);
+    } else {
+        PAGE_SET_COUNT = 0;
     }
-    var h=$(window).height();
-    var h1=200;
-    var h2=$(".search-block").height()+40;
-    var h3=$(".alert-info").height()+20;
-    var h4=$(".btn-block").height()+20;
-    var x=(h3==h4)?h3:((h3>h4)?h3:h4);
-    var n=parseInt((h-h1-h2-h3-x)/40);
-    if(n<2){
-        n=2;
+    var h = $(window).height();
+    var h1 = 200;
+    var h2 = $(".search-block").height() + 40;
+    var h3 = $(".alert-info").height() + 20;
+    var h4 = $(".btn-block").height() + 20;
+    var x = (h3 == h4) ? h3 : ((h3 > h4) ? h3 : h4);
+    var n = parseInt((h - h1 - h2 - h3 - x) / 40);
+    if (n < 2) {
+        n = 2;
     }
     //var x=(PAGE_SET_COUNT!=0)?(PAGE_SET_COUNT):n;
     //$(".table-block").css({"height":40*x});
-    PAGE_COUNT= n;
+    PAGE_COUNT = n;
 }
 //检测session失效
-function chkUserStatus(){
+function chkUserStatus() {
     $.ajax({
         type: "get",
         url: plumeApi["chkUserStatus"],
         contentType: "application/json",
         dataType: "json",
         success: function (data) {
-            try{
+            try {
                 if (data.ok) {
-                    plumeLog("用户正常登录中,session正常.-"+plumeTime())
+                    plumeLog("用户正常登录中,session正常.-" + plumeTime())
                 } else {
-                    window.location.href="/";
+                    window.location.href = "/";
                 }
-            }catch(e){
+            } catch (e) {
                 window.location.href = "/";
             }
 
@@ -229,10 +211,10 @@ function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
     }
-    if(temp.indexOf("fullscreen")==-1){
-        if($("[pageName="+temp+"]").length==1){
-            session.nowPageName=temp;
-            $("[pageName="+temp+"]").addClass("active").siblings().removeClass("active");
+    if (temp.indexOf("fullscreen") == -1) {
+        if ($("[pageName=" + temp + "]").length == 1) {
+            session.nowPageName = temp;
+            $("[pageName=" + temp + "]").addClass("active").siblings().removeClass("active");
         }
     }
     derict_lock = true;
@@ -251,7 +233,7 @@ function derict(o, temp, cache, fun) {
     $(".work-space").removeClass("work-space-active").fadeIn(function () {
         $(this).remove();
         $(".page-content").append('<div class="work-space work-space-active"></div>');
-       // $(".work-space-active").loadTemp("transmit", "nochangeurl");
+        // $(".work-space-active").loadTemp("transmit", "nochangeurl");
         $(".work-space-active").hide(function () {
             $(this).html("").show();
             $(".work-space-active").loadTemp(temp, cache, fun);
@@ -288,11 +270,11 @@ function pathInit() {
     try {
         if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
             $(".work-space").loadTemp(temp, "nochangeurl");
-            $("[pageName="+session.nowPageName+"]").show();
-            $("[pageName="+session.nowPageName+"]").siblings().show();
-            $("[pageName="+session.nowPageName+"]").addClass("active").parent().show();
-            var authNum=$("[pageName="+session.nowPageName+"]").parent().attr("auth");
-            $(".slidebar").find("[auth="+authNum+"]").addClass("active");
+            $("[pageName=" + session.nowPageName + "]").show();
+            $("[pageName=" + session.nowPageName + "]").siblings().show();
+            $("[pageName=" + session.nowPageName + "]").addClass("active").parent().show();
+            var authNum = $("[pageName=" + session.nowPageName + "]").parent().attr("auth");
+            $(".slidebar").find("[auth=" + authNum + "]").addClass("active");
         } else {
             $(".work-space").loadTemp("welcome", "nochangeurl");
         }
@@ -314,16 +296,37 @@ function getAuth() {
             if (data.ok) {
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
-                    var id= d.id;
-                    $(".slidebar").find("[auth="+id+"]").show();
+                    var firstMenu = '<ul class="nav slidebar-title" auth="' + d.id + '">';
+                    firstMenu += '<li><i class="shop"></i>' + d.resourceName + '</li>';
+                    firstMenu += '</ul>';
+                    $(".slidebar").append(firstMenu);
+                    var secondMenu = '<ul class="slidebar-menu clearFix childmenu" auth="' + d.id + '">';
                     for (var j = 0; j < d.children.length; j++) {
-                        var c = d.children[j]
-                        var resurl = c.resourceUrl;
-
-                       // $("." + resurl).show();
-                       // $("." + resurl).parent().parent().show();
+                        var c = d.children[j];
+                        secondMenu += '<li pageName="' + c.resourceUrl + '">' + d.resourceName + '</li>';
                     }
+                    secondMenu += '</ul>';
+                    $(".page-content").append(secondMenu);
                 }
+                // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
+                $(".slidebar-title").bind("click", function () {
+                    var $thisMenu = $(this);
+                    $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
+                    $thisMenu.addClass("active").removeClass("animateSlidebar");
+                    var authNum = $(this).attr("auth");
+                    $(".slidebar-menu,.slidebar-menu li").hide();
+                    $(".page-content").find("[auth=" + authNum + "]").show();
+                    $(".page-content").find("[auth=" + authNum + "]").find("li").show();
+                    var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
+                    //PlumelistNodeShowOrder($firstChild);
+                    var pageName = $firstChild.attr("pageName");
+                    $firstChild.addClass("active").siblings().removeClass("active");
+                    derict(this, pageName, "nochangeurl");
+                });
+                $(".childmenu").find("li").bind("click", function () {
+                    var pageName = $(this).attr("pageName");
+                    $(this).addClass("active").siblings().removeClass("active");
+                });
             } else {
                 plumeLog("获取登录信息失败:" + data.resDescription);
             }
@@ -347,14 +350,14 @@ function getLoginInfoToSession() {
                 sessionStorage.login_parentId = data.data.parentId;
                 sessionStorage.login_agentsBusinessId = data.data.agentsBusinessId;
                 sessionStorage.login_manuId = data.data.manuId;
-                if(data.data.userType==0){
+                if (data.data.userType == 0) {
                     //window.location.href="secondreg?fullscreen";
                     derict(this, "secondreg?fullscreen", "nochangeurl");
                     $(".slidebar").hide();
                     $(".page-content").show();
                     $(".page-content").css({"left": 0});
                     $(".container-fixed").fadeIn();
-                }else if(data.data.userType==3){
+                } else if (data.data.userType == 3) {
                     //window.location.href="waitCheck?fullscreen";
                     derict(this, "waitCheck?fullscreen", "nochangeurl");
                     $(".slidebar").hide();
@@ -363,8 +366,8 @@ function getLoginInfoToSession() {
                     $(".container-fixed").fadeIn();
                 }
                 if (sessionStorage.login_mobilePhone) {
-                    if ((sessionStorage.login_mobilePhone!=undefined)&&(sessionStorage.login_mobilePhone!="")) {
-                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****" +sessionStorage.login_mobilePhone.substring(7));
+                    if ((sessionStorage.login_mobilePhone != undefined) && (sessionStorage.login_mobilePhone != "")) {
+                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) + "****" + sessionStorage.login_mobilePhone.substring(7));
                     }
                 } else {
                     window.location.href = "/";
@@ -385,7 +388,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/price_tpye",
         contentType: "application/json",
         dataType: "json",
-       // async: false,
+        // async: false,
         success: function (data) {
             if (data.ok) {
                 session.price_tpye = JSON.stringify(data);
@@ -427,7 +430,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/img_url",
         contentType: "application/json",
         dataType: "json",
-       // async: false,
+        // async: false,
         success: function (data) {
             if (data.ok) {
                 session.img_url = JSON.stringify(data);
@@ -441,7 +444,7 @@ function getListSystemCode() {
         url: plumeApi["listSystemCode"] + "/unit",
         contentType: "application/json",
         dataType: "json",
-       // async: false,
+        // async: false,
         success: function (data) {
             if (data.ok) {
                 session.unit = JSON.stringify(data);
@@ -475,7 +478,7 @@ function getGoodsPsgId(_this) {
 function getProductId(_this) {
     var removeList = $(_this).parents('tr');
     var productId = removeList.find('.productId').html();
-    session.productGoods_productId=session.goods_showMyGoods_productId= productId;
+    session.productGoods_productId = session.goods_showMyGoods_productId = productId;
 }
 
 function getProductIdm(_this) {
@@ -499,29 +502,27 @@ function getShopId(_this) {
 }
 
 
-
-
 //获取单个产品信息
 function getProductInfo() {
     loading();
     try {
         $.ajax({
-            url: plumeApi["getProductInfo"] +"/"+ session.productGoods_productId,
+            url: plumeApi["getProductInfo"] + "/" + session.productGoods_productId,
             type: "GET",
             contentType: "application/json;charset=UTF-8",
             success: function (data) {
                 unloading();
-                 if(data.data.baseCategoryId==1){
+                if (data.data.baseCategoryId == 1) {
                     $(".material").show();
                     $(".material_temp").hide();
-                }else{
+                } else {
                     $(".material").hide();
                     $(".material_temp").show();
                 }
                 $('.form-horizontal').setPageData(data.data);
-                $(".weight-info").html($(".weight-info").html()+"KG")
-                $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye),$(".priceType-info").text()));
-                $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv),$(".level-info").text()));
+                $(".weight-info").html($(".weight-info").html() + "KG")
+                $(".priceType-info").text(setListSystemCode(JSON.parse(session.price_tpye), $(".priceType-info").text()));
+                $(".level-info").text(setListSystemCode(JSON.parse(session.product_lv), $(".level-info").text()));
                 var trList;
                 var color = {};
                 var colorList = "";
@@ -621,17 +622,16 @@ function addProductShopGoods(body) {
                 derict(this, "takingGoodsData", "nochangeurl");
             } else {
                 unloading();
-                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("商品调取失败");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html(data.resDescription);
-                    });
+                $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    $(".pop").find(".popup-title").html("商品调取失败");
+                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    $(".pop").find(".popup-info").html(data.resDescription);
+                });
                 //popTips("商品调取失败", "warning");
             }
         }
     });
 }
-
 
 
 //地区下拉列表
@@ -769,11 +769,11 @@ function loading() {
     }
 }
 function unloading() {
-    $(".lockbg").fadeOut(function(){
+    $(".lockbg").fadeOut(function () {
         $(this).remove();
 
     });
-    $(".loading,.loading-img").fadeOut(function(){
+    $(".loading,.loading-img").fadeOut(function () {
         $(this).remove();
 
     });
@@ -883,7 +883,7 @@ function getSelfData(showObj, stashId) {
             $(showObj).find("#material").val(data.material);
             // 单位名称
             $(showObj).find("#orgName option[value='" + data.orgName + "']").prop("selected", "selected");
-            $(showObj).find("#orgSize option[value='" +data.standardUnit + "']").prop("selected","selected");
+            $(showObj).find("#orgSize option[value='" + data.standardUnit + "']").prop("selected", "selected");
             // 价格类型
             $(showObj).find("#priceType option[value='" + data.priceType + "']").prop("selected", "selected");
             $(showObj).find("#salePrice").val(data.salePrice);
@@ -946,19 +946,21 @@ function showPopTips(popupTitle, popupIcon, popupTips) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function() {
+    $(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
         checkFormNull($(this));
-    }).on("blur", ".form-group.required select", function() {
+    }).on("blur", ".form-group.required select", function () {
         checkFormNull($(this));
     });
 }
 // 检验单个必填项是否填写
 function checkFormNull(checkObj) {
     // 如果当前输入框为不可修改状态，退出验证
-    if ($(checkObj).prop("disabled")) { return true; }
+    if ($(checkObj).prop("disabled")) {
+        return true;
+    }
 
     var $formBlock = $(checkObj).parents(".form-group");
     // 如果当前输入框已有其他提示信息，退出
@@ -978,56 +980,60 @@ var ifPhoneSuccess = false;
 
 // 检验手机号码
 function checkPhone(checkObj, checkType) {
-	// 清除可能存在的提示信息
-	$(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
-	ifPhoneSuccess = false;
-	// 首先判断是否为空
-	if (checkFormNull($(checkObj))) {
-		// 其次判断是否符合手机号规则
-		if (!isMobile($(checkObj).val().trim())) {
+    // 清除可能存在的提示信息
+    $(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
+    ifPhoneSuccess = false;
+    // 首先判断是否为空
+    if (checkFormNull($(checkObj))) {
+        // 其次判断是否符合手机号规则
+        if (!isMobile($(checkObj).val().trim())) {
             var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
-			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
-			// $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
-			return;
-		}
-		// 最后判断手机号是否已经存在
-		checkPhoneExist($(checkObj), checkType);
-	}
+            $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
+            // $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
+            return;
+        }
+        // 最后判断手机号是否已经存在
+        checkPhoneExist($(checkObj), checkType);
+    }
 }
 
 // 判断手机号是否已存在
-function checkPhoneExist(checkObj, checkType){
-	var phone = $(checkObj).val().trim();
-	$.ajax({
-		type: "get",
-		url: plumeApi["getUserInfoByMobile"] + phone,
-		contentType: "application/json",
-		dataType: "json",
-		success: function (data) {
-			if (data.ok) {
-				if (checkType == "create") { ifPhoneSuccess = true; }
-				else if (checkType == "edit") {
-					ifPhoneSuccess = false;
-					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">该手机号码未注册</div>');
-				}
-			}
-			else if (data.data == null) {
-				ifPhoneSuccess = false;
-				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码是否存在检查异常</div>');
-			}
-			else if(data.data > 0) {
-				if (checkType == "create") {
-					ifPhoneSuccess = false;
-					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
-				}
-				else if (checkType == "edit") { ifPhoneSuccess = true; }
-			}
-			else {
-				ifPhoneSuccess = false;
-				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码检查接口返回值不能识别</div>');
-			}
-		}
-	});
+function checkPhoneExist(checkObj, checkType) {
+    var phone = $(checkObj).val().trim();
+    $.ajax({
+        type: "get",
+        url: plumeApi["getUserInfoByMobile"] + phone,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (data) {
+            if (data.ok) {
+                if (checkType == "create") {
+                    ifPhoneSuccess = true;
+                }
+                else if (checkType == "edit") {
+                    ifPhoneSuccess = false;
+                    $(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">该手机号码未注册</div>');
+                }
+            }
+            else if (data.data == null) {
+                ifPhoneSuccess = false;
+                $(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码是否存在检查异常</div>');
+            }
+            else if (data.data > 0) {
+                if (checkType == "create") {
+                    ifPhoneSuccess = false;
+                    $(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
+                }
+                else if (checkType == "edit") {
+                    ifPhoneSuccess = true;
+                }
+            }
+            else {
+                ifPhoneSuccess = false;
+                $(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码检查接口返回值不能识别</div>');
+            }
+        }
+    });
 }
 
 // 检验是否为浮点小数
@@ -1037,16 +1043,16 @@ function checkFloat(checkObj) {
     if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
         return false;
     }
-	// 首先判断是否为空
-	if ($(checkObj).val() && $(checkObj).val().trim() != "") {
-		// 其次判断是否符合数字规则
-		if (!isFloat($(checkObj).val())) {
-			var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
-			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
-			return false;
-		}
-	}
-	return true;
+    // 首先判断是否为空
+    if ($(checkObj).val() && $(checkObj).val().trim() != "") {
+        // 其次判断是否符合数字规则
+        if (!isFloat($(checkObj).val())) {
+            var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
+            $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
+            return false;
+        }
+    }
+    return true;
 }
 
 // 检验是否为电话
@@ -1071,41 +1077,40 @@ function checkTel(checkObj) {
 //键盘事件
 var key = {
     //绑定回车搜索
-    keydownEnter: function(ele) {
-        $("body").bind('keydown',function() {
+    keydownEnter: function (ele) {
+        $("body").bind('keydown', function () {
             if (event.keyCode == "13") {
                 $(ele).click();
             }
         });
     },
-    unkeydownEnter: function(ele){
+    unkeydownEnter: function (ele) {
         $("body").unbind();
     },
     //只能输入数字
-    onlyKeydownNum: function() {
+    onlyKeydownNum: function () {
         //alert(event.keyCode)
-        if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
-        event.returnValue=false;
+        if (event.shiftKey && (!(event.keyCode == 46) && !(event.keyCode == 8))) {
+            event.returnValue = false;
         }
-        if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
-        if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==190)))
-        event.returnValue=false;
+        if (!(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39) && !(event.keyCode == 16))
+            if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode == 190)))
+                event.returnValue = false;
     },
     //只能输入数字和点号
-    onlyKeydownNumad: function() {
-        if(event.shiftKey&&(!(event.keyCode==46)&&!(event.keyCode==8))){
-        event.returnValue=false;
+    onlyKeydownNumad: function () {
+        if (event.shiftKey && (!(event.keyCode == 46) && !(event.keyCode == 8))) {
+            event.returnValue = false;
         }
-        if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39)&&!(event.keyCode==16))
-        if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
-        event.returnValue=false;
+        if (!(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39) && !(event.keyCode == 16))
+            if (!((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)))
+                event.returnValue = false;
     }
 }
 
 
-
 function isFloat(num) {
-	return /^[0-9]+.?[0-9]*$/.test(num);
+    return /^[0-9]+.?[0-9]*$/.test(num);
 }
 
 //密码验证: 6-15位字符，建议数字和字母组合
@@ -1127,5 +1132,5 @@ function isTel(tel) {
 
 // 关闭大图显示
 function closeBigImage() {
-	$(".form-loading .media-show").remove();
+    $(".form-loading .media-show").remove();
 }
