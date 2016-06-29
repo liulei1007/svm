@@ -12,7 +12,7 @@
     <script>
         var _PLUME={
             "config":"../config/svm.xml",
-            "initPage":"brandList"
+            "initPage":"brandListAgency"
         }
     </script>
 </head>
@@ -37,11 +37,7 @@
          <div class="btn btn-default btn-sm btn-empty">清空条件</div>
       </form>
     </div>
-    <div class="table-block">   
-        <!--<div class="btn-block clearFix">-->
-            <!--<button class="btn btn-primary btn-icons btn-applyPrint">申请打印</button>-->
-            <!--<a href="http://localhost/debug/applyPriceTagManage">已申请价格管理</a>-->
-        <!--</div>-->
+    <div class="table-block">
         <table class="table table1 table-striped">
             <thead>
               <tr>
@@ -51,6 +47,7 @@
                 <td style="width: 20%">联系人</td>
                 <td style="width: 20%">手机号</td>
                 <td style="width: 10%">系列数量</td>
+                <td style="width: auto">操作</td>
               </tr>
             </thead>
             <tbody data-list="$p.data">
@@ -70,15 +67,7 @@
     </div>
 
     <div class="nav-pagination clearFix">
-        <ul class="pagination">
-           <!--  <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
-            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
-            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
-            <li class="page-number"><a href="javascript:void(0)">2</a></li>
-            <li class="page-number"><a href="javascript:void(0)">3</a></li>
-            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
-            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li> -->
-        </ul>
+        <ul class="pagination"></ul>
     </div>
 </div>
 
