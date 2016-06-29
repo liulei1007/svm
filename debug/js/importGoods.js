@@ -54,7 +54,7 @@ $(function () {
                }else if(!session.goods_baseCategoryId){
                 alert("请选择分类");
                }else if(fileSuffix==""){
-                alert("请选择上传格式")
+                alert("未选择上传文件");
                }
                if (($("#file").val()&&(fileSuffix=="xlsx"||fileSuffix=="xls")&&session.goods_baseCategoryId)) {
                     loading();
