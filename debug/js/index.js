@@ -39,6 +39,7 @@ $(function () {
     });
 });
 
+// 刷新三级页面缓存处理
 function savePageCache (cacheArray, page) {
     !$.isArray(page, cacheArray) && cacheArray.push(page);
     session.page_cache = cacheArray;
