@@ -145,7 +145,7 @@ function bindMenuFuncs(){
         derict(this, "mytable", "nochangeurl");
     });
     $("[pageName=goodsCreate]").bind("click", function () {
-        derict(this, "userType", "nochangeurl");
+        derict(this, "goodsCreate", "nochangeurl");
     });
     $("[pageName=goodsCheckfailManage]").bind("click", function () {
         derict(this, "goodsCheckfailManage", "nochangeurl");
