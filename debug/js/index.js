@@ -30,10 +30,10 @@ $(function () {
         });
     });
     $(".ihu-changepwd").bind("click", function () {
-        window.location.href = "changepwd";
+        derict(this, "changepwd?fullscreen", "nochangeurl");
     });
     $(".index-head-logo").bind("click", function () {
-        window.location.href = "index";
+        derict(this, "index?fullscreen", "nochangeurl");
     });
 });
 //绑定菜单方法
