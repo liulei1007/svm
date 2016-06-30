@@ -30,10 +30,12 @@ $(function () {
         });
     });
     $(".ihu-changepwd").bind("click", function () {
-        derict(this, "changepwd?fullscreen", "nochangeurl");
+        $('ul.slidebar-menu').hide();
+        derict(null, "changepwd", "nochangeurl");
     });
     $(".index-head-logo").bind("click", function () {
-        derict(this, "index?fullscreen", "nochangeurl");
+        $('ul.slidebar-menu').hide();
+        derict(null, "index", "nochangeurl");
     });
 });
 //绑定菜单方法
@@ -212,9 +214,9 @@ function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
     }
+    session.nowPageName = temp;
     if (temp.indexOf("fullscreen") == -1) {
         if ($("[pageName=" + temp + "]").length == 1) {
-            session.nowPageName = temp;
             var $active = $("[pageName=" + temp + "]"),
                 $activeUL = $active.parent(),
                 auth = $activeUL.attr('auth');
