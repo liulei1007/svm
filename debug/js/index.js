@@ -30,9 +30,11 @@ $(function () {
         });
     });
     $(".ihu-changepwd").bind("click", function () {
+        $('ul.slidebar-menu').hide();
         derict(null, "changepwd", "nochangeurl");
     });
     $(".index-head-logo").bind("click", function () {
+        $('ul.slidebar-menu').hide();
         derict(null, "index", "nochangeurl");
     });
 });
