@@ -18,15 +18,15 @@ $(function () {
        // $(".btn-import-data").bind("click", function () {
            $('#myForm').ajaxForm(function (data) {
                if (data.ok) {
-                unloading()
+                unloading();
                 $(".loadFile").val("");
                 $('#fileSuffix').html("");
                 showPopTips('上传成功',"warning","");
-                $('.pop').hide();
+                //$('.pop').hide();
                } else {
                   unloading();
-                   alert(data.resDescription || data.data);
-                   $('.pop').hide();
+                  alert(data.resDescription || data.data);
+                  $('.pop').hide();
                }
            });
            $('.btn-cancel').bind('click', function () {
@@ -41,8 +41,8 @@ $(function () {
                    window.location = plumeApi["downloadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId + "?count=1000"
                } else {
                   unloading();
-                    showPopTips('请选择分类',"warning","");
-                    
+                  showPopTips('请选择分类',"warning","");
+
                }
            });
 
@@ -62,7 +62,7 @@ $(function () {
 
                }else if(fileSuffix==""){
 
-                showPopTips('未选择上传文件',"warning","");
+                showPopTips('未选择上传文件',"warning","");  
               
                }
 
@@ -73,7 +73,7 @@ $(function () {
                   document.myForm.action = plumeApi["uploadEx"] + session.goods_baseCategoryId + "/" + session.goods_subCategoryId + "/" + session.goods_categoryId
 
                   $('#myForm').submit();         
-
+                
                }
           }
    // })
