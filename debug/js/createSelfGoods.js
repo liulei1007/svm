@@ -41,4 +41,12 @@ $(function() {
 	$("#orgSize").setPageData(standardUnit);
 
 	$("#orgSize").find("option").eq(1).prop('selected','selected');
+
+	//计价单位
+
+	var unit = JSON.parse(session.unit);
+
+	$("#orgName").setPageData(unit);
+
+	$("#orgName").find("option").eq(1).prop('selected','selected');
 });
