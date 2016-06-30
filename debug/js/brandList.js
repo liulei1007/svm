@@ -22,6 +22,7 @@ $(function () {
 
     $("tbody").on("click", '.bl-btn-look', function () {
         getBrandId(this);
+        session.brand_type = "brand";
         derict(this, "brandListShow", "nochangeurl");
     }).on("click", ".btn-manage", function() {
         getBrandId(this);

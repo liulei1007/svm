@@ -5,7 +5,6 @@ $(function() {
 	formControl();
 
 	var brandId = session.brand_brandId;
-	console.log(brandId);
 	getBrand(brandId);
 
 	// 点击上传品牌logo
@@ -21,8 +20,9 @@ $(function() {
 						return;
 					}
 					if (data.ok) {
-						// imgSrc = data.data;
-						imgSrc = (JSON.parse(session.img_url).data)[parseInt(Math.random() * (JSON.parse(session.img_url).data.length))].codeValueCode + data.data;
+						var baseUrl = JSON.parse(session.img_url).data,
+                            imgUrl = data.data || 0;
+                        imgSrc = baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[0].path;
 						var addHtml = '<img src="' + imgSrc + '" />'
 						$("#upload-logo").html(addHtml);
 						closeUploadPop();
@@ -75,7 +75,6 @@ $(function() {
 			"brandDescription": $("#introduce").val(),
 			"brandLogoUrl": imgSrc
 		};
-		console.log(data);
 
 		loading();
 		$.ajax({
@@ -85,7 +84,6 @@ $(function() {
 			contentType: "application/json;charset=UTF-8",
 			success: function (data) {
 				unloading();
-				console.log(data);
 				if (data.ok) {
 					showPopTips("提交成功", "success", "品牌信息已提交成功");
 					derict(this,"brandList","nochangeurl");
@@ -105,7 +103,6 @@ $(function() {
 			contentType: "application/json;charset=UTF-8",
 			success: function (data) {
 				unloading();
-				console.log(data);
 				// 如果原先已有品牌logo，显示
 				if (data.data.brandLogo) {
 					imgSrc = data.data.brandLogo;

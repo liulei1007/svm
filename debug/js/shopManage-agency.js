@@ -49,7 +49,6 @@ $(function() {
 		var marketBoothNumber = $("#marketBoothNumber").val().trim();
 		var marketFloor = $("#marketFloor").val().trim();
 		var salesStartTime = $("#startTime").val().trim();
-		console.log(typeof(salesStartTime));
 		var salesEndTime = $("#endTime").val().trim();
 		var shopTel = $("#tel").val().trim();
 		var shopIntroduction = $("#shopIntroduction").val().trim();
@@ -65,7 +64,6 @@ $(function() {
 			"shopIntroduction": shopIntroduction,
 			"supplierInfo": supplierInfo
 		};
-		console.log(data)
 		loading();
 		$.ajax({
             url: plumeApi["editShopInfo"],
@@ -99,7 +97,6 @@ $(function() {
 			success: function (data) {
 				unloading();
 				if (data.ok) {
-					console.log(data.data);
 					if (data.data.shopName) {$("#shopName").val(data.data.shopName);}
 					if (data.data.marketBoothNumber) {$("#marketBoothNumber").val(data.data.marketBoothNumber);}
 					if (data.data.shopTel) {$("#tel").val(data.data.shopTel);}

@@ -2,7 +2,11 @@ $(function() {
 	formCtrl();
 	// 绑定“返回”按钮
 	$('.btn-back').bind('click',function() {
-		derict(this, "brandList", "nochangeurl");
+		console.log("session.brand_type: " + session.brand_type);
+		if (session.brand_type == "agency") {
+			derict(this, "brandListAgency", "nochangeurl");
+		}
+		else derict(this, "brandList", "nochangeurl");
 	});
 
 	// 获取数据

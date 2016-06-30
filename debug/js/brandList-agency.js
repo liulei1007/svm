@@ -20,8 +20,10 @@ $(function () {
         });
     });
 
+    // 点击“查看”按钮
     $("tbody").on("click", '.bl-btn-look', function () {
         getBrandId(this);
+        session.brand_type = "agency";
         derict(this, "brandListShow", "nochangeurl");
     });
 
