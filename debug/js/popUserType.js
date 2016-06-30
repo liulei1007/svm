@@ -24,9 +24,9 @@ $(function() {
         }
         session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
         session.goods_categoryId = $(".type-third-span").attr("categoryId");
-        session.goods_categoryName = $(".type-third-span").text();
+        session.goods_categoryName = $(".type-third-span").eq(0).text();
         session.goods_subCategoryId = $(".type-second-span").attr("categoryId");
-        session.goods_subCategoryName = $(".type-second-span").text();
+        session.goods_subCategoryName = $(".type-second-span").eq(0).text();
         session.goods_baseCategoryId = $(".type-first-span").attr("categoryId");
         session.goods_baseCategoryName = $(".type-first-span").attr("categoryId");
         $(".popSort").hide();
