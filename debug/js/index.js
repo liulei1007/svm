@@ -49,7 +49,7 @@ function savePageCache (cacheArray, page) {
 function bindMenuFuncs(){
 
     var cacheArray = session.cache_array || [];
-
+    savePageCache(cacheArray, 'welcome');
     $("[pageName=agencyCreateCompany]").bind("click", function () {
         savePageCache(cacheArray, 'agencyCreateCompany');
         derict(this, "agencyCreateCompany", "nochangeurl");
