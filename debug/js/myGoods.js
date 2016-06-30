@@ -648,8 +648,15 @@ $(function () {
         $.get(plumeApi["listNationCode"], {}, function (data) {
             $(".cmg-region0").find("[list-node]").remove();
             $(".cmg-region0").setPageData(data);
-            defaultType && $("#countryId").val(defaultAddress[0]);
-            $(".cmg-region0").find(".form-control").val("CN").bind("change", function () {
+
+            if (defaultType && defaultAddress[0]) {
+                $("#countryId").val(defaultAddress[0]);
+                defaultAddress[0] == 'CN' ? $(".cmg-region1,.cmg-region2").show() : $(".cmg-region1,.cmg-region2").hide();
+            } else {
+                $(".cmg-region0").find(".form-control").val("CN");
+            }
+
+            $("#countryId").on("change", function () {
                 if ($(this).val() == "CN") {
                     $(".cmg-region1,.cmg-region2").show();
                 } else {
@@ -663,16 +670,18 @@ $(function () {
                 unloading();
                 $(".cmg-region2").find("[list-node]").remove();
                 $(".cmg-region2").setPageData(data);
-                defaultType && $("#cityId").val(defaultAddress[2]);
+                defaultType && defaultAddress[2] && $("#cityId").val(defaultAddress[2]);
             });
         };
 
         $.get(plumeApi["listNationRegion"], {}, function (data) {
             $(".cmg-region1").find("[list-node]").remove();
             $(".cmg-region1").setPageData(data);
-            defaultType && $("#provinceId").val(defaultAddress[1]);
-            defaultType && getSubAddress(defaultAddress[1]);
-            $(".cmg-region1").find(".form-control").bind("change", function () {
+            if (defaultType && defaultAddress[1]) {
+                $("#provinceId").val(defaultAddress[1]);
+                getSubAddress(defaultAddress[1])
+            }
+            $("#provinceId").on("change", function () {
                 var adresscode = $(this).find("option:selected").attr("adresscode");
                 loading();
                 getSubAddress(adresscode);
@@ -989,7 +998,10 @@ $(function () {
                 unloading();
 
                 if (session.goods_showMyGoods_type == "create") {
-                    session.save_address = dataJson.countryId + ',' + dataJson.provinceId + ',' + dataJson.cityId;
+                    var result = dataJson.countryId;
+                    dataJson.provinceId && (result = result + ',' + dataJson.provinceId);
+                    dataJson.cityId && (result = result + ',' + dataJson.cityId);
+                    session.save_address = result;
                 }
 
                 if (data.ok) {
