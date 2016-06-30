@@ -447,10 +447,15 @@ function plumeLog(o) {
     }
 }
 window.onerror = function (msg, url, line) {
-    plumeLog("----程序出现异常----");
-    plumeLog("msg:" + msg);
-    plumeLog("url:" + url);
-    plumeLog("line:" + line);
-    plumeLog("--------------------");
-    return true;
+    var myerror=function(){
+        plumeLog("----程序出现异常----");
+        plumeLog("msg:" + msg);
+        plumeLog("url:" + url);
+        plumeLog("line:" + line);
+        plumeLog("--------------------");
+        return true;
+    };
+    if ((_test_path.indexOf("longguo.mmall.com") != -1)||(_test_path.indexOf("longguo.hxmklmall.cn") != -1)) {
+        myerror();
+    }
 }

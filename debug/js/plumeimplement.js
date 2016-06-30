@@ -395,6 +395,12 @@ function goodsDraft_init() {
     plumeUtil.js(plumePath + "/js/goodsDraft.js");
     plumeLog("完成goodsDraft模板加载-" + plumeTime());
 }
+function goodsCreate_init() {
+    plumeLog("初始化goodsCreate模板-" + plumeTime());
+    plumeUtil.js(plumePath + "/js/goodsCreate.js");
+    plumeLog("完成goodsCreate模板加载-" + plumeTime());
+}
+
 // 监控ajax
 var PlumeAjaxTimes = 0;
 $.ajaxSetup({

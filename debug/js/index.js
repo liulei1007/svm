@@ -30,132 +30,183 @@ $(function () {
         });
     });
     $(".ihu-changepwd").bind("click", function () {
-        derict(this, "changepwd?fullscreen", "nochangeurl");
+        $('ul.slidebar-menu').hide();
+        derict(null, "changepwd", "nochangeurl");
     });
     $(".index-head-logo").bind("click", function () {
-        derict(this, "index?fullscreen", "nochangeurl");
+        $('ul.slidebar-menu').hide();
+        derict(null, "index", "nochangeurl");
     });
 });
+
+// 刷新三级页面缓存处理
+function savePageCache (cacheArray, page) {
+    !$.isArray(page, cacheArray) && cacheArray.push(page);
+    session.page_cache = cacheArray;
+}
+
 //绑定菜单方法
 function bindMenuFuncs(){
+
+    var cacheArray = session.cache_array || [];
+    savePageCache(cacheArray, 'welcome');
     $("[pageName=agencyCreateCompany]").bind("click", function () {
+        savePageCache(cacheArray, 'agencyCreateCompany');
         derict(this, "agencyCreateCompany", "nochangeurl");
     });
     $("[pageName=agencyCreatePersonal]").bind("click", function () {
+        savePageCache(cacheArray, 'agencyCreatePersonal');
         derict(this, "agencyCreatePersonal", "nochangeurl");
     });
     $("[pageName=agencyShowCompany]").bind("click", function () {
+        savePageCache(cacheArray, 'agencyShowCompany');
         derict(this, "agencyShowCompany", "nochangeurl");
     });
     $("[pageName=agencyShowPersonal]").bind("click", function () {
+        savePageCache(cacheArray, 'agencyShowPersonal');
         derict(this, "agencyShowPersonal", "nochangeurl");
     });
     $("[pageName=agencyAddAccount]").bind("click", function () {
+        savePageCache(cacheArray, 'agencyAddAccount');
         derict(this, "agencyAddAccount", "nochangeurl");
     });
 
     $("[pageName=shopListAgency]").bind("click", function () {
+        savePageCache(cacheArray, 'shopListAgency');
         derict(this, "shopListAgency", "nochangeurl");
     });
     $("[pageName=shopCreateAgency]").bind("click", function () {
+        savePageCache(cacheArray, 'shopCreateAgency');
         derict(this, "shopCreateAgency", "nochangeurl");
     });
     $("[pageName=shopShowAgency]").bind("click", function () {
+        savePageCache(cacheArray, 'shopShowAgency');
         derict(this, "shopShowAgency", "nochangeurl");
     });
 
     $("[pageName=shopList]").bind("click", function () {
+        savePageCache(cacheArray, 'shopList');
         derict(this, "shopList", "nochangeurl");
     });
 
     $("[pageName=releaseSelfGoods]").bind("click", function () {
+        savePageCache(cacheArray, 'releaseSelfGoods');
         derict(this, "releaseSelfGoods", "nochangeurl")
     });
 
     $("[pageName=seriesManage]").bind("click", function () {
+        savePageCache(cacheArray, 'seriesManage');
         derict(this, "seriesManage", "nochangeurl");
     });
     $("[pageName=goodsDataManage]").bind("click", function () {
+        savePageCache(cacheArray, 'goodsDataManage');
         derict(this, "goodsDataManage", "nochangeurl");
     });
     $("[pageName=goodsAuditManage]").bind("click", function () {
+        savePageCache(cacheArray, 'goodsAuditManage');
         derict(this, "goodsAuditManage", "nochangeurl");
     });
     $("[pageName=addGoodsData]").bind("click", function () {
+        savePageCache(cacheArray, 'addGoodsData');
         derict(this, "addGoodsData", "nochangeurl");
     });
     $("[pageName=batchlead]").bind("click", function () {
+        savePageCache(cacheArray, 'batchlead');
         derict(this, "batchlead", "nochangeurl");
     });
     $("[pageName=noCompleteData]").bind("click", function () {
+        savePageCache(cacheArray, 'noCompleteData');
         derict(this, "noCompleteData", "nochangeurl");
     });
     $("[pageName=amendmentInfo]").bind("click", function () {
+        savePageCache(cacheArray, 'amendmentInfo');
         derict(this, "amendmentInfo", "nochangeurl");
     });
     $("[pageName=takingGoodsData]").bind("click", function () {
+        savePageCache(cacheArray, 'takingGoodsData');
         derict(this, "takingGoodsData", "nochangeurl");
     });
     $("[pageName=groundGoods]").bind("click", function () {
+        savePageCache(cacheArray, 'groundGoods');
         derict(this, "groundGoods", "nochangeurl");
     });
     $("[pageName=applySeries]").bind("click", function () {
+        savePageCache(cacheArray, 'applySeries');
         derict(this, "applySeries", "nochangeurl");
     });
     $("[pageName=createMyGoods]").bind("click", function () {
+        savePageCache(cacheArray, 'createMyGoods');
         derict(this, "createMyGoods", "nochangeurl");
     });
     $("[pageName=applyPriceTagManage]").bind("click", function () {
+        savePageCache(cacheArray, 'applyPriceTagManage');
         derict(this, "applyPriceTagManage", "nochangeurl")
     });
     $("[pageName=idmanage]").bind("click", function () {
+        savePageCache(cacheArray, 'idmanage');
         derict(this, "idmanage", "nochangeurl");
     });
     $("[pageName=msgmanage]").bind("click", function () {
+        savePageCache(cacheArray, 'msgmanage');
         derict(this, "msgmanage", "nochangeurl");
     });
     $("[pageName=changepwd]").bind("click", function () {
+        savePageCache(cacheArray, 'changepwd');
         derict(this, "changepwd", "nochangeurl");
     });
     $("[pageName=brandList]").bind("click", function () {
+        savePageCache(cacheArray, 'brandList');
         derict(this, "brandList", "nochangeurl");
     });
     $("[pageName=brandAdd]").bind("click", function () {
+        savePageCache(cacheArray, 'brandAdd');
         derict(this, "brandAdd", "nochangeurl");
     });
     $("[pageName=reviewList]").bind("click", function () {
+        savePageCache(cacheArray, 'reviewList');
         derict(this, "reviewList", "nochangeurl");
     });
     $("[pageName=reviewShowCompany]").bind("click", function () {
+        savePageCache(cacheArray, 'reviewShowCompany');
         derict(this, "reviewShowCompany", "nochangeurl");
     });
     $("[pageName=reviewShowPersonal]").bind("click", function () {
+        savePageCache(cacheArray, 'reviewShowPersonal');
         derict(this, "reviewShowPersonal", "nochangeurl");
     });
     $("[pageName=reviewCompany]").bind("click", function () {
+        savePageCache(cacheArray, 'reviewCompany');
         derict(this, "reviewCompany", "nochangeurl");
     });
     $("[pageName=reviewPersonal]").bind("click", function () {
+        savePageCache(cacheArray, 'reviewPersonal');
         derict(this, "reviewPersonal", "nochangeurl");
     });
     $("[pageName=importGoods]").bind("click", function () {
+        savePageCache(cacheArray, 'importGoods');
         derict(this, "importGoods", "nochangeurl");
     });
     $("[pageName=mytable]").bind("click", function () {
+        savePageCache(cacheArray, 'mytable');
         derict(this, "mytable", "nochangeurl");
     });
     $("[pageName=goodsCreate]").bind("click", function () {
-        derict(this, "userType", "nochangeurl");
+        savePageCache(cacheArray, 'goodsCreate');
+        derict(this, "goodsCreate", "nochangeurl");
     });
     $("[pageName=goodsCheckfailManage]").bind("click", function () {
+        savePageCache(cacheArray, 'goodsCheckfailManage');
         derict(this, "goodsCheckfailManage", "nochangeurl");
     });
     $("[pageName=goodsDraft]").bind("click", function () {
+        savePageCache(cacheArray, 'goodsDraft');
         derict(this, "goodsDraft", "nochangeurl");
     });
     $(".page-content").on("click", ".welcome", function () {
+        savePageCache(cacheArray, 'welcome');
         derict(this, "welcome", "nochangeurl");
     }).on("click", ".agencyList", function () {
+        savePageCache(cacheArray, 'agencyList');
         derict(this, "agencyList", "nochangeurl");
     });
 }
@@ -212,9 +263,9 @@ function derict(o, temp, cache, fun) {
     if (derict_lock) {
         return;
     }
+    session.nowPageName = temp;
     if (temp.indexOf("fullscreen") == -1) {
         if ($("[pageName=" + temp + "]").length == 1) {
-            session.nowPageName = temp;
             var $active = $("[pageName=" + temp + "]"),
                 $activeUL = $active.parent(),
                 auth = $activeUL.attr('auth');
@@ -308,10 +359,12 @@ function getAuth() {
                     return;
                 }
 
-                var temp=session.nowPageName;
+                var pageCache = session.page_cache,
+                    pageCacheArray = pageCache && pageCache.split(','),
+                    temp = $.isArray(session.nowPageName, pageCacheArray) ? session.nowPageName : pageCacheArray.pop();
                 try {
                     if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
-                        $(".work-space").loadTemp(temp, "nochangeurl");
+                        $(".work-space").loadTemp(session.nowPageName, "nochangeurl");
                         $("[pageName=" + temp + "]").show();
                         $("[pageName=" + temp + "]").addClass("active").siblings().show();
                         $("[pageName=" + temp + "]").parent().show();
