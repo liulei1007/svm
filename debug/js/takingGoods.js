@@ -13,13 +13,13 @@ $(function(){
 			alert("至少添加一组店铺商品信息")
 		}else{
 			var productShopGoodsAddVos=[];
-			$('tbody tr').each(function() {
-				if($(this).css('display')=="none"){
-					$(this).remove();
-				}
-			});
+			// $('tbody tr').each(function() {
+			// 	if($(this).css('display')=="none"){
+			// 		$(this).remove();
+			// 	}
+			// });
 
-			$('tbody tr').each(function(i){
+			$('tbody tr[sel="true"]').each(function(i){
 				productShopGoodsAddVos[i]={
 					"productGoodsId":$(this).find('.productGoodsId').html(),
 					"salePrice":parseFloat($(this).find('.salePrice').val()),
