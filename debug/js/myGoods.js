@@ -885,10 +885,17 @@ $(function () {
         dataJson.countryId = $_countryId.val();
         dataJson.countryName = $_countryId.find("option:selected").text();
 
-        dataJson.provinceId = $.trim($_provinceId.val()) ? $.trim($_provinceId.val()) : 0;
-        dataJson.provinceName = $_provinceId.find("option:selected").text();
-        dataJson.cityId = $.trim($_cityId.val()) ? $.trim($_cityId.val()) : 0;
-        dataJson.cityName = $_cityId.find("option:selected").text();
+        if (dataJson.countryId == 'CN') {
+            dataJson.provinceId = $.trim($_provinceId.val()) ? $.trim($_provinceId.val()) : 0;
+            dataJson.provinceName = $_provinceId.find("option:selected").text();
+            dataJson.cityId = $.trim($_cityId.val()) ? $.trim($_cityId.val()) : 0;
+            dataJson.cityName = $_cityId.find("option:selected").text();
+        } else {
+            dataJson.provinceId = '';
+            dataJson.provinceName = '';
+            dataJson.cityId = '';
+            dataJson.cityName = '';
+        }
         dataJson.modelNumber = $("#modelNumber ").val();
         dataJson.materialQuality = $("#materialQuality").val();
         dataJson.weight = $("#weight").val();
