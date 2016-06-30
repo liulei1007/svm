@@ -61,6 +61,7 @@ $(function () {
         });
         //plumeApi_Host=$(data).find("api-host").text();
         $(data).find("api").children().each(function () {
+            
             var tagname = $(this)[0].tagName;
             plumeApi[tagname] = plumeApi_Host + $(this).text();
         });
