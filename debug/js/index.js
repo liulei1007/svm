@@ -23,7 +23,7 @@ $(function () {
             async: false,
             success: function (data) {
                 if (data.ok) {
-                   // window.location.href = "../";
+                    window.location.href = "../";
                     sessionStorage.clear();
                 }
             }
@@ -222,7 +222,7 @@ function derict(o, temp, cache, fun) {
             $('div.slidebar ul[auth="' + auth + '"]').addClass('active').siblings().removeClass('active');
             $active.parent().parent().find('li').removeClass('active');
             $active.addClass("active").siblings().removeClass("active");
-            $active.parent().show().siblings().hide();
+            $active.parent().show().siblings().hide().find('li').show();
         }
     }
     derict_lock = true;
@@ -307,19 +307,14 @@ function getAuth() {
                 if (path.indexOf(".html") != -1) {
                     return;
                 }
-                var prams = path.substring(path.indexOf("?") + 1);
-                if(path.indexOf("?")==-1){
-                    var temp = path.substring(path.lastIndexOf("/") + 1);
-                }else{
-                    var temp = path.substring((path.lastIndexOf("/") + 1),path.indexOf("?"));
-                }
 
+                var temp=session.nowPageName;
                 try {
                     if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
                         $(".work-space").loadTemp(temp, "nochangeurl");
                         $("[pageName=" + temp + "]").show();
-                        $("[pageName=" + temp + "]").siblings().show();
-                        $("[pageName=" + temp + "]").addClass("active").parent().show();
+                        $("[pageName=" + temp + "]").addClass("active").siblings().show();
+                        $("[pageName=" + temp + "]").parent().show();
                         var authNum = $("[pageName=" + temp + "]").parent().attr("auth");
                         $(".slidebar").find("[auth=" + authNum + "]").addClass("active");
                     } else {
