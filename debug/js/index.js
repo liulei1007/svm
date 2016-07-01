@@ -553,7 +553,7 @@ function getProductInfo() {
                 $(data.data.productGoods).each(function (i, data) {
                     color[data.color] = 1;
                     size[data.standard] = 1;
-                    trList += '<tr sel="true"><td class="color">' + data.color + '</td><td class="productGoodsId">' + data.productGoodsId + '</td><td class="size">' + data.standard + '</td><td>' + data.marketPrice + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
+                    trList += '<tr sel="true"><td class="color">' + data.color + '</td><td class="productGoodsId">' + data.productGoodsId + '</td><td class="size">' + data.standard + '</td><td><input type="text" class="form-control salePrice" /></td><td><select class="form-control priceType"><option value="1">明码实价</option><option value="2">明码议价</option></select></td><td><input type="text" class="form-control inventory "/></td><td><button type="button" class="btn btn-default btn-sm btn-delect">删除</button></td></tr>'
                 });
 
                 for (c in color) {
