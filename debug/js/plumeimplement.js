@@ -411,7 +411,6 @@ $.ajaxSetup({
         var t = plumeTime() - PlumeAjaxTimes;
         plumeLog("页面加载性能:--请求" + this.url + "耗时:" + t + "毫秒");
         if(data.responseJSON){
-            console.log(data.responseJSON)
             if(data.responseJSON.resDescription && data.responseJSON.resDescription.indexOf("未登录")!=-1){
                 window.location.href="/";
             }
