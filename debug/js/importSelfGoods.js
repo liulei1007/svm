@@ -22,16 +22,16 @@ $(function () {
     //页面ajaxForm请求
     ajaxForm: function() {
       $('#myForm').ajaxForm(function (data) {
-        if (data.ok) {
-          unloading();
-          $(".loadFile").val("");
-          $('#fileSuffix').html("");
-          showPopTips('上传成功',"warning","");
-        } else {
-          unloading();
-          alert(data.resDescription || data.data);
-          $('.pop').hide();
-        }
+        data.ok?(
+          unloading(),
+          $(".loadFile").val(""),
+          $('#fileSuffix').html(""),
+          showPopTips('上传成功',"warning",""))
+         :(
+          unloading(),
+          alert(data.resDescription || data.data),
+          $('.pop').hide()
+          );
       });
     },
 

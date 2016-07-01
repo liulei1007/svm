@@ -715,6 +715,7 @@ function tablecheckbox() {
         $(".table-block").find("tbody input:checkbox").prop("checked", c);
     });
 }
+
 //pop
 $.fn.extend({
     pop: function (temp, fun) {
