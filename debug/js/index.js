@@ -303,7 +303,7 @@ function getAuth() {
                         secondMenu += '<li pageName="' + c.resourceUrl + '">' + c.resourceName + '</li>';
                     }
                     secondMenu += '</ul>';
-                    $(".page-content").append(secondMenu);
+                    $(".page-content").prepend(secondMenu);
                 }
                 $(".slidebar-title").fadeIn();
                 // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
