@@ -85,7 +85,7 @@ $(function () {
         $(".mg-title").text("商品待完善数据编辑");
         //返回按钮
         $(".cmg-cancel").bind("click", function () {
-            derict(this, "noCompleteData", "nochangeurl");
+            derict(this, session.goods_showMyGoods_page, "nochangeurl");
         });
         getDataInit();
     }
@@ -119,10 +119,10 @@ $(function () {
     }
     if (session.goods_baseCategoryId == 1) {
         $(".material").show();
-        $(".material_temp").hide();
+        $(".material_temp").remove();
     } else {
-        $(".material").hide();
-        $(".checkShow").hide();
+        $(".material").remove();
+        $(".checkShow").remove();
         $(".material_temp").show();
     }
 
@@ -198,9 +198,9 @@ $(function () {
         session.goods_baseCategoryName = d.baseCategoryName;
         if (session.goods_baseCategoryId == 1) {
             $(".material").show();
-            $(".material_temp").hide();
+            $(".material_temp").remove();
         } else {
-            $(".material").hide();
+            $(".material").remove();
             $(".material_temp").show();
         }
         getProductAttribute();
@@ -360,9 +360,9 @@ $(function () {
                 session.goods_baseCategoryName = d.baseCategoryName;
                 if (session.goods_baseCategoryId == 1) {
                     $(".material").show();
-                    $(".material_temp").hide();
+                    $(".material_temp").remove();
                 } else {
-                    $(".material").hide();
+                    $(".material").remove();
                     $(".material_temp").show();
                 }
                 getProductAttribute();
@@ -694,15 +694,34 @@ $(function () {
         var flag = true;
 
         $(".cmg-error").removeClass("cmg-error");
-        $(".alert-danger").text("").hide();
+        $(".alert-danger").hide();
 
         $(".notNull").each(function () {
             if ($(this).val()) {
-                // $(this).parent().parent().find(".alert-danger").hide();
+                // cm-color-body
+                $(this).removeClass("cmg-error");
+                $(this).parent().parent().find(".alert-danger").hide();
             } else {
-                // $(this).addClass("cmg-error");
-                // $(this).parent().parent().find(".alert-danger").text("数据项不能为空!").show();
+                flag == true && $(this).addClass("cmg-error");
+                $(this).parent().parent().find(".alert-danger").show();
                 flag = false;
+            }
+        });
+
+        var $standardtbody = $('.standardtbody');
+        if ($standardtbody.find('.cmg-goodstr').length === 0) {
+            flag == true && $('#standard').addClass("cmg-error");
+            $('.addGoods-table').find(".alert-danger").show();
+            flag = false;
+        }
+        $standardtbody.find('input').each(function () {
+            if (!$(this).val()) {
+                flag == true && $('#standard').addClass("cmg-error");
+                $('.addGoods-table').find(".alert-danger").show();
+                flag = false;
+            } else {
+                $('#standard').removeClass("cmg-error");
+                $('.addGoods-table').find(".alert-danger").hide();
             }
         });
 
@@ -713,33 +732,37 @@ $(function () {
         if ($_countryId.val() === "CN") {
             var pid = $.trim($_provinceId.val()), cid = $.trim($_cityId.val());
 
-            // var validAddress = function ($it, result) {
-            //     var $obj = $it.parent().parent().find(".alert-danger");
-            //     result ? $obj.text("数据项不能为空!").show() : $obj.text('').hide();
-            // };
+            var validAddress = function ($it, result) {
+                var $obj = $it.parent().parent().find(".alert-danger");
+                result ? $obj.show() : $obj.hide();
+            };
             if (!pid || !cid) {
-                // pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                pid ? validAddress($_cityId, true) : validAddress($_provinceId, true);
+                flag == true && $_cityId.addClass("cmg-error");
                 flag = false;
+            } else {
+                $_cityId.removeClass("cmg-error");
+                validAddress($_cityId, false) && validAddress($_provinceId, false);
             }
-            // else {
-            //     validAddress($_cityId, false) && validAddress($_provinceId, false);
-            // }
         }
+
+        $('.cm-color-body')
 
         var re = /^[0-9]+.?[0-9]*$/;
         $(".num").each(function () {
             if ($(this).val() != "") {
                 if (re.test($(this).val())) {
+                    $(this).removeClass("cmg-error");
                     $(this).parent().parent().find(".alert-danger").hide();
                 } else {
-                    $(this).addClass("cmg-error")
-                    $(this).parent().parent().find(".alert-danger").text("请输入数字!").show();
+                    flag == true && $(this).addClass("cmg-error");
+                    $(this).parent().parent().find(".alert-danger").show();
                     flag = false;
                 }
             }
 
         });
-        $($(".cmg-error")[0]).focus();
+        $(".cmg-error").focus();
         return flag;
     }
 

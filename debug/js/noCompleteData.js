@@ -178,6 +178,7 @@ $(function () {
             }).on('click', '.btn-link-edit', function () {
                 session.goods_showMyGoods_uptId = $(this).attr("uptid");
                 session.goods_showMyGoods_type = "amend";
+                session.goods_showMyGoods_page = "noCompleteData";
                 derict(this, "myGoods", "nochangeurl");
 
                 return false;

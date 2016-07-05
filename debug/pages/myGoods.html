@@ -47,6 +47,7 @@
                             <option list-temp="true" node-name="$n.brandName,attr-value:$n.id"></option>
                         </select>
                     </div>
+                    <div class="col-sm-2 alert alert-danger">请选择品牌名称</div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i><span>系列名称</span></label>
@@ -56,12 +57,13 @@
                             <option value="" list-temp="true" node-name="$n.seriesName,attr-value:$n.id"></option>
                         </select>
                     </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                     <div class="col-sm-2 alert alert-danger">请选择系列名称</div>
                 </div>
                 <div class="form-group required">
                     <label class="col-sm-2 control-label"><i>*</i><span>商品名称</span></label>
                     <div class="col-sm-6"><input type="text" id="productName" class="form-control notNull" placeholder="如，小圆茶几" />
                     </div>
+                    <div class="col-sm-2 alert alert-danger">请输入商品名称</div>
                 </div>
                 <div class="row help-block">
                 	<div class="col-sm-offset-2 col-sm-8">商品名称需体现商品的使用功能</div>
@@ -71,7 +73,6 @@
 
                     <div class="col-sm-6"><input type="text" id="productSecondName" class="form-control" maxlength="50" placeholder="如，迎六一促销特卖，特价地中海风格板式茶几">
                     </div>
-                    <div class="col-sm-2 alert alert-danger" id="productSecondName_msg"></div>
                 </div>
                 <div class="row help-block">
                 	<div class="col-sm-offset-2 col-sm-8">支持汉字、字母、数字、特殊字符格式、不得超过50个字节</div>
@@ -93,7 +94,7 @@
                             <option list-temp="true" node-name="$n.adress,attr-value:$n.adressCode"></option>
                         </select>
                     </div>
-                    <div class="col-sm-2 alert alert-danger"></div>
+                    <div class="col-sm-2 alert alert-danger">请选择产地</div>
                 </div>
                 <div class="row help-block">
                     <div class="col-sm-offset-2 col-sm-8">默认选择中国，进口商品直接选择国家即可</div>
@@ -102,24 +103,24 @@
                     <label class="col-sm-2 control-label"><i>*</i><span>型号</span></label>
 
                     <div class="col-sm-6"><input type="text" id="modelNumber" class="form-control notNull"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                     <div class="col-sm-2 alert alert-danger">请输入型号</div>
                 </div>
                 <div class="row help-block">
                     <div class="col-sm-offset-2 col-sm-8">工厂对商品的特定编号，是商品的唯一识别编号</div>
                 </div>
-                <div class="form-group required" style="display: none">
-                    <label class="col-sm-2 control-label"><i>*</i><span>材质</span></label>
+                <!--<div class="form-group required" style="display: none">-->
+                    <!--<label class="col-sm-2 control-label"><i>*</i><span>材质</span></label>-->
 
-                    <div class="col-sm-6"><input type="text" id="materialQuality" class="form-control">
-                    </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
-                </div>
+                    <!--<div class="col-sm-6"><input type="text" id="materialQuality" class="form-control notNull">-->
+                    <!--</div>-->
+                     <!--<div class="col-sm-2 alert alert-danger">请输入材质</div>-->
+                <!--</div>-->
                 <div class="form-group required material_temp">
                     <label class="col-sm-2 control-label"><i>*</i><span>主要用料</span></label>
 
-                    <div class="col-sm-6"><input type="text" id="material" class="form-control">
+                    <div class="col-sm-6"><input type="text" id="material" class="form-control notNull">
                     </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                     <div class="col-sm-2 alert alert-danger">请输入主要用料</div>
                 </div>
                 <!--<div class="form-group">-->
                     <!--<label class="col-sm-2 control-label"><span>重量</span></label>-->
@@ -154,8 +155,8 @@
                 <div class="form-group required material">
                     <label class="col-sm-2 control-label"><i>*</i><span>基材</span></label>
 
-                    <div class="col-sm-4"><input type="text" id="material1" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入基材！</div> -->
+                    <div class="col-sm-4"><input type="text" id="material1" class="form-control notNull"></div>
+                     <div class="col-sm-2 alert alert-danger">请输入基材</div>
                 </div>
                 <div class="row help-block checkShow">
                     <div class="col-sm-offset-2 col-sm-8">可接触面和框架材料，材料之间统一用顿号作为间隔符号</div>
@@ -163,8 +164,8 @@
                 <div class="form-group required material">
                     <label class="col-sm-2 control-label"><i>*</i><span>辅材</span></label>
 
-                    <div class="col-sm-4"><input type="text" id="material2" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入辅材！</div> -->
+                    <div class="col-sm-4"><input type="text" id="material2" class="form-control notNull"></div>
+                     <div class="col-sm-2 alert alert-danger">请输入辅材</div>
                 </div>
                 <div class="row help-block checkShow">
                     <div class="col-sm-offset-2 col-sm-8">非接触面、填充物、五金件材料，材料之间统一用顿号作为间隔符号</div>
@@ -172,8 +173,8 @@
                 <div class="form-group required material">
                     <label class="col-sm-2 control-label"><i>*</i><span>饰面</span></label>
 
-                    <div class="col-sm-4"><input type="text" id="material3" class="form-control"></div>
-                    <!-- <div class="col-sm-2 alert alert-danger">请输入饰面！</div> -->
+                    <div class="col-sm-4"><input type="text" id="material3" class="form-control notNull"></div>
+                     <div class="col-sm-2 alert alert-danger">请输入饰面</div>
                 </div>
                 <div class="row help-block checkShow">
                     <div class="col-sm-offset-2 col-sm-8">表面上的贴面，油漆涂饰，软、硬质覆面材料，材料之间统一用顿号作为间隔符号</div>
@@ -186,7 +187,7 @@
                             <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                         </select>
                     </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                     <div class="col-sm-2 alert alert-danger">请选择等级</div>
                 </div>
                 <div class="row help-block">
                     <div class="col-sm-offset-2 col-sm-8">等级可以选择合格品或者优等品</div>
@@ -199,7 +200,7 @@
                             <option list-temp="true" node-name="$n.codeValueName,attr-value:$n.codeValueCode"></option>
                         </select>
                     </div>
-                    <!-- <div class="col-sm-2 alert alert-danger"></div> -->
+                     <div class="col-sm-2 alert alert-danger">请选择计价单位</div>
                 </div>
                 <div class="row help-block">
                     <div class="col-sm-offset-2 col-sm-8">计价单位指商品的结算计量单位品</div>
@@ -269,7 +270,7 @@
                                 </div>
 
                             </div>
-
+                            <div class="col-sm-2 alert alert-danger">请选择颜色分类</div>
                         </div>
                     </div>
                     <div class="row">
@@ -329,6 +330,7 @@
                         <p>例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm:</p>
                     </div> -->
                     <!-- </div> -->
+                    <div class="col-sm-2 alert alert-danger">请输入规格属性</div>
                 </div>
                 <div class="col-sm-8 col-sm-offset-2" style="width: auto;">
                     <div class="alert alert-info">例如：尺寸范例：150cm*85cm*220cm、组合范例：3人沙发+单人沙发65cm*80cm</div>
