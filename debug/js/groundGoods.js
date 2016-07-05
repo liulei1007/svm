@@ -1,4 +1,64 @@
 $(function(){
+    var groundGoods={
+        //初始化数据
+        data: {},
+
+        //事件绑定
+        bindEvent: function() {
+            $('.table-block').on('click','.btn-delect',function(){
+            getGoodsPsgId(this);
+            delectGoodsData();
+        });
+
+        $('.table-block').on('click','.btn-compile',function() {
+            getGoodsPsgId(this);
+            derict(this, "compileGoods", "nochangeurl");
+        });
+
+        $('.table-block').on('click','.btn-ground',function() {
+            getGoodsPsgId(this);
+            if($(this).html()=="上架"){
+                groundGoods() 
+            }else{
+                soldOutGoods()
+            }
+        });
+
+        $(".btn-all-ground").on('click',function() {
+            groundGoods();
+        });
+
+        $(".btn-all-unGround").on('click',function() {
+            soldOutGoods();
+        });
+
+ 
+        $(".btn-all-delect").on('click',function() {
+            delectGoodsData()
+        })
+
+         //清空搜索
+        $('.btn-empty').bind('click', function() {
+            window.location.reload();
+        });
+
+        //回车搜索
+        $(".search-block input[type=text]").bind('focus',function() {
+           key.keydownEnter('.btn-search');   
+        });
+
+        $(".search-block input[type=text]").bind('blur',function() {
+           key.unkeydownEnter('.btn-search');   
+        });  
+        },
+
+        groundGoodsController: function() {
+            this.bindEvent()
+        }
+    }
+
+    groundGoods.groundGoodsController() 
+    
     datas={
 		  "productName": "",
 		  "modelNumber": "",
