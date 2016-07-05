@@ -175,15 +175,19 @@ $(function () {
          * 数据对比
          */
         compareData: function () {
-            $(".smg-basicInfo1, .good1").find(".form-horizontal").find("p").each(function (i) {
+            $(".smg-basicInfo1").find(".form-horizontal").find("p").each(function (i) {
                 var t1 = $(this).text(),
-                    t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text(),
-                    t3 = $($(".good2").find(".form-horizontal").find("p")[i]).text();
+                    t2 = $($(".smg-basicInfo2").find(".form-horizontal").find("p")[i]).text();
                 if (t1 != t2) {
                     $($(".smg-basicInfo1").find(".form-horizontal").find("p")[i]).css({
                         "background": "#f0d6d0"
                     });
                 }
+            });
+
+            $(".good1").find(".form-horizontal").find("p").each(function (i) {
+                var t1 = $(this).text(),
+                    t3 = $($(".good2").find(".form-horizontal").find("p")[i]).text();
                 if (t1 != t3) {
                     $($(".good1").find(".form-horizontal").find("p")[i]).css({
                         "background": "#f0d6d0"
