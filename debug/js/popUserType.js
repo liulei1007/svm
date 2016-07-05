@@ -22,13 +22,13 @@ $(function() {
             $(".pop").find(".popup-info").html("请选择类目");
             return;
         }
-        session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
-        session.goods_categoryId = $(".type-third-span").attr("categoryId");
-        session.goods_categoryName = $(".type-third-span").eq(0).text();
-        session.goods_subCategoryId = $(".type-second-span").attr("categoryId");
-        session.goods_subCategoryName = $(".type-second-span").eq(0).text();
-        session.goods_baseCategoryId = $(".type-first-span").attr("categoryId");
-        session.goods_baseCategoryName = $(".type-first-span").attr("categoryId");
+        session.goods_userType_pop = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
+        session.goods_categoryId_pop = $(".type-third-span").attr("categoryId");
+        session.goods_categoryName_pop = $(".type-third-span").eq(0).text();
+        session.goods_subCategoryId_pop = $(".type-second-span").attr("categoryId");
+        session.goods_subCategoryName_pop = $(".type-second-span").eq(0).text();
+        session.goods_baseCategoryId_pop = $(".type-first-span").attr("categoryId");
+        session.goods_baseCategoryName_pop = $(".type-first-span").attr("categoryId");
         $(".popSort").hide();
     });
     var cls = ["type-first", "type-second", "type-third"];
