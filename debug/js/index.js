@@ -266,11 +266,9 @@ function pathInit() {
     var prams = path.substring(path.indexOf("?") + 1);
     var temp = path.substring(path.lastIndexOf("/") + 1);
     if (prams.indexOf("fullscreen") != -1) {
-        // getAuth();
-        // $(".slidebar").hide();
-        // $('.index-head-user').hide();
-        // $(".page-content").show();
-        // $(".page-content").css({"left": 0});
+        $(".slidebar").hide();
+        $(".page-content").show();
+        $(".page-content").css({"left": 0});
         $(".container-fixed").fadeIn();
     } else {
         loading();
