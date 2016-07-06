@@ -221,7 +221,7 @@ function derict(o, temp, cache, fun) {
         return;
     }
 
-    session.nowPageName = temp;
+    session.nowPageName = temp == 'index' ? '' : temp;
 
     var cachePage = session.page_cache,
         cacheArray = cachePage ? cachePage.split(',') : [],
@@ -266,9 +266,11 @@ function pathInit() {
     var prams = path.substring(path.indexOf("?") + 1);
     var temp = path.substring(path.lastIndexOf("/") + 1);
     if (prams.indexOf("fullscreen") != -1) {
-        $(".slidebar").hide();
-        $(".page-content").show();
-        $(".page-content").css({"left": 0});
+        // getAuth();
+        // $(".slidebar").hide();
+        // $('.index-head-user').hide();
+        // $(".page-content").show();
+        // $(".page-content").css({"left": 0});
         $(".container-fixed").fadeIn();
     } else {
         loading();
@@ -280,7 +282,7 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $.ajax({
+    return $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
         contentType: "application/json",
