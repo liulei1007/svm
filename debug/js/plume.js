@@ -334,6 +334,7 @@ $.fn.extend({
     },
     //开放方法,dom级别绑定赋值,仅作为扩展思路,功能较弱,不推荐使用
     setPageData: function ($p) {
+        
         $(this).find("[data-name]").each(function (i, e) {
             $(this).setNodeData("$p", $p, "data-name");
         });
