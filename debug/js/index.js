@@ -269,6 +269,12 @@ function pathInit() {
         $(".slidebar").hide();
         $(".page-content").show();
         $(".page-content").css({"left": 0});
+
+        var href = window.location.href,
+            index = href.lastIndexOf('?'),
+            url = href.substring(href.lastIndexOf('/') + 1, index);
+
+        $(".work-space").loadTemp(url, "nochangeurl");
         $(".container-fixed").fadeIn();
     } else {
         loading();
