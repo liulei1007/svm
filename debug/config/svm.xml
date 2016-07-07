@@ -145,7 +145,7 @@
     </page>
     <page>
         <page-name>changepwdNone</page-name>
-        <page-url>pages/changepwdNone.html</page-url>
+        <page-url>pages/changepwd.html</page-url>
         <init>changepwdnone_init</init>
     </page>
     <page>

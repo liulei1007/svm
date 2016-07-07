@@ -1,5 +1,7 @@
 $(function () {
+	$('div.index-head-user').remove();
 	var ifNull = false, ifPasswordSuccess = false;
+
 	plumeLog("进入changepwd模板自定义js-" + plumeTime());
 
 	if ((sessionStorage.login_mobilePhone!=undefined)&&sessionStorage.login_mobilePhone!="") {
@@ -25,7 +27,7 @@ $(function () {
 	$('button.btn-close').on('click', function () {
 		$('div.popup').hide();
 	});
-	
+
 	// 获取验证码按钮
 	$("#cpdsendcode").bind("click", function () {
 		console.log("click");
