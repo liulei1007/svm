@@ -277,6 +277,7 @@ function pathInit() {
         $(".work-space").loadTemp(url, "nochangeurl");
         $(".container-fixed").fadeIn();
     } else {
+        
         loading();
         getLoginInfoToSession();
         getAuth();
