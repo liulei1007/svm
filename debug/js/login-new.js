@@ -70,7 +70,7 @@ $(function () {
     })
 
     $(".fetchpwd").bind("click", function () {
-        window.location.href = "../changepwdNone.html";
+        window.location.href = "../changepwdNone?fullscreen";
     });
 
     // $(".btn-register").bind("click", function () {
