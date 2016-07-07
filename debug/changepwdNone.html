@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"changepwdNone"
+        }
+    </script>
+</head>
+
+<body>
+<div class="body-typein">
+    <div class="title-block">修改密码</div>
+    <form class="form-horizontal cpdstep1">
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i><span>手机号码</span></label>
+            <div class="col-sm-6"><input type="text" class="form-control mobile" maxlength="11" placeholder="请输入手机号码"></div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i><span>验证码</span></label>
+            <div class="col-sm-4"><input type="text" class="form-control verifycode" maxlength="6" placeholder="请输入验证码" ></div>
+            <div class="col-sm-2" id="cpdsendcode" >
+                <button type="button" class="btn btn-default timeshow">获取验证码</button>
+            </div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i><span>输入新密码</span></label>
+            <div class="col-sm-6"><input type="password" id="pwd" class="form-control password" maxlength="20" placeholder="请输入新密码" ></div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i><span>确认新密码</span></label>
+            <div class="col-sm-6"><input type="password" id="repwd" class="form-control repassword" maxlength="20" placeholder="请确认新密码" ></div>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-3 btn-block">
+            <div type="button" class="btn btn-lg btn-success btn-next" id="cpdsub">提交</div>
+            <div type="button" class="btn btn-lg btn-default btn-back fmg-back" id="backIndex">返回</div>
+        </div>
+    </form>
+</div>
+<div class="popup" style="display: none;">
+    <p class="popup-title">操作成功！</p>
+    <div class="popup-icon"><i class="warning"></i></div>
+    <div class="popup-info">记录已经添加到XXX</div>
+    <div class="row popup-btn-block">
+        <div class="col-sm-4 col-sm-offset-4">
+            <button type="button" class="btn btn-default btn-close">确认</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

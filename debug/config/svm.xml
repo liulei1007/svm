@@ -144,6 +144,11 @@
         <init>changepwd_init</init>
     </page>
     <page>
+        <page-name>changepwdNone</page-name>
+        <page-url>changepwdNone.html</page-url>
+        <init>changepwdnone_init</init>
+    </page>
+    <page>
         <page-name>secondreg</page-name>
         <page-url>/pages/secondreg.html</page-url>
         <init>secondreg_init</init>
