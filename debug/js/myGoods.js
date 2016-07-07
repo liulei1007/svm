@@ -1100,7 +1100,6 @@ $(function () {
         },
         success: function (data) {
             var data = data.data;
-            console.log(data);
             if (data && data.length > 0) {
                 var dataLen = data.length;
                 for (var i = 0; i < dataLen; i++) {
