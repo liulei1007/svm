@@ -536,5 +536,6 @@
         <delProductShopGoods>productShopGoods/delProductShopGoods</delProductShopGoods>
 
         <moreDelete>productDraft/deleteProductDraft</moreDelete>
+        <goodsName>common/listStandardConfig</goodsName>
     </api>
 </config>
