@@ -1,73 +1,61 @@
 $(function () {
 	var ifNull = false, ifPasswordSuccess = false;
-    plumeLog("进入changepwd模板自定义js-" + plumeTime());
+	plumeLog("进入changepwd模板自定义js-" + plumeTime());
 
-    if ((sessionStorage.login_mobilePhone!=undefined)&&sessionStorage.login_mobilePhone!="") {
-        $(".mobile").val(sessionStorage.login_mobilePhone).attr("readOnly",true);
-    }else{
-        $(".mobile").val("").attr("readOnly",false);
-    }
+	if ((sessionStorage.login_mobilePhone!=undefined)&&sessionStorage.login_mobilePhone!="") {
+		$(".mobile").val(sessionStorage.login_mobilePhone).attr("readOnly",true);
+	}else{
+		$(".mobile").val("").attr("readOnly",false);
+	}
 
-	$('button.btn-close').on('click', function () {
-		$('div.popup').hide();
+	// 绑定表单输入框验证不为空事件
+	formControl();
+
+	// 验证手机号码是否已经注册
+	$(".mobile").blur(function() {
+		checkPhone($(this), "edit");
 	});
 
-    // 绑定表单输入框验证不为空事件
-	// 必填项输入框或文本框失去焦点时，检查输入是否为空
-	$(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
-		// 清除可能存在的提示信息
-		$(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
-	}).on("blur", ".form-group.required input, .form-group.required textarea", function () {
-		checkFormNull($(this));
-	}).on("blur", ".form-group.required select", function () {
-		checkFormNull($(this));
-	});
-
-    // 验证手机号码是否已经注册
-    $(".mobile").blur(function() {
-        checkPhone($(this), "edit");
-    });
-
-    // "密码/确认密码"输入框失去焦点
+	// "密码/确认密码"输入框失去焦点
 	// -------------------------------------------------------
 	$("#pwd, #repwd").blur(function() {
 		checkPassword($(this));
 	});
 
-	$("div.fmg-back").on("click", function () {
-		window.location.href = '/';
+	$('button.btn-close').on('click', function () {
+		$('div.popup').hide();
 	});
+	
+	// 获取验证码按钮
+	$("#cpdsendcode").bind("click", function () {
+		console.log("click");
+		if ($(".mobile").prop("readOnly")) { ifPhoneSuccess = true; }
 
-    // 获取验证码按钮
-    $("#cpdsendcode").bind("click", function () {
-    	console.log("click");
-    	if ($(".mobile").prop("readOnly")) { ifPhoneSuccess = true; }
+		// 首先检验手机号是否已经注册
+		else checkFormNull($(".mobile"));
 
-        // 首先检验手机号是否已经注册
-        else checkFormNull($(".mobile"));
+		if (!ifPhoneSuccess) { return; }
 
-        if (!ifPhoneSuccess) { return; }
+		// 确保没有倒计时
+		if (!sendMsgCount) { return; }
 
-        // 确保没有倒计时
-        if (!sendMsgCount) { return; }
+		var mobile = $(".mobile").val();
+		loading();
+		$.get(plumeApi["sendMsg"] + "/" + mobile + "/10003", {}, function (data) {
+			unloading();
+			if (data.ok) {
+				showPopTips("发送成功", "success", "短信验证码已成功发送到手机");
+				settime(60);
+			}
+			else {
+				showPopTips("发送失败", "warning", data.resDescription);
+			}
+		});
+	})
 
-        var mobile = $(".mobile").val();
-        loading();
-        $.get(plumeApi["sendMsg"] + "/" + mobile + "/10003", {}, function (data) {
-        	unloading();
-        	if (data.ok) {
-        		showPopTips("发送成功", "success", "短信验证码已成功发送到手机");
-        		settime(60);
-        	}
-            else {
-            	showPopTips("发送失败", "warning", data.resDescription);
-            }
-        });
-    })
-
-    // 提交按钮
-    $("#cpdsub").bind("click", function () {
-    	ifNull = false;
+	// 提交按钮
+	$("#cpdsub").bind("click", function () {
+		ifNull = false;
 		// 首先确保数据都输入了
 		$(".form-group.required input").each(function() {
 			if (!checkFormNull($(this))) ifNull = true;
@@ -95,10 +83,19 @@ $(function () {
 			success: function (data) {
 				unloading();
 				if (data.ok) {
-					showPopTips("重置成功", "success", "密码重置成功", true);
-	            } else {
-					showPopTips("重置失败", "warning", data.resDescription);
-	            }
+					$('.pop').loadTemp("popTips", "nochangeurl", function () {
+						$(".pop").find(".popup-title").html("重置成功");
+						$(".pop").find(".popup-icon").html('<i class="success"></i>');
+						$(".pop").find(".popup-info").html("密码重置成功");
+					});
+					window.location.href = "/";
+				} else {
+					$('.pop').loadTemp("popTips", "nochangeurl", function () {
+						$(".pop").find(".popup-title").html("重置失败");
+						$(".pop").find(".popup-icon").html('<i class="warning"></i>');
+						$(".pop").find(".popup-info").html(data.resDescription);
+					});
+				}
 			},
 			error: function (error) {
 				console.log(error);
@@ -106,7 +103,7 @@ $(function () {
 		});
 	});
 
-    // 检验密码/确认密码
+	// 检验密码/确认密码
 	function checkPassword(checkObj) {
 		// 清除可能存在的两次输入密码不一致的提示框
 		$("#repwd").parents(".form-group").removeClass("has-error").find(".alert-danger").remove();
@@ -140,146 +137,20 @@ $(function () {
 			$("#repwd").parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">密码和确认密码不一致</div>');
 		}
 	}
-});
-
-//密码验证: 6-15位字符，建议数字和字母组合
-function pwdCheck(pwd) {
-	return /^[0-9A-Za-z]{6,15}$/.test(pwd);
-}
-
-function loading() {
-	if (!($(".lockbg").length > 0)) {
-		$(document.body).append("<div class='lockbg'></div>");
-		$(".lockbg").show();
-	}
-
-	if (!($(".loading").length > 0)) {
-		var temp = '<div class="popcenter loading"></div>';
-		$(document.body).append(temp);
-	}
-}
-
-function unloading() {
-	$(".lockbg").fadeOut(function () {
-		$(this).remove();
-
-	});
-	$(".loading,.loading-img").fadeOut(function () {
-		$(this).remove();
-	});
-}
+})
 
 var sendMsgCount = true;
 function settime(countdown) {
-    if (countdown == 0) {
-        $(".timeshow").html("获取验证码").removeProp("disabled");
-        sendMsgCount = true;
-        return;
-    } else {
-        $(".timeshow").html(countdown + "s后重新发送").prop("disabled", "disabled");
-        sendMsgCount = false;
-        countdown--;
-        setTimeout(function () {
-            settime(countdown)
-        }, 1000);
-    }
-}
-
-function showPopTips(popupTitle, popupIcon, popupTips, flag) {
-	$('div.popup-title').html(popupTitle);
-	$('div.popup-info').html(popupTips);
-	$("div.popup-icon").html('<i class="' + popupIcon + '"></i>');
-	$('div.popup').show();
-	flag ? setTimeout(function () {
-		$('div.popup').hide();
-		window.location.href = "/";
-	}, 2000) : setTimeout(function () {
-		$('div.popup').hide();
-	}, 2000);
-}
-
-// 检验单个必填项是否填写
-function checkFormNull(checkObj) {
-	// 如果当前输入框为不可修改状态，退出验证
-	if ($(checkObj).prop("disabled")) {
-		return true;
+	if (countdown == 0) {
+		$(".timeshow").html("获取验证码").removeProp("disabled");
+		sendMsgCount = true;
+		return;
+	} else {
+		$(".timeshow").html(countdown + "s后重新发送").prop("disabled", "disabled");
+		sendMsgCount = false;
+		countdown--;
+		setTimeout(function () {
+			settime(countdown)
+		}, 1000);
 	}
-
-	var $formBlock = $(checkObj).parents(".form-group");
-	// 如果当前输入框已有其他提示信息，退出
-	if ($formBlock.hasClass("has-warning") || $formBlock.hasClass("has-error")) {
-		return false;
-	}
-	if (!$(checkObj).val() || $(checkObj).val().trim() == "") {
-		var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
-		$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
-		// $(checkObj).parent().after('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>').parents(".form-group").addClass("has-warning");
-		return false;
-	}
-	else return true;
-}
-
-var ifPhoneSuccess = false;
-
-// 检验手机号码
-function checkPhone(checkObj, checkType) {
-	// 清除可能存在的提示信息
-	$(checkObj).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
-	ifPhoneSuccess = false;
-	// 首先判断是否为空
-	if (checkFormNull($(checkObj))) {
-		// 其次判断是否符合手机号规则
-		if (!isMobile($(checkObj).val().trim())) {
-			var tipsText = $(checkObj).parents(".form-group").find(".control-label span").html();
-			$(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入' + tipsText + '</div>');
-			// $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的手机号码</div>');
-			return;
-		}
-		// 最后判断手机号是否已经存在
-		checkPhoneExist($(checkObj), checkType);
-	}
-}
-
-// 判断手机号是否已存在
-function checkPhoneExist(checkObj, checkType) {
-	var phone = $(checkObj).val().trim();
-	$.ajax({
-		type: "get",
-		url: plumeApi["getUserInfoByMobile"] + phone,
-		contentType: "application/json",
-		dataType: "json",
-		success: function (data) {
-			if (data.ok) {
-				if (checkType == "create") {
-					ifPhoneSuccess = true;
-				}
-				else if (checkType == "edit") {
-					ifPhoneSuccess = false;
-					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">该手机号码未注册</div>');
-				}
-			}
-			else if (data.data == null) {
-				ifPhoneSuccess = false;
-				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码是否存在检查异常</div>');
-			}
-			else if (data.data > 0) {
-				if (checkType == "create") {
-					ifPhoneSuccess = false;
-					$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码已经存在</div>');
-				}
-				else if (checkType == "edit") {
-					ifPhoneSuccess = true;
-				}
-			}
-			else {
-				ifPhoneSuccess = false;
-				$(checkObj).parents(".form-group").addClass("has-error").append('<div class="col-sm-2 alert alert-danger">手机号码检查接口返回值不能识别</div>');
-			}
-		}
-	});
-}
-
-//手机号验证
-function isMobile(n) {
-	return /^1\d{10}$/.test(n) && n != 11111111111;
 }
