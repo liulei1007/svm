@@ -1103,7 +1103,7 @@ $(function () {
             if (data && data.length > 0) {
                 var dataLen = data.length;
                 for (var i = 0; i < dataLen; i++) {
-                    nameJson[data[i].likeName] = data[i];
+                    nameJson[data[i].id] = data[i];
                 }
             }
         }
@@ -1113,8 +1113,8 @@ $(function () {
         var index = 0, spanHtml = '',
             $nameSelect = $('#nameSelect');
 
-        $.each(nameJson, function (likeName, obj) {
-            if (index < 10 && likeName.indexOf(name) > -1) {
+        $.each(nameJson, function (ind, obj) {
+            if (index < 10 && obj.likeName.indexOf(name) > -1) {
                 index++;
                 spanHtml += '<span data-id="' + obj.id + '">' + obj.baseName + '</span>';
             }
