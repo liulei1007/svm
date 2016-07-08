@@ -1109,9 +1109,8 @@ $(function () {
         }
     });
 
-    var nameOperation = function (name) {
-        var index = 0, spanHtml = '',
-            $nameSelect = $('#nameSelect');
+    var nameOperation = function (name, $own, $obj) {
+        var index = 0, spanHtml = '';
 
         $.each(nameJson, function (ind, obj) {
             if (index < 10 && obj.likeName.indexOf(name) > -1) {
@@ -1119,18 +1118,46 @@ $(function () {
                 spanHtml += '<span data-id="' + obj.id + '">' + obj.baseName + '</span>';
             }
         });
-        spanHtml && $nameSelect.html(spanHtml).show();
+        spanHtml ? $obj.html(spanHtml).show() : $obj.html('').hide();
 
-        $nameSelect.find('span').on('click', function () {
-            $('#productName').val($(this).text());
-            $nameSelect.html('').hide();
+        $obj.find('span').on('click', function () {
+            $own.val($(this).text());
+            $obj.html('').hide();
         });
     };
 
-    $('#productName').on('focus', function () {
-        $('#nameSelect').html('').hide();
+    var hideName = function () {
+        $('#mater1Select').html('').hide();
+        $('#mater2Select').html('').hide();
+        $('#mater3Select').html('').hide();
+    };
+
+    var $mater1Select = $('#mater1Select'),
+        $mater2Select = $('#mater2Select'),
+        $mater3Select = $('#mater3Select');
+
+    $('#material1').on('focus', function () {
+        $mater1Select.html('').hide();
+    }).on('keyup', function () {
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater1Select): $mater1Select.html('').hide();
     }).on('blur', function () {
-        var productName = $.trim($(this).val());
-        productName && nameOperation(productName);
+        $mater1Select.html('').hide();
+    });
+    $('#material2').on('focus', function () {
+        $mater2Select.html('').hide();
+    }).on('keyup', function () {
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater2Select): $mater2Select.html('').hide();
+    }).on('blur', function () {
+        $mater2Select.html('').hide();
+    });
+    $('#material3').on('focus', function () {
+        $mater3Select.html('').hide();
+    }).on('keyup', function () {
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater3Select): $mater3Select.html('').hide();
+    }).on('blur', function () {
+        $mater3Select.html('').hide();
     });
 });
