@@ -111,6 +111,7 @@ textarea{resize: none;}
 .table-block .table .mark{width: 65px;}
 .table-block .table tfoot .mark{width: auto;}
 .table-block .a-link{color: #26aff5; cursor: pointer;}
+.a-link:link{color:#000;}
 .table-block .a-link:hover{color: #0986c5; text-decoration: underline;}
 
 /** --------搜索框-------- **/
