@@ -336,7 +336,12 @@ function getAuth() {
                     return;
                 }
 
-                var temp = session.nowPageName,
+                var href = window.location.href,
+                    index = href.lastIndexOf('?'),
+                    result = index > -1 ? index : href.length,
+                    url = href.substring(href.lastIndexOf('/') + 1, result);
+
+                var temp = url || session.nowPageName,
                     cachePage = session.page_cache,
                     cacheArray = cachePage ? cachePage.split(',') : [],
                     pageIndex = $.inArray(temp, cacheArray);
@@ -345,7 +350,7 @@ function getAuth() {
 
                 try {
                     if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
-                        $(".work-space").loadTemp(session.nowPageName, "nochangeurl");
+                        $(".work-space").loadTemp(url, "nochangeurl");
                         $("[pageName=" + temp + "]").show();
                         $("[pageName=" + temp + "]").addClass("active").siblings().show();
                         $("[pageName=" + temp + "]").parent().show();
