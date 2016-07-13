@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plume>
+
+    <resources type="api"  href="conf/config-api.xml"/>
+    <resources type="init" href="conf/config-liulei.xml"/>
+    <resources type="init" href="conf/config-zhanghao.xml"/>
+
+</plume>
