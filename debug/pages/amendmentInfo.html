@@ -54,7 +54,9 @@
           <div class="btn btn-default btn-sm adi-btn-reload">清空条件</div>
       </form>
     </div>
-    <div class="alert alert-info">您当前共有<strong data-name="$p.countRecord" class="infoNum"></strong>条修正信息待处理</div>
+    <div class="btn-block clearFix">
+      <div class="pull-right alert alert-info">您当前共有<strong data-name="$p.countRecord" class="infoNum"></strong>条修正信息待处理</div>
+    </div>
     <div class="basicDataManagement-table table-block">
         <table class="table table-striped">
             <thead>
@@ -72,14 +74,14 @@
             <tbody data-list="$p.data">
               <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                   <!--<td node-name="attr-productId:$n.uptId"><input type="checkbox"/></td>-->
-                  <td node-name="$n.productName,attr-productId:$n.productId" class="a-link adi-btn-show"></td>
+                  <td node-name="$n.productName,attr-productId:$n.productId" class="btn btn-link adi-btn-show"></td>
                   <td node-name="$n.modelNumber "></td>
                   <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
                   <td node-name="$n.seriesName "></td>
                   <td node-name="$n.brandName"></td>
                   <td node-name="_getLocalTime($n.updateDate)"></td>
                   <td>
-                  <button type="button" class="btn btn-link ai-btn-show" node-name="attr-productId:$n.productId,attr-uptId:$n.uptId">处理</button>
+                  <button type="button" class="btn btn-border-primary ai-btn-show" node-name="attr-productId:$n.productId,attr-uptId:$n.uptId">处理</button>
                 </td>
               </tr>
             </tbody>
