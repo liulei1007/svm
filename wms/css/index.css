@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 *{font-family: "Microsoft Yahei"}
 html, body{margin: 0; padding: 0; background:#fff; color: #555;}
 textarea{resize: none;}
@@ -758,3 +758,6 @@ textarea{resize: none;}
 .name-select span:hover { background-color: #0a90d4; border-radius: 4px; color: #ffffff;}
 .name-select span:focus { color: #000000;}
 .position-div {position: relative;}
+.title-div { margin-bottom: 20px; font-size: 21px; text-align: center; }
+._input{margin-top:10px};
+.a_wd{width: 95px important;}
