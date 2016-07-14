@@ -50,7 +50,7 @@ $(function () {
     // 获取出库单列表
     function getShipmentList() {
         var newData = JSON.stringify(datas)
-        $.ajax({
+        $.commonAjax({
             url: 'getShipmentList', /*+"?currentPage=1&onePageCount="+onePageCount(),*/
             type: "POST",
             data: newData,
