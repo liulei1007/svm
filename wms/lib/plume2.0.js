@@ -252,7 +252,7 @@
         setParam: {
             'initFun': 'indexInit',
             'load': '.container',
-            'container': '.content',
+            'container': '.work-space-active',
             'welcome': 'index',
             'configPlume': 'conf/config-plume.xml'
         },

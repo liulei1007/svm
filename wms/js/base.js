@@ -3,6 +3,25 @@
  */
 (function ($) {
 
+    var host = '', path = window.location.href;
+
+    if (path.indexOf("longguo.mmall.com") != -1) {
+        host = "https://longguo.mmall.com/api/";
+    } else if (path.indexOf("longguo.hxmklmall.cn") != -1) {
+        host = "http://longguo.hxmklmall.cn/api/";
+    } else {
+        host = "http://longguo.hxmklmall.cn/api/";
+    }
+
+    if (path.indexOf("localhost") != -1) {
+        $.ajaxSetup({
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        });
+    }
+
     /**
      * 判断是否为json对象
      * @param obj
@@ -36,7 +55,8 @@
      * @returns {*}
      */
     $.commonAjax = function (option) {
-        var option = $.extend({}, $.defaultAjax, option),
+        var urlApi = utils.getLocal('plume_api') && $.parseJSON(utils.getLocal('plume_api')),
+            option = $.extend({}, $.defaultAjax, option),
             dataJson = option.data ? option.data : {};
 
         // option.stringData：针对请求类型不同
@@ -55,9 +75,9 @@
 
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
         if (typeof(option.operationId) !== "undefined") {
-            option.url = plumeApi[option.url] + '/' + option.operationId;
+            option.url = host + urlApi[option.url] + '/' + option.operationId;
         } else {
-            option.url = plumeApi[option.url] + (urlString ? ('?' + urlString) : '');
+            option.url = host + urlApi[option.url] + (urlString ? ('?' + urlString) : '');
         }
 
         return $.ajax({

@@ -9,7 +9,7 @@
 
         indexInit: function () {
             console.log("初始化plume-indexInit");
-            Plume.resource().loadJs(['/wms/js/base.js', '/wms/js/index.js']);
+            Plume.resource().loadJs(['/wms/js/json2.js', '/wms/js/base.js', '/wms/js/index.js']);
         },
 
         demoInit: function () {
