@@ -7,11 +7,11 @@
     var host = '', path = window.location.href;
 
     if (path.indexOf("longguo.mmall.com") != -1) {
-        host = "https://longguo.mmall.com/api/";
+        path.indexOf('wms') > -1 ? host = "http://longguo.mmall.cn" : host = "http://longguo.mmall.cn/api/";
     } else if (path.indexOf("longguo.hxmklmall.cn") != -1) {
-        host = "http://longguo.hxmklmall.cn/api/";
+        path.indexOf('wms') > -1 ? host = "http://longguo.hxmklmall.cn" : host = "http://longguo.hxmklmall.cn/api/";
     } else {
-        host = "http://longguo.hxmklmall.cn/api/";
+        path.indexOf('wms') > -1 ? host = "http://longguo.hxmklmall.cn" : host = "http://longguo.hxmklmall.cn/api/";
     }
 
     if (path.indexOf("localhost") != -1) {

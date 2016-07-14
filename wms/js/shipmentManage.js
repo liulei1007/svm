@@ -49,11 +49,10 @@ $(function () {
 
     // 获取出库单列表
     function getShipmentList() {
-        var newData = JSON.stringify(datas)
         $.commonAjax({
-            url: 'getShipmentList', /*+"?currentPage=1&onePageCount="+onePageCount(),*/
+            url: 'getShipmentList',
             type: "POST",
-            data: newData,
+            data: datas,
             success: function (data) {
                 if (data.ok == false) {
                     alert(data.resDescription);
@@ -61,7 +60,6 @@ $(function () {
                 }
                 $("[list-node]").remove();
                 $(".table-block").setPageData(data);
-                //filter();
 
                 totalPage = Math.ceil(data.data.total / onePageCount());
                 datas[pageSize] = onePageCount();
