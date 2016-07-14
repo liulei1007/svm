@@ -1,115 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--公用基础文件-->
-    <script language="javascript" src="../js/plumecommon.js" ></script>
-    <!--声明-->
-    <script>
-        var _PLUME={
-            "config":"../config/svm.xml",
-            "initPage":"receiptListShow"
-        }
-    </script>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
 </head>
 
 <body>
-  <div class="body-typein">
-    <div class="title-div " style="font-weight:bold;" >入库单详情</div>
+<div class="body-typein">
+    <div class="title-div " style="font-weight:bold;">入库单详情</div>
     <div class="form-block-contractive">
-    <div id="base" class="row block-title">
-      基础信息
+        <div id="base" class="row block-title">
+            基础信息
+        </div>
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="code" style="width:95px">入库单号</label>
+                <input type="text" class="form-control input-sm _input" id="code"
+                       data-name="$p.header.receiptHeader.code" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="receiptType" class="a_wd" style="width:95px">入库类型</label>
+                <input type="text" class="form-control input-sm _input" id="receiptType"
+                       data-name="$p.header.receiptHeader.receiptType" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="companyCode" class="a_wd" style="width:95px">货主</label>
+                <input type="text" class="form-control input-sm _input" id="companyCode"
+                       data-name="$p.header.receiptHeader.companyCode" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="erpOrderCode" class="a_wd" style="width:95px">客户单号</label>
+                <input type="text" class="form-control input-sm _input" id="erpOrderCode"
+                       data-name="$p.header.receiptHeader.erpOrderCode" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="totalLines" class="a_wd" style="width:95px">总行数</label>
+                <input type="text" class="form-control input-sm _input" id="totalLines"
+                       data-name="$p.header.receiptHeader.totalLines" placeholder="" readOnly="true">
+            </div>
+            <div class="form-group">
+                <label for="leadingSts" class="a_wd" style="width:95px">首状态</label>
+                <input type="text" class="form-control input-sm _input" id="leadingSts"
+                       data-name="$p.header.receiptHeader.leadingSts" placeholder="" readOnly="true">
+            </div>
+            <div class="form-group">
+                <label for="trailingSts" class="a_wd" style="width:95px">尾状态</label>
+                <input type="text" class="form-control input-sm _input" id="trailingSts"
+                       data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
+            </div>
+            <div class="form-group">
+                <label for="shipFromAttentionTo" class="a_wd" style="width:95px">联系人</label>
+                <input type="text" class="form-control input-sm _input" id="trailingSts"
+                       data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
+            </div>
+            <div class="form-group">
+                <label for="scheduledArriveDate" class="a_wd" style="width:95px">计划到货时间</label>
+                <input type="text" class="form-control input-sm _input" id="scheduledArriveDate"
+                       data-name="$p.header.receiptHeader.scheduledArriveDate" readOnly="true">
+            </div>
+        </form>
     </div>
-    <form class="form-inline">
-        <div class="form-group">
-          <label for="code" style="width:95px">入库单号</label>
-          <input type="text" class="form-control input-sm _input" id="code" data-name="$p.header.receiptHeader.code" placeholder="" disabled="true " >
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            明细列表
         </div>
-        <div class="form-group">
-          <label for="receiptType" class="a_wd" style="width:95px">入库类型</label>
-          <input type="text" class="form-control input-sm _input" id="receiptType" data-name="$p.header.receiptHeader.receiptType" placeholder="" disabled="true ">
+        <div>
+            <table class="table table1 table-striped">
+                <thead>
+                <tr>
+                    <td style="width:2%"><input type="checkbox"/></td>
+                    <td style="width:5%">ID</td>
+                    <td style="width:auto">仓库编码</td>
+                    <td style="width:auto">入库单编码</td>
+                    <td style="width:auto">货主编码</td>
+                    <td style="width:auto">货品编码</td>
+                    <td style="width:5%">总数</td>
+                    <td style="width:auto">未收货数量</td>
+                    <td style="width:auto">货品名称</td>
+                    <td style="width:auto">库存状态</td>
+                    <td style="width:auto">批次</td>
+                    <td style="width:auto">批号</td>
+                </tr>
+                </thead>
+                <tbody data-list="$p.details">
+                <tr list-temp="true">
+                    <td><input type="checkbox"/></td>
+                    <td class="receiptId" node-name="$n.receiptDetail.id || ''"></td>
+                    <td node-name="$n.receiptDetail.warehouseCode || ''"></td>
+                    <td node-name="$n.receiptDetail.receiptCode"></td>
+                    <td node-name="$n.receiptDetail.companyCode || ''"></td>
+                    <td node-name="$n.receiptDetail.itemCode || ''"></td>
+                    <td node-name="$n.receiptDetail.totalQty || ''"></td>
+                    <td node-name="$n.receiptDetail.openQty || ''"></td>
+                    <td node-name="$n.receiptDetail.itemName || ''"></td>
+                    <td node-name="$n.receiptDetail.inventorySts || ''"></td>
+                    <td node-name="$n.receiptDetail.batch || ''"></td>
+                    <td node-name="$n.receiptDetail.lot || ''"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-group">
-          <label for="companyCode" class="a_wd" style="width:95px">货主</label>
-          <input type="text" class="form-control input-sm _input" id="companyCode" data-name="$p.header.receiptHeader.companyCode" placeholder="" disabled="true " >
-        </div>
-		<div class="form-group">
-          <label for="erpOrderCode" class="a_wd" style="width:95px">客户单号</label>
-          <input type="text" class="form-control input-sm _input" id="erpOrderCode" data-name="$p.header.receiptHeader.erpOrderCode" placeholder="" disabled="true ">
-        </div>
-		<div class="form-group">
-          <label for="totalLines" class="a_wd" style="width:95px">总行数</label>
-          <input type="text" class="form-control input-sm _input" id="totalLines" data-name="$p.header.receiptHeader.totalLines" placeholder="" readOnly="true">
-        </div>
-		<div class="form-group">
-          <label for="leadingSts" class="a_wd" style="width:95px">首状态</label>
-          <input type="text" class="form-control input-sm _input" id="leadingSts" data-name="$p.header.receiptHeader.leadingSts" placeholder="" readOnly="true">
-        </div>
-		<div class="form-group">
-          <label for="trailingSts" class="a_wd" style="width:95px">尾状态</label>
-          <input type="text" class="form-control input-sm _input" id="trailingSts" data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
-        </div>
-		<div class="form-group">
-          <label for="shipFromAttentionTo" class="a_wd" style="width:95px">联系人</label>
-          <input type="text" class="form-control input-sm _input" id="trailingSts" data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
-        </div>
-		<div class="form-group">
-          <label for="scheduledArriveDate" class="a_wd" style="width:95px">计划到货时间</label>
-          <input type="text" class="form-control input-sm _input" id="scheduledArriveDate" data-name="$p.header.receiptHeader.scheduledArriveDate" readOnly="true">
-        </div>
-      </form>
-   </div>
-   <div class="form-block-contractive">
-    <div id="base" class="row block-title">
-      明细列表
     </div>
-    <div>   
-        <table class="table table1 table-striped">
-            <thead>
-              <tr>
-			    <td style="width:2%"><input type="checkbox" /></td>
-                <td style="width:5%">ID</td>
-				<td style="width:auto">仓库编码</td>
-                <td style="width:auto">入库单编码</td>
-                <td style="width:auto">货主编码</td>
-                <td style="width:auto">货品编码</td>      
-                <td style="width:5%">总数</td>
-                <td style="width:auto">未收货数量</td>
-				<td style="width:auto">货品名称</td>
-                <td style="width:auto">库存状态</td>
-                <td style="width:auto">批次</td>
-                <td style="width:auto">批号</td>
-              </tr>
-            </thead>
-            <tbody data-list="$p.details">
-              <tr list-temp="true">
-			    <td><input type="checkbox" /></td>
-				<td class="receiptId" node-name="$n.receiptDetail.id || ''"></td>
-                <td node-name="$n.receiptDetail.warehouseCode || ''"></td>
-                <td node-name="$n.receiptDetail.receiptCode"></td>
-                <td node-name="$n.receiptDetail.companyCode || ''"></td>
-                <td node-name="$n.receiptDetail.itemCode || ''"></td> 
-				<td node-name="$n.receiptDetail.totalQty || ''"></td>
-                <td node-name="$n.receiptDetail.openQty || ''"></td>
-                <td node-name="$n.receiptDetail.itemName || ''"></td>
-                <td node-name="$n.receiptDetail.inventorySts || ''"></td>
-                <td node-name="$n.receiptDetail.batch || ''"></td>
-                <td node-name="$n.receiptDetail.lot || ''"></td>
-
-              </tr>
-            </tbody>
-        </table>
-    </div>
-  </div>
-  <div class="row">
+    <div class="row">
         <div class="col-sm-8 col-sm-offset-3 btn-block">
             <button type="button" class="btn btn-lg btn-default btn-back">返回</button>
         </div>
-  </div>
-  </div>
+    </div>
+</div>
 </body>
 </html>

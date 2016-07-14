@@ -12,9 +12,9 @@ $(function(){
          "pageNo":"1",
          "pageSize":"3"
          };
-		 
-	tablecheckbox();
-	plumeLog("进入shipmentManage模板自定义js-"+plumeTime());
+
+    $.tableCheckBox();
+    $.plumeLog("进入shipmentManage模板自定义js-"+plumeTime());
 
 	$('.table-block').on('click','.btn-delect',function(){
 		getGoodsPsgId(this);

@@ -5,4 +5,16 @@
     <getSystemResourceTree>common/getSystemResourceTree</getSystemResourceTree>
     <getLoginUser>userInfo/getLoginUser/</getLoginUser>
     <listSystemCode>common/listSystemCode</listSystemCode>
+
+    <!-- 出库单接口 -->
+    <saveOrUpdateShipment>/api/shipment/update</saveOrUpdateShipment>
+    <getShipmentList>/api/shipment/list</getShipmentList>
+    <getShipment>/api/shipment/get</getShipment>
+    <cancelShipment>/api/shipment/cancel</cancelShipment>
+    <!-- 库存接口 -->
+    <getInventoriesList>/api/inventories/list</getInventoriesList>
+    <!-- 入库单接口 -->
+    <getReceiptList>/api/receipt/list</getReceiptList>
+    <getReceiptDetail>/api/receipt/get</getReceiptDetail>
+
 </plume-api>

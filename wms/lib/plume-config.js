@@ -9,17 +9,32 @@
 
         indexInit: function () {
             console.log("初始化plume-indexInit");
-            Plume.resource().loadJs(['/wms/js/json2.js', '/wms/js/base.js', '/wms/js/index.js']);
+            Plume.resource().loadJs(['/wms/js/index.js']);
         },
 
-        demoInit: function () {
+        inventoriesManageInit: function () {
             console.log("初始化plume-demoInit");
-            Plume.resource().loadJs(['/wms/js/demo.js']);
+            Plume.resource().loadJs(['/wms/js/inventoriesManage.js']);
         },
 
-        demo1Init: function () {
+        receiptListShowInit: function () {
             console.log("初始化plume-demo1Init");
-            Plume.resource().loadJs(['/wms/js/demo1.js']);
+            Plume.resource().loadJs(['/wms/js/receiptListShow.js']);
+        },
+
+        receiptManageInit: function () {
+            console.log("初始化plume-demo1Init");
+            Plume.resource().loadJs(['/wms/js/receiptManage.js']);
+        },
+
+        shipmentDetailInit: function () {
+            console.log("初始化plume-demo1Init");
+            Plume.resource().loadJs(['/wms/js/shipmentDetail.js']);
+        },
+
+        shipmentManageInit: function () {
+            console.log("初始化plume-demo1Init");
+            Plume.resource().loadJs(['/wms/js/shipmentManage.js']);
         }
     };
 

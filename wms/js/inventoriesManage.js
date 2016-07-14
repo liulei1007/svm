@@ -8,8 +8,8 @@ $(function(){
       "pageNo":"1",		
       "pageSize":"9"
       }
-		 
-	tablecheckbox();
+
+    $.tableCheckBox();
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
 
 	getInventoriesList();

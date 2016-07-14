@@ -1,6 +1,7 @@
 /**
  * Created by lenovo on 2016/7/05.
  */
+// 公用请求方法
 (function ($) {
 
     var host = '', path = window.location.href;
@@ -21,6 +22,28 @@
             crossDomain: true
         });
     }
+
+    // loading
+    $.loading = function () {
+        if (!($(".lockbg").length > 0)) {
+            $(document.body).append("<div class='lockbg'></div>");
+            $(".lockbg").show();
+        }
+
+        if (!($(".loading").length > 0)) {
+            var temp = '<div class="popcenter loading"></div>';
+            $(document.body).append(temp);
+        }
+    };
+
+    $.unloading = function () {
+        $(".lockbg").fadeOut(function () {
+            $(this).remove();
+        });
+        $(".loading,.loading-img").fadeOut(function () {
+            $(this).remove();
+        });
+    };
 
     /**
      * 判断是否为json对象
@@ -88,18 +111,42 @@
             traditional: option.traditional,
             contentType: 'application/json',
             success: function (data) {
+                $.unloading();
                 typeof(option.success) === 'function' && option.success(data);
             },
             error: function (data) {
+                $.unloading();
                 typeof(option.error) === 'function' && option.error(data);
             },
             beforeSend: function () {
+                $.loading();
             }
         }).fail(function (res) {
+            $.unloading();
             if (res && res.responseText) {
                 var resJson = JSON.parse(res.responseText);
                 console.log(resJson);
             }
         });
     };
+
+})(jQuery);
+
+// 公用方法
+(function ($) {
+
+    $.plumeLog = function (msg) {
+        console.log(msg);
+    };
+
+    /**
+     * checkbox选择
+     */
+    $.tableCheckBox = function () {
+        $(".table-block").find("thead input:checkbox").bind("click", function () {
+            var c = $(this).is(':checked');
+            $(".table-block").find("tbody input:checkbox").prop("checked", c);
+        });
+    };
+
 })(jQuery);

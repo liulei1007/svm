@@ -6,97 +6,92 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--公用基础文件-->
-    <script language="javascript" src="../js/plumecommon.js" ></script>
-    <!--声明-->
-    <script>
-        var _PLUME={
-            "config":"../config/svm.xml",
-            "initPage":"receiptManage"
-        }
-    </script>
+    <script language="javascript" src="../lib/plume-resources.js" ></script>
 </head>
 
 <body>
     <div class="doc-receiptManagement">
-    <div class="search-block">
-      <form class="form-inline">
-        <div class="form-group">
-                <label>仓库编码</label>
-                <select id="warehouseCode" class="form-control input-sm">
-                    <option value="SJZ01" selected>南京仓</option>
-                    <option value="SJZ02">石家庄仓</option>
-                </select>
+        <div class="search-block">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label>仓库编码</label>
+                    <select id="warehouseCode" class="form-control input-sm">
+                        <option value="SJZ01" selected>南京仓</option>
+                        <option value="SJZ02">石家庄仓</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="companyCode">货主编码</label>
+                    <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="receiptCode">入库单编码</label>
+                    <input type="text" class="form-control input-sm" id="receiptCode" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label>状态</label>
+                    <select class="form-control input-sm" id="leadingSts">
+                        <option value="">所有</option>
+                        <option value="1">已入库</option>
+                        <option value="2">已出库</option>
+                    </select>
+                </div>
+                <div class="form-group form-time">
+                    <label for="createdFrom">创建时间</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
+                           style="width:120px;background: #fff">
+                    <label for="createdTo" style="margin: 0 -5px 0 5px;">--</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
+                           style="width:120px;background: #fff">
+                </div>
+                <div class="btn btn-default btn-sm btn-search">查询</div>
+                <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+            </form>
         </div>
-        <div class="form-group">
-          <label for="companyCode">货主编码</label>
-          <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+        <div class="table-block">
+            <table class="table table1 table-striped">
+                <thead>
+                <tr>
+                    <td style="width:2%"><input type="checkbox"/></td>
+                    <td style="width:5%">ID</td>
+                    <td style="width:auto">入库单号</td>
+                    <td style="width:auto">入库类型</td>
+                    <td style="width:auto">货主</td>
+                    <td style="width:auto">客户单号</td>
+                    <td style="width:5%">总行数</td>
+                    <td style="width:auto">售状态</td>
+                    <td style="width:auto">尾状态</td>
+                    <td style="width:auto">联系人</td>
+                    <td style="width:auto">计划到货时间</td>
+                    <td style="width: auto">操作</td>
+                </tr>
+                </thead>
+                <tbody data-list="$p.rows">
+                <tr list-temp="true">
+                    <td><input type="checkbox"/></td>
+                    <td class="receiptId" node-name="$n.id || ''"></td>
+                    <td node-name="$n.code || ''"></td>
+                    <td node-name="$n.receiptType"></td>
+                    <td node-name="$n.companyCode || ''"></td>
+                    <td node-name="$n.erpOrderCode || ''"></td>
+                    <td node-name="$n.totalLines || ''"></td>
+                    <td node-name="$n.leadingSts || ''"></td>
+                    <td node-name="$n.trailingSts || ''"></td>
+                    <td node-name="$n.shipFromAttentionTo || ''"></td>
+                    <td node-name="$n.scheduledArriveDate || ''"></td>
+                    <td>
+                        <div class="btn btn-link bl-btn-look">查看</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-group">
-          <label for="receiptCode">入库单编码</label>
-          <input type="text" class="form-control input-sm" id="receiptCode" placeholder="">
-        </div>
-		<div class="form-group">
-          <label>状态</label>
-          <select class="form-control input-sm" id="leadingSts">
-            <option value="">所有</option>
-            <option value="1">已入库</option>
-            <option value="2">已出库</option>
-          </select>
-        </div>
-		<div class="form-group form-time">
-                <label for="createdFrom">创建时间</label>
-                <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""  style="width:120px;background: #fff">
-                <label for="createdTo" style="margin: 0 -5px 0 5px;">--</label>
-                <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""  style="width:120px;background: #fff">
-        </div>
-        <div class="btn btn-default btn-sm btn-search">查询</div>
-        <div class="btn btn-default btn-sm btn-empty">清空条件</div>
-      </form>
-    </div>
-    <div class="table-block">   
-        <table class="table table1 table-striped">
-            <thead>
-              <tr>
-			    <td style="width:2%"><input type="checkbox" /></td>
-                <td style="width:5%">ID</td>
-				<td style="width:auto">入库单号</td>
-                <td style="width:auto">入库类型</td>
-                <td style="width:auto">货主</td>
-                <td style="width:auto">客户单号</td>      
-                <td style="width:5%">总行数</td>
-                <td style="width:auto">售状态</td>
-                <td style="width:auto">尾状态</td>
-                <td style="width:auto">联系人</td>
-                <td style="width:auto">计划到货时间</td>
-				<td style="width: auto">操作</td>
-              </tr>
-            </thead>
-            <tbody data-list="$p.rows">
-              <tr list-temp="true">
-			    <td><input type="checkbox" /></td>
-				<td class="receiptId" node-name="$n.id || ''"></td>
-                <td node-name="$n.code || ''"></td>
-                <td node-name="$n.receiptType"></td>
-                <td node-name="$n.companyCode || ''"></td>
-                <td node-name="$n.erpOrderCode || ''"></td>
-                <td node-name="$n.totalLines || ''"></td>
-                <td node-name="$n.leadingSts || ''"></td>
-                <td node-name="$n.trailingSts || ''"></td>
-                <td node-name="$n.shipFromAttentionTo || ''"></td>
-                <td node-name="$n.scheduledArriveDate || ''"></td>
-                <td>
-                    <div class="btn btn-link bl-btn-look">查看</div>
-                </td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
 
-    <div class="nav-pagination clearFix">
-        <ul class="pagination">
-            
-        </ul>
+        <div class="nav-pagination clearFix">
+            <ul class="pagination">
+
+            </ul>
+        </div>
     </div>
 
 </body>

@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plume-page>
-    <!--配置HTML容器的初始化方法-->
-    <index-init>pageInit</index-init>
 
-    <!--配置模板-->
     <page>
         <!--配置模板别名-->
-        <page-name>index</page-name>
+        <page-name>inventoriesManage</page-name>
         <!--配置模板路径,从根目录开始写路径,非相对路径-->
-        <page-url>/wms/index.html</page-url>
+        <page-url>/wms/pages/inventoriesManage.html</page-url>
         <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
-        <init>indexInit</init>
+        <init>inventoriesManageInit</init>
+    </page>
+    <page>
+        <!--配置模板别名-->
+        <page-name>receiptManage</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/receiptManage.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>receiptManageInit</init>
     </page>
 
     <page>
         <!--配置模板别名-->
-        <page-name>demo</page-name>
+        <page-name>receiptListShow</page-name>
         <!--配置模板路径,从根目录开始写路径,非相对路径-->
-        <page-url>/wms/pages/demo.html</page-url>
+        <page-url>/wms/pages/receiptListShow.html</page-url>
         <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
-        <init>demoInit</init>
-    </page>
-    <page>
-        <!--配置模板别名-->
-        <page-name>demo1</page-name>
-        <!--配置模板路径,从根目录开始写路径,非相对路径-->
-        <page-url>/wms/pages/demo1.html</page-url>
-        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
-        <init>demo1Init</init>
+        <init>receiptListShowInit</init>
     </page>
 
 </plume-page>

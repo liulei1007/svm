@@ -12,8 +12,8 @@ $(function(){
 		"pageNo":"1",		
 		"pageSize":"8"
 		}
-		 
-	tablecheckbox();
+
+    $.tableCheckBox();
 	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
     
     //点击查看
