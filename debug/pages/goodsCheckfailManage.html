@@ -64,7 +64,7 @@
         <!--<button class="btn btn-batch btn-allAudit">批量审核</button>-->
     <!--</div>-->
     <div class="btn-block clearFix" id="operationBtn">
-        <button class="btn btn-batch">删除</button>
+        <button class="btn btn-border-primary">批量删除</button>
     </div>
     <div class="table-block">
 
@@ -85,7 +85,7 @@
             <tbody data-list="$p.data">
             <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
                 <td><input type="checkbox" node-name="attr-productId:$n.uptId"/></td>
-                <td node-name="$n.productName,attr-uptId:$n.uptId" class="a-link gcm-btn-show"></td>
+                <td node-name="$n.productName,attr-uptId:$n.uptId" class="btn btn-link gcm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
@@ -94,7 +94,7 @@
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <!--<div type="button" class="btn btn-link btn-sm btn-releaseGoods gcm-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>-->
-                    <div type="button" class="btn btn-link btn-releaseGoods gcm-btn-edit"  node-name="attr-uptId:$n.uptId">编辑</div>
+                    <div type="button" class="btn btn-border-primary gcm-btn-edit"  node-name="attr-uptId:$n.uptId">编辑</div>
                 </td>
             </tr>
             </tbody>

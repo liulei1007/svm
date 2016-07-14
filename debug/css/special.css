@@ -1,0 +1,25 @@
+/** --------左侧导航栏图标-------- **/
+/* 经代管理 */
+.slidebar-title i.agency{background-position: 0 0;}
+.slidebar-title:hover i.agency, .slidebar-title.active i.agency{background-position: 0 -50px;}
+/* 基础数据管理 */
+.slidebar-title i.baseData{background-position: -65px 0;}
+.slidebar-title:hover i.baseData, .slidebar-title.active i.baseData{background-position: -65px -50px;}
+/* 审核管理 */
+.slidebar-title i.check{background-position: -130px 0;}
+.slidebar-title:hover i.check, .slidebar-title.active i.check{background-position: -130px -50px;}
+/* 系统管理 */
+.slidebar-title i.setting{background-position: -195px 0;}
+.slidebar-title:hover i.setting, .slidebar-title.active i.setting{background-position: -195px -50px;}
+/* 商品审核 */
+.slidebar-title i.goods{background-position: -260px 0;}
+.slidebar-title:hover i.goods, .slidebar-title.active i.goods{background-position: -260px -50px;}
+/* 店铺管理 */
+.slidebar-title i.shop{background-position: -325px 0;}
+.slidebar-title:hover i.shop, .slidebar-title.active i.shop{background-position: -325px -50px;}
+/* 品牌管理 */
+.slidebar-title i.brand{background-position: -390px 0;}
+.slidebar-title:hover i.brand, .slidebar-title.active i.brand{background-position: -390px -50px;}
+/* 合作管理 */
+.slidebar-title i.cooperate{background-position: -455px 0;}
+.slidebar-title:hover i.cooperate, .slidebar-title.active i.cooperate{background-position: -455px -50px;}

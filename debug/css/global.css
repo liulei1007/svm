@@ -1,0 +1,63 @@
+@charset "utf-8";
+*{font-family: "Microsoft Yahei"}
+html, body{margin: 0; padding: 0; background:#fff; color: #555;}
+textarea{resize: none;}
+/** --------bootstrap-------- **/
+/** ~~按钮~~ **/
+.btn-link{color: #26aff5; border-color: transparent;}
+.btn-link:hover, .btn-link.focus, .btn-link:focus{color: #0986c5; text-decoration: underline;}
+.btn-border-primary{color: #26aff5; background-color: #fff; border-color: #26aff5;}
+.btn-border-primary:hover, .btn-border-primary.focus, .btn-border-primary:focus{color: #fff; background-color: #26aff5;}
+.btn-border-danger{color: #f26c4e; background-color: transparent; border-color: #f26c4e;}
+.btn-border-danger:hover, .btn-border-danger.focus, .btn-border-danger:focus{color: #fff; background-color: #f26c4e;}
+/** ~~表格~~ **/
+.table{table-layout: fixed;}
+.table > thead > tr > td, .table > tbody > tr > td{overflow: hidden; text-overflow: ellipsis; word-break: break-all; white-space: nowrap;}
+.table-striped > thead > tr{background-color: #fafafa; border: solid #ddd 1px;}
+.table-striped > thead > tr > td{border-bottom: solid #ddd 1px;}
+.table-striped > tbody{border-bottom: solid #ddd 1px;}
+
+/** 输入框等focus时无外边框 **/
+.form-control:focus{box-shadow: none;}
+
+
+/** 清浮动 **/
+.clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
+
+/** --------网页容器-------- **/
+.page-container{position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+
+/** --------顶部navbar-------- **/
+.navbar-default{margin-bottom: 0; min-height: 45px; height: 45px; background-color: #1397da; border: none;}
+
+/** --------网页除去顶部navbar部分-------- **/
+.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;display: none}
+.container-fixed > .row{height: 100%;}
+
+/** --------左侧导航-------- **/
+.slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #364152;}
+.slidebar-title > li{padding-top: 10px; padding-bottom: 15px; color: #6e82a2; text-align: center; border-bottom: solid #4f5b70 1px; cursor: pointer;}
+/** 导航栏——选中状态 **/
+.slidebar-title:hover > li, .slidebar-title.active > li{color: #f3f7f6; background-color: #425167;}
+/** 导航栏——图标 **/
+.slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
+
+/** --------网页右侧主体-------- **/
+.page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; overflow-y: scroll;}
+.work-space{position: relative; padding: 50px 10px 15px; width: 100%;}
+
+/** 页面标题 **/
+.title-block{margin-top: 20px; margin-bottom: 20px; font-size: 24px; font-weight: bold; text-align: center;}
+
+
+
+
+/** --------表格页-------- **/
+.table-block{margin-top: 20px; width:100%;}
+.table-block .btn-link{padding-left: 0; padding-right: 0;}
+.table-block .btn-border-primary, .table-block .btn-border-danger{margin-right: 10px; padding: 0 10px;}
+.table-block .table .mark{width: 65px;}
+.table-block .table tfoot .mark{width: auto;}
+.table-block .a-link{color: #26aff5; cursor: pointer;}
+.a-link:link{color:#000;}
+.table-block .a-link:hover{color: #0986c5; text-decoration: underline;}
