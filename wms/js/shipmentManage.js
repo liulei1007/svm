@@ -84,9 +84,6 @@ $(function () {
                         }
                     });
                 });
-            },
-            error: function () {
-                alert(jqXHR.responseText);
             }
         });
     }
