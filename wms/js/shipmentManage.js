@@ -1,5 +1,5 @@
 $(function () {
-
+    $.setPageCount();
     $('#createdFrom').cxCalendar();
     $('#createdTo').cxCalendar();
     var datas = {
@@ -53,6 +53,11 @@ $(function () {
             url: 'getShipmentList',
             type: "POST",
             data: datas,
+            urlParams: {
+                currentPage: 1,
+                onePageCount: $.onePageCount()
+            },
+            list: true,
             success: function (data) {
                 if (data.ok == false) {
                     alert(data.resDescription);
@@ -61,21 +66,19 @@ $(function () {
                 $("[list-node]").remove();
                 $(".table-block").setPageData(data);
 
-                totalPage = Math.ceil(data.data.total / onePageCount());
-                datas[pageSize] = onePageCount();
+                var totalPage = Math.ceil(data.data.total / $.onePageCount());
 
-                newPage(totalPage, function (i) {
-                    datas[pageNo] = i;
-                    var newData = JSON.stringify(datas);
-                    loading();
-                    $.ajax({
+                newPage(totalPage, function (page) {
+                    $.commonAjax({
                         url: plumeApi["getShipmentList"], /* +"?currentPage="+i+"&onePageCount="+onePageCount(),*/
                         type: "POST",
-                        data: newData,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
+                        data: datas,
+                        urlParams: {
+                            currentPage: page,
+                            onePageCount: $.onePageCount()
+                        },
+                        list: true,
                         success: function (data) {
-                            unloading();
                             $("[list-node]").remove();
                             $(".table-block").setPageData(data);
                             filter();

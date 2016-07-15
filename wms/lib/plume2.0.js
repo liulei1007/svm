@@ -383,11 +383,9 @@
                 loadHtml: function (url, config, fun, cache, own) {
                     var createHtml = function (obj, fun, data) {
                         try {
-                            if (data) {
-                                var html = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
-                                $(obj).hide().html("");
-                                html && $(obj).html(html);
-                            }
+                            var html = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
+                            $(obj).hide().html("");
+                            html && $(obj).html(html);
                             $("[list-temp]").hide();
                             $(obj).show();
                             fun && fun();
@@ -400,7 +398,7 @@
                         try {
                             $(own).load(url + ' ' + config.load, function (data) {
                                 utils.setSession(url, data);
-                                createHtml(this, fun, null);
+                                createHtml(this, fun, data);
                             });
                         } catch (e) {
                             console.log("提示:" + e.message);
@@ -412,8 +410,8 @@
                             utils.getSession(url) ?
                                 createHtml(own, fun, utils.getSession(url)) : loadData(url, fun);
                         } else {
-                            $(own).load(url + ' ' + config.load, function () {
-                                createHtml(this, fun, null);
+                            $(own).load(url + ' ' + config.load, function (data) {
+                                createHtml(this, fun, data);
                             });
                         }
                     } catch (e) {

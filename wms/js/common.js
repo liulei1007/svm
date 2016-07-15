@@ -28,7 +28,7 @@
                 if (data.ok) {
                     $.session.standard_unit = JSON.stringify(data);
                 } else {
-                    $.plumeLog("获取standard_unit信息失败:" + data.resDescription);
+                    plumeLog("获取standard_unit信息失败:" + data.resDescription);
                 }
             });
 
@@ -36,7 +36,7 @@
                 if (data.ok) {
                     $.session.img_url = JSON.stringify(data);
                 } else {
-                    $.plumeLog("获取price_tpye信息失败:" + data.resDescription);
+                    plumeLog("获取price_tpye信息失败:" + data.resDescription);
                 }
             });
 
@@ -44,7 +44,7 @@
                 if (data.ok) {
                     $.session.unit = JSON.stringify(data);
                 } else {
-                    $.plumeLog("获取price_tpye信息失败:" + data.resDescription);
+                    plumeLog("获取price_tpye信息失败:" + data.resDescription);
                 }
             });
         },
@@ -54,6 +54,7 @@
                 type: "get",
                 url: 'listSystemCode',
                 operationId: operationId,
+                requestType: true,
                 success: function (data) {
                     typeof fun === 'function' && fun(data);
                 }

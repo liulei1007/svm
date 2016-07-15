@@ -7,11 +7,11 @@
     var host = '', path = window.location.href;
 
     if (path.indexOf("longguo.mmall.com") != -1) {
-        path.indexOf('wms') > -1 ? host = "http://longguo.mmall.cn" : host = "http://longguo.mmall.cn/api/";
+        host = "http://longguo.mmall.cn/api/";
     } else if (path.indexOf("longguo.hxmklmall.cn") != -1) {
-        path.indexOf('wms') > -1 ? host = "http://longguo.hxmklmall.cn" : host = "http://longguo.hxmklmall.cn/api/";
+        host = "http://longguo.hxmklmall.cn/api/";
     } else {
-        path.indexOf('wms') > -1 ? host = "http://longguo.hxmklmall.cn" : host = "http://longguo.hxmklmall.cn/api/";
+        host = "http://longguo.hxmklmall.cn/api/";
     }
 
     if (path.indexOf("localhost") != -1) {
@@ -94,6 +94,10 @@
                 urlStringArr.push(name + '=' + value);
             });
             urlString = urlStringArr.join('&');
+        }
+
+        if (path.indexOf('wms') > -1 && !option.requestType) {
+            host = "http://192.168.220.102:8080/api/";
         }
 
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
@@ -195,6 +199,31 @@
             var c = $(this).is(':checked');
             $(".table-block").find("tbody input:checkbox").prop("checked", c);
         });
+    };
+
+    //分页全局设置
+    var PAGE_COUNT = 11,
+        PAGE_SET_COUNT = 0;
+    $.onePageCount = function () {
+        return (PAGE_SET_COUNT != 0) ? PAGE_SET_COUNT : PAGE_COUNT;
+    };
+    $.setPageCount = function () {
+        if ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] && ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] != "NaN")) {
+            PAGE_SET_COUNT = parseInt($.session[$.session.nowPageName + "_PAGE_SET_COUNT"]);
+        } else {
+            PAGE_SET_COUNT = 0;
+        }
+        var h = $(window).height();
+        var h1 = 200;
+        var h2 = $(".search-block").height() + 40;
+        var h3 = $(".alert-info").height() + 20;
+        var h4 = $(".btn-block").height() + 20;
+        var x = (h3 == h4) ? h3 : ((h3 > h4) ? h3 : h4);
+        var n = parseInt((h - h1 - h2 - h3 - x) / 40);
+        if (n < 2) {
+            n = 2;
+        }
+        PAGE_COUNT = n;
     };
 
 })(jQuery);

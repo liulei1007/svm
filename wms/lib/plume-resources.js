@@ -47,7 +47,8 @@
                 '/lib/plume2.0.js',
                 '/lib/jquery.cxcalendar.min.js',
                 '/js/json2.js',
-                '/js/base.js'
+                '/js/base.js',
+                '/js/pagination.js'
             ];
             this.createJs(commonJsConfig);
 

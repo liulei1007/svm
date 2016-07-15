@@ -13,26 +13,31 @@
         },
 
         inventoriesManageInit: function () {
+            this.indexInit();
             console.log("初始化plume-demoInit");
             Plume.resource().loadJs(['/wms/js/inventoriesManage.js']);
         },
 
         receiptListShowInit: function () {
+            this.indexInit();
             console.log("初始化plume-demo1Init");
             Plume.resource().loadJs(['/wms/js/receiptListShow.js']);
         },
 
         receiptManageInit: function () {
+            this.indexInit();
             console.log("初始化plume-demo1Init");
             Plume.resource().loadJs(['/wms/js/receiptManage.js']);
         },
 
         shipmentDetailInit: function () {
+            this.indexInit();
             console.log("初始化plume-demo1Init");
             Plume.resource().loadJs(['/wms/js/shipmentDetail.js']);
         },
 
         shipmentManageInit: function () {
+            this.indexInit();
             console.log("初始化plume-demo1Init");
             Plume.resource().loadJs(['/wms/js/shipmentManage.js']);
         }
