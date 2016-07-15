@@ -6,7 +6,7 @@ $(function () {
 
 //    $.showPopTips('提示信息', 'success', 'test');
 
-    var datas = {
+/*    var datas = {
         "warehouseCode": "SJZ01",
         "companyCode": "RS",
         "leadingSts": "100",
@@ -15,6 +15,13 @@ $(function () {
         "fields": "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
         "pageNo": "1",
         "pageSize": "8"
+    };*/
+    
+    var datas = {
+        "warehouseCode": "无",
+        "companyCode": "无",
+        "fields": "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
+        "pageNo": "1",
     };
 
     $.tableCheckBox();
@@ -53,7 +60,7 @@ $(function () {
             list: true,
             success: function (data) {
                 if (data.ok == false) {
-                    alert(data.resDescription);
+                    $.popTips(data.resDescription, 'question');
                     return;
                 }
                 $("[list-node]").remove();
