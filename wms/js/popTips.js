@@ -6,6 +6,6 @@ $(function() {
 	// 点击“确定”按钮后，停止计时，并关闭弹出层
 	$(".btn-close").on("click", function() {
 		clearTimeout(timeOut);
-		$('.pop').hide()
+		$('.pop').hide();
 	});
 })

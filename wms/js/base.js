@@ -221,10 +221,20 @@
         });
     };
 
-    $.directPage = function (obj, page, fun, flag, load) {
-        $.session.nowPageName = page == 'index' ? '' : page;
+    $.directPage = function (page, fun, obj, flag, load) {
+        $.session.nowPageName = page == 'index' ? '' : page || '';
 
         $.direct(obj, page, fun, flag, load);
+    };
+
+    // 弹出层
+    $.popTips = function (popupTitle, popupIcon) {
+        var $pop = $('.pop');
+        $.directPage('popTips', function () {
+            $pop.find(".popup-title").html(popupTitle);
+            $pop.find(".popup-icon").html('<i class=' + popupIcon + '></i>');
+            $pop.find(".popup-info").html("确认");
+        }, '.pop', 'nochangeurl', '');
     };
 
     // 获取psgId

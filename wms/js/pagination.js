@@ -29,10 +29,10 @@ function newPage(totalPage, fun) {
             $(this).addClass("active");
             $.session[$.session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).attr("tag"));
             var pageName = utils.getPageUrl();
-            if ($.session.nowPageName != 'undefined') {
+            if ($.session.nowPageName && $.session.nowPageName != 'undefined' && $.session.nowPageName != 'undefined') {
                 pageName = $.session.nowPageName;
             }
-            $.directPage(null, pageName, null, '', 'changeurl');
+            $.directPage(pageName);
         });
 
     } catch (e) {

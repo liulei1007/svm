@@ -1,6 +1,8 @@
 $(function () {
     $.setPageCount();
 
+//    $.popTips('提示信息', 'warning');
+
     var datas = {
         "warehouseCode": "SJZ01",
         "companyCode": "RS",
@@ -17,7 +19,7 @@ $(function () {
 
     $("tbody").on("click", '.bl-btn-look', function () {
         $.getShipmentId(this)
-        $.directPage('.work-space-active', 'shipmentDetail', null, '', 'changeurl');
+        $.directPage('shipmentDetail');
     })
 
     $('#createdFrom').cxCalendar();
