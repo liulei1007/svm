@@ -1,7 +1,6 @@
 $(function () {
     $.setPageCount();
-//    $('#createdFrom').cxCalendar();
-//    $('#createdTo').cxCalendar();
+
     var datas = {
         "warehouseCode": "SJZ01",
         "companyCode": "RS",
@@ -17,9 +16,12 @@ $(function () {
     $.plumeLog("进入shipmentManage模板自定义js-" + $.plumeTime());
 
     $("tbody").on("click", '.bl-btn-look', function () {
-//        getShipmentId(this)
+        $.getShipmentId(this)
         $.derect('.work-space-active', 'shipmentDetail', null, '', 'changeurl');
     })
+
+    $('#createdFrom').cxCalendar();
+    $('#createdTo').cxCalendar();
 
     getShipmentList();
     $('.btn-search').bind('click', function () {
@@ -70,7 +72,6 @@ $(function () {
                         success: function (data) {
                             $("[list-node]").remove();
                             $(".table-block").setPageData(data);
-                            filter();
                         }
                     });
                 });
@@ -85,5 +86,6 @@ $(function () {
 
     // 回车搜索
     $.key.keydownEnter('.btn-search');
+
 });
 

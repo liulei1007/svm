@@ -105,7 +105,7 @@
 
         if (path.indexOf('wms') > -1 && !option.requestType) {
             host = "http://192.168.220.102:8080/api/";
-        } else{
+        } else {
             host = "http://longguo.hxmklmall.cn/api/";
         }
 
@@ -162,7 +162,7 @@
     $.session = function () {
         if (typeof(Storage) !== "undefined") {
             return sessionStorage;
-        }else {
+        } else {
             alert("您好,您的浏览器不支持HTML5最新特性.请升级浏览器至IE8+或使用Firefox, Opera, Chrome,Safari");
         }
     }();
@@ -221,28 +221,72 @@
         });
     };
 
-    //分页全局设置
-    var PAGE_COUNT = 11,
-        PAGE_SET_COUNT = 0;
+    // 获取psgId
+    $.getGoodsPsgId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            psgId = removeList.find('.psgId').html();
+
+        $.session.goods_psgId = psgId;
+    };
+
+    // 获取productId
+    $.getProductId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            productId = removeList.find('.productId').html();
+
+        $.session.productGoods_productId = $.session.goods_showMyGoods_productId = productId;
+    }
+
+    $.getProductIdm = function (_this) {
+        $.session.productGoods_productIdm = $(_this).attr("productId")
+    };
+
+
+    // 获取brandId
+    $.getBrandId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            brandId = removeList.find('.brandId').html();
+
+        $.session.brand_brandId = brandId;
+    };
+
+
+    // 获取shopId
+    $.getShopId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            shopId = removeList.find('.shopId').html();
+
+        $.session.shop_shopId = shopId;
+    };
+
+    // 获取shipmentId
+    $.getShipmentId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            shipmentId = removeList.find('.shipmentId').html();
+
+        $.session.shipment_shipmentId = shipmentId;
+    };
+
+    // 分页全局设置
+    var PAGE_COUNT = 11, PAGE_SET_COUNT = 0;
     $.onePageCount = function () {
         return (PAGE_SET_COUNT != 0) ? PAGE_SET_COUNT : PAGE_COUNT;
     };
     $.setPageCount = function () {
-        if ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] && ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] != "NaN")) {
+        PAGE_SET_COUNT = 0;
+        if ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] &&
+            ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] != "NaN")) {
+
             PAGE_SET_COUNT = parseInt($.session[$.session.nowPageName + "_PAGE_SET_COUNT"]);
-        } else {
-            PAGE_SET_COUNT = 0;
         }
-        var h = $(window).height();
-        var h1 = 200;
-        var h2 = $(".search-block").height() + 40;
-        var h3 = $(".alert-info").height() + 20;
-        var h4 = $(".btn-block").height() + 20;
-        var x = (h3 == h4) ? h3 : ((h3 > h4) ? h3 : h4);
-        var n = parseInt((h - h1 - h2 - h3 - x) / 40);
-        if (n < 2) {
-            n = 2;
-        }
+        var h = $(window).height(), h1 = 200,
+            h2 = $(".search-block").height() + 40,
+            h3 = $(".alert-info").height() + 20,
+            h4 = $(".btn-block").height() + 20,
+            x = (h3 == h4) ? h3 : ((h3 > h4) ? h3 : h4),
+            n = parseInt((h - h1 - h2 - h3 - x) / 40);
+
+        n < 2 && (n = 2);
         PAGE_COUNT = n;
     };
 

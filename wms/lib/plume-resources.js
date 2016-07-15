@@ -32,6 +32,7 @@
         commonCss: function () {
             var commonCssConfig = [
                 '/css/bootstrap.min.css',
+                '/css/jquery.cxcalendar.css',
                 '/css/swiper.min.css',
                 '/css/index.css'
             ];
@@ -43,12 +44,12 @@
         commonJs: function () {
             var commonJsConfig = [
                 '/lib/jquery.js',
+                '/lib/jquery.cxcalendar.min.js',
                 '/lib/plume-config.js',
                 '/lib/plume2.0.js',
-                '/lib/jquery.cxcalendar.min.js',
                 '/js/json2.js',
-                '/js/base.js',
                 '/js/pagination.js',
+                '/js/base.js',
                 '/js/common.js',
                 '/js/index.js'
             ];

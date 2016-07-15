@@ -5,7 +5,7 @@ $(function(){
       "warehouseCode": "SJZ01",
       "companyCode": "JLM",
 	  "itemCode":"",
-      "pageNo":"1",		
+      "pageNo":"1",
       "pageSize":"9"
       }
 
@@ -16,7 +16,7 @@ $(function(){
 	$('.btn-search').bind('click',function() {
 		datas.warehouseCode=$('#warehouseCode option:selected').val();
 		datas.companyCode=$('#companyCode').val();
-		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){  
+		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){
 		   $('.pop').loadTemp("popTips", "nochangeurl", function () {
                 $(".pop").find(".popup-title").html("信息提示");
                 $(".pop").find(".popup-icon").html('<i class="warning"></i>');
@@ -25,7 +25,7 @@ $(function(){
 			datas.warehouseCode = "SJZ01";
 			datas.companyCode = "JLM";
 		    return ;
-        }  
+        }
 		datas.itemCode=$('#itemCode').val();
 		getInventoriesList();
         $(".nav-pagination").off();
@@ -46,8 +46,8 @@ function getInventoriesList() {
             unloading();
             $("[list-node]").remove();
             $(".table-block").setPageData(JSON.parse(data.data));
-			
-			
+
+
 			// 分页
 			totalPage = Math.ceil(JSON.parse(data.data).total / 9);
 			newPage(totalPage || 1, function (i) {
