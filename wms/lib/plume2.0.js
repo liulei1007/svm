@@ -61,7 +61,6 @@
          * @param $p
          */
         setPageData: function ($p) {
-            var own = this;
             $(this).find("[data-name]").each(function () {
                 $(this).setNodeData("$p", $p, "data-name");
             });
@@ -80,7 +79,7 @@
                         $(this).setNodeData("$n", listData[i], "node-name");
                     });
                 }
-                $own.find("[list-node]").fadeIn()
+                $own.find("[list-node]").fadeIn();
 
                 return this;
             });
