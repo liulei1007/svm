@@ -754,13 +754,15 @@ $.fn.extend({
 });
 //上传图片pop
 function uploadPop(fun) {
-    if (!($(".pop-upload").length > 0)) {
-        $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
-    }
-    $(".pop-upload").pop("popUpload", fun);
+    $(".pop").loadTemp("popUpload", "nochangeurl", fun);
+    // if (!($(".pop-upload").length > 0)) {
+    //     $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
+    // }
+    // $(".pop-upload").pop("popUpload", fun);
 }
 function closeUploadPop(fun) {
-    $(".pop-upload").pophide();
+    $(".pop").hide();
+    // $(".pop-upload").pophide();
     try {
         if (fun) {
             fun();
@@ -816,7 +818,7 @@ function unloading() {
 // 检验表单中的必填项是否填写
 function checkForm() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function () {
+    $(".form-block").on("blur", ".form-group.required input, .form-group.required textarea", function () {
         checkNull($(this));
     });
 }
@@ -835,7 +837,7 @@ function checkNull(checkObj) {
 function checkSelfGoods(operateName, selfGoods, url) {
     var flag = true;
     // 首先检验必填项是否都已经填写
-    $(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function () {
+    $(".form-block").find(".form-group.required input, .form-group.required textarea").each(function () {
         if (!checkNull($(this))) {
             flag = false;
         }
@@ -979,7 +981,7 @@ function showPopTips(popupTitle, popupIcon, popupTips) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
+    $(".form-block").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {

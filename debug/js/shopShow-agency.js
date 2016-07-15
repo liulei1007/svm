@@ -6,7 +6,7 @@ $(function() {
 	getData();
 
 	// 绑定“返回”按钮
-	$(".body-typein .btn-back").bind("click", function() {
+	$(".form-block .btn-back").bind("click", function() {
 		derict(this, "shopListAgency", "nochangeurl");
 	});
 
@@ -21,7 +21,7 @@ $(function() {
 			contentType: "application/json; charset=utf-8",
 			success: function(result) {
 				unloading();
-				$(".body-typein").setPageData(result.data);
+				$(".form-block").setPageData(result.data);
 			},
 			error:function(er){}
 		});

@@ -10,16 +10,17 @@ $(function() {
        $(".popSort").hide();
         $(".type-first-span").text("");
         $(".type-second-span").text("");
-         $(".type-third-span").text("");
+        $(".type-third-span").text("");
     });
 
     //下一步按钮操作
     $(".ut-btn-next").bind("click", function () {
-            session.goods_userType = "";
+        session.goods_userType = "";
         if((!$(".type-third-span").attr("categoryId"))||($(".type-third-span").attr("categoryId")=="")){
-            $(".pop").find(".popup-title").html("信息提示");
-            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-            $(".pop").find(".popup-info").html("请选择类目");
+            showPopTips("信息提示", "warning", "请选择类目!");
+            // $(".pop").find(".popup-title").html("信息提示");
+            // $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+            // $(".pop").find(".popup-info").html("请选择类目");
             return;
         }
         session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
