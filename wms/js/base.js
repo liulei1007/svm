@@ -49,7 +49,7 @@
      * 列表数据为空处理
      */
     $.emptyData = function () {
-        $(".table-block").append("<div class='nodatanotice' style='width:100%;text-align:Center;height:120px;line-height:120px'>未查询到数据!</div>");
+        $(".table-block").html('').append("<div class='nodatanotice' style='width:100%;text-align:Center;height:120px;line-height:120px'>未查询到数据!</div>");
     };
 
     /**
