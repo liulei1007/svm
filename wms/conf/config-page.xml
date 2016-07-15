@@ -15,7 +15,7 @@
 
     <page>
         <page-name>popTips</page-name>
-        <page-url>/pages/popTips.html</page-url>
+        <page-url>/wms/pages/popTips.html</page-url>
         <init>popTips_init</init>
     </page>
 

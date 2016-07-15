@@ -50,7 +50,7 @@
             try {
                 setTimeout(function () {
                     fun && fun();
-                }, 0);
+                }, 10);
                 Plume.setParam.initFun = init;
                 utils.setLocal('plume_init_fun', init);
             } catch (e) {
