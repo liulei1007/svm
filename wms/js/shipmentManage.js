@@ -1,7 +1,7 @@
 $(function () {
     $.setPageCount();
-    $('#createdFrom').cxCalendar();
-    $('#createdTo').cxCalendar();
+//    $('#createdFrom').cxCalendar();
+//    $('#createdTo').cxCalendar();
     var datas = {
         "warehouseCode": "SJZ01",
         "companyCode": "RS",
@@ -16,22 +16,11 @@ $(function () {
     $.tableCheckBox();
     $.plumeLog("进入shipmentManage模板自定义js-" + $.plumeTime());
 
-    $('.table-block').on('click', '.btn-delect', function () {
-        getGoodsPsgId(this);
-        delectShipmentList();
-    });
-
-    $('.table-block').on('click', '.btn-compile', function () {
-        getGoodsPsgId(this);
-        derict(this, "compileGoods", "nochangeurl");
-    });
-
     $("tbody").on("click", '.bl-btn-look', function () {
-        getShipmentId(this)
-        derict(this, "shipmentDetail", "nochangeurl");
+//        getShipmentId(this)
+        $.derect('.work-space-active', 'shipmentDetail', null, '', 'changeurl');
     })
 
-    var nowPage = 1;
     getShipmentList();
     $('.btn-search').bind('click', function () {
         datas.warehouseCode = $('#warehouseCode').val();
@@ -87,24 +76,6 @@ $(function () {
                 });
             }
         });
-    }
-
-    // 信息过滤
-    function filter() {
-        $('.createDate').each(function () {
-            $(this).html(_getLocalTime($(this).html()));
-            var aTr = $(this).parents('tr');
-            var saleStatus = aTr.find('.saleStatus');
-            var btnGround = aTr.find('.btn-ground');
-            if (saleStatus.html() == 0) {
-                saleStatus.html('下架中');
-                btnGround.html('上架');
-            } else {
-                saleStatus.html('上架中');
-                btnGround.html('下架');
-            }
-        });
-
     }
 
     // 清空搜索

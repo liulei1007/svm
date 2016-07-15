@@ -46,6 +46,13 @@
     };
 
     /**
+     * 列表数据为空处理
+     */
+    $.emptyData = function () {
+        $(".table-block").append("<div class='nodatanotice' style='width:100%;text-align:Center;height:120px;line-height:120px'>未查询到数据!</div>");
+    };
+
+    /**
      * 判断是否为json对象
      * @param obj
      * @returns {boolean}
@@ -98,6 +105,8 @@
 
         if (path.indexOf('wms') > -1 && !option.requestType) {
             host = "http://192.168.220.102:8080/api/";
+        } else{
+            host = "http://longguo.hxmklmall.cn/api/";
         }
 
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
@@ -116,6 +125,17 @@
             contentType: 'application/json',
             success: function (data) {
                 $.unloading();
+
+                if (option.list) {
+                    var $infoNum = $('.infoNum');
+                    $(".nodatanotice").remove();
+                    data.data && data.data.length !== 0 ? (
+                        $infoNum.text(data.countRecord),
+                            $infoNum.parent('div').show()
+                        ) : ($.emptyData(), $('.pagination').parent().hide(), $infoNum.parent('div').hide())
+                }
+
+                $('.pagination').parent().fadeIn();
                 typeof(option.success) === 'function' && option.success(data);
             },
             error: function (data) {

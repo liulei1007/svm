@@ -48,7 +48,9 @@
                 '/lib/jquery.cxcalendar.min.js',
                 '/js/json2.js',
                 '/js/base.js',
-                '/js/pagination.js'
+                '/js/pagination.js',
+                '/js/common.js',
+                '/js/index.js'
             ];
             this.createJs(commonJsConfig);
 

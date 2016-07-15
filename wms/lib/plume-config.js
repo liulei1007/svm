@@ -4,42 +4,54 @@
 
 (function ($) {
 
+    var href = window.document.location + '',
+        plumePath = href.substring(0, href.lastIndexOf('/') + 1);
+
+
     // 配置初始化js、css加载
     $.initOperation = {
 
         indexInit: function () {
             console.log("初始化plume-indexInit");
-            Plume.resource().loadJs(['/wms/js/common.js', '/wms/js/index.js']);
+            Plume.resource().loadJs([
+                plumePath + 'js/common.js',
+                plumePath + 'js/index.js'
+            ]);
         },
 
         inventoriesManageInit: function () {
-            $.initOperation.indexInit();
             console.log("初始化plume-demoInit");
-            Plume.resource().loadJs(['/wms/js/inventoriesManage.js']);
+            Plume.resource().loadJs([
+                plumePath + 'js/inventoriesManage.js'
+            ]);
         },
 
         receiptListShowInit: function () {
-            $.initOperation.indexInit();
             console.log("初始化plume-demo1Init");
-            Plume.resource().loadJs(['/wms/js/receiptListShow.js']);
+            Plume.resource().loadJs([
+                    plumePath + 'js/receiptListShow.js'
+            ]);
         },
 
         receiptManageInit: function () {
-            $.initOperation.indexInit();
             console.log("初始化plume-demo1Init");
-            Plume.resource().loadJs(['/wms/js/receiptManage.js']);
+            Plume.resource().loadJs([
+                    plumePath + 'js/receiptManage.js'
+            ]);
         },
 
         shipmentDetailInit: function () {
-            $.initOperation.indexInit();
             console.log("初始化plume-demo1Init");
-            Plume.resource().loadJs(['/wms/js/shipmentDetail.js']);
+            Plume.resource().loadJs([
+                    plumePath + 'js/shipmentDetail.js'
+            ]);
         },
 
         shipmentManageInit: function () {
-            $.initOperation.indexInit();
             console.log("初始化plume-demo1Init");
-            Plume.resource().loadJs(['/wms/js/shipmentManage.js']);
+            Plume.resource().loadJs([
+                    plumePath + 'js/shipmentManage.js'
+            ]);
         }
     };
 

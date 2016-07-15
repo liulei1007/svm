@@ -18,8 +18,8 @@ function newPage(totalPage, fun) {
         var changePageCountHtml = "<div class='changepagecount'><span>设置每页显示行数:</span></span><dl tag=0 >默认</dl><dl tag=20 >20</dl><dl tag=50 >50</dl><dl tag=100 >100</dl><dl tag=500 >500</dl></div>";
         $(".changepagecount").remove();
         $(".nav-pagination").prepend(changePageCountHtml);
-        if(session[session.nowPageName + "_PAGE_SET_COUNT"]){
-            $(".changepagecount").find("[tag=" + session[session.nowPageName + "_PAGE_SET_COUNT"] + "]").addClass("active");
+        if($.session[$.session.nowPageName + "_PAGE_SET_COUNT"]){
+            $(".changepagecount").find("[tag=" + $.session[$.session.nowPageName + "_PAGE_SET_COUNT"] + "]").addClass("active");
         }else{
             $(".changepagecount").find("[tag=0]").addClass("active");
         }
@@ -27,8 +27,8 @@ function newPage(totalPage, fun) {
         $(".changepagecount dl").bind("click", function () {
             $(this).siblings().removeClass("active");
             $(this).addClass("active");
-            session[session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).attr("tag"));
-            derict(null, session.nowPageName, "nochangeurl");
+            $.session[$.session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).attr("tag"));
+            $.derect(null, $.session.nowPageName, null, '', 'changeurl');
         });
 
     } catch (e) {

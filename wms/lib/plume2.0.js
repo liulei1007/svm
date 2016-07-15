@@ -151,6 +151,7 @@
 
     $.extend({
         derect: function (obj, page, fun, flag, load) {
+            obj = obj || Plume.setParam.container;
             $(obj).loadData(page, fun, flag, load);
         }
     });

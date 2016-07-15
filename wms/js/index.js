@@ -10,17 +10,9 @@ $(function () {
             setInterval(this.chkUserStatus(), 30000);
 
             $.when(this.getUserAuth(), this.getLoginInfo()).done(function () {
-
                 own.bindEvent();
-
-                var pageNameLen = own.pageName.length;
-                for (var i = 0; i < pageNameLen; i++) {
-                    $("[pageName='" + own.pageName[i] + "']").bind("click", function () {
-                        window.location.href = own.pageName[i];
-                    });
-                }
-
             });
+
         },
 
         bindEvent: function () {
@@ -157,6 +149,10 @@ $(function () {
                     if (data.ok) {
                         showMenu(data.data);
                         menuEvent();
+
+                        var pageName = utils.getPageUrl();
+
+                        $("ul.repertory").find('li[pageName="' + pageName + '"]').addClass("active").siblings().removeClass("active");
                     } else {
                         console.log("获取登录信息失败:" + data.resDescription);
                     }
