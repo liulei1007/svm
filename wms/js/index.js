@@ -139,13 +139,13 @@ $(function () {
                     $(".page-content").find("[auth=" + authNum + "]").show();
                     $(".page-content").find("[auth=" + authNum + "]").find("li").show();
                     $firstChild.addClass("active").siblings().removeClass("active");
-                    $.derect('.work-space-active', pageName, null, 'changeurl', '');
+                    $.derect('.work-space-active', pageName, null, '', 'changeurl');
                 });
 
                 $("ul.repertory").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");
                     $(this).addClass("active").siblings().removeClass("active");
-                    $.derect('.work-space-active', pageName, null, 'changeurl', '');
+                    $.derect('.work-space-active', pageName, null, '', 'changeurl');
                 });
             };
 
