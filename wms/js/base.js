@@ -221,6 +221,12 @@
         });
     };
 
+    $.directPage = function (obj, page, fun, flag, load) {
+        $.session.nowPageName = page == 'index' ? '' : page;
+
+        $.direct(obj, page, fun, flag, load);
+    };
+
     // 获取psgId
     $.getGoodsPsgId = function (_this) {
         var removeList = $(_this).parents('tr'),

@@ -28,7 +28,11 @@ function newPage(totalPage, fun) {
             $(this).siblings().removeClass("active");
             $(this).addClass("active");
             $.session[$.session.nowPageName + "_PAGE_SET_COUNT"] = PAGE_SET_COUNT = parseInt($(this).attr("tag"));
-            $.derect(null, $.session.nowPageName, null, '', 'changeurl');
+            var pageName = utils.getPageUrl();
+            if ($.session.nowPageName != 'undefined') {
+                pageName = $.session.nowPageName;
+            }
+            $.directPage(null, pageName, null, '', 'changeurl');
         });
 
     } catch (e) {

@@ -17,7 +17,7 @@ $(function () {
 
     $("tbody").on("click", '.bl-btn-look', function () {
         $.getShipmentId(this)
-        $.derect('.work-space-active', 'shipmentDetail', null, '', 'changeurl');
+        $.directPage('.work-space-active', 'shipmentDetail', null, '', 'changeurl');
     })
 
     $('#createdFrom').cxCalendar();

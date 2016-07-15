@@ -5,23 +5,15 @@ $(function () {
         pageName: [],
 
         init: function () {
-            var own = this;
             // 判断用户是否登录
             setInterval(this.chkUserStatus(), 30000);
 
-            $.when(this.getUserAuth(), this.getLoginInfo()).done(function () {
-                own.bindEvent();
-            });
+            this.getUserAuth();
+            this.getLoginInfo();
 
-        },
-
-        bindEvent: function () {
-
-            return this;
         },
 
         getLoginInfo: function () {
-
             var setSession = function (data) {
                 sessionStorage.login_mobilePhone = data.mobilePhone;
                 sessionStorage.login_userType = data.userType;
@@ -131,13 +123,13 @@ $(function () {
                     $(".page-content").find("[auth=" + authNum + "]").show();
                     $(".page-content").find("[auth=" + authNum + "]").find("li").show();
                     $firstChild.addClass("active").siblings().removeClass("active");
-                    $.derect('.work-space-active', pageName, null, '', 'changeurl');
+                    $.directPage('.work-space-active', pageName, null, '', 'changeurl');
                 });
 
                 $("ul.repertory").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");
                     $(this).addClass("active").siblings().removeClass("active");
-                    $.derect('.work-space-active', pageName, null, '', 'changeurl');
+                    $.directPage('.work-space-active', pageName, null, '', 'changeurl');
                 });
             };
 

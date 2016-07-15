@@ -27,7 +27,7 @@
             load && (config.load = load);
 
             var prams = "";
-            if (name.indexOf("?") != -1) {
+            if (name && name.indexOf("?") != -1) {
                 prams = name.substring(name.indexOf("?"));
                 name = name.substring(0, name.indexOf("?"));
             }
@@ -150,7 +150,7 @@
     });
 
     $.extend({
-        derect: function (obj, page, fun, flag, load) {
+        direct: function (obj, page, fun, flag, load) {
             obj = obj || Plume.setParam.container;
             $(obj).loadData(page, fun, flag, load);
         }
