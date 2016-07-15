@@ -311,28 +311,9 @@ function getAuth() {
                     secondMenu += '</ul>';
                     $(".page-content").append(secondMenu);
                 }
-
-                // TODO 仅作调试使用
-                var oneMenu = '<ul class="nav slidebar-title repertoryMenu" auth="1113">' +
-                    '<li><i class="goods"></i>仓库管理</li></ul>';
-
-                var twoMenu = '<ul class="slidebar-menu clearFix childmenu repertory" auth="1113">' +
-                    '<li pageName="shipmentManage">出库管理</li>' +
-                    '<li pageName="inventoriesManage">库存管理>' +
-                    '<li pageName="receiptManage">入库管理</li></ul>';
-
-                $(".slidebar").append(oneMenu);
-                $(".page-content").append(twoMenu);
-
                 $(".slidebar-title").fadeIn();
                 // 一级菜单点击显示二级菜单，并且显示二级菜单中头一个页面
                 $(".slidebar-title").bind("click", function () {
-
-                    if ($(this).hasClass('repertoryMenu')) {
-                        window.location.href = '/wms/shipmentManage';
-                        return;
-                    }
-
                     var $thisMenu = $(this);
                     $thisMenu.siblings(".active").addClass("animateSlidebar").removeClass("active");
                     $thisMenu.addClass("active").removeClass("animateSlidebar");

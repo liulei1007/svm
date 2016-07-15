@@ -112,6 +112,7 @@ $(function () {
 
                 $(".container-fixed").fadeIn();
                 $(".slidebar-title").fadeIn();
+                $('.repertory').fadeIn();
             };
 
             var menuEvent = function () {
