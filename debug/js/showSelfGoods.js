@@ -5,7 +5,7 @@ $(function() {
 	getData();
 
 	// 绑定“返回”按钮
-	$(".body-typein .btn-back").bind("click", function() {
+	$(".form-block .btn-back").bind("click", function() {
 		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
 
@@ -20,7 +20,7 @@ $(function() {
 			contentType: "application/json; charset=utf-8",
 			success: function(result) {
 				unloading();
-				$(".body-typein").setPageData(result.data);
+				$(".form-block").setPageData(result.data);
 				var status = result.data.saleStatus;
 				if (status == "0") {$("#saleStatus").text("下架中");}
 				else if (status == "1") {$("#saleStatus").text("上架中");}

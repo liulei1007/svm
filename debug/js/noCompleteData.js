@@ -182,7 +182,7 @@ $(function () {
                 derict(this, "myGoods", "nochangeurl");
 
                 return false;
-            }).on('click', '.btn-link-delete', function () {
+            }).on('click', '.btn-border-danger', function () {
                 var uptId = $(this).attr("uptId");
                 $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
                     // 改变弹出框中文字和图标显示

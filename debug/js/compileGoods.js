@@ -30,7 +30,7 @@ function getGoodsInfo() {
                         $(".material").hide();
                         $(".material_temp").show();
                     }
-                    $('.body-typein').setPageData(data.data);
+                    $('.form-block').setPageData(data.data);
                     var formsList = "";
                     $(data.data.productGoodsORM.productInfoORM.productInfoAttrORMs).each(function (i, good) {
                         formsList += '<div class="form-group"><label class="col-sm-3 control-label">' + good.productAttribute.attrNameBack + '：</label><p class="col-sm-6 form-control-static">' + good.attrValue + '</p></div>'

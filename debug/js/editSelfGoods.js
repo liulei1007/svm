@@ -19,7 +19,7 @@ $(function() {
 	}
 
 	// 获取当前商品的数据，并将信息写入表单
-	getSelfData($(".body-typein"), session.stashGoods_stashId);
+	getSelfData($(".form-block"), session.stashGoods_stashId);
 
 
 	//单位规格
@@ -37,7 +37,7 @@ $(function() {
 	});
 
 	// 绑定“取消”按钮
-	$(".body-typein .btn-cancel").bind("click", function() {
+	$(".form-block .btn-cancel").bind("click", function() {
 		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
 });

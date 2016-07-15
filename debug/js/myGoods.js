@@ -302,11 +302,12 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
+                    showPopTips("信息提示", "warning", "未查询到数据!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html("未查询到数据!");
+                    // });
                     return;
                 }
                 var d = data.data;
@@ -469,11 +470,12 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
+                    showPopTips("信息提示", "warning", "未查询到数据!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html("未查询到数据!");
+                    // });
                     return;
                 }
                 $(".cmg-brand").setPageData(data);
@@ -774,11 +776,12 @@ $(function () {
                 marketPrice = $("#marketPrice").val();
 
             if (!$color || $color.length === 0) {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html('请选择颜色分类');
-                });
+                showPopTips("信息提示", "warning", "请选择颜色分类!");
+                // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //     $(".pop").find(".popup-title").html("信息提示");
+                //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //     $(".pop").find(".popup-info").html('请选择颜色分类');
+                // });
 
                 $('tr.cmg-goodstr').remove();
 
@@ -832,11 +835,12 @@ $(function () {
                 success: function (data) {
                     unloading();
                     if (!data.data) {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html(data.resDescription);
-                        });
+                        showPopTips("信息提示", "warning", data.resDescription);
+                        // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        //     $(".pop").find(".popup-title").html("信息提示");
+                        //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        //     $(".pop").find(".popup-info").html(data.resDescription);
+                        // });
                         return;
                     }
                     if (data.ok) {
@@ -870,11 +874,12 @@ $(function () {
             });
 
             var errorTip = function (message) {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html(message);
-                });
+                showPopTips("信息提示", "warning", message);
+                // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //     $(".pop").find(".popup-title").html("信息提示");
+                //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //     $(".pop").find(".popup-info").html(message);
+                // });
             };
 
             $(".pu-ok").bind("click", function () {
@@ -1028,22 +1033,24 @@ $(function () {
                 }
 
                 if (data.ok) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("数据提交成功");
+                    showPopTips("信息提示", "success", "数据提交成功!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    //     $(".pop").find(".popup-info").html("数据提交成功");
                         if (session.goods_showMyGoods_type == "feed") {
                             derict(null, "takingGoods", "nochangeurl");
                         } else {
                             derict(null, "goodsAuditManage", "nochangeurl");
                         }
-                    });
+                    // });
                 } else {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html(data.resDescription);
-                    });
+                    showPopTips("信息提示", "warning", data.resDescription);
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html(data.resDescription);
+                    // });
                 }
 
                 $(own).removeAttr('disabled');
@@ -1071,18 +1078,21 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("数据提交成功");
-                        derict(null, "goodsDraft", "nochangeurl");
-                    });
+                    showPopTips("信息提示", "success", "数据提交成功");
+                    derict(null, "goodsDraft", "nochangeurl");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    //     $(".pop").find(".popup-info").html("数据提交成功");
+                    //     derict(null, "goodsDraft", "nochangeurl");
+                    // });
                 } else {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html(data.resDescription);
-                    });
+                    showPopTips("信息提示", "warning", data.resDescription);
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html(data.resDescription);
+                    // });
                 }
                 $(own).removeAttr('disabled');
             }

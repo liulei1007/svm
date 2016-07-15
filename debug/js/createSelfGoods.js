@@ -17,21 +17,21 @@ $(function() {
 
 	// 如果是复制，将复制的商品的信息写入表单
 	if (session.stashGoods_operate == "edit") {
-		getSelfData($(".body-typein"), session.stashGoods_stashId);
+		getSelfData($(".form-block"), session.stashGoods_stashId);
 	}
 	// 如果是新增商品信息，获取产品一级分类
-	else getFirstCategory($(".body-typein"), null);
+	else getFirstCategory($(".form-block"), null);
 
 	// 绑定检验表单事件
 	checkForm();
 
 	// 绑定“提交”按钮
-	$(".body-typein .btn-submit").bind("click", function() {
+	$(".form-block .btn-submit").bind("click", function() {
 		checkSelfGoods("发布", datas, plumeApi["addProductStash"]);
 	});
 
 	// 绑定“取消”按钮
-	$(".body-typein .btn-cancel").bind("click", function() {
+	$(".form-block .btn-cancel").bind("click", function() {
 		derict(this, "releaseSelfGoods", "nochangeurl");
 	});
 
