@@ -19,6 +19,14 @@
             ]);
         },
 
+        // ----弹出框----
+        popTips_init: function () {
+            console.log("初始化plume-indexInit");
+            Plume.resource().loadJs([
+                    plumePath + 'js/popTips.js'
+            ]);
+        },
+
         inventoriesManageInit: function () {
             console.log("初始化plume-demoInit");
             Plume.resource().loadJs([

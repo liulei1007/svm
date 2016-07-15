@@ -15,7 +15,7 @@
          * @param fun   回调函数
          * @param load  导入新页面object目标
          */
-        loadData: function (name, fun, load, flag) {
+        loadData: function (name, fun, flag, load) {
             var own = this;
 
             $(own).find("*").off();
@@ -48,7 +48,9 @@
                 }
             }
             try {
-                fun && fun();
+                setTimeout(function () {
+                    fun && fun();
+                }, 0);
                 Plume.setParam.initFun = init;
                 utils.setLocal('plume_init_fun', init);
             } catch (e) {
@@ -61,7 +63,6 @@
          * @param $p
          */
         setPageData: function ($p) {
-            var own = this;
             $(this).find("[data-name]").each(function () {
                 $(this).setNodeData("$p", $p, "data-name");
             });
@@ -80,7 +81,7 @@
                         $(this).setNodeData("$n", listData[i], "node-name");
                     });
                 }
-                $own.find("[list-node]").fadeIn()
+                $own.find("[list-node]").fadeIn();
 
                 return this;
             });
@@ -152,6 +153,7 @@
     $.extend({
         direct: function (obj, page, fun, flag, load) {
             obj = obj || Plume.setParam.container;
+            flag = flag || 'changeurl'; load = load || '';
             $(obj).loadData(page, fun, flag, load);
         }
     });
@@ -487,7 +489,7 @@
                         initFun = pageObj[url]['init'];
                         $.initOperation[initFun]();
                         window.onload = function () {
-                            $('' + Plume.setParam.container).loadData(url, null, '', 'nochangeurl');
+                            $.direct(Plume.setParam.container, url, null, 'nochangeurl');
                         };
                     }
                 } else {

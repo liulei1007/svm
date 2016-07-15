@@ -221,11 +221,35 @@
         });
     };
 
-    $.directPage = function (obj, page, fun, flag, load) {
-        $.session.nowPageName = page == 'index' ? '' : page;
+    $.directPage = function (page, fun, obj, flag, load) {
+        $.session.nowPageName = page == 'index' ? '' : page || '';
+
+        if (!page || page == 'index') {
+            window.location.href = 'index';
+            return;
+        }
 
         $.direct(obj, page, fun, flag, load);
     };
+
+    // 弹出层
+    $.popTips = function (popupTitle, popupIcon) {
+        $.directPage('popTips', function () {
+            var $pop = $('.pop');
+            $pop.find(".popup-title").html(popupTitle);
+            $pop.find(".popup-icon").html('<i class=' + popupIcon + '></i>');
+            $pop.find(".popup-info").html("确认");
+        }, '.pop', 'nochangeurl', '');
+    };
+
+    $.showPopTips = function (popupTitle, popupIcon, popupTips) {
+        $.directPage('popTips', function () {
+            var $pop = $('.pop');
+            $pop.find(".popup-title").html(popupTitle);
+            $pop.find(".popup-icon").html('<i class=' + popupIcon + '></i>');
+            $pop.find(".popup-info").html(popupTips);
+        }, '.pop', 'nochangeurl', '');
+    }
 
     // 获取psgId
     $.getGoodsPsgId = function (_this) {
