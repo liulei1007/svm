@@ -1,287 +1,285 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>红星美凯龙后台管理</title>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script language="javascript" src="../lib/plume-resources.js"></script>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--公用基础文件-->
+    <script language="javascript" src="../js/plumecommon.js" ></script>
+    <!--声明-->
+    <script>
+        var _PLUME={
+            "config":"../config/svm.xml",
+            "initPage":"agencyShowPersonal"
+        }
+    </script>
 </head>
 
 <body>
-<div class="body-typein">
+  <div class="body-typein">
     <form class="form-inline tab">
-        <div class="container">
-
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a id="Section1" aria-controls="home" role="tab" data-toggle="tab">基础信息</a></li>
-                <li><a id="Section2" aria-controls="profile" role="tab" data-toggle="tab"></i>发货信息</a></li>
-                <li><a id="Section3" aria-controls="messages" role="tab" data-toggle="tab"></i>发运信息</a></li>
-                <li><a id="Section4" aria-controls="messages" role="tab" data-toggle="tab"></i>其它信息</a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content tabs">
+      <div class="container">
+              <ul class="nav nav-tabs" role="tablist">
+                <li id="Section1" class="active"><a  aria-controls="home" role="tab" data-toggle="tab">基础信息</a></li>
+                <li id="Section2"><a aria-controls="profile" role="tab" data-toggle="tab"></i>发货信息</a></li>
+                <li id="Section3"><a aria-controls="messages" role="tab" data-toggle="tab"></i>发运信息</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content tabs tab">
                 <div role="tabpanel" class="tab-pane in active" id="SectionShow1">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="warehouseCode">仓库编码</label>
-                            <input type="text" class="form-control input-sm" id="warehouseCode"
-                                   data-name="$p.warehouseCode">
-                        </div>
-                        <div class="form-group">
-                            <label for="companyCode">货主编码</label>
-                            <input type="text" class="form-control input-sm" id="companyCode"
-                                   data-name="$p.companyCode">
-                        </div>
-                        <div class="form-group">
-                            <label for="code">出库单编码</label>
-                            <input type="text" class="form-control input-sm" id="code" data-name="$p.code">
-                        </div>
-                        <div class="form-group">
-                            <label for="erpOrderCode">ERP订单编码</label>
-                            <input type="text" class="form-control input-sm" id="erpOrderCode"
-                                   data-name="$p.erpOrderCode">
-                        </div>
-                        <div class="form-group">
-                            <label for="erpOrderType">ERP订单类型</label>
-                            <input type="text" class="form-control input-sm" id="erpOrderType"
-                                   data-name="$p.erpOrderType">
-                        </div>
-                        <div class="form-group">
-                            <label for="erpOrderId">ERP订单内部号</label>
-                            <input type="text" class="form-control input-sm" id="erpOrderId" data-name="$p.erpOrderId">
-                        </div>
-                        <div class="form-group">
-                            <label for="processType">处理方式</label>
-                            <input type="text" class="form-control input-sm" id="processType"
-                                   data-name="$p.processType">
-                        </div>
-                        <div class="form-group">
-                            <label for="carrierCode">出库单类型</label>
-                            <input type="text" class="form-control input-sm" id="carrierCode"
-                                   data-name="$p.carrierCode">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipmentType">承运人编码</label>
-                            <input type="text" class="form-control input-sm" id="shipmentType"
-                                   data-name="$p.shipmentType">
-                        </div>
-                        <div class="form-group">
-                            <label for="sourcePlatform">来源平台</label>
-                            <input type="text" class="form-control input-sm" id="sourcePlatform"
-                                   data-name="$p.sourcePlatform">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="storeCode">店铺编码</label>
-                            <input type="text" class="form-control input-sm" id="storeCode" data-name="$p.storeCode">
-                        </div>
-                        <div class="form-group">
-                            <label for="storeName">店铺名称</label>
-                            <input type="text" class="form-control input-sm" id="storeName" data-name="$p.storeName">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="codRequired">货到付款</label>
-                            <input type="text" class="form-control input-sm" id="codRequired"
-                                   data-name="$p.codRequired">
-                        </div>
-                        <div class="form-group">
-                            <label for="codValue">货款金额</label>
-                            <input type="text" class="form-control input-sm" id="codValue" data-name="$p.codValue">
-                        </div>
-                        <div class="form-group">
-                            <label for="payNo">付款流水号</label>
-                            <input type="text" class="form-control input-sm" id="payNo" data-name="$p.payNo">
-                        </div>
-                        <div class="form-group">
-                            <label for="payTime">付款时间</label>
-                            <input type="text" class="form-control input-sm" id="payTime" data-name="$p.payTime">
-                        </div>
-                    </form>
-
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">仓库编码</span>
+                      <input type="text" class="form-control input-sm" id="warehouseCode" data-name="$p.warehouseCode">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">货主编码</span>
+                      <input type="text" class="form-control input-sm" id="companyCode" data-name="$p.companyCode">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">出库单编码</span>
+                      <input type="text" class="form-control input-sm" id="code" data-name="$p.code">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">ERP订单编码</span>
+                      <input type="text" class="form-control input-sm" id="erpOrderCode" data-name="$p.erpOrderCode">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">ERP订单类型</span>
+                      <input type="text" class="form-control input-sm" id="erpOrderType" data-name="$p.erpOrderType">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">ERP订单内部号</span>
+                      <input type="text" class="form-control input-sm" id="erpOrderId" data-name="$p.erpOrderId">
+                    </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">处理方式</span>
+                      <input type="text" class="form-control input-sm" id="processType" data-name="$p.processType">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">出库单类型</span>
+                      <input type="text" class="form-control input-sm" id="carrierCode" data-name="$p.carrierCode">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">承运人编码</span>
+                      <input type="text" class="form-control input-sm" id="shipmentType" data-name="$p.shipmentType">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">来源平台</span>
+                      <input type="text" class="form-control input-sm" id="sourcePlatform" data-name="$p.sourcePlatform">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">店铺编码</span>
+                      <input type="text" class="form-control input-sm" id="storeCode" data-name="$p.storeCode">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">店铺名称</span>
+                      <input type="text" class="form-control input-sm" id="storeName" data-name="$p.storeName">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">货到付款</span>
+                      <input type="text" class="form-control input-sm" id="codRequired" data-name="$p.codRequired">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">货款金额</span>
+                      <input type="text" class="form-control input-sm" id="codValue" data-name="$p.codValue">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                      <span class="input-group-addon">付款流水号</span>
+                      <input type="text" class="form-control input-sm" id="payNo" data-name="$p.payNo">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                      <span class="input-group-addon">付款时间</span>
+                      <input type="text" class="form-control input-sm" id="payTime" data-name="$p.payTime">
+                    </div>
+                  </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="SectionShow2">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="shipTo">客户编码</label>
-                            <input type="text" class="form-control input-sm" id="shipTo" data-name="$p.shipTo">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToName">客户名称</label>
-                            <input type="text" class="form-control input-sm" id="shipToName" data-name="$p.shipToName">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToAttentionTo">收货人名称</label>
-                            <input type="text" class="form-control input-sm" id=" shipToAttentionTo"
-                                   data-name="$p.shipToAttentionTo">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToMobile">收货人手机</label>
-                            <input type="text" class="form-control input-sm" id="shipToMobile"
-                                   data-name="$p.shipToMobile">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToPhoneNum">收货人电话</label>
-                            <input type="text" class="form-control input-sm" id="shipToPhoneNum"
-                                   data-name="$p.shipToPhoneNum">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToFaxNum">收货人传真</label>
-                            <input type="text" class="form-control input-sm" id="shipToFaxNum"
-                                   data-name="$p.shipToFaxNum">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToEmailAddress">收货人Email</label>
-                            <input type="text" class="form-control input-sm" id="shipToEmailAddress"
-                                   data-name="$p.shipToEmailAddress">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToCountry">收货国家</label>
-                            <input type="text" class="form-control input-sm" id=" shipToCountry"
-                                   data-name="$p.shipToCountry">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToState">收货省份</label>
-                            <input type="text" class="form-control input-sm" id="shipToState"
-                                   data-name="$p.shipToState">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToCity">收货城市</label>
-                            <input type="text" class="form-control input-sm" id="shipToCity" data-name="$p.shipToCity">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToDistrict">收货区县</label>
-                            <input type="text" class="form-control input-sm" id="shipToDistrict"
-                                   data-name="$p.shipToDistrict">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToAddress1">收货地址1</label>
-                            <input type="text" class="form-control input-sm" id="shipToAddress1"
-                                   data-name="$p.shipToAddress1">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToAddress2">收货地址2</label>
-                            <input type="text" class="form-control input-sm" id="shipToAddress2"
-                                   data-name="$p.shipToAddress2">
-                        </div>
-                        <div class="form-group">
-                            <label for="shipToPostalCode">收货邮编</label>
-                            <input type="text" class="form-control input-sm" id="shipToPostalCode"
-                                   data-name="$p.shipToPostalCode">
-                        </div>
-                    </form>
+                  <div class="row">
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">客户编码</span>
+                        <input type="text" class="form-control input-sm" id="shipTo" data-name="$p.shipTo">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">客户名称</span>
+                        <input type="text" class="form-control input-sm" id="shipToName" data-name="$p.shipToName">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货人名称</span>
+                        <input type="text" class="form-control input-sm" id=" shipToAttentionTo" data-name="$p.shipToAttentionTo">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">收货人手机</span>
+                        <input type="text" class="form-control input-sm" id="shipToMobile" data-name="$p.shipToMobile">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货人电话</span>
+                        <input type="text" class="form-control input-sm" id="shipToPhoneNum" data-name="$p.shipToPhoneNum">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货人传真</span>
+                        <input type="text" class="form-control input-sm" id="shipToFaxNum" data-name="$p.shipToFaxNum">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">收货人Email</span>
+                        <input type="text" class="form-control input-sm" id="shipToEmailAddress" data-name="$p.shipToEmailAddress">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货国家</span>
+                        <input type="text" class="form-control input-sm" id=" shipToCountry" data-name="$p.shipToCountry">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货省份</span>
+                        <input type="text" class="form-control input-sm" id="shipToState" data-name="$p.shipToState">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">收货城市</span>
+                        <input type="text" class="form-control input-sm" id="shipToCity" data-name="$p.shipToCity">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货区县</span>
+                        <input type="text" class="form-control input-sm" id="shipToDistrict" data-name="$p.shipToDistrict">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货地址1</span>
+                        <input type="text" class="form-control input-sm" id="shipToAddress1" data-name="$p.shipToAddress1">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">收货地址2</span>
+                        <input type="text" class="form-control input-sm" id="shipToAddress2" data-name="$p.shipToAddress2">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货邮编</span>
+                        <input type="text" class="form-control input-sm" id="shipToPostalCode" data-name="$p.shipToPostalCode">
+                      </div>  
+                    </div>              
                 </div>
                 <div role="tabpanel" class="tab-pane" id="SectionShow3">
-                    <div class="row">
-                        <div class="col-md-3 input-group">
-                            <span class="input-group-addon">要求送货日期</span>
-                            <input type="text" class="form-control input-sm" id="requestedDeliveryDate"
-                                   data-name="$p.requestedDeliveryDate">
-                        </div>
-                        <div class="col-md-3 col-md-offset-1 input-group ">
-                            <span class="input-group-addon">要求整单发货</span>
-                            <input type="text" class="form-control input-sm" id="allocateComplete"
-                                   data-name="$p.allocateComplete">
-                        </div>
-                        <div class="col-md-3 col-md-offset-1 input-group">
-                            <span class="input-group-addon">发运备注</span>
-                            <input type="text" class="form-control input-sm" id="deliveryNote"
-                                   data-name="$p.deliveryNote">
-                        </div>
+                  <div class="row">
+                    <div class="col-md-3 input-group">
+                        <span class="input-group-addon">要求送货日期</span>
+                        <input type="text" class="form-control input-sm" id="requestedDeliveryDate" data-name="$p.requestedDeliveryDate">
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 input-group">
-                            <span class="input-group-addon">发货单备注</span>
-                            <input type="text" class="form-control input-sm" id="shipmentNote"
-                                   data-name="$p.shipmentNote">
-                        </div>
-                        <div class="col-md-3 col-md-offset-1 input-group">
-                            <span class="input-group-addon">路线</span>
-                            <input type="text" class="form-control input-sm" id="route" data-name="$p.route">
-                        </div>
-                        <div class="col-md-3 col-md-offset-1 input-group">
-                            <span class="input-group-addon">承运服务类型</span>
-                            <input type="text" class="form-control input-sm" id="carrierService"
-                                   data-name="$p.carrierService">
-                        </div>
+                    <div class="col-md-3 col-md-offset-1 input-group ">
+                        <span class="input-group-addon">要求整单发货</span>
+                        <input type="text" class="form-control input-sm" id="allocateComplete" data-name="$p.allocateComplete">
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 input-group">
-                            <span class="input-group-addon">承运商短地址</span>
-                            <input type="text" class="form-control input-sm" id="shortAddress"
-                                   data-name="$p.shortAddress">
-                        </div>
-                        <div class="col-md-3 col-md-offset-1 input-group">
-                            <span class="input-group-addon">收货人Email</span>
-                            <input type="text" class="form-control input-sm" id="shipToEmailAddress"
-                                   data-name="$p.shipToEmailAddress">
-                        </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">发运备注</span>
+                        <input type="text" class="form-control input-sm" id="deliveryNote" data-name="$p.deliveryNote">
                     </div>
+                    </div>
+                    <div class="row">  
+                      <div class="col-md-3 input-group">
+                        <span class="input-group-addon">发货单备注</span>
+                        <input type="text" class="form-control input-sm" id="shipmentNote" data-name="$p.shipmentNote">
+                      </div>
+                      <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">路线</span>
+                        <input type="text" class="form-control input-sm" id="route" data-name="$p.route">
+                      </div>
+                     <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">承运服务类型</span>
+                        <input type="text" class="form-control input-sm" id="carrierService" data-name="$p.carrierService">
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-md-3 input-group">
+                        <span class="input-group-addon">承运商短地址</span>
+                        <input type="text" class="form-control input-sm" id="shortAddress" data-name="$p.shortAddress">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 input-group">
+                        <span class="input-group-addon">收货人Email</span>
+                        <input type="text" class="form-control input-sm" id="shipToEmailAddress" data-name="$p.shipToEmailAddress">
+                   </div>
                 </div>
-            </div>
-        </div>
+              </div>
+
+      </div>
     </form>
-</div>
+    
 
-<div class="table-block tab">
-    <table class="table table1 table-striped">
-        <thead>
-        <tr>
-            <td style="width:2%"><input type="checkbox"/></td>
-            <td style="width:8%">仓库编码</td>
-            <td style="width:8%">货主编码</td>
-            <td style="width:8%">出库单编码</td>
-            <td style="width:5%">ERP行号</td>
-            <td style="width:5%">货品编码</td>
-            <td style="width:6%">货品名称</td>
-            <td style="width:6%">要货数量</td>
-            <td style="width:6%">发货数量</td>
-            <td style="width:5%">生产日期</td>
-            <td style="width:5%">失效日期</td>
-            <td style="width:auto">入库日期</td>
-            <td style="width:auto">库存状态</td>
-            <td style="width:5%">标价</td>
-            <td style="width:5%">净价</td>
-        </tr>
-        </thead>
-        <tbody data-list="$p.data.details">
-        <tr list-temp="true">
-            <td><input type="checkbox"/></td>
-            <!-- <td class="shipmentId" node-name="$n.id"></td> -->
-            <td node-name="$n.shipmentDetail.warehouseCode"></td>
-            <td node-name="$n.shipmentDetail.companyCode"></td>
-            <td node-name="$n.shipmentDetail.shipmentCode"></td>
-            <td node-name="$n.shipmentDetail.erpOrderLineNum"></td>
-            <td node-name="$n.shipmentDetail.itemCode"></td>
-            <td node-name="$n.shipmentDetail.itemName"></td>
-            <td node-name="$n.shipmentDetail.requestQty"></td>
-            <td node-name="$n.shipmentDetail.shipQty"></td>
-            <td node-name="$n.shipmentDetail.batch"></td>
-            <td node-name="$n.shipmentDetail.lot"></td>
-            <td node-name="$n.shipmentDetail.manufactureDate"></td>
-            <td node-name="$n.shipmentDetail.expirationDate"></td>
-            <td node-name="$n.shipmentDetail.agingDate"></td>
-            <td node-name="$n.shipmentDetail.inventorySts"></td>
-
-        </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-3 btn-block">
-        <button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+    <div class="table-coordinate">
+      <div class="table-block">   
+        <table class="table table1 table-striped">
+            <thead>
+              <tr>
+                <td style="width:2%"><input type="checkbox" /></td>
+                <td style="width:8%">仓库编码</td>
+                <td style="width:8%">货主编码</td>
+                <td style="width:8%">出库单编码</td>
+                <td style="width:5%">ERP行号</td>      
+                <td style="width:5%">货品编码</td>
+                <td style="width:6%">货品名称</td>
+                <td style="width:6%">要货数量</td>
+                <td style="width:6%">发货数量</td>
+                <td style="width:5%">生产日期</td>
+                <td style="width:5%">失效日期</td>
+                <td style="width:auto">入库日期</td>
+                <td style="width:auto">库存状态</td>
+                <td style="width:5%">标价</td>
+                <td style="width:5%">净价</td>
+              </tr>
+            </thead>
+            <tbody data-list="$p.data.details">
+              <tr list-temp="true">
+                <td><input type="checkbox" /></td>
+                <td node-name="$n.shipmentDetail.warehouseCode"></td>
+                <td node-name="$n.shipmentDetail.companyCode"></td>
+                <td node-name="$n.shipmentDetail.shipmentCode"></td>
+                <td node-name="$n.shipmentDetail.erpOrderLineNum"></td>
+                <td node-name="$n.shipmentDetail.itemCode"></td>
+                <td node-name="$n.shipmentDetail.itemName"></td>
+                <td node-name="$n.shipmentDetail.requestQty"></td>
+                <td node-name="$n.shipmentDetail.shipQty"></td>
+                <td node-name="$n.shipmentDetail.batch"></td>
+                <td node-name="$n.shipmentDetail.lot"></td>
+                <td node-name="$n.shipmentDetail.manufactureDate"></td>
+                <td node-name="$n.shipmentDetail.expirationDate"></td>
+                <td node-name="$n.shipmentDetail.agingDate"></td>
+                <td node-name="$n.shipmentDetail.inventorySts"></td>                
+              </tr>
+            </tbody>
+        </table>
     </div>
-</div>
 
-<style>
-    .tab {
-        margin-top: 30px;
-    }
-</style>
-</div>
+    <div class="row">
+        <div class="btn-block col-md-offset-5">
+            <button type="button" class="btn btn-default btn-info btn-back">返回</button>
+        </div>
+     </div>
+    </div>
 
+      <style>
+        .tab{
+            margin-top: 30px;
+        }
+        .table-coordinate{   
+        position:fixed;
+        left:155px;
+        top:410px;  
+        }
+      </style>
+  </div>
 </body>
 </html>

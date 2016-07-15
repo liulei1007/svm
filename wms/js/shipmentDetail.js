@@ -1,41 +1,36 @@
 $(function() {
-
-    var shipment = null;
-
+    
+    //调整布局
+   //$(".row").children(":first").css("margin-left","1.5px"); 
+/*   $(".row").each(function(i,element){
+      element.children(":first").css("margin-left","1.5px"); 
+   });*/
+  
    $("#Section1").click(function(){
             $("#Section1").addClass("active");            
             $("#SectionShow1").show();
             $("#SectionShow2").hide();
             $("#SectionShow3").hide();
-            $("#SectionShow4").hide();
+            $("#Section2").removeClass("active");
+            $("#Section3").removeClass("active");
     });
     $("#Section2").click(function(){
             $("#Section2").addClass("active");
             $("#SectionShow2").show();
             $("#SectionShow1").hide();
             $("#SectionShow3").hide();
-            $("#SectionShow4").hide();
+            $("#Section1").removeClass("active");
+            $("#Section3").removeClass("active");
     });
     $("#Section3").click(function(){
             $("#Section3").addClass("active");
             $("#SectionShow3").show();
             $("#SectionShow2").hide();
             $("#SectionShow1").hide();
-            $("#SectionShow4").hide();
-    });
-    $("#Section4").click(function(){
-            $("#Section4").addClass("active");
-            $("#SectionShow4").show();
-            $("#SectionShow2").hide();
-            $("#SectionShow1").hide();
-            $("#SectionShow3").hide();
+            $("#Section1").removeClass("active");
+            $("#Section2").removeClass("active");
     });
     
-    
-    $('.btn-back').bind('click',function() {
-        derict(this,"shipmentManage","nochangeurl");
-    });
-
     $('.btn-back').bind('click',function() {
         derict(this,"shipmentManage","nochangeurl");
     });
@@ -121,7 +116,6 @@ $(function() {
         }
     });
 }
-
 
 getShipmentDetail();
 });
