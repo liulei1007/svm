@@ -1,7 +1,49 @@
 /**
  * Created by lenovo on 2016/7/05.
  */
+// 公用请求方法
 (function ($) {
+
+    var host = '', path = window.location.href;
+
+    if (path.indexOf("longguo.mmall.com") != -1) {
+        host = "http://longguo.mmall.cn/api/";
+    } else if (path.indexOf("longguo.hxmklmall.cn") != -1) {
+        host = "http://longguo.hxmklmall.cn/api/";
+    } else {
+        host = "http://longguo.hxmklmall.cn/api/";
+    }
+
+    if (path.indexOf("localhost") != -1) {
+        $.ajaxSetup({
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        });
+    }
+
+    // loading
+    $.loading = function () {
+        if (!($(".lockbg").length > 0)) {
+            $(document.body).append("<div class='lockbg'></div>");
+            $(".lockbg").show();
+        }
+
+        if (!($(".loading").length > 0)) {
+            var temp = '<div class="popcenter loading"></div>';
+            $(document.body).append(temp);
+        }
+    };
+
+    $.unloading = function () {
+        $(".lockbg").fadeOut(function () {
+            $(this).remove();
+        });
+        $(".loading,.loading-img").fadeOut(function () {
+            $(this).remove();
+        });
+    };
 
     /**
      * 判断是否为json对象
@@ -36,7 +78,8 @@
      * @returns {*}
      */
     $.commonAjax = function (option) {
-        var option = $.extend({}, $.defaultAjax, option),
+        var urlApi = utils.getLocal('plume_api') && $.parseJSON(utils.getLocal('plume_api')),
+            option = $.extend({}, $.defaultAjax, option),
             dataJson = option.data ? option.data : {};
 
         // option.stringData：针对请求类型不同
@@ -53,11 +96,15 @@
             urlString = urlStringArr.join('&');
         }
 
+        if (path.indexOf('wms') > -1 && !option.requestType) {
+            host = "http://192.168.220.102:8080/api/";
+        }
+
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
         if (typeof(option.operationId) !== "undefined") {
-            option.url = plumeApi[option.url] + '/' + option.operationId;
+            option.url = host + urlApi[option.url] + '/' + option.operationId;
         } else {
-            option.url = plumeApi[option.url] + (urlString ? ('?' + urlString) : '');
+            option.url = host + urlApi[option.url] + (urlString ? ('?' + urlString) : '');
         }
 
         return $.ajax({
@@ -68,18 +115,115 @@
             traditional: option.traditional,
             contentType: 'application/json',
             success: function (data) {
+                $.unloading();
                 typeof(option.success) === 'function' && option.success(data);
             },
             error: function (data) {
+                $.unloading();
                 typeof(option.error) === 'function' && option.error(data);
             },
             beforeSend: function () {
+                $.loading();
             }
         }).fail(function (res) {
+            $.unloading();
             if (res && res.responseText) {
                 var resJson = JSON.parse(res.responseText);
                 console.log(resJson);
             }
         });
     };
+
+})(jQuery);
+
+// 公用方法
+(function ($) {
+
+    $.session = function () {
+        if (typeof(Storage) !== "undefined") {
+            return sessionStorage;
+        }else {
+            alert("您好,您的浏览器不支持HTML5最新特性.请升级浏览器至IE8+或使用Firefox, Opera, Chrome,Safari");
+        }
+    }();
+
+    $.key = {
+        //绑定回车搜索
+        keydownEnter: function (ele) {
+            $("body").bind('keydown', function () {
+                if (event.keyCode == "13") {
+                    $(ele).click();
+                }
+            });
+        },
+        unkeydownEnter: function (ele) {
+            $("body").unbind();
+        },
+        //只能输入数字
+        onlyKeydownNum: function () {
+            if (event.shiftKey && (!(event.keyCode == 46) && !(event.keyCode == 8))) {
+                event.returnValue = false;
+            }
+            if (!(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39) && !(event.keyCode == 16))
+                if (!((event.keyCode >= 48 && event.keyCode <= 57) ||
+                    (event.keyCode >= 96 && event.keyCode <= 105) || (event.keyCode == 190)))
+
+                    event.returnValue = false;
+        },
+        // 只能输入数字和点号
+        onlyKeydownNumad: function () {
+            if (event.shiftKey && (!(event.keyCode == 46) && !(event.keyCode == 8))) {
+                event.returnValue = false;
+            }
+            if (!(event.keyCode == 46) && !(event.keyCode == 8) && !(event.keyCode == 37) && !(event.keyCode == 39) && !(event.keyCode == 16))
+                if (!((event.keyCode >= 48 && event.keyCode <= 57) ||
+                    (event.keyCode >= 96 && event.keyCode <= 105)))
+
+                    event.returnValue = false;
+        }
+    };
+
+    $.plumeTime = function () {
+        return new Date().getTime();
+    };
+
+    $.plumeLog = function (msg) {
+        console.log(msg);
+    };
+
+    /**
+     * checkbox选择
+     */
+    $.tableCheckBox = function () {
+        $(".table-block").find("thead input:checkbox").bind("click", function () {
+            var c = $(this).is(':checked');
+            $(".table-block").find("tbody input:checkbox").prop("checked", c);
+        });
+    };
+
+    //分页全局设置
+    var PAGE_COUNT = 11,
+        PAGE_SET_COUNT = 0;
+    $.onePageCount = function () {
+        return (PAGE_SET_COUNT != 0) ? PAGE_SET_COUNT : PAGE_COUNT;
+    };
+    $.setPageCount = function () {
+        if ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] && ($.session[$.session.nowPageName + "_PAGE_SET_COUNT"] != "NaN")) {
+            PAGE_SET_COUNT = parseInt($.session[$.session.nowPageName + "_PAGE_SET_COUNT"]);
+        } else {
+            PAGE_SET_COUNT = 0;
+        }
+        var h = $(window).height();
+        var h1 = 200;
+        var h2 = $(".search-block").height() + 40;
+        var h3 = $(".alert-info").height() + 20;
+        var h4 = $(".btn-block").height() + 20;
+        var x = (h3 == h4) ? h3 : ((h3 > h4) ? h3 : h4);
+        var n = parseInt((h - h1 - h2 - h3 - x) / 40);
+        if (n < 2) {
+            n = 2;
+        }
+        PAGE_COUNT = n;
+    };
+
 })(jQuery);

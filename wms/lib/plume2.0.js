@@ -9,6 +9,84 @@
 
     $.fn.extend({
         /**
+         *
+         * @param name  页面名字
+         * @param flag  是否该表url
+         * @param fun   回调函数
+         * @param load  导入新页面object目标
+         */
+        loadData: function (name, fun, load, flag) {
+            var own = this;
+
+            $(own).find("*").off();
+
+            var configPage = utils.getConfigPage(),
+                config = Plume.setParam;
+
+            !flag && (flag = "");
+            load && (config.load = load);
+
+            var prams = "";
+            if (name.indexOf("?") != -1) {
+                prams = name.substring(name.indexOf("?"));
+                name = name.substring(0, name.indexOf("?"));
+            }
+
+            var page = configPage && configPage[name],
+                init = page["init"],
+                url = page["pageUrl"],
+                cache = (flag.indexOf("cache") != -1),
+                resources = $.initOperation[init];
+
+            Plume.resource().loadHtml(url, config, resources, cache, own);
+
+            if (flag.indexOf("nochangeurl") === -1) {
+                try {
+                    window.history.pushState({}, '', name + prams);
+                } catch (e) {
+                    console.log("提示:无法动态改变地址:" + e.message);
+                }
+            }
+            try {
+                fun && fun();
+                Plume.setParam.initFun = init;
+                utils.setLocal('plume_init_fun', init);
+            } catch (e) {
+                console.log("提示:" + e.message);
+            }
+        },
+
+        /**
+         * 绑定属性处理
+         * @param $p
+         */
+        setPageData: function ($p) {
+            var own = this;
+            $(this).find("[data-name]").each(function () {
+                $(own).setNodeData("$p", $p, "data-name");
+            });
+            $(this).find("[data-list]").each(function () {
+                var $own = $(this),
+                    listTag = $own.attr("data-list"),
+                    listData = eval(listTag),
+                    temp = $own.find("[list-temp]").prop("outerHTML"),
+                    temps = temp.replace("list-temp", "list-node");
+
+                for (var i = 0; i < listData.length; i++) {
+                    $(temps).appendTo($own).attr("plumeindex", i);
+                    var dataListNode = $own.find("[list-node]:last");
+                    $(dataListNode).setNodeData("$n", listData[i], "node-name");
+                    $(dataListNode).find("[node-name]").each(function () {
+                        $(this).setNodeData("$n", listData[i], "node-name");
+                    });
+                }
+                $own.find("[list-node]").fadeIn()
+
+                return this;
+            });
+        },
+
+        /**
          * 数据绑定属性赋值
          * @param dataName
          * @param data
@@ -71,82 +149,9 @@
         }
     });
 
-    // 添加扩展load页面方法
     $.extend({
-        /**
-         *
-         * @param name  页面名字
-         * @param flag  是否该表url
-         * @param fun   回调函数
-         * @param load  导入新页面object目标
-         */
-        loadData: function (name, fun, load, flag) {
-            $('' + Plume.setParam.container).find("*").off();
-
-            var configPage = utils.getConfigPage(),
-                config = Plume.setParam;
-
-            !flag && (flag = "");
-            load && (config.load = load);
-
-            var prams = "";
-            if (name.indexOf("?") != -1) {
-                prams = name.substring(name.indexOf("?"));
-                name = name.substring(0, name.indexOf("?"));
-            }
-
-            var page = configPage && configPage[name],
-                init = page["init"],
-                url = page["pageUrl"],
-                cache = (flag.indexOf("cache") != -1),
-                resources = $.initOperation[init];
-
-            Plume.resource().loadHtml(url, config, resources, cache);
-
-            if (flag.indexOf("nochangeurl") === -1) {
-                try {
-                    window.history.pushState({}, '', name + prams);
-                } catch (e) {
-                    console.log("提示:无法动态改变地址:" + e.message);
-                }
-            }
-            try {
-                fun && fun();
-                Plume.setParam.initFun = init;
-                utils.setLocal('plume_init_fun', init);
-            } catch (e) {
-                console.log("提示:" + e.message);
-            }
-        },
-
-        /**
-         * 绑定属性处理
-         * @param $p
-         */
-        setPageData: function ($p) {
-            var own = this;
-            $(this).find("[data-name]").each(function () {
-                $(own).setNodeData("$p", $p, "data-name");
-            });
-            $(this).find("[data-list]").each(function () {
-                var $own = $(this),
-                    listTag = $own.attr("data-list"),
-                    listData = eval(listTag),
-                    temp = $own.find("[list-temp]").prop("outerHTML"),
-                    temps = temp.replace("list-temp", "list-node");
-
-                for (var i = 0; i < listData.length; i++) {
-                    $(temps).appendTo($own).attr("plumeindex", i);
-                    var dataListNode = $own.find("[list-node]:last");
-                    $(dataListNode).setNodeData("$n", listData[i], "node-name");
-                    $(dataListNode).find("[node-name]").each(function () {
-                        $(this).setNodeData("$n", listData[i], "node-name");
-                    });
-                }
-                $own.find("[list-node]").fadeIn()
-
-                return this;
-            });
+        derect: function (obj, page, fun, flag, load) {
+            $(obj).loadData(page, fun, flag, load);
         }
     });
 
@@ -251,8 +256,8 @@
 
         setParam: {
             'initFun': 'indexInit',
-            'load': '.container',
-            'container': '.content',
+            'load': 'body',
+            'container': '.work-space-active',
             'welcome': 'index',
             'configPlume': 'conf/config-plume.xml'
         },
@@ -367,14 +372,20 @@
         resource: function () {
             return {
 
-                loadHtml: function (url, config, fun, cache) {
+                /**
+                 * html加载
+                 * @param url
+                 * @param config
+                 * @param fun
+                 * @param cache
+                 * @param own
+                 */
+                loadHtml: function (url, config, fun, cache, own) {
                     var createHtml = function (obj, fun, data) {
                         try {
-                            if (data) {
-                                var html = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
-                                $(obj).hide().html("");
-                                html && $(obj).html(html);
-                            }
+                            var html = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
+                            $(obj).hide().html("");
+                            html && $(obj).html(html);
                             $("[list-temp]").hide();
                             $(obj).show();
                             fun && fun();
@@ -385,9 +396,9 @@
 
                     var loadData = function (url, fun) {
                         try {
-                            $('' + config.container).load(url + ' ' + config.load, function (data) {
+                            $(own).load(url + ' ' + config.load, function (data) {
                                 utils.setSession(url, data);
-                                createHtml(this, fun, null);
+                                createHtml(this, fun, data);
                             });
                         } catch (e) {
                             console.log("提示:" + e.message);
@@ -397,10 +408,10 @@
                     try {
                         if (utils.support.storage && cache) {
                             utils.getSession(url) ?
-                                createHtml($('' + config.container), fun, utils.getSession(url)) : loadData(url, fun);
+                                createHtml(own, fun, utils.getSession(url)) : loadData(url, fun);
                         } else {
-                            $('' + config.container).load(url + ' ' + config.load, function (data) {
-                                createHtml(this, fun, null);
+                            $(own).load(url + ' ' + config.load, function (data) {
+                                createHtml(this, fun, data);
                             });
                         }
                     } catch (e) {
@@ -475,7 +486,7 @@
                         initFun = pageObj[url]['init'];
                         $.initOperation[initFun]();
                         window.onload = function () {
-                            $.loadData(url, 'nochangeurl', null, '');
+                            $('' + Plume.setParam.container).loadData(url, null, '', 'nochangeurl');
                         };
                     }
                 } else {

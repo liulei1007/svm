@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
+</head>
+
+<body>
+<div class="doc-shipmentManagement">
+    <div class="search-block">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="warehouseCode">仓库编码</label>
+                <input type="text" class="form-control input-sm" id="warehouseCode" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="companyCode">货主编码</label>
+                <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="shipmentCode">出库单编码</label>
+                <input type="text" class="form-control input-sm" id="shipmentCode" placeholder="">
+            </div>
+            <div class="form-group">
+                <label>状态</label>
+                <select class="form-control input-sm" id="leadingSts">
+                    <option value="0">所有</option>
+                    <option value="100">已入库</option>
+                    <option value="200">已出库</option>
+                </select>
+            </div>
+            <div class="form-group form-time">
+                <label for="startDate">创建时间</label>
+                <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
+                       data-format="YYYY-MM-DD 00:00:00" style="width:120px;background: #fff">
+                <label for="endDate" style="margin: 0 -5px 0 5px;">--</label>
+                <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
+                       data-format="YYYY-MM-DD 00:00:00"
+                       style="width:120px;background: #fff">
+            </div>
+            <div class="btn btn-default btn-sm btn-search">查询</div>
+            <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+        </form>
+    </div>
+    <div class="table-block">
+        <table class="table table1 table-striped">
+            <thead>
+            <tr>
+                <td style="width:2%"><input type="checkbox"/></td>
+                <td style="width:5%">ID</td>
+                <td style="width:8%">仓库编码</td>
+                <td style="width:8%">货主编码</td>
+                <td style="width:8%">出库单编码</td>
+                <td style="width:5%">状态</td>
+                <td style="width:5%">总数量</td>
+                <td style="width:6%">客户名称</td>
+                <td style="width:6%">承运人</td>
+                <td style="width:6%">失败原因</td>
+                <td style="width:5%">处理类型</td>
+                <td style="width:5%">添加人</td>
+                <td style="width:auto">添加时间</td>
+                <td style="width:auto">操作</td>
+            </tr>
+            </thead>
+            <tbody data-list="$p.data.rows">
+            <tr list-temp="true">
+                <td><input type="checkbox"/></td>
+                <td class="shipmentId" node-name="$n.id"></td>
+                <td node-name="$n.warehouseCode"></td>
+                <td node-name="$n.companyCode"></td>
+                <td node-name="$n.code"></td>
+                <td node-name="$n.leadingSts"></td>
+                <td node-name="$n.totalQty"></td>
+                <td node-name="$n.shipToAttentionTo"></td>
+                <td node-name="$n.carrierCode"></td>
+                <td node-name="$n.shipmentNote"></td>
+                <td node-name="$n.processType"></td>
+                <td node-name="$n.createdBy"></td>
+                <td node-name="$n.payTime"></td>
+                <td>
+                    <button type="button" class="btn btn-link bl-btn-look">查看</button>
+                    <button type="button" class="btn btn-link btn-compile">编辑</button>
+                    <!-- <button type="button" class="btn btn-link btn-ground">上架</button> -->
+                    <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="nav-pagination clearFix">
+        <ul class="pagination">
+
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

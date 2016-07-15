@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
+</head>
+
+<body>
+<div class="doc-inventoriesManagement">
+    <div class="search-block">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>仓库编码</label>
+                <select id="warehouseCode" class="form-control input-sm">
+                    <option value="SJZ01" selected>南京仓</option>
+                    <option value="SJZ02">石家庄仓</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="companyCode">货主编码</label>
+                <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="itemCode">货品编码</label>
+                <input type="text" class="form-control input-sm" id="itemCode" placeholder="">
+            </div>
+            <div class="btn btn-default btn-sm btn-search">查询</div>
+            <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+        </form>
+    </div>
+    <div class="table-block">
+        <table class="table table1 table-striped">
+            <thead>
+            <tr>
+                <td style="width:auto">货品编码</td>
+                <td style="width:auto">仓库编码</td>
+                <td style="width:auto">货主编码</td>
+                <td style="width:auto">批次</td>
+                <td style="width:5%">批号</td>
+                <td style="width:auto">生产日期</td>
+                <td style="width:auto">失效日期</td>
+                <td style="width:auto">入库日期</td>
+                <td style="width:auto">库存状态</td>
+                <td style="width:auto">在库数量</td>
+            </tr>
+            </thead>
+            <tbody data-list="$p.rows">
+            <tr list-temp="true">
+                <td class="inventoriesId" node-name="$n.itemCode || ''"></td>
+                <td node-name="$n.warehouseCode || ''"></td>
+                <td node-name="$n.companyCode"></td>
+                <td node-name="$n.batch || ''"></td>
+                <td node-name="$n.lot || ''"></td>
+                <td node-name="$n.manufactureDate || ''"></td>
+                <td node-name="$n.expirationDate || ''"></td>
+                <td node-name="$n.agingDate || ''"></td>
+                <td node-name="$n.inventorySts || ''"></td>
+                <td node-name="$n.onHandQty || ''"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="nav-pagination clearFix">
+        <ul class="pagination">
+
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plume-api>
-    <listBrandSeriesList>brandSeries/listBrandSeriesList</listBrandSeriesList>
-    <listAgentsBrandInfoList-brand>brandSeries/listOmsBrand</listAgentsBrandInfoList-brand>
+    <logout>userInfo/logout</logout>
+    <chkUserStatus>userInfo/chkUserStatus</chkUserStatus>
+    <getSystemResourceTree>common/getSystemResourceTree</getSystemResourceTree>
+    <getLoginUser>userInfo/getLoginUser/</getLoginUser>
+    <listSystemCode>common/listSystemCode</listSystemCode>
+
+    <!-- 出库单接口 -->
+    <saveOrUpdateShipment>shipment/update</saveOrUpdateShipment>
+    <getShipmentList>shipment/list</getShipmentList>
+    <getShipment>shipment/get</getShipment>
+    <cancelShipment>shipment/cancel</cancelShipment>
+    <!-- 库存接口 -->
+    <getInventoriesList>inventories/list</getInventoriesList>
+    <!-- 入库单接口 -->
+    <getReceiptList>receipt/list</getReceiptList>
+    <getReceiptDetail>receipt/get</getReceiptDetail>
+
 </plume-api>

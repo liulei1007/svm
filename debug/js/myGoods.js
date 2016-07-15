@@ -1128,46 +1128,41 @@ $(function () {
                 spanHtml += '<span data-id="' + obj.id + '">' + obj.baseName + '</span>';
             }
         });
-        spanHtml ? $obj.html(spanHtml).show() : $obj.html('').hide();
+        spanHtml ? $obj.html(spanHtml).show() : $obj.hide();
 
-        $obj.find('span').on('click', function () {
+        $obj.on('click', 'span', function () {
             $own.val($(this).text());
             $obj.html('').hide();
         });
     };
 
-    var hideName = function () {
-        $('#mater1Select').html('').hide();
-        $('#mater2Select').html('').hide();
-        $('#mater3Select').html('').hide();
-    };
-
     var $mater1Select = $('#mater1Select'),
         $mater2Select = $('#mater2Select'),
-        $mater3Select = $('#mater3Select');
+        $mater3Select = $('#mater3Select'),
+        $materialSelect = $('#materialSelect');
 
     $('#material1').on('focus', function () {
-        $mater1Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater1Select): $mater1Select.html('').hide();
+        $mater1Select.hide();
     }).on('blur', function () {
-        $mater1Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater1Select): $mater1Select.hide();
     });
     $('#material2').on('focus', function () {
-        $mater2Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater2Select): $mater2Select.html('').hide();
+        $mater2Select.hide();
     }).on('blur', function () {
-        $mater2Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater2Select): $mater2Select.hide();
     });
     $('#material3').on('focus', function () {
-        $mater3Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater3Select): $mater3Select.html('').hide();
+        $mater3Select.hide();
     }).on('blur', function () {
-        $mater3Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater3Select): $mater3Select.hide();
+    });
+    $('#material').on('focus', function () {
+        $materialSelect.hide();
+    }).on('blur', function () {
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $materialSelect): $materialSelect.hide();
     });
 });
