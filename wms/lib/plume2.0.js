@@ -63,7 +63,7 @@
         setPageData: function ($p) {
             var own = this;
             $(this).find("[data-name]").each(function () {
-                $(own).setNodeData("$p", $p, "data-name");
+                $(this).setNodeData("$p", $p, "data-name");
             });
             $(this).find("[data-list]").each(function () {
                 var $own = $(this),
