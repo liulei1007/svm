@@ -99,20 +99,23 @@ $(function () {
                 }
 
                 // TODO 仅作调试使用
-                menu += '<ul class="nav slidebar-title repertoryMenu" auth="1113">' +
+                menu += '<ul class="nav slidebar-title active repertoryMenu" auth="1113">' +
                     '<li><i class="goods"></i>仓库管理</li></ul>';
 
                 twoMenu += '<ul class="slidebar-menu clearFix childmenu repertory" auth="1113">' +
-                    '<li pageName="shipmentManage">出库管理</li>' +
-                    '<li pageName="inventoriesManage">库存管理>' +
+                    '<li class="active" pageName="shipmentManage">出库管理</li>' +
+                    '<li pageName="inventoriesManage">库存管理' +
                     '<li pageName="receiptManage">入库管理</li></ul>';
 
                 $(".slidebar").append(menu).show();
                 $(".page-content").append(twoMenu).show();
 
+                $(".slidebar-menu").hide();
+                $(".page-content").find("[auth='1113']").show();
+                $(".page-content").find("[auth='1113']").find("li").show();
+
                 $(".container-fixed").fadeIn();
-                $(".slidebar-title").fadeIn();
-                $('.repertory').fadeIn();
+                $(".repertory").fadeIn();
             };
 
             var menuEvent = function () {
