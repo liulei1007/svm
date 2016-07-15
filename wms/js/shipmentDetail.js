@@ -32,7 +32,7 @@ $(function() {
     });
     
     $('.btn-back').bind('click',function() {
-        derict(this,"shipmentManage","nochangeurl");
+        $.directPage("shipmentManage");
     });
     
     //更新
@@ -97,22 +97,22 @@ $(function() {
 	});*/
 
 	function getShipmentDetail() {
-    loading();
-    $.ajax({
-        url: plumeApi["getShipment"] +"?id="+session.shipment_shipmentId,
+
+    $.commonAjax({
+        url: "getShipment",
         type: "GET",
-        contentType: "application/json;charset=UTF-8",
+        urlParams: {
+            id: $.session.shipment_shipmentId
+        },
+        list: false,
         success: function (data) {
             if(data.ok==false) {
                 alert(data.resDescription);
-                unloading();
                 return;
             }
-        	unloading();
-
-            $(".table-block").setPageData(data);
-            $(".body-typein").setPageData(data.data.header.shipmentHeader);
             
+            $(".table-block").setPageData(data);
+            $(".body-typein").setPageData(data.data.header.shipmentHeader);            
         }
     });
 }

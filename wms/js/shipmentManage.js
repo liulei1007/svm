@@ -9,7 +9,7 @@ $(function () {
         "createdTo": "2017-01-01 00:00:00",
         "fields": "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
         "pageNo": "1",
-        "pageSize": "3"
+        "pageSize": "8"
     };
 
     $.tableCheckBox();
@@ -40,14 +40,11 @@ $(function () {
 
     // 获取出库单列表
     function getShipmentList() {
+        datas.pageSize=$.onePageCount();
         $.commonAjax({
-            url: 'getShipmentList',
+            url: "getShipmentList",
             type: "POST",
             data: datas,
-            urlParams: {
-                currentPage: 1,
-                onePageCount: $.onePageCount()
-            },
             list: true,
             success: function (data) {
                 if (data.ok == false) {
@@ -59,15 +56,12 @@ $(function () {
 
                 var totalPage = Math.ceil(data.data.total / $.onePageCount());
 
-                newPage(totalPage, function (page) {
+                newPage(totalPage, function (page) {    
+                    datas.pageNo=page;
                     $.commonAjax({
-                        url: plumeApi["getShipmentList"], /* +"?currentPage="+i+"&onePageCount="+onePageCount(),*/
+                        url: "getShipmentList",
                         type: "POST",
                         data: datas,
-                        urlParams: {
-                            currentPage: page,
-                            onePageCount: $.onePageCount()
-                        },
                         list: true,
                         success: function (data) {
                             $("[list-node]").remove();
