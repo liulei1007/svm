@@ -1,7 +1,9 @@
 $(function () {
     $.setPageCount();
 
-//    $.popTips('提示信息', 'warning');
+//    $.popTips('提示信息', 'success');
+
+//    $.showPopTips('提示信息', 'success', 'test');
 
     var datas = {
         "warehouseCode": "SJZ01",
