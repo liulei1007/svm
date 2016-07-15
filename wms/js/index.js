@@ -145,6 +145,7 @@ $(function () {
                 $("ul.repertory").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");
                     $(this).addClass("active").siblings().removeClass("active");
+                    $.derect('.work-space-active', pageName, null, 'changeurl', '');
                 });
             };
 
@@ -155,6 +156,7 @@ $(function () {
                 success: function (data) {
                     if (data.ok) {
                         showMenu(data.data);
+                        menuEvent();
                     } else {
                         console.log("获取登录信息失败:" + data.resDescription);
                     }
