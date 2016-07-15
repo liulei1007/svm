@@ -224,6 +224,11 @@
     $.directPage = function (page, fun, obj, flag, load) {
         $.session.nowPageName = page == 'index' ? '' : page || '';
 
+        if (!page || page == 'index') {
+            window.location.href = 'index';
+            return;
+        }
+
         $.direct(obj, page, fun, flag, load);
     };
 
