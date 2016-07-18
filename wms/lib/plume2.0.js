@@ -250,7 +250,7 @@
         getConfigPage: function () {
             var configPage = '';
             try {
-                configPage = Plume.configPage || eval("(" + utils.getLocal('plume_page') + ")");
+                configPage = Plume.configPage || eval("(" + utils.getSession('plume_page') + ")");
             } catch (e) {
                 console.log("提示:" + e.message);
             }
@@ -314,7 +314,7 @@
                     configApi[tagName] = $(this).text();
                 });
                 own.configApi = configApi;
-                utils.setLocal('plume_api', utils.toJsonString(configApi, false));
+                utils.setSession('plume_api', utils.toJsonString(configApi, false));
                 console.log(own.configApi);
             });
 
@@ -347,7 +347,7 @@
 
             console.log(configPage);
             own.configPage = configPage;
-            utils.setLocal('plume_page', utils.toJsonString(configPage, true));
+            utils.setSession('plume_page', utils.toJsonString(configPage, true));
 
             // 恢复默认设置
             $.ajaxSetup({
@@ -488,8 +488,8 @@
         },
 
         init: function () {
-            var configApi = this.configApi || utils.getLocal('plume_api') || '',
-                configPage = this.configPage || utils.getLocal('plume_page') || '';
+            var configApi = this.configApi || utils.getSession('plume_api') || '',
+                configPage = this.configPage || utils.getSession('plume_page') || '';
 
             // 资源配置文件数据加载
             if (!configApi || !configPage) {
