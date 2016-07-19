@@ -11,22 +11,18 @@
         /**
          *
          * @param name  页面名字
-         * @param flag  是否该表url
+         * @param flag  是否路由
          * @param fun   回调函数
-         * @param load  导入新页面object目标
          */
-        loadData: function (name, fun, flag, load) {
+        loadData: function (name, fun, flag) {
             var own = this;
 
             $(own).find("*").off();
 
-            var configPage = utils.getConfigPage(),
-                config = Plume.setParam;
+            var prams = "",
+                config = Plume.setParam,
+                configPage = utils.getConfigPage();
 
-            !flag && (flag = "");
-            load && (config.load = load);
-
-            var prams = "";
             if (name && name.indexOf("?") != -1) {
                 prams = name.substring(name.indexOf("?"));
                 name = name.substring(0, name.indexOf("?"));
@@ -38,7 +34,7 @@
                 cache = (flag.indexOf("cache") != -1),
                 resources = $.initOperation[init];
 
-            Plume.resource().loadHtml(url, config, resources, cache, own);
+            Plume.resource().loadHtml(url, config, resources, cache);
 
             if (flag.indexOf("nochangeurl") === -1) {
                 try {
@@ -52,7 +48,6 @@
                     fun && fun();
                 }, 10);
                 Plume.setParam.initFun = init;
-                utils.setLocal('plume_init_fun', init);
             } catch (e) {
                 console.log("提示:" + e.message);
             }
@@ -151,10 +146,37 @@
     });
 
     $.extend({
-        direct: function (obj, page, fun, flag, load) {
-            obj = obj || Plume.setParam.container;
-            flag = flag || 'changeurl'; load = load || '';
-            $(obj).loadData(page, fun, flag, load);
+        /**
+         * 公用跳转
+         * page 跳转页面
+         * obj  引入对象
+         * fun  回调函数
+         * flag 是否路由
+         * load 被引入对象
+         */
+        direct: function (page, obj, fun, flag, load) {
+
+            flag = flag || 'changeurl';
+
+            // 保存obj，保持刷新引入对象
+            if (load) {
+                Plume.setParam.load != load && utils.setSession('plume_refresh_load' + page, load);
+                Plume.setParam.load = load;
+            } else {
+                var loadCache = utils.getSession('plume_refresh_load' + page);
+
+                loadCache && (Plume.setParam.load = loadCache);
+            }
+            if (obj) {
+                Plume.setParam.container != obj && utils.setSession('plume_refresh_obj' + page, obj);
+                Plume.setParam.container = obj;
+            } else {
+                var objCache = utils.getSession('plume_refresh_obj' + page);
+
+                objCache && (Plume.setParam.container = objCache);
+            }
+
+            $(obj).loadData(page, fun, flag);
         }
     });
 
@@ -228,7 +250,7 @@
         getConfigPage: function () {
             var configPage = '';
             try {
-                configPage = Plume.configPage || eval("(" + utils.getLocal('plume_page') + ")");
+                configPage = Plume.configPage || eval("(" + utils.getSession('plume_page') + ")");
             } catch (e) {
                 console.log("提示:" + e.message);
             }
@@ -292,7 +314,7 @@
                     configApi[tagName] = $(this).text();
                 });
                 own.configApi = configApi;
-                utils.setLocal('plume_api', utils.toJsonString(configApi, false));
+                utils.setSession('plume_api', utils.toJsonString(configApi, false));
                 console.log(own.configApi);
             });
 
@@ -325,8 +347,7 @@
 
             console.log(configPage);
             own.configPage = configPage;
-            utils.setLocal('plume_page', utils.toJsonString(configPage, true));
-            utils.setLocal('plume_init_fun', initFun || Plume.setParam.initFun);
+            utils.setSession('plume_page', utils.toJsonString(configPage, true));
 
             // 恢复默认设置
             $.ajaxSetup({
@@ -381,16 +402,17 @@
                  * @param config
                  * @param fun
                  * @param cache
-                 * @param own
                  */
-                loadHtml: function (url, config, fun, cache, own) {
-                    var createHtml = function (obj, fun, data) {
+                loadHtml: function (url, config, fun, cache) {
+                    var container = Plume.setParam.container;
+
+                    var createHtml = function (fun, data) {
                         try {
                             var html = data.substring(data.indexOf("<body>"), data.indexOf("</body>") + 7);
-                            $(obj).hide().html("");
-                            html && $(obj).html(html);
+                            $(container).hide().html("");
+                            html && $(container).html(html);
                             $("[list-temp]").hide();
-                            $(obj).show();
+                            $(container).show();
                             fun && fun();
                         } catch (e) {
                             console.log("提示:" + e.message);
@@ -399,9 +421,9 @@
 
                     var loadData = function (url, fun) {
                         try {
-                            $(own).load(url + ' ' + config.load, function (data) {
+                            $(container).load(url + ' ' + config.load, function (data) {
                                 utils.setSession(url, data);
-                                createHtml(this, fun, data);
+                                createHtml(fun, data);
                             });
                         } catch (e) {
                             console.log("提示:" + e.message);
@@ -411,10 +433,10 @@
                     try {
                         if (utils.support.storage && cache) {
                             utils.getSession(url) ?
-                                createHtml(own, fun, utils.getSession(url)) : loadData(url, fun);
+                                createHtml(fun, utils.getSession(url)) : loadData(url, fun);
                         } else {
-                            $(own).load(url + ' ' + config.load, function (data) {
-                                createHtml(this, fun, data);
+                            $(container).load(url + ' ' + config.load, function (data) {
+                                createHtml(fun, data);
                             });
                         }
                     } catch (e) {
@@ -466,15 +488,13 @@
         },
 
         init: function () {
-            var configApi = this.configApi || utils.getLocal('plume_api') || '',
-                configPage = this.configPage || utils.getLocal('plume_page') || '',
-                initFun = this.setParam.initFun || utils.getLocal('plume_init_fun') || '';
+            var configApi = this.configApi || utils.getSession('plume_api') || '',
+                configPage = this.configPage || utils.getSession('plume_page') || '';
 
             // 资源配置文件数据加载
-            if (!configApi || !configPage || !initFun) {
-                $.when(this.config([], [], '')).done(function () {
-                    $.initOperation[Plume.setParam.initFun]();
-                });
+            if (!configApi || !configPage) {
+                this.config([], [], '');
+                $.initOperation[Plume.setParam.initFun]();
             } else {
                 var url = utils.getPageUrl(),
                     initFun = Plume.setParam.initFun,
@@ -482,16 +502,13 @@
                     indexPage = Plume.setParam.welcome;
 
                 if (url) {
-                    if (utils.getPageUrl() === indexPage) {
-                        initFun = pageObj[indexPage]['init'];
-                        $.initOperation[initFun]();
-                    } else {
-                        initFun = pageObj[url]['init'];
-                        $.initOperation[initFun]();
+                    if (utils.getPageUrl() !== indexPage) {
                         window.onload = function () {
-                            $.direct(Plume.setParam.container, url, null, 'nochangeurl');
+                            $.direct(url, '', null, 'nochangeurl');
                         };
                     }
+                    initFun = pageObj[indexPage]['init'];
+                    $.initOperation[initFun]();
                 } else {
                     $.initOperation[initFun]();
                 }

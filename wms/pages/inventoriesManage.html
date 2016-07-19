@@ -14,19 +14,30 @@
     <div class="search-block">
         <form class="form-inline">
             <div class="form-group">
-                <label>仓库编码</label>
+                <label>仓库名称</label>
                 <select id="warehouseCode" class="form-control input-sm">
                     <option value="SJZ01" selected>南京仓</option>
                     <option value="SJZ02">石家庄仓</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="companyCode">货主编码</label>
-                <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+                <label>货主名称</label>
+				<select id="companyCode" class="form-control input-sm">
+                    <option value="JLM" selected>JLM1</option>
+                    <option value="SJZ02">JLM2</option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="itemCode">货品编码</label>
-                <input type="text" class="form-control input-sm" id="itemCode" placeholder="">
+                <label for="itemName">货品名称</label>
+                <input type="text" class="form-control input-sm" id="itemName" placeholder="">
+            </div>
+			<div class="form-group">
+                <label for="brand">品牌</label>
+                <input type="text" class="form-control input-sm" id="brand" placeholder="">
+            </div>
+			<div class="form-group">
+                <label for="batch">客户</label>
+                <input type="text" class="form-control input-sm" id="batch" placeholder="">
             </div>
             <div class="btn btn-default btn-sm btn-search">查询</div>
             <div class="btn btn-default btn-sm btn-empty">清空条件</div>
@@ -36,30 +47,20 @@
         <table class="table table1 table-striped">
             <thead>
             <tr>
-                <td style="width:auto">货品编码</td>
-                <td style="width:auto">仓库编码</td>
-                <td style="width:auto">货主编码</td>
-                <td style="width:auto">批次</td>
-                <td style="width:5%">批号</td>
-                <td style="width:auto">生产日期</td>
-                <td style="width:auto">失效日期</td>
-                <td style="width:auto">入库日期</td>
-                <td style="width:auto">库存状态</td>
-                <td style="width:auto">在库数量</td>
+                <td style="width:auto">货品名称</td>
+                <td style="width:auto">客户商品编码</td>
+				<td style="width:auto">品牌</td>
+                <td style="width:auto">数量</td>
+                <td style="width:auto">客户</td>
             </tr>
             </thead>
             <tbody data-list="$p.rows">
             <tr list-temp="true">
-                <td class="inventoriesId" node-name="$n.itemCode || ''"></td>
-                <td node-name="$n.warehouseCode || ''"></td>
-                <td node-name="$n.companyCode"></td>
+                <td class="inventoriesId" node-name="$n.itemName || ''"></td>
+                <td node-name="$n.parentCode || ''"></td>
+                <td node-name="$n.brand"></td>
+				<td node-name="$n.onHandQty || ''"></td>
                 <td node-name="$n.batch || ''"></td>
-                <td node-name="$n.lot || ''"></td>
-                <td node-name="$n.manufactureDate || ''"></td>
-                <td node-name="$n.expirationDate || ''"></td>
-                <td node-name="$n.agingDate || ''"></td>
-                <td node-name="$n.inventorySts || ''"></td>
-                <td node-name="$n.onHandQty || ''"></td>
             </tr>
             </tbody>
         </table>

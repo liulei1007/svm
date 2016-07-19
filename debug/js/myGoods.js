@@ -261,7 +261,7 @@ $(function () {
         for (var k = 0; k < productInfoPhotos.length; k++) {
             var p = productInfoPhotos[k];
             var temp = '<li class="goodsPic">';
-            temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+            temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
             temp += '<div class="upload-btn upload-btn-left">';
             temp += '<div class="arrow-left"></div>';
             temp += '</div>';
@@ -424,8 +424,9 @@ $(function () {
                 setStandard();
                 for (var k = 0; k < productInfoPhotos.length; k++) {
                     var p = productInfoPhotos[k];
+                    console.log(p);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
@@ -850,7 +851,7 @@ $(function () {
 
                         for (var i = 0; i < imgUrlLen; i++) {
                             temp.push('<li class="goodsPic">',
-                                '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[i].path  + '">',
+                                '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[i].path  + '" data_src="'+imgUrl[i].path+'">',
                                 '<div class="upload-btn upload-btn-left">',
                                 '<div class="arrow-left"></div>',
                                 '</div>',
@@ -907,7 +908,7 @@ $(function () {
         var dataJson = {},
             $_countryId = $("#countryId"),
             $_cityId = $('#cityId');
-            $_provinceId = $('#provinceId'),
+        $_provinceId = $('#provinceId'),
 
         sessionType == 'edit' && (dataJson.productId = $("#productId").val());
         sessionType == 'feed' && (dataJson.productId = $("#productId").val());
@@ -971,7 +972,7 @@ $(function () {
         $(".cmg-goodsimgs").each(function () {
             photosJson = {};
             photosJson.colorId = '0';
-            photosJson.picUrl = $(this).attr("src");
+            photosJson.picUrl = $(this).attr("data_src");
             photosArray.push(photosJson);
         });
         dataJson.photos = photosArray;
@@ -1038,11 +1039,11 @@ $(function () {
                     //     $(".pop").find(".popup-title").html("信息提示");
                     //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
                     //     $(".pop").find(".popup-info").html("数据提交成功");
-                        if (session.goods_showMyGoods_type == "feed") {
-                            derict(null, "takingGoods", "nochangeurl");
-                        } else {
-                            derict(null, "goodsAuditManage", "nochangeurl");
-                        }
+                    if (session.goods_showMyGoods_type == "feed") {
+                        derict(null, "takingGoods", "nochangeurl");
+                    } else {
+                        derict(null, "goodsAuditManage", "nochangeurl");
+                    }
                     // });
                 } else {
                     showPopTips("信息提示", "warning", data.resDescription);

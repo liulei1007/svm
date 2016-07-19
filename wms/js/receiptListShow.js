@@ -1,23 +1,32 @@
 $(function() {
-    formCtrl();
+
 	$('.btn-back').bind('click',function() {
-		derict(this,"receiptManage","nochangeurl");
+		$.directPage('receiptManage');
 	});
-
+    
+	
 	function getReceiptDetail() {
-    loading();
-    $.ajax({
-        url: plumeApi["getReceiptDetail"]+"?receiptHeaderId="+session.receipt_receiptId,
-        type: "GET",
-        contentType: "application/json;charset=UTF-8",
-        success: function (data) {
-        	unloading();
-            $(".body-typein").setPageData(JSON.parse(data.data));
-        }
-    });
+		var dataAll = {} ;
+    $.commonAjax({
+            url: 'getReceiptDetail',
+            type: "GET",
+            urlParams: {
+                receiptHeaderId: $.session.receipt_receiptId
+            },
+            list: true,
+            success: function (data) {
+                
+                if (data.ok == false) {
+                    alert(data.resDescription);
+                    return;
+                }
+				dataAll.receiptBase = JSON.parse($.session.dataBack) ;
+				dataAll.receiptDetail = JSON.parse(data.data) ;
+                $(".body-typein").setPageData(dataAll);
+            }
+        }); 
+
 }
-
-
 
 getReceiptDetail()
 });

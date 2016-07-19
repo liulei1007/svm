@@ -17,50 +17,36 @@
             基础信息
         </div>
         <form class="form-inline">
+		             <td class="receiptId" node-name="$n.id || ''"></td>
+                    <td class="codeClass" node-name="$n.code || ''"></td>
+                    <td class="receiptTypeClass" node-name="$n.receiptType"></td>
+                    <td class="leadingStatusClass" node-name="$n.leadingStatus || ''"></td>
+                    <td class="erpOrderCodeClass" node-name="$n.erpOrderCode || ''"></td>
+                    <td class="createdClass" node-name="$n.created || ''"></td>
             <div class="form-group">
                 <label for="code" style="width:95px">入库单号</label>
                 <input type="text" class="form-control input-sm _input" id="code"
-                       data-name="$p.header.receiptHeader.code" placeholder="" disabled="true ">
+                       data-name="$p.receiptBase.code" placeholder="" disabled="true ">
             </div>
             <div class="form-group">
                 <label for="receiptType" class="a_wd" style="width:95px">入库类型</label>
                 <input type="text" class="form-control input-sm _input" id="receiptType"
-                       data-name="$p.header.receiptHeader.receiptType" placeholder="" disabled="true ">
+                       data-name="$p.receiptBase.receiptType" placeholder="" disabled="true ">
             </div>
             <div class="form-group">
-                <label for="companyCode" class="a_wd" style="width:95px">货主</label>
+                <label for="leadingStatus" class="a_wd" style="width:95px">状态</label>
                 <input type="text" class="form-control input-sm _input" id="companyCode"
-                       data-name="$p.header.receiptHeader.companyCode" placeholder="" disabled="true ">
+                       data-name="$p.receiptBase.leadingStatus" placeholder="" disabled="true ">
             </div>
             <div class="form-group">
                 <label for="erpOrderCode" class="a_wd" style="width:95px">客户单号</label>
                 <input type="text" class="form-control input-sm _input" id="erpOrderCode"
-                       data-name="$p.header.receiptHeader.erpOrderCode" placeholder="" disabled="true ">
+                       data-name="$p.receiptBase.erpOrderCode" placeholder="" disabled="true ">
             </div>
-            <div class="form-group">
-                <label for="totalLines" class="a_wd" style="width:95px">总行数</label>
-                <input type="text" class="form-control input-sm _input" id="totalLines"
-                       data-name="$p.header.receiptHeader.totalLines" placeholder="" readOnly="true">
-            </div>
-            <div class="form-group">
-                <label for="leadingSts" class="a_wd" style="width:95px">首状态</label>
-                <input type="text" class="form-control input-sm _input" id="leadingSts"
-                       data-name="$p.header.receiptHeader.leadingSts" placeholder="" readOnly="true">
-            </div>
-            <div class="form-group">
-                <label for="trailingSts" class="a_wd" style="width:95px">尾状态</label>
-                <input type="text" class="form-control input-sm _input" id="trailingSts"
-                       data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
-            </div>
-            <div class="form-group">
-                <label for="shipFromAttentionTo" class="a_wd" style="width:95px">联系人</label>
-                <input type="text" class="form-control input-sm _input" id="trailingSts"
-                       data-name="$p.header.receiptHeader.trailingSts" placeholder="" readOnly="true">
-            </div>
-            <div class="form-group">
-                <label for="scheduledArriveDate" class="a_wd" style="width:95px">计划到货时间</label>
-                <input type="text" class="form-control input-sm _input" id="scheduledArriveDate"
-                       data-name="$p.header.receiptHeader.scheduledArriveDate" readOnly="true">
+			<div class="form-group">
+                <label for="created" class="a_wd" style="width:95px">创建时间</label>
+                <input type="text" class="form-control input-sm _input" id="created"
+                       data-name="$p.receiptBase.created" placeholder="" disabled="true ">
             </div>
         </form>
     </div>
@@ -72,34 +58,20 @@
             <table class="table table1 table-striped">
                 <thead>
                 <tr>
-                    <td style="width:2%"><input type="checkbox"/></td>
-                    <td style="width:5%">ID</td>
-                    <td style="width:auto">仓库编码</td>
-                    <td style="width:auto">入库单编码</td>
-                    <td style="width:auto">货主编码</td>
-                    <td style="width:auto">货品编码</td>
+                    <td style="width:auto">产品信息</td>
+                    <td style="width:auto">erp编码</td>
+                    <td style="width:auto">品牌</td>
+                    <td style="width:auto">客户</td>
                     <td style="width:5%">总数</td>
-                    <td style="width:auto">未收货数量</td>
-                    <td style="width:auto">货品名称</td>
-                    <td style="width:auto">库存状态</td>
-                    <td style="width:auto">批次</td>
-                    <td style="width:auto">批号</td>
                 </tr>
                 </thead>
-                <tbody data-list="$p.details">
+                <tbody data-list="$p.receiptDetail">
                 <tr list-temp="true">
-                    <td><input type="checkbox"/></td>
-                    <td class="receiptId" node-name="$n.receiptDetail.id || ''"></td>
-                    <td node-name="$n.receiptDetail.warehouseCode || ''"></td>
-                    <td node-name="$n.receiptDetail.receiptCode"></td>
-                    <td node-name="$n.receiptDetail.companyCode || ''"></td>
-                    <td node-name="$n.receiptDetail.itemCode || ''"></td>
-                    <td node-name="$n.receiptDetail.totalQty || ''"></td>
-                    <td node-name="$n.receiptDetail.openQty || ''"></td>
-                    <td node-name="$n.receiptDetail.itemName || ''"></td>
-                    <td node-name="$n.receiptDetail.inventorySts || ''"></td>
-                    <td node-name="$n.receiptDetail.batch || ''"></td>
-                    <td node-name="$n.receiptDetail.lot || ''"></td>
+                    <td class="receiptId" node-name="$n.name || ''"></td>
+                    <td node-name="$n.erpId || ''"></td>
+                    <td node-name="$n.brand"></td>
+                    <td node-name="$n.batch || ''"></td>
+                    <td node-name="$n.number || ''"></td>
                 </tr>
                 </tbody>
             </table>

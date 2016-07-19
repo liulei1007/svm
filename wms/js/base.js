@@ -104,7 +104,7 @@
         }
 
         if (path.indexOf('wms') > -1 && !option.requestType) {
-            host = "http://192.168.220.102:8080/api/";
+            host = "http://localhost/";
         } else {
             host = "http://longguo.hxmklmall.cn/api/";
         }
@@ -300,6 +300,13 @@
         shipmentHeader.createdDate = removeList.find('.createdDate').html();
         $.session.shipment_id = removeList.find('.shipmentId').html();
         $.session.shipment_header = JSON.stringify(shipmentHeader);
+    };
+	
+	// 获取入库单详情id
+    $.getReceiptId = function (_this) {
+        var removeList = $(_this).parents('tr'),
+            receiptId = removeList.find('.receiptId').html();
+        $.session.receipt_receiptId = receiptId;
     };
 
     // 分页全局设置
