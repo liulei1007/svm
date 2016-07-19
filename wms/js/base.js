@@ -291,10 +291,15 @@
 
     // 获取shipmentId
     $.getShipmentId = function (_this) {
-        var removeList = $(_this).parents('tr'),
-            shipmentId = removeList.find('.shipmentId').html();
-
-        $.session.shipment_shipmentId = shipmentId;
+        var removeList = $(_this).parents('tr');
+        var shipmentHeader = new Object();
+        shipmentHeader.shipmentId = removeList.find('.shipmentId').html();
+        shipmentHeader.shipmentCode = removeList.find('.shipmentCode').html();
+        shipmentHeader.shipToName = removeList.find('.shipToName').html();
+        shipmentHeader.leadingStatus = removeList.find('.leadingStatus').html();
+        shipmentHeader.createdDate = removeList.find('.createdDate').html();
+        $.session.shipment_id = removeList.find('.shipmentId').html();
+        $.session.shipment_header = JSON.stringify(shipmentHeader);
     };
 
     // 分页全局设置

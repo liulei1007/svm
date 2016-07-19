@@ -28,21 +28,24 @@ $(function () {
     $.plumeLog("进入shipmentManage模板自定义js-" + $.plumeTime());
 
     $("tbody").on("click", '.bl-btn-look', function () {
-        $.getShipmentId(this)
+        $.getShipmentId(this);
         $.directPage('shipmentDetail');
     })
 
-    $('#createdFrom').cxCalendar();
-    $('#createdTo').cxCalendar();
+    $("#createdFrom").cxCalendar();
+    $("#createdTo").cxCalendar();
 
     getShipmentList();
-    $('.btn-search').bind('click', function () {
-        datas.warehouseCode = $('#warehouseCode').val();
-        datas.companyCode = $('#companyCode').val();
-        datas.shipmentCode = $('#shipmentCode').val();
+    $(".btn-search").bind("click", function () {
+        datas.warehouseCode = $("#warehouseCode option:selected").val();
+        datas.companyCode = $("#companyCode option:selected").val();
+        datas.shipmentCode = $("#shipmentCode").val();
         datas.leadingSts = $("#leadingSts option:selected").val();
-        datas.createdFrom = $('#createdFrom').val();
-        datas.createdTo = $('#createdTo').val();
+        datas.shipToName = $("#shipToName").val();
+        datas.itemBrand = $("#itemBrand").val();
+        datas.itemName = $("#itemName").val();
+        datas.createdFrom = $("#createdFrom").val();
+        datas.createdTo = $("#createdTo").val();
         datas.fields = "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime";
 
         getShipmentList();
@@ -86,12 +89,11 @@ $(function () {
     }
 
     // 清空搜索
-    $('.btn-empty').bind('click', function () {
+    $(".btn-empty").bind("click", function () {
         window.location.reload();
     });
 
     // 回车搜索
-    $.key.keydownEnter('.btn-search');
+    $.key.keydownEnter(".btn-search");
 
 });
-
