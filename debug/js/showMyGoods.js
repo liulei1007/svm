@@ -145,9 +145,16 @@ $(function () {
             var goodsPhotoHtml = '',
                 goodsPhoto = data.productInfoPhotoUpts || data.productInfoPhotos,
                 goodsPhotoLen = goodsPhoto && goodsPhoto.length;
-
+            var baseUrl = JSON.parse(session.img_url).data;
+            // console.log(baseUrl);
             for (var k = 0; k < goodsPhotoLen; k++) {
-                goodsPhotoHtml += '<li class="goodsPic"><img src="' + goodsPhoto[k].picUrl + '"/></li>';
+                var re=/http:\/\/*./;
+                if(re.test(goodsPhoto[k].picUrl)){
+                    goodsPhotoHtml += '<li class="goodsPic"><img src="'+goodsPhoto[k].picUrl + '"/></li>';
+                }else{
+                    goodsPhotoHtml += '<li class="goodsPic"><img src="'  +baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode+ goodsPhoto[k].picUrl + '"/></li>';
+                }
+
             }
             $(".goodsPic-upload").append(goodsPhotoHtml);
 

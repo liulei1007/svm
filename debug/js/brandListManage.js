@@ -1,6 +1,7 @@
 $(function() {
 	// 保存图片地址
 	var imgSrc = "";
+	var _imgSrc="";
 	var ifNull = false;
 	formControl();
 
@@ -23,7 +24,8 @@ $(function() {
 						var baseUrl = JSON.parse(session.img_url).data,
                             imgUrl = data.data || 0;
                         imgSrc = baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[0].path;
-						var addHtml = '<img src="' + imgSrc + '" />'
+						_imgSrc=imgUrl[0].path;
+						var addHtml = '<img src="' + imgSrc + '" data_src="'+_imgSrc+'"/>'
 						$("#upload-logo").html(addHtml);
 						closeUploadPop();
 					} else {
@@ -73,7 +75,7 @@ $(function() {
 		var data = {
 			"id": brandId,
 			"brandDescription": $("#introduce").val(),
-			"brandLogoUrl": imgSrc
+			"brandLogoUrl": _imgSrc
 		};
 
 		loading();
@@ -105,8 +107,12 @@ $(function() {
 				unloading();
 				// 如果原先已有品牌logo，显示
 				if (data.data.brandLogo) {
-					imgSrc = data.data.brandLogo;
-					$("#upload-logo").html('<img src="' + imgSrc + '" />');
+					var baseUrl = JSON.parse(session.img_url).data;
+					imgSrc = baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode +data.data.brandLogo;
+					console.log(imgSrc);
+					$("#upload-logo").html('<img src="' + imgSrc + '" data_src="'+data.data.brandLogo+'"/>');
+					_imgSrc=$('#upload-logo>img').attr('data_src');
+					// console.log(_imgSrc);
 				}
 				// 如果原先已有品牌介绍，显示
 				if (data.data.brandDescription) {
