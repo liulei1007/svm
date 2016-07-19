@@ -21,23 +21,30 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="companyCode">货主编码</label>
-                    <input type="text" class="form-control input-sm" id="companyCode" placeholder="">
+                <label>货主名称</label>
+				<select id="companyCode" class="form-control input-sm">
+                    <option value="JLM" selected>JLM1</option>
+                    <option value="JLM">JLM2</option>
+                </select>
                 </div>
                 <div class="form-group">
                     <label for="receiptCode">入库单编码</label>
                     <input type="text" class="form-control input-sm" id="receiptCode" placeholder="">
                 </div>
-                <div class="form-group">
-                    <label>状态</label>
-                    <select class="form-control input-sm" id="leadingSts">
-                        <option value="">所有</option>
-                        <option value="1">已入库</option>
-                        <option value="2">已出库</option>
-                    </select>
+				<div class="form-group">
+                <label for="itemName">货品</label>
+                <input type="text" class="form-control input-sm" id="itemName" placeholder="">
+                </div>
+				<div class="form-group">
+                <label for="brand">品牌</label>
+                <input type="text" class="form-control input-sm" id="brand" placeholder="">
+                </div>
+				<div class="form-group">
+                <label for="batch">客户</label>
+                <input type="text" class="form-control input-sm" id="batch" placeholder="">
                 </div>
                 <div class="form-group form-time">
-                    <label for="createdFrom">创建时间</label>
+                    <label for="createdFrom">入库时间</label>
                     <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
                            style="width:120px;background: #fff">
                     <label for="createdTo" style="margin: 0 -5px 0 5px;">--</label>
@@ -52,33 +59,23 @@
             <table class="table table1 table-striped">
                 <thead>
                 <tr>
-                    <td style="width:2%"><input type="checkbox"/></td>
                     <td style="width:5%">ID</td>
                     <td style="width:auto">入库单号</td>
                     <td style="width:auto">入库类型</td>
-                    <td style="width:auto">货主</td>
-                    <td style="width:auto">客户单号</td>
-                    <td style="width:5%">总行数</td>
-                    <td style="width:auto">售状态</td>
-                    <td style="width:auto">尾状态</td>
-                    <td style="width:auto">联系人</td>
-                    <td style="width:auto">计划到货时间</td>
-                    <td style="width: auto">操作</td>
+                    <td style="width:auto">状态</td>
+                    <td style="width:auto">erp单号</td>
+                    <td style="width:auto%">创建时间</td>
+					<td style="width:5%">操作</td>
                 </tr>
                 </thead>
                 <tbody data-list="$p.rows">
                 <tr list-temp="true">
-                    <td><input type="checkbox"/></td>
                     <td class="receiptId" node-name="$n.id || ''"></td>
-                    <td node-name="$n.code || ''"></td>
-                    <td node-name="$n.receiptType"></td>
-                    <td node-name="$n.companyCode || ''"></td>
-                    <td node-name="$n.erpOrderCode || ''"></td>
-                    <td node-name="$n.totalLines || ''"></td>
-                    <td node-name="$n.leadingSts || ''"></td>
-                    <td node-name="$n.trailingSts || ''"></td>
-                    <td node-name="$n.shipFromAttentionTo || ''"></td>
-                    <td node-name="$n.scheduledArriveDate || ''"></td>
+                    <td class="codeClass" node-name="$n.code || ''"></td>
+                    <td class="receiptTypeClass" node-name="$n.receiptType"></td>
+                    <td class="leadingStatusClass" node-name="$n.leadingStatus || ''"></td>
+                    <td class="erpOrderCodeClass" node-name="$n.erpOrderCode || ''"></td>
+                    <td class="createdClass" node-name="$n.created || ''"></td>
                     <td>
                         <div class="btn btn-link bl-btn-look">查看</div>
                     </td>

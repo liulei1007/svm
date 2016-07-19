@@ -1,42 +1,38 @@
 $(function(){
-	plumeLog("进入receiptManage模板自定义js-" + plumeTime());
-    $('#createdFrom').cxCalendar();
-    $('#createdTo').cxCalendar()
-	setPageCount();
+	
+	$.plumeLog("进入receiptManage模板自定义js-" +$.plumeTime());
+	$.setPageCount();
+	$('#createdFrom').cxCalendar();
+    $('#createdTo').cxCalendar();
 	datas={
-		"warehouseCode": "SJZ01",
-		"companyCode": "JLM",
-		"leadingSts":"900",
-		"createdFrom":"2016-07-05 17:18:39",
-		"fields":"id,code,receiptType,companyCode,erpOrderCode,totalLines,leadingSts,trailingSts,shipFromAttentionTo,scheduledArriveDate",
-		"pageNo":"1",		
-		"pageSize":"8"
-		}
+			"warehouseCode": "SJZ01",
+			"companyCode": "JLM",
+			"pageNo":"1",		
+			"pageSize":"10"
+			}
 
     $.tableCheckBox();
-	plumeLog("进入groundGoods模板自定义js-"+plumeTime());
     
-    //点击查看
-	$("tbody").on("click", '.bl-btn-look', function () {
-        getReceiptId(this);
-        derict(this, "receiptListShow", "nochangeurl");
-    })
+   
 	
 	
 	getReceiptList();
-	$('.btn-search').bind('click',function() {
+	$('div.btn-search').bind('click',function() {
 		datas.warehouseCode=$('#warehouseCode option:selected').val();
-		datas.companyCode=$('#companyCode').val();
+		datas.companyCode=$('#companyCode option:selected').val();
 		datas.receiptCode=$('#receiptCode').val();
-		datas.leadingSts=$('#leadingSts').val();
-		datas.createdFrom=$('#createdFrom').val()+" 00:00:00";
-		datas.createdTo=$('#createdTo').val()+" 00:00:00";
-		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){  
-		   $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                $(".pop").find(".popup-title").html("信息提示");
-                $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                $(".pop").find(".popup-info").html("仓库编码和货主编码不能为空");
-            });
+		datas.itemName=$('#itemName').val();
+		datas.brand=$('#brand').val();
+		datas.batch=$('#batch').val();
+		if($('#createdFrom').val()!= ''){
+			datas.createdFrom=$('#createdFrom').val()+" 00:00:00";
+		}
+		if($('#createdTo').val()!= ''){
+			datas.createdTo=$('#createdTo').val()+" 00:00:00";
+		}
+		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){
+
+            $.showPopTips('信息提示', 'warning', '仓库编码和货主编码不能为空');
 			datas.warehouseCode = "SJZ01";
 			datas.companyCode = "JLM";
 		    return ;
@@ -45,43 +41,62 @@ $(function(){
         $(".nav-pagination").off();
 	})
 
+	
+	function bindListEvent () {
+		
+		var dataBack = {} ;
+		 //点击查看
+		$("tbody").off().on("click", '.bl-btn-look', function () {
+			//获取返回数据
+			dataBack.code = $(this).parents('tr').find('.codeClass').html();
+           	dataBack.receiptType= $(this).parents('tr').find('.receiptTypeClass').html();
+            dataBack.leadingStatus= $(this).parents('tr').find('.leadingStatusClass').html();	
+            dataBack.erpOrderCode= $(this).parents('tr').find('.erpOrderCodeClass').html();
+            dataBack.created= $(this).parents('tr').find('.createdClass').html();				
+            $.session.dataBack = JSON.stringify(dataBack)  ;
+			
+			$.getReceiptId(this);	
+			$.directPage('receiptListShow');
+		});
+	}
+	
 	//入库单列表
 
-function getReceiptList() {
-    loading();
-    var newData = JSON.stringify(datas)
-    $.ajax({
-        url: plumeApi["getReceiptList"], /*+"?currentPage=1&onePageCount="+onePageCount(),*/
-        type: "POST",
-        contentType: "application/json;charset=UTF-8",
-        data: newData,
-        dataType:"json",
-        success: function (data) {
-            unloading();
-            $("[list-node]").remove();
-            $(".table-block").setPageData(JSON.parse(data.data));
-			
-			
-			// 分页
-			totalPage = Math.ceil(JSON.parse(data.data).total / 9);
-			newPage(totalPage || 1, function (i) {
-				datas.pageNo = i;
-				var newData = JSON.stringify(datas);
-				unloading();
-				$.ajax({
-					url: plumeApi["getReceiptList"],
-					type: "POST",
-					data: newData,
-					dataType: "json",
-					contentType: "application/json; charset=utf-8",
-					success: function (data) {
-						$("[list-node]").remove();
-						$(".table-block").setPageData(JSON.parse(data.data));
-					}
-				});
-			});
-        }
-    });
+   function getReceiptList() {
+	    datas.pageSize = $.onePageCount();
+    	$.commonAjax({
+            url: 'getReceiptList',
+            type: "POST",
+            data: datas,
+            list: true,
+            success: function (data) {
+
+                if (data.ok == false) {
+                    alert(data.resDescription);
+                    return;
+                }
+                $("[list-node]").remove();
+                $(".table-block").setPageData(JSON.parse(data.data));
+				bindListEvent();
+                var pageSize = Math.ceil(JSON.parse(data.data).total / $.onePageCount());
+
+                newPage(pageSize, function (page) {
+					datas.pageNo = page ;
+					datas.pageSize = $.onePageCount();
+                    $.commonAjax({
+                        url: 'getReceiptList', /* +"?currentPage="+i+"&onePageCount="+onePageCount(),*/
+                        type: "POST",
+                        data: datas,
+                        list: true,
+                        success: function (data) {
+                            $("[list-node]").remove();
+                            $(".table-block").setPageData(JSON.parse(data.data));
+                            bindListEvent();
+                        }
+                    });
+                });
+            }
+        }); 
 }
 
 
@@ -92,7 +107,7 @@ function getReceiptList() {
     });
 
 //回车搜索
-    keyDown('.btn-search');
-
+    $.key.keydownEnter('.btn-search');
+  
 
 });
