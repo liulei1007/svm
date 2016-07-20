@@ -85,7 +85,7 @@
      * @returns {*}
      */
     $.commonAjax = function (option) {
-        var urlApi = utils.getLocal('plume_api') && $.parseJSON(utils.getLocal('plume_api')),
+        var urlApi = utils.getSession('plume_api') && $.parseJSON(utils.getSession('plume_api')),
             option = $.extend({}, $.defaultAjax, option),
             dataJson = option.data ? option.data : {};
 
@@ -104,7 +104,7 @@
         }
 
         if (path.indexOf('wms') > -1 && !option.requestType) {
-            host = "http://localhost/";
+            host = "http://192.168.224.187:8080/";
         } else {
             host = "http://longguo.hxmklmall.cn/api/";
         }
@@ -229,7 +229,7 @@
             return;
         }
 
-        $.direct(obj, page, fun, flag, load);
+        $.direct(page, obj, fun, flag, load);
     };
 
     // 弹出层
