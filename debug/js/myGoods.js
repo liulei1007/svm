@@ -664,6 +664,7 @@ $(function () {
                     $(".cmg-region1,.cmg-region2").show();
                 } else {
                     $(".cmg-region1,.cmg-region2").hide();
+                    $(this).val() && $(this).parent().parent().find('.alert-danger').hide();
                 }
             });
         });
@@ -674,6 +675,9 @@ $(function () {
                 $(".cmg-region2").find("[list-node]").remove();
                 $(".cmg-region2").setPageData(data);
                 defaultType && defaultAddress[2] && $("#cityId").val(defaultAddress[2]);
+                $("#cityId").on("change", function () {
+                    $(this).val() && $(this).parent().parent().find('.alert-danger').hide();
+                });
             });
         };
 
