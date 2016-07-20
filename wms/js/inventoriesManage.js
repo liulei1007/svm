@@ -2,20 +2,23 @@ $(function(){
 	
 	$.setPageCount();
 	datas={
-      "warehouseCode": "SJZ01",
-      "companyCode": "JLM",
+      "warehouseCode": "",
+      "companyCode": "",
 	  "itemCode":"",
       "pageNo":"1",		
       "pageSize":"9"
      }
 
-    $.tableCheckBox(); 
+    //$.tableCheckBox(); 
 	$.plumeLog("进入groundGoods模板自定义js-"+$.plumeTime());
-
-	getInventoriesList();
+    
+	$.when(getWarehouseCodeAndCompanyCodeByUseId(), getWarehouseByUserId()).done(function () {
+		  getInventoriesList();	
+	});
+	
 	$('div.btn-search').bind('click',function() {
 		datas.warehouseCode=$('#warehouseCode option:selected').val();
-		datas.companyCode=$('#companyCode').val();
+		datas.companyCode=$('#companyCode option:selected').val();
 		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){  
 		    $.showPopTips('信息提示', 'warning', '仓库编码和货主编码不能为空');
 			datas.warehouseCode = "SJZ01";
@@ -28,10 +31,13 @@ $(function(){
 		getInventoriesList();
         $(".nav-pagination").off();
 	})
+	
+	
 
 	//库存列表
 
 function getInventoriesList() {
+	
 	datas.pageSize = $.onePageCount();
 	$.commonAjax({
             url: 'getInventoriesList',
@@ -68,16 +74,67 @@ function getInventoriesList() {
         });
 
 }
-
-
+  
+ 
+function getWarehouseByUserId () {
+	//获取仓库信息
+	return $.commonAjax({
+		url: 'selectWarehouseByUserId',
+		type: "GET",
+		urlParams: {
+			userId: $.session.login_id
+		},
+		success: function (data) {
+			if (data.ok == false) {
+				alert(data.resDescription);
+				return;
+			}
+		   $("#warehouseCode").empty() ;
+		   for(var i=0; i<data.length; i++) {  
+				$("#warehouseCode").append("<option value='"+data[i].warehouseCode+"'>"+data[i].warehouseName+"</option>");
+		   } 
+		   
+		   datas.warehouseCode=$('#warehouseCode option:selected').val();
+		}
+	});
+}
+ 
+ 
+//获取仓库信息
+function getWarehouseCodeAndCompanyCodeByUseId(){
+	
+	// 获取货主信息
+	return $.commonAjax({
+		url: 'selectCompanyByUserId',
+		type: "GET",
+		urlParams: {
+			userId: $.session.login_id
+		},
+		success: function (data) {
+			if (data.ok == false) {
+				alert(data.resDescription);
+				return;
+			}
+		   $("#companyCode").empty() ;
+		   for(var i=0; i<data.length; i++) 
+		   {  
+		   $("#companyCode").append("<option value='"+data[i].companyCode+"'>"+data[i].companyName+"</option>");
+		   } 
+		   
+		   datas.companyCode=$('#companyCode option:selected').val();
+		}
+	});
+}  
+	
+    
 
 //清空搜索
-    $('.btn-empty').bind('click', function() {
-        window.location.reload();
-    });
+$('.btn-empty').bind('click', function() {
+	window.location.reload();
+});
 
 //回车搜索
-     $.key.keydownEnter('.btn-search');
+$.key.keydownEnter('.btn-search');
 
 
 });
