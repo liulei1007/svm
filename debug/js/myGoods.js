@@ -1,4 +1,32 @@
+var show_tips=function () {
+    $('#productName').bind('input',function () {
+        var self_text=$(this).val().length;
+        if(self_text>0){
+            $('.productName').hide();
+        }else{
+            $('.productName').show();
+        }
+    });
+    $("#modelNumber").bind('input',function () {
+        var self_text=$(this).val().length;
+        if(self_text>0){
+            $('.modelNumber').hide();
+        }else{
+            $('.modelNumber').show();
+        }
+    });
+    $("#material").bind('input',function () {
+        var self_text=$(this).val().length;
+        if(self_text>0){
+            $('.material').hide();
+        }else{
+            $('.material').show();
+        }
+    });
+};
+
 $(function () {
+    show_tips();
     formCtrl();
     plumeLog("进入myGoods模板自定义js-" + plumeTime());
     // 绑定点击图片展示大图
@@ -482,6 +510,7 @@ $(function () {
                 }
                 $(".cmg-brand").setPageData(data);
                 $("#brandId").bind("change", function () {
+                    $('.tips_card').hide();
                     loading();
                     var brandId = $(this).val();
                     $.get(plumeApi["listOmsBrandSeries"] + "/" + brandId, {}, function (data) {
@@ -793,7 +822,7 @@ $(function () {
 
                 return false;
             }
-
+            $('.prop_tips').hide();
             var showStandard = function () {
                 $(".colortr").each(function () {
                     var colorid = $(this).attr("colorid");
