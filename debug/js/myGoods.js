@@ -147,6 +147,7 @@ $(function () {
     //草稿初始化
     function getDraftDataInit(){
         var code=JSON.parse(session.goods_code);
+        var baseUrl = JSON.parse(session.img_url).data;
         var d = code;
         $(".emg-initdata").setPageData(d);
         $.ajaxSetup({
@@ -261,7 +262,7 @@ $(function () {
         for (var k = 0; k < productInfoPhotos.length; k++) {
             var p = productInfoPhotos[k];
             var temp = '<li class="goodsPic">';
-            temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
+            temp += '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode+ p.picUrl + '" data_src="'+p.picUrl+'">';
             temp += '<div class="upload-btn upload-btn-left">';
             temp += '<div class="arrow-left"></div>';
             temp += '</div>';
