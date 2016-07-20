@@ -1,3 +1,4 @@
+@charset "utf-8";
 /** --------loading动画-------- **/
 .loading{z-index:999;height:50px;width:50px;background: url("../images/loading.png") no-repeat 0 0;-webkit-animation: bounce 1s infinite linear;  animation: bounce 1s infinite linear;}
 .loading-img{z-index:999;height:50px;width:50px;background: #000;filter: Alpha(opacity=0.2); -moz-opacity:0.2; opacity:0.2;}
@@ -305,6 +306,8 @@
 .form-control-media-load:after{content: ''; position: absolute; top: 50%; left: 35px; width: 30px; height: 1px; background-color: #26aff5;}
 .form-control-media-load img{position: absolute; z-index: 100; top: 0; left: 0;}
 
+
+.changeType{width: auto !important;}
 
 /**
  * 未知！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！1

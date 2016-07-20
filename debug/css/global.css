@@ -3,6 +3,7 @@
 html, body{margin: 0; padding: 0; background:#fff; color: #555;}
 label{font-weight: normal;}
 textarea{resize: none;}
+a:visited{color: red !important;}
 /** --------bootstrap-------- **/
 /** ~~按钮~~ **/
 .btn-link{color: #26aff5; border-color: transparent;}

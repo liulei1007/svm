@@ -1,3 +1,4 @@
+@charset "utf-8";
 /** --------新登录-------- **/
 .login-container{position: absolute; top: 0; right: 0; bottom: 0; left: 0; min-width: 1300px; min-height: 580px; overflow: hidden;}
 /** ----新登录——头部---- **/
