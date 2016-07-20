@@ -293,7 +293,23 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.getFirstCategory().getCategoryData(0, 0);
+            var own = this,
+                getCategory = this.getFirstCategory().getCategoryData,
+                listCacheData = $.getSearchData(),
+                requestData = listCacheData ? JSON.parse(listCacheData) : {};
+
+            requestData.baseCategoryId ?
+                $.when(getCategory(0, 0)).done(function () {
+                    $('#baseCategoryId').val(requestData.baseCategoryId);
+                    $.when(getCategory(requestData.baseCategoryId, 1)).done(function () {
+                        $('#subCategoryId').val(requestData.subCategoryId);
+                        requestData.subCategoryId &&
+                        $.when(getCategory(requestData.subCategoryId, 2)).done(function () {
+                            $('#categoryId').val(requestData.categoryId);
+                        });
+                    });
+                }) : own.getFirstCategory().getCategoryData(0, 0);
+
             this.initBindEvent();
             this.initRequestData(true).initTableData();
         }

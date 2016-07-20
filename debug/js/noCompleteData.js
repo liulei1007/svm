@@ -16,7 +16,23 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.getFirstCategory().getCategoryData(0, 0);
+            var own = this,
+                getCategory = this.getFirstCategory().getCategoryData,
+                listCacheData = $.getSearchData(),
+                requestData = listCacheData ? JSON.parse(listCacheData) : {};
+
+            requestData.baseCategoryId ?
+                $.when(getCategory(0, 0)).done(function () {
+                    $('#baseCategoryId').val(requestData.baseCategoryId);
+                    $.when(getCategory(requestData.baseCategoryId, 1)).done(function () {
+                        $('#subCategoryId').val(requestData.subCategoryId);
+                        requestData.subCategoryId &&
+                            $.when(getCategory(requestData.subCategoryId, 2)).done(function () {
+                                $('#categoryId').val(requestData.categoryId);
+                    });
+                });
+            }) : own.getFirstCategory().getCategoryData(0, 0);
+
             this.initBindEvent();
             this.initRequestData(true).initTableData();
         },
@@ -93,16 +109,15 @@ $(function () {
                  * @param tag
                  */
                 getCategoryData: function (categoryId, tag) {
-                    $.commonAjax({
+                    return $.commonAjax({
                         url: 'listProductCategory',
                         type: 'get',
                         operationId: categoryId,
                         success: function (data) {
                             var $cls = $("." + cls[tag]);
                             $cls.find("[list-node]").remove();
-                            tag == 1 && $("." + cls[tag + 1]).find("[list-node]").remove();
                             $cls.setPageData(data);
-                            own.getFirstCategory().categoryEvent($cls);
+                            tag !== 2 && own.getFirstCategory().categoryEvent($cls);
                         }
                     });
                 }

@@ -16,8 +16,9 @@
     /**
      * 删除list查询数据
      */
-    $.clearSearchData = function () {
-        var key = 'page_search' + getPageUrl();
+    $.clearSearchData = function (key) {
+
+        var key = 'page_search' + (key || getPageUrl());
 
         session.removeItem(key);
     };
@@ -70,6 +71,11 @@
      * 列表数据为空处理
      */
     $.emptyData = function () {
+
+        $('.pagination').parent().hide();
+        $('.infoNum').parent('div').hide();
+
+        $("div.table-block .nodatanotice").remove();
         $(".table-block").append("<div class='nodatanotice' style='width:100%;text-align:Center;height:120px;line-height:120px'>未查询到数据!</div>");
     };
 
@@ -151,7 +157,7 @@
                     data.data && data.data.length !== 0 ? (
                         $infoNum.text(data.countRecord),
                             $infoNum.parent('div').show()
-                    ) : ($.emptyData(), $('.pagination').parent().hide(), $infoNum.parent('div').hide())
+                    ) : $.emptyData();
                 }
                 typeof(option.success) === 'function' && option.success(data);
                 $('.pagination').parent().fadeIn();
