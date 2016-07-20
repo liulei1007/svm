@@ -16,8 +16,9 @@
     /**
      * 删除list查询数据
      */
-    $.clearSearchData = function () {
-        var key = 'page_search' + getPageUrl();
+    $.clearSearchData = function (key) {
+
+        var key = 'page_search' + (key || getPageUrl());
 
         session.removeItem(key);
     };

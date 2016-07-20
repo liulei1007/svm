@@ -1045,8 +1045,10 @@ $(function () {
                     //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
                     //     $(".pop").find(".popup-info").html("数据提交成功");
                     if (session.goods_showMyGoods_type == "feed") {
+                        $.clearSearchData('takingGoods');
                         derict(null, "takingGoods", "nochangeurl");
                     } else {
+                        $.clearSearchData('goodsAuditManage');
                         derict(null, "goodsAuditManage", "nochangeurl");
                     }
                     // });
@@ -1085,6 +1087,7 @@ $(function () {
                 unloading();
                 if (data.ok) {
                     showPopTips("信息提示", "success", "数据提交成功");
+                    $.clearSearchData('goodsDraft');
                     derict(null, "goodsDraft", "nochangeurl");
                     // $('.pop').loadTemp("popTips", "nochangeurl", function () {
                     //     $(".pop").find(".popup-title").html("信息提示");
