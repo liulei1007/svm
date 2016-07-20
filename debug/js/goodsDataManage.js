@@ -12,11 +12,12 @@ $(function () {
             var own = this;
 
             $('.search-block').on("click", '.gdm-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
 
                 return false;
             }).on('click', '.gdm-btn-reload', function () {
+                $.clearSearchData();
                 derict(null, "goodsDataManage", "nochangeurl");
 
                 return false;
@@ -167,10 +168,10 @@ $(function () {
 
         /**
          * 获取请求参数
-         * @returns {{productName: (*|jQuery), modelNumber: (*|jQuery), categoryId: (*|jQuery),
-         *  subCategoryId: (*|jQuery), baseCategoryId: (*|jQuery), saleStatus: (*|jQuery), startDate: (*|jQuery), endDate: (*|jQuery)}}
+         * @param init
+         * @returns {goodsDataManageInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
                 productName: $("#productName").val(),
                 modelNumber: $("#modelNumber").val(),
@@ -181,6 +182,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
 
@@ -291,7 +294,8 @@ $(function () {
             tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            this.initBindEvent();
+            this.initRequestData(true).initTableData();
         }
     };
 

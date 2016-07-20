@@ -12,10 +12,11 @@ $(function () {
             var $own = this;
 
             $('.form-body').on('click', '.gam-btn-search', function () {
-                $own.initRequestData().initTableData();
+                $own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gam-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "goodsAuditManage", "nochangeurl");
                 return false;
             }).on('click', '.btn-allAudit', function () {
@@ -152,9 +153,9 @@ $(function () {
          * 获取请求参数
          * @returns {goodsAuditManageInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
-                productName: $("#agencyName").val(),
+                productName: $("#productName").val(),
                 reviewStatus: '0',
                 modelNumber: $("#modelNumber").val(),
                 baseCategoryId: $("#baseCategoryId").val(),
@@ -163,6 +164,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;
@@ -244,7 +247,8 @@ $(function () {
             tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            this.initBindEvent();
+            this.initRequestData(true).initTableData();
         }
     };
 

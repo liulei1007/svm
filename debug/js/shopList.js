@@ -33,39 +33,33 @@ $(function () {
         data.personDealerName = $("#personDealerName").val();
         data.isDel = $("#isDel").find('option:selected').val();
         data.brandName = $("#brandName").val();
+        $.setSearchData(data);
         getData();
         $(".nav-pagination").off();
     });
 
     // 从服务器获取数据
     function getData() {
-        loading();
-        var newData = JSON.stringify(data);
-        $.ajax({
-            // url: "datas/shopList.txt",
-            url: plumeApi["listShopInfo"],
+        $.commonAjax({
+            url: "listShopInfo",
             type: "POST",
-            data: newData,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
+            data: data,
+            list: true,
             success: function (result) {
                 showData(result);
                 totalPage = Math.ceil(result.countRecord / onePageCount());
                 newPage(totalPage, function (i) {
-                    loading();
                     $(".nav-pagination").show();
                     
                     data.start = (i - 1) * 10;
-                    var newData = JSON.stringify(data);
-                    $.ajax({
-                        url: plumeApi["listShopInfo"],
+                    $.commonAjax({
+                        url: "listShopInfo",
                         type: "POST",
-                        data: newData,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
+                        data: data,
+                        list: true,
                         success: function (result) {
                             showData(result);
-                        },
+                        }
                     });
                 });
 
@@ -78,7 +72,6 @@ $(function () {
         console.log(onePageCount())
     // 将获得的数据显示出来
     function showData(result) {
-        unloading();
         if (result.ok) {
             // 下方分页
             var pageList = "";
@@ -128,6 +121,7 @@ $(function () {
     
 //清空搜索
     $('.btn-empty').bind('click', function() {
+        $.clearSearchData();
         derict(this, "shopList", "nochangeurl");
     });
 

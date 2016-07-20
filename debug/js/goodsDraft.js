@@ -14,7 +14,7 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.initBindEvent().initRequestData().initTableData();
+            this.initBindEvent().initRequestData(true).initTableData();
         },
 
         /**
@@ -25,10 +25,11 @@ $(function () {
             var own = this;
 
             $(".search-block").on("click", '.gdm-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gdm-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "goodsDraft", "nochangeurl");
                 return false;
             });
@@ -56,7 +57,7 @@ $(function () {
             return own;
         },
 
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
                 "page": 1,
                 "limit": onePageCount(),
@@ -64,6 +65,8 @@ $(function () {
                 'startDate': $("#startDate").val(),
                 'endDate': $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             return this;
         },

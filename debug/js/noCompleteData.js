@@ -17,7 +17,8 @@ $(function () {
             tablecheckbox();
 
             this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            this.initBindEvent();
+            this.initRequestData(true).initTableData();
         },
 
         /**
@@ -28,11 +29,12 @@ $(function () {
             var own = this;
 
             $('.search-block').on('click', '.ncd-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
 
                 return false;
             }).on('click', ".ncd-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "noCompleteData", "nochangeurl");
 
                 return false;
@@ -121,7 +123,7 @@ $(function () {
                             $(".pop").find(".popup-info").html("删除成功");
                         });
                         $("[list-node]").remove();
-                        own.initRequestData().initTableData();
+                        own.initRequestData(true).initTableData();
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
@@ -214,9 +216,10 @@ $(function () {
 
         /**
          * 获取请求参数
-         * @returns {goodsAuditManageInit}
+         * @param init
+         * @returns {noCompleteDataInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
                 productName: $("#productName").val(),
                 modelNumber: "",
@@ -227,6 +230,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;
