@@ -12,10 +12,11 @@ $(function () {
             var $own = this;
 
             $('.form-body').on('click', '.gam-btn-search', function () {
-                $own.initRequestData().initTableData();
+                $own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gam-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "goodsAuditManage", "nochangeurl");
                 return false;
             }).on('click', '.btn-allAudit', function () {
@@ -152,9 +153,9 @@ $(function () {
          * 获取请求参数
          * @returns {goodsAuditManageInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
-                productName: $("#agencyName").val(),
+                productName: $("#productName").val(),
                 reviewStatus: '0',
                 modelNumber: $("#modelNumber").val(),
                 baseCategoryId: $("#baseCategoryId").val(),
@@ -163,6 +164,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;
@@ -243,8 +246,25 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            var own = this,
+                getCategory = this.getFirstCategory().getCategoryData,
+                listCacheData = $.getSearchData(),
+                requestData = listCacheData ? JSON.parse(listCacheData) : {};
+
+            requestData.baseCategoryId ?
+                $.when(getCategory(0, 0)).done(function () {
+                    $('#baseCategoryId').val(requestData.baseCategoryId);
+                    $.when(getCategory(requestData.baseCategoryId, 1)).done(function () {
+                        $('#subCategoryId').val(requestData.subCategoryId);
+                        requestData.subCategoryId &&
+                        $.when(getCategory(requestData.subCategoryId, 2)).done(function () {
+                            $('#categoryId').val(requestData.categoryId);
+                        });
+                    });
+                }) : own.getFirstCategory().getCategoryData(0, 0);
+
+            this.initBindEvent();
+            this.initRequestData(true).initTableData();
         }
     };
 

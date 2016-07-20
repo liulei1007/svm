@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>红星美凯龙后台管理</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--公用基础文件-->
+  <script language="javascript" src="../js/plumecommon.js" ></script>
+</head>
+
+<body>
+  <div class="body-typein">
+    <form class="form-inline tab">
+      <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+          <li id="Section1" class="active">
+            <a  aria-controls="home" role="tab" data-toggle="tab">基础信息</a>
+          </li>
+        </ul>
+
+        <div class="container tab-content tabs tab">
+          <div role="tabpanel" class="tab-pane in active" id="SectionShow1">
+            <div class="row">
+              <div class="col-md-3 input-group">
+                <span class="input-group-addon">ID</span>
+                <input type="text" class="form-control input-sm" id="shipmentId" data-name="$p.shipmentId"></div>
+              <div class="col-md-3 col-md-offset-1 input-group">
+                <span class="input-group-addon">出库单编码</span>
+                <input type="text" class="form-control input-sm" id="shipmentCode" data-name="$p.shipmentCode"></div>
+              <div class="col-md-3 col-md-offset-1 input-group">
+                <span class="input-group-addon">客户名称</span>
+                <input type="text" class="form-control input-sm" id="shipToName" data-name="$p.shipToName"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 input-group">
+                <span class="input-group-addon">状态</span>
+                <input type="text" class="form-control input-sm" id="leadingStatus" data-name="$p.leadingStatus"></div>
+              <div class="col-md-3 col-md-offset-1 input-group">
+                <span class="input-group-addon">添加时间</span>
+                <input type="text" class="form-control input-sm" id="createdDate" data-name="$p.createdDate"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="table-coordinate">
+      <div class="table-block">
+        <table class="table table1 table-striped">
+          <thead>
+            <tr>
+              <td style="width:2%">
+                <input type="checkbox" />
+              </td>
+              <td style="width:8%">出库单编码</td>
+              <td style="width:6%">货品名称</td>
+              <td style="width:5%">货品编号</td>
+              <td style="width:6%">要货数量</td>
+              <td style="width:6%">客户名称</td>
+              <td style="width:5%">创建人</td>
+            </tr>
+          </thead>
+          <tbody data-list="$p.data.shipmentList">
+            <tr list-temp="true">
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td node-name="$n.shipmentCode"></td>
+              <td node-name="$n.itemName"></td>
+              <td node-name="$n.erpItemCode"></td>
+              <td node-name="$n.requestQty"></td>
+              <td node-name="$n.shipToName"></td>
+              <td node-name="$n.created"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="btn-block col-md-offset-5">
+          <button type="button" class="btn btn-default btn-info btn-back">返回</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+        .tab{
+            margin-top: 30px;
+        }
+        .table-coordinate{   
+        position:fixed;
+        left:155px;
+        top:310px;  
+        }
+        
+      </style>
+</body>
+</html>

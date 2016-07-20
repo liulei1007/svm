@@ -12,7 +12,10 @@ $(function(){
 
 	//搜索
 	$(".im-btn-sm").bind("click",function(){
-		listSubUserDate(1, 10);
+        data.mobilePhone = $("#mobilePhone").val();
+
+        $.setSearchData(data);
+		listSubUserDate();
 	});
 
 	//权限配置
@@ -60,7 +63,7 @@ $(function(){
     });
 
     //初始化数据
-	listSubUserDate(1, 10);
+	listSubUserDate();
 
 });
 
@@ -92,8 +95,14 @@ function editUserRoles(managid) {
 
 }
 
+var data = {
+    "mobilePhone": '',
+    "page": 1,
+    "perPage": 10
+};
+
 //查询子账号分页信息 page：第几页；perPage：每页多少条记录
-function listSubUserDate(page, perPage) {
+function listSubUserDate() {
 	//获取子账号列表的url
 	var apiName = "";
 
@@ -102,31 +111,19 @@ function listSubUserDate(page, perPage) {
 	if(userType == null || userType == 0) {
 		return;
 	} else if(userType == 1) {
-		apiName = plumeApi["listManuSubUserInfo"];
+		apiName = "listManuSubUserInfo";
 	} else if (userType == 2) {
-		apiName = plumeApi["listSubUserInfo"];
+		apiName = "listSubUserInfo";
 	} else {
 		return;
 	}
 
-	var mobilePhone = $("#tel").val();
-	if(page == null)
-		page = 1;
-	if(perPage == null)
-		perPage = 10;
-	
-	loading();
-	$.ajax({
+	$.commonAjax({
         url: apiName,
         type: "GET",
-        data: {
-                "mobilePhone": mobilePhone,
-                "page": page,
-                "perPage": perPage
-            },
-        contentType: "application/json;charset=UTF-8",
+        urlParams: data,
+        list: true,
         success: function (data) {
-            unloading();
             $("[list-node]").remove();
             if(data.ok) {
                 $(".table-block").setPageData(data);
@@ -258,6 +255,7 @@ function rolesShow() {
 
 //清空搜索
     $('.im-btn-empty').bind('click', function() {
+        $.clearSearchData();
         derict(this, "idmanage", "nochangeurl");
     });
 

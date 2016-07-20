@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plume-page>
+
+    <page>
+        <!--配置模板别名-->
+        <page-name>shipmentDetail</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/shipmentDetail.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>shipmentDetailInit</init>
+    </page>
+
+    <page>
+        <!--配置模板别名-->
+        <page-name>shipmentManage</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/shipmentManage.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>shipmentManageInit</init>
+    </page>
+
+    <page>
+        <!--配置模板别名-->
+        <page-name>receiptManage</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/receiptManage.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>receiptManageInit</init>
+    </page>
+
+</plume-page>

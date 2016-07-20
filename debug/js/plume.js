@@ -59,6 +59,8 @@ $(function () {
             temp["init"] = init;
             configJson[pageName] = temp;
         });
+        console.log("configJson:");
+        console.log(configJson);
         //plumeApi_Host=$(data).find("api-host").text();
         $(data).find("api").children().each(function () {
             

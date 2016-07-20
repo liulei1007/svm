@@ -16,7 +16,7 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.initBindEvent().initRequestData().initTableData();
+            this.initBindEvent().initRequestData(true).initTableData();
         },
 
         /**
@@ -27,10 +27,11 @@ $(function () {
             var own = this;
 
             $(".search-block").on("click", '.gcm-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
                 return false;
             }).on('click', ".gcm-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "goodsCheckfailManage", "nochangeurl");
                 return false;
             });
@@ -114,11 +115,12 @@ $(function () {
 
         /**
          * 获取请求参数
-         * @returns {goodsAuditManageInit}
+         * @param init
+         * @returns {goodsCheckfailManageInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
-                productName: $("#agencyName").val(),
+                productName: $("#productName").val(),
                 modelNumber: "",
                 categoryId: "",
                 subCategoryId: "",
@@ -128,6 +130,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;

@@ -22,7 +22,9 @@ $(function() {
 				unloading();
 				// 如果原先已有品牌logo，显示
 				if (data.data.brandLogo) {
-					$("#brand-logo").html('<img src="' + data.data.brandLogo + '" />');
+					var baseUrl = JSON.parse(session.img_url).data;
+
+					$("#brand-logo").html('<img src="' +baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode+data.data.brandLogo + '" />');
 				}
 				else {
 					$("#brand-logo").html('<img src="images/brand-default.jpg" />');

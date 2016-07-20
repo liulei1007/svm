@@ -147,6 +147,7 @@ $(function () {
     //草稿初始化
     function getDraftDataInit(){
         var code=JSON.parse(session.goods_code);
+        var baseUrl = JSON.parse(session.img_url).data;
         var d = code;
         $(".emg-initdata").setPageData(d);
         $.ajaxSetup({
@@ -261,7 +262,7 @@ $(function () {
         for (var k = 0; k < productInfoPhotos.length; k++) {
             var p = productInfoPhotos[k];
             var temp = '<li class="goodsPic">';
-            temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+            temp += '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode+ p.picUrl + '" data_src="'+p.picUrl+'">';
             temp += '<div class="upload-btn upload-btn-left">';
             temp += '<div class="arrow-left"></div>';
             temp += '</div>';
@@ -302,11 +303,12 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
+                    showPopTips("信息提示", "warning", "未查询到数据!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html("未查询到数据!");
+                    // });
                     return;
                 }
                 var d = data.data;
@@ -423,8 +425,9 @@ $(function () {
                 setStandard();
                 for (var k = 0; k < productInfoPhotos.length; k++) {
                     var p = productInfoPhotos[k];
+                    console.log(p);
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '">';
+                    temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
@@ -469,11 +472,12 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (!data.data) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html("未查询到数据!");
-                    });
+                    showPopTips("信息提示", "warning", "未查询到数据!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html("未查询到数据!");
+                    // });
                     return;
                 }
                 $(".cmg-brand").setPageData(data);
@@ -661,6 +665,7 @@ $(function () {
                     $(".cmg-region1,.cmg-region2").show();
                 } else {
                     $(".cmg-region1,.cmg-region2").hide();
+                    $(this).val() && $(this).parent().parent().find('.alert-danger').hide();
                 }
             });
         });
@@ -671,6 +676,9 @@ $(function () {
                 $(".cmg-region2").find("[list-node]").remove();
                 $(".cmg-region2").setPageData(data);
                 defaultType && defaultAddress[2] && $("#cityId").val(defaultAddress[2]);
+                $("#cityId").on("change", function () {
+                    $(this).val() && $(this).parent().parent().find('.alert-danger').hide();
+                });
             });
         };
 
@@ -774,11 +782,12 @@ $(function () {
                 marketPrice = $("#marketPrice").val();
 
             if (!$color || $color.length === 0) {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html('请选择颜色分类');
-                });
+                showPopTips("信息提示", "warning", "请选择颜色分类!");
+                // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //     $(".pop").find(".popup-title").html("信息提示");
+                //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //     $(".pop").find(".popup-info").html('请选择颜色分类');
+                // });
 
                 $('tr.cmg-goodstr').remove();
 
@@ -832,11 +841,12 @@ $(function () {
                 success: function (data) {
                     unloading();
                     if (!data.data) {
-                        $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                            $(".pop").find(".popup-title").html("信息提示");
-                            $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                            $(".pop").find(".popup-info").html(data.resDescription);
-                        });
+                        showPopTips("信息提示", "warning", data.resDescription);
+                        // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                        //     $(".pop").find(".popup-title").html("信息提示");
+                        //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                        //     $(".pop").find(".popup-info").html(data.resDescription);
+                        // });
                         return;
                     }
                     if (data.ok) {
@@ -846,7 +856,7 @@ $(function () {
 
                         for (var i = 0; i < imgUrlLen; i++) {
                             temp.push('<li class="goodsPic">',
-                                '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[i].path  + '">',
+                                '<img class="cmg-goodsimgs" src="' + baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode + imgUrl[i].path  + '" data_src="'+imgUrl[i].path+'">',
                                 '<div class="upload-btn upload-btn-left">',
                                 '<div class="arrow-left"></div>',
                                 '</div>',
@@ -870,11 +880,12 @@ $(function () {
             });
 
             var errorTip = function (message) {
-                $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                    $(".pop").find(".popup-title").html("信息提示");
-                    $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                    $(".pop").find(".popup-info").html(message);
-                });
+                showPopTips("信息提示", "warning", message);
+                // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                //     $(".pop").find(".popup-title").html("信息提示");
+                //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                //     $(".pop").find(".popup-info").html(message);
+                // });
             };
 
             $(".pu-ok").bind("click", function () {
@@ -902,7 +913,7 @@ $(function () {
         var dataJson = {},
             $_countryId = $("#countryId"),
             $_cityId = $('#cityId');
-            $_provinceId = $('#provinceId'),
+        $_provinceId = $('#provinceId'),
 
         sessionType == 'edit' && (dataJson.productId = $("#productId").val());
         sessionType == 'feed' && (dataJson.productId = $("#productId").val());
@@ -966,7 +977,7 @@ $(function () {
         $(".cmg-goodsimgs").each(function () {
             photosJson = {};
             photosJson.colorId = '0';
-            photosJson.picUrl = $(this).attr("src");
+            photosJson.picUrl = $(this).attr("data_src");
             photosArray.push(photosJson);
         });
         dataJson.photos = photosArray;
@@ -1028,22 +1039,26 @@ $(function () {
                 }
 
                 if (data.ok) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("数据提交成功");
-                        if (session.goods_showMyGoods_type == "feed") {
-                            derict(null, "takingGoods", "nochangeurl");
-                        } else {
-                            derict(null, "goodsAuditManage", "nochangeurl");
-                        }
-                    });
+                    showPopTips("信息提示", "success", "数据提交成功!");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    //     $(".pop").find(".popup-info").html("数据提交成功");
+                    if (session.goods_showMyGoods_type == "feed") {
+                        $.clearSearchData('takingGoods');
+                        derict(null, "takingGoods", "nochangeurl");
+                    } else {
+                        $.clearSearchData('goodsAuditManage');
+                        derict(null, "goodsAuditManage", "nochangeurl");
+                    }
+                    // });
                 } else {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html(data.resDescription);
-                    });
+                    showPopTips("信息提示", "warning", data.resDescription);
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html(data.resDescription);
+                    // });
                 }
 
                 $(own).removeAttr('disabled');
@@ -1071,18 +1086,22 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="success"></i>');
-                        $(".pop").find(".popup-info").html("数据提交成功");
-                        derict(null, "goodsDraft", "nochangeurl");
-                    });
+                    showPopTips("信息提示", "success", "数据提交成功");
+                    $.clearSearchData('goodsDraft');
+                    derict(null, "goodsDraft", "nochangeurl");
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="success"></i>');
+                    //     $(".pop").find(".popup-info").html("数据提交成功");
+                    //     derict(null, "goodsDraft", "nochangeurl");
+                    // });
                 } else {
-                    $('.pop').loadTemp("popTips", "nochangeurl", function () {
-                        $(".pop").find(".popup-title").html("信息提示");
-                        $(".pop").find(".popup-icon").html('<i class="warning"></i>');
-                        $(".pop").find(".popup-info").html(data.resDescription);
-                    });
+                    showPopTips("信息提示", "warning", data.resDescription);
+                    // $('.pop').loadTemp("popTips", "nochangeurl", function () {
+                    //     $(".pop").find(".popup-title").html("信息提示");
+                    //     $(".pop").find(".popup-icon").html('<i class="warning"></i>');
+                    //     $(".pop").find(".popup-info").html(data.resDescription);
+                    // });
                 }
                 $(own).removeAttr('disabled');
             }
@@ -1118,46 +1137,41 @@ $(function () {
                 spanHtml += '<span data-id="' + obj.id + '">' + obj.baseName + '</span>';
             }
         });
-        spanHtml ? $obj.html(spanHtml).show() : $obj.html('').hide();
+        spanHtml ? $obj.html(spanHtml).show() : $obj.hide();
 
-        $obj.find('span').on('click', function () {
+        $obj.on('click', 'span', function () {
             $own.val($(this).text());
             $obj.html('').hide();
         });
     };
 
-    var hideName = function () {
-        $('#mater1Select').html('').hide();
-        $('#mater2Select').html('').hide();
-        $('#mater3Select').html('').hide();
-    };
-
     var $mater1Select = $('#mater1Select'),
         $mater2Select = $('#mater2Select'),
-        $mater3Select = $('#mater3Select');
+        $mater3Select = $('#mater3Select'),
+        $materialSelect = $('#materialSelect');
 
     $('#material1').on('focus', function () {
-        $mater1Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater1Select): $mater1Select.html('').hide();
+        $mater1Select.hide();
     }).on('blur', function () {
-        $mater1Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater1Select): $mater1Select.hide();
     });
     $('#material2').on('focus', function () {
-        $mater2Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater2Select): $mater2Select.html('').hide();
+        $mater2Select.hide();
     }).on('blur', function () {
-        $mater2Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater2Select): $mater2Select.hide();
     });
     $('#material3').on('focus', function () {
-        $mater3Select.html('').hide();
-    }).on('keyup', function () {
-        var value = $.trim($(this).val());
-        value ? nameOperation(value, $(this), $mater3Select): $mater3Select.html('').hide();
+        $mater3Select.hide();
     }).on('blur', function () {
-        $mater3Select.html('').hide();
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $mater3Select): $mater3Select.hide();
+    });
+    $('#material').on('focus', function () {
+        $materialSelect.hide();
+    }).on('blur', function () {
+        var value = $.trim($(this).val());
+        value ? nameOperation(value, $(this), $materialSelect): $materialSelect.hide();
     });
 });

@@ -23,8 +23,8 @@
     <div class="search-block">
         <form class="form-inline">
             <div class="form-group">
-                <label for="agencyName">商品名称</label>
-                <input type="text" class="form-control input-sm" id="agencyName" placeholder="">
+                <label for="productName">商品名称</label>
+                <input type="text" class="form-control input-sm" id="productName" placeholder="">
             </div>
             <div class="form-group category-block">
                 <label>分类</label>
@@ -61,7 +61,7 @@
 
     
     <div class="btn-block clearFix">
-        <button class="btn btn-batch btn-allAudit">批量审核</button>
+        <button class="btn btn-border-primary btn-allAudit">批量审核</button>
         <div class="pull-right alert alert-info">您当前还有<strong data-name="$p.countRecord" class="infoNum"></strong>条商品信息需要处理!</div>
     </div>
     <div class="table-block gam-table">
@@ -82,7 +82,7 @@
             <tbody data-list="$p.data">
             <tr list-temp="true"  node-name="attr-uptId:$n.uptId">
                 <td node-name="attr-uptId:$n.uptId"><input type="checkbox"/></td>
-                <td node-name="$n.productName,attr-uptId:$n.uptId" class="a-link gam-btn-show"></td>
+                <td node-name="$n.productName,attr-uptId:$n.uptId" class="btn btn-link gam-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
                 <td node-name="$n.brandName"></td>
@@ -91,7 +91,7 @@
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
                     <!--<div type="button" class="btn btn-link btn-sm btn-releaseGoods gam-btn-show"  node-name="attr-uptId:$n.uptId">查看</div>-->
-                    <div type="button" class="btn btn-link btn-releaseGoods btn-audit "  node-name="attr-uptId:$n.uptId">审核</div>
+                    <div type="button" class="btn btn-border-primary btn-audit"  node-name="attr-uptId:$n.uptId">审核</div>
                 </td>
             </tr>
             </tbody>

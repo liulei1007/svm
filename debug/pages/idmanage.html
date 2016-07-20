@@ -24,7 +24,7 @@
         <form class="form-inline">
             <div class="form-group">
                 <label for="tel">手机号</label>
-                <input type="text" class="form-control input-sm" id="tel" placeholder="请输入手机号">
+                <input type="text" class="form-control input-sm" id="mobilePhone" placeholder="请输入手机号">
             </div>
             <div type="" class="btn btn-default im-btn-sm">查询</div>
             <div class="btn btn-default im-btn-empty">清空条件</div>
@@ -51,12 +51,10 @@
                 <td node-name="$n.remark"></td>
                 <td node-name="$n.mobilePhone"></td>
                 <td class="createDate" node-name="_getLocalTime($n.createDate)"></td>
+                <td class="btn btn-link btn-acset">配置</td>
                 <td>
-                    <div class="a-link btn-acset">配置</div>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-link btn-compile">编辑</button>
-                    <button type="button" class="btn btn-link btn-link-delete btn-delect">删除</button>
+                    <button type="button" class="btn btn-border-primary btn-compile">编辑</button>
+                    <button type="button" class="btn btn-border-danger btn-delect">删除</button>
                 </td>
               </tr>
             </tbody>

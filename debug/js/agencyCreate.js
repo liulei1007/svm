@@ -12,7 +12,7 @@ $(function () {
 	// });
 
 	// 绑定Tab切换事件
-    $(".body-typein").on("click", "#li-hasAgency", function () {
+    $(".form-block").on("click", "#li-hasAgency", function () {
         // 防止重复点击
         if ($(this).hasClass("active")) {
             return;

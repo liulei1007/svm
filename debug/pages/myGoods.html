@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<div class="body-typein createNewGoods">
+<div class="form-block createNewGoods">
     <div class="title-block mg-title"></div>
     <form class="form-horizontal">
         <div class="form-group">
@@ -30,7 +30,7 @@
                     <input type="hidden" id="productId" data-name="$p.productId" />
                 </div>
             </div>
-            <div class="col-sm-4 changeType">重新选择类目</div>
+            <div class="col-sm-4"><div class="btn btn-border-primary changeType">重新选择类目</div></div>
         </div>
     </form>
     <div class="form-block-contractive">
@@ -116,12 +116,14 @@
                     <!--</div>-->
                      <!--<div class="col-sm-2 alert alert-danger">请输入材质</div>-->
                 <!--</div>-->
-                <div class="form-group required material_temp">
+                <div class="form-group required material_temp position-div">
                     <label class="col-sm-2 control-label"><i>*</i><span>主要用料</span></label>
 
                     <div class="col-sm-6"><input type="text" id="material" class="form-control notNull">
                     </div>
                      <div class="col-sm-2 alert alert-danger">请输入主要用料</div>
+                    <div id="materialSelect" class="name-select" style="display: none;">
+                    </div>
                 </div>
                 <!--<div class="form-group">-->
                     <!--<label class="col-sm-2 control-label"><span>重量</span></label>-->

@@ -67,8 +67,8 @@
         </form>
     </div>
     <div class="btn-block clearFix" id="operationBtn">
-        <button class="btn btn-batch btn-open" data-type="1">开启</button>
-        <button class="btn btn-batch btn-disabled" data-type="0">禁用</button>
+        <button class="btn btn-border-primary btn-open" data-type="1">批量开启</button>
+        <button class="btn btn-border-primary btn-disabled" data-type="0">批量禁用</button>
     </div>
     <div class="table-block">
         <table class="table table1 table-striped gdm-table-data data-body" >
@@ -89,7 +89,7 @@
             <tbody data-list="$p.data">
             <tr list-temp="ture" node-name="attr-productId:$n.productId,attr-reviewStatus:$n.reviewStatus,attr-uptId:$n.uptId">
                 <td><input type="checkbox" node-name="attr-productId:$n.productId"/></td>
-                <td node-name="$n.productName,attr-productId:$n.productId" class="a-link gdm-btn-show"></td>
+                <td node-name="$n.productName,attr-productId:$n.productId" class="btn btn-link gdm-btn-show"></td>
                 <td node-name="$n.modelNumber"></td>
                 <!--<td node-name="$n.productGoods[0]?$n.productGoods[0].standard:''"></td>-->
                 <td node-name="($n.countryId=='CN')?(($n.cityName=='香港'||$n.cityName=='澳门'||$n.cityName=='上海市'||$n.cityName=='天津市'||$n.cityName=='北京市'||$n.cityName=='重庆市')?$n.cityName:($n.provinceName+$n.cityName)):$n.countryName"></td>
@@ -98,8 +98,8 @@
                 <td node-name="$n.baseCategoryName+'-'+$n.subCategoryName +'-'+$n.categoryName"></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
                 <td>
-                    <button type="button" class="btn btn-link gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>
-                    <button type="button" class="btn btn-link gdm-btn-copy" node-name="attr-productId:$n.productId">复制</button>
+                    <button type="button" class="btn btn-border-primary gdm-btn-edit"  node-name="attr-productId:$n.productId">编辑</button>
+                    <button type="button" class="btn btn-border-primary gdm-btn-copy" node-name="attr-productId:$n.productId">复制</button>
                     <!--<button type="button" class="btn btn-link gdm-btn-open" node-name="$n.saleStatus,attr-productId:$n.productId,attr-saleStatus:$n.saleStatus"></button>-->
                     <!--<button type="button" class="btn btn-link btn-link-delete gdm-btn-del" node-name="attr-productId:$n.productId">删除</button>-->
                 </td>

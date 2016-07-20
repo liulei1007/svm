@@ -123,7 +123,7 @@ $(function() {
 				// 店铺状态
 				if (list.isDel == 0) {tableList += '<td><span class="mark mark-success">开启</span></td>';}
 				else {tableList += '<td><span class="mark mark-danger">关闭</span></td>';}
-				tableList += '<td><button type="button" class="btn btn-link btn-look">管理</button></td>';
+				tableList += '<td><button type="button" class="btn btn-border-primary btn-look">管理</button></td>';
 			});
 			$("table tbody").html(tableList);
 		}

@@ -19,7 +19,6 @@
 
 <body>
 <div class="doc-basicDataManagement">
-   <!--<div class="title-block">批量导入商品管理</div>-->
     <div class="search-block">
       <form class="form-inline">
         <div class="form-group">
@@ -57,12 +56,12 @@
 
 
     <div class="btn-block clearFix" id="operationBtn">
-        <button class="btn btn-batch btn-open">删除</button>
+        <button class="btn btn-border-primary">批量删除</button>
         <div class="pull-right alert alert-info">当前总共还有<strong data-name="$p.countRecord" class="infoNum"></strong>条商品数据需要继续补充信息!</div>
     </div>
     <div class="table-block basicDataManagement-table">   
 
-        <table class="table table1 table-striped">
+        <table class="table table-striped">
             <thead>
               <tr>
                   <td style="width:3%"><input type="checkbox"/></td>
@@ -80,30 +79,22 @@
               <tr list-temp="ture">
                   <td><input type="checkbox" node-name="attr-productId:$n.uptId"/></td>
                 <td node-name="_getLocalTime($n.updateDate)"></td>
-                  <td node-name="$n.productName,attr-productId:$n.uptId" class="a-link ncd-btn-show"></td>
+                  <td node-name="$n.productName,attr-productId:$n.uptId" class="btn btn-link ncd-btn-show"></td>
                   <td node-name="$n.modelNumber"></td>
                   <td node-name="($n.countryId=='CN')?($n.provinceName == $n.cityName ? $n.cityName : ($n.provinceName + $n.cityName)):$n.countryName"></td>
                   <td node-name="$n.brandName"></td>
                   <td node-name="$n.seriesName"></td>
                   <td node-name="$n.baseCategoryName + ' ' + $n.subCategoryName + ' ' + $n.categoryName"></td>
                 <td>
-                  <button type="button" class="btn btn-link btn-link-edit btn-releaseGoods" node-name="attr-uptId:$n.uptId">编辑</button>
-                  <button type="button" class="btn btn-link btn-link-delete btn-releaseGoods" node-name="attr-uptId:$n.uptId">删除</button>
+                  <button type="button" class="btn btn-border-primary btn-link-edit btn-releaseGoods" node-name="attr-uptId:$n.uptId">编辑</button>
+                  <button type="button" class="btn btn-border-danger btn-releaseGoods" node-name="attr-uptId:$n.uptId">删除</button>
                 </td>
               </tr>
             </tbody>
         </table>
     </div>
      <div class="nav-pagination clearFix">
-        <ul class="pagination">
-           <!--  <li class="page-first "><a href="javascript:void(0)">&lt;&lt;</a></li>
-            <li class="page-pre "><a href="javascript:void(0)">&lt;</a></li>
-            <li class="page-number active disabled"><a href="javascript:void(0)">1</a></li>
-            <li class="page-number"><a href="javascript:void(0)">2</a></li>
-            <li class="page-number"><a href="javascript:void(0)">3</a></li>
-            <li class="page-next"><a href="javascript:void(0)">&gt;</a></li>
-            <li class="page-last"><a href="javascript:void(0)">&gt;&gt;</a></li> -->
-        </ul>
+        <ul class="pagination"></ul>
     </div>
 </div>
 

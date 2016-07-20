@@ -1,0 +1,174 @@
+@charset "utf-8";
+*{font-family: "Microsoft Yahei"}
+html, body{margin: 0; padding: 0; background:#fff; color: #555;}
+label{font-weight: normal;}
+textarea{resize: none;}
+a:visited{color: red !important;}
+/** --------bootstrap-------- **/
+/** ~~按钮~~ **/
+.btn-link{color: #26aff5; border-color: transparent;}
+.btn-link:hover, .btn-link.focus, .btn-link:focus{color: #0986c5; text-decoration: underline;}
+.btn-link:link{color: #000;}
+.btn-border-primary{color: #26aff5; background-color: #fff; border-color: #26aff5;}
+.btn-border-primary:hover, .btn-border-primary.focus, .btn-border-primary:focus{color: #fff; background-color: #26aff5;}
+.btn-border-danger{color: #f26c4e; background-color: transparent; border-color: #f26c4e;}
+.btn-border-danger:hover, .btn-border-danger.focus, .btn-border-danger:focus{color: #fff; background-color: #f26c4e;}
+/** --------按钮组-------- **/
+.nav-tabs{margin-bottom: 10px;}
+.nav-tabs > li > a{color: #343f52;}
+.nav-tabs-agency{margin-top: 20px; margin-bottom: 20px;}
+/** ~~表格~~ **/
+.table{table-layout: fixed;}
+.table > thead > tr > td, .table > tbody > tr > td{overflow: hidden; text-overflow: ellipsis; word-break: break-all; white-space: nowrap;}
+.table-striped > thead > tr{background-color: #fafafa; border: solid #ddd 1px;}
+.table-striped > thead > tr > td{border-bottom: solid #ddd 1px;}
+.table-striped > tbody{border-bottom: solid #ddd 1px;}
+/** ~~警告~~ **/
+.alert{margin-bottom: 0; padding-right: 20px; padding-left: 20px;}
+.alert-default{background-color: #fafafa; border-color: #ddd;}
+/** ~~标记~~ **/
+.mark{display: block; margin: 0; padding: 0 10px; color: #fff; text-align: center;}
+.mark-default{background-color: #989da8;}
+.mark-success{background-color: #00c052;}
+.mark-info{background-color: #00dbd3;}
+.mark-danger{background-color: #f56c50;}
+/** ~~校验状态的表单~~ **/
+.has-warning .control-label, .has-warning .help-block, .has-error .control-label, .has-error .help-block{color: #666;}
+.has-warning .form-control, .has-warning .form-control:focus{border-color: #26aff5;}
+.has-error .form-control, .has-error .form-control:focus{border-color: #f76c4a;}
+
+/** 输入框等focus时无外边框 **/
+.form-control:focus{box-shadow: none;}
+
+
+/** 清浮动 **/
+.clearFix:after, .clearFix:before{content: ''; display: block; clear: both;}
+/** 模块 **/
+.block{margin-top: 10px; margin-bottom: 10px;}
+/** 清除row两边的margin **/
+.row-clear{margin-right: 0; margin-left: 0;}
+
+/** --------网页容器-------- **/
+.page-container{position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+
+/** --------顶部navbar-------- **/
+.navbar-default{margin-bottom: 0; min-height: 45px; height: 45px; background-color: #1397da; border: none;}
+
+/** --------网页除去顶部navbar部分-------- **/
+.container-fixed{position: absolute; top: 45px; right: 0; bottom: 0; left: 0;display: none}
+.container-fixed > .row{height: 100%;}
+
+/** --------左侧导航-------- **/
+.slidebar{position: fixed; z-index: 900; top: 45px; bottom: 0; left: 0; padding: 0; width: 120px; overflow: visible; background-color: #364152;}
+.slidebar-title > li{padding-top: 10px; padding-bottom: 15px; color: #6e82a2; text-align: center; border-bottom: solid #4f5b70 1px; cursor: pointer;}
+/** 导航栏——选中状态 **/
+.slidebar-title:hover > li, .slidebar-title.active > li{color: #f3f7f6; background-color: #425167;}
+/** 导航栏——图标 **/
+.slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
+
+/** --------网页右侧主体-------- **/
+.page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; overflow-y: scroll;}
+.work-space{position: relative; padding: 50px 10px 15px; width: 100%; overflow-x: hidden;}
+
+/** --------二级菜单-------- **/
+.slidebar-menu{position: fixed; z-index: 100; top: 45px; margin: 0; padding: 0; width: 100%; background-color: #ebeff2;display: none;}
+.slidebar-menu li{display: none;float: left; padding: 15px 0; width: 150px; text-align: center; list-style: none; cursor: pointer; background-color: #ebeff2;}
+.slidebar-menu li:hover{background-color: #f4f8fa;}
+.slidebar-menu li.active{color: #1397da; background-color: #fff;}
+
+/** 页面标题 **/
+.title-block{margin-top: 20px; margin-bottom: 20px; font-size: 24px; font-weight: bold; text-align: center;}
+
+/** --------搜索框-------- **/
+.search-block{margin-top: 20px; margin-bottom: 20px; padding: 5px 20px; width: 100%; background: #fafafa; border: solid #e1e1e1 1px; border-radius: 2px; -webkit-animation: mysearch 1s forwards; animation: mysearch 1s forwards;}
+.search-block .btn{margin-right: 10px; min-width:80px;}
+.search-block .form-inline .form-group{margin-top: 5px; margin-right: 20px; margin-bottom: 5px;}
+.search-block .form-inline .form-control{margin-left: 10px;}
+.search-block .form-inline input.form-control{width: 170px;}
+@-webkit-keyframes mysearch{ 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes mysearch { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+/** --------按钮栏-------- **/
+.btn-block{margin-top: 20px; margin-bottom: 20px;}
+.btn-block .btn{margin-right: 10px; min-width: 80px;}
+
+
+/** --------表格页-------- **/
+.table-block{margin-top: 20px; width:100%;}
+.table-block .btn-link{padding-left: 0; padding-right: 0; max-width: 100%; text-align: left;}
+.table-block .btn-border-primary, .table-block .btn-border-danger{margin-right: 10px; padding: 0 10px;}
+.table-block .table .mark{width: 65px;}
+
+/** --------表单页-------- **/
+.form-block{position: relative; margin: 0 auto; padding: 0 10px;}
+/** ~~可收缩的表单~~ **/
+.form-block-contractive .block-title{margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; background-color: #f8f9fa; cursor: pointer;}
+.form-block-contractive .block-title > div{position: relative; text-align: right;}
+.form-block-contractive .block-title > div:after{content: ''; position: absolute; top: 50%; right: -30px; margin-top: -2px; width: 12px; height: 12px; border-top: solid #989da8 1px; border-right: solid #989da8 1px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); transition: all 0.5s ease;}
+.form-block-contractive.contractive .block-title > div:after{margin-top: -8px; -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg);}
+/** ~~表单~~ **/
+.form-block .form-horizontal .form-group{margin: 20px 0 10px;}
+.form-block .form-horizontal .form-group:first-child{margin-top: 0;}
+.form-block .form-horizontal i{margin-right: 5px; font-size: 16px; font-style: normal; color: #f00;}
+.form-block .btn{width: 100%;}
+/** 表单-提示 **/
+.form-block .help-block{margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; font-size: 12px; color: #989da8;}
+/** 底部操作按钮 **/
+.form-block .btn-block{margin-top: 30px; margin-bottom: 20px;}
+.form-block .btn-block .btn{margin-left: 0; margin-right: 20px; width: 140px;}
+
+/** --------分页栏-------- **/
+.nav-pagination{display: none; margin-top: 20px; margin-bottom: 15px; /*text-align: right;*/}
+/** 左侧每页显示行数 **/
+.changepagecount{float: left;}
+.changepagecount span{display: block; float: left; margin-right: 10px; height: 34px; line-height: 34px;}
+.changepagecount dl{float: left; margin: 0 5px; padding: 6px 0; width: 44px; color: #26aff5; text-align: center; border: solid #ddd 1px; cursor: pointer;}
+.changepagecount dl:hover{border-color: #26aff5;}
+.changepagecount dl.active{color:#fff; background: #26aff5; border-color: #26aff5;}
+
+/** 右侧分页 **/
+.pagination{float: right; margin-top: 0; margin-bottom: 0;}
+/** 普通页码的样式 **/
+.pagination > li > a, .pagination > li > span{width: 44px; text-align: center; cursor: pointer;}
+/** 页码中"..."的样式 **/
+.pagination > li.more > span, .pagination > li.more > span:hover{border-color: transparent #ced1dc transparent #ced1dc; cursor: default;}
+/** ----跳转---- **/
+.nav-pagination .turn{float: right; margin-left: 30px;}
+.nav-pagination .turn > span{float: left; display: block; padding: 6px 8px; color: #989da8;}
+.nav-pagination .turn > .form-control{float: left; width: 50px; text-align: center;}
+.nav-pagination .turn > .btn{float: left; margin-left: 5px; color: #666;}
+
+/** --------弹出框-------- **/
+/** ~~~~ 遮罩层 ~~~~ **/
+.pop, .popSort{display: none; position: fixed; z-index: 9999; top: 0; right: 0; bottom: 0; left: 0;background-color: rgba(0,0,0,.3);}
+.popSort{z-index: 999;}
+/** ~~~~ 弹出提示框 ~~~~ **/
+.popup{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -120px; margin-left: -150px; width: 300px; height: 240px; text-align: center; background-color: #fff; border-top: solid #0094da 6px;/* box-shadow: 0px 0px 20px 0px rgba(184,191,197,0.50);*/}
+/** 加粗提示文字 **/
+.popup .popup-title{margin-top: 25px; margin-bottom: 20px; height: 30px; line-height: 30px; font-size: 24px; font-weight: bold;}
+/** 图标 **/
+.popup-icon{height: 45px;}
+.popup-icon > i{display: block; margin: 0 auto; width: 46px; height: 46px; background: url(../images/icons_new.png) no-repeat;}
+.popup-icon > i.success{background-position: 0 -100px;}
+.popup-icon > i.danger{background-position: -65px -100px;}
+.popup-icon > i.tips{background-position: -130px -100px;}
+.popup-icon > i.warning{background-position: -195px -100px;}
+.popup-icon > i.download{background-position: -260px -100px;}
+.popup-icon > i.question{background-position: -325px -100px;}
+.popup-icon > i.check{background-position: -390px -100px;}
+/** 补充说明文字 **/
+.popup-info{margin-top: 10px; padding: 0 30px; color: #989da8; text-align: center;}
+/** 底部操作按钮 **/
+.popup-btn-block{position: absolute; bottom: 20px; margin-top: 10px; margin-right: 0; margin-left: 0; width: 100%;}
+.popup-btn-block .btn{width: 100%;}
+
+/** ~~~~ 弹出输入框 ~~~~ **/
+.popup-fill{position: absolute; z-index: 999; top: 50%; left: 50%; margin-top: -170px; margin-left: -310px; padding-bottom: 20px; width: 620px; height: auto; background-color: #fff; border-top: solid #0094da 6px;/* box-shadow: 0px 0px 20px 0px rgba(184,191,197,0.50);*/}
+/** 标题 **/
+.popup-fill .popup-title{margin: 0; height: 45px; line-height: 45px; font-size: 18px; font-weight: bold; text-align: center; background-color: #f8f9fa;}
+/** 提示文字 **/
+.popup-fill .alert{margin-top: 10px; padding-top: 5px; padding-bottom: 5px;}
+/** 表单 **/
+.popup-fill form{margin-top: 20px; margin-bottom: 20px;}
+.popup-fill .control-label{font-weight: normal;}
+.popup-fill .btn{width: 100%;}

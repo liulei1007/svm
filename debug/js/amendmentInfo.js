@@ -16,8 +16,24 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            var own = this,
+                getCategory = this.getFirstCategory().getCategoryData,
+                listCacheData = $.getSearchData(),
+                requestData = listCacheData ? JSON.parse(listCacheData) : {};
+
+            requestData.baseCategoryId ?
+                $.when(getCategory(0, 0)).done(function () {
+                    $('#baseCategoryId').val(requestData.baseCategoryId);
+                    $.when(getCategory(requestData.baseCategoryId, 1)).done(function () {
+                        $('#subCategoryId').val(requestData.subCategoryId);
+                        requestData.subCategoryId &&
+                        $.when(getCategory(requestData.subCategoryId, 2)).done(function () {
+                            $('#categoryId').val(requestData.categoryId);
+                        });
+                    });
+                }) : own.getFirstCategory().getCategoryData(0, 0);
+
+            this.initBindEvent().initRequestData(true).initTableData();
         },
 
         /**
@@ -28,11 +44,12 @@ $(function () {
             var own = this;
 
             $('.search-block').on('click', '.adi-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
 
                 return false;
             }).on('click', ".adi-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "amendmentInfo", "nochangeurl");
 
                 return false;
@@ -78,7 +95,7 @@ $(function () {
                  * @param tag
                  */
                 getCategoryData: function (categoryId, tag) {
-                    $.commonAjax({
+                    return $.commonAjax({
                         url: 'listProductCategory',
                         type: 'get',
                         operationId: categoryId,
@@ -120,7 +137,7 @@ $(function () {
          * 获取请求参数
          * @returns {goodsAuditManageInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
                 productName: $("#productName").val(),
                 modelNumber: '',
@@ -131,6 +148,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;
@@ -172,6 +191,7 @@ $(function () {
          */
         initTableData: function () {
             var own = this;
+
             $.commonAjax({
                 type: "POST",
                 url: 'listErrorFeedbackProductInfo',

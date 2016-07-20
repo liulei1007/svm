@@ -11,7 +11,7 @@ $(function() {
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
         	unloading();
-            $(".body-typein").setPageData(data.data);
+            $(".form-block").setPageData(data.data);
         }
     });
 }

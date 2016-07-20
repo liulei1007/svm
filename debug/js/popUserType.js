@@ -7,7 +7,8 @@ $(function() {
 
     //取消按钮
     $(".ut-btn-cancel").on('click',function() {
-       $(".popSort").hide();
+        $('.loadBatch-select').css('opacity',0);
+        $(".popSort").hide();
         $(".type-first-span").text("");
         $(".type-second-span").text("");
         $(".type-third-span").text("");
@@ -15,7 +16,7 @@ $(function() {
 
     //下一步按钮操作
     $(".ut-btn-next").bind("click", function () {
-            session.goods_userType = "";
+        session.goods_userType = "";
         if((!$(".type-third-span").attr("categoryId"))||($(".type-third-span").attr("categoryId")=="")){
             $(".pop").find(".popup-title").html("信息提示");
             $(".pop").find(".popup-icon").html('<i class="warning"></i>');
@@ -44,6 +45,7 @@ $(function() {
                 $("." + cls[i] + "-span").text($(o).text()).attr("categoryId", $(o).attr("categoryId"));
             }
             $("." + cls[tag]).find("li").unbind().bind("click", function () {
+                $('.loadBatch-select').css('opacity',1);
                 if (tag < 3) {
                     $(this).parent().find("li").removeClass("sel");
                     $(this).addClass("sel");
@@ -64,6 +66,6 @@ $(function() {
     getFirstCategory(0, 0);
 
 
-    
+
 
 });

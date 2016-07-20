@@ -16,8 +16,25 @@ $(function () {
             setPageCount();
             tablecheckbox();
 
-            this.getFirstCategory().getCategoryData(0, 0);
-            this.initBindEvent().initRequestData().initTableData();
+            var own = this,
+                getCategory = this.getFirstCategory().getCategoryData,
+                listCacheData = $.getSearchData(),
+                requestData = listCacheData ? JSON.parse(listCacheData) : {};
+
+            requestData.baseCategoryId ?
+                $.when(getCategory(0, 0)).done(function () {
+                    $('#baseCategoryId').val(requestData.baseCategoryId);
+                    $.when(getCategory(requestData.baseCategoryId, 1)).done(function () {
+                        $('#subCategoryId').val(requestData.subCategoryId);
+                        requestData.subCategoryId &&
+                            $.when(getCategory(requestData.subCategoryId, 2)).done(function () {
+                                $('#categoryId').val(requestData.categoryId);
+                    });
+                });
+            }) : own.getFirstCategory().getCategoryData(0, 0);
+
+            this.initBindEvent();
+            this.initRequestData(true).initTableData();
         },
 
         /**
@@ -28,11 +45,12 @@ $(function () {
             var own = this;
 
             $('.search-block').on('click', '.ncd-btn-search', function () {
-                own.initRequestData().initTableData();
+                own.initRequestData(false).initTableData();
                 $(".nav-pagination").off();
 
                 return false;
             }).on('click', ".ncd-btn-reload", function () {
+                $.clearSearchData();
                 derict(null, "noCompleteData", "nochangeurl");
 
                 return false;
@@ -91,16 +109,15 @@ $(function () {
                  * @param tag
                  */
                 getCategoryData: function (categoryId, tag) {
-                    $.commonAjax({
+                    return $.commonAjax({
                         url: 'listProductCategory',
                         type: 'get',
                         operationId: categoryId,
                         success: function (data) {
                             var $cls = $("." + cls[tag]);
                             $cls.find("[list-node]").remove();
-                            tag == 1 && $("." + cls[tag + 1]).find("[list-node]").remove();
                             $cls.setPageData(data);
-                            own.getFirstCategory().categoryEvent($cls);
+                            tag !== 2 && own.getFirstCategory().categoryEvent($cls);
                         }
                     });
                 }
@@ -121,7 +138,7 @@ $(function () {
                             $(".pop").find(".popup-info").html("删除成功");
                         });
                         $("[list-node]").remove();
-                        own.initRequestData().initTableData();
+                        own.initRequestData(true).initTableData();
                     } else {
                         $('.pop').loadTemp("popTips", "nochangeurl", function () {
                             $(".pop").find(".popup-title").html("信息提示");
@@ -182,7 +199,7 @@ $(function () {
                 derict(this, "myGoods", "nochangeurl");
 
                 return false;
-            }).on('click', '.btn-link-delete', function () {
+            }).on('click', '.btn-border-danger', function () {
                 var uptId = $(this).attr("uptId");
                 $('.pop').loadTemp("popConfirm", "nochangeurl", function () {
                     // 改变弹出框中文字和图标显示
@@ -214,9 +231,10 @@ $(function () {
 
         /**
          * 获取请求参数
-         * @returns {goodsAuditManageInit}
+         * @param init
+         * @returns {noCompleteDataInit}
          */
-        initRequestData: function () {
+        initRequestData: function (init) {
             this.data = {
                 productName: $("#productName").val(),
                 modelNumber: "",
@@ -227,6 +245,8 @@ $(function () {
                 startDate: $("#startDate").val(),
                 endDate: $("#endDate").val()
             };
+
+            !init && $.setSearchData(this.data);
 
             $(".nav-pagination").off();
             return this;

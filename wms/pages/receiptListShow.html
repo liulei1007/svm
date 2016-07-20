@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
+</head>
+
+<body>
+<div class="body-typein">
+    <div class="title-div " style="font-weight:bold;">入库单详情</div>
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            基础信息
+        </div>
+        <form class="form-inline">
+		             <td class="receiptId" node-name="$n.id || ''"></td>
+                    <td class="codeClass" node-name="$n.code || ''"></td>
+                    <td class="receiptTypeClass" node-name="$n.receiptType"></td>
+                    <td class="leadingStatusClass" node-name="$n.leadingStatus || ''"></td>
+                    <td class="erpOrderCodeClass" node-name="$n.erpOrderCode || ''"></td>
+                    <td class="createdClass" node-name="$n.created || ''"></td>
+            <div class="form-group">
+                <label for="code" style="width:95px">入库单号</label>
+                <input type="text" class="form-control input-sm _input" id="code"
+                       data-name="$p.receiptBase.code" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="receiptType" class="a_wd" style="width:95px">入库类型</label>
+                <input type="text" class="form-control input-sm _input" id="receiptType"
+                       data-name="$p.receiptBase.receiptType" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="leadingStatus" class="a_wd" style="width:95px">状态</label>
+                <input type="text" class="form-control input-sm _input" id="companyCode"
+                       data-name="$p.receiptBase.leadingStatus" placeholder="" disabled="true ">
+            </div>
+            <div class="form-group">
+                <label for="erpOrderCode" class="a_wd" style="width:95px">客户单号</label>
+                <input type="text" class="form-control input-sm _input" id="erpOrderCode"
+                       data-name="$p.receiptBase.erpOrderCode" placeholder="" disabled="true ">
+            </div>
+			<div class="form-group">
+                <label for="created" class="a_wd" style="width:95px">创建时间</label>
+                <input type="text" class="form-control input-sm _input" id="created"
+                       data-name="$p.receiptBase.created" placeholder="" disabled="true ">
+            </div>
+        </form>
+    </div>
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            明细列表
+        </div>
+        <div>
+            <table class="table table1 table-striped">
+                <thead>
+                <tr>
+                    <td style="width:auto">产品信息</td>
+                    <td style="width:auto">erp编码</td>
+                    <td style="width:auto">品牌</td>
+                    <td style="width:auto">客户</td>
+                    <td style="width:5%">总数</td>
+                </tr>
+                </thead>
+                <tbody data-list="$p.receiptDetail">
+                <tr list-temp="true">
+                    <td class="receiptId" node-name="$n.name || ''"></td>
+                    <td node-name="$n.erpId || ''"></td>
+                    <td node-name="$n.brand"></td>
+                    <td node-name="$n.batch || ''"></td>
+                    <td node-name="$n.number || ''"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-3 btn-block">
+            <button type="button" class="btn btn-lg btn-default btn-back">返回</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
