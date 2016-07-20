@@ -293,6 +293,7 @@ function getAuth() {
         dataType: "json",
         success: function (data) {
             if (data.ok) {
+                $(".slidebar-title").remove();
                 var cachePage = session.page_cache,
                     cacheArray = cachePage ? cachePage.split(',') : [];
 

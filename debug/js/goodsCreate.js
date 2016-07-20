@@ -1,5 +1,6 @@
 $(function () {
     plumeLog("进入userType模板自定义js-" + plumeTime());
+    $('.popup-sort').remove()
     //初始化赋值
     $(".type-first-span").text($(".type-first").find(".sel").text()).attr("categoryId", $(".type-first").find(".sel").attr("categoryId"));
     $(".type-second-span").text($(".type-second").find(".sel").text()).attr("categoryId", $(".type-second").find(".sel").attr("categoryId"));
@@ -15,7 +16,7 @@ $(function () {
             });
             return;
         }
-        session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
+         session.goods_userType = $(".type-first-span").eq(0).text() + ">" + $(".type-second-span").eq(0).text() + ">" + $(".type-third-span").eq(0).text();
         //alert($(".type-first-span").length);
         session.goods_categoryId = $(".type-third-span").attr("categoryId");
         session.goods_categoryName = $(".type-third-span").text();

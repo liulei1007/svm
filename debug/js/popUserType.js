@@ -10,7 +10,7 @@ $(function() {
        $(".popSort").hide();
         $(".type-first-span").text("");
         $(".type-second-span").text("");
-         $(".type-third-span").text("");
+        $(".type-third-span").text("");
     });
 
     //下一步按钮操作
