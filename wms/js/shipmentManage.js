@@ -93,24 +93,27 @@ $(function () {
     //引入出库单状态类型
 
     function getLeadingStatusList() {
-        $.commonAjax({
-        url: "getLeadingStatusList",
-        type: "GET",
-        list: false,
-        success: function (data) {
-            if(data.ok==false) {
-                $.popTips(data.resDescription, 'question');
-                return;
-            }
-            $.each(data.data, function (index, value) {
-                $("#beginningStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
-            })
-            $.each(data.data, function (index, value) {
-                $("#endStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
-            })
-                
-        }
-    });
+        return $.commonAjax({
+          url: "getLeadingStatusList",
+          type: "GET",
+          list: false,
+          success: function (data) {
+              if(data.ok==false) {
+                  $.popTips(data.resDescription, 'question');
+                  return;
+              }
+              $.each(data.data, function (index, value) {
+                  $("#beginningStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
+              });
+              $.each(data.data, function (index, value) {
+                  $("#endStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
+              });
+              shipmentQue.warehouseCode=$('#warehouseCode option:selected').val();
+              shipmentQue.beginningStatus = $("#beginningStatus option:selected").val();
+              shipmentQue.endStatus = $("#endStatus option:selected").val();
+                  
+          }
+      });
     }
     
 
