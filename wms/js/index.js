@@ -131,6 +131,7 @@ $(function () {
                         $firstChild = $(".page-content").find("[auth=" + auth + "]").find("li").eq(0),
                         pageName = $firstChild.attr("pageName");
 
+                    $.session.nowPageName = pageName;
                     $(".page-content").find("[auth=" + auth + "]").show();
                     $(".page-content").find("[auth=" + auth + "]").find("li").show();
                     $menu.siblings().removeClass('active');
@@ -183,7 +184,6 @@ $(function () {
                         menuEvent();
 
                         var pageName = utils.getPageUrl();
-
 
                         $('ul>li[pageName="' + pageName + '"]').addClass("active").siblings().removeClass("active");
                     } else {
