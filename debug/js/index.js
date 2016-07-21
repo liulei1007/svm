@@ -325,7 +325,11 @@ function getAuth() {
                     var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
-                    derict(this, pageName, "nochangeurl");
+                    if (pageName && pageName.indexOf('wms') !== -1) {
+                        window.location.href = pageName + '?auth=' + authNum;
+                    } else {
+                        derict(this, pageName, "nochangeurl");
+                    }
                 });
                 $(".childmenu").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");

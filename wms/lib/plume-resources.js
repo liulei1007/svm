@@ -50,8 +50,7 @@
                 '/js/json2.js',
                 '/js/base.js',
                 '/js/common.js',
-                '/js/pagination.js',
-                '/js/index.js'
+                '/js/pagination.js'
             ];
             this.createJs(commonJsConfig);
 

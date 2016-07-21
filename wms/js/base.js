@@ -104,7 +104,7 @@
         }
 
         if (path.indexOf('wms') > -1 && !option.requestType) {
-            host = "http://192.168.224.187:8080/";
+            host = "http://192.168.224.233:8080/";
         } else {
             host = "http://longguo.hxmklmall.cn/api/";
         }
