@@ -296,6 +296,8 @@
         shipmentHeader.shipmentId = removeList.find('.shipmentId').html();
         shipmentHeader.shipmentCode = removeList.find('.shipmentCode').html();
         shipmentHeader.shipToName = removeList.find('.shipToName').html();
+        shipmentHeader.shipToMobile = removeList.find('.shipToMobile').html();
+        shipmentHeader.shipToAddress1 = removeList.find('.shipToAddress1').html();
         shipmentHeader.leadingStatus = removeList.find('.leadingStatus').html();
         shipmentHeader.trailingStatus = removeList.find('.trailingStatus').html();
         shipmentHeader.createdDate = removeList.find('.createdDate').html();
