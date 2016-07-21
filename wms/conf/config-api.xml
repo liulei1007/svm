@@ -16,5 +16,10 @@
     <!-- 入库单接口 -->
     <getReceiptList>receipt/list</getReceiptList>
     <getReceiptDetail>receipt/get</getReceiptDetail>
+    <!-- 货主接口 -->
+	<selectCompanyByUserId>wms/userCompany/list</selectCompanyByUserId>
+	<!-- 仓库接口 -->
+	<selectWarehouseByUserId>wms/userWarehouse/list</selectWarehouseByUserId>
+    <getLeadingStatusList>param/getLeadingStatusList</getLeadingStatusList>
 
 </plume-api>

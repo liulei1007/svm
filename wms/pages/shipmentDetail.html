@@ -12,7 +12,7 @@
 
 <body>
   <div class="body-typein">
-    <form class="form-inline tab">
+    <form class="tab">
       <div class="container">
         <ul class="nav nav-tabs" role="tablist">
           <li id="Section1" class="active">
@@ -20,59 +20,59 @@
           </li>
         </ul>
 
-        <div class="container tab-content tabs tab">
-          <div role="tabpanel" class="tab-pane in active" id="SectionShow1">
-            <div class="row">
-              <div class="col-md-3 input-group">
-                <span class="input-group-addon">ID</span>
-                <input type="text" class="form-control input-sm" id="shipmentId" data-name="$p.shipmentId"></div>
-              <div class="col-md-3 col-md-offset-1 input-group">
-                <span class="input-group-addon">出库单编码</span>
-                <input type="text" class="form-control input-sm" id="shipmentCode" data-name="$p.shipmentCode"></div>
-              <div class="col-md-3 col-md-offset-1 input-group">
-                <span class="input-group-addon">客户名称</span>
-                <input type="text" class="form-control input-sm" id="shipToName" data-name="$p.shipToName"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 input-group">
-                <span class="input-group-addon">状态</span>
-                <input type="text" class="form-control input-sm" id="leadingStatus" data-name="$p.leadingStatus"></div>
-              <div class="col-md-3 col-md-offset-1 input-group">
-                <span class="input-group-addon">添加时间</span>
-                <input type="text" class="form-control input-sm" id="createdDate" data-name="$p.createdDate"></div>
-            </div>
-          </div>
-        </div>
+        <table class="table table-striped table-bordered table-hover" style="width:80%">
+          <tr>
+            <td>
+              <label style="width:95px;">ID</label>
+              <input type="text" class="input-sm" id="shipmentId" data-name="$p.base.shipmentId"></td>
+            <td>
+              <label style="width:95px;">出库单编码</label>
+              <input type="text" class="input-sm" id="shipmentCode" data-name="$p.base.shipmentCode"></td>
+            <td>
+              <label style="width:95px;">客户名称</label>
+              <input type="text" class="input-sm" id="shipToName" data-name="$p.base.shipToName"></td>
+          </tr>
+          <tr>
+            <td>
+              <label style="width:95px;">状态</label>
+              <input type="text" class="input-sm" id="leadingStatus" data-name="$p.base.leadingStatus"></td>
+            <td>
+              <label style="width:95px;">添加时间</label>
+              <input type="text" class="input-sm" id="createdDate" data-name="$p.base.createdDate"></td>
+          </tr>
+        </table>
+
       </div>
     </form>
 
-    <div class="table-coordinate">
+    <div class="table-coordinate" style="margin-left: 30px;margin-top: 30px;">
+      <ul class="nav nav-tabs" role="tablist">
+        <li id="Section1" class="active">
+          <a  aria-controls="home" role="tab" data-toggle="tab">商品明细</a>
+        </li>
+      </ul>
       <div class="table-block">
         <table class="table table1 table-striped">
           <thead>
             <tr>
-              <td style="width:2%">
-                <input type="checkbox" />
-              </td>
-              <td style="width:8%">出库单编码</td>
-              <td style="width:6%">货品名称</td>
+              <td style="width:4%">出库单编码</td>
+              <td style="width:3%">品牌</td>
+              <td style="width:5%">货品名称</td>
               <td style="width:5%">货品编号</td>
-              <td style="width:6%">要货数量</td>
-              <td style="width:6%">客户名称</td>
-              <td style="width:5%">创建人</td>
+              <td style="width:2%">要货数量</td>
+              <td style="width:3%">客户名称</td>
+              <td style="width:5%">创建时间</td>
             </tr>
           </thead>
-          <tbody data-list="$p.data.shipmentList">
+          <tbody data-list="$p.detail.data.shipmentList" >
             <tr list-temp="true">
-              <td>
-                <input type="checkbox" />
-              </td>
               <td node-name="$n.shipmentCode"></td>
+              <td node-name="$n.itemBrand"></td>
               <td node-name="$n.itemName"></td>
               <td node-name="$n.erpItemCode"></td>
               <td node-name="$n.requestQty"></td>
               <td node-name="$n.shipToName"></td>
-              <td node-name="$n.created"></td>
+              <td node-name="$n.createdDate"></td>
             </tr>
           </tbody>
         </table>
@@ -87,15 +87,10 @@
   </div>
 
   <style>
-        .tab{
-            margin-top: 30px;
-        }
         .table-coordinate{   
-        position:fixed;
-        left:155px;
-        top:310px;  
-        }
-        
+          margin-left: 26px;
+          margin-top: 30px; 
+        }  
       </style>
 </body>
 </html>

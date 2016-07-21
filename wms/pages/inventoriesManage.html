@@ -16,18 +16,22 @@
             <div class="form-group">
                 <label>仓库名称</label>
                 <select id="warehouseCode" class="form-control input-sm">
-                    <option value="SJZ01" selected>南京仓</option>
-                    <option value="SJZ02">石家庄仓</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>货主名称</label>
 				<select id="companyCode" class="form-control input-sm">
-                    <option value="JLM" selected>JLM1</option>
-                    <option value="SJZ02">JLM2</option>
                 </select>
             </div>
+			<div class="form-group">
+                <label for="itemCode">商品编码</label>
+                <input type="text" class="form-control input-sm" id="itemCode" placeholder="">
+            </div>
             <div class="form-group">
+                <label for="parentCode">客户商品编码</label>
+                <input type="text" class="form-control input-sm" id="parentCode" placeholder="">
+            </div>
+			<div class="form-group">
                 <label for="itemName">货品名称</label>
                 <input type="text" class="form-control input-sm" id="itemName" placeholder="">
             </div>
@@ -39,6 +43,15 @@
                 <label for="batch">客户</label>
                 <input type="text" class="form-control input-sm" id="batch" placeholder="">
             </div>
+			<div class="form-group form-time">
+                    <label for="createdFrom">创建时间</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
+                           style="width:120px;background: #fff">
+                    <label for="createdTo" style="margin: 0 -5px 0 5px;">--</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
+                    style="width:120px;background: #fff">
+            </div>
+			
             <div class="btn btn-default btn-sm btn-search">查询</div>
             <div class="btn btn-default btn-sm btn-empty">清空条件</div>
         </form>
@@ -47,20 +60,24 @@
         <table class="table table1 table-striped">
             <thead>
             <tr>
+			    <td style="width:auto">商品编码</td>
                 <td style="width:auto">货品名称</td>
                 <td style="width:auto">客户商品编码</td>
-				<td style="width:auto">品牌</td>
-                <td style="width:auto">数量</td>
-                <td style="width:auto">客户</td>
+				<td style="width:10%">品牌</td>
+                <td style="width:10%">数量</td>
+                <td style="width:10%">客户</td>
+				<td style="width:auto">创建日期</td>
             </tr>
             </thead>
             <tbody data-list="$p.rows">
             <tr list-temp="true">
-                <td class="inventoriesId" node-name="$n.itemName || ''"></td>
+				<td class="inventoriesId" node-name="$n.itemCode || ''"></td>
+				<td node-name="$n.itemName || ''"></td>
                 <td node-name="$n.parentCode || ''"></td>
                 <td node-name="$n.brand"></td>
 				<td node-name="$n.onHandQty || ''"></td>
                 <td node-name="$n.batch || ''"></td>
+				<td node-name="$n.createdDate || ''"></td>
             </tr>
             </tbody>
         </table>
