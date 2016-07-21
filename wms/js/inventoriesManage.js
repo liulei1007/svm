@@ -28,8 +28,12 @@ $(function(){
 		datas.itemBrand = $('#brand').val();
 		datas.itemName=$('#itemName').val();
 		datas.batch=$('#batch').val();
-		datas.createdFrom = $('#createdFrom').val();
-		datas.createdTo = $('#createdTo').val();
+		if($('#createdFrom').val()!= ''){
+			datas.createdFrom=$('#createdFrom').val()+" 00:00:00";
+		}
+		if($('#createdTo').val()!= ''){
+			datas.createdTo=$('#createdTo').val()+" 23:59:59";
+		}
 		datas.itemCode = $('#itemCode').val();
 		datas.parentCode = $('#parentCode').val();
 		getInventoriesList();
