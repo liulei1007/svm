@@ -748,3 +748,4 @@ textarea{resize: none;}
 .title-div { margin-bottom: 20px; font-size: 21px; text-align: center; }
 ._input{margin-top:10px}
 .a_wd{width: 95px !important;}
+.btn-center{width: 140px; margin: 0 auto; display: block;}
