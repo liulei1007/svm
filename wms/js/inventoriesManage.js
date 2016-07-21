@@ -23,13 +23,15 @@ $(function(){
 		datas.companyCode=$('#companyCode option:selected').val();
 		if( datas.warehouseCode.length==0 || datas.companyCode.length==0){  
 		    $.showPopTips('信息提示', 'warning', '仓库编码和货主编码不能为空');
-			datas.warehouseCode = "SJZ01";
-			datas.companyCode = "JLM";
 		    return ;
         }  
 		datas.itemBrand = $('#brand').val();
 		datas.itemName=$('#itemName').val();
 		datas.batch=$('#batch').val();
+		datas.createdFrom = $('#createdFrom').val();
+		datas.createdTo = $('#createdTo').val();
+		datas.itemCode = $('#itemCode').val();
+		datas.parentCode = $('#parentCode').val();
 		getInventoriesList();
         $(".nav-pagination").off();
 	})
