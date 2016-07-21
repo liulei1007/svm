@@ -23,10 +23,9 @@ $(function() {
 			var object=$.session.shipment_header;
             var shipmentDetail = {} ;
 			shipmentDetail.base = JSON.parse(object);
+            data.data.shipmentList = JSON.parse(data.data.shipmentList);
 			shipmentDetail.detail = data;
             $(".body-typein").setPageData(shipmentDetail); 
-
-
 		}
 	});
 }
