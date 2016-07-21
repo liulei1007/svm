@@ -1,11 +1,10 @@
 $(function () {
-    $.setPageCount();
 
+    $.setPageCount();
 //    success、danger、tips、warning、download、question、check
 //    $.popTips('提示信息', 'success');
 //    $.showPopTips('提示信息', 'success', 'test');
-
-    
+   
     var shipmentQue = {
         "warehouseCode":"",
         "companyCode":"",
@@ -27,9 +26,9 @@ $(function () {
     $.when(getCompanyByUserId(), getWarehouseByUserId(),getLeadingStatusList()).done(function () {
           getShipmentList(); 
     });
+
     //引入默认公司
     function getCompanyByUserId() {
-
     return $.commonAjax({
         url: "selectCompanyByUserId",
         type: "GET",
