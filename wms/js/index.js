@@ -56,10 +56,10 @@ $(function () {
 
             var jumpPage = function (data) {
                 if (data.userType == 0) {
-                    window.location.href = 'secondreg?fullscreen';
+                    window.location.href = '/secondreg?fullscreen';
                     $(".container-fixed").fadeIn();
                 } else if (data.userType == 3) {
-                    window.location.href = 'waitCheck?fullscreen';
+                    window.location.href = '/waitCheck?fullscreen';
                     $(".container-fixed").fadeIn();
                 }
                 if (sessionStorage.login_mobilePhone) {
