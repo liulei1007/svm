@@ -1,52 +1,134 @@
 $(function () {
     $.setPageCount();
 
+
 //    success、danger、tips、warning、download、question、check
 //    $.popTips('提示信息', 'success');
 
 //    $.showPopTips('提示信息', 'success', 'test');
 
-/*    var datas = {
+/*    var shipmentQue = {
         "warehouseCode": "SJZ01",
         "companyCode": "RS",
-        "leadingSts": "100",
+        "beginningStatus": "100",
         "createdFrom": "2013-01-01 00:00:00",
         "createdTo": "2017-01-01 00:00:00",
-        "fields": "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
+        "fields": "id,warehouseCode,companyCode,code,beginningStatus,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
         "pageNo": "1",
         "pageSize": "8"
     };*/
     
-    var datas = {
-        "warehouseCode": "无",
-        "companyCode": "无",
-        "fields": "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
-        "pageNo": "1",
+    var shipmentQue = {
+        "warehouseCode":"",
+        "companyCode":"",
+        "pageNo":"1"
     };
 
     $.tableCheckBox();
     $.plumeLog("进入shipmentManage模板自定义js-" + $.plumeTime());
 
     $("tbody").on("click", '.bl-btn-look', function () {
-        $.getShipmentId(this);
+        $.getShipmentHeader(this);
         $.directPage('shipmentDetail');
     })
-
+    
     $("#createdFrom").cxCalendar();
     $("#createdTo").cxCalendar();
 
-    getShipmentList();
+
+    $.when(getCompanyByUserId(), getWarehouseByUserId(),getLeadingStatusList()).done(function () {
+          getShipmentList(); 
+    });
+    //引入默认公司
+    function getCompanyByUserId() {
+
+    return $.commonAjax({
+        url: "selectCompanyByUserId",
+        type: "GET",
+        urlParams: {
+            userId: sessionStorage.login_id
+        },
+        list: false,
+        success: function (data) {
+            if(data.ok==false) {
+                $.popTips(data.resDescription, 'question');
+                return;
+            }
+
+            $.each(data, function (index, value) {
+              //alert(value.name );
+                $("#companyCode").append("<option value='" + value.companyCode + "'> " + value.companyName + " </option>");
+            });
+            shipmentQue.companyCode=$('#companyCode option:selected').val();
+                
+        }
+    });
+}
+
+    //引入默认仓库
+    function getWarehouseByUserId() {
+       return $.commonAjax({
+        url: "selectWarehouseByUserId",
+        type: "GET",
+        urlParams: {
+            userId: sessionStorage.login_id
+        },
+        list: false,
+        success: function (data) {
+            if(data.ok==false) {
+                $.popTips(data.resDescription, 'question');
+                return;
+            }
+            $.each(data, function (index, value) {
+              //alert(value.name );
+                $("#warehouseCode").append("<option value='" + value.warehouseCode + "'> " + value.warehouseName + " </option>");
+            });
+            shipmentQue.warehouseCode=$('#warehouseCode option:selected').val();
+                
+        }
+    });
+    }
+    
+
+    //引入出库单状态类型
+
+    function getLeadingStatusList() {
+        return $.commonAjax({
+          url: "getLeadingStatusList",
+          type: "GET",
+          list: false,
+          success: function (data) {
+              if(data.ok==false) {
+                  $.popTips(data.resDescription, 'question');
+                  return;
+              }
+              $.each(data.data, function (index, value) {
+                  $("#beginningStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
+              });
+              $.each(data.data, function (index, value) {
+                  $("#endStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
+              });
+              shipmentQue.warehouseCode=$('#warehouseCode option:selected').val();
+              shipmentQue.beginningStatus = $("#beginningStatus option:selected").val();
+              shipmentQue.endStatus = $("#endStatus option:selected").val();
+                  
+          }
+      });
+    }
+    
+
+    //getShipmentList();
     $(".btn-search").bind("click", function () {
-        datas.warehouseCode = $("#warehouseCode option:selected").val();
-        datas.companyCode = $("#companyCode option:selected").val();
-        datas.shipmentCode = $("#shipmentCode").val();
-        datas.leadingSts = $("#leadingSts option:selected").val();
-        datas.shipToName = $("#shipToName").val();
-        datas.itemBrand = $("#itemBrand").val();
-        datas.itemName = $("#itemName").val();
-        datas.createdFrom = $("#createdFrom").val();
-        datas.createdTo = $("#createdTo").val();
-        datas.fields = "id,warehouseCode,companyCode,code,leadingSts,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime";
+        shipmentQue.warehouseCode = $("#warehouseCode option:selected").val();
+        shipmentQue.companyCode = $("#companyCode option:selected").val();
+        shipmentQue.shipmentCode = $("#shipmentCode").val();
+        shipmentQue.beginningStatus = $("#beginningStatus option:selected").val();
+        shipmentQue.endStatus = $("#endStatus option:selected").val();
+        shipmentQue.shipToName = $("#shipToName").val();
+        shipmentQue.itemBrand = $("#itemBrand").val();
+        shipmentQue.itemName = $("#itemName").val();
+        shipmentQue.createdFrom = $("#createdFrom").val();
+        shipmentQue.createdTo = $("#createdTo").val();
 
         getShipmentList();
         $(".nav-pagination").off();
@@ -55,11 +137,11 @@ $(function () {
 
     // 获取出库单列表
     function getShipmentList() {
-        datas.pageSize=$.onePageCount();
+        shipmentQue.pageSize=$.onePageCount();
         $.commonAjax({
             url: "getShipmentList",
             type: "POST",
-            data: datas,
+            data: shipmentQue,
             list: true,
             success: function (data) {
                 if (data.ok == false) {
@@ -72,11 +154,11 @@ $(function () {
                 var totalPage = Math.ceil(data.data.total / $.onePageCount());
 
                 newPage(totalPage, function (page) {    
-                    datas.pageNo=page;
+                    shipmentQue.pageNo=page;
                     $.commonAjax({
                         url: "getShipmentList",
                         type: "POST",
-                        data: datas,
+                        data: shipmentQue,
                         list: true,
                         success: function (data) {
                             $("[list-node]").remove();

@@ -12,18 +12,21 @@ $(function() {
 		url: "getShipment",
 		type: "GET",
 		urlParams: {
-			id: $.session.shipment_id
+			id: JSON.parse($.session.shipment_header).shipmentId
 		},
 		list: false,
 		success: function (data) {
 			if(data.ok==false) {
-				alert(data.resDescription);
+				$.popTips(data.resDescription, 'question');
 				return;
 			}
 			var object=$.session.shipment_header;
-			//alert($.session.shipment_header);
-			$(".table-block").setPageData(data);
-			$(".body-typein").setPageData(JSON.parse(object));            
+            var shipmentDetail = {} ;
+			shipmentDetail.base = JSON.parse(object);
+			shipmentDetail.detail = data;
+            $(".body-typein").setPageData(shipmentDetail); 
+
+
 		}
 	});
 }
