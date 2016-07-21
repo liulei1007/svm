@@ -80,7 +80,7 @@ $(function () {
                  * @param tag
                  */
                 getCategoryData: function (categoryId, tag) {
-                    $.commonAjax({
+                    return $.commonAjax({
                         url: 'listProductCategory',
                         type: 'get',
                         operationId: categoryId,
