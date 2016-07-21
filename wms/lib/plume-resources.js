@@ -49,7 +49,6 @@
                 '/lib/plume2.0.js',
                 '/js/json2.js',
                 '/js/base.js',
-                '/js/common.js',
                 '/js/pagination.js'
             ];
             this.createJs(commonJsConfig);
