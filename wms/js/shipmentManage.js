@@ -1,22 +1,10 @@
 $(function () {
     $.setPageCount();
 
-
 //    success、danger、tips、warning、download、question、check
 //    $.popTips('提示信息', 'success');
-
 //    $.showPopTips('提示信息', 'success', 'test');
 
-/*    var shipmentQue = {
-        "warehouseCode": "SJZ01",
-        "companyCode": "RS",
-        "beginningStatus": "100",
-        "createdFrom": "2013-01-01 00:00:00",
-        "createdTo": "2017-01-01 00:00:00",
-        "fields": "id,warehouseCode,companyCode,code,beginningStatus,totalQty,shipToAttentionTo,carrierCode,shipmentNote,processType,createdBy,payTime",
-        "pageNo": "1",
-        "pageSize": "8"
-    };*/
     
     var shipmentQue = {
         "warehouseCode":"",
@@ -108,16 +96,13 @@ $(function () {
               $.each(data.data, function (index, value) {
                   $("#endStatus").append("<option value='" + value.id + "'> " + value.label + " </option>");
               });
-              shipmentQue.warehouseCode=$('#warehouseCode option:selected').val();
+
               shipmentQue.beginningStatus = $("#beginningStatus option:selected").val();
-              shipmentQue.endStatus = $("#endStatus option:selected").val();
-                  
+              shipmentQue.endStatus = $("#endStatus option:selected").val();                 
           }
       });
     }
     
-
-    //getShipmentList();
     $(".btn-search").bind("click", function () {
         shipmentQue.warehouseCode = $("#warehouseCode option:selected").val();
         shipmentQue.companyCode = $("#companyCode option:selected").val();

@@ -297,6 +297,7 @@
         shipmentHeader.shipmentCode = removeList.find('.shipmentCode').html();
         shipmentHeader.shipToName = removeList.find('.shipToName').html();
         shipmentHeader.leadingStatus = removeList.find('.leadingStatus').html();
+        shipmentHeader.trailingStatus = removeList.find('.trailingStatus').html();
         shipmentHeader.createdDate = removeList.find('.createdDate').html();
      
         $.session.shipment_header = JSON.stringify(shipmentHeader);
