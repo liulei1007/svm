@@ -103,12 +103,6 @@
             urlString = urlStringArr.join('&');
         }
 
-        if (path.indexOf('wms') > -1 && !option.requestType) {
-            host = "http://192.168.224.233:8080/";
-        } else {
-            host = "http://longguo.hxmklmall.cn/api/";
-        }
-
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
         if (typeof(option.operationId) !== "undefined") {
             option.url = host + urlApi[option.url] + '/' + option.operationId;
@@ -228,6 +222,12 @@
             window.location.href = 'index';
             return;
         }
+
+        var $check = $('div.menu').find('.active');
+        if ($check && $check.length > 0) {
+            $.session.wms_check_page = $check.attr('pagename');
+        }
+
         $.direct(page, obj, fun, flag, load);
     };
 
