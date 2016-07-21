@@ -146,7 +146,6 @@ $(function () {
             return $.commonAjax({
                 type: "get",
                 url: 'getSystemResourceTree',
-                requestType: true,
                 success: function (data) {
                     if (data.ok) {
                         showMenu(data.data);
@@ -162,7 +161,6 @@ $(function () {
             $.commonAjax({
                 type: "get",
                 url: 'chkUserStatus',
-                requestType: true,
                 success: function (data) {
                     if (data.ok) {
                         console.log("用户正常登录中,session正常.-" + new Date().getTime())
