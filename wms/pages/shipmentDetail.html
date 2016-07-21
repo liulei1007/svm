@@ -23,25 +23,33 @@
         <table class="table table-striped table-bordered table-hover" style="width:80%">
           <tr>
             <td>
-              <label style="width:95px;">ID</label>
+              <label style="width:90px;">ID</label>
               <input type="text" class="input-sm" id="shipmentId" data-name="$p.base.shipmentId"></td>
             <td>
-              <label style="width:95px;">出库单编码</label>
+              <label style="width:90px;">出库单单号</label>
               <input type="text" class="input-sm" id="shipmentCode" data-name="$p.base.shipmentCode"></td>
             <td>
-              <label style="width:95px;">客户名称</label>
+              <label style="width:90px;">客户名称</label>
               <input type="text" class="input-sm" id="shipToName" data-name="$p.base.shipToName"></td>
           </tr>
           <tr>
             <td>
-              <label style="width:95px;">首状态</label>
-              <input type="text" class="input-sm" id="leadingStatus" data-name="$p.base.leadingStatus"></td>
-              <td>
-              <label style="width:95px;">尾状态</label>
-              <input type="text" class="input-sm" id="trailingStatus" data-name="$p.base.trailingStatus"></td>
+              <label style="width:90px;">手机</label>
+              <input type="text" class="input-sm" id="shipToMobile" data-name="$p.base.shipToMobile"></td>
             <td>
-              <label style="width:95px;">添加时间</label>
+              <label style="width:90px;">收货地址</label>
+              <input type="text" class="input-sm" id="shipToAddress1" data-name="$p.base.shipToAddress1"></td>
+            <td>
+              <label style="width:90px;">添加时间</label>
               <input type="text" class="input-sm" id="createdDate" data-name="$p.base.createdDate"></td>
+          </tr>
+          <tr>
+            <td>
+              <label style="width:90px;">首状态</label>
+              <input type="text" class="input-sm" id="leadingStatus" data-name="$p.base.leadingStatus"></td>
+            <td>
+              <label style="width:90px;">尾状态</label>
+              <input type="text" class="input-sm" id="trailingStatus" data-name="$p.base.trailingStatus"></td>
           </tr>
         </table>
 
@@ -58,10 +66,11 @@
         <table class="table table1 table-striped">
           <thead>
             <tr>
-              <td style="width:4%">出库单编码</td>
+              <td style="width:4%">出库单单号</td>
               <td style="width:3%">品牌</td>
-              <td style="width:5%">货品名称</td>
-              <td style="width:5%">货品编号</td>
+              <td style="width:3%">货品编码</td>
+              <td style="width:4%">货品名称</td>
+              <td style="width:4%">ERP货品名称</td>
               <td style="width:2%">要货数量</td>
               <td style="width:3%">客户名称</td>
               <td style="width:5%">创建时间</td>
@@ -71,6 +80,7 @@
             <tr list-temp="true">
               <td node-name="$n.shipmentCode"></td>
               <td node-name="$n.itemBrand"></td>
+              <td node-name="$n.itemCode"></td>
               <td node-name="$n.itemName"></td>
               <td node-name="$n.erpItemCode"></td>
               <td node-name="$n.requestQty"></td>
