@@ -38,15 +38,15 @@ $(function() {
 	//单位规格
 	var standardUnit = JSON.parse(session.standard_unit);
 
-	$("#orgSize").setPageData(standardUnit);
+	$("#standardUnit").setPageData(standardUnit);
 
-	$("#orgSize").find("option").eq(1).prop('selected','selected');
+	$("#standardUnit").find("option").eq(1).prop('selected','selected');
 
 	//计价单位
 
 	var unit = JSON.parse(session.unit);
 
-	$("#orgName").setPageData(unit);
+	$("#chargeUnit").setPageData(unit);
 
-	$("#orgName").find("option").eq(1).prop('selected','selected');
+	$("#chargeUnit").find("option").eq(1).prop('selected','selected');
 });
