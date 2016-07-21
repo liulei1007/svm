@@ -1,6 +1,8 @@
 $(function(){
 	
 	$.setPageCount();
+	$('#createdFrom').cxCalendar();
+    $('#createdTo').cxCalendar();
 	datas={
       "warehouseCode": "",
       "companyCode": "",
