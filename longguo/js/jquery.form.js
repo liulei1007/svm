@@ -1171,7 +1171,6 @@ $.fn.selected = function(select) {
     });
 };
 
-// expose debug var
 $.fn.ajaxSubmit.debug = false;
 
 // helper fn for console logging
