@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="doc-shipmentManagement" style="width:800;   height:300;   overflow:auto;" >
+    <div class="doc-shipmentManagement">
         <div class="search-block">
             <form class="form-inline">
                 <div class="form-group">
@@ -24,11 +24,15 @@
                 </div>
                 <div class="form-group">
                     <label>开始状态</label>
-                    <select class="form-control input-sm" id="beginningStatus"></select>
+                    <select class="form-control input-sm" id="beginningStatus">
+                        <option value=''>请选择</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>结束状态</label>
-                    <select class="form-control input-sm" id="endStatus"></select>
+                    <select class="form-control input-sm" id="endStatus">
+                        <option value=''>请选择</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="shipmentCode">出库单编码</label>
@@ -50,8 +54,8 @@
                     <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
                        data-format="YYYY-MM-DD 00:00:00"
                        style="width:120px;background: #fff"></div>
-                <div class="btn btn-default btn-sm btn-search">查询</div>
-                <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+                <div class="btn btn-default btn-sm btn-primary btn-search">查询</div>
+                <div class="btn btn-default btn-sm btn-primary btn-empty">清空条件</div>
             </form>
         </div>
         <div class="table-block">
