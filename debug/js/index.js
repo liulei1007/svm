@@ -326,7 +326,8 @@ function getAuth() {
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
                     if (pageName && pageName.indexOf('wms') !== -1) {
-                        window.location.href = pageName + '?auth=' + authNum;
+                        session.svm_menu_suth = authNum;
+                        window.location.href = pageName;
                     } else {
                         derict(this, pageName, "nochangeurl");
                     }

@@ -228,6 +228,12 @@
             window.location.href = 'index';
             return;
         }
+
+        var $check = $('div.menu').find('.active');
+        if ($check && $check.length > 0) {
+            $.session.wms_check_page = $check.attr('pagename');
+        }
+
         $.direct(page, obj, fun, flag, load);
     };
 

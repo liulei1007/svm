@@ -8,10 +8,21 @@ $(function () {
             // 判断用户是否登录
             setInterval(this.chkUserStatus(), 30000);
 
+            this.loginName();
             this.bindEvent();
             this.getUserAuth();
-            this.getLoginInfo();
+        },
 
+        loginName: function () {
+            if (sessionStorage.login_mobilePhone) {
+                if ((sessionStorage.login_mobilePhone != undefined) &&
+                    (sessionStorage.login_mobilePhone != "")) {
+                    $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) +
+                        "****" + sessionStorage.login_mobilePhone.substring(7));
+                }
+            } else {
+                window.location.href = "/";
+            }
         },
 
         bindEvent: function () {
@@ -40,52 +51,6 @@ $(function () {
                         }
                     }
                 });
-            });
-        },
-
-        getLoginInfo: function () {
-            var setSession = function (data) {
-                sessionStorage.login_mobilePhone = data.mobilePhone;
-                sessionStorage.login_userType = data.userType;
-                sessionStorage.login_id = data.id;
-                sessionStorage.login_openId = data.openId;
-                sessionStorage.login_parentId = data.parentId;
-                sessionStorage.login_agentsBusinessId = data.agentsBusinessId;
-                sessionStorage.login_manuId = data.manuId;
-            };
-
-            var jumpPage = function (data) {
-                if (data.userType == 0) {
-                    window.location.href = '/secondreg?fullscreen';
-                    $(".container-fixed").fadeIn();
-                } else if (data.userType == 3) {
-                    window.location.href = '/waitCheck?fullscreen';
-                    $(".container-fixed").fadeIn();
-                }
-                if (sessionStorage.login_mobilePhone) {
-                    if ((sessionStorage.login_mobilePhone != undefined) &&
-                        (sessionStorage.login_mobilePhone != "")) {
-                        $("#login-name").html(sessionStorage.login_mobilePhone.substring(0, 3) +
-                            "****" + sessionStorage.login_mobilePhone.substring(7));
-                    }
-                } else {
-                    window.location.href = "/";
-                }
-            };
-
-            return $.commonAjax({
-                type: "get",
-                url: 'getLoginUser',
-                requestType: true,
-                success: function (data) {
-                    if (data.ok) {
-                        setSession(data.data);
-                        jumpPage(data.data);
-                    } else {
-                        console.log("获取登录信息失败:" + data.resDescription);
-                        window.location.href = "/";
-                    }
-                }
             });
         },
 
@@ -125,10 +90,11 @@ $(function () {
 
                 $("div.slidebar").html('').append(menu).show();
                 $("div.page-content .menu").html('').append(twoMenu);
-                var auth = own.getUrlParam('auth');
+                var auth = $.session.svm_menu_suth;
                 if (auth) {
                     var $menu = $('div.slidebar').find("[auth=" + auth + "]"),
-                        $firstChild = $(".page-content").find("[auth=" + auth + "]").find("li").eq(0),
+                        checkPage = $.session.wms_check_page === 'undefined' ? '' : $.session.wms_check_page,
+                        $firstChild = $("div.page-content").find('[pagename="/wms/' + (checkPage || utils.getPageUrl()) + '"]'),
                         pageName = $firstChild.attr("pageName");
 
                     $.session.nowPageName = pageName;
@@ -158,6 +124,7 @@ $(function () {
                     $(".page-content").find("[auth=" + authNum + "]").find("li").show();
                     $firstChild.addClass("active").siblings().removeClass("active");
                     if (pageName && pageName.indexOf('wms') !== -1) {
+                        $.session.svm_menu_suth = authNum;
                         $.directPage(pageName);
                     } else {
                         window.location.href = '/' + pageName;
@@ -165,11 +132,13 @@ $(function () {
                 });
 
                 $("ul.slidebar-menu").find("li").on("click", function () {
-                    var pageName = $(this).attr("pageName");
+                    var authNum = $(this).parent().attr("auth"),
+                        pageName = $(this).attr("pageName");
 
                     $(this).siblings().removeClass('active');
                     $(this).addClass('active');
 
+                    $.session.svm_menu_suth = authNum;
                     $.directPage(pageName);
                 });
             };
@@ -182,10 +151,6 @@ $(function () {
                     if (data.ok) {
                         showMenu(data.data);
                         menuEvent();
-
-                        var pageName = utils.getPageUrl();
-
-                        $('ul>li[pageName="' + pageName + '"]').addClass("active").siblings().removeClass("active");
                     } else {
                         console.log("获取登录信息失败:" + data.resDescription);
                     }
@@ -207,7 +172,6 @@ $(function () {
                 }
             });
         }
-
     };
 
     index.init();
