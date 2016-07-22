@@ -1157,6 +1157,7 @@ $(function () {
     //     }
     // });
 
+
     var nameOperation = function (name, $own, $obj) {
         var index = 0, spanHtml = '';
 
