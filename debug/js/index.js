@@ -299,7 +299,7 @@ function getAuth() {
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
                     var firstMenu = '<ul class="nav slidebar-title" auth="' + d.id + '">';
-                    firstMenu += '<li><i class="shop"></i>' + d.resourceName + '</li>';
+                    firstMenu += '<li><i class="'+d.resourceUrl+'"></i>' + d.resourceName + '</li>';
                     firstMenu += '</ul>';
                     $(".slidebar").append(firstMenu);
                     var secondMenu = '<ul class="slidebar-menu clearFix childmenu" auth="' + d.id + '">';
