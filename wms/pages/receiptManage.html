@@ -28,7 +28,7 @@
                     <input type="text" class="form-control input-sm" id="receiptCode" placeholder="">
                 </div>  
 				<div class="form-group">
-                    <label for="erpOrderCode">erp单号</label>
+                    <label for="erpOrderCode">ERP单号</label>
                     <input type="text" class="form-control input-sm" id="erpOrderCode" placeholder="">
                 </div>
 				<div class="form-group">
@@ -73,18 +73,18 @@
                     <td style="width:10%">入库类型</td>
                     <td style="width:10%">首状态</td>
 					<td style="width:10%">尾状态</td>
-                    <td style="width:auto">erp单号</td>
+                    <td style="width:auto">ERP单号</td>
                     <td style="width:auto%">创建时间</td>
 					<td style="width:5%">操作</td>
                 </tr>
                 </thead>
                 <tbody data-list="$p.rows">
-                <tr list-temp="true">
+                <tr list-temp="true" class="reciept_shipment">
                     <td class="receiptId" node-name="$n.id || ''"></td>
                     <td class="codeClass" node-name="$n.code || ''"></td>
                     <td class="receiptTypeClass" node-name="$n.receiptType"></td>
                     <td class="leadingStatusClass" node-name="$n.leadingStatus || ''"></td>
-					<td class="leadingStatusClass" node-name="$n.trailingSts || ''"></td>
+					<td class="trailingStsClass" node-name="$n.trailingSts || ''"></td>
                     <td class="erpOrderCodeClass" node-name="$n.erpOrderCode || ''"></td>
                     <td class="createdClass" node-name="$n.created || ''"></td>
                     <td>

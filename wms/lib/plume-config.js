@@ -42,6 +42,9 @@
 
         receiptManageInit: function () {
             console.log("初始化plume-demo1Init");
+			Plume.resource().loadCss([
+				plumePath + 'css/reciept_shipment.css'
+			])
             Plume.resource().loadJs([
                     plumePath + 'js/receiptManage.js'
             ]);
@@ -56,6 +59,9 @@
 
         shipmentManageInit: function () {
             console.log("初始化plume-demo1Init");
+			Plume.resource().loadCss([
+				plumePath + 'css/reciept_shipment.css'
+			])
             Plume.resource().loadJs([
                     plumePath + 'js/shipmentManage.js'
             ]);

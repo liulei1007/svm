@@ -51,7 +51,8 @@ $(function(){
 			//获取返回数据
 			dataBack.code = $(this).parents('tr').find('.codeClass').html();
            	dataBack.receiptType= $(this).parents('tr').find('.receiptTypeClass').html();
-            dataBack.leadingStatus= $(this).parents('tr').find('.leadingStatusClass').html();	
+            dataBack.leadingStatus= $(this).parents('tr').find('.leadingStatusClass').html();
+            dataBack.trailingSts= $(this).parents('tr').find('.trailingStsClass').html();				
             dataBack.erpOrderCode= $(this).parents('tr').find('.erpOrderCodeClass').html();
             dataBack.created= $(this).parents('tr').find('.createdClass').html();				
             $.session.dataBack = JSON.stringify(dataBack)  ;

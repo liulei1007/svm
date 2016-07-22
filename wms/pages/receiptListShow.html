@@ -28,12 +28,17 @@
                        data-name="$p.receiptBase.receiptType" placeholder="" readonly="true ">
             </div>
             <div class="form-group" style="margin-top: 10px;">
-                <label for="companyCode">状态</label>
-                <input type="text" class="form-control" id="companyCode" style="margin: 0 10px 0 10px;"
+                <label for="leadingStatus">首状态</label>
+                <input type="text" class="form-control" id="leadingStatus" style="margin: 0 10px 0 10px;"
                        data-name="$p.receiptBase.leadingStatus" placeholder="" readonly="true ">
             </div>
-            <div class="form-group" style="margin-top: 10px;">
-                <label for="erpOrderCode">客户单号</label>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="trailingSts">尾状态</label>
+                <input type="text" class="form-control" id="trailingSts" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.trailingSts" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="erpOrderCode">ERP单号</label>
                 <input type="text" class="form-control" id="erpOrderCode" style="margin: 0 10px 0 10px;"
                        data-name="$p.receiptBase.erpOrderCode" placeholder="" readonly="true ">
             </div>
@@ -53,8 +58,9 @@
                 <thead>
                 <tr>
                     <td style="width:10%">编号</td>
-                    <td style="width:auto">erp单号</td>
-					<td style="width:auto">物品</td>
+                    <td style="width:auto">ERP货品名称</td>
+					<td style="width:auto">货品编码</td>
+					<td style="width:auto">货品名称</td>
                     <td style="width:auto">品牌</td>
                     <td style="width:auto">客户</td>
                     <td style="width:5%">总数</td>
@@ -64,6 +70,7 @@
                 <tr list-temp="true">
 				    <td node-name="$n.id || ''"></td>
 					<td node-name="$n.erpId || ''"></td>
+					<td node-name="$n.itemCode || ''"></td>
                     <td node-name="$n.name || ''"></td>
                     <td node-name="$n.brand"></td>
                     <td node-name="$n.batch || ''"></td>
