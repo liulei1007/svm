@@ -120,6 +120,7 @@ $(function(){
 				   $("#warehouseCode").append("<option value='"+data[i].warehouseCode+"'>"+data[i].warehouseName+"</option>");
 				   } 
 				   datas.warehouseCode=$('#warehouseCode option:selected').val();
+           datas.trailingSts = $('#trailingSts option:selected').val();
             }
         });
 	}
