@@ -94,7 +94,7 @@ $(function () {
                 if (auth) {
                     var $menu = $('div.slidebar').find("[auth=" + auth + "]"),
                         checkPage = $.session.wms_check_page === 'undefined' ? '' : $.session.wms_check_page,
-                        $firstChild = $("div.page-content").find('[pagename="' + (checkPage || utils.getPageUrl()) + '"]'),
+                        $firstChild = $("div.page-content").find('[pagename="' + (checkPage || window.location.pathname) + '"]'),
                         pageName = $firstChild.attr("pageName");
 
                     $.session.nowPageName = pageName;

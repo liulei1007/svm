@@ -495,8 +495,7 @@
             // 资源配置文件数据加载
             if (!configApi || !configPage) {
                 this.config([], [], '');
-                $.initOperation[Plume.setParam.initFun]();
-
+                initFun = Plume.setParam.initFun;
                 window.onload = function () {
                     $.direct(utils.getPageUrl(), '', null, 'nochangeurl');
                 };
@@ -513,11 +512,9 @@
                         };
                     }
                     initFun = pageObj[indexPage]['init'];
-                    $.initOperation[initFun]();
-                } else {
-                    $.initOperation[initFun]();
                 }
             }
+            $.initOperation[initFun]();
 
             this.route().ajax();
         }
