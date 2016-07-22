@@ -1,18 +1,20 @@
 $(function() {
 	// 初始化传输数据
 	var datas = {
-		"brandName": "",
-		"pdtName": "",
-		"categoryId": 0,
-		"categoryName": "",
-		"pgtType": "",
-		"standard": "",
-		"material": "",
-		"orgName": "",
-		"priceType": "",
-		"salePrice": 0,
-		"saleStatus": "",
-		"standardUnit":""
+	  "brandName": "",
+	  "pdtName": "",
+	  "categoryId": 0,
+	  "categoryName": "",
+	  "pgtType": "",
+	  "standard": "",
+	  "standardUnit": "",
+	  "material": "",
+	  "orgName": "",
+	  "priceType": "",
+	  "salePrice": 0,
+	  "discount": 0,
+	  "inventory": 0,
+	  "saleStatus": ""
 	}
 
 	getlistNationRegion();
