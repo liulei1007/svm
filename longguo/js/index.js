@@ -855,7 +855,7 @@ function checkSelfGoods(operateName, selfGoods, url) {
         selfGoods.categoryId = $("#sortSelect").val();
         selfGoods.categoryName = $("#sortSelect option:selected").text();
         selfGoods.standardUnit  = $("#standardUnit select").val();
-        selfGoods.chargeUnit  = $("#chargeUnit select").val();
+        //selfGoods.chargeUnit  = $("#chargeUnit select").val();
         selfGoods.pgtType = $("#pgtType").val().trim();
         selfGoods.standard = $("#standard").val().trim();
         selfGoods.material = $("#material").val();

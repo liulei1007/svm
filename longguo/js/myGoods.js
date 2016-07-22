@@ -453,9 +453,16 @@ $(function () {
                 setStandard();
                 for (var k = 0; k < productInfoPhotos.length; k++) {
                     var p = productInfoPhotos[k];
-                    console.log(p);
+                    var re=/http:\/\/*./;
+                    console.log(re.test(p.picUrl))
+                    var baseUrl = JSON.parse(session.img_url).data;
                     var temp = '<li class="goodsPic">';
-                    temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
+                    if(re.test(p.picUrl)){
+                        temp += '<img class="cmg-goodsimgs" src="' + p.picUrl + '" data_src="'+p.picUrl+'">';
+                    }else{
+                        temp += '<img class="cmg-goodsimgs" src="'  +baseUrl[parseInt(Math.random() * (baseUrl.length))].codeValueCode+ p.picUrl + '" data_src="'+p.picUrl+'">';
+                    }
+
                     temp += '<div class="upload-btn upload-btn-left">';
                     temp += '<div class="arrow-left"></div>';
                     temp += '</div>';
@@ -1138,24 +1145,25 @@ $(function () {
     });
 
     var nameJson = {};
-    $.commonAjax({
-        url: 'goodsName',
-        type: 'post',
-        data: {
-            "page": '',
-            "limit": '',
-            "likeName": ""
-        },
-        success: function (data) {
-            var data = data.data;
-            if (data && data.length > 0) {
-                var dataLen = data.length;
-                for (var i = 0; i < dataLen; i++) {
-                    nameJson[data[i].id] = data[i];
-                }
-            }
-        }
-    });
+    // $.commonAjax({
+    //     url: 'goodsName',
+    //     type: 'post',
+    //     data: {
+    //         "page": '',
+    //         "limit": '',
+    //         "likeName": ""
+    //     },
+    //     success: function (data) {
+    //         var data = data.data;
+    //         if (data && data.length > 0) {
+    //             var dataLen = data.length;
+    //             for (var i = 0; i < dataLen; i++) {
+    //                 nameJson[data[i].id] = data[i];
+    //             }
+    //         }
+    //     }
+    // });
+
 
     var nameOperation = function (name, $own, $obj) {
         var index = 0, spanHtml = '';
