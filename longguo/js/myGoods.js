@@ -1138,24 +1138,24 @@ $(function () {
     });
 
     var nameJson = {};
-    $.commonAjax({
-        url: 'goodsName',
-        type: 'post',
-        data: {
-            "page": '',
-            "limit": '',
-            "likeName": ""
-        },
-        success: function (data) {
-            var data = data.data;
-            if (data && data.length > 0) {
-                var dataLen = data.length;
-                for (var i = 0; i < dataLen; i++) {
-                    nameJson[data[i].id] = data[i];
-                }
-            }
-        }
-    });
+    // $.commonAjax({
+    //     url: 'goodsName',
+    //     type: 'post',
+    //     data: {
+    //         "page": '',
+    //         "limit": '',
+    //         "likeName": ""
+    //     },
+    //     success: function (data) {
+    //         var data = data.data;
+    //         if (data && data.length > 0) {
+    //             var dataLen = data.length;
+    //             for (var i = 0; i < dataLen; i++) {
+    //                 nameJson[data[i].id] = data[i];
+    //             }
+    //         }
+    //     }
+    // });
 
     var nameOperation = function (name, $own, $obj) {
         var index = 0, spanHtml = '';
