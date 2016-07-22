@@ -34,17 +34,26 @@
                 <input type="text" id="pdtName" class="form-control" />
             </div>
         </div>
+         <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8"> 商品名称需体现商品的使用功能</div>
+        </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>分类</label>
             <div class="col-sm-6">
                 <select id="sortSelect" class="form-control"></select>
             </div>
         </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">选择商品所属分类，如家具、建材、电器、软装等</div>
+        </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>型号</label>
             <div class="col-sm-6">
                 <input type="text" id="pgtType" class="form-control" />
             </div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">商品的特定编号，是商品的唯一识别编号</div>
         </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>规格</label>
@@ -57,11 +66,66 @@
                 </select>
             </div>
         </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">各数字间统一使用“*”（星号）作为连接符，规格单位建议使用毫米mm单位</div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>基材</label>
+            <div class="col-sm-6">
+                <input type="text" id="brandName" class="form-control" placeholder="如，纤维板、橡胶板"/>
+            </div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">可接触面和框架材料，材料之间统一用顿号作为间隔符号</div>
+        </div>
+         <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>辅材</label>
+            <div class="col-sm-6">
+                <input type="text" id="brandName" class="form-control" placeholder="如，五金件"/>
+            </div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">非接触面、填充物、五金件材料，材料之间统一用顿号作为间隔符号</div>
+        </div>
+         <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i>饰面</label>
+            <div class="col-sm-6">
+                <input type="text" id="brandName" class="form-control" placeholder="如，纤维板、橡胶板"/>
+            </div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">表面上的贴面，油漆涂饰，软、硬质覆面材料，材料之间统一用顿号作为间隔符号</div>
+        </div>
+        <div class="form-group required">
+            <label class="col-sm-3 control-label"><i>*</i><span>产地</span></label>
+            <div class="col-sm-2 cmg-region0">
+                <select class="form-control" id="countryId" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.nationName,attr-value:$n.nationCode"></option>
+                </select>
+            </div>
+            <div class="col-sm-2 cmg-region1">
+                <select class="form-control" id="provinceId" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-adressCode:$n.adressCode,attr-value:$n.adressCode"></option>
+                </select>
+            </div>
+            <div class="col-sm-2 cmg-region2 ">
+                <select class="form-control" id="cityId" data-list="$p.data">
+                    <option list-temp="true" node-name="$n.adress,attr-value:$n.adressCode"></option>
+                </select>
+            </div>
+            <div class="col-sm-2 alert alert-danger">请选择产地</div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">默认选择中国，进口商品直接选择国家即可</div>
+        </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>主要材料</label>
             <div class="col-sm-6">
                 <input type="text" id="material" class="form-control" />
             </div>
+        </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">主要材料之间统一用顿号作为间隔符号</div>
         </div>
         <div class="form-group required">
             <label class="col-sm-3 control-label"><i>*</i>计价单位</label>
@@ -71,8 +135,11 @@
                 </select>
             </div>
         </div>
+        <div class="row help-block">
+            <div class="col-sm-offset-3 col-sm-8">计价单位指商品的结算计量单位品</div>
+        </div>
         <div class="form-group required">
-            <label class="col-sm-3 control-label"><i>*</i>零售价</label>
+            <label class="col-sm-3 control-label"><i>*</i>线下零售价</label>
             <div class="col-sm-6">
                 <input type="text" id="salePrice" class="form-control" onkeydown="key.onlyKeydownNum()"/>
             </div>
