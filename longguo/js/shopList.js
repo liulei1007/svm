@@ -7,13 +7,13 @@ $(function () {
     var data = {
         "start": 0,
         "limit": 0,
-        "shopId": 0,
+        // "shopId": 0,
         "marketName": "",
         "brandName": "",
         "seriesName": "",
-        "offlineStatus": 0,
-        "onlineStatus": 0,
-        "reviewStatus": 0,
+        // "offlineStatus": 0,
+        // "onlineStatus": 0,
+        // "reviewStatus": 0,
         "companyId": 0,
         "dealerId": 0,
         "shopIds": [
