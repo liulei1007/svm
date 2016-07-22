@@ -37,7 +37,7 @@ $(function () {
                 return false;
             });
             $("div.index-head-logo").bind("click", function () {
-                window.location.href = '/index';
+                window.location.href = '/welcome';
                 return false;
             });
             $("div.ihu-exit").bind("click", function () {

@@ -35,7 +35,7 @@ $(function () {
     });
     $(".index-head-logo").bind("click", function () {
         $('ul.slidebar-menu').hide();
-        derict(null, "index", "nochangeurl");
+        derict(null, "welcome", "nochangeurl");
     });
 });
 
