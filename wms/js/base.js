@@ -103,12 +103,6 @@
             urlString = urlStringArr.join('&');
         }
 
-        if (path.indexOf('wms') > -1 && !option.requestType) {
-            host = "http://192.168.224.187:8080/";
-        } else {
-            host = "http://longguo.hxmklmall.cn/api/";
-        }
-
         // 如果有传入operationId，我们会将值拼成字符串跟在url后面、如：http://test.api.com/test/operationId
         if (typeof(option.operationId) !== "undefined") {
             option.url = host + urlApi[option.url] + '/' + option.operationId;
@@ -229,6 +223,11 @@
             return;
         }
 
+        var $check = $('div.menu').find('.active');
+        if ($check && $check.length > 0) {
+            $.session.wms_check_page = $check.attr('pagename');
+        }
+
         $.direct(page, obj, fun, flag, load);
     };
 
@@ -290,15 +289,19 @@
     };
 
     // 获取shipmentId
-    $.getShipmentId = function (_this) {
+ 
+    $.getShipmentHeader = function (_this) {
         var removeList = $(_this).parents('tr');
         var shipmentHeader = new Object();
         shipmentHeader.shipmentId = removeList.find('.shipmentId').html();
         shipmentHeader.shipmentCode = removeList.find('.shipmentCode').html();
         shipmentHeader.shipToName = removeList.find('.shipToName').html();
+        shipmentHeader.shipToMobile = removeList.find('.shipToMobile').html();
+        shipmentHeader.shipToAddress1 = removeList.find('.shipToAddress1').html();
         shipmentHeader.leadingStatus = removeList.find('.leadingStatus').html();
+        shipmentHeader.trailingStatus = removeList.find('.trailingStatus').html();
         shipmentHeader.createdDate = removeList.find('.createdDate').html();
-        $.session.shipment_id = removeList.find('.shipmentId').html();
+     
         $.session.shipment_header = JSON.stringify(shipmentHeader);
     };
 	

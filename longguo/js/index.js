@@ -35,7 +35,7 @@ $(function () {
     });
     $(".index-head-logo").bind("click", function () {
         $('ul.slidebar-menu').hide();
-        derict(null, "index", "nochangeurl");
+        derict(null, "welcome", "nochangeurl");
     });
 });
 
@@ -293,6 +293,7 @@ function getAuth() {
         dataType: "json",
         success: function (data) {
             if (data.ok) {
+                $(".slidebar-title").remove();
                 var cachePage = session.page_cache,
                     cacheArray = cachePage ? cachePage.split(',') : [];
 
@@ -324,7 +325,12 @@ function getAuth() {
                     var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
-                    derict(this, pageName, "nochangeurl");
+                    if (pageName && pageName.indexOf('wms') !== -1) {
+                        session.svm_menu_suth = authNum;
+                        window.location.href = pageName;
+                    } else {
+                        derict(this, pageName, "nochangeurl");
+                    }
                 });
                 $(".childmenu").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");
@@ -848,15 +854,25 @@ function checkSelfGoods(operateName, selfGoods, url) {
         selfGoods.pdtName = $("#pdtName").val().trim();
         selfGoods.categoryId = $("#sortSelect").val();
         selfGoods.categoryName = $("#sortSelect option:selected").text();
-
+        selfGoods.standardUnit  = $("#standardUnit select").val();
+        selfGoods.chargeUnit  = $("#chargeUnit select").val();
         selfGoods.pgtType = $("#pgtType").val().trim();
         selfGoods.standard = $("#standard").val().trim();
-        selfGoods.standardUnit = $("#orgSize select").prop('value');
         selfGoods.material = $("#material").val();
-        selfGoods.orgName = $("#orgName").val().trim();
+        // selfGoods.orgName = "";
         selfGoods.priceType = $("#priceType").val().trim();
         selfGoods.salePrice = $("#salePrice").val().trim();
         selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
+        // selfGoods.countryId="";
+        // selfGoods.countryName ="";
+        // selfGoods.provinceId ="";
+        // selfGoods.provinceName ="";
+        // selfGoods.cityId ="";
+        // selfGoods.cityName ="";
+        // selfGoods.material1  ="";
+        // selfGoods.material2  ="";
+        // selfGoods.material3  ="";
+
         // 操作数据库
         controlSelfGoods(operateName, selfGoods, url);
     }
@@ -884,7 +900,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
                     $(".pop").find(".popup-title").html(operateName + "自采商品");
                     $(".pop").find(".popup-icon").html('<i class="danger"></i>');
-                    $(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
+                    $(".pop").find(".popup-info").html(result.resDescription);
                 });
             }
             derict(this, "releaseSelfGoods", "nochangeurl");
@@ -1105,7 +1121,7 @@ function checkTel(checkObj) {
             $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
             return false;
         }
-    }
+    }    
     return true;
 }
 

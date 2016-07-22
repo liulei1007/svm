@@ -3,18 +3,38 @@ $(function() {
 	var totalPage;
 	var startNum = 0, limitNum = 20;
 	// 初始化传输数据
+	// var data = {
+	// 	"start": 0,
+	// 	"limit": 10,
+	// 	"marketName": "",
+	// 	"boothCode": "",
+	// 	// "personDealerName": "",
+	// 	"boothDesc": "",
+	// 	"brandName": "",
+	// 	"seriesName": "",
+	// 	"isDel": 0,
+	// 	"companyId": 0,
+	// 	"dealerId": 0
+	// }
+
 	var data = {
 		"start": 0,
-		"limit": 10,
+		"limit": 0,
+		"shopId": 0,
 		"marketName": "",
-		"boothCode": "",
-		"personDealerName": "",
-		"boothDesc": "",
 		"brandName": "",
 		"seriesName": "",
-		"isDel": 0,
+		"offlineStatus": 0,
+		"onlineStatus": 0,
+		"reviewStatus": 0,
 		"companyId": 0,
-		"dealerId": 0
+		"dealerId": 0,
+		"shopIds": [
+		0
+		],
+		"brandIds": [
+		0
+		]
 	}
 
 	// data.shopType = "2";
@@ -29,7 +49,7 @@ $(function() {
 	$(".btn-search").on("click", function() {
 		data.brandName = $("#brandName").val();
 		data.marketName = $("#marketName").val();
-		data.personDealerName = $("#personDealerName").val();
+		// data.personDealerName = $("#personDealerName").val();
 		data.seriesName = $("#seriesName").val();
 		console.log(data);
 		getData();

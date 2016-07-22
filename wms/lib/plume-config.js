@@ -14,7 +14,6 @@
         indexInit: function () {
             console.log("初始化plume-indexInit");
             Plume.resource().loadJs([
-                plumePath + 'js/common.js',
                 plumePath + 'js/index.js'
             ]);
         },

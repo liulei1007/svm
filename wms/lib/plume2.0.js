@@ -28,6 +28,8 @@
                 name = name.substring(0, name.indexOf("?"));
             }
 
+            name = utils.getPageUrl(name);
+
             var page = configPage && configPage[name],
                 init = page["init"],
                 url = page["pageUrl"],
@@ -260,11 +262,10 @@
 
         /**
          * 获取url页面路径
-         * @param url
-         * @returns {string}
+         * url:页面当前路径
          */
-        getPageUrl: function () {
-            var url = window.location.href;
+        getPageUrl: function (url) {
+            var url = url || window.location.href;
             return (url || '').replace(/(.+)[＼＼/]/, "");
         }
     };
@@ -494,7 +495,10 @@
             // 资源配置文件数据加载
             if (!configApi || !configPage) {
                 this.config([], [], '');
-                $.initOperation[Plume.setParam.initFun]();
+                initFun = Plume.setParam.initFun;
+                window.onload = function () {
+                    $.direct(utils.getPageUrl(), '', null, 'nochangeurl');
+                };
             } else {
                 var url = utils.getPageUrl(),
                     initFun = Plume.setParam.initFun,
@@ -508,11 +512,9 @@
                         };
                     }
                     initFun = pageObj[indexPage]['init'];
-                    $.initOperation[initFun]();
-                } else {
-                    $.initOperation[initFun]();
                 }
             }
+            $.initOperation[initFun]();
 
             this.route().ajax();
         }

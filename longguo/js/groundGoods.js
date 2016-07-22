@@ -59,6 +59,9 @@ $(function(){
 
     // groundGoods.groundGoodsController() 
     
+
+
+    
     datas={
 		  "productName": "",
 		  "modelNumber": "",

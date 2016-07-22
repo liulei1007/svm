@@ -14,41 +14,29 @@
         <div class="search-block">
             <form class="form-inline">
                 <div class="form-group">
-                    <label>仓库编码</label>
-                    <select class="form-control input-sm" id="warehouseCode">
-                        <option value="SJZ01">石家庄仓库</option>
-                        <option value="Test01">员工培训库</option>
-                    </select>
+                    <label>仓库名称</label>
+                    <select class="form-control input-sm" id="warehouseCode"></select>
                 </div>
 
                 <div class="form-group">
-                    <label>货主编码</label>
-                    <select class="form-control input-sm" id="companyCode">
-                        <option value="JLM">君乐美</option>
-                        <option value="RES">红星美凯龙</option>
+                    <label>货主名称</label>
+                    <select class="form-control input-sm" id="companyCode"></select>
+                </div>
+                <div class="form-group">
+                    <label>开始状态</label>
+                    <select class="form-control input-sm" id="beginningStatus">
+                        <option value=''>请选择</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="shipmentCode">出库单编码</label>
+                    <label>结束状态</label>
+                    <select class="form-control input-sm" id="endStatus">
+                        <option value=''>请选择</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="shipmentCode">出库单号</label>
                     <input type="text" class="form-control input-sm" id="shipmentCode" placeholder=""></div>
-                <div class="form-group">
-                    <label>状态</label>
-                    <select class="form-control input-sm" id="leadingSts">
-                        <option value="0">所有</option>
-                        <option value="100">已入库</option>
-                        <option value="200">已出库</option>
-                    </select>
-                </div>
-                <div class="form-group"> 
-                    <label for="shipToName">客户名称</label>
-                    <input type="text" class="form-control input-sm" id="shipToName" placeholder=""></div>
-                <div class="form-group">
-                    <label for="itemBrand">品牌名称</label>
-                    <input type="text" class="form-control input-sm" id="itemBrand" placeholder=""></div>
-                <div class="form-group">
-                    <label for="itemName">货品名称</label>
-                    <input type="text" class="form-control input-sm" id="itemName" placeholder=""></div>
                 <div class="form-group form-time">
                     <label for="createdFrom">创建时间</label>
                     <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
@@ -57,35 +45,46 @@
                     <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
                        data-format="YYYY-MM-DD 00:00:00"
                        style="width:120px;background: #fff"></div>
-                <div class="btn btn-default btn-sm btn-search">查询</div>
-                <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+                <div class="form-group">
+                    <label for="shipToName">客户名称</label>
+                    <input type="text" class="form-control input-sm" id="shipToName" placeholder=""></div>
+                <div class="form-group">
+                    <label for="itemBrand">品牌名称</label>
+                    <input type="text" class="form-control input-sm" id="itemBrand" placeholder=""></div>
+                <div class="form-group">
+                    <label for="itemName">货品名称</label>
+                    <input type="text" class="form-control input-sm" id="itemName" placeholder=""></div>
+                <div style="text-align:center;">
+                    <div class="btn btn-default btn-sm  btn-search">查询</div>
+                    <div class="btn btn-default btn-sm  btn-empty">清空条件</div>
+                </div>
             </form>
         </div>
         <div class="table-block">
             <table class="table table1 table-striped">
                 <thead>
-                    <tr>
-                        <td style="width:2%">
-                            <input type="checkbox"/>
-                        </td>
-                        <td style="width:10%">ID</td>
-                        <td style="width:15%">出库单编码</td>
-                        <td style="width:15%">客户名称</td>
-                        <td style="width:15%">状态</td>
-                        <td style="width:23%">添加时间</td>
-                        <td style="width:auto">操作</td>
+                    <tr>   
+                        <td style="width:7%">ID</td>
+                        <td style="width:13%">出库单号</td>
+                        <td style="width:8%">客户名称</td>
+                        <td style="width:12%">手机</td>
+                        <td style="width:16%">收货地址</td>
+                        <td style="width:8%">首状态</td>
+                        <td style="width:8%">尾状态</td>
+                        <td style="width:16%">添加时间</td>
+                        <td style="width:10">操作</td>
                     </tr>
                 </thead>
                 <tbody data-list="$p.data.rows">
                     <tr list-temp="true">
-                        <td>
-                            <input type="checkbox"/>
-                        </td>
-                        <td class="shipmentId"   node-name="$n.shipmentId"></td>
-                        <td class="shipmentCode" node-name="$n.shipmentCode"></td>
-                        <td class="shipToName"   node-name="$n.shipToName"></td>
-                        <td class="leadingStatus" node-name="$n.leadingStatus"></td>
-                        <td class="createdDate"  node-name="$n.createdDate"></td>
+                        <td class="shipmentId"     node-name="$n.shipmentId"></td>
+                        <td class="shipmentCode"   node-name="$n.shipmentCode"></td>
+                        <td class="shipToName"     node-name="$n.shipToName"></td> 
+                        <td class="shipToMobile"   node-name="$n.shipToMobile"></td>
+                        <td class="shipToAddress1" node-name="$n.shipToAddress1"></td>
+                        <td class="leadingStatus"  node-name="$n.leadingStatus"></td>
+                        <td class="trailingStatus" node-name="$n.trailingStatus"></td>
+                        <td class="createdDate"    node-name="$n.createdDate"></td>
                         <td>
                             <button type="button" class="btn btn-info btn-link bl-btn-look text-center">查看</button>
                         </td>
