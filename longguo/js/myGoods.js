@@ -905,6 +905,7 @@ $(function () {
                             );
                         }
 
+
                         $(".goodsPic-upload").append(temp.join(''));
                         closeUploadPop();
                         picMove()
