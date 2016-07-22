@@ -29,7 +29,7 @@ $(function() {
 				else {
 					$("#brand-logo").html('<img src="images/brand-default.jpg" />');
 				}
-				$(".form-block-contractive").setPageData(data.data);
+				$(".form-horizontal").setPageData(data.data);
 			}
 		});
 	}
