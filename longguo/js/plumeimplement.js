@@ -193,12 +193,6 @@ function changepwd_init() {
     plumeUtil.js(plumePath + "/js/changepwd.js");
     plumeLog("完成changepwd模板加载-" + plumeTime());
 }
-//--changepwdnone模板初始化函数--
-function changepwdnone_init() {
-    plumeLog("初始化changepwd模板-" + plumeTime());
-    plumeUtil.js(plumePath + "/js/changepwdNone.js");
-    plumeLog("完成changepwd模板加载-" + plumeTime());
-}
 //--secondreg模板初始化函数--
 function secondreg_init() {
     plumeLog("初始化secondreg模板-" + plumeTime());
