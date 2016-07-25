@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plume-page>
+
+    <page>
+        <!--配置模板别名-->
+        <page-name>inventoriesManage</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/inventoriesManage.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>inventoriesManageInit</init>
+    </page>
+    <page>
+        <!--配置模板别名-->
+        <page-name>receiptManage</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/receiptManage.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>receiptManageInit</init>
+    </page>
+
+    <page>
+        <!--配置模板别名-->
+        <page-name>receiptListShow</page-name>
+        <!--配置模板路径,从根目录开始写路径,非相对路径-->
+        <page-url>/wms/pages/receiptListShow.html</page-url>
+        <!--配置模板初始化函数,与js中的方法名对应,无参数,所有的初始化plume模板函数都在框架js中实现-->
+        <init>receiptListShowInit</init>
+    </page>
+
+</plume-page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plume>
+
+    <resources type="api"  href="conf/config-api.xml"/>
+    <resources type="init" href="conf/config-page.xml"/>
+    <resources type="init" href="conf/config-liquan.xml"/>
+    <resources type="init" href="conf/config-chenxia.xml"/>
+
+</plume>

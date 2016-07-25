@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>红星美凯龙后台管理</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--公用基础文件-->
+  <script language="javascript" src="../js/plumecommon.js" ></script>
+</head>
+
+<body>
+  <div class="body-typein">
+     <div class="title-div " style="font-weight:bold;">出库单详情</div>
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            基础信息
+        </div>
+        <form class="form-inline">
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="shipmentId" style="width:56px">ID</label>
+                <input type="text" class="form-control" id="shipmentId" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.shipmentId" placeholder="" readonly="true ">
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="shipmentCode">出库单号</label>
+                <input type="text" class="form-control" id="shipmentCode" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.shipmentCode" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="shipToName">客户名称</label>
+                <input type="text" class="form-control" id="shipToName" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.shipToName" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="shipToMobile" style="width:56px">手机</label>
+                <input type="text" class="form-control" id="shipToMobile" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.shipToMobile" placeholder="" readonly="true ">
+            </div>  
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="shipToAddress1">收货地址</label>
+                <input type="text" class="form-control" id="shipToAddress1" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.shipToAddress1" placeholder="" readonly="true ">
+            </div>  
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="createdDate">添加时间</label>
+                <input type="text" class="form-control" id="createdDate" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.createdDate" placeholder="" readonly="true ">
+            </div>  
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="leadingStatus" style="width:56px">首状态</label>
+                <input type="text" class="form-control" id="leadingStatus" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.leadingStatus" placeholder="" readonly="true ">
+            </div>  
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="trailingStatus" style="width:56px">尾状态</label>
+                <input type="text" class="form-control" id="trailingStatus" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.trailingStatus" placeholder="" readonly="true ">
+            </div>  
+        </form>
+    </div>
+
+    <div class="form-block-contractive">
+      <div id="base" class="row block-title">
+            明细列表
+       </div>
+      <div class="table-block">
+        <table class="table table1 table-striped">
+          <thead>
+            <tr>
+              <td style="width:4%">出库单号</td>
+              <td style="width:3%">品牌</td>
+              <td style="width:3%">货品编码</td>
+              <td style="width:4%">货品名称</td>
+              <td style="width:4%">ERP货品名称</td>
+              <td style="width:2%">要货数量</td>
+              <td style="width:3%">客户名称</td>
+              <td style="width:5%">创建时间</td>
+            </tr>
+          </thead>
+          <tbody data-list="$p.detail.data.shipmentList" >
+            <tr list-temp="true">
+              <td node-name="$n.shipmentCode"></td>
+              <td node-name="$n.itemBrand"></td>
+              <td node-name="$n.itemCode"></td>
+              <td node-name="$n.itemName"></td>
+              <td node-name="$n.erpItemCode"></td>
+              <td node-name="$n.requestQty"></td>
+              <td node-name="$n.shipToName"></td>
+              <td node-name="$n.createdDate"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="btn-block col-md-offset-5">
+          <button type="button" class="btn btn-default btn-info btn-back">返回</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

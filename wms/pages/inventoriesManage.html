@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
+</head>
+
+<body>
+<div class="doc-inventoriesManagement">
+    <div class="search-block">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>仓库名称</label>
+                <select id="warehouseCode" class="form-control input-sm">
+                </select>
+            </div>
+            <div class="form-group">
+                <label>货主名称</label>
+				<select id="companyCode" class="form-control input-sm">
+                </select>
+            </div>
+			<div class="form-group">
+                <label for="itemCode">商品编码</label>
+                <input type="text" class="form-control input-sm" id="itemCode" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="parentCode">客户商品编码</label>
+                <input type="text" class="form-control input-sm" id="parentCode" placeholder="">
+            </div>
+			<div class="form-group">
+                <label for="itemName">货品名称</label>
+                <input type="text" class="form-control input-sm" id="itemName" placeholder="">
+            </div>
+			<div class="form-group">
+                <label for="brand">品牌</label>
+                <input type="text" class="form-control input-sm" id="brand" placeholder="">
+            </div>
+			<div class="form-group">
+                <label for="batch">客户</label>
+                <input type="text" class="form-control input-sm" id="batch" placeholder="">
+            </div>
+			<div class="form-group form-time">
+                    <label for="createdFrom">创建时间</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdFrom" placeholder=""
+                           style="width:120px;background: #fff">
+                    <label for="createdTo" style="margin: 0 -5px 0 5px;">--</label>
+                    <input type="text" class="form-control input-sm" readonly id="createdTo" placeholder=""
+                    style="width:120px;background: #fff">
+            </div>
+			<div style="text-align:center"">
+                <div class="btn btn-default btn-sm btn-search">查询</div>
+                <div class="btn btn-default btn-sm btn-empty">清空条件</div>
+            </div>
+        </form>
+    </div>
+    <div class="table-block">
+        <table class="table table1 table-striped">
+            <thead>
+            <tr>
+			    <td style="width:auto">商品编码</td>
+                <td style="width:auto">货品名称</td>
+                <td style="width:auto">客户商品编码</td>
+				<td style="width:10%">品牌</td>
+                <td style="width:10%">数量</td>
+                <td style="width:10%">客户</td>
+				<td style="width:auto">创建日期</td>
+            </tr>
+            </thead>
+            <tbody data-list="$p.rows">
+            <tr list-temp="true">
+				<td class="inventoriesId" node-name="$n.itemCode || ''"></td>
+				<td node-name="$n.itemName || ''"></td>
+                <td node-name="$n.parentCode || ''"></td>
+                <td node-name="$n.brand"></td>
+				<td node-name="$n.onHandQty || ''"></td>
+                <td node-name="$n.batch || ''"></td>
+				<td node-name="$n.createdDate || ''"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="nav-pagination clearFix">
+        <ul class="pagination">
+
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

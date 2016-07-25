@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>红星美凯龙后台管理</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script language="javascript" src="../lib/plume-resources.js"></script>
+</head>
+
+<body>
+<div class="body-typein">
+    <div class="title-div " style="font-weight:bold;">入库单详情</div>
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            基础信息
+        </div>
+        <form class="form-inline">
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="code">入库单号</label>
+                <input type="text" class="form-control" id="code" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.code" placeholder="" readonly="true ">
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="receiptType">入库类型</label>
+                <input type="text" class="form-control" id="receiptType" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.receiptType" placeholder="" readonly="true ">
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="leadingStatus">首状态</label>
+                <input type="text" class="form-control" id="leadingStatus" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.leadingStatus" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="trailingSts">尾状态</label>
+                <input type="text" class="form-control" id="trailingSts" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.trailingSts" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="erpOrderCode">ERP单号</label>
+                <input type="text" class="form-control" id="erpOrderCode" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.erpOrderCode" placeholder="" readonly="true ">
+            </div>
+			<div class="form-group" style="margin-top: 10px;">
+                <label for="created">创建时间</label>
+                <input type="text" class="form-control" id="created" style="margin: 0 10px 0 10px;"
+                       data-name="$p.receiptBase.created" placeholder="" readonly="true ">
+            </div>
+        </form>
+    </div>
+    <div class="form-block-contractive">
+        <div id="base" class="row block-title">
+            明细列表
+        </div>
+        <div>
+            <table class="table table1 table-striped">
+                <thead>
+                <tr>
+                    <td style="width:10%">编号</td>
+                    <td style="width:auto">ERP货品名称</td>
+					<td style="width:auto">货品编码</td>
+					<td style="width:auto">货品名称</td>
+                    <td style="width:auto">品牌</td>
+                    <td style="width:auto">客户</td>
+                    <td style="width:5%">总数</td>
+                </tr>
+                </thead>
+                <tbody data-list="$p.receiptDetail">
+                <tr list-temp="true">
+				    <td node-name="$n.id || ''"></td>
+					<td node-name="$n.erpId || ''"></td>
+					<td node-name="$n.itemCode || ''"></td>
+                    <td node-name="$n.name || ''"></td>
+                    <td node-name="$n.brand"></td>
+                    <td node-name="$n.batch || ''"></td>
+                    <td node-name="$n.number || ''"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn-center btn btn-default btn-info btn-back" style="width: 140px">返回</button>
+    </div>
+</div>
+</body>
+</html>
