@@ -116,7 +116,7 @@ $(function () {
 //                    alert("登录成功");
                     $(".login-form .login-alert").hide();
                     //$.cookie('JSESSIONID', data.data, {path: '/', domain: 'hxmklmall.cn'});
-                    window.location.href = "index";
+                    window.location.href = "welcome";
 
                 } else {
                     $("#login-errormsg").text(data.resDescription);
@@ -169,7 +169,7 @@ $(function () {
             success: function (data) {
                 unloading();
                 if (data.ok) {
-                    window.location.href="index";
+                    window.location.href="welcome";
                 } else {
                     $("#reg-errormsg").text(data.resDescription);
                     $(".register-form .login-alert").fadeIn();
