@@ -35,7 +35,7 @@ $(function () {
     });
     $(".index-head-logo").bind("click", function () {
         $('ul.slidebar-menu').hide();
-        derict(null, "index", "nochangeurl");
+        derict(null, "welcome", "nochangeurl");
     });
 });
 
@@ -221,7 +221,7 @@ function derict(o, temp, cache, fun) {
         return;
     }
 
-    session.nowPageName = temp;
+    session.nowPageName = temp == 'index' ? '' : temp;
 
     var cachePage = session.page_cache,
         cacheArray = cachePage ? cachePage.split(',') : [],
@@ -269,6 +269,12 @@ function pathInit() {
         $(".slidebar").hide();
         $(".page-content").show();
         $(".page-content").css({"left": 0});
+
+        var href = window.location.href,
+            index = href.lastIndexOf('?'),
+            url = href.substring(href.lastIndexOf('/') + 1, index);
+
+        $(".work-space").loadTemp(url, "nochangeurl");
         $(".container-fixed").fadeIn();
     } else {
         loading();
@@ -280,20 +286,21 @@ function pathInit() {
 }
 //获取权限
 function getAuth() {
-    $.ajax({
+    return $.ajax({
         type: "get",
         url: plumeApi["getSystemResourceTree"],
         contentType: "application/json",
         dataType: "json",
         success: function (data) {
             if (data.ok) {
+                $(".slidebar-title").remove();
                 var cachePage = session.page_cache,
                     cacheArray = cachePage ? cachePage.split(',') : [];
 
                 for (var i = 0; i < data.data.length; i++) {
                     var d = data.data[i];
                     var firstMenu = '<ul class="nav slidebar-title" auth="' + d.id + '">';
-                    firstMenu += '<li><i class="shop"></i>' + d.resourceName + '</li>';
+                    firstMenu += '<li><i class="'+d.resourceUrl+'"></i>' + d.resourceName + '</li>';
                     firstMenu += '</ul>';
                     $(".slidebar").append(firstMenu);
                     var secondMenu = '<ul class="slidebar-menu clearFix childmenu" auth="' + d.id + '">';
@@ -318,7 +325,12 @@ function getAuth() {
                     var $firstChild = $(".page-content").find("[auth=" + authNum + "]").find("li").eq(0);
                     var pageName = $firstChild.attr("pageName");
                     $firstChild.addClass("active").siblings().removeClass("active");
-                    derict(this, pageName, "nochangeurl");
+                    if (pageName && pageName.indexOf('wms') !== -1) {
+                        session.svm_menu_suth = authNum;
+                        window.location.href = pageName;
+                    } else {
+                        derict(this, pageName, "nochangeurl");
+                    }
                 });
                 $(".childmenu").find("li").bind("click", function () {
                     var pageName = $(this).attr("pageName");
@@ -330,7 +342,12 @@ function getAuth() {
                     return;
                 }
 
-                var temp = session.nowPageName,
+                var href = window.location.href,
+                    index = href.lastIndexOf('?'),
+                    result = index > -1 ? index : href.length,
+                    url = href.substring(href.lastIndexOf('/') + 1, result);
+
+                var temp = url || session.nowPageName,
                     cachePage = session.page_cache,
                     cacheArray = cachePage ? cachePage.split(',') : [],
                     pageIndex = $.inArray(temp, cacheArray);
@@ -339,7 +356,7 @@ function getAuth() {
 
                 try {
                     if (temp != "index" && temp != "" && temp.indexOf("api") == -1) {
-                        $(".work-space").loadTemp(session.nowPageName, "nochangeurl");
+                        $(".work-space").loadTemp(url, "nochangeurl");
                         $("[pageName=" + temp + "]").show();
                         $("[pageName=" + temp + "]").addClass("active").siblings().show();
                         $("[pageName=" + temp + "]").parent().show();
@@ -743,13 +760,15 @@ $.fn.extend({
 });
 //上传图片pop
 function uploadPop(fun) {
-    if (!($(".pop-upload").length > 0)) {
-        $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
-    }
-    $(".pop-upload").pop("popUpload", fun);
+    $(".pop").loadTemp("popUpload", "nochangeurl", fun);
+    // if (!($(".pop-upload").length > 0)) {
+    //     $(".work-space-active").append("<div class='pop-upload popcenter'></div>");
+    // }
+    // $(".pop-upload").pop("popUpload", fun);
 }
 function closeUploadPop(fun) {
-    $(".pop-upload").pophide();
+    $(".pop").hide();
+    // $(".pop-upload").pophide();
     try {
         if (fun) {
             fun();
@@ -805,7 +824,7 @@ function unloading() {
 // 检验表单中的必填项是否填写
 function checkForm() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("blur", ".form-group.required input, .form-group.required textarea", function () {
+    $(".form-block").on("blur", ".form-group.required input, .form-group.required textarea", function () {
         checkNull($(this));
     });
 }
@@ -824,7 +843,7 @@ function checkNull(checkObj) {
 function checkSelfGoods(operateName, selfGoods, url) {
     var flag = true;
     // 首先检验必填项是否都已经填写
-    $(".body-typein").find(".form-group.required input, .form-group.required textarea").each(function () {
+    $(".form-block").find(".form-group.required input, .form-group.required textarea").each(function () {
         if (!checkNull($(this))) {
             flag = false;
         }
@@ -835,15 +854,25 @@ function checkSelfGoods(operateName, selfGoods, url) {
         selfGoods.pdtName = $("#pdtName").val().trim();
         selfGoods.categoryId = $("#sortSelect").val();
         selfGoods.categoryName = $("#sortSelect option:selected").text();
-
+        selfGoods.standardUnit  = $("#standardUnit select").val();
+        selfGoods.chargeUnit  = $("#chargeUnit select").val();
         selfGoods.pgtType = $("#pgtType").val().trim();
         selfGoods.standard = $("#standard").val().trim();
-        selfGoods.standardUnit = $("#orgSize select").prop('value');
         selfGoods.material = $("#material").val();
-        selfGoods.orgName = $("#orgName").val().trim();
+        // selfGoods.orgName = "";
         selfGoods.priceType = $("#priceType").val().trim();
         selfGoods.salePrice = $("#salePrice").val().trim();
         selfGoods.saleStatus = $('#saleStatus input[name="status"]:checked').val();
+        // selfGoods.countryId="";
+        // selfGoods.countryName ="";
+        // selfGoods.provinceId ="";
+        // selfGoods.provinceName ="";
+        // selfGoods.cityId ="";
+        // selfGoods.cityName ="";
+        // selfGoods.material1  ="";
+        // selfGoods.material2  ="";
+        // selfGoods.material3  ="";
+
         // 操作数据库
         controlSelfGoods(operateName, selfGoods, url);
     }
@@ -871,7 +900,7 @@ function controlSelfGoods(operateName, selfGoods, url) {
                 $('.pop').loadTemp("popTips", "nochangeurl", function () {
                     $(".pop").find(".popup-title").html(operateName + "自采商品");
                     $(".pop").find(".popup-icon").html('<i class="danger"></i>');
-                    $(".pop").find(".popup-info").html("自采商品" + operateName + "失败！");
+                    $(".pop").find(".popup-info").html(result.resDescription);
                 });
             }
             derict(this, "releaseSelfGoods", "nochangeurl");
@@ -968,7 +997,7 @@ function showPopTips(popupTitle, popupIcon, popupTips) {
 // 检验表单中的必填项是否填写
 function formControl() {
     // 必填项输入框或文本框失去焦点时，检查输入是否为空
-    $(".body-typein").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
+    $(".form-block").on("focus", ".form-group input, .form-group textarea, .form-group select", function () {
         // 清除可能存在的提示信息
         $(this).parents(".form-group").removeClass("has-warning").removeClass("has-error").find(".alert").remove();
     }).on("blur", ".form-group.required input, .form-group.required textarea", function () {
@@ -1092,7 +1121,7 @@ function checkTel(checkObj) {
             $(checkObj).parents(".form-group").addClass("has-warning").append('<div class="col-sm-2 alert alert-default">请输入正确的' + tipsText + '</div>');
             return false;
         }
-    }
+    }    
     return true;
 }
 
