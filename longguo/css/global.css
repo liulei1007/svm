@@ -64,7 +64,11 @@ a:visited{color: red !important;}
 /** 导航栏——选中状态 **/
 .slidebar-title:hover > li, .slidebar-title.active > li{color: #f3f7f6; background-color: #425167;}
 /** 导航栏——图标 **/
-.slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_all.png) no-repeat;}
+.slidebar-title i{display: block; margin: 10px auto; margin-bottom: 15px; width: 30px; height: 30px; background: url(../images/icons_new.png) no-repeat;}
+
+/** 导航栏——过多状态 **/
+.slidebar-long .slidebar-title > li{padding-top: 14px; padding-bottom: 14px; height: 44px; line-height: 16px; text-align: left;}
+.slidebar-long .slidebar-title i{float: left; margin: 0 15px; width: 16px; height: 16px;}
 
 /** --------网页右侧主体-------- **/
 .page-content{position: absolute; z-index: 0; top: 0; right: 0; bottom: 0; left: 120px; padding: 0; overflow-y: scroll;}

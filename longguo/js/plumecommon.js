@@ -13,7 +13,6 @@ var PLUME_FILE = [
     "/" + PLUME_PROJECT + "/css/bootstrap.min.css",
     "/" + PLUME_PROJECT + "/css/jquery.cxcalendar.css",
     "/" + PLUME_PROJECT + "/css/bootstrap-datetimepicker.min.css",
-    // "/" + PLUME_PROJECT + "/css/index.css",
     "/" + PLUME_PROJECT + "/css/global.css",
     "/" + PLUME_PROJECT + "/css/special.css",
     "/" + PLUME_PROJECT + "/css/login.css",

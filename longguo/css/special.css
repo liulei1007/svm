@@ -27,27 +27,43 @@
 /* 经代管理 */
 .slidebar-title i.agency{background-position: 0 0;}
 .slidebar-title:hover i.agency, .slidebar-title.active i.agency{background-position: 0 -50px;}
+.slidebar-long .slidebar-title i.agency{background-position: 0 -300px;}
+.slidebar-long .slidebar-title:hover i.agency, .slidebar-title.active i.agency{background-position: 0 -330px;}
 /* 基础数据管理 */
 .slidebar-title i.baseData{background-position: -65px 0;}
 .slidebar-title:hover i.baseData, .slidebar-title.active i.baseData{background-position: -65px -50px;}
+.slidebar-long .slidebar-title i.baseData{background-position: -65px -300px;}
+.slidebar-long .slidebar-title:hover i.baseData, .slidebar-title.active i.baseData{background-position: -65px -330px;}
 /* 审核管理 */
 .slidebar-title i.check{background-position: -130px 0;}
 .slidebar-title:hover i.check, .slidebar-title.active i.check{background-position: -130px -50px;}
+.slidebar-long .slidebar-title i.check{background-position: -130px -300px;}
+.slidebar-long .slidebar-title:hover i.check, .slidebar-title.active i.check{background-position: -130px -330px;}
 /* 系统管理 */
 .slidebar-title i.setting{background-position: -195px 0;}
 .slidebar-title:hover i.setting, .slidebar-title.active i.setting{background-position: -195px -50px;}
+.slidebar-long .slidebar-title i.setting{background-position: -195px -300px;}
+.slidebar-long .slidebar-title:hover i.setting, .slidebar-title.active i.setting{background-position: -195px -330px;}
 /* 商品审核 */
 .slidebar-title i.goods{background-position: -260px 0;}
 .slidebar-title:hover i.goods, .slidebar-title.active i.goods{background-position: -260px -50px;}
+.slidebar-long .slidebar-title i.goods{background-position: -260px -300px;}
+.slidebar-long .slidebar-title:hover i.goods, .slidebar-title.active i.goods{background-position: -260px -330px;}
 /* 店铺管理 */
 .slidebar-title i.shop{background-position: -325px 0;}
 .slidebar-title:hover i.shop, .slidebar-title.active i.shop{background-position: -325px -50px;}
+.slidebar-long .slidebar-title i.shop{background-position: -325px -300px;}
+.slidebar-long .slidebar-title:hover i.shop, .slidebar-title.active i.shop{background-position: -325px -330px;}
 /* 品牌管理 */
 .slidebar-title i.brand{background-position: -390px 0;}
 .slidebar-title:hover i.brand, .slidebar-title.active i.brand{background-position: -390px -50px;}
+.slidebar-long .slidebar-title i.brand{background-position: -390px -300px;}
+.slidebar-long .slidebar-title:hover i.brand, .slidebar-title.active i.brand{background-position: -390px -330px;}
 /* 合作管理 */
 .slidebar-title i.cooperate{background-position: -455px 0;}
 .slidebar-title:hover i.cooperate, .slidebar-title.active i.cooperate{background-position: -455px -50px;}
+.slidebar-long .slidebar-title i.cooperate{background-position: -455px -300px;}
+.slidebar-long .slidebar-title:hover i.cooperate, .slidebar-title.active i.cooperate{background-position: -455px -330px;}
 
 /** --------带图标的按钮-------- **/
 .btn-icons{position: relative; padding-left: 40px;}
