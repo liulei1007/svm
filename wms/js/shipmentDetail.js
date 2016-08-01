@@ -12,7 +12,7 @@ $(function() {
 		url: "getShipment",
 		type: "GET",
 		urlParams: {
-			id: JSON.parse($.session.shipment_header).shipmentId
+			id: JSON.parse($.session.shipment_header).id
 		},
 		list: false,
 		success: function (data) {
@@ -23,7 +23,6 @@ $(function() {
 			var object=$.session.shipment_header;
             var shipmentDetail = {} ;
 			shipmentDetail.base = JSON.parse(object);
-            data.data.shipmentList = JSON.parse(data.data.shipmentList);
 			shipmentDetail.detail = data;
             $(".body-typein").setPageData(shipmentDetail); 
 		}

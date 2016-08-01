@@ -19,14 +19,14 @@
         </div>
         <form class="form-inline">
             <div class="form-group" style="margin-top: 10px;">
-                <label for="shipmentId" style="width:56px">ID</label>
-                <input type="text" class="form-control" id="shipmentId" style="margin: 0 10px 0 10px;"
-                       data-name="$p.base.shipmentId" placeholder="" readonly="true ">
+                <label for="id" style="width:56px">ID</label>
+                <input type="text" class="form-control" id="id" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.id" placeholder="" readonly="true ">
             </div>
             <div class="form-group" style="margin-top: 10px;">
-                <label for="shipmentCode">出库单号</label>
-                <input type="text" class="form-control" id="shipmentCode" style="margin: 0 10px 0 10px;"
-                       data-name="$p.base.shipmentCode" placeholder="" readonly="true ">
+                <label for="code">出库单号</label>
+                <input type="text" class="form-control" id="code" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.code" placeholder="" readonly="true ">
             </div>
 			<div class="form-group" style="margin-top: 10px;">
                 <label for="shipToName">客户名称</label>
@@ -44,19 +44,19 @@
                        data-name="$p.base.shipToAddress1" placeholder="" readonly="true ">
             </div>  
 			<div class="form-group" style="margin-top: 10px;">
-                <label for="createdDate">添加时间</label>
-                <input type="text" class="form-control" id="createdDate" style="margin: 0 10px 0 10px;"
-                       data-name="$p.base.createdDate" placeholder="" readonly="true ">
+                <label for="created">添加时间</label>
+                <input type="text" class="form-control" id="created" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.created" placeholder="" readonly="true ">
             </div>  
 			<div class="form-group" style="margin-top: 10px;">
-                <label for="leadingStatus" style="width:56px">首状态</label>
-                <input type="text" class="form-control" id="leadingStatus" style="margin: 0 10px 0 10px;"
-                       data-name="$p.base.leadingStatus" placeholder="" readonly="true ">
+                <label for="leadingSts" style="width:56px">首状态</label>
+                <input type="text" class="form-control" id="leadingSts" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.leadingSts" placeholder="" readonly="true ">
             </div>  
 			<div class="form-group" style="margin-top: 10px;">
-                <label for="trailingStatus" style="width:56px">尾状态</label>
-                <input type="text" class="form-control" id="trailingStatus" style="margin: 0 10px 0 10px;"
-                       data-name="$p.base.trailingStatus" placeholder="" readonly="true ">
+                <label for="trailingSts" style="width:56px">尾状态</label>
+                <input type="text" class="form-control" id="trailingSts" style="margin: 0 10px 0 10px;"
+                       data-name="$p.base.trailingSts" placeholder="" readonly="true ">
             </div>  
         </form>
     </div>
@@ -79,16 +79,16 @@
               <td style="width:5%">创建时间</td>
             </tr>
           </thead>
-          <tbody data-list="$p.detail.data.shipmentList" >
+          <tbody data-list="$p.detail.data.details"" >
             <tr list-temp="true">
-              <td node-name="$n.shipmentCode"></td>
-              <td node-name="$n.itemBrand"></td>
-              <td node-name="$n.itemCode"></td>
-              <td node-name="$n.itemName"></td>
-              <td node-name="$n.erpItemCode"></td>
-              <td node-name="$n.requestQty"></td>
-              <td node-name="$n.shipToName"></td>
-              <td node-name="$n.createdDate"></td>
+              <td node-name="$n.shipmentDetail.shipmentCode"></td>
+              <td node-name="$n.shipmentDetail.itemBrand"></td>
+              <td node-name="$n.shipmentDetail.itemCode"></td>
+              <td node-name="$n.shipmentDetail.itemName"></td>
+              <td node-name="$n.shipmentDetail.erpItemCode"></td>
+              <td node-name="$n.shipmentDetail.requestQty"></td>
+              <td node-name="$n.shipmentDetail.shipToName"></td>
+              <td node-name="$n.shipmentDetail.created"></td>
             </tr>
           </tbody>
         </table>

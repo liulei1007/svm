@@ -293,14 +293,14 @@
     $.getShipmentHeader = function (_this) {
         var removeList = $(_this).parents('tr');
         var shipmentHeader = new Object();
-        shipmentHeader.shipmentId = removeList.find('.shipmentId').html();
-        shipmentHeader.shipmentCode = removeList.find('.shipmentCode').html();
+        shipmentHeader.id = removeList.find('.id').html();
+        shipmentHeader.code = removeList.find('.code').html();
         shipmentHeader.shipToName = removeList.find('.shipToName').html();
         shipmentHeader.shipToMobile = removeList.find('.shipToMobile').html();
         shipmentHeader.shipToAddress1 = removeList.find('.shipToAddress1').html();
-        shipmentHeader.leadingStatus = removeList.find('.leadingStatus').html();
-        shipmentHeader.trailingStatus = removeList.find('.trailingStatus').html();
-        shipmentHeader.createdDate = removeList.find('.createdDate').html();
+        shipmentHeader.leadingSts = removeList.find('.leadingSts').html();
+        shipmentHeader.trailingSts = removeList.find('.trailingSts').html();
+        shipmentHeader.created = removeList.find('.created').html();
      
         $.session.shipment_header = JSON.stringify(shipmentHeader);
     };
