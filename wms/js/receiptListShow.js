@@ -21,7 +21,7 @@ $(function() {
                     return;
                 }
 				dataAll.receiptBase = JSON.parse($.session.dataBack) ;
-				dataAll.receiptDetail = JSON.parse(data.data) ;
+				dataAll.receiptDetail = data.data ;
                 $(".body-typein").setPageData(dataAll);
             }
         }); 

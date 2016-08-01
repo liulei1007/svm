@@ -66,15 +66,15 @@
                     <td style="width:5%">总数</td>
                 </tr>
                 </thead>
-                <tbody data-list="$p.receiptDetail">
+                <tbody data-list="$p.receiptDetail.details">
                 <tr list-temp="true">
-				    <td node-name="$n.id || ''"></td>
-					<td node-name="$n.erpId || ''"></td>
-					<td node-name="$n.itemCode || ''"></td>
-                    <td node-name="$n.name || ''"></td>
-                    <td node-name="$n.brand"></td>
-                    <td node-name="$n.batch || ''"></td>
-                    <td node-name="$n.number || ''"></td>
+				    <td node-name="$n.receiptDetail.id || ''"></td>
+					<td node-name="$n.receiptDetail.erpId || ''"></td>
+					<td node-name="$n.receiptDetail.itemCode || ''"></td>
+                    <td node-name="$n.receiptDetail.name || ''"></td>
+                    <td node-name="$n.receiptDetail.brand"></td>
+                    <td node-name="$n.receiptDetail.batch || ''"></td>
+                    <td node-name="$n.receiptDetail.number || ''"></td>
                 </tr>
                 </tbody>
             </table>

@@ -59,9 +59,9 @@ function getInventoriesList() {
                     return;
                 }
                 $("[list-node]").remove();
-                $(".table-block").setPageData(JSON.parse(data.data));
+                $(".table-block").setPageData(data.data);
 
-                var totalPage = Math.ceil(JSON.parse(data.data).total / $.onePageCount());
+                var totalPage = Math.ceil(data.data.total / $.onePageCount());
 
                 newPage(totalPage, function (page) {
 					datas.pageNo = page ;
@@ -73,7 +73,7 @@ function getInventoriesList() {
                         list: true,
                         success: function (data) {
                             $("[list-node]").remove();
-                            $(".table-block").setPageData(JSON.parse(data.data));
+                            $(".table-block").setPageData(data.data);
                            
                         }
                     });

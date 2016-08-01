@@ -78,9 +78,9 @@ $(function(){
                     return;
                 }
                 $("[list-node]").remove();
-                $(".table-block").setPageData(JSON.parse(data.data));
+                $(".table-block").setPageData(data.data);
 				bindListEvent();
-                var pageSize = Math.ceil(JSON.parse(data.data).total / $.onePageCount());
+                var pageSize = Math.ceil(data.data.total / $.onePageCount());
 
                 newPage(pageSize, function (page) {
 					datas.pageNo = page ;
@@ -92,7 +92,7 @@ $(function(){
                         list: true,
                         success: function (data) {
                             $("[list-node]").remove();
-                            $(".table-block").setPageData(JSON.parse(data.data));
+                            $(".table-block").setPageData(data.data);
                             bindListEvent();
                         }
                     });
